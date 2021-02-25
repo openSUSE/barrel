@@ -1,0 +1,23 @@
+#
+# Makefile.repo for barrel
+#
+
+PREFIX = /usr
+
+configure: all
+	./configure --prefix=$(PREFIX)
+
+all:
+	aclocal
+	autoconf
+	autoheader
+	autoreconf --force --install
+
+install: configure
+	make
+	make install
+
+reconf: all
+	./config.status --recheck
+	./config.status
+
