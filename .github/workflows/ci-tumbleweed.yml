@@ -1,0 +1,34 @@
+name: CI Tumbleweed
+
+on: [push, pull_request]
+
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+    container: opensuse/tumbleweed
+
+    steps:
+
+    - name: Install additional packages
+      run: zypper --non-interactive in --no-recommends autoconf automake gcc-c++ glibc-locale libboost_headers-devel libboost_test-devel libstorage-ng-devel libtool make
+
+    - name: List installed packages
+      run: rpm -qa | sort
+
+    - name: Git checkout
+      uses: actions/checkout@v1
+
+    - name: Configure
+      run: make -f Makefile.repo
+
+    - name: Compile
+      run: make -j 2
+
+    - name: Install
+      run: make install
+
+    - name: Run unit tests
+      run: make -j 2 check VERBOSE=1
+
+    - name: Make package
+      run: make package
