@@ -1,0 +1,62 @@
+#
+# spec file for package barrel
+#
+# Copyright (c) 2021 SUSE LLC, Nuernberg, Germany.
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via http://bugs.opensuse.org/
+#
+
+Name:           barrel
+Version:        @VERSION@
+Release:        0
+BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+Source:         barrel-%{version}.tar.xz
+
+BuildRequires:  libstorage-ng-devel
+BuildRequires:  libtool
+BuildRequires:  libboost_headers-devel
+BuildRequires:  libboost_test-devel
+BuildRequires:  readline-devel
+
+Summary:        Tool for storage management
+Url:            http://github.com/aschnell/barrel
+License:        GPL-2.0-only
+Group:          System/Packages
+
+%description
+barrel is a command line tool for storage management.
+
+%prep
+%setup
+
+%build
+export CFLAGS="%{optflags} -DNDEBUG"
+export CXXFLAGS="%{optflags} -DNDEBUG"
+
+autoreconf -fvi
+%configure --docdir="%{_defaultdocdir}/barrel"
+make %{?_smp_mflags}
+
+%install
+%make_install
+
+%check
+make %{?_smp_mflags} check VERBOSE=1
+
+%files
+%defattr(-,root,root)
+%{_sbindir}/barrel
+%doc %dir %{_defaultdocdir}/barrel
+%doc %{_defaultdocdir}/barrel/AUTHORS
+%doc %{_defaultdocdir}/barrel/LICENSE
+
+%changelog
