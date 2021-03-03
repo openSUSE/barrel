@@ -60,6 +60,8 @@ namespace barrel
 
 	    SmartNumber(const string& str);
 
+	    void fill(unsigned int max);
+
 	    unsigned int raid = 0;
 	    unsigned int spare = 0;
 
@@ -99,6 +101,14 @@ namespace barrel
 	    }
 
 	    throw runtime_error("bad devices argument");
+	}
+
+
+	void
+	SmartNumber::fill(unsigned int max)
+	{
+	    if (raid == 0)
+		raid = max - spare;
 	}
 
 
@@ -242,7 +252,10 @@ namespace barrel
 		Pool* pool = state.storage->get_pool(options.pool.value());
 
 		if (options.number)
+		{
 		    smart_number = options.number.value();
+		    smart_number.fill(pool->size(staging));
+		}
 		else
 		    smart_number.raid = pool->size(staging);
 
@@ -277,7 +290,10 @@ namespace barrel
 		}
 
 		if (options.number)
+		{
 		    smart_number = options.number.value();
+		    smart_number.fill(pool.size(staging));
+		}
 		else
 		    smart_number.raid = pool.size(staging);
 

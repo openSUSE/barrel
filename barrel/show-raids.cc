@@ -22,10 +22,10 @@
 
 #include <algorithm>
 
-#include <storage/Devices/Md.h>
-#include <storage/Devices/LvmVg.h>
-#include <storage/Devices/LvmPv.h>
 #include <storage/Storage.h>
+#include <storage/Devicegraph.h>
+#include <storage/Devices/Md.h>
+#include <storage/Holders/MdUser.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Table.h"
@@ -48,24 +48,57 @@ namespace barrel
 
 	virtual void doit(State& state) const override;
 
+    private:
+
+	string devices(const Devicegraph* devicegraph, const Md* md) const;
+
     };
+
+
+    string
+    CmdShowRaids::devices(const Devicegraph* devicegraph, const Md* md) const
+    {
+	// TODO faulty, journal
+
+	unsigned int raid = 0;
+	unsigned int spare = 0;
+
+	for (const BlkDevice* blk_device : md->get_devices())
+	{
+	    const MdUser* md_user = to_md_user(devicegraph->find_holder(blk_device->get_sid(), md->get_sid()));
+
+	    if (md_user->is_spare())
+		++spare;
+	    else
+		++raid;
+	}
+
+	if (spare == 0)
+	    return sformat("%d", raid);
+	else
+	    return sformat("%d+%d", raid, spare);
+    }
 
 
     void
     CmdShowRaids::doit(State& state) const
     {
+	// TODO show pool if all underlying devices are in the same pool
+	// TODO show underlying devices
+
 	const Devicegraph* staging = state.storage->get_staging();
 
 	vector<const Md*> mds = Md::get_all(staging);
 	sort(mds.begin(), mds.end(), Md::compare_by_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Level"),
-		      _("Metadata"), Cell(_("Usage"), Id::USAGE) });
+		_("Metadata"), _("Devices"), Cell(_("Usage"), Id::USAGE) });
 
 	for (const Md* md : mds)
 	{
 	    Table::Row row(table, { md->get_name(), format_size(md->get_size()),
-		    get_md_level_name(md->get_md_level()), md->get_metadata(), device_usage(md) });
+		    get_md_level_name(md->get_md_level()), md->get_metadata(), devices(staging, md),
+		    device_usage(md) });
 
 	    insert_partitions(md, row);
 

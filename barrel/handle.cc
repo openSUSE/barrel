@@ -46,6 +46,9 @@
 #include "create-encryption.h"
 #include "create-partition-table.h"
 #include "create-filesystem.h"
+#include "create-pool.h"
+#include "extend-pool.h"
+#include "reduce-pool.h"
 #include "remove-device.h"
 
 
@@ -118,7 +121,18 @@ namespace barrel
 	{ "ext3", parse_create_ext3 },
 	{ "ext4", parse_create_ext4 },
 	{ "swap", parse_create_swap },
-	{ "xfs", parse_create_xfs }
+	{ "xfs", parse_create_xfs },
+	{ "pool", parse_create_pool }
+    };
+
+
+    const vector<Parser> extend_cmds = {
+	{ "pool", parse_extend_pool }
+    };
+
+
+    const vector<Parser> reduce_cmds = {
+	{ "pool", parse_reduce_pool }
     };
 
 
@@ -142,6 +156,8 @@ namespace barrel
 	{ "quit", parse_quit, {} },
 	{ "show", nullptr, show_cmds },
 	{ "create", nullptr, create_cmds },
+	{ "extend", nullptr, extend_cmds },
+	{ "reduce", nullptr, reduce_cmds },
 	{ "remove", nullptr, remove_cmds },
 	{ "commit", parse_commit, {} }
     };
@@ -274,7 +290,10 @@ namespace barrel
 	    comp_names.push_back("show");
 	    comp_names.push_back("disks");
 	    comp_names.push_back("filesystems");
+	    comp_names.push_back("pool");
 	    comp_names.push_back("pools");
+	    comp_names.push_back("extend");
+	    comp_names.push_back("reduce");
 	    comp_names.push_back("remove");
 	    comp_names.push_back("device");
 	    comp_names.push_back("pop");
