@@ -11,7 +11,7 @@ LDADD =								\
 
 check_PROGRAMS =						\
 	getopts.test table.test raid1.test xfs1.test 		\
-	complex1.test
+	complex1.test parse-line.test
 
 AM_DEFAULT_SOURCE_EXT = .cc
 

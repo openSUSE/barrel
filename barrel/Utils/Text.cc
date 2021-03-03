@@ -23,7 +23,6 @@
 #include <stdarg.h>
 #include <libintl.h>
 #include <stdexcept>
-#include <iostream>
 
 #include "Text.h"
 
@@ -67,11 +66,9 @@ namespace barrel
     vector<string>
     parse_line(string_view line)
     {
-	// TODO correct parsing of quotes, glob, ...
-
 	vector<string> ret;
 
-	enum State { NONE, WORD, DOUBLEQUOTE } state = NONE;
+	enum State { NONE, WORD, BACKSLASH, SINGLEQUOTE, DOUBLEQUOTE } state = NONE;
 
 	string tmp;
 
@@ -80,9 +77,19 @@ namespace barrel
 	    switch (state)
 	    {
 		case NONE:
-		    if (c == '"')
+		    if (c == '\'')
+		    {
+			state = SINGLEQUOTE;
+			tmp = "";
+		    }
+		    else if (c == '"')
 		    {
 			state = DOUBLEQUOTE;
+			tmp = "";
+		    }
+		    else if (c == '\\')
+		    {
+			state = BACKSLASH;
 			tmp = "";
 		    }
 		    else if (!isspace(c))
@@ -93,14 +100,45 @@ namespace barrel
 		    break;
 
 		case WORD:
-		    if (c == '"')
+		    if (c == '\'')
+		    {
+			state = SINGLEQUOTE;
+		    }
+		    else if (c == '"')
 		    {
 			state = DOUBLEQUOTE;
+		    }
+		    else if (c == '\\')
+		    {
+			state = BACKSLASH;
 		    }
 		    else if (isspace(c))
 		    {
 			ret.push_back(tmp);
 			state = NONE;
+		    }
+		    else
+		    {
+			tmp += c;
+		    }
+		    break;
+
+		case BACKSLASH:
+		    if (c == ' ' || c == '\\')
+		    {
+			state = WORD;
+			tmp += c;
+		    }
+		    else
+		    {
+			throw runtime_error("unknown escape sequence");
+		    }
+		    break;
+
+		case SINGLEQUOTE:
+		    if (c == '\'')
+		    {
+			state = WORD;
 		    }
 		    else
 		    {
@@ -130,15 +168,15 @@ namespace barrel
 		ret.push_back(tmp);
 		break;
 
+	    case BACKSLASH:
+		throw runtime_error("broken escape sequence");
+
+	    case SINGLEQUOTE:
+		throw runtime_error("missing end singlequote");
+
 	    case DOUBLEQUOTE:
 		throw runtime_error("missing end doublequote");
 	}
-
-	/*
-	for (string tmp : ret)
-	    cout << "<" << tmp << "> ";
-	cout << '\n';
-	*/
 
 	return ret;
     }

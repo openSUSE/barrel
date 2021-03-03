@@ -1,6 +1,6 @@
 
 #define BOOST_TEST_DYN_LINK
-#define BOOST_TEST_MODULE getopt
+#define BOOST_TEST_MODULE barrel
 
 #include <boost/test/unit_test.hpp>
 
