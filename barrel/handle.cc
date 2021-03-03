@@ -332,7 +332,7 @@ namespace barrel
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
 
-	cout << "Probing..." << flush;
+	cout << _("Probing...") << flush;
 	Storage storage(environment);
 	storage.probe();
 	storage.generate_pools(storage.get_probed());
@@ -359,16 +359,22 @@ namespace barrel
 
 	    if (*line)
 	    {
-		cout << line << endl;
 		add_history(line);
 
-		Args args(parse_line(line));
-		GetOpts get_opts(args.argc(), args.argv(), true, possible_blk_devices(&storage));
-
-		vector<shared_ptr<Cmd>> cmds = parse(get_opts);
-		for (const shared_ptr<Cmd> cmd : cmds)
+		try
 		{
-		    cmd->doit(state);
+		    Args args(parse_line(line));
+		    GetOpts get_opts(args.argc(), args.argv(), true, possible_blk_devices(&storage));
+
+		    vector<shared_ptr<Cmd>> cmds = parse(get_opts);
+		    for (const shared_ptr<Cmd> cmd : cmds)
+		    {
+			cmd->doit(state);
+		    }
+		}
+		catch (const exception& e)
+		{
+		    cerr << "error: " << e.what() << endl;
 		}
 	    }
 
