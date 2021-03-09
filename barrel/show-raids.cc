@@ -46,6 +46,8 @@ namespace barrel
     {
     public:
 
+	virtual bool do_backup() const override { return false; }
+
 	virtual void doit(State& state) const override;
 
     private:

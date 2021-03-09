@@ -84,6 +84,8 @@ namespace barrel
 
 	CmdCreatePartitionTable(const Options& options) : options(options) {}
 
+	virtual bool do_backup() const override { return true; }
+
 	virtual void doit(State& state) const override;
 
     private:

@@ -43,6 +43,10 @@ namespace barrel
 
 
     shared_ptr<Cmd>
+    parse_undo(GetOpts& get_opts);
+
+
+    shared_ptr<Cmd>
     parse_quit(GetOpts& get_opts);
 
 }

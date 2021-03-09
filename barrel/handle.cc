@@ -153,6 +153,7 @@ namespace barrel
 	{ "pop", parse_pop, {} },
 	{ "dup", parse_dup, {} },
 	{ "stack", parse_stack, {} },
+	{ "undo", parse_undo, {} },
 	{ "quit", parse_quit, {} },
 	{ "show", nullptr, show_cmds },
 	{ "create", nullptr, create_cmds },
@@ -299,6 +300,7 @@ namespace barrel
 	    comp_names.push_back("pop");
 	    comp_names.push_back("dup");
 	    comp_names.push_back("stack");
+	    comp_names.push_back("undo");
 	    comp_names.push_back("--size");
 	    comp_names.push_back("--size");
 	    comp_names.push_back("--devices");
@@ -315,6 +317,35 @@ namespace barrel
 
 	    return rl_completion_matches(text, names_generator);
 	}
+    }
+
+
+    void
+    Backup::add(Storage* storage)
+    {
+	string name = sformat("backup-%d", num++);
+	storage->copy_devicegraph("staging", name);
+	names.push_back(name);
+    }
+
+
+    void
+    Backup::undo(Storage* storage)
+    {
+	storage->restore_devicegraph(names.back());
+	names.pop_back();
+    }
+
+
+    void
+    Backup::dump_last(Storage* storage) const
+    {
+	Devicegraph* lhs = storage->get_devicegraph(names.back());
+
+	Actiongraph actiongraph(*storage, lhs, storage->get_staging());
+
+	for (const string& action : actiongraph.get_commit_actions_as_strings())
+	    cout << action << '\n';
     }
 
 
@@ -386,13 +417,26 @@ namespace barrel
 		    GetOpts get_opts(args.argc(), args.argv(), true, possible_blk_devices(&storage));
 
 		    vector<shared_ptr<Cmd>> cmds = parse(get_opts);
+
+		    bool do_backup = any_of(cmds.begin(), cmds.end(), [](const shared_ptr<Cmd>& cmd) {
+			return cmd->do_backup();
+		    });
+
+		    if (do_backup)
+			state.backup.add(&storage);
+
 		    for (const shared_ptr<Cmd> cmd : cmds)
 		    {
 			cmd->doit(state);
 		    }
+
+		    if (do_backup)
+			state.backup.dump_last(&storage);
 		}
 		catch (const exception& e)
 		{
+		    // TODO undo?
+
 		    cerr << "error: " << e.what() << endl;
 		}
 	    }

@@ -79,6 +79,26 @@ namespace barrel
     };
 
 
+    class Backup
+    {
+    public:
+
+	bool empty() const { return names.empty(); }
+
+	void add(Storage* storage);
+	void undo(Storage* storage);
+
+	void dump_last(Storage* storage) const;
+
+    private:
+
+	vector<string> names;
+
+	int num = 0;
+
+    };
+
+
     struct State
     {
 	State(const GlobalOptions& global_options)
@@ -92,6 +112,7 @@ namespace barrel
 	bool modified = false;
 
 	Stack stack;
+	Backup backup;
 
 	Storage* storage = nullptr;
     };
@@ -100,6 +121,8 @@ namespace barrel
     struct Cmd
     {
 	virtual ~Cmd() = default;
+
+	virtual bool do_backup() const = 0;
 
 	virtual void doit(State& state) const = 0;
     };

@@ -33,6 +33,8 @@ namespace barrel
     {
     public:
 
+	virtual bool do_backup() const override { return false; }
+
 	virtual void doit(State& state) const override;
 
     };
@@ -61,6 +63,8 @@ namespace barrel
     {
     public:
 
+	virtual bool do_backup() const override { return false; }
+
 	virtual void doit(State& state) const override;
 
     };
@@ -88,6 +92,8 @@ namespace barrel
     class CmdStack : public Cmd
     {
     public:
+
+	virtual bool do_backup() const override { return false; }
 
 	virtual void doit(State& state) const override;
 
@@ -127,9 +133,41 @@ namespace barrel
     }
 
 
+    class CmdUndo : public Cmd
+    {
+    public:
+
+	virtual bool do_backup() const override { return false; }
+
+	virtual void doit(State& state) const override;
+
+    };
+
+
+    void
+    CmdUndo::doit(State& state) const
+    {
+	if (state.backup.empty())
+	    throw runtime_error("backup empty during undo");
+
+	state.backup.undo(state.storage);
+    }
+
+
+    shared_ptr<Cmd>
+    parse_undo(GetOpts& get_opts)
+    {
+	get_opts.parse("undo", GetOpts::no_options);
+
+	return make_shared<CmdUndo>();
+    }
+
+
     class CmdQuit : public Cmd
     {
     public:
+
+	virtual bool do_backup() const override { return false; }
 
 	virtual void doit(State& state) const override;
 

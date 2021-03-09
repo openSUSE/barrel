@@ -177,11 +177,6 @@ namespace barrel
 
 	    blk_devices = parsed_opts.get_blk_devices();
 
-
-	    for (string x : parsed_opts.get_blk_devices())
-		cout << x << endl;
-
-
 	    calculate_modus_operandi();
 	}
 
@@ -220,6 +215,8 @@ namespace barrel
     public:
 
 	CmdCreateRaid(const Options& options) : options(options) {}
+
+	virtual bool do_backup() const override { return true; }
 
 	virtual void doit(State& state) const override;
 
