@@ -41,6 +41,7 @@
 #include "show-filesystems.h"
 #include "show-pools.h"
 #include "show-raids.h"
+#include "show-commit.h"
 #include "commit.h"
 #include "create-raid.h"
 #include "create-encryption.h"
@@ -95,7 +96,8 @@ namespace barrel
 	{ "disks", parse_show_disks },
 	{ "filesystems", parse_show_filesystems },
 	{ "pools", parse_show_pools },
-	{ "raids", parse_show_raids }
+	{ "raids", parse_show_raids },
+	{ "commit", parse_show_commit }
     };
 
 
@@ -301,6 +303,7 @@ namespace barrel
 	    comp_names.push_back("dup");
 	    comp_names.push_back("stack");
 	    comp_names.push_back("undo");
+	    comp_names.push_back("commit");
 	    comp_names.push_back("--size");
 	    comp_names.push_back("--size");
 	    comp_names.push_back("--devices");
