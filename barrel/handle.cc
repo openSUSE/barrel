@@ -73,12 +73,16 @@ namespace barrel
 	    { "quiet", no_argument, 'q' },
 	    { "verbose", no_argument, 'v' },
 	    { "dry-run", no_argument },
+	    { "prefix", required_argument },
 	    { "help", no_argument, 'h' }
 	};
 
 	ParsedOpts parsed_opts = get_opts.parse(options);
 
 	dry_run = parsed_opts.has_option("dry-run");
+
+	if (parsed_opts.has_option("prefix"))
+	    prefix = parsed_opts.get("prefix");
     }
 
 
@@ -387,7 +391,8 @@ namespace barrel
 
 	cout << _("Probing...") << flush;
 	Storage storage(environment);
-	storage.probe();
+	storage.set_rootprefix(global_options.prefix);
+	storage.probe();	// TODO callbacks
 	storage.generate_pools(storage.get_probed());
 	cout << " done" << endl;
 
@@ -465,7 +470,8 @@ namespace barrel
 
 	cout << "Probing..." << flush;
 	Storage storage(environment);
-	storage.probe();
+	storage.set_rootprefix(global_options.prefix);
+	storage.probe();	// TODO callbacks
 	storage.generate_pools(storage.get_probed());
 	cout << " done" << endl;
 

@@ -45,6 +45,7 @@ namespace barrel
 	GlobalOptions(GetOpts& get_opts);
 
 	bool dry_run = false;
+	string prefix;
     };
 
 
