@@ -46,6 +46,8 @@ namespace barrel
 
 	bool dry_run = false;
 	string prefix;
+	bool activate = false;
+	bool probe = true;
     };
 
 

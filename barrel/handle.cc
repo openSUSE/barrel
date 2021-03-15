@@ -74,6 +74,7 @@ namespace barrel
 	    { "verbose", no_argument, 'v' },
 	    { "dry-run", no_argument },
 	    { "prefix", required_argument },
+	    { "activate", no_argument, 'a' },
 	    { "help", no_argument, 'h' }
 	};
 
@@ -83,6 +84,8 @@ namespace barrel
 
 	if (parsed_opts.has_option("prefix"))
 	    prefix = parsed_opts.get("prefix");
+
+	activate = parsed_opts.has_option("activate");
     }
 
 
@@ -196,6 +199,83 @@ namespace barrel
 	}
 
 	return cmds;
+    }
+
+
+    class MyActivateCallbacks : public ActivateCallbacksLuks
+    {
+    public:
+
+	virtual void message(const string& message) const override {}
+
+	virtual bool error(const string& message, const string& what) const override
+	{
+	    cerr << _("error:") << ' ' << message << endl;
+	    return false;
+	}
+
+	virtual bool multipath(bool looks_like_real_multipath) const override
+	{
+	    return looks_like_real_multipath;
+	}
+
+	virtual pair<bool, string> luks(const string& uuid, int attempt) const override
+	{
+	    return make_pair(false, "");
+	}
+
+	virtual pair<bool, string> luks(const LuksInfo& info, int attempt) const override
+	{
+	    return make_pair(false, "");
+	}
+
+    };
+
+
+    class MyProbeCallbacks : public ProbeCallbacksV3
+    {
+    public:
+
+	virtual void message(const string& message) const override {}
+
+	virtual bool error(const string& message, const string& what) const override
+	{
+	    cerr << _("error:") << ' ' << message << endl;
+	    return false;
+	}
+
+	virtual bool missing_command(const string& message, const string& what,
+				     const string& command, uint64_t used_features) const override
+	{
+	    cerr << _("error:") << ' ' << message << endl;
+	    return false;
+	}
+
+    };
+
+
+    void
+    startup(const GlobalOptions& global_options, Storage& storage)
+    {
+	storage.set_rootprefix(global_options.prefix);
+
+	if (global_options.activate)
+	{
+	    cout << "Activating..." << flush;
+	    MyActivateCallbacks my_activate_callbacks;
+	    storage.activate(&my_activate_callbacks);
+	    cout << " done" << endl;
+	}
+
+	if (global_options.probe)
+	{
+	    cout << "Probing..." << flush;
+	    MyProbeCallbacks my_probe_callbacks;
+	    storage.probe(&my_probe_callbacks);
+	    cout << " done" << endl;
+	}
+
+	storage.generate_pools(storage.get_probed());
     }
 
 
@@ -389,12 +469,8 @@ namespace barrel
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
 
-	cout << _("Probing...") << flush;
 	Storage storage(environment);
-	storage.set_rootprefix(global_options.prefix);
-	storage.probe();	// TODO callbacks
-	storage.generate_pools(storage.get_probed());
-	cout << " done" << endl;
+	startup(global_options, storage);
 
 	comp_storage = &storage;
 
@@ -468,12 +544,8 @@ namespace barrel
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
 
-	cout << "Probing..." << flush;
 	Storage storage(environment);
-	storage.set_rootprefix(global_options.prefix);
-	storage.probe();	// TODO callbacks
-	storage.generate_pools(storage.get_probed());
-	cout << " done" << endl;
+	startup(global_options, storage);
 
 	State state(global_options);
 	state.storage = &storage;
