@@ -1,0 +1,57 @@
+
+There are two major modes, interactive and non-interactive. The
+interactive mode is started when barrel is called without a command.
+
+
+Non-Interactive Examples:
+
+- Create a RAID5 of size 1 GiB on partitions on the disks
+  sd[b-e]. The underlying partitions are also created:
+
+  # barrel create raid --level 5 /dev/sd[b-e] --size 1g
+
+- Create a RAID5 of size 1 GiB with 3 devices plus 1 spare
+  device. The underlying partitions are created on disks on the pool
+  "HDDs (512 B)". A XFS is placed on the RAID:
+
+  # barrel create raid5 --pool "HDDs (512 B)" --size 1g --devices 3+1 xfs
+
+
+Interactive Examples:
+
+- Show all disks:
+
+  barrel[0]> show disks
+
+- Create a RAID5 of size 1 GiB with 3 devices plus 1 spare
+  device. The underlying partitions are created on disks on the pool
+  "HDDs (512 B)". A XFS is placed on the RAID:
+   
+  barrel[0]> create raid5 --pool "HDDs (512 B)" --size 1g --devices 3+1
+  barrel[1]> create xfs --path /test1
+  barrel[1]> commit
+
+  The command to create the RAID places the object of the RAID on the
+  stack. The command to create the XFS takes that object of the stack
+  and in return places the object for the XFS on the stack.
+
+- Create a XFS filesystem of size 2g on a partition on one disks in
+  pool "SSDs (512 B)":
+
+  barrel[0]> create xfs --pool "SSDs (512 B)" --size 2g
+  barrel[1]> commit
+
+- Create a RAID5 of size 1 GiB with 3 devices plus 1 spare device. The
+  underlying partitions are created on disks on the pool "HDDs (512
+  B)". On the RAID a GPT in placed and inside the GPT a XFS is placed:
+
+  barrel[0]> create raid5 --pool "HDDs (512 B)" --size 8g --devices 3+1 gpt xfs --size 1g --path /test2
+  barrel[1]> commit
+
+
+More commands for the interactive mode are: stack, undo, show pools,
+show raids, show filesystems, quit, pop, dup, extend pool, reduce
+pool.
+
+Note: Pools are so far auto-generated at startup and not saved.
+
