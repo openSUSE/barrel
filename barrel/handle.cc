@@ -51,6 +51,8 @@
 #include "extend-pool.h"
 #include "reduce-pool.h"
 #include "remove-device.h"
+#include "load.h"
+#include "save.h"
 
 
 namespace barrel
@@ -169,6 +171,8 @@ namespace barrel
 	{ "extend", nullptr, extend_cmds },
 	{ "reduce", nullptr, reduce_cmds },
 	{ "remove", nullptr, remove_cmds },
+	{ "load", parse_load, {} },
+	{ "save", parse_save, {} },
 	{ "commit", parse_commit, {} }
     };
 
@@ -387,12 +391,15 @@ namespace barrel
 	    comp_names.push_back("dup");
 	    comp_names.push_back("stack");
 	    comp_names.push_back("undo");
+	    comp_names.push_back("load");
+	    comp_names.push_back("save");
 	    comp_names.push_back("commit");
 	    comp_names.push_back("--size");
 	    comp_names.push_back("--size");
 	    comp_names.push_back("--devices");
 	    comp_names.push_back("--pool");
 	    comp_names.push_back("--name");
+	    comp_names.push_back("--devicegraph");
 
 	    // TODO normally tab completion only goes upto the path component
 

@@ -33,7 +33,9 @@ libbarrel_la_SOURCES =							\
 	create-pool.h			create-pool.cc			\
 	extend-pool.h			extend-pool.cc			\
 	reduce-pool.h			reduce-pool.cc			\
-	remove-device.h			remove-device.cc
+	remove-device.h			remove-device.cc		\
+	load.h				load.cc				\
+	save.h				save.cc
 
 libbarrel_la_LIBADD =					\
 	Utils/libutils.la				\
