@@ -13,35 +13,24 @@
  * more details.
  *
  * You should have received a copy of the GNU General Public License along
- * with this program; if not, contact SUSE LLC.
+ * with this program; if not, contact Novell, Inc.
  *
  * To contact SUSE LLC about this file by physical or electronic mail, you may
  * find current contact information at www.suse.com.
  */
 
 
-#include <iostream>
-
-#include "handle.h"
-
-
-using namespace barrel;
+#ifndef BARREL_BARREL_DEFINES_H
+#define BARREL_BARREL_DEFINES_H
 
 
-int
-main(int argc, char** argv)
-{
-    try
-    {
-	locale::global(locale(""));
-    }
-    catch (const runtime_error& e)
-    {
-	cerr << "Failed to set locale." << endl;
-    }
+// paths
 
-    if (!handle(argc, argv))
-	return EXIT_FAILURE;
+#define DEV_DIR "/dev"
+#define DEV_MD_DIR "/dev/md"
 
-    return EXIT_SUCCESS;
-}
+#define DEV_DISK_BY_ID_DIR DEV_DIR "/disk/by-id"
+#define DEV_DISK_BY_PATH_DIR DEV_DIR "/disk/by-path"
+
+
+#endif

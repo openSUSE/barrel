@@ -26,6 +26,8 @@
 #include <storage/Holders/Holder.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/JsonFile.h"
+#include "Utils/BarrelDefines.h"
 #include "load.h"
 
 
@@ -43,25 +45,28 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    string devicegraph;
+	    string mapping;
 	};
 
 
 	Options::Options(GetOpts& get_opts)
 	{
 	    const vector<Option> options = {
-		{ "devicegraph", required_argument, 'f' }
+		{ "devicegraph", required_argument, 'f' },
+		{ "mapping", required_argument, 'm' }
 	    };
 
 	    ParsedOpts parsed_opts = get_opts.parse("load", options, true);
 
 	    if (parsed_opts.has_option("devicegraph"))
-	    {
 		devicegraph = parsed_opts.get("devicegraph");
-	    }
 	    else
-	    {
 		throw OptionsException("devicegraph missing");
-	    }
+
+	    if (parsed_opts.has_option("mapping"))
+		mapping = parsed_opts.get("mapping");
+	    else
+		throw OptionsException("mapping missing");
 	}
 
     }
@@ -75,26 +80,97 @@ namespace barrel
 
 	virtual bool do_backup() const override { return true; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     private:
 
 	const Options options;
 
+	map<string, string> load_mapping() const;
+
+	const Disk* map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
+			     const map<string, string>& mapping, const Disk* a) const;
+
     };
 
 
+    map<string, string>
+    CmdLoad::load_mapping() const
+    {
+	JsonFile json_file(options.mapping);
+
+	map<string, string> mapping;
+
+	if (!get_child_value(json_file.get_root(), "mapping", mapping))
+	    throw runtime_error("fail to load mapping");
+
+	return mapping;
+    }
+
+
+    const Disk*
+    CmdLoad::map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
+		      const map<string, string>& mapping, const Disk* a) const
+    {
+	map<string, string>::const_iterator it = mapping.find(a->get_name());
+
+	if (it == mapping.end())
+	{
+	    for (const string& udev_path : a->get_udev_paths())
+	    {
+		it = mapping.find(DEV_DISK_BY_PATH_DIR "/" + udev_path);
+		if (it != mapping.end())
+		    break;
+	    }
+	}
+
+	if (it == mapping.end())
+	{
+	    for (const string& udev_id : a->get_udev_ids())
+	    {
+		it = mapping.find(DEV_DISK_BY_ID_DIR "/" + udev_id);
+		if (it != mapping.end())
+		    break;
+	    }
+	}
+
+	if (it == mapping.end())
+	    throw Exception("disk not found in mapping");
+
+	const BlkDevice* b = BlkDevice::find_by_any_name(probed, it->second);
+
+	if (!is_disk(b))
+	    throw Exception("mapped device is not a disk");
+
+	if (global_options.verbose)
+	{
+	    cout << "mapping " << a->get_name() << " (" << it->first << ") to " << b->get_name()
+		 << " (" << it->second << ")\n";
+	}
+
+	if (a->get_region().get_block_size() != b->get_region().get_block_size())
+	    throw Exception("mapped disk has different block size");
+
+	if (a->get_region().get_length() > b->get_region().get_length())
+	    throw Exception("mapped disk is smaller");
+
+	return to_disk(b);
+    }
+
+
     void
-    CmdLoad::doit(State& state) const
+    CmdLoad::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Devicegraph* probed = state.storage->get_probed();
 	Devicegraph* staging = state.storage->get_staging();
 
 	staging->load(options.devicegraph, false);
 
+	map<string, string> mapping = load_mapping();
+
 	for (Disk* a : staging->get_all_disks())
 	{
-	    const Disk* b = Disk::find_by_name(probed, a->get_name());
+	    const Disk* b = map_disk(global_options, probed, mapping, a);
 
 	    Device* c = b->copy_to_devicegraph(staging);
 

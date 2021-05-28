@@ -11,7 +11,9 @@ libutils_la_SOURCES =			\
 	Args.h				\
 	Table.h		Table.cc	\
 	Text.h		Text.cc		\
-	Misc.h		Misc.cc
+	JsonFile.h	JsonFile.cc	\
+	Misc.h		Misc.cc		\
+	BarrelDefines.h
 
 libutils_la_LIBADD =			\
-	-lstorage-ng
+	-lstorage-ng -ljson-c

@@ -48,7 +48,7 @@ namespace barrel
 
 	virtual bool do_backup() const override { return false; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     private:
 
@@ -83,7 +83,7 @@ namespace barrel
 
 
     void
-    CmdShowRaids::doit(State& state) const
+    CmdShowRaids::doit(const GlobalOptions& global_options, State& state) const
     {
 	// TODO show pool if all underlying devices are in the same pool
 	// TODO show underlying devices

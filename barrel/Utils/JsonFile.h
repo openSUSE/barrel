@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2017-2021] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -20,28 +20,42 @@
  */
 
 
-#include <iostream>
-
-#include "handle.h"
-
-
-using namespace barrel;
+#ifndef BARREL_JSON_FILE_H
+#define BARREL_JSON_FILE_H
 
 
-int
-main(int argc, char** argv)
+#include <json-c/json.h>
+#include <string>
+#include <map>
+#include <boost/noncopyable.hpp>
+
+
+namespace barrel
 {
-    try
-    {
-	locale::global(locale(""));
-    }
-    catch (const runtime_error& e)
-    {
-	cerr << "Failed to set locale." << endl;
-    }
+    using namespace std;
 
-    if (!handle(argc, argv))
-	return EXIT_FAILURE;
 
-    return EXIT_SUCCESS;
+    class JsonFile : private boost::noncopyable
+    {
+
+    public:
+
+	JsonFile(const string& filename);
+
+	~JsonFile();
+
+	json_object* get_root() const { return root; }
+
+    private:
+
+	json_object* root;
+
+    };
+
+
+    bool get_child_value(json_object* parent, const char* name, map<string, string>& value);
+
 }
+
+
+#endif

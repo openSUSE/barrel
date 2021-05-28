@@ -21,10 +21,11 @@ Release:        0
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source:         barrel-%{version}.tar.xz
 
-BuildRequires:  libstorage-ng-devel
-BuildRequires:  libtool
 BuildRequires:  libboost_headers-devel
 BuildRequires:  libboost_test-devel
+BuildRequires:  libjson-c-devel
+BuildRequires:  libstorage-ng-devel
+BuildRequires:  libtool
 BuildRequires:  readline-devel
 
 Summary:        Tool for storage management

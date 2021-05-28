@@ -30,6 +30,7 @@
 
 #include "Utils/GetOpts.h"
 #include "Utils/Misc.h"
+#include "Utils/BarrelDefines.h"
 #include "create-raid.h"
 
 
@@ -218,7 +219,7 @@ namespace barrel
 
 	virtual bool do_backup() const override { return true; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     private:
 
@@ -228,13 +229,13 @@ namespace barrel
 
 
     void
-    CmdCreateRaid::doit(State& state) const
+    CmdCreateRaid::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
 	string name;
 	if (options.name)
-	    name = "/dev/md/" + options.name.value();
+	    name = DEV_MD_DIR "/" + options.name.value();
 	else
 	    name = Md::find_free_numeric_name(staging);
 

@@ -25,6 +25,7 @@
 
 #include "GetOpts.h"
 #include "Text.h"
+#include "BarrelDefines.h"
 
 
 using namespace std;
@@ -238,7 +239,7 @@ namespace barrel
     bool
     GetOpts::is_blk_device(const string& name)
     {
-	return boost::starts_with(name, "/dev/");
+	return boost::starts_with(name, DEV_DIR "/");
     }
 
 

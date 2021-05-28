@@ -35,6 +35,7 @@
 #include "Utils/GetOpts.h"
 #include "Utils/Args.h"
 #include "Utils/Text.h"
+#include "Utils/BarrelDefines.h"
 #include "handle.h"
 #include "generic.h"
 #include "show-disks.h"
@@ -81,6 +82,8 @@ namespace barrel
 	};
 
 	ParsedOpts parsed_opts = get_opts.parse(options);
+
+	verbose = parsed_opts.has_option("verbose");
 
 	dry_run = parsed_opts.has_option("dry-run");
 
@@ -296,9 +299,9 @@ namespace barrel
 		blk_devices.push_back(x->get_name());
 
 		for (const string t : x->get_udev_paths())
-		    blk_devices.push_back("/dev/disk/by-path/" + t);
+		    blk_devices.push_back(DEV_DISK_BY_PATH_DIR "/" + t);
 		for (const string t : x->get_udev_ids())
-		    blk_devices.push_back("/dev/disk/by-id/" + t);
+		    blk_devices.push_back(DEV_DISK_BY_ID_DIR "/" + t);
 	    }
 
 	    sort(blk_devices.begin(), blk_devices.end());
@@ -400,6 +403,7 @@ namespace barrel
 	    comp_names.push_back("--pool");
 	    comp_names.push_back("--name");
 	    comp_names.push_back("--devicegraph");
+	    comp_names.push_back("--mapping");
 
 	    // TODO normally tab completion only goes upto the path component
 
@@ -518,7 +522,7 @@ namespace barrel
 
 		    for (const shared_ptr<Cmd> cmd : cmds)
 		    {
-			cmd->doit(state);
+			cmd->doit(global_options, state);
 		    }
 
 		    if (do_backup)
@@ -560,13 +564,13 @@ namespace barrel
 
 	for (const shared_ptr<Cmd> cmd : cmds)
 	{
-	    cmd->doit(state);
+	    cmd->doit(global_options, state);
 	}
 
 	if (state.modified)
 	{
 	    shared_ptr<Cmd> cmd_commit = parse_commit();
-	    cmd_commit->doit(state);
+	    cmd_commit->doit(global_options, state);
 	}
     }
 

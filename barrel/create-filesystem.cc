@@ -154,7 +154,7 @@ namespace barrel
 
 	virtual bool do_backup() const override { return true; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     private:
 
@@ -164,7 +164,7 @@ namespace barrel
 
 
     void
-    CmdCreateFilesystem::doit(State& state) const
+    CmdCreateFilesystem::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 

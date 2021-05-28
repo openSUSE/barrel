@@ -35,13 +35,13 @@ namespace barrel
 
 	virtual bool do_backup() const override { return false; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     };
 
 
     void
-    CmdPop::doit(State& state) const
+    CmdPop::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.stack.empty())
 	    throw runtime_error("stack empty during pop");
@@ -65,13 +65,13 @@ namespace barrel
 
 	virtual bool do_backup() const override { return false; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     };
 
 
     void
-    CmdDup::doit(State& state) const
+    CmdDup::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.stack.empty())
 	    throw runtime_error("stack empty during dup");
@@ -95,13 +95,13 @@ namespace barrel
 
 	virtual bool do_backup() const override { return false; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     };
 
 
     void
-    CmdStack::doit(State& state) const
+    CmdStack::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -139,13 +139,13 @@ namespace barrel
 
 	virtual bool do_backup() const override { return false; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     };
 
 
     void
-    CmdUndo::doit(State& state) const
+    CmdUndo::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.backup.empty())
 	    throw runtime_error("backup empty during undo");
@@ -169,13 +169,13 @@ namespace barrel
 
 	virtual bool do_backup() const override { return false; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     };
 
 
     void
-    CmdQuit::doit(State& state) const
+    CmdQuit::doit(const GlobalOptions& global_options, State& state) const
     {
 	state.run = false;
     }

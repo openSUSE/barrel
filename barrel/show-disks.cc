@@ -72,7 +72,7 @@ namespace barrel
 
 	virtual bool do_backup() const override { return false; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     private:
 
@@ -82,7 +82,7 @@ namespace barrel
 
 
     void
-    CmdShowDisks::doit(State& state) const
+    CmdShowDisks::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Devicegraph* staging = state.storage->get_staging();
 

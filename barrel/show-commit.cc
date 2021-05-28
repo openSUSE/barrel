@@ -39,13 +39,13 @@ namespace barrel
 
 	virtual bool do_backup() const override { return false; }
 
-	virtual void doit(State& state) const override;
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     };
 
 
     void
-    CmdShowCommit::doit(State& state) const
+    CmdShowCommit::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
 

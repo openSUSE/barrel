@@ -44,6 +44,7 @@ namespace barrel
     {
 	GlobalOptions(GetOpts& get_opts);
 
+	bool verbose = false;
 	bool dry_run = false;
 	string prefix;
 	bool activate = false;
@@ -127,7 +128,7 @@ namespace barrel
 
 	virtual bool do_backup() const = 0;
 
-	virtual void doit(State& state) const = 0;
+	virtual void doit(const GlobalOptions& global_options, State& state) const = 0;
     };
 
 
