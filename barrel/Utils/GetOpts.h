@@ -29,6 +29,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <optional>
 #include <iostream>
 #include <boost/algorithm/string.hpp>
 
