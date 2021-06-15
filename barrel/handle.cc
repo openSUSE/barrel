@@ -298,9 +298,9 @@ namespace barrel
 	    {
 		blk_devices.push_back(x->get_name());
 
-		for (const string t : x->get_udev_paths())
+		for (const string& t : x->get_udev_paths())
 		    blk_devices.push_back(DEV_DISK_BY_PATH_DIR "/" + t);
-		for (const string t : x->get_udev_ids())
+		for (const string& t : x->get_udev_ids())
 		    blk_devices.push_back(DEV_DISK_BY_ID_DIR "/" + t);
 	    }
 
@@ -520,7 +520,7 @@ namespace barrel
 		    if (do_backup)
 			state.backup.add(&storage);
 
-		    for (const shared_ptr<Cmd> cmd : cmds)
+		    for (const shared_ptr<Cmd>& cmd : cmds)
 		    {
 			cmd->doit(global_options, state);
 		    }
@@ -562,7 +562,7 @@ namespace barrel
 	state.storage = &storage;
 	state.testsuite = testsuite;
 
-	for (const shared_ptr<Cmd> cmd : cmds)
+	for (const shared_ptr<Cmd>& cmd : cmds)
 	{
 	    cmd->doit(global_options, state);
 	}
