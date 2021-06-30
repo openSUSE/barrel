@@ -41,9 +41,12 @@
 #include "show-filesystems.h"
 #include "show-pools.h"
 #include "show-raids.h"
+#include "show-lvm-vgs.h"
 #include "show-commit.h"
 #include "commit.h"
 #include "create-raid.h"
+#include "create-lvm-vg.h"
+#include "create-lvm-lv.h"
 #include "create-encryption.h"
 #include "create-partition-table.h"
 #include "create-filesystem.h"
@@ -108,6 +111,7 @@ namespace barrel
 	{ "filesystems", parse_show_filesystems },
 	{ "pools", parse_show_pools },
 	{ "raids", parse_show_raids },
+	{ "vgs", parse_show_lvm_vgs },
 	{ "commit", parse_show_commit }
     };
 
@@ -122,6 +126,8 @@ namespace barrel
 	{ "raid5", parse_create_raid5 },
 	{ "raid6", parse_create_raid6 },
 	{ "raid10", parse_create_raid10 },
+	{ "vg", parse_create_lvm_vg },
+	{ "lv", parse_create_lvm_lv },
 	{ "encryption", parse_create_encryption },
 	{ "luks1", parse_create_luks1 },
 	{ "luks2", parse_create_luks2 },

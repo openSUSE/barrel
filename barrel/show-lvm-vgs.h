@@ -20,26 +20,19 @@
  */
 
 
-#include <storage/Devices/Partitionable.h>
+#ifndef BARREL_SHOW_LVM_VGS_H
+#define BARREL_SHOW_LVM_VGS_H
+
 
 #include "handle.h"
-#include "Utils/Table.h"
 
 
 namespace barrel
 {
 
-    class CmdShow : public Cmd
-    {
+    shared_ptr<Cmd>
+    parse_show_lvm_vgs(GetOpts& get_opts);
 
-    protected:
+}
 
-	string device_usage(const Device* device) const;
-
-	string device_pool(const Storage* storage, const Device* device) const;
-
-	void insert_partitions(const Partitionable* partitionable, Table::Row& row) const;
-
-    };
-
-};
+#endif

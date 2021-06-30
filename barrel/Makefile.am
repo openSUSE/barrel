@@ -22,11 +22,14 @@ libbarrel_la_SOURCES =							\
 	show.h				show.cc				\
 	show-disks.h			show-disks.cc			\
 	show-raids.h			show-raids.cc			\
+	show-lvm-vgs.h			show-lvm-vgs.cc			\
 	show-filesystems.h		show-filesystems.cc		\
 	show-pools.h			show-pools.cc			\
 	show-commit.h			show-commit.cc			\
 	commit.h			commit.cc			\
 	create-raid.h			create-raid.cc			\
+	create-lvm-vg.h			create-lvm-vg.cc		\
+	create-lvm-lv.h			create-lvm-lv.cc		\
 	create-encryption.h		create-encryption.cc		\
 	create-partition-table.h	create-partition-table.cc	\
 	create-filesystem.h		create-filesystem.cc		\

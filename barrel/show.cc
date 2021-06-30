@@ -72,10 +72,19 @@ namespace barrel
 	    const Device* child = blk_device->get_children()[0];
 
 	    if (is_md(child))
-		return "RAID"s + " " + to_md(child)->get_name();
+	    {
+		return "RAID " + to_md(child)->get_name();
+	    }
 
 	    if (is_lvm_pv(child))
-		return "LVM"s;
+	    {
+		const LvmPv* lvm_pv = to_lvm_pv(child);
+
+		if (lvm_pv->has_lvm_vg())
+		    return "LVM " + lvm_pv->get_lvm_vg()->get_vg_name();
+		else
+		    return "LVM";
+	    }
 	}
 
 	return "";

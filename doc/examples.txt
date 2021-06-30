@@ -48,10 +48,19 @@ Interactive Examples:
   barrel[0]> create raid5 --pool "HDDs (512 B)" --size 8g --devices 3+1 gpt xfs --size 1g --path /test2
   barrel[1]> commit
 
+- Create the LVM volume group "test" with a size of 10 GiB using 3
+  partitions from the "HDDs (512 B)" pool. Create a logical volume
+  with name "a" of size 2 GiB with 3 stripes inside the volume group
+  and place an XFS on the logical volume.
+
+  barrel[0]> create vg --name test --size 10g --pool "HDDs (512 B)"
+    --devices 3 lv --name a --size 2g --stripes max xfs --path /test1
+  barrel[1]> commit
+
 
 More commands for the interactive mode are: stack, undo, show pools,
-show raids, show filesystems, quit, pop, dup, extend pool, reduce
-pool.
+show raids, show vgs, show filesystems, quit, pop, dup, extend pool,
+reduce pool.
 
 Note: Pools are so far auto-generated at startup and not saved.
 
