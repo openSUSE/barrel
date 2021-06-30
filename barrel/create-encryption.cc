@@ -48,8 +48,8 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    optional<EncryptionType> type;
-	    optional<string> name;
-	    optional<string> password;
+	    string name;
+	    string password;
 	};
 
 
@@ -74,15 +74,15 @@ namespace barrel
 		type = it->second;
 	    }
 
-	    if (parsed_opts.has_option("name"))
-	    {
-		name = parsed_opts.get("name");
-	    }
+	    if (!parsed_opts.has_option("name"))
+		throw OptionsException("name missing");
 
-	    if (parsed_opts.has_option("password"))
-	    {
-		password = parsed_opts.get("password");
-	    }
+	    name = parsed_opts.get("name");
+
+	    if (!parsed_opts.has_option("password"))
+		throw OptionsException("password missing");
+
+	    password = parsed_opts.get("password");
 	}
 
     }
@@ -112,15 +112,9 @@ namespace barrel
 
 	EncryptionType type = options.type.value();
 
-	if (!options.name)
-	    throw runtime_error("name missing");
+	string dm_name = options.name;
 
-	string dm_name = options.name.value();
-
-	if (!options.password)
-	    throw runtime_error("password missing");
-
-	string password = options.password.value();
+	string password = options.password;
 
 	BlkDevice* blk_device = to_blk_device(state.stack.top(staging));
 	state.stack.pop();

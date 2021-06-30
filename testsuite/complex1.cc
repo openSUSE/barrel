@@ -55,8 +55,8 @@ BOOST_AUTO_TEST_CASE(test1)
 
     vector<string> tmp;
     testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
-				     tmp = actiongraph->get_commit_actions_as_strings();
-				 };
+	tmp = actiongraph->get_commit_actions_as_strings();
+    };
 
     handle(args.argc(), args.argv(), &testsuite);
 

@@ -28,6 +28,7 @@
 #include "Utils/GetOpts.h"
 #include "Utils/JsonFile.h"
 #include "Utils/BarrelDefines.h"
+#include "Utils/Text.h"
 #include "load.h"
 
 
@@ -102,7 +103,7 @@ namespace barrel
 	map<string, string> mapping;
 
 	if (!get_child_value(json_file.get_root(), "mapping", mapping))
-	    throw runtime_error("fail to load mapping");
+	    throw runtime_error(sformat("mapping not found in json file '%s'", options.mapping.c_str()));
 
 	return mapping;
     }
