@@ -26,16 +26,20 @@
 
 #include <string>
 #include <vector>
+#include <functional>
+
+#include <storage/Storage.h>
 
 
 namespace barrel
 {
 
     using namespace std;
+    using namespace storage;
 
 
     string
-    format_size(unsigned long long size);
+    format_size(unsigned long long size, bool omit_zeroes = false);
 
 
     string
@@ -66,6 +70,20 @@ namespace barrel
     {
 	return vector<Type1>(v.begin(), v.end());
     }
+
+
+    vector<string>
+    possible_blk_devices(const Storage* storage);
+
+
+    struct Testsuite
+    {
+	string devicegraph_filename;
+
+	vector<string> readlines;
+
+	std::function<void(const Actiongraph*)> save_actiongraph = nullptr;
+    };
 
 }
 

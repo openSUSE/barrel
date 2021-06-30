@@ -23,9 +23,6 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <string_view>
-#include <readline/readline.h>
-#include <readline/history.h>
 
 #include <storage/Environment.h>
 #include <storage/Storage.h>
@@ -35,7 +32,9 @@
 #include "Utils/GetOpts.h"
 #include "Utils/Args.h"
 #include "Utils/Text.h"
-#include "Utils/BarrelDefines.h"
+#include "Utils/Misc.h"
+#include "Utils/Readline.h"
+
 #include "handle.h"
 #include "generic.h"
 #include "show-disks.h"
@@ -286,138 +285,6 @@ namespace barrel
     }
 
 
-    namespace
-    {
-
-	vector<string>
-	possible_blk_devices(const Storage* storage)
-	{
-	    vector<string> blk_devices;
-
-	    for (auto x : BlkDevice::get_all(storage->get_staging()))
-	    {
-		blk_devices.push_back(x->get_name());
-
-		for (const string& t : x->get_udev_paths())
-		    blk_devices.push_back(DEV_DISK_BY_PATH_DIR "/" + t);
-		for (const string& t : x->get_udev_ids())
-		    blk_devices.push_back(DEV_DISK_BY_ID_DIR "/" + t);
-	    }
-
-	    sort(blk_devices.begin(), blk_devices.end());
-
-	    return blk_devices;
-	}
-
-
-	// TODO try to make that not global
-	Storage* comp_storage;
-	vector<string> comp_names;
-
-
-	string
-	escape(const string& original)
-	{
-	    string escaped;
-
-	    for (char c : original)
-	    {
-		if (c == ' ')
-		    escaped += '\\';
-
-		escaped += c;
-	    }
-
-	    return escaped;
-	}
-
-
-	char*
-	names_generator(const char* text, int state)
-	{
-	    static size_t list_index, len;
-
-	    if (state == 0)
-	    {
-		list_index = 0;
-		len = strlen(text);
-	    }
-
-	    while (list_index < comp_names.size())
-	    {
-		const string& name = comp_names[list_index++];
-
-		if (rl_completion_quote_character)
-		{
-		    if (strncmp(name.c_str(), text, len) == 0)
-			return strdup(name.c_str());
-		}
-		else
-		{
-		    string tmp = escape(name);
-		    if (strncmp(tmp.c_str(), text, len) == 0)
-			return strdup(tmp.c_str());
-		}
-	    }
-
-	    return nullptr;
-	}
-
-
-	char**
-	my_completion(const char* text, int start, int end)
-	{
-	    rl_attempted_completion_over = 1;
-
-	    comp_names.clear();
-
-	    // TODO depending on previous arguments
-
-	    comp_names.push_back("create");
-	    comp_names.push_back("raid");
-	    comp_names.push_back("raids");
-	    comp_names.push_back("raid0");
-	    comp_names.push_back("raid1");
-	    comp_names.push_back("raid5");
-	    comp_names.push_back("gpt");
-	    comp_names.push_back("xfs");
-	    comp_names.push_back("show");
-	    comp_names.push_back("disks");
-	    comp_names.push_back("filesystems");
-	    comp_names.push_back("pool");
-	    comp_names.push_back("pools");
-	    comp_names.push_back("extend");
-	    comp_names.push_back("reduce");
-	    comp_names.push_back("remove");
-	    comp_names.push_back("device");
-	    comp_names.push_back("pop");
-	    comp_names.push_back("dup");
-	    comp_names.push_back("stack");
-	    comp_names.push_back("undo");
-	    comp_names.push_back("load");
-	    comp_names.push_back("save");
-	    comp_names.push_back("commit");
-	    comp_names.push_back("--size");
-	    comp_names.push_back("--size");
-	    comp_names.push_back("--devices");
-	    comp_names.push_back("--pool");
-	    comp_names.push_back("--name");
-	    comp_names.push_back("--devicegraph");
-	    comp_names.push_back("--mapping");
-
-	    // TODO normally tab completion only goes upto the path component
-
-	    for (auto x : possible_blk_devices(comp_storage))
-		comp_names.push_back(x);
-
-	    for (auto x : comp_storage->get_pools())
-		comp_names.push_back(x.first);
-
-	    return rl_completion_matches(text, names_generator);
-	}
-    }
-
-
     void
     Backup::add(Storage* storage)
     {
@@ -447,33 +314,9 @@ namespace barrel
     }
 
 
-    string
-    make_history_file()
-    {
-	const char* env = getenv("HOME");
-	if (!env)
-	    return "";
-
-	return string(env) + "/.barrel_history";
-    }
-
-
     void
     handle_interactive(const GlobalOptions& global_options, const Testsuite* testsuite)
     {
-	rl_readline_name = "barrel";
-
-	rl_attempted_completion_function = my_completion;
-	rl_completer_quote_characters = "\"'";
-
-	using_history();
-	stifle_history(1024);
-
-	const string history_file = make_history_file();
-
-	if (!history_file.empty())
-	    read_history(history_file.c_str());
-
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
 
@@ -483,7 +326,7 @@ namespace barrel
 	Storage storage(environment);
 	startup(global_options, storage);
 
-	comp_storage = &storage;
+	Readline readline(&storage, testsuite);
 
 	State state(global_options);
 	state.storage = &storage;
@@ -495,7 +338,7 @@ namespace barrel
 	{
 	    string prompt = sformat("barrel[%ld]> ", state.stack.size());
 
-	    char* line = readline(prompt.c_str());
+	    char* line = readline.readline(prompt);
 	    if (!line)
 	    {
 		cout << endl;
@@ -504,8 +347,6 @@ namespace barrel
 
 	    if (*line)
 	    {
-		add_history(line);
-
 		try
 		{
 		    Args args(parse_line(line));
@@ -538,9 +379,6 @@ namespace barrel
 
 	    free(line);
 	}
-
-	if (!history_file.empty())
-	    write_history(history_file.c_str());
     }
 
 

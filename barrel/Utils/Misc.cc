@@ -21,11 +21,14 @@
 
 
 #include <stdexcept>
+#include <algorithm>
 
+#include <storage/Devices/BlkDevice.h>
 #include <storage/Utils/HumanString.h>
 
 #include "Misc.h"
 #include "Text.h"
+#include "BarrelDefines.h"
 
 
 namespace barrel
@@ -36,9 +39,9 @@ namespace barrel
 
 
     string
-    format_size(unsigned long long size)
+    format_size(unsigned long long size, bool omit_zeroes)
     {
-	return byte_to_humanstring(size, false, 2, false);
+	return byte_to_humanstring(size, false, 2, omit_zeroes);
     }
 
 
@@ -81,6 +84,27 @@ namespace barrel
 	    default:
 		throw runtime_error("unknown SmartSize type");
 	}
+    }
+
+
+    vector<string>
+    possible_blk_devices(const Storage* storage)
+    {
+	vector<string> blk_devices;
+
+	for (auto x : BlkDevice::get_all(storage->get_staging()))
+	{
+	    blk_devices.push_back(x->get_name());
+
+	    for (const string& t : x->get_udev_paths())
+		blk_devices.push_back(DEV_DISK_BY_PATH_DIR "/" + t);
+	    for (const string& t : x->get_udev_ids())
+		blk_devices.push_back(DEV_DISK_BY_ID_DIR "/" + t);
+	}
+
+	sort(blk_devices.begin(), blk_devices.end());
+
+	return blk_devices;
     }
 
 }

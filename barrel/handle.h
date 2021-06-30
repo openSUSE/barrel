@@ -25,12 +25,12 @@
 
 
 #include <string>
-#include <functional>
 
 #include <storage/Actiongraph.h>
 #include <storage/Devices/BlkDevice.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Misc.h"
 
 
 namespace barrel
@@ -49,14 +49,6 @@ namespace barrel
 	string prefix;
 	bool activate = false;
 	bool probe = true;
-    };
-
-
-    struct Testsuite
-    {
-	string devicegraph_filename;
-
-	std::function<void(const Actiongraph*)> save_actiongraph = nullptr;
     };
 
 
