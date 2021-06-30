@@ -94,13 +94,16 @@ namespace barrel
 	sort(mds.begin(), mds.end(), Md::compare_by_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Level"),
-		_("Metadata"), _("Devices"), Cell(_("Usage"), Id::USAGE) });
+		_("Metadata"), Cell(_("Chunk Size"), Align::RIGHT), _("Devices"),
+		Cell(_("Usage"), Id::USAGE) });
 
 	for (const Md* md : mds)
 	{
+	    string t1 = md->get_md_level() != MdLevel::RAID1 ? format_size(md->get_chunk_size(), true) : "";
+
 	    Table::Row row(table, { md->get_name(), format_size(md->get_size()),
-		    get_md_level_name(md->get_md_level()), md->get_metadata(), devices(staging, md),
-		    device_usage(md) });
+		    get_md_level_name(md->get_md_level()), md->get_metadata(),
+		    t1, devices(staging, md), device_usage(md) });
 
 	    insert_partitions(md, row);
 

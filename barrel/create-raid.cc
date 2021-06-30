@@ -27,6 +27,7 @@
 #include <storage/Devices/BlkDevice.h>
 #include <storage/Devices/Md.h>
 #include <storage/Holders/MdUser.h>
+#include <storage/Utils/HumanString.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Misc.h"
@@ -123,8 +124,9 @@ namespace barrel
 	    optional<string> name;
 	    optional<SmartNumber> number;
 	    optional<string> metadata;
+	    optional<unsigned long> chunk_size;
 
-	    optional<vector<string>> blk_devices;
+	    vector<string> blk_devices;
 
 	    enum class ModusOperandi { POOL, PARTITIONABLES, RAW };
 
@@ -142,7 +144,8 @@ namespace barrel
 		{ "pool", required_argument, 'p' },
 		{ "size", required_argument, 's' },
 		{ "metadata", required_argument, 'm' },
-		{ "devices", required_argument, 'd' }
+		{ "devices", required_argument, 'd' },
+		{ "chunk-size", required_argument }
 	    };
 
 	    ParsedOpts parsed_opts = get_opts.parse("raid", options, true);
@@ -176,6 +179,12 @@ namespace barrel
 
 	    metadata = parsed_opts.get_optional("metadata");
 
+	    if (parsed_opts.has_option("chunk-size"))
+	    {
+		string str = parsed_opts.get("chunk-size");
+		chunk_size = humanstring_to_byte(str, false);
+	    }
+
 	    blk_devices = parsed_opts.get_blk_devices();
 
 	    calculate_modus_operandi();
@@ -194,15 +203,15 @@ namespace barrel
 	    }
 	    else if (size)
 	    {
-		if (!blk_devices)
-		    throw runtime_error("devices missing");
+		if (blk_devices.empty())
+		    throw runtime_error("block devices missing");
 
 		modus_operandi = ModusOperandi::PARTITIONABLES;
 	    }
 	    else
 	    {
-		if (!blk_devices)
-		    throw runtime_error("devices missing");
+		if (blk_devices.empty())
+		    throw runtime_error("block devices missing");
 
 		modus_operandi = ModusOperandi::RAW;
 	    }
@@ -281,7 +290,7 @@ namespace barrel
 	    {
 		Pool pool;
 
-		for (const string& device_name : options.blk_devices.value())
+		for (const string& device_name : options.blk_devices)
 		{
 		    Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
 		    pool.add_device(partitionable);
@@ -317,7 +326,7 @@ namespace barrel
 
 	    case Options::ModusOperandi::RAW:
 	    {
-		for (const string& device_name : options.blk_devices.value())
+		for (const string& device_name : options.blk_devices)
 		{
 		    BlkDevice* blk_device = BlkDevice::find_by_name(staging, device_name);
 		    blk_devices.push_back(blk_device);
@@ -333,6 +342,9 @@ namespace barrel
 
 	if (options.metadata)
 	    md->set_metadata(options.metadata.value());
+
+	if (options.chunk_size)
+	    md->set_chunk_size(options.chunk_size.value());
 
 	if (smart_number.raid < md->minimal_number_of_devices())
 	{
