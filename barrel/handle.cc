@@ -313,10 +313,18 @@ namespace barrel
     {
 	Devicegraph* lhs = storage->get_devicegraph(names.back());
 
-	Actiongraph actiongraph(*storage, lhs, storage->get_staging());
+	try
+	{
+	    Actiongraph actiongraph(*storage, lhs, storage->get_staging());
 
-	for (const string& action : actiongraph.get_commit_actions_as_strings())
-	    cout << action << '\n';
+	    for (const string& action : actiongraph.get_commit_actions_as_strings())
+		cout << action << '\n';
+	}
+	catch (const Exception& e)
+	{
+	    cout << "failed to calculate actions" << endl;
+	    cout << e.what() << endl;
+	}
     }
 
 

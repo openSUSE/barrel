@@ -47,10 +47,18 @@ namespace barrel
     void
     CmdShowCommit::doit(const GlobalOptions& global_options, State& state) const
     {
-	const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
+	try
+	{
+	    const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
 
-	for (const string& action : actiongraph->get_commit_actions_as_strings())
-	    cout << action << '\n';
+	    for (const string& action : actiongraph->get_commit_actions_as_strings())
+		cout << action << '\n';
+	}
+	catch (const Exception& e)
+	{
+	    cout << "failed to calculate actions" << endl;
+	    cout << e.what() << endl;
+	}
     }
 
 
