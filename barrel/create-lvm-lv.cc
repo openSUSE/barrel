@@ -133,7 +133,7 @@ namespace barrel
 	    lv_name = parsed_opts.get("name");
 
 	    if (!LvmLv::is_valid_lv_name(lv_name))
-		throw Exception("invalid logical volume name");
+		throw OptionsException("invalid logical volume name");
 
 	    if (parsed_opts.has_option("size"))
 	    {

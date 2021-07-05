@@ -24,9 +24,11 @@ Source:         barrel-%{version}.tar.xz
 BuildRequires:  libboost_headers-devel
 BuildRequires:  libboost_test-devel
 BuildRequires:  libjson-c-devel
-BuildRequires:  libstorage-ng-devel
+BuildRequires:  libstorage-ng-devel >= 4.4.20
 BuildRequires:  libtool
 BuildRequires:  readline-devel
+
+Requires:       libstorage-ng-ruby >= 4.4.20
 
 Summary:        Tool for storage management
 Url:            http://github.com/aschnell/barrel

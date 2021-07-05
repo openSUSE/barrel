@@ -85,27 +85,4 @@ namespace barrel
 	json_object_put(root);
     }
 
-
-    bool
-    get_child_value(json_object* parent, const char* name, map<string, string>& value)
-    {
-	json_object* tmp;
-        json_object_object_get_ex(parent, name, &tmp);
-
-	if (!json_object_is_type(tmp, json_type_object))
-	    return false;
-
-	value.clear();
-
-	json_object_object_foreach(tmp, k, v)
-	{
-	    if (!json_object_is_type(v, json_type_string))
-		return false;
-
-	    value[k] = json_object_get_string(v);
-	}
-
-	return true;
-    }
-
 }

@@ -137,7 +137,7 @@ namespace barrel
 	    vg_name = parsed_opts.get("name");
 
 	    if (!LvmVg::is_valid_vg_name(vg_name))
-		throw Exception("invalid volume group name");
+		throw OptionsException("invalid volume group name");
 
 	    pool = parsed_opts.get_optional("pool");
 

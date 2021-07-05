@@ -46,7 +46,7 @@ BOOST_AUTO_TEST_CASE(test1)
     };
 
     Testsuite testsuite;
-    testsuite.devicegraph_filename = "empty1.xml";
+    testsuite.devicegraph_filename = "empty2.xml";
 
     vector<string> tmp;
     testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
@@ -81,7 +81,7 @@ BOOST_AUTO_TEST_CASE(test2)
     };
 
     Testsuite testsuite;
-    testsuite.devicegraph_filename = "empty1.xml";
+    testsuite.devicegraph_filename = "empty2.xml";
 
     vector<string> tmp;
     testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
@@ -112,7 +112,7 @@ BOOST_AUTO_TEST_CASE(test3)
     };
 
     Testsuite testsuite;
-    testsuite.devicegraph_filename = "empty1.xml";
+    testsuite.devicegraph_filename = "empty2.xml";
 
     // Here barrel does the expansion of /dev/sd[b-e] (in GetOpts).
     testsuite.readlines = {

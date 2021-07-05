@@ -52,9 +52,6 @@ namespace barrel
 
     };
 
-
-    bool get_child_value(json_object* parent, const char* name, map<string, string>& value);
-
 }
 
 

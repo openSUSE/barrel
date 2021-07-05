@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(test1)
     };
 
     Testsuite testsuite;
-    testsuite.devicegraph_filename = "empty1.xml";
+    testsuite.devicegraph_filename = "empty2.xml";
 
     vector<string> tmp;
     testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {

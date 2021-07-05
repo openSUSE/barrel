@@ -87,23 +87,52 @@ namespace barrel
 
 	const Options options;
 
-	map<string, string> load_mapping() const;
+	using mapping_t = map<string, vector<string>>;
+
+	mapping_t load_mapping() const;
 
 	const Disk* map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
-			     const map<string, string>& mapping, const Disk* a) const;
+			     SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const;
 
     };
 
 
-    map<string, string>
+    CmdLoad::mapping_t
     CmdLoad::load_mapping() const
     {
 	JsonFile json_file(options.mapping);
 
-	map<string, string> mapping;
-
-	if (!get_child_value(json_file.get_root(), "mapping", mapping))
+	json_object* tmp1;
+	json_object_object_get_ex(json_file.get_root(), "mapping", &tmp1);
+	if (!json_object_is_type(tmp1, json_type_object))
 	    throw runtime_error(sformat("mapping not found in json file '%s'", options.mapping.c_str()));
+
+	mapping_t mapping;
+
+	json_object_object_foreach(tmp1, k, v)
+	{
+	    // check for duplicate key not possible since already removed by json parser
+
+	    if (json_object_is_type(v, json_type_string))
+	    {
+		mapping[k] = { json_object_get_string(v) };
+	    }
+	    else if (json_object_is_type(v, json_type_array))
+	    {
+		for (size_t i = 0; i < json_object_array_length(v); ++i)
+		{
+		    json_object* tmp2 = json_object_array_get_idx(v, i);
+		    if (!json_object_is_type(tmp2, json_type_string))
+			throw runtime_error(sformat("element of array for '%s' not string", k));
+
+		    mapping[k].push_back(json_object_get_string(tmp2));
+		}
+	    }
+	    else
+	    {
+		throw runtime_error(sformat("value for '%s' neither string nor array", k));
+	    }
+	}
 
 	return mapping;
     }
@@ -111,9 +140,11 @@ namespace barrel
 
     const Disk*
     CmdLoad::map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
-		      const map<string, string>& mapping, const Disk* a) const
+		      SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const
     {
-	map<string, string>::const_iterator it = mapping.find(a->get_name());
+	const string name = a->get_name();
+
+	mapping_t::const_iterator it = mapping.find(name);
 
 	if (it == mapping.end())
 	{
@@ -136,24 +167,35 @@ namespace barrel
 	}
 
 	if (it == mapping.end())
-	    throw Exception("disk not found in mapping");
+	    throw runtime_error(sformat("disk '%s' not found in mapping", name.c_str()));
 
-	const BlkDevice* b = BlkDevice::find_by_any_name(probed, it->second);
+	const BlkDevice* b = nullptr;
+
+	for (const string& tmp : it->second)
+	{
+	    if (!BlkDevice::exists_by_any_name(probed, tmp, system_info))
+		continue;
+
+	    b = BlkDevice::find_by_any_name(probed, tmp, system_info);
+	    break;
+	}
+
+	if (!b)
+	    throw runtime_error(sformat("mapped disk for '%s' not found", name.c_str()));
 
 	if (!is_disk(b))
-	    throw Exception("mapped device is not a disk");
+	    throw runtime_error(sformat("mapped device for '%s' is not a disk", name.c_str()));
 
 	if (global_options.verbose)
 	{
-	    cout << "mapping " << a->get_name() << " (" << it->first << ") to " << b->get_name()
-		 << " (" << it->second << ")\n";
+	    cout << "mapping " << name << " to " << b->get_name() << '\n';
 	}
 
 	if (a->get_region().get_block_size() != b->get_region().get_block_size())
-	    throw Exception("mapped disk has different block size");
+	    throw runtime_error(sformat("mapped disk for '%s' has different block size", name.c_str()));
 
 	if (a->get_region().get_length() > b->get_region().get_length())
-	    throw Exception("mapped disk is smaller");
+	    throw runtime_error(sformat("mapped disk for '%s' is smaller", name.c_str()));
 
 	return to_disk(b);
     }
@@ -167,11 +209,29 @@ namespace barrel
 
 	staging->load(options.devicegraph, false);
 
-	map<string, string> mapping = load_mapping();
+	const mapping_t mapping = load_mapping();
+
+	if (global_options.verbose)
+	{
+	    for (const mapping_t::value_type& v : mapping)
+	    {
+		cout << v.first << " = [ ";
+		for (const string& x : v.second)
+		    cout << x << " ";
+		cout << "]\n";
+	    }
+	}
+
+	SystemInfo system_info;
 
 	for (Disk* a : staging->get_all_disks())
 	{
-	    const Disk* b = map_disk(global_options, probed, mapping, a);
+	    const Disk* b = map_disk(global_options, probed, system_info, mapping, a);
+
+	    if (b->exists_in_devicegraph(staging))
+	    {
+		throw runtime_error(sformat("mapped disk for '%s' mapped twice", a->get_name().c_str()));
+	    }
 
 	    Device* c = b->copy_to_devicegraph(staging);
 

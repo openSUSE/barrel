@@ -47,7 +47,7 @@ BOOST_AUTO_TEST_CASE(test1)
     };
 
     Testsuite testsuite;
-    testsuite.devicegraph_filename = "empty1.xml";
+    testsuite.devicegraph_filename = "empty2.xml";
 
     vector<string> tmp;
     testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
@@ -79,7 +79,7 @@ BOOST_AUTO_TEST_CASE(test2)
     };
 
     Testsuite testsuite;
-    testsuite.devicegraph_filename = "empty1.xml";
+    testsuite.devicegraph_filename = "empty2.xml";
 
     testsuite.readlines = {
 	"create vg --name test --size 5g --pool 'HDDs (512 B)' --devices 2",
