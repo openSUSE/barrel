@@ -1,0 +1,5 @@
+{
+    "mapping" : {
+	"/dev/sda" : "/dev/sda"
+    }
+}

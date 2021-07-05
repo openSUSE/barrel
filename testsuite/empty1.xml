@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Devicegraph>
+  <Devices>
+    <Disk>
+      <sid>47</sid>
+      <name>/dev/sda</name>
+      <sysfs-name>sda</sysfs-name>
+      <sysfs-path>/devices/pci0000:00/0000:00:1f.2/ata1/host0/target0:0:0/0:0:0:0/block/sda</sysfs-path>
+      <region>
+        <length>67108864</length>
+        <block-size>512</block-size>
+      </region>
+      <udev-path>pci-0000:00:1f.2-ata-1</udev-path>
+      <udev-path>pci-0000:00:1f.2-ata-1.0</udev-path>
+      <udev-id>ata-VBOX_HARDDISK_VB098dbc19-95da593f</udev-id>
+      <udev-id>scsi-0ATA_VBOX_HARDDISK_VB098dbc19-95da593f</udev-id>
+      <udev-id>scsi-1ATA_VBOX_HARDDISK_VB098dbc19-95da593f</udev-id>
+      <udev-id>scsi-SATA_VBOX_HARDDISK_VB098dbc19-95da593f</udev-id>
+      <range>256</range>
+      <rotational>true</rotational>
+    </Disk>
+    <Gpt>
+      <sid>53</sid>
+      <pmbr-boot>true</pmbr-boot>
+    </Gpt>
+  </Devices>
+  <Holders>
+    <User>
+      <source-sid>47</source-sid>
+      <target-sid>53</target-sid>
+    </User>
+  </Holders>
+</Devicegraph>
