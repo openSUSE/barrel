@@ -46,7 +46,7 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    string devicegraph;
-	    string mapping;
+	    optional<string> mapping;
 	};
 
 
@@ -66,8 +66,6 @@ namespace barrel
 
 	    if (parsed_opts.has_option("mapping"))
 		mapping = parsed_opts.get("mapping");
-	    else
-		throw OptionsException("mapping missing");
 	}
 
     }
@@ -91,6 +89,17 @@ namespace barrel
 
 	mapping_t load_mapping() const;
 
+	/**
+	 * Make an automatic mapping for disks. Either the udev path or id must be
+	 * identical.
+	 */
+	mapping_t make_mapping(const Devicegraph* probed, const Devicegraph* staging) const;
+
+	/**
+	 * Return true iff the block devices have a common udev path or id.
+	 */
+	bool same_udev(const BlkDevice* a, const BlkDevice* b) const;
+
 	const Disk* map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
 			     SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const;
 
@@ -100,12 +109,14 @@ namespace barrel
     CmdLoad::mapping_t
     CmdLoad::load_mapping() const
     {
-	JsonFile json_file(options.mapping);
+	const string& filename = options.mapping.value();
+
+	JsonFile json_file(filename);
 
 	json_object* tmp1;
 	json_object_object_get_ex(json_file.get_root(), "mapping", &tmp1);
 	if (!json_object_is_type(tmp1, json_type_object))
-	    throw runtime_error(sformat("mapping not found in json file '%s'", options.mapping.c_str()));
+	    throw runtime_error(sformat("mapping not found in json file '%s'", filename.c_str()));
 
 	mapping_t mapping;
 
@@ -132,6 +143,53 @@ namespace barrel
 	    {
 		throw runtime_error(sformat("value for '%s' neither string nor array", k));
 	    }
+	}
+
+	return mapping;
+    }
+
+
+    bool
+    CmdLoad::same_udev(const BlkDevice* a, const BlkDevice* b) const
+    {
+	// could use something like set_intersection but needs sorting
+
+	for (const string& udev_path_a : a->get_udev_paths())
+	    for (const string& udev_path_b : b->get_udev_paths())
+		if (udev_path_a == udev_path_b)
+		    return true;
+
+	for (const string& udev_id_a : a->get_udev_ids())
+	    for (const string& udev_id_b : b->get_udev_ids())
+		if (udev_id_a == udev_id_b)
+		    return true;
+
+	return false;
+    }
+
+
+    CmdLoad::mapping_t
+    CmdLoad::make_mapping(const Devicegraph* probed, const Devicegraph* staging) const
+    {
+	mapping_t mapping;
+
+	for (const Disk* a : staging->get_all_disks())
+	{
+	    vector<const Disk*> matches;
+
+	    for (const Disk* b : probed->get_all_disks())
+	    {
+		if (same_udev(a, b))
+		    matches.push_back(b);
+	    }
+
+	    if (matches.size() == 0)
+		throw runtime_error(sformat("no mapping disk for '%s' found", a->get_name().c_str()));
+
+	    if (matches.size() >= 2)
+		throw runtime_error(sformat("several mapping disk for '%s' found", a->get_name().c_str()));
+
+	    mapping[a->get_name()] = { matches.front()->get_name() };
 	}
 
 	return mapping;
@@ -209,7 +267,7 @@ namespace barrel
 
 	staging->load(options.devicegraph, false);
 
-	const mapping_t mapping = load_mapping();
+	const mapping_t mapping = options.mapping ? load_mapping() : make_mapping(probed, staging);
 
 	if (global_options.verbose)
 	{
