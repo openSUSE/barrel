@@ -59,11 +59,14 @@ namespace barrel
     void
     CmdShowLvmVgs::insert_lvm_lvs(const LvmVg* lvm_vg, Table::Row& row) const
     {
-	for (const LvmLv* lvm_lv : lvm_vg->get_lvm_lvs())
+	vector<const LvmLv*> lvm_lvs = lvm_vg->get_lvm_lvs();
+	sort(lvm_lvs.begin(), lvm_lvs.end(), LvmLv::compare_by_name);
+
+	for (const LvmLv* lvm_lv : lvm_lvs)
 	{
 	    Table::Row subrow(row.get_table());
 
-	    subrow[Id::NAME] = lvm_lv->get_name();
+	    subrow[Id::NAME] = lvm_lv->get_lv_name();
 	    subrow[Id::SIZE] = format_size(lvm_lv->get_size());
 
 	    subrow[Id::STRIPES] = sformat("%u", lvm_lv->get_stripes());

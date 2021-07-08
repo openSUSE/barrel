@@ -118,7 +118,10 @@ namespace barrel
 	{
 	    const PartitionTable* partition_table = partitionable->get_partition_table();
 
-	    for (const Partition* partition : partition_table->get_partitions())
+	    vector<const Partition*> partitions = partition_table->get_partitions();
+	    sort(partitions.begin(), partitions.end(), Partition::compare_by_number);
+
+	    for (const Partition* partition : partitions)
 	    {
 		Table::Row subrow(row.get_table());
 
