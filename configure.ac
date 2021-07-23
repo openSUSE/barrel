@@ -20,6 +20,9 @@ AC_PREFIX_DEFAULT(/usr)
 
 AC_SYS_LARGEFILE
 
+PKG_CHECK_MODULES(XML2, libxml-2.0)
+PKG_CHECK_MODULES(JSONC, json-c, [], [AC_MSG_WARN([Cannot find json-c. Please install libjson-c-devel])])
+
 AC_SUBST(VERSION)
 
 AC_OUTPUT(

@@ -2,7 +2,7 @@
 # Makefile.am for barrel/testsuite
 #
 
-AM_CPPFLAGS = -I$(top_srcdir)
+AM_CPPFLAGS = -I$(top_srcdir) $(XML2_CFLAGS)
 
 LDADD =								\
 	../barrel/libbarrel.la					\

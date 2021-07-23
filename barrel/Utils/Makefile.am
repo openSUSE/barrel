@@ -2,7 +2,7 @@
 # Makefile.am for barrel/barrel/Utils
 #
 
-AM_CPPFLAGS = -I$(top_srcdir)
+AM_CPPFLAGS = -I$(top_srcdir) $(XML2_CFLAGS)
 
 noinst_LTLIBRARIES = libutils.la
 
