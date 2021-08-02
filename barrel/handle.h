@@ -49,6 +49,7 @@ namespace barrel
 	string prefix;
 	bool activate = false;
 	bool probe = true;
+	bool yes = false;
     };
 
 

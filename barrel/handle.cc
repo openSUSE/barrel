@@ -80,6 +80,7 @@ namespace barrel
 	    { "dry-run", no_argument },
 	    { "prefix", required_argument },
 	    { "activate", no_argument, 'a' },
+	    { "yes", no_argument },
 	    { "help", no_argument, 'h' }
 	};
 
@@ -93,6 +94,8 @@ namespace barrel
 	    prefix = parsed_opts.get("prefix");
 
 	activate = parsed_opts.has_option("activate");
+
+	yes = parsed_opts.has_option("yes");
     }
 
 
@@ -318,7 +321,7 @@ namespace barrel
 	    Actiongraph actiongraph(*storage, lhs, storage->get_staging());
 
 	    for (const string& action : actiongraph.get_commit_actions_as_strings())
-		cout << action << '\n';
+		cout << "  " << action << '\n';
 	}
 	catch (const Exception& e)
 	{

@@ -24,6 +24,8 @@
 #include <storage/Actiongraph.h>
 
 #include "commit.h"
+#include "Utils/Text.h"
+#include "Utils/Prompt.h"
 
 
 namespace barrel
@@ -46,7 +48,13 @@ namespace barrel
 	const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
 
 	for (const string& action : actiongraph->get_commit_actions_as_strings())
-	    cout << action << '\n';
+	    cout << "  " << action << '\n';
+
+	if (!global_options.yes)
+	{
+	    if (!prompt(_("Commit changes?")))
+		return;
+	}
 
 	if (state.testsuite && state.testsuite->save_actiongraph)
 	    state.testsuite->save_actiongraph(actiongraph);

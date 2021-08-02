@@ -52,7 +52,7 @@ namespace barrel
 	    const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
 
 	    for (const string& action : actiongraph->get_commit_actions_as_strings())
-		cout << action << '\n';
+		cout << "  " << action << '\n';
 	}
 	catch (const Exception& e)
 	{

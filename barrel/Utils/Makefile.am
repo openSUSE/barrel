@@ -13,6 +13,7 @@ libutils_la_SOURCES =			\
 	Text.h		Text.cc		\
 	JsonFile.h	JsonFile.cc	\
 	Readline.h	Readline.cc	\
+	Prompt.h	Prompt.cc	\
 	Misc.h		Misc.cc		\
 	BarrelDefines.h
 

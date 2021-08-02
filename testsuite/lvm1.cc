@@ -29,8 +29,9 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "create", "vg", "--name", "test", "--size", "5g", "--pool", "HDDs (512 B)",
-	    "--devices", "2", "lv", "--name", "a", "--size", "2g", "--stripes", "max", "xfs", "--path", "/test" });
+    Args args({ "barrel", "--dry-run", "--yes", "create", "vg", "--name", "test", "--size", "5g", "--pool",
+	    "HDDs (512 B)", "--devices", "2", "lv", "--name", "a", "--size", "2g", "--stripes", "max", "xfs",
+	    "--path", "/test" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (2.50 GiB)",
@@ -62,7 +63,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    Args args({ "barrel", "--dry-run" });
+    Args args({ "barrel", "--dry-run", "--yes" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (2.50 GiB)",

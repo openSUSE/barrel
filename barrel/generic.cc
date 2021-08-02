@@ -24,6 +24,8 @@
 #include <storage/Devicegraph.h>
 
 #include "generic.h"
+#include "Utils/Prompt.h"
+#include "Utils/Text.h"
 
 
 namespace barrel
@@ -177,6 +179,14 @@ namespace barrel
     void
     CmdQuit::doit(const GlobalOptions& global_options, State& state) const
     {
+	// TODO check if there are any changes at all
+
+	if (!global_options.yes)
+	{
+	    if (!prompt(_("Quit?")))
+		return;
+	}
+
 	state.run = false;
     }
 

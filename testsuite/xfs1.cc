@@ -29,7 +29,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "create", "xfs", "--pool", "HDDs (512 B)", "--size", "12 GiB" });
+    Args args({ "barrel", "--dry-run", "--yes", "create", "xfs", "--pool", "HDDs (512 B)", "--size", "12 GiB" });
 
     // TODO another disk could be selected
 
