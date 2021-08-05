@@ -26,7 +26,6 @@
 
 #include <json-c/json.h>
 #include <string>
-#include <map>
 #include <boost/noncopyable.hpp>
 
 
@@ -44,7 +43,7 @@ namespace barrel
 
 	~JsonFile();
 
-	json_object* get_root() const { return root; }
+	json_object* get_root() { return root; }
 
     private:
 

@@ -48,21 +48,27 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    bool show_partitions = true;
+
+	    bool show_probed = false;
 	};
 
 
 	Options::Options(GetOpts& get_opts)
 	{
 	    const vector<Option> options = {
-		{ "no-partitions", no_argument }
+		{ "no-partitions", no_argument },
+		{ "probed", no_argument }
 	    };
 
 	    ParsedOpts parsed_opts = get_opts.parse("disks", options);
 
 	    show_partitions = !parsed_opts.has_option("no-partitions");
+
+	    show_probed = parsed_opts.has_option("probed");
 	}
 
     }
+
 
     class CmdShowDisks : public CmdShow
     {
@@ -84,9 +90,11 @@ namespace barrel
     void
     CmdShowDisks::doit(const GlobalOptions& global_options, State& state) const
     {
-	const Devicegraph* staging = state.storage->get_staging();
+	const Storage* storage = state.storage;
 
-	vector<const Disk*> disks = Disk::get_all(staging);
+	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();
+
+	vector<const Disk*> disks = Disk::get_all(devicegraph);
 	sort(disks.begin(), disks.end(), Disk::compare_by_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT),
@@ -95,7 +103,7 @@ namespace barrel
 	for (const Disk* disk : disks)
 	{
 	    Table::Row row(table, { disk->get_name(), format_size(disk->get_size()),
-		    device_usage(disk), device_pool(state.storage, disk) });
+		    device_usage(disk), device_pool(storage, disk) });
 
 	    if (options.show_partitions)
 		insert_partitions(disk, row);

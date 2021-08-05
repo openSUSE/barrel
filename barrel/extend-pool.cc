@@ -20,8 +20,6 @@
  */
 
 
-#include <regex>
-
 #include <storage/Storage.h>
 #include <storage/Pool.h>
 #include <storage/Devices/BlkDevice.h>

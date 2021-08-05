@@ -57,8 +57,8 @@ namespace barrel
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Devices"), Id::NUMBER, Align::RIGHT),
 		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Used"), Id::USED, Align::RIGHT) });
 
-	map<string, const Pool*> pools = state.storage->get_pools();
-	for (const map<string, const Pool*>::value_type& value : pools)
+	map<string, Pool*> pools = state.storage->get_pools();
+	for (const map<string, Pool*>::value_type& value : pools)
 	{
 	    const Pool* pool = value.second;
 

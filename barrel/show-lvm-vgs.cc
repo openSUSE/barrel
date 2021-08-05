@@ -41,15 +41,44 @@ namespace barrel
     using namespace storage;
 
 
+    namespace
+    {
+
+	struct Options
+	{
+	    Options(GetOpts& get_opts);
+
+	    bool show_probed = false;
+	};
+
+
+	Options::Options(GetOpts& get_opts)
+	{
+	    const vector<Option> options = {
+		{ "probed", no_argument }
+	    };
+
+	    ParsedOpts parsed_opts = get_opts.parse("vgs", options);
+
+	    show_probed = parsed_opts.has_option("probed");
+	}
+
+    }
+
+
     class CmdShowLvmVgs : public CmdShow
     {
     public:
+
+	CmdShowLvmVgs(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     private:
+
+	const Options options;
 
 	void insert_lvm_lvs(const LvmVg* lvm_vg, Table::Row& row) const;
 
@@ -86,9 +115,11 @@ namespace barrel
 	// TODO show pool if all underlying devices are in the same pool?
 	// TODO show underlying devices
 
-	const Devicegraph* staging = state.storage->get_staging();
+	const Storage* storage = state.storage;
 
-	vector<const LvmVg*> lvm_vgs = LvmVg::get_all(staging);
+	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();
+
+	vector<const LvmVg*> lvm_vgs = LvmVg::get_all(devicegraph);
 	sort(lvm_vgs.begin(), lvm_vgs.end(), LvmVg::compare_by_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Extent Size"), Align::RIGHT),
@@ -117,9 +148,9 @@ namespace barrel
     shared_ptr<Cmd>
     parse_show_lvm_vgs(GetOpts& get_opts)
     {
-	get_opts.parse("vgs", GetOpts::no_options);
+	Options options(get_opts);
 
-	return make_shared<CmdShowLvmVgs>();
+	return make_shared<CmdShowLvmVgs>(options);
     }
 
 }

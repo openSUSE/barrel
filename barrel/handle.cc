@@ -276,7 +276,7 @@ namespace barrel
 
 	if (global_options.activate)
 	{
-	    cout << "Activating..." << flush;
+	    cout << _("Activating...") << flush;
 	    MyActivateCallbacks my_activate_callbacks;
 	    storage.activate(&my_activate_callbacks);
 	    cout << " done" << endl;
@@ -284,7 +284,7 @@ namespace barrel
 
 	if (global_options.probe)
 	{
-	    cout << "Probing..." << flush;
+	    cout << _("Probing...") << flush;
 	    MyProbeCallbacks my_probe_callbacks;
 	    storage.probe(&my_probe_callbacks);
 	    cout << " done" << endl;
@@ -402,6 +402,7 @@ namespace barrel
     void
     handle_cmdline(const GlobalOptions& global_options, const Testsuite* testsuite, GetOpts& get_opts)
     {
+	// parsing must happen before probing to inform early about wrong usage
 	vector<shared_ptr<Cmd>> cmds = parse(get_opts);
 
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,

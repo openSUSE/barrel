@@ -42,15 +42,44 @@ namespace barrel
     using namespace storage;
 
 
+    namespace
+    {
+
+	struct Options
+	{
+	    Options(GetOpts& get_opts);
+
+	    bool show_probed = false;
+	};
+
+
+	Options::Options(GetOpts& get_opts)
+	{
+	    const vector<Option> options = {
+		{ "probed", no_argument }
+	    };
+
+	    ParsedOpts parsed_opts = get_opts.parse("raids", options);
+
+	    show_probed = parsed_opts.has_option("probed");
+	}
+
+    }
+
+
     class CmdShowRaids : public CmdShow
     {
     public:
+
+	CmdShowRaids(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
     private:
+
+	const Options options;
 
 	string devices(const Devicegraph* devicegraph, const Md* md) const;
 
@@ -88,9 +117,11 @@ namespace barrel
 	// TODO show pool if all underlying devices are in the same pool
 	// TODO show underlying devices
 
-	const Devicegraph* staging = state.storage->get_staging();
+	const Storage* storage = state.storage;
 
-	vector<const Md*> mds = Md::get_all(staging);
+	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();
+
+	vector<const Md*> mds = Md::get_all(devicegraph);
 	sort(mds.begin(), mds.end(), Md::compare_by_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Level"),
@@ -103,7 +134,7 @@ namespace barrel
 
 	    Table::Row row(table, { md->get_name(), format_size(md->get_size()),
 		    get_md_level_name(md->get_md_level()), md->get_metadata(),
-		    t1, devices(staging, md), device_usage(md) });
+		    t1, devices(devicegraph, md), device_usage(md) });
 
 	    insert_partitions(md, row);
 
@@ -117,9 +148,9 @@ namespace barrel
     shared_ptr<Cmd>
     parse_show_raids(GetOpts& get_opts)
     {
-	get_opts.parse("raids", GetOpts::no_options);
+	Options options(get_opts);
 
-	return make_shared<CmdShowRaids>();
+	return make_shared<CmdShowRaids>(options);
     }
 
 }
