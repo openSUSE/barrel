@@ -34,6 +34,7 @@ libbarrel_la_SOURCES =							\
 	create-partition-table.h	create-partition-table.cc	\
 	create-filesystem.h		create-filesystem.cc		\
 	create-pool.h			create-pool.cc			\
+	remove-pool.h			remove-pool.cc			\
 	extend-pool.h			extend-pool.cc			\
 	reduce-pool.h			reduce-pool.cc			\
 	remove-device.h			remove-device.cc		\

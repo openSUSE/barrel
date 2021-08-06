@@ -50,7 +50,7 @@ namespace barrel
 		{ "name", required_argument, 'n' }
 	    };
 
-	    ParsedOpts parsed_opts = get_opts.parse("save", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("devicegraph", options);
 
 	    if (parsed_opts.has_option("name"))
 		name = parsed_opts.get("name");

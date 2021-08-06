@@ -95,7 +95,7 @@ namespace barrel
 	    pool->add_device(blk_device);
 	}
 
-	state.modified = true;
+	state.pools_modified = true;
     }
 
 

@@ -24,10 +24,9 @@
 
 #include <storage/Storage.h>
 #include <storage/Pool.h>
-#include <storage/Devices/BlkDevice.h>
 
 #include "Utils/GetOpts.h"
-#include "reduce-pool.h"
+#include "remove-pool.h"
 
 
 namespace barrel
@@ -44,8 +43,6 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    string name;
-
-	    vector<string> blk_devices;
 	};
 
 
@@ -55,21 +52,19 @@ namespace barrel
 		{ "name", required_argument, 'n' }
 	    };
 
-	    ParsedOpts parsed_opts = get_opts.parse("pool", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("pool", options);
 
 	    name = parsed_opts.get("name");
-
-	    blk_devices = parsed_opts.get_blk_devices();
 	}
 
     }
 
 
-    class CmdReducePool : public Cmd
+    class CmdRemovePool : public Cmd
     {
     public:
 
-	CmdReducePool(const Options& options) : options(options) {}
+	CmdRemovePool(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -83,28 +78,20 @@ namespace barrel
 
 
     void
-    CmdReducePool::doit(const GlobalOptions& global_options, State& state) const
+    CmdRemovePool::doit(const GlobalOptions& global_options, State& state) const
     {
-	Devicegraph* staging = state.storage->get_staging();
-
-	Pool* pool = state.storage->get_pool(options.name);
-
-	for (const string& blk_device_name : options.blk_devices)
-	{
-	    BlkDevice* blk_device = BlkDevice::find_by_name(staging, blk_device_name);
-	    pool->remove_device(blk_device);
-	}
+	state.storage->remove_pool(options.name);
 
 	state.pools_modified = true;
     }
 
 
     shared_ptr<Cmd>
-    parse_reduce_pool(GetOpts& get_opts)
+    parse_remove_pool(GetOpts& get_opts)
     {
 	Options options(get_opts);
 
-	return make_shared<CmdReducePool>(options);
+	return make_shared<CmdRemovePool>(options);
     }
 
 }

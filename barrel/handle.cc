@@ -51,6 +51,7 @@
 #include "create-partition-table.h"
 #include "create-filesystem.h"
 #include "create-pool.h"
+#include "remove-pool.h"
 #include "extend-pool.h"
 #include "reduce-pool.h"
 #include "remove-device.h"
@@ -159,7 +160,8 @@ namespace barrel
 
 
     const vector<Parser> remove_cmds = {
-	{ "device", parse_remove_device }
+	{ "device", parse_remove_device },
+	{ "pool", parse_remove_pool }
     };
 
 

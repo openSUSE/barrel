@@ -107,6 +107,7 @@ namespace barrel
 	bool run = true;
 
 	bool modified = false;
+	bool pools_modified = false;
 
 	Stack stack;
 	Backup backup;
