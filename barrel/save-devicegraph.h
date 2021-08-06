@@ -20,8 +20,8 @@
  */
 
 
-#ifndef BARREL_LOAD_H
-#define BARREL_LOAD_H
+#ifndef BARREL_SAVE_DEVICEGRAPH_H
+#define BARREL_SAVE_DEVICEGRAPH_H
 
 
 #include "handle.h"
@@ -31,7 +31,7 @@ namespace barrel
 {
 
     shared_ptr<Cmd>
-    parse_load(GetOpts& get_opts);
+    parse_save_devicegraph(GetOpts& get_opts);
 
 }
 

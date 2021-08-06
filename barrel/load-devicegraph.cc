@@ -29,7 +29,7 @@
 #include "Utils/JsonFile.h"
 #include "Utils/BarrelDefines.h"
 #include "Utils/Text.h"
-#include "load.h"
+#include "load-devicegraph.h"
 
 
 namespace barrel
@@ -45,7 +45,7 @@ namespace barrel
 	{
 	    Options(GetOpts& get_opts);
 
-	    string devicegraph;
+	    string name;
 	    optional<string> mapping;
 	};
 
@@ -53,16 +53,16 @@ namespace barrel
 	Options::Options(GetOpts& get_opts)
 	{
 	    const vector<Option> options = {
-		{ "devicegraph", required_argument, 'f' },
+		{ "name", required_argument, 'n' },
 		{ "mapping", required_argument, 'm' }
 	    };
 
 	    ParsedOpts parsed_opts = get_opts.parse("load", options, true);
 
-	    if (parsed_opts.has_option("devicegraph"))
-		devicegraph = parsed_opts.get("devicegraph");
+	    if (parsed_opts.has_option("name"))
+		name = parsed_opts.get("name");
 	    else
-		throw OptionsException("devicegraph missing");
+		throw OptionsException("name missing");
 
 	    if (parsed_opts.has_option("mapping"))
 		mapping = parsed_opts.get("mapping");
@@ -71,11 +71,11 @@ namespace barrel
     }
 
 
-    class CmdLoad : public Cmd
+    class CmdLoadDevicegraph : public Cmd
     {
     public:
 
-	CmdLoad(const Options& options) : options(options) {}
+	CmdLoadDevicegraph(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -106,8 +106,8 @@ namespace barrel
     };
 
 
-    CmdLoad::mapping_t
-    CmdLoad::load_mapping() const
+    CmdLoadDevicegraph::mapping_t
+    CmdLoadDevicegraph::load_mapping() const
     {
 	const string& filename = options.mapping.value();
 
@@ -150,7 +150,7 @@ namespace barrel
 
 
     bool
-    CmdLoad::same_udev(const BlkDevice* a, const BlkDevice* b) const
+    CmdLoadDevicegraph::same_udev(const BlkDevice* a, const BlkDevice* b) const
     {
 	// could use something like set_intersection but needs sorting
 
@@ -168,8 +168,8 @@ namespace barrel
     }
 
 
-    CmdLoad::mapping_t
-    CmdLoad::make_mapping(const Devicegraph* probed, const Devicegraph* staging) const
+    CmdLoadDevicegraph::mapping_t
+    CmdLoadDevicegraph::make_mapping(const Devicegraph* probed, const Devicegraph* staging) const
     {
 	mapping_t mapping;
 
@@ -197,8 +197,8 @@ namespace barrel
 
 
     const Disk*
-    CmdLoad::map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
-		      SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const
+    CmdLoadDevicegraph::map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
+				 SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const
     {
 	const string name = a->get_name();
 
@@ -260,12 +260,12 @@ namespace barrel
 
 
     void
-    CmdLoad::doit(const GlobalOptions& global_options, State& state) const
+    CmdLoadDevicegraph::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Devicegraph* probed = state.storage->get_probed();
 	Devicegraph* staging = state.storage->get_staging();
 
-	staging->load(options.devicegraph, false);
+	staging->load(options.name, false);
 
 	const mapping_t mapping = options.mapping ? load_mapping() : make_mapping(probed, staging);
 
@@ -310,11 +310,11 @@ namespace barrel
 
 
     shared_ptr<Cmd>
-    parse_load(GetOpts& get_opts)
+    parse_load_devicegraph(GetOpts& get_opts)
     {
 	Options options(get_opts);
 
-	return make_shared<CmdLoad>(options);
+	return make_shared<CmdLoadDevicegraph>(options);
     }
 
 }

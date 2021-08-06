@@ -24,7 +24,7 @@
 #include <storage/Devicegraph.h>
 
 #include "Utils/GetOpts.h"
-#include "save.h"
+#include "save-devicegraph.h"
 
 
 namespace barrel
@@ -40,36 +40,32 @@ namespace barrel
 	{
 	    Options(GetOpts& get_opts);
 
-	    string devicegraph;
+	    string name;
 	};
 
 
 	Options::Options(GetOpts& get_opts)
 	{
 	    const vector<Option> options = {
-		{ "devicegraph", required_argument, 'f' }
+		{ "name", required_argument, 'n' }
 	    };
 
 	    ParsedOpts parsed_opts = get_opts.parse("save", options, true);
 
-	    if (parsed_opts.has_option("devicegraph"))
-	    {
-		devicegraph = parsed_opts.get("devicegraph");
-	    }
+	    if (parsed_opts.has_option("name"))
+		name = parsed_opts.get("name");
 	    else
-	    {
-		throw OptionsException("devicegraph missing");
-	    }
+		throw OptionsException("name missing");
 	}
 
     }
 
 
-    class CmdSave : public Cmd
+    class CmdSaveDevicegraph : public Cmd
     {
     public:
 
-	CmdSave(const Options& options) : options(options) {}
+	CmdSaveDevicegraph(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -83,20 +79,20 @@ namespace barrel
 
 
     void
-    CmdSave::doit(const GlobalOptions& global_options, State& state) const
+    CmdSaveDevicegraph::doit(const GlobalOptions& global_options, State& state) const
     {
-	Devicegraph* staging = state.storage->get_staging();
+	const Devicegraph* staging = state.storage->get_staging();
 
-	staging->save(options.devicegraph);
+	staging->save(options.name);
     }
 
 
     shared_ptr<Cmd>
-    parse_save(GetOpts& get_opts)
+    parse_save_devicegraph(GetOpts& get_opts)
     {
 	Options options(get_opts);
 
-	return make_shared<CmdSave>(options);
+	return make_shared<CmdSaveDevicegraph>(options);
     }
 
 }

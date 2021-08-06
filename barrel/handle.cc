@@ -54,8 +54,8 @@
 #include "extend-pool.h"
 #include "reduce-pool.h"
 #include "remove-device.h"
-#include "load.h"
-#include "save.h"
+#include "load-devicegraph.h"
+#include "save-devicegraph.h"
 
 
 namespace barrel
@@ -163,6 +163,15 @@ namespace barrel
     };
 
 
+    const vector<Parser> load_cmds = {
+	{ "devicegraph", parse_load_devicegraph }
+    };
+
+    const vector<Parser> save_cmds = {
+	{ "devicegraph", parse_save_devicegraph }
+    };
+
+
     struct MainCmd
     {
 	const string name;
@@ -182,8 +191,8 @@ namespace barrel
 	{ "extend", nullptr, extend_cmds },
 	{ "reduce", nullptr, reduce_cmds },
 	{ "remove", nullptr, remove_cmds },
-	{ "load", parse_load, {} },
-	{ "save", parse_save, {} },
+	{ "load", nullptr, load_cmds },
+	{ "save", nullptr, save_cmds },
 	{ "commit", parse_commit, {} }
     };
 

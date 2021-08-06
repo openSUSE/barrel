@@ -32,8 +32,8 @@ BOOST_AUTO_TEST_CASE(test1)
     // So far only /dev/sda and alike can be used in the mapping file. E.g. by-path links
     // need a real system lookup (in find_by_any_name()).
 
-    Args args({ "barrel", "--dry-run", "--yes", "--verbose", "load", "--devicegraph", "load1.xml", "--mapping",
-	    "mapping1.json" });
+    Args args({ "barrel", "--dry-run", "--yes", "--verbose", "load", "devicegraph", "--name", "load1.xml",
+	    "--mapping", "mapping1.json" });
 
     vector<string> actions = {
 	"Delete GPT on /dev/sda",
@@ -70,7 +70,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "--verbose", "load", "--devicegraph", "load1.xml" });
+    Args args({ "barrel", "--dry-run", "--yes", "--verbose", "load", "devicegraph", "--name", "load1.xml" });
 
     vector<string> actions = {
 	"Delete GPT on /dev/sda",

@@ -161,6 +161,7 @@ namespace barrel
 	comp_names.push_back("reduce");
 	comp_names.push_back("remove");
 	comp_names.push_back("device");
+	comp_names.push_back("devicegraph");
 	comp_names.push_back("pop");
 	comp_names.push_back("dup");
 	comp_names.push_back("stack");
