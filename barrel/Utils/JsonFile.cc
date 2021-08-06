@@ -20,10 +20,8 @@
  */
 
 
-#include <fcntl.h>
-#include <sys/types.h>
+#include <stdio.h>
 #include <sys/stat.h>
-#include <sys/mman.h>
 
 #include <stdexcept>
 
@@ -34,45 +32,51 @@
 namespace barrel
 {
 
+    JsonFile::JsonFile()
+	: root(json_object_new_object())
+    {
+    }
+
+
     JsonFile::JsonFile(const string& filename)
 	: root(nullptr)
     {
-	int fd = open(filename.c_str(), O_RDONLY);
-	if (fd < 0)
-	{
+	FILE* fp = fopen(filename.c_str(), "r");
+	if (!fp)
 	    throw runtime_error(sformat("opening json file '%s' failed", filename.c_str()));
-	}
 
 	struct stat st;
-	if (fstat(fd, &st) < 0)
+	if (fstat(fileno(fp), &st) != 0)
 	{
-	    close(fd);
+	    fclose(fp);
 	    throw runtime_error(sformat("stat for json file '%s' failed", filename.c_str()));
 	}
 
-	void* data = mmap(NULL, st.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
-	if (!data)
+	vector<char> data(st.st_size);
+	if (fread(data.data(), 1, st.st_size, fp) != (size_t)(st.st_size))
 	{
-	    close(fd);
-	    throw runtime_error(sformat("mmap for json '%s' file failed", filename.c_str()));
+	    fclose(fp);
+	    throw runtime_error(sformat("read for json file '%s' failed", filename.c_str()));
 	}
 
-	json_tokener* tokener = json_tokener_new();
-	root = json_tokener_parse_ex(tokener, (const char*) data, st.st_size);
+	if (fclose(fp) != 0)
+	    throw runtime_error(sformat("closing json file '%s' failed", filename.c_str()));
 
-	munmap(data, st.st_size);
-	close(fd);
+	json_tokener* tokener = json_tokener_new();
+
+	root = json_tokener_parse_ex(tokener, data.data(), st.st_size);
 
 	if (json_tokener_get_error(tokener) != json_tokener_success)
 	{
 	    json_tokener_free(tokener);
+	    json_object_put(root);
 	    throw runtime_error(sformat("parsing json file '%s' failed", filename.c_str()));
 	}
 
-	// excessive content
 	if (tokener->char_offset != st.st_size)
 	{
 	    json_tokener_free(tokener);
+	    json_object_put(root);
 	    throw runtime_error(sformat("excessive content in json file '%s'", filename.c_str()));
 	}
 
@@ -83,6 +87,23 @@ namespace barrel
     JsonFile::~JsonFile()
     {
 	json_object_put(root);
+    }
+
+
+    void
+    JsonFile::save(const string& filename) const
+    {
+	FILE* fp = fopen(filename.c_str(), "w");
+	if (!fp)
+	    throw runtime_error(sformat("opening json file '%s' failed", filename.c_str()));
+
+	const int flags = JSON_C_TO_STRING_PRETTY | JSON_C_TO_STRING_SPACED |
+	    JSON_C_TO_STRING_NOSLASHESCAPE;
+
+	fprintf(fp, "%s\n", json_object_to_json_string_ext(root, flags));
+
+	if (fclose(fp) != 0)
+	    throw runtime_error(sformat("closing json file '%s' failed", filename.c_str()));
     }
 
 }

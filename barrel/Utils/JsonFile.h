@@ -39,11 +39,15 @@ namespace barrel
 
     public:
 
+	JsonFile();
+
 	JsonFile(const string& filename);
 
 	~JsonFile();
 
 	json_object* get_root() { return root; }
+
+	void save(const string& filename) const;
 
     private:
 
