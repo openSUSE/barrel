@@ -36,27 +36,9 @@
 #include "Utils/Readline.h"
 
 #include "handle.h"
-#include "generic.h"
-#include "show-disks.h"
-#include "show-filesystems.h"
-#include "show-pools.h"
-#include "show-raids.h"
-#include "show-lvm-vgs.h"
-#include "show-commit.h"
+#include "cmds.h"
+#include "help.h"
 #include "commit.h"
-#include "create-raid.h"
-#include "create-lvm-vg.h"
-#include "create-lvm-lv.h"
-#include "create-encryption.h"
-#include "create-partition-table.h"
-#include "create-filesystem.h"
-#include "create-pool.h"
-#include "remove-pool.h"
-#include "extend-pool.h"
-#include "reduce-pool.h"
-#include "remove-device.h"
-#include "load-devicegraph.h"
-#include "save-devicegraph.h"
 
 
 namespace barrel
@@ -88,115 +70,15 @@ namespace barrel
 	ParsedOpts parsed_opts = get_opts.parse(options);
 
 	verbose = parsed_opts.has_option("verbose");
-
 	dry_run = parsed_opts.has_option("dry-run");
 
 	if (parsed_opts.has_option("prefix"))
 	    prefix = parsed_opts.get("prefix");
 
 	activate = parsed_opts.has_option("activate");
-
 	yes = parsed_opts.has_option("yes");
+	help = parsed_opts.has_option("help");
     }
-
-
-    typedef shared_ptr<Cmd> (*cmd_func_t)(GetOpts& get_opts);
-
-
-    struct Parser
-    {
-	const string name;
-	const cmd_func_t cmd_func;
-    };
-
-
-    const vector<Parser> show_cmds = {
-	{ "disks", parse_show_disks },
-	{ "filesystems", parse_show_filesystems },
-	{ "pools", parse_show_pools },
-	{ "raids", parse_show_raids },
-	{ "vgs", parse_show_lvm_vgs },
-	{ "commit", parse_show_commit }
-    };
-
-
-    const vector<Parser> create_cmds = {
-	{ "pop", parse_pop },
-	{ "dup", parse_dup },
-	{ "raid", parse_create_raid },
-	{ "raid0", parse_create_raid0 },
-	{ "raid1", parse_create_raid1 },
-	{ "raid4", parse_create_raid4 },
-	{ "raid5", parse_create_raid5 },
-	{ "raid6", parse_create_raid6 },
-	{ "raid10", parse_create_raid10 },
-	{ "vg", parse_create_lvm_vg },
-	{ "lv", parse_create_lvm_lv },
-	{ "encryption", parse_create_encryption },
-	{ "luks1", parse_create_luks1 },
-	{ "luks2", parse_create_luks2 },
-	{ "partition-table", parse_create_partition_table },
-	{ "gpt", parse_create_gpt },
-	{ "ms-dos", parse_create_msdos },
-	{ "filesystem", parse_create_filesystem },
-	{ "btrfs", parse_create_btrfs },
-	{ "ext2", parse_create_ext2 },
-	{ "ext3", parse_create_ext3 },
-	{ "ext4", parse_create_ext4 },
-	{ "swap", parse_create_swap },
-	{ "xfs", parse_create_xfs },
-	{ "pool", parse_create_pool }
-    };
-
-
-    const vector<Parser> extend_cmds = {
-	{ "pool", parse_extend_pool }
-    };
-
-
-    const vector<Parser> reduce_cmds = {
-	{ "pool", parse_reduce_pool }
-    };
-
-
-    const vector<Parser> remove_cmds = {
-	{ "device", parse_remove_device },
-	{ "pool", parse_remove_pool }
-    };
-
-
-    const vector<Parser> load_cmds = {
-	{ "devicegraph", parse_load_devicegraph }
-    };
-
-    const vector<Parser> save_cmds = {
-	{ "devicegraph", parse_save_devicegraph }
-    };
-
-
-    struct MainCmd
-    {
-	const string name;
-	const cmd_func_t cmd_func;
-	const vector<Parser>& sub_cmds;
-    };
-
-
-    const vector<MainCmd> main_cmds = {
-	{ "pop", parse_pop, {} },
-	{ "dup", parse_dup, {} },
-	{ "stack", parse_stack, {} },
-	{ "undo", parse_undo, {} },
-	{ "quit", parse_quit, {} },
-	{ "show", nullptr, show_cmds },
-	{ "create", nullptr, create_cmds },
-	{ "extend", nullptr, extend_cmds },
-	{ "reduce", nullptr, reduce_cmds },
-	{ "remove", nullptr, remove_cmds },
-	{ "load", nullptr, load_cmds },
-	{ "save", nullptr, save_cmds },
-	{ "commit", parse_commit, {} }
-    };
 
 
     vector<shared_ptr<Cmd>>
@@ -450,6 +332,12 @@ namespace barrel
 	try
 	{
 	    GlobalOptions global_options(get_opts);
+
+	    if (global_options.help)
+	    {
+		help();
+		return true;
+	    }
 
 	    bool interactive = !get_opts.has_args();
 

@@ -44,6 +44,7 @@ namespace barrel
     {
 	GlobalOptions(GetOpts& get_opts);
 
+	bool help = false;
 	bool verbose = false;
 	bool dry_run = false;
 	string prefix;
@@ -116,6 +117,9 @@ namespace barrel
     };
 
 
+    /**
+     * Already parsed command.
+     */
     struct Cmd
     {
 	virtual ~Cmd() = default;
@@ -123,6 +127,22 @@ namespace barrel
 	virtual bool do_backup() const = 0;
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const = 0;
+    };
+
+
+    typedef shared_ptr<Cmd> (*cmd_func_t)(GetOpts& get_opts);
+
+
+    struct Parser
+    {
+	const string name;
+	const cmd_func_t cmd_func;
+    };
+
+
+    struct MainCmd : public Parser
+    {
+	const vector<Parser>& sub_cmds;
     };
 
 

@@ -29,11 +29,11 @@ BuildRequires:  libboost_headers-devel
 BuildRequires:  libboost_test-devel
 BuildRequires:  libjson-c-devel
 %endif
-BuildRequires:  libstorage-ng-devel >= 4.4.32
+BuildRequires:  libstorage-ng-devel >= 4.4.33
 BuildRequires:  libtool
 BuildRequires:  readline-devel
 
-Requires:       libstorage-ng1 >= 4.4.32
+Requires:       libstorage-ng1 >= 4.4.33
 
 Summary:        Tool for storage management
 Url:            http://github.com/aschnell/barrel

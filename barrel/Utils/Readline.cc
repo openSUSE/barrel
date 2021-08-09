@@ -160,6 +160,7 @@ namespace barrel
 	comp_names.push_back("extend");
 	comp_names.push_back("reduce");
 	comp_names.push_back("remove");
+	comp_names.push_back("rename");
 	comp_names.push_back("device");
 	comp_names.push_back("devicegraph");
 	comp_names.push_back("pop");

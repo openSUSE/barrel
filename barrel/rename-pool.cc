@@ -23,7 +23,7 @@
 #include <storage/Storage.h>
 
 #include "Utils/GetOpts.h"
-#include "remove-pool.h"
+#include "rename-pool.h"
 
 
 namespace barrel
@@ -39,29 +39,32 @@ namespace barrel
 	{
 	    Options(GetOpts& get_opts);
 
-	    string name;
+	    string old_name;
+	    string new_name;
 	};
 
 
 	Options::Options(GetOpts& get_opts)
 	{
 	    const vector<Option> options = {
-		{ "name", required_argument, 'n' }
+		{ "old-name", required_argument, 'o' },
+		{ "new-name", required_argument, 'n' }
 	    };
 
 	    ParsedOpts parsed_opts = get_opts.parse("pool", options);
 
-	    name = parsed_opts.get("name");
+	    old_name = parsed_opts.get("old-name");
+	    new_name = parsed_opts.get("new-name");
 	}
 
     }
 
 
-    class CmdRemovePool : public Cmd
+    class CmdRenamePool : public Cmd
     {
     public:
 
-	CmdRemovePool(const Options& options) : options(options) {}
+	CmdRenamePool(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -75,20 +78,20 @@ namespace barrel
 
 
     void
-    CmdRemovePool::doit(const GlobalOptions& global_options, State& state) const
+    CmdRenamePool::doit(const GlobalOptions& global_options, State& state) const
     {
-	state.storage->remove_pool(options.name);
+	state.storage->rename_pool(options.old_name, options.new_name);
 
 	state.pools_modified = true;
     }
 
 
     shared_ptr<Cmd>
-    parse_remove_pool(GetOpts& get_opts)
+    parse_rename_pool(GetOpts& get_opts)
     {
 	Options options(get_opts);
 
-	return make_shared<CmdRemovePool>(options);
+	return make_shared<CmdRenamePool>(options);
     }
 
 }

@@ -20,75 +20,65 @@
  */
 
 
-#include <storage/Storage.h>
-
 #include "Utils/GetOpts.h"
-#include "remove-pool.h"
+#include "help.h"
+#include "cmds.h"
 
 
 namespace barrel
 {
 
+    using namespace std;
     using namespace storage;
 
 
-    namespace
-    {
-
-	struct Options
-	{
-	    Options(GetOpts& get_opts);
-
-	    string name;
-	};
-
-
-	Options::Options(GetOpts& get_opts)
-	{
-	    const vector<Option> options = {
-		{ "name", required_argument, 'n' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("pool", options);
-
-	    name = parsed_opts.get("name");
-	}
-
-    }
-
-
-    class CmdRemovePool : public Cmd
+    class CmdHelp : public Cmd
     {
     public:
-
-	CmdRemovePool(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
-    private:
-
-	const Options options;
-
     };
 
 
     void
-    CmdRemovePool::doit(const GlobalOptions& global_options, State& state) const
+    help()
     {
-	state.storage->remove_pool(options.name);
-
-	state.pools_modified = true;
+	for (const MainCmd& main_cmd : main_cmds)
+	{
+	    if (main_cmd.cmd_func)
+	    {
+		cout << main_cmd.name << '\n';
+	    }
+	    else
+	    {
+		for (const Parser& sub_cmd : main_cmd.sub_cmds)
+		{
+		    if (sub_cmd.cmd_func)
+		    {
+			cout << main_cmd.name << " " << sub_cmd.name << '\n';
+		    }
+		}
+	    }
+	}
     }
 
 
-    shared_ptr<Cmd>
-    parse_remove_pool(GetOpts& get_opts)
+    void
+    CmdHelp::doit(const GlobalOptions& global_options, State& state) const
     {
-	Options options(get_opts);
+	help();
+    };
 
-	return make_shared<CmdRemovePool>(options);
+
+    shared_ptr<Cmd>
+    parse_help(GetOpts& get_opts)
+    {
+	get_opts.parse("help", GetOpts::no_options);
+
+	return make_shared<CmdHelp>();
     }
 
 }

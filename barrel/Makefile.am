@@ -18,6 +18,8 @@ noinst_LTLIBRARIES = libbarrel.la
 
 libbarrel_la_SOURCES =							\
 	handle.h			handle.cc			\
+	cmds.h				cmds.cc				\
+	help.h				help.cc				\
 	generic.h			generic.cc			\
 	show.h				show.cc				\
 	show-disks.h			show-disks.cc			\
@@ -35,6 +37,7 @@ libbarrel_la_SOURCES =							\
 	create-filesystem.h		create-filesystem.cc		\
 	create-pool.h			create-pool.cc			\
 	remove-pool.h			remove-pool.cc			\
+	rename-pool.h			rename-pool.cc			\
 	extend-pool.h			extend-pool.cc			\
 	reduce-pool.h			reduce-pool.cc			\
 	remove-device.h			remove-device.cc		\
