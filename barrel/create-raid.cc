@@ -328,6 +328,8 @@ namespace barrel
 	    {
 		for (const string& device_name : options.blk_devices)
 		{
+		    // TODO check if blk_device is used
+
 		    BlkDevice* blk_device = BlkDevice::find_by_name(staging, device_name);
 		    blk_devices.push_back(blk_device);
 		}

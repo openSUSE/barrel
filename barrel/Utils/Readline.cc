@@ -179,6 +179,7 @@ namespace barrel
 	comp_names.push_back("--mapping");
 	comp_names.push_back("--stripes");
 	comp_names.push_back("--probed");
+	comp_names.push_back("--force");
 
 	// TODO normally tab completion only goes upto the path component
 

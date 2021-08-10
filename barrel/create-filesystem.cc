@@ -66,8 +66,12 @@ namespace barrel
 	    optional<vector<string>> mount_options;
 	    optional<string> pool;
 	    optional<SmartSize> size;
+	    bool force = false;
 
-	    enum class ModusOperandi { BLK_DEVICE, POOL, PARTITION_TABLE };
+	    vector<string> blk_devices;
+
+	    enum class ModusOperandi { BLK_DEVICE, POOL, PARTITION_TABLE_FROM_STACK, BLK_DEVICE_FROM_STACK,
+		PARTITIONABLE };
 
 	    ModusOperandi modus_operandi;
 
@@ -83,10 +87,11 @@ namespace barrel
 		{ "path", required_argument, 'p' },
 		{ "mount-options", required_argument, 'o' },
 		{ "pool", required_argument },
-		{ "size", required_argument, 's' }
+		{ "size", required_argument, 's' },
+		{ "force", no_argument }
 	    };
 
-	    ParsedOpts parsed_opts = get_opts.parse("filesystem", options);
+	    ParsedOpts parsed_opts = get_opts.parse("filesystem", options, true);
 
 	    if (parsed_opts.has_option("type"))
 	    {
@@ -120,6 +125,10 @@ namespace barrel
 		size = SmartSize(str);
 	    }
 
+	    force = parsed_opts.has_option("force");
+
+	    blk_devices = parsed_opts.get_blk_devices();
+
 	    calculate_modus_operandi();
 	}
 
@@ -127,19 +136,32 @@ namespace barrel
 	void
 	Options::calculate_modus_operandi()
 	{
-	    if (!size)
+	    if (pool)
 	    {
-		if (pool)
-		    throw runtime_error("pool argument not allowed");
+		if (!size)
+		    throw runtime_error("size argument missing");
 
-		modus_operandi = ModusOperandi::BLK_DEVICE;
+		if (!blk_devices.empty())
+		    throw runtime_error("pool argument and blk devices not allowed");
+
+		modus_operandi = ModusOperandi::POOL;
 	    }
 	    else
 	    {
-		if (pool)
-		    modus_operandi = ModusOperandi::POOL;
+		if (size)
+		{
+		    if (blk_devices.empty())
+			modus_operandi = ModusOperandi::PARTITION_TABLE_FROM_STACK;
+		    else
+			modus_operandi = ModusOperandi::PARTITIONABLE;
+		}
 		else
-		    modus_operandi = ModusOperandi::PARTITION_TABLE;
+		{
+		    if (blk_devices.empty())
+			modus_operandi = ModusOperandi::BLK_DEVICE_FROM_STACK;
+		    else
+			modus_operandi = ModusOperandi::BLK_DEVICE;
+		}
 	    }
 	}
 
@@ -172,7 +194,7 @@ namespace barrel
 
 	switch (options.modus_operandi)
 	{
-	    case Options::ModusOperandi::BLK_DEVICE:
+	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
 	    {
 		// The block device is taken from the state.
 
@@ -200,7 +222,7 @@ namespace barrel
 	    }
 	    break;
 
-	    case Options::ModusOperandi::PARTITION_TABLE:
+	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
 	    {
 		if (state.stack.empty() || !is_partition_table(state.stack.top(staging)))
 		    throw runtime_error("not a partition table on stack");
@@ -212,6 +234,48 @@ namespace barrel
 
 		Pool pool;
 		pool.add_device(partition_table->get_partitionable());
+
+		SmartSize smart_size = options.size.value();
+
+		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
+
+		blk_device = pool.create_partitions(staging, 1, size)[0];
+	    }
+	    break;
+
+	    case Options::ModusOperandi::BLK_DEVICE:
+	    {
+		if (options.blk_devices.size() != 1)
+		    throw runtime_error("wrong number of blk devices");
+
+		blk_device = BlkDevice::find_by_name(staging, options.blk_devices.front());
+
+		if (blk_device->has_children())
+		{
+		    if (options.force)
+		    {
+			blk_device->remove_descendants(View::REMOVE);
+		    }
+		    else
+		    {
+			throw runtime_error("block device is in use");
+		    }
+		}
+	    }
+	    break;
+
+	    case Options::ModusOperandi::PARTITIONABLE:
+	    {
+		Pool pool;
+
+		if (options.blk_devices.size() != 1)
+		    throw runtime_error("wrong number of partitionables");
+
+		for (const string& device_name : options.blk_devices)
+		{
+		    Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
+		    pool.add_device(partitionable);
+		}
 
 		SmartSize smart_size = options.size.value();
 
