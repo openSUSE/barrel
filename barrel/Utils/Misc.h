@@ -20,8 +20,8 @@
  */
 
 
-#ifndef BARREL_UTILS_H
-#define BARREL_UTILS_H
+#ifndef BARREL_MISC_H
+#define BARREL_MISC_H
 
 
 #include <string>

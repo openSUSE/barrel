@@ -31,6 +31,7 @@
 #include <storage/Filesystems/MountPoint.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "Utils/Misc.h"
 #include "create-filesystem.h"
 
@@ -246,7 +247,7 @@ namespace barrel
 	    case Options::ModusOperandi::BLK_DEVICE:
 	    {
 		if (options.blk_devices.size() != 1)
-		    throw runtime_error("wrong number of blk devices");
+		    throw runtime_error("only one block device allowed");
 
 		blk_device = BlkDevice::find_by_name(staging, options.blk_devices.front());
 
@@ -258,7 +259,7 @@ namespace barrel
 		    }
 		    else
 		    {
-			throw runtime_error("block device is in use");
+			throw runtime_error(sformat("block device '%s' is in use", blk_device->get_name().c_str()));
 		    }
 		}
 	    }

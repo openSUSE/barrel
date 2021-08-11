@@ -129,3 +129,29 @@ BOOST_AUTO_TEST_CASE(test3)
 
     BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
 }
+
+
+BOOST_AUTO_TEST_CASE(test4)
+{
+    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "mirror", "/dev/sdb", "/dev/sdc",
+	    "--force" });
+
+    vector<string> actions = {
+	"Delete GPT on /dev/sdc",
+	"Delete GPT on /dev/sdb",
+	"Create MD RAID1 /dev/md0 (31.87 GiB) from /dev/sdb (32.00 GiB) and /dev/sdc (32.00 GiB)",
+	"Add /dev/md0 to /etc/mdadm.conf"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    vector<string> tmp;
+    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
+	tmp = actiongraph->get_commit_actions_as_strings();
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+}

@@ -30,6 +30,7 @@
 #include <storage/Utils/HumanString.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "Utils/Misc.h"
 #include "Utils/BarrelDefines.h"
 #include "create-raid.h"
@@ -125,6 +126,7 @@ namespace barrel
 	    optional<SmartNumber> number;
 	    optional<string> metadata;
 	    optional<unsigned long> chunk_size;
+	    bool force = false;
 
 	    vector<string> blk_devices;
 
@@ -145,7 +147,8 @@ namespace barrel
 		{ "size", required_argument, 's' },
 		{ "metadata", required_argument, 'm' },
 		{ "devices", required_argument, 'd' },
-		{ "chunk-size", required_argument }
+		{ "chunk-size", required_argument },
+		{ "force", no_argument }
 	    };
 
 	    ParsedOpts parsed_opts = get_opts.parse("raid", options, true);
@@ -184,6 +187,8 @@ namespace barrel
 		string str = parsed_opts.get("chunk-size");
 		chunk_size = humanstring_to_byte(str, false);
 	    }
+
+	    force = parsed_opts.has_option("force");
 
 	    blk_devices = parsed_opts.get_blk_devices();
 
@@ -328,9 +333,20 @@ namespace barrel
 	    {
 		for (const string& device_name : options.blk_devices)
 		{
-		    // TODO check if blk_device is used
-
 		    BlkDevice* blk_device = BlkDevice::find_by_name(staging, device_name);
+
+		    if (blk_device->has_children())
+		    {
+			if (options.force)
+			{
+			    blk_device->remove_descendants(View::REMOVE);
+			}
+			else
+			{
+			    throw runtime_error(sformat("block device '%s' is in use", blk_device->get_name().c_str()));
+			}
+		    }
+
 		    blk_devices.push_back(blk_device);
 		}
 

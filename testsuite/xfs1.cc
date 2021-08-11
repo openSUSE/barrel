@@ -54,6 +54,31 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
+    Args args({ "barrel", "--dry-run", "--yes", "create", "filesystem", "--type", "xfs", "/dev/sdb", "--force" });
+
+    // TODO another disk could be selected
+
+    vector<string> actions = {
+	"Delete GPT on /dev/sdb",
+	"Create xfs on /dev/sdb (32.00 GiB)"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    vector<string> tmp;
+    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
+	tmp = actiongraph->get_commit_actions_as_strings();
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, tmp);
+}
+
+
+BOOST_AUTO_TEST_CASE(test3)
+{
     Args args({ "barrel", "--dry-run", "--yes", "create", "xfs", "--pool", "HDDs (512 B)", "--size", "12 GiB" });
 
     // TODO another disk could be selected
