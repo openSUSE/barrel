@@ -29,6 +29,8 @@
 #include <functional>
 
 #include <storage/Storage.h>
+#include <storage/Devices/BlkDevice.h>
+#include <storage/Pool.h>
 
 
 namespace barrel
@@ -84,6 +86,14 @@ namespace barrel
 
 	std::function<void(const Actiongraph*)> save_actiongraph = nullptr;
     };
+
+
+    void
+    remove_pools(Storage* storage);
+
+
+    void
+    pimp_pool(Pool* pool, const BlkDevice* blk_device);
 
 }
 

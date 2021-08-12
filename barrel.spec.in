@@ -64,6 +64,7 @@ make %{?_smp_mflags} check VERBOSE=1
 %files
 %defattr(-,root,root)
 %{_sbindir}/barrel
+%dir %{_sysconfdir}/barrel
 %doc %dir %{_docdir}/%{name}
 %doc %{_docdir}/%{name}/AUTHORS
 %license %{_docdir}/%{name}/LICENSE

@@ -4,7 +4,7 @@
 
 VERSION = $(shell utils/git2log --version VERSION ; cat VERSION)
 
-SUBDIRS = barrel testsuite
+SUBDIRS = barrel data testsuite
 
 AUTOMAKE_OPTIONS = foreign dist-xz no-dist-gzip subdir-objects
 

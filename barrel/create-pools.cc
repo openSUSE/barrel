@@ -21,20 +21,23 @@
 
 
 #include <storage/Storage.h>
+#include <storage/Devicegraph.h>
+#include <storage/Pool.h>
+#include <storage/Devices/BlkDevice.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/JsonFile.h"
 #include "Utils/Text.h"
-#include "show-commit.h"
+#include "create-pools.h"
 
 
 namespace barrel
 {
 
-    using namespace std;
     using namespace storage;
 
 
-    class CmdShowCommit : public Cmd
+    class CmdCreatePools : public Cmd
     {
     public:
 
@@ -46,39 +49,39 @@ namespace barrel
 
 
     void
-    CmdShowCommit::doit(const GlobalOptions& global_options, State& state) const
+    CmdCreatePools::doit(const GlobalOptions& global_options, State& state) const
     {
-	try
-	{
-	    const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
+	if (global_options.verbose)
+	    cout << "Generating pools" << endl;
 
-	    for (const string& action : actiongraph->get_commit_actions_as_strings())
-		cout << "  " << action << '\n';
+	Storage* storage = state.storage;
+	const Devicegraph* devicegraph = storage->get_staging();
 
-	    if (state.pools_modified)
-		cout << "  " << _("Save pools") << '\n';
-	}
-	catch (const Exception& e)
+	storage->generate_pools(devicegraph);
+
+	for (map<string, Pool*>::value_type& value : storage->get_pools())
 	{
-	    cout << "failed to calculate actions" << endl;
-	    cout << e.what() << endl;
+	    Pool* pool = value.second;
+
+	    for (const Device* device : pool->get_devices(devicegraph))
+	    {
+		if (!is_blk_device(device))
+		    continue;
+
+		const BlkDevice* blk_device = to_blk_device(device);
+
+		pimp_pool(pool, blk_device);
+	    }
 	}
+
+	state.pools_modified = true;
     }
 
 
     shared_ptr<Cmd>
-    parse_show_commit(GetOpts& get_opts)
+    parse_create_pools()
     {
-	get_opts.parse("commit", GetOpts::no_options);
-
-	return make_shared<CmdShowCommit>();
-    }
-
-
-    shared_ptr<Cmd>
-    parse_show_commit()
-    {
-	return make_shared<CmdShowCommit>();
+	return make_shared<CmdCreatePools>();
     }
 
 }

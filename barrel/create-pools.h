@@ -20,8 +20,8 @@
  */
 
 
-#ifndef BARREL_SHOW_COMMIT_H
-#define BARREL_SHOW_COMMIT_H
+#ifndef BARREL_CREATE_POOLS_H
+#define BARREL_CREATE_POOLS_H
 
 
 #include "handle.h"
@@ -31,11 +31,9 @@ namespace barrel
 {
 
     shared_ptr<Cmd>
-    parse_show_commit(GetOpts& get_opts);
-
-    shared_ptr<Cmd>
-    parse_show_commit();
+    parse_create_pools();
 
 }
+
 
 #endif

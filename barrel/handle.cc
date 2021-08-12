@@ -39,6 +39,8 @@
 #include "cmds.h"
 #include "help.h"
 #include "commit.h"
+#include "create-pools.h"
+#include "load-pools.h"
 
 
 namespace barrel
@@ -182,8 +184,29 @@ namespace barrel
 	    storage.probe(&my_probe_callbacks);
 	    cout << " done" << endl;
 	}
+    }
 
-	storage.generate_pools(storage.get_probed());
+
+    void
+    startup_pools(const GlobalOptions& global_options, State& state)
+    {
+	if (!state.testsuite)
+	{
+	    try
+	    {
+		parse_load_pools()->doit(global_options, state);
+	    }
+	    catch (...)
+	    {
+		parse_create_pools()->doit(global_options, state);
+		state.pools_modified = false;
+	    }
+	}
+	else
+	{
+	    parse_create_pools()->doit(global_options, state);
+	    state.pools_modified = false;
+	}
     }
 
 
@@ -241,6 +264,8 @@ namespace barrel
 	State state(global_options);
 	state.storage = &storage;
 	state.testsuite = testsuite;
+
+	startup_pools(global_options, state);
 
 	// TODO readline completion with proper parsing, commands, options, pools, ...
 
@@ -310,6 +335,8 @@ namespace barrel
 	State state(global_options);
 	state.storage = &storage;
 	state.testsuite = testsuite;
+
+	startup_pools(global_options, state);
 
 	for (const shared_ptr<Cmd>& cmd : cmds)
 	{

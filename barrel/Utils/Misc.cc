@@ -107,4 +107,45 @@ namespace barrel
 	return blk_devices;
     }
 
+
+    void
+    remove_pools(Storage* storage)
+    {
+	for (const map<string, Pool*>::value_type& value : storage->get_pools())
+	{
+	    storage->remove_pool(value.first);
+	}
+    }
+
+
+    void
+    pimp_pool(Pool* pool, const BlkDevice* blk_device)
+    {
+	// TODO make this configurable
+
+	const vector<string>& udev_ids = blk_device->get_udev_ids();
+	if (!udev_ids.empty())
+	{
+	    string name = DEV_DISK_BY_ID_DIR "/" + udev_ids.front();
+
+	    map<string, string> userdata = pool->get_userdata();
+	    userdata[sformat("sid-%d-name", blk_device->get_sid())] = name;
+	    pool->set_userdata(userdata);
+
+	    return;
+	}
+
+	const vector<string>& udev_paths = blk_device->get_udev_paths();
+	if (!udev_paths.empty())
+	{
+	    string name = DEV_DISK_BY_PATH_DIR "/" + udev_paths.front();
+
+	    map<string, string> userdata = pool->get_userdata();
+	    userdata[sformat("sid-%d-name", blk_device->get_sid())] = name;
+	    pool->set_userdata(userdata);
+
+	    return;
+	}
+    }
+
 }

@@ -93,6 +93,8 @@ namespace barrel
 	{
 	    BlkDevice* blk_device = BlkDevice::find_by_name(staging, blk_device_name);
 	    pool->add_device(blk_device);
+
+	    pimp_pool(pool, blk_device);
 	}
 
 	state.pools_modified = true;

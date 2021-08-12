@@ -44,6 +44,8 @@
 #include "remove-device.h"
 #include "load-devicegraph.h"
 #include "save-devicegraph.h"
+#include "load-pools.h"
+#include "save-pools.h"
 
 
 namespace barrel
@@ -110,12 +112,14 @@ namespace barrel
 
 
     const vector<Parser> load_cmds = {
-	{ "devicegraph", parse_load_devicegraph }
+	{ "devicegraph", parse_load_devicegraph },
+	{ "pools", parse_load_pools }
     };
 
 
     const vector<Parser> save_cmds = {
-	{ "devicegraph", parse_save_devicegraph }
+	{ "devicegraph", parse_save_devicegraph },
+	{ "pools", parse_save_pools }
     };
 
 

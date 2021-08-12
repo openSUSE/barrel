@@ -32,5 +32,12 @@
 #define DEV_DISK_BY_ID_DIR DEV_DIR "/disk/by-id"
 #define DEV_DISK_BY_PATH_DIR DEV_DIR "/disk/by-path"
 
+#define SYSCONF_DIR "/etc"
+
+
+// files
+
+#define POOLS_FILE SYSCONF_DIR "/barrel/pools.json"
+
 
 #endif

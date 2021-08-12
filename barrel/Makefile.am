@@ -40,6 +40,9 @@ libbarrel_la_SOURCES =							\
 	rename-pool.h			rename-pool.cc			\
 	extend-pool.h			extend-pool.cc			\
 	reduce-pool.h			reduce-pool.cc			\
+	create-pools.h			create-pools.cc			\
+	load-pools.h			load-pools.cc			\
+	save-pools.h			save-pools.cc			\
 	remove-device.h			remove-device.cc		\
 	load-devicegraph.h		load-devicegraph.cc		\
 	save-devicegraph.h		save-devicegraph.cc

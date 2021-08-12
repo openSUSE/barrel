@@ -29,6 +29,7 @@ AC_OUTPUT(
 	Makefile
 	barrel/Makefile
 	barrel/Utils/Makefile
+	data/Makefile
 	testsuite/Makefile
 	package/barrel.spec:barrel.spec.in
 )

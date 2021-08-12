@@ -26,6 +26,8 @@
 #include "commit.h"
 #include "Utils/Text.h"
 #include "Utils/Prompt.h"
+#include "show-commit.h"
+#include "save-pools.h"
 
 
 namespace barrel
@@ -45,16 +47,15 @@ namespace barrel
     void
     CmdCommit::doit(const GlobalOptions& global_options, State& state) const
     {
-	const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
-
-	for (const string& action : actiongraph->get_commit_actions_as_strings())
-	    cout << "  " << action << '\n';
+	parse_show_commit()->doit(global_options, state);
 
 	if (!global_options.yes)
 	{
 	    if (!prompt(_("Commit changes?")))
 		return;
 	}
+
+	const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
 
 	if (state.testsuite && state.testsuite->save_actiongraph)
 	    state.testsuite->save_actiongraph(actiongraph);
@@ -67,6 +68,9 @@ namespace barrel
 	{
 	    CommitOptions commit_options(false);
 	    state.storage->commit(commit_options);
+
+	    if (state.pools_modified)
+		parse_save_pools()->doit(global_options, state);
 	}
 
 	state.run = false;
