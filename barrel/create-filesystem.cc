@@ -140,10 +140,10 @@ namespace barrel
 	    if (pool)
 	    {
 		if (!size)
-		    throw runtime_error("size argument missing");
+		    throw runtime_error("size argument missing for command 'filesystem'");
 
 		if (!blk_devices.empty())
-		    throw runtime_error("pool argument and blk devices not allowed");
+		    throw runtime_error("pool argument and blk devices not allowed for command 'filesystem'");
 
 		modus_operandi = ModusOperandi::POOL;
 	    }
@@ -318,7 +318,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (!options.type)
-	    throw runtime_error("filesystem type missing");
+	    throw runtime_error("filesystem type missing for command 'filesystem'");
 
 	return make_shared<CmdCreateFilesystem>(options);
     }
@@ -330,7 +330,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (options.type)
-	    throw runtime_error("filesystem type already set");
+	    throw runtime_error("filesystem type already set for command 'filesystem'");
 
 	options.type = type;
 

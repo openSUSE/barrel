@@ -132,12 +132,12 @@ namespace barrel
 	    ParsedOpts parsed_opts = get_opts.parse("vg", options, true);
 
 	    if (!parsed_opts.has_option("name"))
-		throw OptionsException("name missing");
+		throw OptionsException("name missing for command 'vg'");
 
 	    vg_name = parsed_opts.get("name");
 
 	    if (!LvmVg::is_valid_vg_name(vg_name))
-		throw OptionsException("invalid volume group name");
+		throw OptionsException("invalid volume group name for command 'vg'");
 
 	    pool = parsed_opts.get_optional("pool");
 
@@ -171,21 +171,21 @@ namespace barrel
 	    if (pool)
 	    {
 		if (!size)
-		    throw runtime_error("size argument required");
+		    throw runtime_error("size argument required for command 'vg'");
 
 		modus_operandi = ModusOperandi::POOL;
 	    }
 	    else if (size)
 	    {
 		if (blk_devices.empty())
-		    throw runtime_error("block devices missing");
+		    throw runtime_error("block devices missing for command 'vg'");
 
 		modus_operandi = ModusOperandi::PARTITIONABLES;
 	    }
 	    else
 	    {
 		if (blk_devices.empty())
-		    throw runtime_error("block devices missing");
+		    throw runtime_error("block devices missing for command 'vg'");
 
 		modus_operandi = ModusOperandi::RAW;
 	    }

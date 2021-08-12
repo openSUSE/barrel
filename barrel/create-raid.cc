@@ -159,7 +159,7 @@ namespace barrel
 
 		map<string, MdLevel>::const_iterator it = str_to_md_level.find(str);
 		if (it == str_to_md_level.end())
-		    throw runtime_error("unknown raid level");
+		    throw runtime_error("unknown raid level for command 'raid'");
 
 		level = it->second;
 	    }
@@ -202,21 +202,21 @@ namespace barrel
 	    if (pool)
 	    {
 		if (!size)
-		    throw runtime_error("size argument required");
+		    throw runtime_error("size argument required for command 'raid'");
 
 		modus_operandi = ModusOperandi::POOL;
 	    }
 	    else if (size)
 	    {
 		if (blk_devices.empty())
-		    throw runtime_error("block devices missing");
+		    throw runtime_error("block devices missing for command 'raid'");
 
 		modus_operandi = ModusOperandi::PARTITIONABLES;
 	    }
 	    else
 	    {
 		if (blk_devices.empty())
-		    throw runtime_error("block devices missing");
+		    throw runtime_error("block devices missing for command 'raid'");
 
 		modus_operandi = ModusOperandi::RAW;
 	    }
@@ -401,7 +401,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (!options.level)
-	    throw OptionsException("raid level missing");
+	    throw OptionsException("raid level missing for command 'raid'");
 
 	return make_shared<CmdCreateRaid>(options);
     }
@@ -413,7 +413,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (options.level)
-	    throw OptionsException("raid level already set");
+	    throw OptionsException("raid level already set for command 'raid'");
 
 	options.level = level;
 
