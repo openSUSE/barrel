@@ -307,6 +307,16 @@ namespace barrel
 	    }
 	}
 
+	if (is_partition(blk_device))
+	{
+	    Partition* partition = to_partition(blk_device);
+
+	    if (fs_type == FsType::SWAP)
+		partition->set_id(ID_SWAP);
+	    else
+		partition->set_id(ID_LINUX);
+	}
+
 	state.stack.push(blk_filesystem);
 	state.modified = true;
     }
