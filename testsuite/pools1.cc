@@ -20,25 +20,28 @@ BOOST_AUTO_TEST_CASE(test1)
 
     vector<string> output = {
 	"Probing... done",
-	"Name       │ Devices │       Size │  Used",
-	"───────────┼─────────┼────────────┼──────",
-	"HDDs       │       4 │ 128.00 GiB │ 0.00%",
-	"├─/dev/sdb │         │  32.00 GiB │ 0.00%",
-	"├─/dev/sdc │         │  32.00 GiB │ 0.00%",
-	"├─/dev/sdd │         │  32.00 GiB │ 0.00%",
-	"└─/dev/sde │         │  32.00 GiB │ 0.00%",
-	"Test       │       2 │  64.00 GiB │ 0.00%",
-	"├─/dev/sdb │         │  32.00 GiB │ 0.00%",
-	"└─/dev/sdc │         │  32.00 GiB │ 0.00%"
+	"Name       │ Devices │      Size │  Used",
+	"───────────┼─────────┼───────────┼──────",
+	"HDDs       │       3 │ 96.00 GiB │ 0.00%",
+	"├─/dev/sdb │         │ 32.00 GiB │ 0.00%",
+	"├─/dev/sdc │         │ 32.00 GiB │ 0.00%",
+	"└─/dev/sdd │         │ 32.00 GiB │ 0.00%",
+	"Test       │       3 │ 96.00 GiB │ 0.00%",
+	"├─/dev/sdb │         │ 32.00 GiB │ 0.00%",
+	"├─/dev/sdc │         │ 32.00 GiB │ 0.00%",
+	"└─/dev/sde │         │ 32.00 GiB │ 0.00%",
+
     };
 
     Testsuite testsuite;
     testsuite.devicegraph_filename = "empty2.xml";
 
     testsuite.readlines = {
-	"rename pool --old-name \"HDDs (512 B)\" --new-name HDDs",
 	"remove pool --name \"SSDs (512 B)\"",
+	"rename pool --old-name \"HDDs (512 B)\" --new-name HDDs",
+	"reduce pool --name HDDs /dev/sde",
 	"create pool --name Test /dev/sd[bc]",
+	"extend pool --name Test /dev/sde",
 	"show pools",
 	"quit"
     };
