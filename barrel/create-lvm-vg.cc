@@ -111,7 +111,8 @@ namespace barrel
 
 	    vector<string> blk_devices;
 
-	    enum class ModusOperandi { POOL, PARTITIONABLES, RAW };
+	    enum class ModusOperandi { POOL, PARTITIONABLES, BLK_DEVICES, BLK_DEVICE_FROM_STACK,
+		PARTITION_TABLE_FROM_STACK };
 
 	    ModusOperandi modus_operandi;
 
@@ -168,26 +169,34 @@ namespace barrel
 	void
 	Options::calculate_modus_operandi()
 	{
+	    // TODO identical in create-filesystem.cc
+
 	    if (pool)
 	    {
 		if (!size)
 		    throw runtime_error("size argument required for command 'vg'");
 
-		modus_operandi = ModusOperandi::POOL;
-	    }
-	    else if (size)
-	    {
-		if (blk_devices.empty())
-		    throw runtime_error("block devices missing for command 'vg'");
+		if (!blk_devices.empty())
+		    throw runtime_error("pool argument and blk devices not allowed for command 'vg'");
 
-		modus_operandi = ModusOperandi::PARTITIONABLES;
+		modus_operandi = ModusOperandi::POOL;
 	    }
 	    else
 	    {
-		if (blk_devices.empty())
-		    throw runtime_error("block devices missing for command 'vg'");
-
-		modus_operandi = ModusOperandi::RAW;
+		if (size)
+		{
+		    if (blk_devices.empty())
+			modus_operandi = ModusOperandi::PARTITION_TABLE_FROM_STACK;
+		    else
+			modus_operandi = ModusOperandi::PARTITIONABLES;
+		}
+		else
+		{
+		    if (blk_devices.empty())
+			modus_operandi = ModusOperandi::BLK_DEVICE_FROM_STACK;
+		    else
+			modus_operandi = ModusOperandi::BLK_DEVICES;
+		}
 	    }
 	}
 
@@ -254,6 +263,27 @@ namespace barrel
 	    }
 	    break;
 
+	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
+	    {
+		if (state.stack.empty() || !is_partition_table(state.stack.top(staging)))
+		    throw runtime_error("not a partition table on stack");
+
+		PartitionTable* partition_table = to_partition_table(state.stack.top(staging));
+		state.stack.pop();
+
+		Devicegraph* staging = state.storage->get_staging();
+
+		Pool pool;
+		pool.add_device(partition_table->get_partitionable());
+
+		SmartSize smart_size = options.size.value();
+
+		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
+
+		blk_devices.push_back(pool.create_partitions(staging, 1, size)[0]);
+	    }
+	    break;
+
 	    case Options::ModusOperandi::PARTITIONABLES:
 	    {
 		Pool pool;
@@ -285,13 +315,23 @@ namespace barrel
 	    }
 	    break;
 
-	    case Options::ModusOperandi::RAW:
+	    case Options::ModusOperandi::BLK_DEVICES:
 	    {
 		for (const string& device_name : options.blk_devices)
 		{
 		    BlkDevice* blk_device = BlkDevice::find_by_name(staging, device_name);
 		    blk_devices.push_back(blk_device);
 		}
+	    }
+	    break;
+
+	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
+	    {
+		if (state.stack.empty() || !is_blk_device(state.stack.top(staging)))
+		    throw runtime_error("not a block device on stack");
+
+		blk_devices.push_back(to_blk_device(state.stack.top(staging)));
+		state.stack.pop();
 	    }
 	    break;
 	}

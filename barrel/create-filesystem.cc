@@ -137,6 +137,8 @@ namespace barrel
 	void
 	Options::calculate_modus_operandi()
 	{
+	    // TODO identical in create-lvm-vg.cc
+
 	    if (pool)
 	    {
 		if (!size)
@@ -197,8 +199,6 @@ namespace barrel
 	{
 	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
 	    {
-		// The block device is taken from the state.
-
 		if (state.stack.empty() || !is_blk_device(state.stack.top(staging)))
 		    throw runtime_error("not a block device on stack");
 
@@ -209,8 +209,6 @@ namespace barrel
 
 	    case Options::ModusOperandi::POOL:
 	    {
-		// Create a block device from the pool.
-
 		Devicegraph* staging = state.storage->get_staging();
 
 		Pool* pool = state.storage->get_pool(options.pool.value());

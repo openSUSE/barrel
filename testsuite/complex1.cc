@@ -97,3 +97,78 @@ BOOST_AUTO_TEST_CASE(test2)
 
     BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
 }
+
+
+BOOST_AUTO_TEST_CASE(test3)
+{
+    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool", "HDDs (512 B)",
+	    "--devices", "3+1", "--size", "8 GiB", "vg", "--name", "test", "lv", "--name", "foo",
+	    "--size", "2 GiB" });
+
+    vector<string> actions = {
+	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Set id of partition /dev/sdc1 to Linux RAID",
+	"Create partition /dev/sde1 (4.06 GiB)",
+	"Set id of partition /dev/sde1 to Linux RAID",
+	"Create partition /dev/sdb1 (4.06 GiB)",
+	"Set id of partition /dev/sdb1 to Linux RAID",
+	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Set id of partition /dev/sdd1 to Linux RAID",
+	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
+	"Create physical volume on /dev/md0",
+	"Create volume group test (8.00 GiB) from /dev/md0 (8.00 GiB)",
+	"Create logical volume foo (2.00 GiB) on volume group test",
+	"Add /dev/md0 to /etc/mdadm.conf"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    vector<string> tmp;
+    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
+	tmp = actiongraph->get_commit_actions_as_strings();
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+}
+
+
+BOOST_AUTO_TEST_CASE(test4)
+{
+    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool", "HDDs (512 B)",
+	    "--devices", "3+1", "--size", "8 GiB", "gpt", "vg", "--name", "test", "--size", "6 GiB", "lv",
+	    "--name", "foo", "--size", "2 GiB" });
+
+    vector<string> actions = {
+	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Set id of partition /dev/sdc1 to Linux RAID",
+	"Create partition /dev/sde1 (4.06 GiB)",
+	"Set id of partition /dev/sde1 to Linux RAID",
+	"Create partition /dev/sdb1 (4.06 GiB)",
+	"Set id of partition /dev/sdb1 to Linux RAID",
+	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Set id of partition /dev/sdd1 to Linux RAID",
+	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
+	"Create GPT on /dev/md0",
+	"Create partition /dev/md0p1 (6.00 GiB)",
+	"Set id of partition /dev/md0p1 to Linux LVM",
+	"Create physical volume on /dev/md0p1",
+	"Create volume group test (6.00 GiB) from /dev/md0p1 (6.00 GiB)",
+	"Create logical volume foo (2.00 GiB) on volume group test",
+	"Add /dev/md0 to /etc/mdadm.conf"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    vector<string> tmp;
+    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
+	tmp = actiongraph->get_commit_actions_as_strings();
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+}
