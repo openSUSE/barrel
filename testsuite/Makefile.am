@@ -12,7 +12,7 @@ LDADD =								\
 check_PROGRAMS =						\
 	getopts.test table.test raid1.test xfs1.test 		\
 	complex1.test parse-line.test lvm1.test load1.test	\
-	pools1.test show1.test
+	pools1.test show1.test remove1.test
 
 AM_DEFAULT_SOURCE_EXT = .cc
 

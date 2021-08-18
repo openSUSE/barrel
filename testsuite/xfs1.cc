@@ -56,8 +56,6 @@ BOOST_AUTO_TEST_CASE(test2)
 {
     Args args({ "barrel", "--dry-run", "--yes", "create", "filesystem", "--type", "xfs", "/dev/sdb", "--force" });
 
-    // TODO another disk could be selected
-
     vector<string> actions = {
 	"Delete GPT on /dev/sdb",
 	"Create xfs on /dev/sdb (32.00 GiB)"
@@ -79,13 +77,12 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "xfs", "--pool", "HDDs (512 B)", "--size", "12 GiB" });
-
-    // TODO another disk could be selected
+    Args args({ "barrel", "--dry-run", "--yes", "create", "xfs", "--pool", "HDDs (512 B)", "--size", "12 GiB",
+	    "--mkfs-options", "-m bigtime=1" });
 
     vector<string> actions = {
-	"Create partition /dev/sdd1 (12.00 GiB)",
-	"Create xfs on /dev/sdd1 (12.00 GiB)"
+	"Create partition /dev/sdb1 (12.00 GiB)",
+	"Create xfs on /dev/sdb1 (12.00 GiB)"
     };
 
     Testsuite testsuite;

@@ -33,14 +33,14 @@ BOOST_AUTO_TEST_CASE(test1)
 	    "--devices", "3+1", "--size", "8 GiB" });
 
     vector<string> actions = {
-	"Create partition /dev/sdc1 (4.06 GiB)",
-	"Set id of partition /dev/sdc1 to Linux RAID",
-	"Create partition /dev/sde1 (4.06 GiB)",
-	"Set id of partition /dev/sde1 to Linux RAID",
 	"Create partition /dev/sdb1 (4.06 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
+	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Set id of partition /dev/sdc1 to Linux RAID",
 	"Create partition /dev/sdd1 (4.06 GiB)",
 	"Set id of partition /dev/sdd1 to Linux RAID",
+	"Create partition /dev/sde1 (4.06 GiB)",
+	"Set id of partition /dev/sde1 to Linux RAID",
 	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
 	"Add /dev/md0 to /etc/mdadm.conf"
     };
@@ -68,14 +68,14 @@ BOOST_AUTO_TEST_CASE(test2)
 		"--size", "8 GiB" });
 
     vector<string> actions = {
-	"Create partition /dev/sde1 (2.71 GiB)",
-	"Set id of partition /dev/sde1 to Linux RAID",
-	"Create partition /dev/sdd1 (2.71 GiB)",
-	"Set id of partition /dev/sdd1 to Linux RAID",
-	"Create partition /dev/sdc1 (2.71 GiB)",
-	"Set id of partition /dev/sdc1 to Linux RAID",
 	"Create partition /dev/sdb1 (2.71 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
+	"Create partition /dev/sdc1 (2.71 GiB)",
+	"Set id of partition /dev/sdc1 to Linux RAID",
+	"Create partition /dev/sdd1 (2.71 GiB)",
+	"Set id of partition /dev/sdd1 to Linux RAID",
+	"Create partition /dev/sde1 (2.71 GiB)",
+	"Set id of partition /dev/sde1 to Linux RAID",
 	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (2.71 GiB), /dev/sdc1 (2.71 GiB), /dev/sdd1 (2.71 GiB) and /dev/sde1 (2.71 GiB)",
 	"Add /dev/md0 to /etc/mdadm.conf"
     };
@@ -99,15 +99,15 @@ BOOST_AUTO_TEST_CASE(test3)
     Args args({ "barrel", "--dry-run", "--yes" });
 
     vector<string> actions = {
-	"Create partition /dev/sde1 (2.71 GiB)",
-	"Set id of partition /dev/sde1 to Linux RAID",
-	"Create partition /dev/sdd1 (2.71 GiB)",
-	"Set id of partition /dev/sdd1 to Linux RAID",
-	"Create partition /dev/sdc1 (2.71 GiB)",
-	"Set id of partition /dev/sdc1 to Linux RAID",
-	"Create partition /dev/sdb1 (2.71 GiB)",
+	"Create partition /dev/sdb1 (4.06 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
-	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (2.71 GiB), /dev/sdc1 (2.71 GiB), /dev/sdd1 (2.71 GiB) and /dev/sde1 (2.71 GiB)",
+	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Set id of partition /dev/sdc1 to Linux RAID",
+	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Set id of partition /dev/sdd1 to Linux RAID",
+	"Create partition /dev/sde1 (4.06 GiB)",
+	"Set id of partition /dev/sde1 to Linux RAID",
+	"Create MD RAID6 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
 	"Add /dev/md0 to /etc/mdadm.conf"
     };
 
@@ -116,7 +116,7 @@ BOOST_AUTO_TEST_CASE(test3)
 
     // Here barrel does the expansion of /dev/sd[b-e] (in GetOpts).
     testsuite.readlines = {
-	"create raid --level=5 /dev/sd[b-e] --size=8g --metadata=1.2",
+	"create raid6 /dev/sd[b-e] --size=8g --metadata=1.2",
 	"commit"
     };
 
@@ -133,14 +133,14 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "mirror", "/dev/sdb", "/dev/sdc",
-	    "--force" });
+    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "mirror", "--name", "test",
+	    "/dev/sdb", "/dev/sdc", "--force" });
 
     vector<string> actions = {
 	"Delete GPT on /dev/sdc",
 	"Delete GPT on /dev/sdb",
-	"Create MD RAID1 /dev/md0 (31.87 GiB) from /dev/sdb (32.00 GiB) and /dev/sdc (32.00 GiB)",
-	"Add /dev/md0 to /etc/mdadm.conf"
+	"Create MD RAID1 /dev/md/test (31.87 GiB) from /dev/sdb (32.00 GiB) and /dev/sdc (32.00 GiB)",
+	"Add /dev/md/test to /etc/mdadm.conf"
     };
 
     Testsuite testsuite;
