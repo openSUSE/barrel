@@ -31,6 +31,7 @@
 
 #include "Utils/GetOpts.h"
 #include "Utils/Misc.h"
+#include "Utils/Text.h"
 #include "create-lvm-vg.h"
 
 
@@ -108,6 +109,7 @@ namespace barrel
 	    optional<string> pool;
 	    optional<SmartNumber> number;
 	    optional<unsigned long long> extent_size;
+	    bool force = false;
 
 	    vector<string> blk_devices;
 
@@ -127,7 +129,8 @@ namespace barrel
 		{ "pool", required_argument, 'p' },
 		{ "size", required_argument, 's' },
 		{ "devices", required_argument, 'd' },
-		{ "extent-size", required_argument }
+		{ "extent-size", required_argument },
+		{ "force", no_argument }
 	    };
 
 	    ParsedOpts parsed_opts = get_opts.parse("vg", options, true);
@@ -159,6 +162,8 @@ namespace barrel
 		string str = parsed_opts.get("extent-size");
 		extent_size = humanstring_to_byte(str, false);
 	    }
+
+	    force = parsed_opts.has_option("force");
 
 	    blk_devices = parsed_opts.get_blk_devices();
 
@@ -320,6 +325,19 @@ namespace barrel
 		for (const string& device_name : options.blk_devices)
 		{
 		    BlkDevice* blk_device = BlkDevice::find_by_name(staging, device_name);
+
+		    if (blk_device->has_children())
+		    {
+			if (options.force)
+			{
+			    blk_device->remove_descendants(View::REMOVE);
+			}
+			else
+			{
+			    throw runtime_error(sformat("block device '%s' is in use", blk_device->get_name().c_str()));
+			}
+		    }
+
 		    blk_devices.push_back(blk_device);
 		}
 	    }

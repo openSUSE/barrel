@@ -282,6 +282,8 @@ namespace barrel
 
 	SystemInfo system_info;
 
+	// TODO dasd and multipath
+
 	for (Disk* a : staging->get_all_disks())
 	{
 	    const Disk* b = map_disk(global_options, probed, system_info, mapping, a);

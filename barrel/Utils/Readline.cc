@@ -180,6 +180,10 @@ namespace barrel
 	comp_names.push_back("--stripes");
 	comp_names.push_back("--probed");
 	comp_names.push_back("--force");
+	comp_names.push_back("--keep-partitions");
+	comp_names.push_back("--mount-options");
+	comp_names.push_back("--mkfs-options");
+	comp_names.push_back("--tune-options");
 
 	// TODO normally tab completion only goes upto the path component
 

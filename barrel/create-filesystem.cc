@@ -65,6 +65,8 @@ namespace barrel
 	    optional<string> label;
 	    optional<string> path;
 	    optional<vector<string>> mount_options;
+	    optional<string> mkfs_options;
+	    optional<string> tune_options;
 	    optional<string> pool;
 	    optional<SmartSize> size;
 	    bool force = false;
@@ -77,6 +79,8 @@ namespace barrel
 	    ModusOperandi modus_operandi;
 
 	    void calculate_modus_operandi();
+
+	    void check() const;
 	};
 
 
@@ -87,6 +91,8 @@ namespace barrel
 		{ "label", required_argument, 'l' },
 		{ "path", required_argument, 'p' },
 		{ "mount-options", required_argument, 'o' },
+		{ "mkfs-options", required_argument },
+		{ "tune-options", required_argument },
 		{ "pool", required_argument },
 		{ "size", required_argument, 's' },
 		{ "force", no_argument }
@@ -100,7 +106,7 @@ namespace barrel
 
 		map<string, FsType>::const_iterator it = str_to_fs_type.find(str);
 		if (it == str_to_fs_type.end())
-		    throw runtime_error("unknown filesystem type");
+		    throw runtime_error(sformat(_("unknown filesystem type '%s'"), str.c_str()));
 
 		type = it->second;
 	    }
@@ -117,6 +123,12 @@ namespace barrel
 		boost::split(tmp, str, boost::is_any_of(","), boost::token_compress_on);
 		mount_options = tmp;
 	    }
+
+	    if (parsed_opts.has_option("mkfs-options"))
+		mkfs_options = parsed_opts.get("mkfs-options");
+
+	    if (parsed_opts.has_option("tune-options"))
+		tune_options = parsed_opts.get("tune-options");
 
 	    pool = parsed_opts.get_optional("pool");
 
@@ -168,6 +180,36 @@ namespace barrel
 	    }
 	}
 
+	void
+	Options::check() const
+	{
+	    if (tune_options)
+	    {
+		if (type.value() != FsType::EXT2 && type.value() != FsType::EXT3 &&
+		    type.value() != FsType::EXT4 && type.value() != FsType::REISERFS)
+		    throw runtime_error(sformat(_("tune options not allowed for %s"),
+						get_fs_type_name(type.value()).c_str()));
+	    }
+
+	    if (path)
+	    {
+		if (type.value() != FsType::SWAP && !boost::starts_with(path.value(), "/"))
+		{
+		    throw runtime_error(sformat(_("invalid path '%s'"), path.value().c_str()));
+		}
+
+		if (type.value() == FsType::SWAP && path.value() != "swap")
+		{
+		    throw runtime_error(_("path must be 'swap'"));
+		}
+	    }
+
+	    if (!path && mount_options)
+	    {
+		throw runtime_error(_("mount options require a path"));
+	    }
+	}
+
     }
 
 
@@ -175,7 +217,11 @@ namespace barrel
     {
     public:
 
-	CmdCreateFilesystem(const Options& options) : options(options) {}
+	CmdCreateFilesystem(const Options& options)
+	    : options(options)
+	{
+	    options.check();
+	}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -292,6 +338,16 @@ namespace barrel
 	if (options.label)
 	{
 	    blk_filesystem->set_label(options.label.value());
+	}
+
+	if (options.mkfs_options)
+	{
+	    blk_filesystem->set_mkfs_options(options.mkfs_options.value());
+	}
+
+	if (options.tune_options)
+	{
+	    blk_filesystem->set_tune_options(options.tune_options.value());
 	}
 
 	if (options.path)

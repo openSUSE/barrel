@@ -42,13 +42,21 @@ namespace barrel
 	{
 	    Options(GetOpts& get_opts);
 
+	    bool keep_partitions = false;
+
 	    vector<string> blk_devices;
 	};
 
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    ParsedOpts parsed_opts = get_opts.parse("remove", GetOpts::no_options, true);
+	    const vector<Option> options = {
+		{ "keep-partitions", no_argument }
+	    };
+
+	    ParsedOpts parsed_opts = get_opts.parse("remove", options, true);
+
+	    keep_partitions = parsed_opts.has_option("keep-partitions");
 
 	    blk_devices = parsed_opts.get_blk_devices();
 	}
@@ -82,14 +90,17 @@ namespace barrel
 	{
 	    BlkDevice* blk_device = BlkDevice::find_by_name(staging, name);
 
-	    if (is_md(blk_device))
+	    if (!options.keep_partitions)
 	    {
-		Md* md = to_md(blk_device);
-
-		for (BlkDevice* parent : md->get_devices())
+		if (is_md(blk_device))
 		{
-		    if (is_partition(parent))
-			staging->remove_device(parent);
+		    Md* md = to_md(blk_device);
+
+		    for (BlkDevice* parent : md->get_devices())
+		    {
+			if (is_partition(parent))
+			    staging->remove_device(parent);
+		    }
 		}
 	    }
 

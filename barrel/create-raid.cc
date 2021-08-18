@@ -130,7 +130,7 @@ namespace barrel
 
 	    vector<string> blk_devices;
 
-	    enum class ModusOperandi { POOL, PARTITIONABLES, RAW };
+	    enum class ModusOperandi { POOL, PARTITIONABLES, BLK_DEVICES };
 
 	    ModusOperandi modus_operandi;
 
@@ -218,7 +218,7 @@ namespace barrel
 		if (blk_devices.empty())
 		    throw runtime_error("block devices missing for command 'raid'");
 
-		modus_operandi = ModusOperandi::RAW;
+		modus_operandi = ModusOperandi::BLK_DEVICES;
 	    }
 	}
 
@@ -329,7 +329,7 @@ namespace barrel
 	    }
 	    break;
 
-	    case Options::ModusOperandi::RAW:
+	    case Options::ModusOperandi::BLK_DEVICES:
 	    {
 		for (const string& device_name : options.blk_devices)
 		{
