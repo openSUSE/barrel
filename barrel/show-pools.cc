@@ -38,7 +38,7 @@ namespace barrel
     using namespace storage;
 
 
-    class CmdShowPools : public Cmd
+    class ParsedCmdShowPools : public ParsedCmd
     {
     public:
 
@@ -50,7 +50,7 @@ namespace barrel
 
 
     void
-    CmdShowPools::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdShowPools::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Devicegraph* staging = state.storage->get_staging();
 
@@ -119,12 +119,19 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_show_pools(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdShowPools::parse(GetOpts& get_opts) const
     {
 	get_opts.parse("pools", GetOpts::no_options);
 
-	return make_shared<CmdShowPools>();
+	return make_shared<ParsedCmdShowPools>();
+    }
+
+
+    const char*
+    CmdShowPools::help() const
+    {
+	return _("show pools");
     }
 
 }

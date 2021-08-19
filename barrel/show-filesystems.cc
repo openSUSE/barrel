@@ -44,6 +44,11 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> show_filesystems_options = {
+	    { "probed", no_argument, 0, _("probed instead of staging") }
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -54,11 +59,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "probed", no_argument }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("filesystems", options);
+	    ParsedOpts parsed_opts = get_opts.parse("filesystems", show_filesystems_options);
 
 	    show_probed = parsed_opts.has_option("probed");
 	}
@@ -66,11 +67,11 @@ namespace barrel
     }
 
 
-    class CmdShowFilesystems : public Cmd
+    class ParsedCmdShowFilesystems : public ParsedCmd
     {
     public:
 
-	CmdShowFilesystems(const Options& options) : options(options) {}
+	ParsedCmdShowFilesystems(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -84,7 +85,7 @@ namespace barrel
 
 
     void
-    CmdShowFilesystems::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdShowFilesystems::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Storage* storage = state.storage;
 
@@ -126,12 +127,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_show_filesystems(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdShowFilesystems::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdShowFilesystems>(options);
+	return make_shared<ParsedCmdShowFilesystems>(options);
+    }
+
+
+    const char*
+    CmdShowFilesystems::help() const
+    {
+	return _("show filesystems");
+    }
+
+
+    const vector<Option>&
+    CmdShowFilesystems::options() const
+    {
+	return show_filesystems_options;
     }
 
 }

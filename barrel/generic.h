@@ -30,24 +30,39 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_pop(GetOpts& get_opts);
+    struct CmdPop : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
 
 
-    shared_ptr<Cmd>
-    parse_dup(GetOpts& get_opts);
+    struct CmdDup : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
 
 
-    shared_ptr<Cmd>
-    parse_stack(GetOpts& get_opts);
+    struct CmdStack : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
 
 
-    shared_ptr<Cmd>
-    parse_undo(GetOpts& get_opts);
+    struct CmdUndo : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
 
 
-    shared_ptr<Cmd>
-    parse_quit(GetOpts& get_opts);
+    struct CmdQuit : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
 
 }
 

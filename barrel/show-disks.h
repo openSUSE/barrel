@@ -30,8 +30,12 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_show_disks(GetOpts& get_opts);
+    struct CmdShowDisks : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual const vector<Option>& options() const override;
+    };
 
 }
 

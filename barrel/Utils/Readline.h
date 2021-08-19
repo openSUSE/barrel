@@ -43,6 +43,8 @@ namespace barrel
 
 	static const Storage* storage;
 
+	static vector<string> fixed_comp_names;
+
     private:
 
 	const Testsuite* testsuite;

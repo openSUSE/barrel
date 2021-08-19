@@ -59,17 +59,7 @@ namespace barrel
 
     GlobalOptions::GlobalOptions(GetOpts& get_opts)
     {
-	const vector<Option> options = {
-	    { "quiet", no_argument, 'q' },
-	    { "verbose", no_argument, 'v' },
-	    { "dry-run", no_argument },
-	    { "prefix", required_argument },
-	    { "activate", no_argument, 'a' },
-	    { "yes", no_argument },
-	    { "help", no_argument, 'h' }
-	};
-
-	ParsedOpts parsed_opts = get_opts.parse(options);
+	ParsedOpts parsed_opts = get_opts.parse(get_options());
 
 	verbose = parsed_opts.has_option("verbose");
 	dry_run = parsed_opts.has_option("dry-run");
@@ -83,17 +73,34 @@ namespace barrel
     }
 
 
-    vector<shared_ptr<Cmd>>
+    const vector<Option>&
+    GlobalOptions::get_options()
+    {
+	static const vector<Option> options = {
+	    { "quiet", no_argument, 'q' },
+	    { "verbose", no_argument, 'v', _("be more verbose") },
+	    { "dry-run", no_argument, 0, _("do not commit anything to disk") },
+	    { "prefix", required_argument, 0, _("run with a prefix"), "prefix" },
+	    { "activate", no_argument, 'a' },
+	    { "yes", no_argument },
+	    { "help", no_argument, 'h', _("show help and exit") }
+	};
+
+	return options;
+    }
+
+
+    vector<shared_ptr<ParsedCmd>>
     parse(GetOpts& get_opts)
     {
-	vector<shared_ptr<Cmd>> cmds;
+	vector<shared_ptr<ParsedCmd>> cmds;
 
 	const char* command = get_opts.pop_arg();
 	vector<MainCmd>::const_iterator main_cmd = sloppy_find(main_cmds, command);
 
-	if (main_cmd->cmd_func)
+	if (main_cmd->cmd)
 	{
-	    cmds.emplace_back((*main_cmd->cmd_func)(get_opts));
+	    cmds.emplace_back(main_cmd->cmd->parse(get_opts));
 	}
 	else
 	{
@@ -104,7 +111,7 @@ namespace barrel
 	    {
 		const char* command = get_opts.pop_arg();
 		vector<Parser>::const_iterator parse_cmd = sloppy_find(main_cmd->sub_cmds, command);
-		cmds.emplace_back((*parse_cmd->cmd_func)(get_opts));
+		cmds.emplace_back(parse_cmd->cmd->parse(get_opts));
 	    }
 	}
 
@@ -194,7 +201,7 @@ namespace barrel
 	{
 	    try
 	    {
-		parse_load_pools()->doit(global_options, state);
+		CmdLoadPools::parse()->doit(global_options, state);
 	    }
 	    catch (...)
 	    {
@@ -248,6 +255,34 @@ namespace barrel
 
 
     void
+    make_fixed_comp_names()
+    {
+	// this is only a workaround until completion is context aware
+
+	for (const MainCmd& main_cmd : main_cmds)
+	{
+	    Readline::fixed_comp_names.push_back(main_cmd.name);
+
+	    if (main_cmd.cmd)
+	    {
+		for (const Option& option : main_cmd.cmd->options())
+		    Readline::fixed_comp_names.push_back("--"s + option.name);
+	    }
+	    else
+	    {
+		for (const Parser& sub_cmd : main_cmd.sub_cmds)
+		{
+		    Readline::fixed_comp_names.push_back(sub_cmd.name);
+
+		    for (const Option& option : sub_cmd.cmd->options())
+			Readline::fixed_comp_names.push_back("--"s + option.name);
+		}
+	    }
+	}
+    }
+
+
+    void
     handle_interactive(const GlobalOptions& global_options, const Testsuite* testsuite)
     {
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
@@ -260,6 +295,7 @@ namespace barrel
 	startup(global_options, storage);
 
 	Readline readline(&storage, testsuite);
+	make_fixed_comp_names();
 
 	State state(global_options);
 	state.storage = &storage;
@@ -287,16 +323,16 @@ namespace barrel
 		    Args args(parse_line(line));
 		    GetOpts get_opts(args.argc(), args.argv(), true, possible_blk_devices(&storage));
 
-		    vector<shared_ptr<Cmd>> cmds = parse(get_opts);
+		    vector<shared_ptr<ParsedCmd>> cmds = parse(get_opts);
 
-		    bool do_backup = any_of(cmds.begin(), cmds.end(), [](const shared_ptr<Cmd>& cmd) {
+		    bool do_backup = any_of(cmds.begin(), cmds.end(), [](const shared_ptr<ParsedCmd>& cmd) {
 			return cmd->do_backup();
 		    });
 
 		    if (do_backup)
 			state.backup.add(&storage);
 
-		    for (const shared_ptr<Cmd>& cmd : cmds)
+		    for (const shared_ptr<ParsedCmd>& cmd : cmds)
 		    {
 			cmd->doit(global_options, state);
 		    }
@@ -321,7 +357,7 @@ namespace barrel
     handle_cmdline(const GlobalOptions& global_options, const Testsuite* testsuite, GetOpts& get_opts)
     {
 	// parsing must happen before probing to inform early about wrong usage
-	vector<shared_ptr<Cmd>> cmds = parse(get_opts);
+	vector<shared_ptr<ParsedCmd>> cmds = parse(get_opts);
 
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
@@ -338,15 +374,14 @@ namespace barrel
 
 	startup_pools(global_options, state);
 
-	for (const shared_ptr<Cmd>& cmd : cmds)
+	for (const shared_ptr<ParsedCmd>& parsed_cmd : cmds)
 	{
-	    cmd->doit(global_options, state);
+	    parsed_cmd->doit(global_options, state);
 	}
 
 	if (state.modified)
 	{
-	    shared_ptr<Cmd> cmd_commit = parse_commit();
-	    cmd_commit->doit(global_options, state);
+	    CmdCommit::parse()->doit(global_options, state);
 	}
     }
 

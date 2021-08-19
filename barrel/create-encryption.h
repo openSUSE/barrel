@@ -30,14 +30,28 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_create_encryption(GetOpts& get_opts);
+    struct CmdCreateEncryption : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual const vector<Option>& options() const override;
+    };
 
-    shared_ptr<Cmd>
-    parse_create_luks1(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_luks2(GetOpts& get_opts);
+    struct CmdCreateLuks1 : public CmdCreateEncryption
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateLuks2 : public CmdCreateEncryption
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
 }
 

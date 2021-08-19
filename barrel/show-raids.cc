@@ -31,7 +31,7 @@
 #include "Utils/Table.h"
 #include "Utils/Text.h"
 #include "Utils/Misc.h"
-#include "show-pools.h"
+#include "show-raids.h"
 #include "show.h"
 
 
@@ -45,6 +45,11 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> show_raids_options = {
+	    { "probed", no_argument, 0, _("probed instead of staging") }
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -55,11 +60,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "probed", no_argument }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("raids", options);
+	    ParsedOpts parsed_opts = get_opts.parse("raids", show_raids_options);
 
 	    show_probed = parsed_opts.has_option("probed");
 	}
@@ -67,11 +68,11 @@ namespace barrel
     }
 
 
-    class CmdShowRaids : public CmdShow
+    class ParsedCmdShowRaids : public ParsedCmdShow
     {
     public:
 
-	CmdShowRaids(const Options& options) : options(options) {}
+	ParsedCmdShowRaids(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -87,7 +88,7 @@ namespace barrel
 
 
     string
-    CmdShowRaids::devices(const Devicegraph* devicegraph, const Md* md) const
+    ParsedCmdShowRaids::devices(const Devicegraph* devicegraph, const Md* md) const
     {
 	// TODO faulty, journal
 
@@ -112,7 +113,7 @@ namespace barrel
 
 
     void
-    CmdShowRaids::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdShowRaids::doit(const GlobalOptions& global_options, State& state) const
     {
 	// TODO show pool if all underlying devices are in the same pool
 	// TODO show underlying devices
@@ -145,12 +146,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_show_raids(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdShowRaids::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdShowRaids>(options);
+	return make_shared<ParsedCmdShowRaids>(options);
+    }
+
+
+    const char*
+    CmdShowRaids::help() const
+    {
+	return _("show RAIDs");
+    }
+
+
+    const vector<Option>&
+    CmdShowRaids::options() const
+    {
+	return show_raids_options;
     }
 
 }

@@ -20,13 +20,12 @@
  */
 
 
-#include <regex>
-
 #include <storage/Storage.h>
 #include <storage/Pool.h>
 #include <storage/Devices/BlkDevice.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "reduce-pool.h"
 
 
@@ -38,6 +37,11 @@ namespace barrel
 
     namespace
     {
+
+	const vector<Option>  reduce_pool_options = {
+	    { "name", required_argument, 'n', _("name of pool"), "name" }
+	};
+
 
 	struct Options
 	{
@@ -51,11 +55,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "name", required_argument, 'n' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("pool", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("pool", reduce_pool_options, true);
 
 	    name = parsed_opts.get("name");
 
@@ -65,11 +65,11 @@ namespace barrel
     }
 
 
-    class CmdReducePool : public Cmd
+    class ParsedCmdReducePool : public ParsedCmd
     {
     public:
 
-	CmdReducePool(const Options& options) : options(options) {}
+	ParsedCmdReducePool(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -83,7 +83,7 @@ namespace barrel
 
 
     void
-    CmdReducePool::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdReducePool::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -99,12 +99,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_reduce_pool(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdReducePool::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdReducePool>(options);
+	return make_shared<ParsedCmdReducePool>(options);
+    }
+
+
+    const char*
+    CmdReducePool::help() const
+    {
+	return _("reduce pool");
+    }
+
+
+    const vector<Option>&
+    CmdReducePool::options() const
+    {
+	return reduce_pool_options;
     }
 
 }

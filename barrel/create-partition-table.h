@@ -30,14 +30,28 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_create_partition_table(GetOpts& get_opts);
+    struct CmdCreatePartitionTable : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual const vector<Option>& options() const override;
+    };
 
-    shared_ptr<Cmd>
-    parse_create_gpt(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_msdos(GetOpts& get_opts);
+    struct CmdCreateGpt : public CmdCreatePartitionTable
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateMsdos : public CmdCreatePartitionTable
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
 }
 

@@ -44,6 +44,15 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> create_lvm_vg_options = {
+	    { "name", required_argument, 'n', "set name of volume group", "name" },
+	    { "pool-name", required_argument, 'p' },
+	    { "size", required_argument, 's', "set size of volume group", "size" },
+	    { "devices", required_argument, 'd' },
+	    { "extent-size", required_argument },
+	    { "force", no_argument }
+	};
+
 	struct SmartNumber
 	{
 	    enum Type { MAX, ABSOLUTE };
@@ -106,7 +115,7 @@ namespace barrel
 
 	    string vg_name;
 	    optional<SmartSize> size;
-	    optional<string> pool;
+	    optional<string> pool_name;
 	    optional<SmartNumber> number;
 	    optional<unsigned long long> extent_size;
 	    bool force = false;
@@ -124,16 +133,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "name", required_argument, 'n' },
-		{ "pool", required_argument, 'p' },
-		{ "size", required_argument, 's' },
-		{ "devices", required_argument, 'd' },
-		{ "extent-size", required_argument },
-		{ "force", no_argument }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("vg", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("vg", create_lvm_vg_options, true);
 
 	    if (!parsed_opts.has_option("name"))
 		throw OptionsException("name missing for command 'vg'");
@@ -143,7 +143,7 @@ namespace barrel
 	    if (!LvmVg::is_valid_vg_name(vg_name))
 		throw OptionsException("invalid volume group name for command 'vg'");
 
-	    pool = parsed_opts.get_optional("pool");
+	    pool_name = parsed_opts.get_optional("pool-name");
 
 	    if (parsed_opts.has_option("devices"))
 	    {
@@ -176,7 +176,7 @@ namespace barrel
 	{
 	    // TODO identical in create-filesystem.cc
 
-	    if (pool)
+	    if (pool_name)
 	    {
 		if (!size)
 		    throw runtime_error("size argument required for command 'vg'");
@@ -208,11 +208,11 @@ namespace barrel
     }
 
 
-    class CmdCreateLvmVg : public Cmd
+    class ParsedCmdCreateLvmVg : public ParsedCmd
     {
     public:
 
-	CmdCreateLvmVg(const Options& options) : options(options) {}
+	ParsedCmdCreateLvmVg(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -226,7 +226,7 @@ namespace barrel
 
 
     void
-    CmdCreateLvmVg::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCreateLvmVg::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -242,7 +242,7 @@ namespace barrel
 	{
 	    case Options::ModusOperandi::POOL:
 	    {
-		Pool* pool = state.storage->get_pool(options.pool.value());
+		Pool* pool = state.storage->get_pool(options.pool_name.value());
 
 		unsigned int number = 1;
 
@@ -375,12 +375,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_lvm_vg(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdCreateLvmVg::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdCreateLvmVg>(options);
+	return make_shared<ParsedCmdCreateLvmVg>(options);
+    }
+
+
+    const char*
+    CmdCreateLvmVg::help() const
+    {
+	return _("Create a LVM volume group");
+    }
+
+
+    const vector<Option>&
+    CmdCreateLvmVg::options() const
+    {
+	return create_lvm_vg_options;
     }
 
 }

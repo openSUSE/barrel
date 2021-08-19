@@ -33,7 +33,7 @@
 namespace barrel
 {
 
-    class CmdCommit : public Cmd
+    class ParsedCmdCommit : public ParsedCmd
     {
     public:
 
@@ -45,9 +45,9 @@ namespace barrel
 
 
     void
-    CmdCommit::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCommit::doit(const GlobalOptions& global_options, State& state) const
     {
-	parse_show_commit()->doit(global_options, state);
+	CmdShowCommit::parse()->doit(global_options, state);
 
 	if (!global_options.yes)
 	{
@@ -70,7 +70,7 @@ namespace barrel
 	    state.storage->commit(commit_options);
 
 	    if (state.pools_modified)
-		parse_save_pools()->doit(global_options, state);
+		CmdSavePools::parse()->doit(global_options, state);
 	}
 
 	state.run = false;
@@ -78,19 +78,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_commit(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdCommit::parse()
     {
-	get_opts.parse("commit", GetOpts::no_options);
-
-	return make_shared<CmdCommit>();
+	return make_shared<ParsedCmdCommit>();
     }
 
 
-    shared_ptr<Cmd>
-    parse_commit()
+    shared_ptr<ParsedCmd>
+    CmdCommit::parse(GetOpts& get_opts) const
     {
-	return make_shared<CmdCommit>();
+	get_opts.parse("commit", GetOpts::no_options);
+
+	return make_shared<ParsedCmdCommit>();
+    }
+
+
+    const char*
+    CmdCommit::help() const
+    {
+	return _("Commit changes to disk and quit");
     }
 
 }

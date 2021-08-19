@@ -26,6 +26,7 @@
 #include <storage/Devices/Md.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "remove-device.h"
 
 
@@ -37,6 +38,11 @@ namespace barrel
 
     namespace
     {
+
+	const vector<Option> remove_device_options = {
+	    { "keep-partitions", no_argument, 0, _("keep underlying partitions") }
+	};
+
 
 	struct Options
 	{
@@ -50,11 +56,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "keep-partitions", no_argument }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("remove", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("remove", remove_device_options, true);
 
 	    keep_partitions = parsed_opts.has_option("keep-partitions");
 
@@ -64,11 +66,11 @@ namespace barrel
     }
 
 
-    class CmdRemoveDevice : public Cmd
+    class ParsedCmdRemoveDevice : public ParsedCmd
     {
     public:
 
-	CmdRemoveDevice(const Options& options) : options(options) {}
+	ParsedCmdRemoveDevice(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -82,7 +84,7 @@ namespace barrel
 
 
     void
-    CmdRemoveDevice::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdRemoveDevice::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -114,12 +116,34 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
+    shared_ptr<ParsedCmd>
     parse_remove_device(GetOpts& get_opts)
     {
 	Options options(get_opts);
 
-	return make_shared<CmdRemoveDevice>(options);
+	return make_shared<ParsedCmdRemoveDevice>(options);
+    }
+
+    shared_ptr<ParsedCmd>
+    CmdRemoveDevice::parse(GetOpts& get_opts) const
+    {
+	Options options(get_opts);
+
+	return make_shared<ParsedCmdRemoveDevice>(options);
+    }
+
+
+    const char*
+    CmdRemoveDevice::help() const
+    {
+	return _("remove a device");
+    }
+
+
+    const vector<Option>&
+    CmdRemoveDevice::options() const
+    {
+	return remove_device_options;
     }
 
 }

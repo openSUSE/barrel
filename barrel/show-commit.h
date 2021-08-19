@@ -30,11 +30,13 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_show_commit(GetOpts& get_opts);
+    struct CmdShowCommit : public Cmd
+    {
+	static shared_ptr<ParsedCmd> parse();
 
-    shared_ptr<Cmd>
-    parse_show_commit();
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
 
 }
 

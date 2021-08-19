@@ -29,7 +29,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool", "HDDs (512 B)",
+    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool-name=HDDs (512 B)",
 	    "--devices", "3+1", "--size", "8 GiB" });
 
     vector<string> actions = {

@@ -40,7 +40,7 @@ namespace barrel
     using namespace storage;
 
 
-    class CmdSavePools : public Cmd
+    class ParsedCmdSavePools : public ParsedCmd
     {
     public:
 
@@ -52,7 +52,7 @@ namespace barrel
 
 
     void
-    CmdSavePools::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdSavePools::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (global_options.verbose)
 	    cout << "Saving pools..." << endl;
@@ -105,17 +105,24 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_save_pools(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdSavePools::parse()
     {
-	return make_shared<CmdSavePools>();
+	return make_shared<ParsedCmdSavePools>();
     }
 
 
-    shared_ptr<Cmd>
-    parse_save_pools()
+    shared_ptr<ParsedCmd>
+    CmdSavePools::parse(GetOpts& get_opts) const
     {
-	return make_shared<CmdSavePools>();
+	return make_shared<ParsedCmdSavePools>();
+    }
+
+
+    const char*
+    CmdSavePools::help() const
+    {
+	return _("save pools");
     }
 
 }

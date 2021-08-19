@@ -29,7 +29,7 @@
 namespace barrel
 {
 
-    class CmdShow : public Cmd
+    class ParsedCmdShow : public ParsedCmd
     {
 
     protected:

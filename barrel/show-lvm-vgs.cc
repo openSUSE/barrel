@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2021 SUSE LLC
  *
@@ -30,7 +31,7 @@
 #include "Utils/Table.h"
 #include "Utils/Text.h"
 #include "Utils/Misc.h"
-#include "show-pools.h"
+#include "show-lvm-vgs.h"
 #include "show.h"
 
 
@@ -44,6 +45,11 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> show_lvm_vgs_options = {
+	    { "probed", no_argument, 0, _("probed instead of staging") }
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -54,11 +60,8 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "probed", no_argument }
-	    };
 
-	    ParsedOpts parsed_opts = get_opts.parse("vgs", options);
+	    ParsedOpts parsed_opts = get_opts.parse("vgs", show_lvm_vgs_options);
 
 	    show_probed = parsed_opts.has_option("probed");
 	}
@@ -66,11 +69,11 @@ namespace barrel
     }
 
 
-    class CmdShowLvmVgs : public CmdShow
+    class ParsedCmdShowLvmVgs : public ParsedCmdShow
     {
     public:
 
-	CmdShowLvmVgs(const Options& options) : options(options) {}
+	ParsedCmdShowLvmVgs(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -86,7 +89,7 @@ namespace barrel
 
 
     void
-    CmdShowLvmVgs::insert_lvm_lvs(const LvmVg* lvm_vg, Table::Row& row) const
+    ParsedCmdShowLvmVgs::insert_lvm_lvs(const LvmVg* lvm_vg, Table::Row& row) const
     {
 	vector<const LvmLv*> lvm_lvs = lvm_vg->get_lvm_lvs();
 	sort(lvm_lvs.begin(), lvm_lvs.end(), LvmLv::compare_by_name);
@@ -110,7 +113,7 @@ namespace barrel
 
 
     void
-    CmdShowLvmVgs::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdShowLvmVgs::doit(const GlobalOptions& global_options, State& state) const
     {
 	// TODO show pool if all underlying devices are in the same pool?
 	// TODO show underlying devices
@@ -145,12 +148,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_show_lvm_vgs(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdShowLvmVgs::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdShowLvmVgs>(options);
+	return make_shared<ParsedCmdShowLvmVgs>(options);
+    }
+
+
+    const char*
+    CmdShowLvmVgs::help() const
+    {
+	return _("show LVM volume groups");
+    }
+
+
+    const vector<Option>&
+    CmdShowLvmVgs::options() const
+    {
+	return show_lvm_vgs_options;
     }
 
 }

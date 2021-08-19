@@ -23,6 +23,7 @@
 #include <storage/Storage.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "rename-pool.h"
 
 
@@ -35,6 +36,12 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> rename_pool_options = {
+	    { "old-name", required_argument, 'o', _("old name"), "name" },
+	    { "new-name", required_argument, 'n', _("new name"), "name" }
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -46,12 +53,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "old-name", required_argument, 'o' },
-		{ "new-name", required_argument, 'n' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("pool", options);
+	    ParsedOpts parsed_opts = get_opts.parse("pool", rename_pool_options);
 
 	    old_name = parsed_opts.get("old-name");
 	    new_name = parsed_opts.get("new-name");
@@ -60,11 +62,11 @@ namespace barrel
     }
 
 
-    class CmdRenamePool : public Cmd
+    class ParsedCmdRenamePool : public ParsedCmd
     {
     public:
 
-	CmdRenamePool(const Options& options) : options(options) {}
+	ParsedCmdRenamePool(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -78,7 +80,7 @@ namespace barrel
 
 
     void
-    CmdRenamePool::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdRenamePool::doit(const GlobalOptions& global_options, State& state) const
     {
 	state.storage->rename_pool(options.old_name, options.new_name);
 
@@ -86,12 +88,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_rename_pool(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdRenamePool::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdRenamePool>(options);
+	return make_shared<ParsedCmdRenamePool>(options);
+    }
+
+
+    const char*
+    CmdRenamePool::help() const
+    {
+	return _("rename pool");
+    }
+
+
+    const vector<Option>&
+    CmdRenamePool::options() const
+    {
+	return rename_pool_options;
     }
 
 }

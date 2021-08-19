@@ -30,8 +30,12 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_help(GetOpts& get_opts);
+    struct CmdHelp : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
+
 
     void
     help();

@@ -34,7 +34,7 @@ namespace barrel
     using namespace storage;
 
 
-    class CmdShowCommit : public Cmd
+    class ParsedCmdShowCommit : public ParsedCmd
     {
     public:
 
@@ -46,7 +46,7 @@ namespace barrel
 
 
     void
-    CmdShowCommit::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdShowCommit::doit(const GlobalOptions& global_options, State& state) const
     {
 	try
 	{
@@ -66,19 +66,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_show_commit(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdShowCommit::parse()
     {
-	get_opts.parse("commit", GetOpts::no_options);
-
-	return make_shared<CmdShowCommit>();
+	return make_shared<ParsedCmdShowCommit>();
     }
 
 
-    shared_ptr<Cmd>
-    parse_show_commit()
+    shared_ptr<ParsedCmd>
+    CmdShowCommit::parse(GetOpts& get_opts) const
     {
-	return make_shared<CmdShowCommit>();
+	get_opts.parse("commit", GetOpts::no_options);
+
+	return make_shared<ParsedCmdShowCommit>();
+    }
+
+
+    const char*
+    CmdShowCommit::help() const
+    {
+	return _("show what would be commited");
     }
 
 }

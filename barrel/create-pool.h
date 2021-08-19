@@ -30,8 +30,12 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_create_pool(GetOpts& get_opts);
+    struct CmdCreatePool : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual const vector<Option>& options() const override;
+    };
 
 }
 

@@ -24,6 +24,7 @@
 #include <storage/Devicegraph.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "save-devicegraph.h"
 
 
@@ -36,6 +37,11 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> save_devicegraph_options = {
+	    { "name", required_argument, 'n', _("name of devicegraph"), "name" }
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -46,11 +52,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "name", required_argument, 'n' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("devicegraph", options);
+	    ParsedOpts parsed_opts = get_opts.parse("devicegraph", save_devicegraph_options);
 
 	    if (parsed_opts.has_option("name"))
 		name = parsed_opts.get("name");
@@ -61,11 +63,11 @@ namespace barrel
     }
 
 
-    class CmdSaveDevicegraph : public Cmd
+    class ParsedCmdSaveDevicegraph : public ParsedCmd
     {
     public:
 
-	CmdSaveDevicegraph(const Options& options) : options(options) {}
+	ParsedCmdSaveDevicegraph(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -79,7 +81,7 @@ namespace barrel
 
 
     void
-    CmdSaveDevicegraph::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdSaveDevicegraph::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Devicegraph* staging = state.storage->get_staging();
 
@@ -87,12 +89,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_save_devicegraph(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdSaveDevicegraph::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdSaveDevicegraph>(options);
+	return make_shared<ParsedCmdSaveDevicegraph>(options);
+    }
+
+
+    const char*
+    CmdSaveDevicegraph::help() const
+    {
+	return _("save devicegraph");
+    }
+
+
+    const vector<Option>&
+    CmdSaveDevicegraph::options() const
+    {
+	return save_devicegraph_options;
     }
 
 }

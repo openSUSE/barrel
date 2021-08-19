@@ -30,7 +30,7 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
+    shared_ptr<ParsedCmd>
     parse_create_pools();
 
 }

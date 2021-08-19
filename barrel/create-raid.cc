@@ -45,6 +45,17 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> create_raid_options = {
+	    { "level", required_argument, 'l', "set RAID level", "level" },
+	    { "name", required_argument, 'n', "set RAID name", "name" },
+	    { "pool-name", required_argument, 'p' },
+	    { "size", required_argument, 's' },
+	    { "metadata", required_argument, 'm', "set RAID metadata version", "metadata" },
+	    { "devices", required_argument, 'd' },
+	    { "chunk-size", required_argument },
+	    { "force", no_argument, 0, "force if block devices are in use" }
+	};
+
 	const map<string, MdLevel> str_to_md_level = {
 	    { "0", MdLevel::RAID0 },
 	    { "strip", MdLevel::RAID0 },
@@ -121,7 +132,7 @@ namespace barrel
 
 	    optional<MdLevel> level;
 	    optional<SmartSize> size;
-	    optional<string> pool;
+	    optional<string> pool_name;
 	    optional<string> name;
 	    optional<SmartNumber> number;
 	    optional<string> metadata;
@@ -140,18 +151,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "level", required_argument, 'l' },
-		{ "name", required_argument, 'n' },
-		{ "pool", required_argument, 'p' },
-		{ "size", required_argument, 's' },
-		{ "metadata", required_argument, 'm' },
-		{ "devices", required_argument, 'd' },
-		{ "chunk-size", required_argument },
-		{ "force", no_argument }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("raid", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("raid", create_raid_options, true);
 
 	    if (parsed_opts.has_option("level"))
 	    {
@@ -166,7 +166,7 @@ namespace barrel
 
 	    name = parsed_opts.get_optional("name");
 
-	    pool = parsed_opts.get_optional("pool");
+	    pool_name = parsed_opts.get_optional("pool-name");
 
 	    if (parsed_opts.has_option("devices"))
 	    {
@@ -199,7 +199,7 @@ namespace barrel
 	void
 	Options::calculate_modus_operandi()
 	{
-	    if (pool)
+	    if (pool_name)
 	    {
 		if (!size)
 		    throw runtime_error("size argument required for command 'raid'");
@@ -225,11 +225,11 @@ namespace barrel
     }
 
 
-    class CmdCreateRaid : public Cmd
+    class ParsedCmdCreateRaid : public ParsedCmd
     {
     public:
 
-	CmdCreateRaid(const Options& options) : options(options) {}
+	ParsedCmdCreateRaid(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -243,7 +243,7 @@ namespace barrel
 
 
     void
-    CmdCreateRaid::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCreateRaid::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -261,7 +261,7 @@ namespace barrel
 	{
 	    case Options::ModusOperandi::POOL:
 	    {
-		Pool* pool = state.storage->get_pool(options.pool.value());
+		Pool* pool = state.storage->get_pool(options.pool_name.value());
 
 		if (options.number)
 		{
@@ -395,19 +395,7 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_raid(GetOpts& get_opts)
-    {
-	Options options(get_opts);
-
-	if (!options.level)
-	    throw OptionsException("raid level missing for command 'raid'");
-
-	return make_shared<CmdCreateRaid>(options);
-    }
-
-
-    shared_ptr<Cmd>
+    shared_ptr<ParsedCmd>
     parse_create_raid(GetOpts& get_opts, MdLevel level)
     {
 	Options options(get_opts);
@@ -417,49 +405,117 @@ namespace barrel
 
 	options.level = level;
 
-	return make_shared<CmdCreateRaid>(options);
+	return make_shared<ParsedCmdCreateRaid>(options);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_raid0(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdCreateRaid::parse(GetOpts& get_opts) const
+    {
+	Options options(get_opts);
+
+	if (!options.level)
+	    throw OptionsException("raid level missing for command 'raid'");
+
+	return make_shared<ParsedCmdCreateRaid>(options);
+    }
+
+
+    const char*
+    CmdCreateRaid::help() const
+    {
+	return _("Create a RAID");
+    }
+
+
+    const vector<Option>&
+    CmdCreateRaid::options() const
+    {
+	return create_raid_options;
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateRaid0::parse(GetOpts& get_opts) const
     {
 	return parse_create_raid(get_opts, MdLevel::RAID0);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_raid1(GetOpts& get_opts)
+    const char*
+    CmdCreateRaid0::help() const
+    {
+	return _("Alias for 'create raid --level 0'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateRaid1::parse(GetOpts& get_opts) const
     {
 	return parse_create_raid(get_opts, MdLevel::RAID1);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_raid4(GetOpts& get_opts)
+    const char*
+    CmdCreateRaid1::help() const
+    {
+	return _("Alias for 'create raid --level 1'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateRaid4::parse(GetOpts& get_opts) const
     {
 	return parse_create_raid(get_opts, MdLevel::RAID4);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_raid5(GetOpts& get_opts)
+    const char*
+    CmdCreateRaid4::help() const
+    {
+	return _("Alias for 'create raid --level 4'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateRaid5::parse(GetOpts& get_opts) const
     {
 	return parse_create_raid(get_opts, MdLevel::RAID5);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_raid6(GetOpts& get_opts)
+    const char*
+    CmdCreateRaid5::help() const
+    {
+	return _("Alias for 'create raid --level 5'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateRaid6::parse(GetOpts& get_opts) const
     {
 	return parse_create_raid(get_opts, MdLevel::RAID6);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_raid10(GetOpts& get_opts)
+    const char*
+    CmdCreateRaid6::help() const
+    {
+	return _("Alias for 'create raid --level 6'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateRaid10::parse(GetOpts& get_opts) const
     {
 	return parse_create_raid(get_opts, MdLevel::RAID10);
+    }
+
+
+    const char*
+    CmdCreateRaid10::help() const
+    {
+	return _("Alias for 'create raid --level 10'");
     }
 
 }

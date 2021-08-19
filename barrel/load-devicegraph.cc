@@ -41,6 +41,12 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> load_devicegraph_options = {
+	    { "name", required_argument, 'n', _("name of devicegraph file"), "name" },
+	    { "mapping", required_argument, 'm', _("name of mapping file"), "name" }
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -52,12 +58,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "name", required_argument, 'n' },
-		{ "mapping", required_argument, 'm' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("devicegraph", options);
+	    ParsedOpts parsed_opts = get_opts.parse("devicegraph", load_devicegraph_options);
 
 	    if (parsed_opts.has_option("name"))
 		name = parsed_opts.get("name");
@@ -71,11 +72,11 @@ namespace barrel
     }
 
 
-    class CmdLoadDevicegraph : public Cmd
+    class ParsedCmdLoadDevicegraph : public ParsedCmd
     {
     public:
 
-	CmdLoadDevicegraph(const Options& options) : options(options) {}
+	ParsedCmdLoadDevicegraph(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -106,8 +107,8 @@ namespace barrel
     };
 
 
-    CmdLoadDevicegraph::mapping_t
-    CmdLoadDevicegraph::load_mapping() const
+    ParsedCmdLoadDevicegraph::mapping_t
+    ParsedCmdLoadDevicegraph::load_mapping() const
     {
 	const string& filename = options.mapping.value();
 
@@ -150,7 +151,7 @@ namespace barrel
 
 
     bool
-    CmdLoadDevicegraph::same_udev(const BlkDevice* a, const BlkDevice* b) const
+    ParsedCmdLoadDevicegraph::same_udev(const BlkDevice* a, const BlkDevice* b) const
     {
 	// could use something like set_intersection but needs sorting
 
@@ -168,8 +169,8 @@ namespace barrel
     }
 
 
-    CmdLoadDevicegraph::mapping_t
-    CmdLoadDevicegraph::make_mapping(const Devicegraph* probed, const Devicegraph* staging) const
+    ParsedCmdLoadDevicegraph::mapping_t
+    ParsedCmdLoadDevicegraph::make_mapping(const Devicegraph* probed, const Devicegraph* staging) const
     {
 	mapping_t mapping;
 
@@ -197,7 +198,7 @@ namespace barrel
 
 
     const Disk*
-    CmdLoadDevicegraph::map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
+    ParsedCmdLoadDevicegraph::map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
 				 SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const
     {
 	const string name = a->get_name();
@@ -260,7 +261,7 @@ namespace barrel
 
 
     void
-    CmdLoadDevicegraph::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdLoadDevicegraph::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Devicegraph* probed = state.storage->get_probed();
 	Devicegraph* staging = state.storage->get_staging();
@@ -311,12 +312,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_load_devicegraph(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdLoadDevicegraph::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdLoadDevicegraph>(options);
+	return make_shared<ParsedCmdLoadDevicegraph>(options);
+    }
+
+
+    const char*
+    CmdLoadDevicegraph::help() const
+    {
+	return _("load devicegraph");
+    }
+
+
+    const vector<Option>&
+    CmdLoadDevicegraph::options() const
+    {
+	return load_devicegraph_options;
     }
 
 }

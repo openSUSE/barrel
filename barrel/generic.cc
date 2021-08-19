@@ -31,7 +31,7 @@
 namespace barrel
 {
 
-    class CmdPop : public Cmd
+    class ParsedCmdPop : public ParsedCmd
     {
     public:
 
@@ -43,7 +43,7 @@ namespace barrel
 
 
     void
-    CmdPop::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdPop::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.stack.empty())
 	    throw runtime_error("stack empty during pop");
@@ -52,16 +52,23 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_pop(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdPop::parse(GetOpts& get_opts) const
     {
 	get_opts.parse("pop", GetOpts::no_options);
 
-	return make_shared<CmdPop>();
+	return make_shared<ParsedCmdPop>();
     }
 
 
-    class CmdDup : public Cmd
+    const char*
+    CmdPop::help() const
+    {
+	return _("pop value from stack");
+    }
+
+
+    class ParsedCmdDup : public ParsedCmd
     {
     public:
 
@@ -73,7 +80,7 @@ namespace barrel
 
 
     void
-    CmdDup::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdDup::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.stack.empty())
 	    throw runtime_error("stack empty during dup");
@@ -82,16 +89,23 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_dup(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdDup::parse(GetOpts& get_opts) const
     {
 	get_opts.parse("dup", GetOpts::no_options);
 
-	return make_shared<CmdDup>();
+	return make_shared<ParsedCmdDup>();
     }
 
 
-    class CmdStack : public Cmd
+    const char*
+    CmdDup::help() const
+    {
+	return _("duplicate value on stack");
+    }
+
+
+    class ParsedCmdStack : public ParsedCmd
     {
     public:
 
@@ -103,7 +117,7 @@ namespace barrel
 
 
     void
-    CmdStack::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdStack::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -126,16 +140,23 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_stack(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdStack::parse(GetOpts& get_opts) const
     {
 	get_opts.parse("stack", GetOpts::no_options);
 
-	return make_shared<CmdStack>();
+	return make_shared<ParsedCmdStack>();
     }
 
 
-    class CmdUndo : public Cmd
+    const char*
+    CmdStack::help() const
+    {
+	return _("print stack");
+    }
+
+
+    class ParsedCmdUndo : public ParsedCmd
     {
     public:
 
@@ -147,7 +168,7 @@ namespace barrel
 
 
     void
-    CmdUndo::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdUndo::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.backup.empty())
 	    throw runtime_error("backup empty during undo");
@@ -156,16 +177,23 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_undo(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdUndo::parse(GetOpts& get_opts) const
     {
 	get_opts.parse("undo", GetOpts::no_options);
 
-	return make_shared<CmdUndo>();
+	return make_shared<ParsedCmdUndo>();
     }
 
 
-    class CmdQuit : public Cmd
+    const char*
+    CmdUndo::help() const
+    {
+	return _("undo");
+    }
+
+
+    class ParsedCmdQuit : public ParsedCmd
     {
     public:
 
@@ -177,7 +205,7 @@ namespace barrel
 
 
     void
-    CmdQuit::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdQuit::doit(const GlobalOptions& global_options, State& state) const
     {
 	// TODO check if there are any changes at all
 
@@ -191,12 +219,19 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_quit(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdQuit::parse(GetOpts& get_opts) const
     {
 	get_opts.parse("quit", GetOpts::no_options);
 
-	return make_shared<CmdQuit>();
+	return make_shared<ParsedCmdQuit>();
+    }
+
+
+    const char*
+    CmdQuit::help() const
+    {
+	return _("quit");
     }
 
 }

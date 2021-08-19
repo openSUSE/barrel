@@ -25,6 +25,7 @@
 #include <storage/Devices/BlkDevice.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "extend-pool.h"
 
 
@@ -36,6 +37,11 @@ namespace barrel
 
     namespace
     {
+
+	const vector<Option> extend_pool_options = {
+	    { "name", required_argument, 'n', _("name of pool"), "name" }
+	};
+
 
 	struct Options
 	{
@@ -49,11 +55,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "name", required_argument, 'n' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("pool", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("pool", extend_pool_options, true);
 
 	    name = parsed_opts.get("name");
 
@@ -63,11 +65,11 @@ namespace barrel
     }
 
 
-    class CmdExtendPool : public Cmd
+    class ParsedCmdExtendPool : public ParsedCmd
     {
     public:
 
-	CmdExtendPool(const Options& options) : options(options) {}
+	ParsedCmdExtendPool(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -81,7 +83,7 @@ namespace barrel
 
 
     void
-    CmdExtendPool::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdExtendPool::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -99,12 +101,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_extend_pool(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdExtendPool::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdExtendPool>(options);
+	return make_shared<ParsedCmdExtendPool>(options);
+    }
+
+
+    const char*
+    CmdExtendPool::help() const
+    {
+	return _("extend pool");
+    }
+
+
+    const vector<Option>&
+    CmdExtendPool::options() const
+    {
+	return extend_pool_options;
     }
 
 }

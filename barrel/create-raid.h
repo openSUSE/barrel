@@ -30,32 +30,60 @@
 namespace barrel
 {
 
-    /**
-     * The RAID level must be included in get_opts.
-     */
-    shared_ptr<Cmd>
-    parse_create_raid(GetOpts& get_opts);
+    struct CmdCreateRaid : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual const vector<Option>& options() const override;
+    };
 
-    /**
-     * The RAID level must not be included in get_opts.
-     */
-    shared_ptr<Cmd>
-    parse_create_raid0(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_raid1(GetOpts& get_opts);
+    struct CmdCreateRaid0 : public CmdCreateRaid
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
-    shared_ptr<Cmd>
-    parse_create_raid4(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_raid5(GetOpts& get_opts);
+    struct CmdCreateRaid1 : public CmdCreateRaid
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
-    shared_ptr<Cmd>
-    parse_create_raid6(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_raid10(GetOpts& get_opts);
+    struct CmdCreateRaid4 : public CmdCreateRaid
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateRaid5 : public CmdCreateRaid
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateRaid6 : public CmdCreateRaid
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateRaid10 : public CmdCreateRaid
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
 }
 

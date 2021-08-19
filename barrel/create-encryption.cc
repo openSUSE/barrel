@@ -25,6 +25,7 @@
 #include <storage/Devices/BlkDevice.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "create-encryption.h"
 
 
@@ -36,6 +37,13 @@ namespace barrel
 
     namespace
     {
+
+	const vector<Option> create_encryption_options = {
+	    { "type", required_argument, 't', _("encryption type"), "type" },
+	    { "name", required_argument, 'n' },
+	    { "password", required_argument, 'p' } // TODO drop, read from stdin
+	};
+
 
 	const map<string, EncryptionType> str_to_encryption_type = {
 	    { "luks1", EncryptionType::LUKS1 },
@@ -55,13 +63,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "type", required_argument, 't' },
-		{ "name", required_argument, 'n' },
-		{ "password", required_argument, 'p' } // TODO drop, read from stdin
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("encryption", options);
+	    ParsedOpts parsed_opts = get_opts.parse("encryption", create_encryption_options);
 
 	    if (parsed_opts.has_option("type"))
 	    {
@@ -88,11 +90,11 @@ namespace barrel
     }
 
 
-    class CmdCreateEncryption : public Cmd
+    class ParsedCmdCreateEncryption : public ParsedCmd
     {
     public:
 
-	CmdCreateEncryption(const Options& options) : options(options) {}
+	ParsedCmdCreateEncryption(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -106,7 +108,7 @@ namespace barrel
 
 
     void
-    CmdCreateEncryption::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCreateEncryption::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -127,19 +129,7 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_encryption(GetOpts& get_opts)
-    {
-	Options options(get_opts);
-
-	if (!options.type)
-	    throw OptionsException("encryption type missing");
-
-	return make_shared<CmdCreateEncryption>(options);
-    }
-
-
-    shared_ptr<Cmd>
+    shared_ptr<ParsedCmd>
     parse_create_encryption(GetOpts& get_opts, EncryptionType type)
     {
 	Options options(get_opts);
@@ -149,21 +139,61 @@ namespace barrel
 
 	options.type = type;
 
-	return make_shared<CmdCreateEncryption>(options);
+	return make_shared<ParsedCmdCreateEncryption>(options);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_luks1(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdCreateEncryption::parse(GetOpts& get_opts) const
+    {
+	Options options(get_opts);
+
+	if (!options.type)
+	    throw OptionsException("encryption type missing");
+
+	return make_shared<ParsedCmdCreateEncryption>(options);
+    }
+
+
+    const char*
+    CmdCreateEncryption::help() const
+    {
+	return _("Create an encryption");
+    }
+
+
+    const vector<Option>&
+    CmdCreateEncryption::options() const
+    {
+	return create_encryption_options;
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateLuks1::parse(GetOpts& get_opts) const
     {
 	return parse_create_encryption(get_opts, EncryptionType::LUKS1);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_luks2(GetOpts& get_opts)
+    const char*
+    CmdCreateLuks1::help() const
+    {
+	return _("Alias for 'create encryption --type luks1'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateLuks2::parse(GetOpts& get_opts) const
     {
 	return parse_create_encryption(get_opts, EncryptionType::LUKS2);
+    }
+
+
+    const char*
+    CmdCreateLuks2::help() const
+    {
+	return _("Alias for 'create encryption --type luks2'");
     }
 
 }

@@ -27,6 +27,7 @@
 #include <storage/Devices/BlkDevice.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "create-pool.h"
 
 
@@ -38,6 +39,11 @@ namespace barrel
 
     namespace
     {
+
+	const vector<Option> create_pool_options = {
+	    { "name", required_argument, 'n', _("name of new pool"), "name" }
+	};
+
 
 	struct Options
 	{
@@ -51,11 +57,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "name", required_argument, 'n' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("pool", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("pool", create_pool_options, true);
 
 	    name = parsed_opts.get("name");
 
@@ -65,11 +67,11 @@ namespace barrel
     }
 
 
-    class CmdCreatePool : public Cmd
+    class ParsedCmdCreatePool : public ParsedCmd
     {
     public:
 
-	CmdCreatePool(const Options& options) : options(options) {}
+	ParsedCmdCreatePool(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -83,7 +85,7 @@ namespace barrel
 
 
     void
-    CmdCreatePool::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCreatePool::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -101,12 +103,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_pool(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdCreatePool::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdCreatePool>(options);
+	return make_shared<ParsedCmdCreatePool>(options);
+    }
+
+
+    const char*
+    CmdCreatePool::help() const
+    {
+	return _("create pool");
+    }
+
+
+    const vector<Option>&
+    CmdCreatePool::options() const
+    {
+	return create_pool_options;
     }
 
 }

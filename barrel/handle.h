@@ -44,6 +44,8 @@ namespace barrel
     {
 	GlobalOptions(GetOpts& get_opts);
 
+	static const vector<Option>& get_options();
+
 	bool help = false;
 	bool verbose = false;
 	bool dry_run = false;
@@ -117,26 +119,30 @@ namespace barrel
     };
 
 
-    /**
-     * Already parsed command.
-     */
-    struct Cmd
+    struct ParsedCmd
     {
-	virtual ~Cmd() = default;
+	virtual ~ParsedCmd() = default;
 
 	virtual bool do_backup() const = 0;
-
 	virtual void doit(const GlobalOptions& global_options, State& state) const = 0;
     };
 
 
-    typedef shared_ptr<Cmd> (*cmd_func_t)(GetOpts& get_opts);
+    struct Cmd
+    {
+	virtual ~Cmd() = default;
+
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const = 0;
+	virtual const char* help() const { return nullptr; }
+	virtual bool is_alias() const { return false; }
+	virtual const vector<Option>& options() const { return GetOpts::no_options; }
+    };
 
 
     struct Parser
     {
 	const string name;
-	const cmd_func_t cmd_func;
+	const Cmd* cmd;
     };
 
 

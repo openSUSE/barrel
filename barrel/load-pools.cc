@@ -38,7 +38,7 @@ namespace barrel
     using namespace storage;
 
 
-    class CmdLoadPools : public Cmd
+    class ParsedCmdLoadPools : public ParsedCmd
     {
     public:
 
@@ -50,7 +50,7 @@ namespace barrel
 
 
     void
-    CmdLoadPools::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdLoadPools::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (global_options.verbose)
 	    cout << "Loading pools..." << endl;
@@ -114,17 +114,24 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_load_pools(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdLoadPools::parse()
     {
-	return make_shared<CmdLoadPools>();
+	return make_shared<ParsedCmdLoadPools>();
     }
 
 
-    shared_ptr<Cmd>
-    parse_load_pools()
+    shared_ptr<ParsedCmd>
+    CmdLoadPools::parse(GetOpts& get_opts) const
     {
-	return make_shared<CmdLoadPools>();
+	return make_shared<ParsedCmdLoadPools>();
+    }
+
+
+    const char*
+    CmdLoadPools::help() const
+    {
+	return _("load pools");
     }
 
 }

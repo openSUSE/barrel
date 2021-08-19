@@ -52,11 +52,13 @@ namespace barrel
 
 
     void
-    output(std::ostream& s, const Table::Row& row, const vector<size_t>& widths, const vector<Align>& aligns,
-	   bool indent, bool last)
+    Table::output(std::ostream& s, const Table::Row& row, const vector<size_t>& widths,
+		  const vector<Align>& aligns, bool indent, bool last) const
     {
+	s << string(global_indent, ' ');
+
 	if (indent)
-	    s << (last ? "└─" : "├─");
+	    s << (last ? glyph(4) : glyph(3));
 
 	const vector<string>& columns = row.get_columns();
 
@@ -78,7 +80,7 @@ namespace barrel
 	    if (aligns[i] == Align::RIGHT)
 	    {
 		if (column.size() < widths[i] - extra)
-		    s << std::string(widths[i] - column.size() - extra, ' ');
+		    s << string(widths[i] - column.size() - extra, ' ');
 	    }
 
 	    s << column;
@@ -89,10 +91,10 @@ namespace barrel
 	    if (aligns[i] == Align::LEFT)
 	    {
 		if (column.size() < widths[i] - extra)
-		    s << std::string(widths[i] - column.size() - extra, ' ');
+		    s << string(widths[i] - column.size() - extra, ' ');
 	    }
 
-	    s << " │";
+	    s << " " << glyph(0);
 	}
 
 	s << '\n';
@@ -100,38 +102,45 @@ namespace barrel
 
 
     void
-    output(std::ostream& s, const vector<size_t>& widths)
+    Table::output(std::ostream& s, const vector<size_t>& widths) const
     {
+	s << string(global_indent, ' ');
+
 	for (size_t i = 0; i < widths.size(); ++i)
 	{
 	    for (size_t j = 0; j < widths[i]; ++j)
-		s << "─";
+		s << glyph(1);
 
 	    if (i == widths.size() - 1)
 		break;
 
-	    s << "─┼─";
+	    s << glyph(1) << glyph(2) << glyph(1);
 	}
 
 	s << '\n';
     }
 
 
+    size_t
+    Table::id_to_index(Id id) const
+    {
+	for (size_t i = 0; i < ids.size(); ++i)
+	    if (ids[i] == id)
+		return i;
+
+	throw runtime_error("id not found");
+    }
+
+
     string&
     Table::Row::operator[](Id id)
     {
-	for (size_t i = 0; i < table.ids.size(); ++i)
-	{
-	    if (table.ids[i] == id)
-	    {
-		if (columns.size() < i + 1)
-		    columns.resize(i + 1);
+	size_t i = table.id_to_index(id);
 
-		return columns[i];
-	    }
-	}
+	if (columns.size() < i + 1)
+	    columns.resize(i + 1);
 
-	throw runtime_error("id not found");
+	return columns[i];
     }
 
 
@@ -147,14 +156,30 @@ namespace barrel
     }
 
 
+    void
+    Table::set_min_width(Id id, size_t min_width)
+    {
+	size_t i = id_to_index(id);
+
+	if (min_widths.size() < i + 1)
+	    min_widths.resize(i + 1);
+
+	min_widths[i] = min_width;
+    }
+
+
     std::ostream&
     operator<<(std::ostream& s, const Table& table)
     {
-	vector<size_t> widths;
+	vector<size_t> widths = table.min_widths;
 
 	// calculate widths
 
-	calculate_widths(widths, table.header, false);
+	if (table.style != Style::NONE)
+	{
+	    calculate_widths(widths, table.header, false);
+	}
+
 	for (const Table::Row& row : table.rows)
 	{
 	    calculate_widths(widths, row, false);
@@ -166,18 +191,35 @@ namespace barrel
 
 	// output header and rows
 
-	output(s, table.header, widths, table.aligns, 0, false);
-	output(s, widths);
+	if (table.style != Style::NONE)
+	{
+	    table.output(s, table.header, widths, table.aligns, 0, false);
+	    table.output(s, widths);
+	}
+
 	for (const Table::Row& row : table.rows)
 	{
-	    output(s, row, widths, table.aligns, 0, false);
+	    table.output(s, row, widths, table.aligns, 0, false);
 
 	    const vector<Table::Row>& subrows = row.get_subrows();
 	    for (size_t i = 0; i < subrows.size(); ++i)
-		output(s, subrows[i], widths, table.aligns, true, i == subrows.size() - 1);
+		table.output(s, subrows[i], widths, table.aligns, true, i == subrows.size() - 1);
 	}
 
 	return s;
+    }
+
+
+    const char*
+    Table::glyph(unsigned int i) const
+    {
+	const char* glyphs[][5] = {
+	    { "│", "─", "┼", "├─", "└─" },
+	    { "|", "-", "+", " -", " -" },
+	    { "", "", "", "  ", "  " }
+	};
+
+	return glyphs[(unsigned int)(style)][i];
     }
 
 }

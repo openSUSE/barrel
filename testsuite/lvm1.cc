@@ -84,7 +84,7 @@ BOOST_AUTO_TEST_CASE(test2)
 
     testsuite.readlines = {
 	"create vg --name test --size 5g --pool 'HDDs (512 B)' --devices 2",
-	"create lv --vg test --name a --size 2g --stripes 2",
+	"create lv --vg-name=test --name=a --size=2g --stripes=2",
 	"create xfs --path /test",
 	"commit"
     };
@@ -103,7 +103,7 @@ BOOST_AUTO_TEST_CASE(test2)
 BOOST_AUTO_TEST_CASE(test3)
 {
     Args args({ "barrel", "--dry-run", "--yes", "create", "vg", "--name", "test", "/dev/sdb", "/dev/sdc",
-	    "--size", "max", "--extent-size", "8m", "lv", "--name", "a", "--size", "max", "ext4" });
+	    "--size=max", "--extent-size=8m", "lv", "--name", "a", "--size", "max", "ext4" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (32.00 GiB)",

@@ -47,6 +47,12 @@ namespace barrel
     };
 
 
+    enum class Style
+    {
+	STANDARD, ASCII, NONE
+    };
+
+
     struct Cell
     {
 	Cell(const char* name) : name(name) {}
@@ -117,6 +123,10 @@ namespace barrel
 
 	const vector<Row> get_rows() const { return rows; }
 
+	void set_style(enum Style style) { Table::style = style; }
+	void set_global_indent(size_t global_indent) { Table::global_indent = global_indent; }
+	void set_min_width(Id id, size_t min_width);
+
 	friend std::ostream& operator<<(std::ostream& s, const Table& Table);
 
     private:
@@ -124,8 +134,21 @@ namespace barrel
 	Header header;
 	vector<Row> rows;
 
+	Style style = Style::STANDARD;
+	size_t global_indent = 0;
+
 	vector<Align> aligns;
 	vector<Id> ids;
+	vector<size_t> min_widths;
+
+	size_t id_to_index(Id id) const;
+
+	void output(std::ostream& s, const Table::Row& row, const vector<size_t>& widths,
+		    const vector<Align>& aligns, bool indent, bool last) const;
+
+	void output(std::ostream& s, const vector<size_t>& widths) const;
+
+	const char* glyph(unsigned int i) const;
 
     };
 

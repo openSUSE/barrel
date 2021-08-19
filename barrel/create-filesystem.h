@@ -30,32 +30,60 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_create_filesystem(GetOpts& get_opts);
+    struct CmdCreateFilesystem : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual const vector<Option>& options() const override;
+    };
 
-    shared_ptr<Cmd>
-    parse_create_btrfs(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_exfat(GetOpts& get_opts);
+    struct CmdCreateBtrfs : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
-    shared_ptr<Cmd>
-    parse_create_ext2(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_ext3(GetOpts& get_opts);
+    struct CmdCreateExt2 : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
-    shared_ptr<Cmd>
-    parse_create_ext4(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_swap(GetOpts& get_opts);
+    struct CmdCreateExt3 : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
-    shared_ptr<Cmd>
-    parse_create_vfat(GetOpts& get_opts);
 
-    shared_ptr<Cmd>
-    parse_create_xfs(GetOpts& get_opts);
+    struct CmdCreateExt4 : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateSwap : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateXfs : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
 
 }
 

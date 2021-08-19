@@ -23,6 +23,7 @@
 #include <storage/Storage.h>
 
 #include "Utils/GetOpts.h"
+#include "Utils/Text.h"
 #include "remove-pool.h"
 
 
@@ -35,6 +36,11 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> remove_pool_options = {
+	    { "name", required_argument, 'n', _("name of pool"), "name" }
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -45,11 +51,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "name", required_argument, 'n' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("pool", options);
+	    ParsedOpts parsed_opts = get_opts.parse("pool", remove_pool_options);
 
 	    name = parsed_opts.get("name");
 	}
@@ -57,11 +59,11 @@ namespace barrel
     }
 
 
-    class CmdRemovePool : public Cmd
+    class ParsedCmdRemovePool : public ParsedCmd
     {
     public:
 
-	CmdRemovePool(const Options& options) : options(options) {}
+	ParsedCmdRemovePool(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -75,7 +77,7 @@ namespace barrel
 
 
     void
-    CmdRemovePool::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdRemovePool::doit(const GlobalOptions& global_options, State& state) const
     {
 	state.storage->remove_pool(options.name);
 
@@ -83,12 +85,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_remove_pool(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdRemovePool::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdRemovePool>(options);
+	return make_shared<ParsedCmdRemovePool>(options);
+    }
+
+
+    const char*
+    CmdRemovePool::help() const
+    {
+	return _("remove pool");
+    }
+
+
+    const vector<Option>&
+    CmdRemovePool::options() const
+    {
+	return remove_pool_options;
     }
 
 }

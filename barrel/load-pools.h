@@ -30,11 +30,13 @@
 namespace barrel
 {
 
-    shared_ptr<Cmd>
-    parse_load_pools(GetOpts& get_opts);
+    struct CmdLoadPools : public Cmd
+    {
+	static shared_ptr<ParsedCmd> parse();
 
-    shared_ptr<Cmd>
-    parse_load_pools();
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
 
 }
 

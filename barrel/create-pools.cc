@@ -37,7 +37,7 @@ namespace barrel
     using namespace storage;
 
 
-    class CmdCreatePools : public Cmd
+    class ParsedCmdCreatePools : public ParsedCmd
     {
     public:
 
@@ -49,7 +49,7 @@ namespace barrel
 
 
     void
-    CmdCreatePools::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCreatePools::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (global_options.verbose)
 	    cout << "Generating pools" << endl;
@@ -78,10 +78,10 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
+    shared_ptr<ParsedCmd>
     parse_create_pools()
     {
-	return make_shared<CmdCreatePools>();
+	return make_shared<ParsedCmdCreatePools>();
     }
 
 }

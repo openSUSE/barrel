@@ -137,53 +137,9 @@ namespace barrel
     {
 	rl_attempted_completion_over = 1;
 
-	comp_names.clear();
+	// TODO make completion context aware
 
-	// TODO depending on previous arguments
-
-	comp_names.push_back("create");
-	comp_names.push_back("raid");
-	comp_names.push_back("raids");
-	comp_names.push_back("raid0");
-	comp_names.push_back("raid1");
-	comp_names.push_back("raid5");
-	comp_names.push_back("vg");
-	comp_names.push_back("vgs");
-	comp_names.push_back("lv");
-	comp_names.push_back("gpt");
-	comp_names.push_back("xfs");
-	comp_names.push_back("show");
-	comp_names.push_back("disks");
-	comp_names.push_back("filesystems");
-	comp_names.push_back("pool");
-	comp_names.push_back("pools");
-	comp_names.push_back("extend");
-	comp_names.push_back("reduce");
-	comp_names.push_back("remove");
-	comp_names.push_back("rename");
-	comp_names.push_back("device");
-	comp_names.push_back("devicegraph");
-	comp_names.push_back("pop");
-	comp_names.push_back("dup");
-	comp_names.push_back("stack");
-	comp_names.push_back("undo");
-	comp_names.push_back("load");
-	comp_names.push_back("save");
-	comp_names.push_back("commit");
-	comp_names.push_back("--size");
-	comp_names.push_back("--size");
-	comp_names.push_back("--devices");
-	comp_names.push_back("--pool");
-	comp_names.push_back("--name");
-	comp_names.push_back("--devicegraph");
-	comp_names.push_back("--mapping");
-	comp_names.push_back("--stripes");
-	comp_names.push_back("--probed");
-	comp_names.push_back("--force");
-	comp_names.push_back("--keep-partitions");
-	comp_names.push_back("--mount-options");
-	comp_names.push_back("--mkfs-options");
-	comp_names.push_back("--tune-options");
+	comp_names = fixed_comp_names;
 
 	// TODO normally tab completion only goes upto the path component
 
@@ -199,6 +155,7 @@ namespace barrel
 
     const Storage* Readline::storage;
 
+    vector<string> Readline::fixed_comp_names;
     vector<string> Readline::comp_names;
 
 }

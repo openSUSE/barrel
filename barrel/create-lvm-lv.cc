@@ -32,6 +32,7 @@
 
 #include "Utils/GetOpts.h"
 #include "Utils/Misc.h"
+#include "Utils/Text.h"
 #include "create-lvm-lv.h"
 
 
@@ -43,6 +44,15 @@ namespace barrel
 
     namespace
     {
+
+	const vector<Option> create_lvm_lv_options = {
+	    { "vg-name", required_argument, 'v' },
+	    { "name", required_argument, 'n', "set name of logical volume", "name" },
+	    { "size", required_argument, 's', "set size of logical volume", "size" },
+	    { "stripes", required_argument },
+	    { "stripe-size", required_argument }
+	};
+
 
 	struct SmartNumber
 	{
@@ -114,18 +124,10 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "vg", required_argument, 'v' },
-		{ "name", required_argument, 'n' },
-		{ "size", required_argument, 's' },
-		{ "stripes", required_argument },
-		{ "stripe-size", required_argument }
-	    };
+	    ParsedOpts parsed_opts = get_opts.parse("lv", create_lvm_lv_options, true);
 
-	    ParsedOpts parsed_opts = get_opts.parse("lv", options, true);
-
-	    if (parsed_opts.has_option("vg"))
-		vg_name = parsed_opts.get_optional("vg");
+	    if (parsed_opts.has_option("vg-name"))
+		vg_name = parsed_opts.get_optional("vg-name");
 
 	    if (!parsed_opts.has_option("name"))
 		throw OptionsException("name missing for command 'lv'");
@@ -157,11 +159,11 @@ namespace barrel
     }
 
 
-    class CmdCreateLvmLv : public Cmd
+    class ParsedCmdCreateLvmLv : public ParsedCmd
     {
     public:
 
-	CmdCreateLvmLv(const Options& options) : options(options) {}
+	ParsedCmdCreateLvmLv(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -175,7 +177,7 @@ namespace barrel
 
 
     void
-    CmdCreateLvmLv::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCreateLvmLv::doit(const GlobalOptions& global_options, State& state) const
     {
 	// TODO check name (valid, unique)
 
@@ -235,12 +237,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_lvm_lv(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdCreateLvmLv::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdCreateLvmLv>(options);
+	return make_shared<ParsedCmdCreateLvmLv>(options);
+    }
+
+
+    const char*
+    CmdCreateLvmLv::help() const
+    {
+	return _("Create a LVM logical volume");
+    }
+
+
+    const vector<Option>&
+    CmdCreateLvmLv::options() const
+    {
+	return create_lvm_lv_options;
     }
 
 }

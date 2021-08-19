@@ -39,7 +39,7 @@ namespace barrel
 
 
     string
-    CmdShow::device_usage(const Device* device) const
+    ParsedCmdShow::device_usage(const Device* device) const
     {
 	if (!is_blk_device(device))
 	    return "";
@@ -92,7 +92,7 @@ namespace barrel
 
 
     string
-    CmdShow::device_pool(const Storage* storage, const Device* device) const
+    ParsedCmdShow::device_pool(const Storage* storage, const Device* device) const
     {
 	const Devicegraph* probed = storage->get_probed();
 
@@ -112,7 +112,7 @@ namespace barrel
 
 
     void
-    CmdShow::insert_partitions(const Partitionable* partitionable, Table::Row& row) const
+    ParsedCmdShow::insert_partitions(const Partitionable* partitionable, Table::Row& row) const
     {
 	if (partitionable->has_partition_table())
 	{

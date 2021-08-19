@@ -43,6 +43,12 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> show_disks_options = {
+	    { "no-partitions", no_argument, 0, _("do not show partitions on disks") },
+	    { "probed", no_argument, 0, _("probed instead of staging") }
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -55,12 +61,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "no-partitions", no_argument },
-		{ "probed", no_argument }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("disks", options);
+	    ParsedOpts parsed_opts = get_opts.parse("disks", show_disks_options);
 
 	    show_partitions = !parsed_opts.has_option("no-partitions");
 
@@ -70,11 +71,11 @@ namespace barrel
     }
 
 
-    class CmdShowDisks : public CmdShow
+    class ParsedCmdShowDisks : public ParsedCmdShow
     {
     public:
 
-	CmdShowDisks(const Options& options) : options(options) {}
+	ParsedCmdShowDisks(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
@@ -88,7 +89,7 @@ namespace barrel
 
 
     void
-    CmdShowDisks::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdShowDisks::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Storage* storage = state.storage;
 
@@ -115,12 +116,26 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_show_disks(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdShowDisks::parse(GetOpts& get_opts) const
     {
 	Options options(get_opts);
 
-	return make_shared<CmdShowDisks>(options);
+	return make_shared<ParsedCmdShowDisks>(options);
+    }
+
+
+    const char*
+    CmdShowDisks::help() const
+    {
+	return _("show disks");
+    }
+
+
+    const vector<Option>&
+    CmdShowDisks::options() const
+    {
+	return show_disks_options;
     }
 
 }

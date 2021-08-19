@@ -29,6 +29,7 @@
 
 #include "Utils/GetOpts.h"
 #include "Utils/Misc.h"
+#include "Utils/Text.h"
 #include "create-partition-table.h"
 
 
@@ -40,6 +41,11 @@ namespace barrel
 
     namespace
     {
+
+	const vector<Option> create_partition_table_options = {
+	    { "type", required_argument, 't', _("partition table type"), "type" }
+	};
+
 
 	const map<string, PtType> str_to_pt_type = {
 	    { "gpt", PtType::GPT },
@@ -57,11 +63,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "type", required_argument, 't' }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("partition-table", options);
+	    ParsedOpts parsed_opts = get_opts.parse("partition-table", create_partition_table_options);
 
 	    if (parsed_opts.has_option("type"))
 	    {
@@ -78,11 +80,11 @@ namespace barrel
     }
 
 
-    class CmdCreatePartitionTable : public Cmd
+    class ParsedCmdCreatePartitionTable : public ParsedCmd
     {
     public:
 
-	CmdCreatePartitionTable(const Options& options) : options(options) {}
+	ParsedCmdCreatePartitionTable(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -96,7 +98,7 @@ namespace barrel
 
 
     void
-    CmdCreatePartitionTable::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCreatePartitionTable::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -115,19 +117,7 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_partition_table(GetOpts& get_opts)
-    {
-	Options options(get_opts);
-
-	if (!options.type)
-	    throw OptionsException("partition table type missing");
-
-	return make_shared<CmdCreatePartitionTable>(options);
-    }
-
-
-    shared_ptr<Cmd>
+    shared_ptr<ParsedCmd>
     parse_create_partition_table(GetOpts& get_opts, PtType type)
     {
 	Options options(get_opts);
@@ -137,21 +127,61 @@ namespace barrel
 
 	options.type = type;
 
-	return make_shared<CmdCreatePartitionTable>(options);
+	return make_shared<ParsedCmdCreatePartitionTable>(options);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_gpt(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdCreatePartitionTable::parse(GetOpts& get_opts) const
+    {
+	Options options(get_opts);
+
+	if (!options.type)
+	    throw OptionsException("partition table type missing");
+
+	return make_shared<ParsedCmdCreatePartitionTable>(options);
+    }
+
+
+    const char*
+    CmdCreatePartitionTable::help() const
+    {
+	return _("Create a partition table");
+    }
+
+
+    const vector<Option>&
+    CmdCreatePartitionTable::options() const
+    {
+	return create_partition_table_options;
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateGpt::parse(GetOpts& get_opts) const
     {
 	return parse_create_partition_table(get_opts, PtType::GPT);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_msdos(GetOpts& get_opts)
+    const char*
+    CmdCreateGpt::help() const
+    {
+	return _("Alias for 'create partition-table --type gpt'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateMsdos::parse(GetOpts& get_opts) const
     {
 	return parse_create_partition_table(get_opts, PtType::MSDOS);
+    }
+
+
+    const char*
+    CmdCreateMsdos::help() const
+    {
+	return _("Alias for 'create partition-table --type ms-dos'");
     }
 
 }

@@ -45,6 +45,19 @@ namespace barrel
     namespace
     {
 
+	const vector<Option> create_filesystem_options = {
+	    { "type", required_argument, 't', _("set file system type"), "type" },
+	    { "label", required_argument, 'l', _("set file system label"), "label" },
+	    { "path", required_argument, 'p', _("mount path"), "path" },
+	    { "mount-options", required_argument, 'o', _("mount options"), "options" },
+	    { "mkfs-options", required_argument, 0, _("mkfs options"), "options" },
+	    { "tune-options", required_argument, 0, _("tune options"), "options" },
+	    { "pool-name", required_argument, 0, _("pool name"), "name" },
+	    { "size", required_argument, 's', _("set file system size"), "size" },
+	    { "force", no_argument }
+	};
+
+
 	const map<string, FsType> str_to_fs_type = {
 	    { "btrfs", FsType::BTRFS },
 	    { "exfat", FsType::EXFAT },
@@ -67,7 +80,7 @@ namespace barrel
 	    optional<vector<string>> mount_options;
 	    optional<string> mkfs_options;
 	    optional<string> tune_options;
-	    optional<string> pool;
+	    optional<string> pool_name;
 	    optional<SmartSize> size;
 	    bool force = false;
 
@@ -86,19 +99,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    const vector<Option> options = {
-		{ "type", required_argument, 't' },
-		{ "label", required_argument, 'l' },
-		{ "path", required_argument, 'p' },
-		{ "mount-options", required_argument, 'o' },
-		{ "mkfs-options", required_argument },
-		{ "tune-options", required_argument },
-		{ "pool", required_argument },
-		{ "size", required_argument, 's' },
-		{ "force", no_argument }
-	    };
-
-	    ParsedOpts parsed_opts = get_opts.parse("filesystem", options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("filesystem", create_filesystem_options, true);
 
 	    if (parsed_opts.has_option("type"))
 	    {
@@ -130,7 +131,7 @@ namespace barrel
 	    if (parsed_opts.has_option("tune-options"))
 		tune_options = parsed_opts.get("tune-options");
 
-	    pool = parsed_opts.get_optional("pool");
+	    pool_name = parsed_opts.get_optional("pool-name");
 
 	    if (parsed_opts.has_option("size"))
 	    {
@@ -151,7 +152,7 @@ namespace barrel
 	{
 	    // TODO identical in create-lvm-vg.cc
 
-	    if (pool)
+	    if (pool_name)
 	    {
 		if (!size)
 		    throw runtime_error("size argument missing for command 'filesystem'");
@@ -213,11 +214,11 @@ namespace barrel
     }
 
 
-    class CmdCreateFilesystem : public Cmd
+    class ParsedCmdCreateFilesystem : public ParsedCmd
     {
     public:
 
-	CmdCreateFilesystem(const Options& options)
+	ParsedCmdCreateFilesystem(const Options& options)
 	    : options(options)
 	{
 	    options.check();
@@ -235,7 +236,7 @@ namespace barrel
 
 
     void
-    CmdCreateFilesystem::doit(const GlobalOptions& global_options, State& state) const
+    ParsedCmdCreateFilesystem::doit(const GlobalOptions& global_options, State& state) const
     {
 	Devicegraph* staging = state.storage->get_staging();
 
@@ -257,7 +258,7 @@ namespace barrel
 	    {
 		Devicegraph* staging = state.storage->get_staging();
 
-		Pool* pool = state.storage->get_pool(options.pool.value());
+		Pool* pool = state.storage->get_pool(options.pool_name.value());
 
 		SmartSize smart_size = options.size.value();
 
@@ -376,19 +377,7 @@ namespace barrel
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_filesystem(GetOpts& get_opts)
-    {
-	Options options(get_opts);
-
-	if (!options.type)
-	    throw runtime_error("filesystem type missing for command 'filesystem'");
-
-	return make_shared<CmdCreateFilesystem>(options);
-    }
-
-
-    shared_ptr<Cmd>
+    shared_ptr<ParsedCmd>
     parse_create_filesystem(GetOpts& get_opts, FsType type)
     {
 	Options options(get_opts);
@@ -398,49 +387,117 @@ namespace barrel
 
 	options.type = type;
 
-	return make_shared<CmdCreateFilesystem>(options);
+	return make_shared<ParsedCmdCreateFilesystem>(options);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_btrfs(GetOpts& get_opts)
+    shared_ptr<ParsedCmd>
+    CmdCreateFilesystem::parse(GetOpts& get_opts) const
+    {
+	Options options(get_opts);
+
+	if (!options.type)
+	    throw runtime_error("filesystem type missing for command 'filesystem'");
+
+	return make_shared<ParsedCmdCreateFilesystem>(options);
+    }
+
+
+    const char*
+    CmdCreateFilesystem::help() const
+    {
+	return _("Create a file system");
+    }
+
+
+    const vector<Option>&
+    CmdCreateFilesystem::options() const
+    {
+	return create_filesystem_options;
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateBtrfs::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::BTRFS);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_ext2(GetOpts& get_opts)
+    const char*
+    CmdCreateBtrfs::help() const
+    {
+	return _("Alias for 'create filesystem --type btrfs'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateExt2::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::EXT2);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_ext3(GetOpts& get_opts)
+    const char*
+    CmdCreateExt2::help() const
+    {
+	return _("Alias for 'create filesystem --type ext2'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateExt3::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::EXT3);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_ext4(GetOpts& get_opts)
+    const char*
+    CmdCreateExt3::help() const
+    {
+	return _("Alias for 'create filesystem --type ext3'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateExt4::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::EXT4);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_swap(GetOpts& get_opts)
+    const char*
+    CmdCreateExt4::help() const
+    {
+	return _("Alias for 'create filesystem --type ext4'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateSwap::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::SWAP);
     }
 
 
-    shared_ptr<Cmd>
-    parse_create_xfs(GetOpts& get_opts)
+    const char*
+    CmdCreateSwap::help() const
+    {
+	return _("Alias for 'create filesystem --type swap'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateXfs::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::XFS);
+    }
+
+
+    const char*
+    CmdCreateXfs::help() const
+    {
+	return _("Alias for 'create filesystem --type xfs'");
     }
 
 }
