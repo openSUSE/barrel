@@ -37,6 +37,13 @@ namespace barrel
     };
 
 
+    struct CmdClear : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
+
+
     struct CmdDup : public Cmd
     {
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;

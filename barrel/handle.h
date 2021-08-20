@@ -47,6 +47,7 @@ namespace barrel
 	static const vector<Option>& get_options();
 
 	bool help = false;
+	bool version = false;
 	bool verbose = false;
 	bool dry_run = false;
 	string prefix;
@@ -63,18 +64,21 @@ namespace barrel
 	size_t size() const { return data.size(); }
 	bool empty() const { return data.empty(); }
 
-	vector<sid_t>::const_iterator begin() const { return data.begin(); }
-	vector<sid_t>::const_iterator end() const { return data.end(); }
+	using const_iterator = deque<sid_t>::const_iterator;
 
-	void pop() { data.pop_back(); }
-	void dup() { data.push_back(data.back()); }
+	const_iterator begin() const { return data.begin(); }
+	const_iterator end() const { return data.end(); }
+
+	void pop() { data.pop_front(); }
+	void clear() { data.clear(); }
+	void dup() { data.push_front(data.front()); }
 
 	Device* top(Devicegraph* devicegraph);
-	void push(Device* device) { data.push_back(device->get_sid()); }
+	void push(Device* device) { data.push_front(device->get_sid()); }
 
     private:
 
-	vector<sid_t> data;
+	deque<sid_t> data;
 
     };
 
@@ -133,7 +137,7 @@ namespace barrel
 	virtual ~Cmd() = default;
 
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const = 0;
-	virtual const char* help() const { return nullptr; }
+	virtual const char* help() const = 0;
 	virtual bool is_alias() const { return false; }
 	virtual const vector<Option>& options() const { return GetOpts::no_options; }
     };
@@ -142,7 +146,7 @@ namespace barrel
     struct Parser
     {
 	const string name;
-	const Cmd* cmd;
+	const shared_ptr<Cmd> cmd;
     };
 
 

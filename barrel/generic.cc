@@ -22,10 +22,18 @@
 
 #include <storage/Storage.h>
 #include <storage/Devicegraph.h>
+#include <storage/Devices/Md.h>
+#include <storage/Devices/LvmVg.h>
+#include <storage/Devices/LvmLv.h>
+#include <storage/Devices/Gpt.h>
+#include <storage/Devices/Msdos.h>
+#include <storage/Devices/Luks.h>
+#include <storage/Filesystems/BlkFilesystem.h>
 
 #include "generic.h"
 #include "Utils/Prompt.h"
 #include "Utils/Text.h"
+#include "Utils/Table.h"
 
 
 namespace barrel
@@ -65,6 +73,40 @@ namespace barrel
     CmdPop::help() const
     {
 	return _("pop value from stack");
+    }
+
+
+    class ParsedCmdClear : public ParsedCmd
+    {
+    public:
+
+	virtual bool do_backup() const override { return false; }
+
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
+
+    };
+
+
+    void
+    ParsedCmdClear::doit(const GlobalOptions& global_options, State& state) const
+    {
+	state.stack.clear();
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdClear::parse(GetOpts& get_opts) const
+    {
+	get_opts.parse("clear", GetOpts::no_options);
+
+	return make_shared<ParsedCmdClear>();
+    }
+
+
+    const char*
+    CmdClear::help() const
+    {
+	return _("clear stack");
     }
 
 
@@ -113,7 +155,62 @@ namespace barrel
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
+    private:
+
+	string description(const Device* device) const;
+
     };
+
+
+    string
+    ParsedCmdStack::description(const Device* device) const
+    {
+	if (is_md(device))
+	{
+	    const Md* md = to_md(device);
+	    return sformat("RAID %s", md->get_name().c_str());
+	}
+
+	if (is_lvm_vg(device))
+	{
+	    const LvmVg* lvm_vg = to_lvm_vg(device);
+	    return sformat("LVM volume group %s", lvm_vg->get_vg_name().c_str());
+	}
+
+	if (is_lvm_lv(device))
+	{
+	    const LvmLv* lvm_lv = to_lvm_lv(device);
+	    return sformat("LVM logical volume %s", lvm_lv->get_name().c_str());
+	}
+
+	if (is_gpt(device))
+	{
+	    const Gpt* gpt = to_gpt(device);
+	    return sformat("GPT on %s", gpt->get_partitionable()->get_name().c_str());
+	}
+
+	if (is_msdos(device))
+	{
+	    const Msdos* msdos = to_msdos(device);
+	    return sformat("MS-DOS on %s", msdos->get_partitionable()->get_name().c_str());
+	}
+
+	if (is_luks(device))
+	{
+	    const Luks* luks = to_luks(device);
+	    return sformat("LUKS on %s", luks->get_blk_device()->get_name().c_str());
+	}
+
+	if (is_blk_filesystem(device))
+	{
+	    const BlkFilesystem* blk_filesystem = to_blk_filesystem(device);
+	    // TODO support several devices, maybe use join from libstorage-ng
+	    return sformat("filesystem %s on %s", get_fs_type_name(blk_filesystem->get_type()).c_str(),
+			   blk_filesystem->get_blk_devices()[0]->get_name().c_str());
+	}
+
+	return "unknown";
+    }
 
 
     void
@@ -121,22 +218,28 @@ namespace barrel
     {
 	Devicegraph* staging = state.storage->get_staging();
 
-	for (sid_t sid : state.stack)
+	Table table({ _("Position"), _("Description") });
+	table.set_style(Style::NONE);
+
+	for (Stack::const_iterator it = state.stack.begin(); it != state.stack.end(); ++it)
 	{
-	    cout << sid;
+	    const sid_t sid = *it;
+
+	    string p = it == state.stack.begin() ? "top" : "";
+
+	    string d = "deleted";
 
 	    if (staging->device_exists(sid))
 	    {
 		const Device* device = staging->find_device(sid);
-		cout << "  " << device->get_displayname();
-	    }
-	    else
-	    {
-		cout << "  invalid";
+		d = description(device);
 	    }
 
-	    cout << endl;
+	    Table::Row row(table, { p, d });
+	    table.add(row);
 	}
+
+	cout << table;
     }
 
 

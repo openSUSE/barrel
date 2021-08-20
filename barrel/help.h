@@ -38,7 +38,7 @@ namespace barrel
 
 
     void
-    help();
+    help(bool global);
 
 }
 

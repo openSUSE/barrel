@@ -20,6 +20,8 @@
  */
 
 
+#include "config.h"
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -53,7 +55,7 @@ namespace barrel
     Device*
     Stack::top(Devicegraph* devicegraph)
     {
-	return devicegraph->find_device(data.back());
+	return devicegraph->find_device(data.front());
     }
 
 
@@ -70,6 +72,7 @@ namespace barrel
 	activate = parsed_opts.has_option("activate");
 	yes = parsed_opts.has_option("yes");
 	help = parsed_opts.has_option("help");
+	version = parsed_opts.has_option("version");
     }
 
 
@@ -83,7 +86,8 @@ namespace barrel
 	    { "prefix", required_argument, 0, _("run with a prefix"), "prefix" },
 	    { "activate", no_argument, 'a' },
 	    { "yes", no_argument },
-	    { "help", no_argument, 'h', _("show help and exit") }
+	    { "help", no_argument, 'h', _("show help and exit") } ,
+	    { "version", no_argument, 0, _("show version and exit") }
 	};
 
 	return options;
@@ -307,7 +311,10 @@ namespace barrel
 
 	while (state.run)
 	{
-	    string prompt = sformat("barrel[%ld]> ", state.stack.size());
+	    string prompt = "barrel";
+	    if (!state.stack.empty())
+		prompt += sformat("[%ld]", state.stack.size());
+	    prompt += "> ";
 
 	    char* line = readline.readline(prompt);
 	    if (!line)
@@ -397,7 +404,13 @@ namespace barrel
 
 	    if (global_options.help)
 	    {
-		help();
+		help(true);
+		return true;
+	    }
+
+	    if (global_options.version)
+	    {
+		cout << "barrel " VERSION << '\n';
 		return true;
 	    }
 

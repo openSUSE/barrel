@@ -33,6 +33,8 @@
 #include <iostream>
 #include <boost/algorithm/string.hpp>
 
+#include "Text.h"
+
 
 namespace barrel
 {
@@ -150,7 +152,7 @@ namespace barrel
 	}
 
 	if (best == v.end())
-	    throw runtime_error("unknown command or sub command");
+	    throw runtime_error(sformat("unknown command or sub command '%s'", name));
 
 	return best;
     }

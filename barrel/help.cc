@@ -34,75 +34,105 @@ namespace barrel
     using namespace storage;
 
 
+    // TODO just a quick hack
+
+
+    namespace
+    {
+	struct Options
+	{
+	    Options(GetOpts& get_opts);
+
+	    optional<string> main_cmd;
+	    optional<string> sub_cmd;
+	};
+
+
+	Options::Options(GetOpts& get_opts)
+	{
+	    if (get_opts.has_args())
+		main_cmd = get_opts.pop_arg();
+
+	    if (get_opts.has_args())
+		sub_cmd = get_opts.pop_arg();
+	}
+
+
+	void
+	print_options_help(const vector<Option>& options)
+	{
+	    Table table({ Cell("Name", Id::NAME), "Description" });
+	    table.set_style(Style::NONE);
+	    table.set_global_indent(6);
+	    table.set_min_width(Id::NAME, 28);
+
+	    for (const Option& option : options)
+	    {
+		if (option.description)
+		{
+		    string tmp;
+
+		    if (option.c)
+			tmp += "-"s + (char)(option.c) + ", "s;
+		    else
+			tmp += "    ";
+
+		    tmp += "--"s + option.name;
+		    if (option.has_arg == required_argument)
+		    {
+			if (!option.arg_name)
+			    throw runtime_error("arg_name not set");
+			tmp += " <"s + option.arg_name + ">"s;
+		    }
+
+		    Table::Row row(table, { tmp, option.description });
+		    table.add(row);
+		}
+	    }
+
+	    cout << table;
+	}
+
+    };
+
+
     class ParsedCmdHelp : public ParsedCmd
     {
     public:
+
+	ParsedCmdHelp(const Options& options) : options(options) {}
 
 	virtual bool do_backup() const override { return false; }
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
+    private:
+
+	const Options options;
+
     };
 
 
     void
-    options_help(const vector<Option>& options)
+    help(bool global)
     {
-	Table table({ Cell("Name", Id::NAME), "Description" });
-	table.set_style(Style::NONE);
-	table.set_global_indent(6);
-	table.set_min_width(Id::NAME, 28);
-
-	for (const Option& option : options)
+	if (global)
 	{
-	    if (option.description)
-	    {
-		string tmp;
+	    cout << "Global options" << '\n';
 
-		if (option.c)
-		    tmp += "-"s + (char)(option.c) + ", "s;
-		else
-		    tmp += "    ";
+	    print_options_help(GlobalOptions::get_options());
 
-		tmp += "--"s + option.name;
-		if (option.has_arg == required_argument)
-		{
-		    if (!option.arg_name)
-			throw runtime_error("arg_name not set");
-		    tmp += " <"s + option.arg_name + ">"s;
-		}
-
-		Table::Row row(table, { tmp, option.description });
-		table.add(row);
-	    }
+	    cout << '\n';
 	}
-
-	cout << table;
-    }
-
-
-    void
-    help()
-    {
-	cout << "Global options" << '\n';
-
-	options_help(GlobalOptions::get_options());
-
-	cout << '\n';
 
 	for (const MainCmd& main_cmd : main_cmds)
 	{
 	    if (main_cmd.cmd)
 	    {
 		cout << main_cmd.name << '\n';
+		cout << "    " << main_cmd.cmd->help() << '\n';
 
-		const char* h = main_cmd.cmd->help();
-		if (h)
-		    cout << "    " << h << '\n';
-
-		const vector<Option>& o = main_cmd.cmd->options();
-		if (!o.empty())
-		    options_help(o);
+		print_options_help(main_cmd.cmd->options());
 
 		cout << '\n';
 	    }
@@ -113,17 +143,10 @@ namespace barrel
 		    if (sub_cmd.cmd)
 		    {
 			cout << main_cmd.name << " " << sub_cmd.name << '\n';
-
-			const char* h = sub_cmd.cmd->help();
-			if (h)
-			    cout << "    " << h << '\n';
+			cout << "    " << sub_cmd.cmd->help() << '\n';
 
 			if (!sub_cmd.cmd->is_alias())
-			{
-			    const vector<Option>& o = sub_cmd.cmd->options();
-			    if (!o.empty())
-				options_help(o);
-			}
+			    print_options_help(sub_cmd.cmd->options());
 		    }
 
 		    cout << '\n';
@@ -136,16 +159,57 @@ namespace barrel
     void
     ParsedCmdHelp::doit(const GlobalOptions& global_options, State& state) const
     {
-	help();
+	if (options.main_cmd)
+	{
+	    vector<MainCmd>::const_iterator main_cmd =
+		sloppy_find(main_cmds, options.main_cmd.value().c_str());
+
+	    if (!options.sub_cmd)
+	    {
+		if (main_cmd->cmd)
+		{
+		    if (main_cmd->name == "help")
+		    {
+			cout << _("Keep smiling, 'cause that's the most important thing.") << '\n';
+			return;
+		    }
+
+		    cout << "    " << main_cmd->cmd->help() << '\n';
+		}
+		else
+		{
+		    cout << "has the following subcommands:" << '\n';
+
+		    for (const Parser& sub_cmd : main_cmd->sub_cmds)
+			cout << sub_cmd.name << '\n';
+		}
+	    }
+	    else
+	    {
+		vector<Parser>::const_iterator sub_cmd =
+		    sloppy_find(main_cmd->sub_cmds, options.sub_cmd.value().c_str());
+
+		cout << "    " << sub_cmd->cmd->help() << '\n';
+
+		if (!sub_cmd->cmd->is_alias())
+		    print_options_help(sub_cmd->cmd->options());
+
+		cout << '\n';
+	    }
+	}
+	else
+	{
+	    help(false);
+	}
     };
 
 
     shared_ptr<ParsedCmd>
     CmdHelp::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("help", GetOpts::no_options);
+	Options options(get_opts);
 
-	return make_shared<ParsedCmdHelp>();
+	return make_shared<ParsedCmdHelp>(options);
     }
 
 

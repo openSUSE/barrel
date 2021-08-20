@@ -21,124 +21,123 @@
 
 
 #include "cmds.h"
-#include "help.h"
-#include "generic.h"
-#include "show-disks.h"
-#include "show-filesystems.h"
-#include "show-pools.h"
-#include "show-raids.h"
-#include "show-lvm-vgs.h"
-#include "show-commit.h"
 #include "commit.h"
-#include "create-raid.h"
-#include "create-lvm-vg.h"
-#include "create-lvm-lv.h"
 #include "create-encryption.h"
-#include "create-partition-table.h"
 #include "create-filesystem.h"
+#include "create-lvm-lv.h"
+#include "create-lvm-vg.h"
+#include "create-partition-table.h"
 #include "create-pool.h"
-#include "remove-pool.h"
-#include "rename-pool.h"
+#include "create-raid.h"
 #include "extend-pool.h"
+#include "generic.h"
+#include "help.h"
+#include "load-devicegraph.h"
+#include "load-pools.h"
 #include "reduce-pool.h"
 #include "remove-device.h"
-#include "load-devicegraph.h"
+#include "remove-pool.h"
+#include "rename-pool.h"
 #include "save-devicegraph.h"
-#include "load-pools.h"
 #include "save-pools.h"
+#include "show-commit.h"
+#include "show-disks.h"
+#include "show-filesystems.h"
+#include "show-lvm-vgs.h"
+#include "show-pools.h"
+#include "show-raids.h"
 
 
 namespace barrel
 {
-    // TODO use some smart pointer
-
 
     const vector<Parser> show_cmds = {
-	{ "commit", new CmdShowCommit },
-	{ "disks", new CmdShowDisks },
-	{ "filesystems", new CmdShowFilesystems },
-	{ "pools", new CmdShowPools },
-	{ "raids", new CmdShowRaids },
-	{ "vgs", new CmdShowLvmVgs }
+	{ "commit", make_shared<CmdShowCommit>() },
+	{ "disks", make_shared<CmdShowDisks>() },
+	{ "filesystems", make_shared<CmdShowFilesystems>() },
+	{ "pools", make_shared<CmdShowPools>() },
+	{ "raids", make_shared<CmdShowRaids>() },
+	{ "vgs", make_shared<CmdShowLvmVgs>() }
     };
 
 
     const vector<Parser> create_cmds = {
-	{ "btrfs", new CmdCreateBtrfs },
-	{ "encryption", new CmdCreateEncryption },
-	{ "ext2", new CmdCreateExt2 },
-	{ "ext3", new CmdCreateExt3 },
-	{ "ext4", new CmdCreateExt4 },
-	{ "filesystem", new CmdCreateFilesystem },
-	{ "gpt", new CmdCreateGpt },
-	{ "luks1", new CmdCreateLuks1 },
-	{ "luks2", new CmdCreateLuks2 },
-	{ "lv", new CmdCreateLvmLv },
-	{ "ms-dos", new CmdCreateMsdos },
-	{ "partition-table", new CmdCreatePartitionTable },
-	{ "pool", new CmdCreatePool },
-	{ "raid", new CmdCreateRaid },
-	{ "raid0", new CmdCreateRaid0 },
-	{ "raid1", new CmdCreateRaid1 },
-	{ "raid4", new CmdCreateRaid4 },
-	{ "raid5", new CmdCreateRaid5 },
-	{ "raid6", new CmdCreateRaid6 },
-	{ "raid10", new CmdCreateRaid10 },
-	{ "swap", new CmdCreateSwap },
-	{ "vg", new CmdCreateLvmVg },
-	{ "xfs", new CmdCreateXfs }
+	{ "btrfs", make_shared<CmdCreateBtrfs>() },
+	{ "encryption", make_shared<CmdCreateEncryption>() },
+	{ "ext2", make_shared<CmdCreateExt2>() },
+	{ "ext3", make_shared<CmdCreateExt3>() },
+	{ "ext4", make_shared<CmdCreateExt4>() },
+	{ "filesystem", make_shared<CmdCreateFilesystem>() },
+	{ "gpt", make_shared<CmdCreateGpt>() },
+	{ "luks1", make_shared<CmdCreateLuks1>() },
+	{ "luks2", make_shared<CmdCreateLuks2>() },
+	{ "lv", make_shared<CmdCreateLvmLv>() },
+	{ "ms-dos", make_shared<CmdCreateMsdos>() },
+	{ "partition-table", make_shared<CmdCreatePartitionTable>() },
+	{ "pool", make_shared<CmdCreatePool>() },
+	{ "raid", make_shared<CmdCreateRaid>() },
+	{ "raid0", make_shared<CmdCreateRaid0>() },
+	{ "raid1", make_shared<CmdCreateRaid1>() },
+	{ "raid4", make_shared<CmdCreateRaid4>() },
+	{ "raid5", make_shared<CmdCreateRaid5>() },
+	{ "raid6", make_shared<CmdCreateRaid6>() },
+	{ "raid10", make_shared<CmdCreateRaid10>() },
+	{ "swap", make_shared<CmdCreateSwap>() },
+	{ "vg", make_shared<CmdCreateLvmVg>() },
+	{ "xfs", make_shared<CmdCreateXfs>() }
     };
 
 
     const vector<Parser> extend_cmds = {
-	{ "pool", new CmdExtendPool }
+	{ "pool", make_shared<CmdExtendPool>() }
     };
 
 
     const vector<Parser> reduce_cmds = {
-	{ "pool", new CmdReducePool }
+	{ "pool", make_shared<CmdReducePool>() }
     };
 
 
     const vector<Parser> remove_cmds = {
-	{ "device", new CmdRemoveDevice },
-	{ "pool", new CmdRemovePool }
+	{ "device", make_shared<CmdRemoveDevice>() },
+	{ "pool", make_shared<CmdRemovePool>() }
     };
 
 
     const vector<Parser> rename_cmds = {
-	{ "pool", new CmdRenamePool }
+	{ "pool", make_shared<CmdRenamePool>() }
     };
 
 
     const vector<Parser> load_cmds = {
-	{ "devicegraph", new CmdLoadDevicegraph },
-	{ "pools", new CmdLoadPools }
+	{ "devicegraph", make_shared<CmdLoadDevicegraph>() },
+	{ "pools", make_shared<CmdLoadPools>() }
     };
 
 
     const vector<Parser> save_cmds = {
-	{ "devicegraph", new CmdSaveDevicegraph },
-	{ "pools", new CmdSavePools }
+	{ "devicegraph", make_shared<CmdSaveDevicegraph>() },
+	{ "pools", make_shared<CmdSavePools>() }
     };
 
 
     const vector<MainCmd> main_cmds = {
-	{ "commit", new CmdCommit, {} },
+	{ "clear", make_shared<CmdClear>(), {} },
+	{ "commit", make_shared<CmdCommit>(), {} },
 	{ "create", nullptr, create_cmds },
-	{ "dup", new CmdDup, {} },
+	{ "dup", make_shared<CmdDup>(), {} },
 	{ "extend", nullptr, extend_cmds },
-	{ "help", new CmdHelp, {} },
+	{ "help", make_shared<CmdHelp>(), {} },
 	{ "load", nullptr, load_cmds },
-	{ "pop", new CmdPop, {} },
-	{ "quit", new CmdQuit, {} },
+	{ "pop", make_shared<CmdPop>(), {} },
+	{ "quit", make_shared<CmdQuit>(), {} },
 	{ "reduce", nullptr, reduce_cmds },
 	{ "remove", nullptr, remove_cmds },
 	{ "rename", nullptr, rename_cmds },
 	{ "save", nullptr, save_cmds },
 	{ "show", nullptr, show_cmds },
-	{ "stack", new CmdStack, {} },
-	{ "undo", new CmdUndo, {} }
+	{ "stack", make_shared<CmdStack>(), {} },
+	{ "undo", make_shared<CmdUndo>(), {} }
     };
 
 }
