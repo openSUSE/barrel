@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <refentryinfo>
+    <date>2021-09-27</date>
+  </refentryinfo>
+
+  <refmeta>
+    <refentrytitle>barrel</refentrytitle>
+    <manvolnum>8</manvolnum>
+    <refmiscinfo class='date'>2021-09-27</refmiscinfo>
+    <refmiscinfo class='version'>@VERSION@</refmiscinfo>
+    <refmiscinfo class='manual'>Storage Management</refmiscinfo>
+  </refmeta>
+
+  <refnamediv>
+    <refname>barrel</refname>
+    <refpurpose>Command-line program for storage management</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv id='synopsis'>
+    <cmdsynopsis>
+      <command>barrel</command>
+      <arg choice='opt'><replaceable>--global-opts</replaceable></arg>
+      <arg choice='plain'><replaceable>command</replaceable></arg>
+      <arg choice='opt'><replaceable>--command-opts</replaceable></arg>
+      <arg choice='opt'><replaceable>command-arguments</replaceable></arg>
+    </cmdsynopsis>
+    <cmdsynopsis>
+      <command>barrel</command>
+      <arg choice='opt'><replaceable>--global-opts</replaceable></arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+  <refsect1 id='description'>
+    <title>DESCRIPTION</title>
+
+    <para>Barrel is a command-line program for storage management. It
+    can work with file systems, RAIDs, LVM volume groups and logical
+    volumes. The main feature of barrel is to combine the various tools
+    needed to manage the different storage systems in one tool. E.g. with
+    a single command of barrel it is possible to create partitions on
+    several disks, create a RAID from those partitions and create a file
+    system on the RAID.</para>
+  </refsect1>
+
+  <refsect1 id='concepts'>
+    <title>CONCEPTS</title>
+
+    <refsect2 id='modes'>
+      <title>Script and interactive mode</title>
+      <para>Barrel can run either in script or interactive mode. ...</para>
+    </refsect2>
+
+    <refsect2 id='pools'>
+      <title>Pools</title>
+      <para>Devices can be grouped into pools. That allows to ...</para>
+    </refsect2>
+
+    <refsect2 id='stack'>
+      <title>Stack</title>
+      <para>Many commands ...</para>
+    </refsect2>
+  </refsect1>
+
+  <refsect1 id='global_options'>
+    <title>GLOBAL OPTIONS</title>
+    <variablelist>
+      <varlistentry>
+	<term><option>-q, --quiet</option></term>
+	<listitem>
+	  <para>Suppress normal output. Error messages will still be printed, though.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>-v, --verbose</option></term>
+	<listitem>
+	  <para>Increase verbosity.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>--dry-run</option></term>
+	<listitem>
+	  <para>Do not commit anything to disk.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>--prefix <replaceable>path</replaceable></option></term>
+	<listitem>
+	  <para>Prepend verious path (mount points and files in /etc)
+	  with a prefix. Useful when running in a installation or rescue
+	  system.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>-a, --activate</option></term>
+	<listitem>
+	  <para>Activate storage systems at startup. Useful when
+	  running in a installation or rescue system.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>--yes</option></term>
+	<listitem>
+	  <para>Do not prompt for confirmation but assume the answer
+	  yes. Use with extreme caution. </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>-h, --help <replaceable>format</replaceable></option></term>
+	<listitem>
+	  <para>Print help and exit.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>--version</option></term>
+	<listitem>
+	  <para>Print version and exit.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id='commands'>
+    <title>COMMANDS</title>
+
+    <para>Barrel provides a number of <emphasis>commands</emphasis>. Each
+    command accepts the options listed in the <link
+    linkend='global_options'>GLOBAL OPTIONS</link> section. These options must
+    be specified <emphasis>before</emphasis> the command name. In addition,
+    many commands have specific options, which are listed in this
+    section. These command-specific options must be specified
+    <emphasis>after</emphasis> the name of the command and
+    <emphasis>before</emphasis> any of the command arguments.</para>
+
+    <variablelist>
+
+      <varlistentry>
+	<term><option>help</option></term>
+	<listitem>
+	  <para>Show short help text.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>create filesystem</option></term>
+	<listitem>
+	  <para>Create a file system.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-t, --type</option> <replaceable>type</replaceable></term>
+	      <listitem>
+		<para>Set file system type. Possible values are
+		xfs, exfat, vfat, ext2, ext3, ext4, btrfs and swap.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--path</option> <replaceable>path</replaceable></term>
+	      <listitem>
+		<para>Path to mount the filesystem.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>create raid</option></term>
+	<listitem>
+	  <para>Create a RAID.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-l, --level</option> <replaceable>fstype</replaceable></term>
+	      <listitem>
+		<para>Set RAID level. Possible values are 0, strip, 1,
+		mirror, 4, 5, 6 and 10.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>create vg</option></term>
+	<listitem>
+	  <para>Create a LVM volume group.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>create lv</option></term>
+	<listitem>
+	  <para>Create a LVM logical volume.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>show disks</option></term>
+	<listitem>
+	  <para>Show disks.</para>
+	</listitem>
+      </varlistentry>
+
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id='examples'>
+    <title>EXAMPLES</title>
+    <variablelist>
+      <varlistentry>
+	<term><command>barrel create xfs /dev/sdb1 --path /test</command></term>
+	<listitem>
+	  <para>Create an XFS on /dev/sdb1 and mount it at /test.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+	<term><command>barrel create xfs /dev/sdb --size 10G --path /test</command></term>
+	<listitem>
+	  <para>Create a 10 GiB partition on /dev/sdb with an XFS and
+	  mount it at /test.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+	<term><command>barrel create raid1 /dev/sd[bc]1 xfs --path /test</command></term>
+	<listitem>
+	  <para>Create a RAID1 on /dev/sdb1 and /dev/sdc1 with an XFS
+	  and mounted at /test.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+	<term><command>barrel create raid5 --size 1TiB --pool "HDDs (512 B)"
+	--devices 3+1 xfs --path /test</command></term>
+	<listitem>
+	  <para>Create a 1 TiB RAID5 with 3 devices and 1 spare from
+	  devices in the pool "HDDs (512 B)" and an XFS on the RAID
+	  mounted at /test.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+	<term><command>barrel create vg --name vg1 --size 1TiB /dev/sdb
+	lv --name lv1 --size 100G xfs --path /test1</command></term>
+	<listitem>
+	  <para>Create a new 1 TiB partition on /dev/sdb, create a
+	  volume group with name vg1 using the partition, create a logical
+	  volume with name lv1 and size 100G within the volume group and finally
+	  create an XFS on the logical volume and mount it at /test.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id='files'>
+    <title>FILES</title>
+    <variablelist>
+      <varlistentry>
+	<term><filename>/etc/barrel/pools.json</filename></term>
+	<listitem>
+	  <para>JSON file defining pools.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id='bugs'>
+    <title>BUGS</title>
+    <itemizedlist>
+      <listitem>
+	<para>Missing tools are not installed on demand.</para>
+      </listitem>
+      <listitem>
+	<para>Tools doing automounts, e.g. systemd and desktop
+	environments, can cause race conditions.</para>
+      </listitem>
+      <listitem>
+	<para>Translations are missing.</para>
+      </listitem>
+    </itemizedlist>
+  </refsect1>
+
+  <refsect1 id='homepage'>
+    <title>HOMEPAGE</title>
+    <para><ulink url='http://github.com/aschnell/barrel/'>http://github.com/aschnell/barrel/</ulink></para>
+  </refsect1>
+
+  <refsect1 id='authors'>
+    <title>AUTHORS</title>
+    <para>Arvin Schnell <email>aschnell@suse.com</email></para>
+  </refsect1>
+
+  <refsect1 id='see_also'>
+    <title>SEE ALSO</title>
+    <para>
+      <citerefentry role="nolink"><refentrytitle>parted</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>mdadm</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>lvm</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>cryptsetup</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>fstab</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>mdadm.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
+    </para>
+  </refsect1>
+
+</refentry>

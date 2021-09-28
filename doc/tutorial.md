@@ -53,8 +53,9 @@ SSDs (512 B) │       3 │  96.00 GiB │  33.33%
 └─/dev/sdg   │         │  32.00 GiB │   0.00%
 ~~~
 
-Now we can tell barrel to create an XFS from a pool. In that case
-barrel will select the disk:
+So far disks of a pool must already have a GPT. Now we can tell barrel
+to create an XFS from a pool. In that case barrel will select the
+disk:
 
 ~~~
 # barrel create xfs --size 20g --pool "HDDs (512 B)" --path /test2

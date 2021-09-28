@@ -24,13 +24,16 @@ Source:         barrel-%{version}.tar.xz
 %if 0%{?fedora_version}
 BuildRequires:  boost-devel
 BuildRequires:  json-c-devel
+BuildRequires:  docbook-style-xsl
 %else
 BuildRequires:  libboost_headers-devel
 BuildRequires:  libboost_test-devel
 BuildRequires:  libjson-c-devel
+BuildRequires:  docbook-xsl-stylesheets
 %endif
 BuildRequires:  libstorage-ng-devel >= 4.4.35
 BuildRequires:  libtool
+BuildRequires:  libxslt
 BuildRequires:  readline-devel
 
 Requires:       libstorage-ng1 >= 4.4.35
@@ -67,6 +70,7 @@ make %{?_smp_mflags} check VERBOSE=1
 %dir %{_sysconfdir}/barrel
 %doc %dir %{_docdir}/%{name}
 %doc %{_docdir}/%{name}/AUTHORS
+%doc %{_mandir}/*/barrel.8*
 %license %{_docdir}/%{name}/LICENSE
 
 %changelog

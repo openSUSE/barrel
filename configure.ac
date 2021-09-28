@@ -18,6 +18,8 @@ LT_INIT
 
 AC_PREFIX_DEFAULT(/usr)
 
+AC_PATH_PROG([XSLTPROC], [xsltproc], [/usr/bin/xsltproc])
+
 AC_SYS_LARGEFILE
 
 PKG_CHECK_MODULES(XML2, libxml-2.0)
@@ -30,6 +32,8 @@ AC_OUTPUT(
 	barrel/Makefile
 	barrel/Utils/Makefile
 	data/Makefile
+	doc/Makefile
+	doc/barrel.xml:doc/barrel.xml.in
 	testsuite/Makefile
 	package/barrel.spec:barrel.spec.in
 )
