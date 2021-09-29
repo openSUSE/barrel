@@ -78,7 +78,8 @@ namespace barrel
 			tmp += "    ";
 
 		    tmp += "--"s + option.name;
-		    if (option.has_arg == required_argument)
+
+		    if (option.has_arg != no_argument)
 		    {
 			if (!option.arg_name)
 			    throw runtime_error("arg_name not set");

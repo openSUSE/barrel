@@ -52,9 +52,8 @@ namespace barrel
     {
 	const char* name;
 	int has_arg;
-	char c = 0;
-
-	const char* description = nullptr;
+	char c;
+	const char* description;
 	const char* arg_name = nullptr;
     };
 

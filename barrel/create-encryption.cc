@@ -40,8 +40,8 @@ namespace barrel
 
 	const vector<Option> create_encryption_options = {
 	    { "type", required_argument, 't', _("encryption type"), "type" },
-	    { "name", required_argument, 'n' },
-	    { "password", required_argument, 'p' } // TODO drop, read from stdin
+	    { "name", required_argument, 'n', _("set name of device"), "name" },
+	    { "password", required_argument, 'p', "set password", "password" } // TODO drop, read from stdin
 	};
 
 

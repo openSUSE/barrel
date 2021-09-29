@@ -45,12 +45,12 @@ namespace barrel
     {
 
 	const vector<Option> create_lvm_vg_options = {
-	    { "name", required_argument, 'n', "set name of volume group", "name" },
-	    { "pool-name", required_argument, 'p' },
-	    { "size", required_argument, 's', "set size of volume group", "size" },
-	    { "devices", required_argument, 'd' },
-	    { "extent-size", required_argument },
-	    { "force", no_argument }
+	    { "name", required_argument, 'n', _("set name of volume group"), "name" },
+	    { "pool-name", required_argument, 'p', _("name of pool to use"), "name" },
+	    { "size", required_argument, 's', _("set size of volume group"), "size" },
+	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
+	    { "extent-size", required_argument, 0, _("set extent size"), "extent-size" },
+	    { "force", no_argument, 0, _("force if block devices are in use") }
 	};
 
 	struct SmartNumber

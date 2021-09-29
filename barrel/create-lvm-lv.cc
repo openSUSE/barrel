@@ -46,11 +46,11 @@ namespace barrel
     {
 
 	const vector<Option> create_lvm_lv_options = {
-	    { "vg-name", required_argument, 'v' },
-	    { "name", required_argument, 'n', "set name of logical volume", "name" },
-	    { "size", required_argument, 's', "set size of logical volume", "size" },
-	    { "stripes", required_argument },
-	    { "stripe-size", required_argument }
+	    { "vg-name", required_argument, 'v', _("name of volume group"), "vg-name" },
+	    { "name", required_argument, 'n', _("set name of logical volume"), "name" },
+	    { "size", required_argument, 's', _("set size of logical volume"), "size" },
+	    { "stripes", required_argument, 0, _("number of stripes"), "stripes" },
+	    { "stripe-size", required_argument, 0, _("size of stripes"), "stripe-size" }
 	};
 
 

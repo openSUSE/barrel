@@ -80,12 +80,12 @@ namespace barrel
     GlobalOptions::get_options()
     {
 	static const vector<Option> options = {
-	    { "quiet", no_argument, 'q' },
+	    { "quiet", no_argument, 'q', _("be quiet") },
 	    { "verbose", no_argument, 'v', _("be more verbose") },
 	    { "dry-run", no_argument, 0, _("do not commit anything to disk") },
 	    { "prefix", required_argument, 0, _("run with a prefix"), "prefix" },
-	    { "activate", no_argument, 'a' },
-	    { "yes", no_argument },
+	    { "activate", no_argument, 'a', _("activate storage systems at startup") },
+	    { "yes", no_argument, 0, _("answer all questions with yes") },
 	    { "help", no_argument, 'h', _("show help and exit") } ,
 	    { "version", no_argument, 0, _("show version and exit") }
 	};

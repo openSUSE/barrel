@@ -46,14 +46,14 @@ namespace barrel
     {
 
 	const vector<Option> create_raid_options = {
-	    { "level", required_argument, 'l', "set RAID level", "level" },
-	    { "name", required_argument, 'n', "set RAID name", "name" },
-	    { "pool-name", required_argument, 'p' },
-	    { "size", required_argument, 's' },
-	    { "metadata", required_argument, 'm', "set RAID metadata version", "metadata" },
-	    { "devices", required_argument, 'd' },
-	    { "chunk-size", required_argument },
-	    { "force", no_argument, 0, "force if block devices are in use" }
+	    { "level", required_argument, 'l', _("set RAID level"), "level" },
+	    { "name", required_argument, 'n', _("set RAID name"), "name" },
+	    { "pool-name", required_argument, 'p', _("name of pool to use"), "name" },
+	    { "size", required_argument, 's', _("set size of RAID"), "size" },
+	    { "metadata", required_argument, 'm', _("set RAID metadata version"), "metadata" },
+	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
+	    { "chunk-size", required_argument, 0, _("set chunk size"), "chunk-size" },
+	    { "force", no_argument, 0, _("force if block devices are in use") }
 	};
 
 	const map<string, MdLevel> str_to_md_level = {

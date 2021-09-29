@@ -54,7 +54,7 @@ namespace barrel
 	    { "tune-options", required_argument, 0, _("tune options"), "options" },
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
 	    { "size", required_argument, 's', _("set file system size"), "size" },
-	    { "force", no_argument }
+	    { "force", no_argument, 0, _("force if block devices are in use") }
 	};
 
 
