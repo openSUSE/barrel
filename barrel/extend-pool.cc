@@ -38,9 +38,9 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> extend_pool_options = {
+	const ExtOptions extend_pool_options({
 	    { "name", required_argument, 'n', _("name of pool"), "name" }
-	};
+	}, TakeBlkDevices::YES);
 
 
 	struct Options
@@ -55,7 +55,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    ParsedOpts parsed_opts = get_opts.parse("pool", extend_pool_options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("pool", extend_pool_options);
 
 	    name = parsed_opts.get("name");
 
@@ -113,11 +113,11 @@ namespace barrel
     const char*
     CmdExtendPool::help() const
     {
-	return _("extend pool");
+	return _("Adds devices to a pool.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdExtendPool::options() const
     {
 	return extend_pool_options;

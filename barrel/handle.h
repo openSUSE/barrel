@@ -44,7 +44,7 @@ namespace barrel
     {
 	GlobalOptions(GetOpts& get_opts);
 
-	static const vector<Option>& get_options();
+	static const ExtOptions& get_options();
 
 	bool help = false;
 	bool version = false;
@@ -139,7 +139,7 @@ namespace barrel
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const = 0;
 	virtual const char* help() const = 0;
 	virtual bool is_alias() const { return false; }
-	virtual const vector<Option>& options() const { return GetOpts::no_options; }
+	virtual const ExtOptions& options() const { return GetOpts::no_ext_options; }
     };
 
 

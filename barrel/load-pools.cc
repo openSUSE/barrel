@@ -131,7 +131,7 @@ namespace barrel
     const char*
     CmdLoadPools::help() const
     {
-	return _("load pools");
+	return _("Loads pools.");
     }
 
 }

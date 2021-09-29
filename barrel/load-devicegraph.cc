@@ -41,10 +41,10 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> load_devicegraph_options = {
+	const ExtOptions load_devicegraph_options({
 	    { "name", required_argument, 'n', _("name of devicegraph file"), "name" },
 	    { "mapping", required_argument, 'm', _("name of mapping file"), "name" }
-	};
+	});
 
 
 	struct Options
@@ -324,11 +324,11 @@ namespace barrel
     const char*
     CmdLoadDevicegraph::help() const
     {
-	return _("load devicegraph");
+	return _("Loads the staging devicegraph.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdLoadDevicegraph::options() const
     {
 	return load_devicegraph_options;

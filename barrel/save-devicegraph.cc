@@ -37,9 +37,9 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> save_devicegraph_options = {
+	const ExtOptions save_devicegraph_options({
 	    { "name", required_argument, 'n', _("name of devicegraph"), "name" }
-	};
+	});
 
 
 	struct Options
@@ -101,11 +101,11 @@ namespace barrel
     const char*
     CmdSaveDevicegraph::help() const
     {
-	return _("save devicegraph");
+	return _("Saves the staging devicegraph.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdSaveDevicegraph::options() const
     {
 	return save_devicegraph_options;

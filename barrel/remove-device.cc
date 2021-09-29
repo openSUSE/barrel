@@ -39,9 +39,9 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> remove_device_options = {
+	const ExtOptions remove_device_options({
 	    { "keep-partitions", no_argument, 0, _("keep underlying partitions") }
-	};
+	}, TakeBlkDevices::YES);
 
 
 	struct Options
@@ -56,7 +56,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    ParsedOpts parsed_opts = get_opts.parse("remove", remove_device_options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("remove", remove_device_options);
 
 	    keep_partitions = parsed_opts.has_option("keep-partitions");
 
@@ -136,11 +136,11 @@ namespace barrel
     const char*
     CmdRemoveDevice::help() const
     {
-	return _("remove a device");
+	return _("Removes a device.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdRemoveDevice::options() const
     {
 	return remove_device_options;

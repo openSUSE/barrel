@@ -36,9 +36,9 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> remove_pool_options = {
+	const ExtOptions remove_pool_options({
 	    { "name", required_argument, 'n', _("name of pool"), "name" }
-	};
+	});
 
 
 	struct Options
@@ -97,11 +97,11 @@ namespace barrel
     const char*
     CmdRemovePool::help() const
     {
-	return _("remove pool");
+	return _("Removes a pool.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdRemovePool::options() const
     {
 	return remove_pool_options;

@@ -42,9 +42,9 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> create_partition_table_options = {
+	const ExtOptions create_partition_table_options({
 	    { "type", required_argument, 't', _("partition table type"), "type" }
-	};
+	});
 
 
 	const map<string, PtType> str_to_pt_type = {
@@ -146,11 +146,11 @@ namespace barrel
     const char*
     CmdCreatePartitionTable::help() const
     {
-	return _("Create a partition table");
+	return _("Creates a new partition table.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdCreatePartitionTable::options() const
     {
 	return create_partition_table_options;

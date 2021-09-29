@@ -122,7 +122,7 @@ namespace barrel
     const char*
     CmdSavePools::help() const
     {
-	return _("save pools");
+	return _("Saves pools.");
     }
 
 }

@@ -76,10 +76,10 @@ namespace barrel
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     GlobalOptions::get_options()
     {
-	static const vector<Option> options = {
+	static const ExtOptions options({
 	    { "quiet", no_argument, 'q', _("be quiet") },
 	    { "verbose", no_argument, 'v', _("be more verbose") },
 	    { "dry-run", no_argument, 0, _("do not commit anything to disk") },
@@ -88,7 +88,7 @@ namespace barrel
 	    { "yes", no_argument, 0, _("answer all questions with yes") },
 	    { "help", no_argument, 'h', _("show help and exit") } ,
 	    { "version", no_argument, 0, _("show version and exit") }
-	};
+	});
 
 	return options;
     }
@@ -269,7 +269,7 @@ namespace barrel
 
 	    if (main_cmd.cmd)
 	    {
-		for (const Option& option : main_cmd.cmd->options())
+		for (const Option& option : main_cmd.cmd->options().options)
 		    Readline::fixed_comp_names.push_back("--"s + option.name);
 	    }
 	    else
@@ -278,7 +278,7 @@ namespace barrel
 		{
 		    Readline::fixed_comp_names.push_back(sub_cmd.name);
 
-		    for (const Option& option : sub_cmd.cmd->options())
+		    for (const Option& option : sub_cmd.cmd->options().options)
 			Readline::fixed_comp_names.push_back("--"s + option.name);
 		}
 	    }

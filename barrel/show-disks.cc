@@ -43,10 +43,10 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> show_disks_options = {
+	const ExtOptions show_disks_options({
 	    { "no-partitions", no_argument, 0, _("do not show partitions on disks") },
 	    { "probed", no_argument, 0, _("probed instead of staging") }
-	};
+	});
 
 
 	struct Options
@@ -128,11 +128,11 @@ namespace barrel
     const char*
     CmdShowDisks::help() const
     {
-	return _("show disks");
+	return _("Shows disks.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdShowDisks::options() const
     {
 	return show_disks_options;

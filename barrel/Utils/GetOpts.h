@@ -58,6 +58,24 @@ namespace barrel
     };
 
 
+    enum class TakeBlkDevices
+    {
+	NO, YES, MAYBE
+    };
+
+
+    struct ExtOptions
+    {
+	explicit ExtOptions(const vector<Option>& options, TakeBlkDevices take_blk_devices = TakeBlkDevices::NO)
+	    : options(options), take_blk_devices(take_blk_devices)
+	{
+	}
+
+	const vector<Option> options;
+	const TakeBlkDevices take_blk_devices;
+    };
+
+
     class ParsedOpts
     {
     public:
@@ -92,12 +110,12 @@ namespace barrel
     {
     public:
 
-	static const vector<Option> no_options;
+	static const ExtOptions no_ext_options;
 
 	GetOpts(int argc, char** argv, bool glob_blk_devices = false, const vector<string>& all_blk_devices = {});
 
-	ParsedOpts parse(const vector<Option>& options, bool take_blk_devices = false);
-	ParsedOpts parse(const char* command, const vector<Option>& options, bool take_blk_devices = false);
+	ParsedOpts parse(const ExtOptions& ext_options);
+	ParsedOpts parse(const char* command, const ExtOptions& ext_options);
 
 	bool has_args() const;
 

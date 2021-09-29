@@ -36,10 +36,10 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> rename_pool_options = {
+	const ExtOptions rename_pool_options({
 	    { "old-name", required_argument, 'o', _("old name"), "name" },
 	    { "new-name", required_argument, 'n', _("new name"), "name" }
-	};
+	});
 
 
 	struct Options
@@ -100,11 +100,11 @@ namespace barrel
     const char*
     CmdRenamePool::help() const
     {
-	return _("rename pool");
+	return _("Renames pool.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdRenamePool::options() const
     {
 	return rename_pool_options;

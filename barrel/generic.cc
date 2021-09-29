@@ -63,7 +63,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdPop::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("pop", GetOpts::no_options);
+	get_opts.parse("pop", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdPop>();
     }
@@ -72,7 +72,7 @@ namespace barrel
     const char*
     CmdPop::help() const
     {
-	return _("pop value from stack");
+	return _("Removes the top object from the stack.");
     }
 
 
@@ -97,7 +97,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdClear::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("clear", GetOpts::no_options);
+	get_opts.parse("clear", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdClear>();
     }
@@ -106,7 +106,7 @@ namespace barrel
     const char*
     CmdClear::help() const
     {
-	return _("clear stack");
+	return _("Clears the stack.");
     }
 
 
@@ -134,7 +134,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdDup::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("dup", GetOpts::no_options);
+	get_opts.parse("dup", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdDup>();
     }
@@ -143,7 +143,7 @@ namespace barrel
     const char*
     CmdDup::help() const
     {
-	return _("duplicate value on stack");
+	return _("Duplicates the top object of the stack.");
     }
 
 
@@ -246,7 +246,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdStack::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("stack", GetOpts::no_options);
+	get_opts.parse("stack", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdStack>();
     }
@@ -255,7 +255,7 @@ namespace barrel
     const char*
     CmdStack::help() const
     {
-	return _("print stack");
+	return _("Prints the stack.");
     }
 
 
@@ -283,7 +283,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdUndo::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("undo", GetOpts::no_options);
+	get_opts.parse("undo", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdUndo>();
     }
@@ -292,7 +292,7 @@ namespace barrel
     const char*
     CmdUndo::help() const
     {
-	return _("undo");
+	return _("Restores the staging devicegraph to the last backup.");
     }
 
 
@@ -325,7 +325,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdQuit::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("quit", GetOpts::no_options);
+	get_opts.parse("quit", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdQuit>();
     }
@@ -334,7 +334,7 @@ namespace barrel
     const char*
     CmdQuit::help() const
     {
-	return _("quit");
+	return _("Quits barrel.");
     }
 
 }

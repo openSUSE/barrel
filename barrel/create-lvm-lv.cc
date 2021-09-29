@@ -45,13 +45,13 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> create_lvm_lv_options = {
+	const ExtOptions create_lvm_lv_options({
 	    { "vg-name", required_argument, 'v', _("name of volume group"), "vg-name" },
 	    { "name", required_argument, 'n', _("set name of logical volume"), "name" },
 	    { "size", required_argument, 's', _("set size of logical volume"), "size" },
 	    { "stripes", required_argument, 0, _("number of stripes"), "stripes" },
 	    { "stripe-size", required_argument, 0, _("size of stripes"), "stripe-size" }
-	};
+	});
 
 
 	struct SmartNumber
@@ -124,7 +124,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    ParsedOpts parsed_opts = get_opts.parse("lv", create_lvm_lv_options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("lv", create_lvm_lv_options);
 
 	    if (parsed_opts.has_option("vg-name"))
 		vg_name = parsed_opts.get_optional("vg-name");
@@ -249,11 +249,11 @@ namespace barrel
     const char*
     CmdCreateLvmLv::help() const
     {
-	return _("Create a LVM logical volume");
+	return _("Creates a new LVM logical volume.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdCreateLvmLv::options() const
     {
 	return create_lvm_lv_options;

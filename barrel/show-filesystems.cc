@@ -44,9 +44,9 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> show_filesystems_options = {
+	const ExtOptions show_filesystems_options({
 	    { "probed", no_argument, 0, _("probed instead of staging") }
-	};
+	});
 
 
 	struct Options
@@ -139,11 +139,11 @@ namespace barrel
     const char*
     CmdShowFilesystems::help() const
     {
-	return _("show filesystems");
+	return _("Shows filesystems.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdShowFilesystems::options() const
     {
 	return show_filesystems_options;

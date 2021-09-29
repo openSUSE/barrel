@@ -44,14 +44,15 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> create_lvm_vg_options = {
+	const ExtOptions create_lvm_vg_options({
 	    { "name", required_argument, 'n', _("set name of volume group"), "name" },
 	    { "pool-name", required_argument, 'p', _("name of pool to use"), "name" },
 	    { "size", required_argument, 's', _("set size of volume group"), "size" },
 	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
 	    { "extent-size", required_argument, 0, _("set extent size"), "extent-size" },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
-	};
+	}, TakeBlkDevices::MAYBE);
+
 
 	struct SmartNumber
 	{
@@ -133,7 +134,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    ParsedOpts parsed_opts = get_opts.parse("vg", create_lvm_vg_options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("vg", create_lvm_vg_options);
 
 	    if (!parsed_opts.has_option("name"))
 		throw OptionsException("name missing for command 'vg'");
@@ -387,11 +388,11 @@ namespace barrel
     const char*
     CmdCreateLvmVg::help() const
     {
-	return _("Create a LVM volume group");
+	return _("Creates a new LVM volume group.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdCreateLvmVg::options() const
     {
 	return create_lvm_vg_options;

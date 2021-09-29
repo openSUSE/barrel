@@ -25,21 +25,21 @@ namespace std
 }
 
 
-const vector<Option> global_opts = {
-    { "verbose", no_argument, 'v' },
-    { "dry-run", no_argument, },
-    { "table-style", required_argument, 't' }
-};
+const ExtOptions global_opts({
+    { "verbose", no_argument, 'v', "be verbose" },
+    { "dry-run", no_argument, 0, "dry run" },
+    { "table-style", required_argument, 't', "set table style", "table-style" }
+});
 
 
-const vector<Option> raid_opts = {
-    { "size", required_argument, 's' }
-};
+const ExtOptions raid_opts({
+    { "size", required_argument, 's', "set size", "size" }
+}, TakeBlkDevices::YES);
 
 
-const vector<Option> filesystem_opts = {
-    { "type", required_argument, 't' }
-};
+const ExtOptions filesystem_opts({
+    { "type", required_argument, 't', "set type", "type" }
+});
 
 
 BOOST_AUTO_TEST_CASE(good1)
@@ -81,7 +81,7 @@ BOOST_AUTO_TEST_CASE(good2)
 
     // parse raid options
 
-    ParsedOpts parsed_raid_opts = get_opts.parse("raid", raid_opts, true);
+    ParsedOpts parsed_raid_opts = get_opts.parse("raid", raid_opts);
 
     BOOST_CHECK(parsed_raid_opts.has_option("size"));
     BOOST_CHECK_EQUAL(parsed_raid_opts.get("size"), "1 TiB");
@@ -121,7 +121,7 @@ BOOST_AUTO_TEST_CASE(good3)
 
     // parse first sub command options
 
-    ParsedOpts parsed_raid_opts = get_opts.parse("raid", raid_opts, true);
+    ParsedOpts parsed_raid_opts = get_opts.parse("raid", raid_opts);
 
     BOOST_CHECK(parsed_raid_opts.has_option("size"));
     BOOST_CHECK_EQUAL(parsed_raid_opts.get("size"), "1 TiB");
@@ -169,7 +169,7 @@ BOOST_AUTO_TEST_CASE(good4)
 
     // parse first sub command options
 
-    ParsedOpts parsed_raid_opts = get_opts.parse("raid", raid_opts, true);
+    ParsedOpts parsed_raid_opts = get_opts.parse("raid", raid_opts);
 
     BOOST_CHECK(parsed_raid_opts.has_option("size"));
     BOOST_CHECK_EQUAL(parsed_raid_opts.get("size"), "1 TiB");
@@ -248,11 +248,11 @@ BOOST_AUTO_TEST_CASE(error6)
     Args args({ "getopt", "show", "disks", "/dev/sdz" });
     GetOpts get_opts(args.argc(), args.argv());
 
-    get_opts.parse(GetOpts::no_options);
+    get_opts.parse(GetOpts::no_ext_options);
     get_opts.pop_arg();
     get_opts.pop_arg();
 
-    BOOST_CHECK_EXCEPTION(get_opts.parse("disks", GetOpts::no_options), runtime_error, [](const exception& e) {
+    BOOST_CHECK_EXCEPTION(get_opts.parse("disks", GetOpts::no_ext_options), runtime_error, [](const exception& e) {
 	return strcmp(e.what(), "No block devices allowed for command option 'disks'.") == 0;
     });
 }

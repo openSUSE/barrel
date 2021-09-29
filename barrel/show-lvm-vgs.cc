@@ -45,9 +45,9 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> show_lvm_vgs_options = {
+	const ExtOptions show_lvm_vgs_options({
 	    { "probed", no_argument, 0, _("probed instead of staging") }
-	};
+	});
 
 
 	struct Options
@@ -160,11 +160,11 @@ namespace barrel
     const char*
     CmdShowLvmVgs::help() const
     {
-	return _("show LVM volume groups");
+	return _("Shows LVM volume groups.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdShowLvmVgs::options() const
     {
 	return show_lvm_vgs_options;

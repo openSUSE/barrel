@@ -122,7 +122,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdShowPools::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("pools", GetOpts::no_options);
+	get_opts.parse("pools", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdShowPools>();
     }
@@ -131,7 +131,7 @@ namespace barrel
     const char*
     CmdShowPools::help() const
     {
-	return _("show pools");
+	return _("Shows pools.");
     }
 
 }

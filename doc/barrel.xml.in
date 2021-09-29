@@ -24,7 +24,7 @@
       <arg choice='opt'><replaceable>--global-opts</replaceable></arg>
       <arg choice='plain'><replaceable>command</replaceable></arg>
       <arg choice='opt'><replaceable>--command-opts</replaceable></arg>
-      <arg choice='opt'><replaceable>command-arguments</replaceable></arg>
+      <arg choice='opt'><replaceable>block-devices</replaceable></arg>
     </cmdsynopsis>
     <cmdsynopsis>
       <command>barrel</command>
@@ -48,18 +48,58 @@
     <title>CONCEPTS</title>
 
     <refsect2 id='modes'>
-      <title>Script and interactive mode</title>
-      <para>Barrel can run either in script or interactive mode. ...</para>
+      <title>Script and Interactive Mode</title>
+      <para>Barrel can run either in script or interactive mode. In
+      script mode the commands must be provided on the command line. If no
+      commands are provided on the command line the interactive mode is
+      started where a prompt asks for the commands.</para>
     </refsect2>
 
-    <refsect2 id='pools'>
-      <title>Pools</title>
-      <para>Devices can be grouped into pools. That allows to ...</para>
+    <refsect2 id='pool'>
+      <title>Pool</title>
+      <para>Pools are a set of devices and allow barrel to find
+      suitable disk space on its own. For example when the system has
+      several SSDs and the user wants to create a file system on some SSD
+      barrel can pick an SSD with enough space automatically.</para>
     </refsect2>
 
     <refsect2 id='stack'>
       <title>Stack</title>
-      <para>Many commands ...</para>
+      <para>Barrel has a stack of "storage objects" that allows
+      commands to be chained. For example creating a RAID places the
+      resulting RAID on the stack. A consecutive command to create a
+      file system can then pick the RAID from the stack. Using the
+      stack the user does not have to deal with the name of the newly
+      created RAID and thus the two commands can be provided on the
+      command line.</para>
+    </refsect2>
+
+    <refsect2 id='devicegraph'>
+      <title>Devicegraph</title>
+      <para>Barrel saves all information about storage devices and
+      file systems together with their relations in a devicegraph. At
+      startup the system is probed and the state is saved in the "probed"
+      and the "staging" devicegraphs. All commands only modify the staging
+      devicegraph.</para>
+
+      <para>Barrel makes a backup of the staging devicegraph whenever
+      it is modified. The last backup can be restored with the command
+      <command>undo</command>.</para>
+
+      <para>During commit barrel runs actions to make the system match
+      the staging devicegraph.</para>
+    </refsect2>
+
+    <refsect2 id='modus_operandi'>
+      <title>Modus Operandi of Commands</title>
+      <para>Many commands operate significantly different based on the
+      provided options. E.g. when creating a file system using
+      <command>create xfs /dev/sdb1</command> the XFS is created on the
+      partition /dev/sdb1. On the other hand the command <command>create xfs
+      /dev/sdb --size 10G</command> will create a 10 GiB partition on
+      /dev/sdb are the XFS on the new partition. And the command
+      <command>create xfs</command> will take a device from the stack and
+      create the XFS on that device.</para>
     </refsect2>
   </refsect1>
 
@@ -124,35 +164,31 @@
   <refsect1 id='commands'>
     <title>COMMANDS</title>
 
-    <para>Barrel provides a number of <emphasis>commands</emphasis>. Each
-    command accepts the options listed in the <link
-    linkend='global_options'>GLOBAL OPTIONS</link> section. These options must
-    be specified <emphasis>before</emphasis> the command name. In addition,
-    many commands have specific options, which are listed in this
+    <para>Barrel provides a number of <emphasis>commands</emphasis>.
+    Many commands have specific options, which are listed in this
     section. These command-specific options must be specified
-    <emphasis>after</emphasis> the name of the command and
-    <emphasis>before</emphasis> any of the command arguments.</para>
+    <emphasis>after</emphasis> the name of the command.</para>
 
     <variablelist>
 
       <varlistentry>
-	<term><option>help</option></term>
+	<term><option>clear</option></term>
 	<listitem>
-	  <para>Show short help text.</para>
+	  <para>Clears the stack.</para>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
 	<term><option>create filesystem</option></term>
 	<listitem>
-	  <para>Create a file system.</para>
+	  <para>Creates a file system.</para>
 
 	  <variablelist>
 	    <varlistentry>
 	      <term><option>-t, --type</option> <replaceable>type</replaceable></term>
 	      <listitem>
 		<para>Set file system type. Possible values are
-		xfs, exfat, vfat, ext2, ext3, ext4, btrfs and swap.</para>
+		btrfs, exfat, ext2, ext3, ext4, swap, vfat, xfs.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -166,9 +202,25 @@
       </varlistentry>
 
       <varlistentry>
+	<term><option>create pool --name <replaceable>name</replaceable> <replaceable>devices</replaceable></option></term>
+	<listitem>
+	  <para>Creates a new pool containing devices.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of pool.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
 	<term><option>create raid</option></term>
 	<listitem>
-	  <para>Create a RAID.</para>
+	  <para>Creates a RAID.</para>
 
 	  <variablelist>
 	    <varlistentry>
@@ -185,21 +237,181 @@
       <varlistentry>
 	<term><option>create vg</option></term>
 	<listitem>
-	  <para>Create a LVM volume group.</para>
+	  <para>Creates a LVM volume group.</para>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
 	<term><option>create lv</option></term>
 	<listitem>
-	  <para>Create a LVM logical volume.</para>
+	  <para>Creates a LVM logical volume.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>dup</option></term>
+	<listitem>
+	  <para>Duplicates the top object of the stack.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>extend pool --name <replaceable>name</replaceable> <replaceable>devices</replaceable></option></term>
+	<listitem>
+	  <para>Adds devices to a pool.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of pool.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>help</option></term>
+	<listitem>
+	  <para>Shows short help text.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>pop</option></term>
+	<listitem>
+	  <para>Removes the top object from the stack.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>quit</option></term>
+	<listitem>
+	  <para>Quits barrel.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>reduce pool --name <replaceable>name</replaceable> <replaceable>devices</replaceable></option></term>
+	<listitem>
+	  <para>Removes devices from a pool.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of pool.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>remove pool --name <replaceable>name</replaceable> <replaceable>devices</replaceable></option></term>
+	<listitem>
+	  <para>Removes a pool.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of pool.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
 	<term><option>show disks</option></term>
 	<listitem>
-	  <para>Show disks.</para>
+	  <para>Shows disks.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Show disks of the probed instead of the staging devicegraph.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>show filesystems</option></term>
+	<listitem>
+	  <para>Shows file systems.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Show file systems of the probed instead of the staging devicegraph.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--no-partitions</option></term>
+	      <listitem>
+		<para>Do not show partitions on the disks.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>show pools</option></term>
+	<listitem>
+	  <para>Shows pools.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>show raids</option></term>
+	<listitem>
+	  <para>Shows RAIDs.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Show RAIDs of the probed instead of the staging devicegraph.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>show vgs</option></term>
+	<listitem>
+	  <para>Shows LVM volume groups.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Show volume groups of the probed instead of the staging devicegraph.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>stack</option></term>
+	<listitem>
+	  <para>Prints the stack.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>undo</option></term>
+	<listitem>
+	  <para>Restores the staging devicegraph to the last backup.</para>
 	</listitem>
       </varlistentry>
 
@@ -283,6 +495,9 @@
       </listitem>
       <listitem>
 	<para>Translations are missing.</para>
+      </listitem>
+      <listitem>
+	<para>Support for multipath and DASDs is missing.</para>
       </listitem>
     </itemizedlist>
   </refsect1>

@@ -76,7 +76,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdShowCommit::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("commit", GetOpts::no_options);
+	get_opts.parse("commit", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdShowCommit>();
     }
@@ -85,7 +85,7 @@ namespace barrel
     const char*
     CmdShowCommit::help() const
     {
-	return _("show what would be commited");
+	return _("Shows commit actions.");
     }
 
 }

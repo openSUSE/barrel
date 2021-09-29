@@ -45,7 +45,7 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> create_filesystem_options = {
+	const ExtOptions create_filesystem_options({
 	    { "type", required_argument, 't', _("set file system type"), "type" },
 	    { "label", required_argument, 'l', _("set file system label"), "label" },
 	    { "path", required_argument, 'p', _("mount path"), "path" },
@@ -53,9 +53,9 @@ namespace barrel
 	    { "mkfs-options", required_argument, 0, _("mkfs options"), "options" },
 	    { "tune-options", required_argument, 0, _("tune options"), "options" },
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
-	    { "size", required_argument, 's', _("set file system size"), "size" },
+	    { "size", required_argument, 's', _("set size"), "size" },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
-	};
+	}, TakeBlkDevices::MAYBE);
 
 
 	const map<string, FsType> str_to_fs_type = {
@@ -99,7 +99,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    ParsedOpts parsed_opts = get_opts.parse("filesystem", create_filesystem_options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("filesystem", create_filesystem_options);
 
 	    if (parsed_opts.has_option("type"))
 	    {
@@ -406,11 +406,11 @@ namespace barrel
     const char*
     CmdCreateFilesystem::help() const
     {
-	return _("Create a file system");
+	return _("Creates a new file system.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdCreateFilesystem::options() const
     {
 	return create_filesystem_options;

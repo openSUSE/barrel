@@ -38,11 +38,11 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> create_encryption_options = {
+	const ExtOptions create_encryption_options({
 	    { "type", required_argument, 't', _("encryption type"), "type" },
 	    { "name", required_argument, 'n', _("set name of device"), "name" },
 	    { "password", required_argument, 'p', "set password", "password" } // TODO drop, read from stdin
-	};
+	});
 
 
 	const map<string, EncryptionType> str_to_encryption_type = {
@@ -158,11 +158,11 @@ namespace barrel
     const char*
     CmdCreateEncryption::help() const
     {
-	return _("Create an encryption");
+	return _("Creates a new encryption device.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdCreateEncryption::options() const
     {
 	return create_encryption_options;

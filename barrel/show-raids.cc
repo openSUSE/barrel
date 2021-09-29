@@ -45,9 +45,9 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> show_raids_options = {
+	const ExtOptions show_raids_options({
 	    { "probed", no_argument, 0, _("probed instead of staging") }
-	};
+	});
 
 
 	struct Options
@@ -158,11 +158,11 @@ namespace barrel
     const char*
     CmdShowRaids::help() const
     {
-	return _("show RAIDs");
+	return _("Shows RAIDs.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdShowRaids::options() const
     {
 	return show_raids_options;

@@ -88,7 +88,7 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdCommit::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("commit", GetOpts::no_options);
+	get_opts.parse("commit", GetOpts::no_ext_options);
 
 	return make_shared<ParsedCmdCommit>();
     }

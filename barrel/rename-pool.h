@@ -34,7 +34,7 @@ namespace barrel
     {
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
 	virtual const char* help() const override;
-	virtual const vector<Option>& options() const override;
+	virtual const ExtOptions& options() const override;
     };
 
 }

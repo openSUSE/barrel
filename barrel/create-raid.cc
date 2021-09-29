@@ -45,7 +45,7 @@ namespace barrel
     namespace
     {
 
-	const vector<Option> create_raid_options = {
+	const ExtOptions create_raid_options({
 	    { "level", required_argument, 'l', _("set RAID level"), "level" },
 	    { "name", required_argument, 'n', _("set RAID name"), "name" },
 	    { "pool-name", required_argument, 'p', _("name of pool to use"), "name" },
@@ -54,7 +54,8 @@ namespace barrel
 	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
 	    { "chunk-size", required_argument, 0, _("set chunk size"), "chunk-size" },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
-	};
+	}, TakeBlkDevices::MAYBE);
+
 
 	const map<string, MdLevel> str_to_md_level = {
 	    { "0", MdLevel::RAID0 },
@@ -151,7 +152,7 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-	    ParsedOpts parsed_opts = get_opts.parse("raid", create_raid_options, true);
+	    ParsedOpts parsed_opts = get_opts.parse("raid", create_raid_options);
 
 	    if (parsed_opts.has_option("level"))
 	    {
@@ -424,11 +425,11 @@ namespace barrel
     const char*
     CmdCreateRaid::help() const
     {
-	return _("Create a RAID");
+	return _("Creates a new RAID.");
     }
 
 
-    const vector<Option>&
+    const ExtOptions&
     CmdCreateRaid::options() const
     {
 	return create_raid_options;

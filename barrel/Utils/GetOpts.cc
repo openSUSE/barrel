@@ -34,7 +34,7 @@ using namespace std;
 namespace barrel
 {
 
-    const struct vector<Option> GetOpts::no_options = {};
+    const struct ExtOptions GetOpts::no_ext_options({}, TakeBlkDevices::NO);
 
 
     GetOpts::GetOpts(int argc, char** argv, bool glob_blk_devices, const vector<string>& all_blk_devices)
@@ -46,17 +46,17 @@ namespace barrel
 
 
     ParsedOpts
-    GetOpts::parse(const vector<Option>& options, bool take_blk_devices)
+    GetOpts::parse(const ExtOptions& ext_options)
     {
-	return parse(nullptr, options, take_blk_devices);
+	return parse(nullptr, ext_options);
     }
 
 
     ParsedOpts
-    GetOpts::parse(const char* command, const vector<Option>& options, bool take_blk_devices)
+    GetOpts::parse(const char* command, const ExtOptions& ext_options)
     {
-	string optstring = make_optstring(options);
-	vector<struct option> longopts = make_longopts(options);
+	string optstring = make_optstring(ext_options.options);
+	vector<struct option> longopts = make_longopts(ext_options.options);
 
 	map<string, string> result;
 	vector<string> blk_devices;
@@ -73,7 +73,7 @@ namespace barrel
 		    if (!has_args() || !is_blk_device(argv[optind]))
 			return ParsedOpts(result, blk_devices);
 
-		    if (!take_blk_devices)
+		    if (ext_options.take_blk_devices == TakeBlkDevices::NO)
 		    {
 			string opt;
 			if (optopt != 0)
@@ -133,8 +133,8 @@ namespace barrel
 		    string opt;
 		    if (optopt != 0)
 		    {
-			vector<Option>::const_iterator it = find(options, optopt);
-			if (it == options.end())
+			vector<Option>::const_iterator it = find(ext_options.options, optopt);
+			if (it == ext_options.options.end())
 			    throw OptionsException("option not found");
 
 			opt = string("--") + it->name;
@@ -156,8 +156,9 @@ namespace barrel
 
 		default:
 		{
-		    vector<Option>::const_iterator it = c ? find(options, c) : options.begin() + option_index;
-		    if (it == options.end())
+		    vector<Option>::const_iterator it = c ? find(ext_options.options, c) :
+			ext_options.options.begin() + option_index;
+		    if (it == ext_options.options.end())
 			throw OptionsException("option not found");
 
 		    result[it->name] = optarg ? optarg : "";

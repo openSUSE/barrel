@@ -59,14 +59,14 @@ namespace barrel
 
 
 	void
-	print_options_help(const vector<Option>& options)
+	print_options_help(const ExtOptions& ext_options)
 	{
 	    Table table({ Cell("Name", Id::NAME), "Description" });
 	    table.set_style(Style::NONE);
 	    table.set_global_indent(6);
 	    table.set_min_width(Id::NAME, 28);
 
-	    for (const Option& option : options)
+	    for (const Option& option : ext_options.options)
 	    {
 		if (option.description)
 		{
@@ -141,9 +141,25 @@ namespace barrel
 	    {
 		for (const Parser& sub_cmd : main_cmd.sub_cmds)
 		{
+		    const ExtOptions& ext_options = sub_cmd.cmd->options();
+
 		    if (sub_cmd.cmd)
 		    {
-			cout << main_cmd.name << " " << sub_cmd.name << '\n';
+			switch (ext_options.take_blk_devices)
+			{
+			    case TakeBlkDevices::NO:
+				cout << main_cmd.name << " " << sub_cmd.name << '\n';
+				break;
+
+			    case TakeBlkDevices::YES:
+				cout << main_cmd.name << " " << sub_cmd.name << " devices\n";
+				break;
+
+			    case TakeBlkDevices::MAYBE:
+				cout << main_cmd.name << " " << sub_cmd.name << " [devices]\n";
+				break;
+			}
+
 			cout << "    " << sub_cmd.cmd->help() << '\n';
 
 			if (!sub_cmd.cmd->is_alias())
@@ -217,7 +233,7 @@ namespace barrel
     const char*
     CmdHelp::help() const
     {
-	return _("help");
+	return _("Prints help.");
     }
 
 }
