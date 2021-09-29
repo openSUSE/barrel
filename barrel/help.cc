@@ -61,7 +61,7 @@ namespace barrel
 	void
 	print_options_help(const ExtOptions& ext_options)
 	{
-	    Table table({ Cell("Name", Id::NAME), "Description" });
+	    Table table({ Cell(_("Name"), Id::NAME), _("Description") });
 	    table.set_style(Style::NONE);
 	    table.set_global_indent(6);
 	    table.set_min_width(Id::NAME, 28);
@@ -94,6 +94,44 @@ namespace barrel
 	    cout << table;
 	}
 
+
+	void
+	print_cmd_help(const MainCmd& main_cmd)
+	{
+	    cout << main_cmd.name << '\n';
+
+	    cout << "    " << main_cmd.cmd->help() << '\n';
+
+	    print_options_help(main_cmd.cmd->options());
+	}
+
+
+	void
+	print_cmd_help(const MainCmd& main_cmd, const Parser& sub_cmd)
+	{
+	    const ExtOptions& ext_options = sub_cmd.cmd->options();
+
+	    switch (ext_options.take_blk_devices)
+	    {
+		case TakeBlkDevices::NO:
+		    cout << main_cmd.name << " " << sub_cmd.name << '\n';
+		    break;
+
+		case TakeBlkDevices::YES:
+		    cout << main_cmd.name << " " << sub_cmd.name << " devices\n";
+		    break;
+
+		case TakeBlkDevices::MAYBE:
+		    cout << main_cmd.name << " " << sub_cmd.name << " [devices]\n";
+		    break;
+	    }
+
+	    cout << "    " << sub_cmd.cmd->help() << '\n';
+
+	    if (!sub_cmd.cmd->is_alias())
+		print_options_help(sub_cmd.cmd->options());
+	}
+
     };
 
 
@@ -119,9 +157,13 @@ namespace barrel
     {
 	if (global)
 	{
-	    cout << "Global options" << '\n';
+	    cout << _("Global options:") << '\n';
 
 	    print_options_help(GlobalOptions::get_options());
+
+	    cout << '\n';
+
+	    cout << _("Commands:") << '\n';
 
 	    cout << '\n';
 	}
@@ -130,42 +172,14 @@ namespace barrel
 	{
 	    if (main_cmd.cmd)
 	    {
-		cout << main_cmd.name << '\n';
-		cout << "    " << main_cmd.cmd->help() << '\n';
-
-		print_options_help(main_cmd.cmd->options());
-
+		print_cmd_help(main_cmd);
 		cout << '\n';
 	    }
 	    else
 	    {
 		for (const Parser& sub_cmd : main_cmd.sub_cmds)
 		{
-		    const ExtOptions& ext_options = sub_cmd.cmd->options();
-
-		    if (sub_cmd.cmd)
-		    {
-			switch (ext_options.take_blk_devices)
-			{
-			    case TakeBlkDevices::NO:
-				cout << main_cmd.name << " " << sub_cmd.name << '\n';
-				break;
-
-			    case TakeBlkDevices::YES:
-				cout << main_cmd.name << " " << sub_cmd.name << " devices\n";
-				break;
-
-			    case TakeBlkDevices::MAYBE:
-				cout << main_cmd.name << " " << sub_cmd.name << " [devices]\n";
-				break;
-			}
-
-			cout << "    " << sub_cmd.cmd->help() << '\n';
-
-			if (!sub_cmd.cmd->is_alias())
-			    print_options_help(sub_cmd.cmd->options());
-		    }
-
+		    print_cmd_help(main_cmd, sub_cmd);
 		    cout << '\n';
 		}
 	    }
@@ -191,11 +205,11 @@ namespace barrel
 			return;
 		    }
 
-		    cout << "    " << main_cmd->cmd->help() << '\n';
+		    print_cmd_help(*main_cmd);
 		}
 		else
 		{
-		    cout << "has the following subcommands:" << '\n';
+		    cout << _("The command has the following subcommands:") << '\n';
 
 		    for (const Parser& sub_cmd : main_cmd->sub_cmds)
 			cout << sub_cmd.name << '\n';
@@ -206,12 +220,7 @@ namespace barrel
 		vector<Parser>::const_iterator sub_cmd =
 		    sloppy_find(main_cmd->sub_cmds, options.sub_cmd.value().c_str());
 
-		cout << "    " << sub_cmd->cmd->help() << '\n';
-
-		if (!sub_cmd->cmd->is_alias())
-		    print_options_help(sub_cmd->cmd->options());
-
-		cout << '\n';
+		print_cmd_help(*main_cmd, *sub_cmd);
 	    }
 	}
 	else
