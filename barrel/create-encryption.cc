@@ -26,6 +26,7 @@
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
+#include "Utils/Prompt.h"
 #include "create-encryption.h"
 
 
@@ -41,7 +42,6 @@ namespace barrel
 	const ExtOptions create_encryption_options({
 	    { "type", required_argument, 't', _("encryption type"), "type" },
 	    { "name", required_argument, 'n', _("set name of device"), "name" },
-	    { "password", required_argument, 'p', "set password", "password" } // TODO drop, read from stdin
 	});
 
 
@@ -57,7 +57,6 @@ namespace barrel
 
 	    optional<EncryptionType> type;
 	    string name;
-	    string password;
 	};
 
 
@@ -80,11 +79,6 @@ namespace barrel
 		throw OptionsException("name missing");
 
 	    name = parsed_opts.get("name");
-
-	    if (!parsed_opts.has_option("password"))
-		throw OptionsException("password missing");
-
-	    password = parsed_opts.get("password");
 	}
 
     }
@@ -116,7 +110,7 @@ namespace barrel
 
 	string dm_name = options.name;
 
-	string password = options.password;
+	string password = prompt_password();
 
 	BlkDevice* blk_device = to_blk_device(state.stack.top(staging));
 	state.stack.pop();

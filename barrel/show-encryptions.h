@@ -20,17 +20,23 @@
  */
 
 
-#include <string>
+#ifndef BARREL_SHOW_ENCRYPTIONS_H
+#define BARREL_SHOW_ENCRYPTIONS_H
+
+
+#include "handle.h"
 
 
 namespace barrel
 {
 
-    using namespace std;
-
-
-    bool prompt(const string& message);
-
-    string prompt_password();
+    struct CmdShowEncryptions : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual const ExtOptions& options() const override;
+    };
 
 }
+
+#endif

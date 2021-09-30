@@ -26,6 +26,7 @@ libbarrel_la_SOURCES =							\
 	show-raids.h			show-raids.cc			\
 	show-lvm-vgs.h			show-lvm-vgs.cc			\
 	show-filesystems.h		show-filesystems.cc		\
+	show-encryptions.h		show-encryptions.cc		\
 	show-pools.h			show-pools.cc			\
 	show-commit.h			show-commit.cc			\
 	commit.h			commit.cc			\

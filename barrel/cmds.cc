@@ -43,6 +43,7 @@
 #include "show-commit.h"
 #include "show-disks.h"
 #include "show-filesystems.h"
+#include "show-encryptions.h"
 #include "show-lvm-vgs.h"
 #include "show-pools.h"
 #include "show-raids.h"
@@ -54,6 +55,7 @@ namespace barrel
     const vector<Parser> show_cmds = {
 	{ "commit", make_shared<CmdShowCommit>() },
 	{ "disks", make_shared<CmdShowDisks>() },
+	{ "encryptions", make_shared<CmdShowEncryptions>() },
 	{ "filesystems", make_shared<CmdShowFilesystems>() },
 	{ "pools", make_shared<CmdShowPools>() },
 	{ "raids", make_shared<CmdShowRaids>() },

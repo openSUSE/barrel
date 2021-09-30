@@ -20,6 +20,8 @@
  */
 
 
+#include <termios.h>
+#include <unistd.h>
 #include <iostream>
 
 #include "Prompt.h"
@@ -34,7 +36,7 @@ namespace barrel
     {
 	while (true)
 	{
-	    cout << message + " ["s + _("y/n") + "] "s << flush;
+	    cout << message << " [" << _("y/n") << "] " << flush;
 
 	    string reply;
 	    cin >> reply;
@@ -45,6 +47,43 @@ namespace barrel
 		return false;
 
 	    cout << sformat(_("Invalid answer '%s'"), reply.c_str()) << '\n';
+	}
+    }
+
+
+    string
+    prompt_password()
+    {
+	while (true)
+	{
+	    struct termios oldt;
+	    tcgetattr(STDIN_FILENO, &oldt);
+
+	    struct termios newt = oldt;
+	    newt.c_lflag &= ~(ECHO);
+
+	    int c;
+
+	    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
+	    cout << _("Enter password:") << " " << flush;
+	    string password1;
+	    while ((c = getchar())!= '\n' && c != EOF)
+		password1.push_back(c);
+	    cout << '\n';
+
+	    cout << _("Verify password:") << " " << flush;
+	    string password2;
+	    while ((c = getchar())!= '\n' && c != EOF)
+		password2.push_back(c);
+	    cout << '\n';
+
+	    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+
+	    if (password1 == password2)
+		return password1;
+
+	    cout << _("Passwords do not match.") << '\n';
 	}
     }
 

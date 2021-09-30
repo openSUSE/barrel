@@ -36,12 +36,11 @@
     <title>DESCRIPTION</title>
 
     <para>Barrel is a command-line program for storage management. It
-    can work with file systems, RAIDs, LVM volume groups and logical
-    volumes. The main feature of barrel is to combine the various tools
-    needed to manage the different storage systems in one tool. E.g. with
-    a single command of barrel it is possible to create partitions on
-    several disks, create a RAID from those partitions and create a file
-    system on the RAID.</para>
+    can work with file systems, LUKS, RAIDs and LVM. The main feature of
+    barrel is to combine the various tools needed to manage the different
+    storage systems in one tool. E.g. with a single command of barrel it
+    is possible to create partitions on several disks, create a RAID from
+    those partitions and create a file system on the RAID.</para>
   </refsect1>
 
   <refsect1 id='concepts'>
@@ -478,6 +477,22 @@
 	      <term><option>--probed</option></term>
 	      <listitem>
 		<para>Show disks of the probed instead of the staging devicegraph.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>show encryptions</option></term>
+	<listitem>
+	  <para>Shows encryption devices.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Show encryption devices of the probed instead of the staging devicegraph.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
