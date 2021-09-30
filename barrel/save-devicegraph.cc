@@ -101,7 +101,7 @@ namespace barrel
     const char*
     CmdSaveDevicegraph::help() const
     {
-	return _("Saves the staging devicegraph.");
+	return _("Saves the staging devicegraph to a file.");
     }
 
 

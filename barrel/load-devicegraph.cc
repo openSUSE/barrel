@@ -324,7 +324,7 @@ namespace barrel
     const char*
     CmdLoadDevicegraph::help() const
     {
-	return _("Loads the staging devicegraph.");
+	return _("Loads the staging devicegraph from a file.");
     }
 
 

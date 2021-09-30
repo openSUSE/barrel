@@ -97,7 +97,7 @@ namespace barrel
     const char*
     CmdCommit::help() const
     {
-	return _("Commit changes to disk and quit");
+	return _("Commits changes to disk and quits barrel.");
     }
 
 }

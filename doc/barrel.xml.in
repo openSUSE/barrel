@@ -93,7 +93,8 @@
     <refsect2 id='modus_operandi'>
       <title>Modus Operandi of Commands</title>
       <para>Many commands operate significantly different based on the
-      provided options. E.g. when creating a file system using
+      provided options.</para>
+      <para>For example when creating a file system using
       <command>create xfs /dev/sdb1</command> the XFS is created on the
       partition /dev/sdb1. On the other hand the command <command>create xfs
       /dev/sdb --size 10G</command> will create a 10 GiB partition on
@@ -167,7 +168,8 @@
     <para>Barrel provides a number of <emphasis>commands</emphasis>.
     Many commands have specific options, which are listed in this
     section. These command-specific options must be specified
-    <emphasis>after</emphasis> the name of the command.</para>
+    <emphasis>after</emphasis> the name of the command. For several
+    commands some options are mandatory.</para>
 
     <variablelist>
 
@@ -179,22 +181,28 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create filesystem</option></term>
+	<term><option>commit</option></term>
 	<listitem>
-	  <para>Creates a file system.</para>
+	  <para>Commits changes to disk and quits.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>create encryption [devices]</option></term>
+	<listitem>
+	  <para>Creates a new encryption device.</para>
 
 	  <variablelist>
 	    <varlistentry>
 	      <term><option>-t, --type</option> <replaceable>type</replaceable></term>
 	      <listitem>
-		<para>Set file system type. Possible values are
-		btrfs, exfat, ext2, ext3, ext4, swap, vfat, xfs.</para>
+		<para>Set encryption type. Possible values are luks1 and luks2.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
-	      <term><option>--path</option> <replaceable>path</replaceable></term>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
 	      <listitem>
-		<para>Path to mount the filesystem.</para>
+		<para>Name of device-mapper device.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
@@ -202,7 +210,44 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create pool --name <replaceable>name</replaceable> <replaceable>devices</replaceable></option></term>
+	<term><option>create filesystem [devices]</option></term>
+	<listitem>
+	  <para>Creates a new file system.</para>
+
+	  <variablelist>
+            <varlistentry>
+              <term><option>-t, --type</option> <replaceable>type</replaceable></term>
+              <listitem>
+		<para>Set file system type. Possible values are
+		btrfs, exfat, ext2, ext3, ext4, swap, vfat, xfs.</para>
+	      </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term><option>-p, --path</option> <replaceable>path</replaceable></term>
+              <listitem>
+		<para>Path to mount the filesystem.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>create lv</option></term>
+	<listitem>
+	  <para>Creates a new LVM logical volume.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>create partition-table</option></term>
+	<listitem>
+	  <para>Creates a new partition table.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>create pool <replaceable>devices</replaceable></option></term>
 	<listitem>
 	  <para>Creates a new pool containing devices.</para>
 
@@ -218,13 +263,13 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create raid</option></term>
+	<term><option>create raid <replaceable>[devices]</replaceable></option></term>
 	<listitem>
-	  <para>Creates a RAID.</para>
+	  <para>Creates a new RAID.</para>
 
 	  <variablelist>
 	    <varlistentry>
-	      <term><option>-l, --level</option> <replaceable>fstype</replaceable></term>
+	      <term><option>-l, --level</option> <replaceable>level</replaceable></term>
 	      <listitem>
 		<para>Set RAID level. Possible values are 0, strip, 1,
 		mirror, 4, 5, 6 and 10.</para>
@@ -235,16 +280,9 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create vg</option></term>
+	<term><option>create vg <replaceable>[devices]</replaceable></option></term>
 	<listitem>
-	  <para>Creates a LVM volume group.</para>
-	</listitem>
-      </varlistentry>
-
-      <varlistentry>
-	<term><option>create lv</option></term>
-	<listitem>
-	  <para>Creates a LVM logical volume.</para>
+	  <para>Creates a new LVM volume group.</para>
 	</listitem>
       </varlistentry>
 
@@ -256,7 +294,7 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>extend pool --name <replaceable>name</replaceable> <replaceable>devices</replaceable></option></term>
+	<term><option>extend pool <replaceable>devices</replaceable></option></term>
 	<listitem>
 	  <para>Adds devices to a pool.</para>
 
@@ -272,9 +310,42 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>help</option></term>
+	<term><option>help <replaceable>[main-command [sub-command]]</replaceable></option></term>
 	<listitem>
-	  <para>Shows short help text.</para>
+	  <para>Shows help.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>load devicegraph</option></term>
+	<listitem>
+	  <para>Loads the staging devicegraph from a file.</para>
+	  <para>This function is still in development. Use with great care.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of devicegraph file.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-m, --mapping</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of mapping file.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>load pools</option></term>
+	<listitem>
+	  <para>Explicitly loads pools from
+	  /etc/barrel/pools.json. Pools are automatically loaded at startup.</para>
 	</listitem>
       </varlistentry>
 
@@ -293,7 +364,7 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>reduce pool --name <replaceable>name</replaceable> <replaceable>devices</replaceable></option></term>
+	<term><option>reduce pool <replaceable>devices</replaceable></option></term>
 	<listitem>
 	  <para>Removes devices from a pool.</para>
 
@@ -309,7 +380,24 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>remove pool --name <replaceable>name</replaceable> <replaceable>devices</replaceable></option></term>
+	<term><option>remove device</option></term>
+	<listitem>
+	  <para>Removes a device and all device and file systems using it.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--keep-partitions</option></term>
+	      <listitem>
+		<para>Keep underlying partitions, e.g. when removing a
+		RAID on partitions.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>remove pool <replaceable>devices</replaceable></option></term>
 	<listitem>
 	  <para>Removes a pool.</para>
 
@@ -321,6 +409,62 @@
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>rename pool</option></term>
+	<listitem>
+	  <para>Renames a pool.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-o, --old-name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Old name of pool.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-n, --new-name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>New name of pool.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>save devicegraph</option></term>
+	<listitem>
+	  <para>Saves the staging devicegraph to a file.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of devicegraph file.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>save pools</option></term>
+	<listitem>
+	  <para>Explicitly saves pools in
+	  /etc/barrel/pools.json. Pools are also saved during commit if
+	  modified.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>show commit</option></term>
+	<listitem>
+	  <para>Shows commit actions.</para>
 	</listitem>
       </varlistentry>
 
@@ -499,6 +643,9 @@
       <listitem>
 	<para>Support for multipath and DASDs is missing.</para>
       </listitem>
+      <listitem>
+	<para>Tab completion in the interactive mode is not context aware.</para>
+      </listitem>
     </itemizedlist>
   </refsect1>
 
@@ -516,6 +663,8 @@
     <title>SEE ALSO</title>
     <para>
       <citerefentry role="nolink"><refentrytitle>parted</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>mkfs</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>mount</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
       <citerefentry role="nolink"><refentrytitle>mdadm</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
       <citerefentry role="nolink"><refentrytitle>lvm</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
       <citerefentry role="nolink"><refentrytitle>cryptsetup</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
