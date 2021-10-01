@@ -60,6 +60,7 @@
       suitable disk space on its own. For example when the system has
       several SSDs and the user wants to create a file system on some SSD
       barrel can pick an SSD with enough space automatically.</para>
+      <para>So far devices in a pool must have a GPT.</para>
     </refsect2>
 
     <refsect2 id='stack'>
@@ -379,16 +380,17 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>remove device</option></term>
+	<term><option>remove device <replaceable>devices</replaceable></option></term>
 	<listitem>
-	  <para>Removes a device and all device and file systems using it.</para>
+	  <para>Removes a device and all device and file systems using
+	  it. When removing a RAID or encryption device the underlying
+	  partitions are also removed.</para>
 
 	  <variablelist>
 	    <varlistentry>
 	      <term><option>--keep-partitions</option></term>
 	      <listitem>
-		<para>Keep underlying partitions, e.g. when removing a
-		RAID on partitions.</para>
+		<para>Keep underlying partitions.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
@@ -646,6 +648,9 @@
     <title>BUGS</title>
     <itemizedlist>
       <listitem>
+	<para>Validation of input is unfinished.</para>
+      </listitem>
+      <listitem>
 	<para>Missing tools are not installed on demand.</para>
       </listitem>
       <listitem>
@@ -684,6 +689,7 @@
       <citerefentry role="nolink"><refentrytitle>lvm</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
       <citerefentry role="nolink"><refentrytitle>cryptsetup</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
       <citerefentry role="nolink"><refentrytitle>fstab</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>crypttab</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
       <citerefentry role="nolink"><refentrytitle>mdadm.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
     </para>
   </refsect1>

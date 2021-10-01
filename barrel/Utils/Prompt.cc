@@ -26,6 +26,7 @@
 
 #include "Prompt.h"
 #include "Text.h"
+#include "Mockup.h"
 
 
 namespace barrel
@@ -54,6 +55,9 @@ namespace barrel
     string
     prompt_password()
     {
+	if (mockup)
+	    return "mockup";
+
 	while (true)
 	{
 	    struct termios oldt;

@@ -97,12 +97,13 @@ namespace barrel
 	sort(encryptions.begin(), encryptions.end(), Encryption::compare_by_dm_table_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Type"),
-		Cell(_("Usage"), Id::USAGE) });
+		_("Underlying Device"), Cell(_("Usage"), Id::USAGE) });
 
 	for (const Encryption* encryption : encryptions)
 	{
 	    Table::Row row(table, { encryption->get_dm_table_name(), format_size(encryption->get_size()),
-		    get_encryption_type_name(encryption->get_type()), device_usage(encryption) });
+		    get_encryption_type_name(encryption->get_type()),
+		    encryption->get_blk_device()->get_name(), device_usage(encryption) });
 
 	    table.add(row);
 	}

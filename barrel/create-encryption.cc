@@ -21,8 +21,12 @@
 
 
 #include <storage/Storage.h>
+#include <storage/Pool.h>
 #include <storage/Devices/Luks.h>
 #include <storage/Devices/BlkDevice.h>
+#include <storage/Devices/PartitionTable.h>
+#include <storage/Devices/Partitionable.h>
+#include <storage/Devices/Partition.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
@@ -42,7 +46,10 @@ namespace barrel
 	const ExtOptions create_encryption_options({
 	    { "type", required_argument, 't', _("encryption type"), "type" },
 	    { "name", required_argument, 'n', _("set name of device"), "name" },
-	});
+	    { "pool-name", required_argument, 0, _("pool name"), "name" },
+	    { "size", required_argument, 's', _("set size"), "size" },
+	    { "force", no_argument, 0, _("force if block devices are in use") }
+	}, TakeBlkDevices::MAYBE);
 
 
 	const map<string, EncryptionType> str_to_encryption_type = {
@@ -57,6 +64,18 @@ namespace barrel
 
 	    optional<EncryptionType> type;
 	    string name;
+	    optional<string> pool_name;
+	    optional<SmartSize> size;
+	    bool force = false;
+
+	    vector<string> blk_devices;
+
+	    enum class ModusOperandi { BLK_DEVICE, POOL, PARTITION_TABLE_FROM_STACK, BLK_DEVICE_FROM_STACK,
+		PARTITIONABLE };
+
+	    ModusOperandi modus_operandi;
+
+	    void calculate_modus_operandi();
 	};
 
 
@@ -79,6 +98,55 @@ namespace barrel
 		throw OptionsException("name missing");
 
 	    name = parsed_opts.get("name");
+
+	    pool_name = parsed_opts.get_optional("pool-name");
+
+	    if (parsed_opts.has_option("size"))
+	    {
+		string str = parsed_opts.get("size");
+		size = SmartSize(str);
+	    }
+
+	    force = parsed_opts.has_option("force");
+
+	    blk_devices = parsed_opts.get_blk_devices();
+
+	    calculate_modus_operandi();
+	}
+
+
+	void
+	Options::calculate_modus_operandi()
+	{
+	    // TODO identical in create-lvm-vg.cc
+
+	    if (pool_name)
+	    {
+		if (!size)
+		    throw runtime_error("size argument missing for command 'filesystem'");
+
+		if (!blk_devices.empty())
+		    throw runtime_error("pool argument and blk devices not allowed for command 'filesystem'");
+
+		modus_operandi = ModusOperandi::POOL;
+	    }
+	    else
+	    {
+		if (size)
+		{
+		    if (blk_devices.empty())
+			modus_operandi = ModusOperandi::PARTITION_TABLE_FROM_STACK;
+		    else
+			modus_operandi = ModusOperandi::PARTITIONABLE;
+		}
+		else
+		{
+		    if (blk_devices.empty())
+			modus_operandi = ModusOperandi::BLK_DEVICE_FROM_STACK;
+		    else
+			modus_operandi = ModusOperandi::BLK_DEVICE;
+		}
+	    }
 	}
 
     }
@@ -112,8 +180,97 @@ namespace barrel
 
 	string password = prompt_password();
 
-	BlkDevice* blk_device = to_blk_device(state.stack.top(staging));
-	state.stack.pop();
+	BlkDevice* blk_device = nullptr;
+
+	switch (options.modus_operandi)
+	{
+	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
+	    {
+		if (state.stack.empty() || !is_blk_device(state.stack.top(staging)))
+		    throw runtime_error("not a block device on stack");
+
+		blk_device = to_blk_device(state.stack.top(staging));
+		state.stack.pop();
+	    }
+	    break;
+
+	    case Options::ModusOperandi::POOL:
+	    {
+		Devicegraph* staging = state.storage->get_staging();
+
+		Pool* pool = state.storage->get_pool(options.pool_name.value());
+
+		SmartSize smart_size = options.size.value();
+
+		unsigned long long size = smart_size.value(pool->max_partition_size(staging, 1));
+
+		blk_device = pool->create_partitions(staging, 1, size)[0];
+	    }
+	    break;
+
+	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
+	    {
+		if (state.stack.empty() || !is_partition_table(state.stack.top(staging)))
+		    throw runtime_error("not a partition table on stack");
+
+		PartitionTable* partition_table = to_partition_table(state.stack.top(staging));
+		state.stack.pop();
+
+		Devicegraph* staging = state.storage->get_staging();
+
+		Pool pool;
+		pool.add_device(partition_table->get_partitionable());
+
+		SmartSize smart_size = options.size.value();
+
+		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
+
+		blk_device = pool.create_partitions(staging, 1, size)[0];
+	    }
+	    break;
+
+	    case Options::ModusOperandi::BLK_DEVICE:
+	    {
+		if (options.blk_devices.size() != 1)
+		    throw runtime_error("only one block device allowed");
+
+		blk_device = BlkDevice::find_by_name(staging, options.blk_devices.front());
+
+		if (blk_device->has_children())
+		{
+		    if (options.force)
+		    {
+			blk_device->remove_descendants(View::REMOVE);
+		    }
+		    else
+		    {
+			throw runtime_error(sformat("block device '%s' is in use", blk_device->get_name().c_str()));
+		    }
+		}
+	    }
+	    break;
+
+	    case Options::ModusOperandi::PARTITIONABLE:
+	    {
+		Pool pool;
+
+		if (options.blk_devices.size() != 1)
+		    throw runtime_error("wrong number of partitionables");
+
+		for (const string& device_name : options.blk_devices)
+		{
+		    Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
+		    pool.add_device(partitionable);
+		}
+
+		SmartSize smart_size = options.size.value();
+
+		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
+
+		blk_device = pool.create_partitions(staging, 1, size)[0];
+	    }
+	    break;
+	}
 
 	Encryption* encryption = blk_device->create_encryption(dm_name, type);
 	encryption->set_password(password);

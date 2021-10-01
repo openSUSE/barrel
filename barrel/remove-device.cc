@@ -24,6 +24,7 @@
 #include <storage/Devicegraph.h>
 #include <storage/Actiongraph.h>
 #include <storage/Devices/Md.h>
+#include <storage/Devices/Encryption.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
@@ -103,6 +104,15 @@ namespace barrel
 			if (is_partition(parent))
 			    staging->remove_device(parent);
 		    }
+		}
+
+		if (is_encryption(blk_device))
+		{
+		    Encryption* encryption = to_encryption(blk_device);
+
+		    BlkDevice* parent = encryption->get_blk_device();
+		    if (is_partition(parent))
+			staging->remove_device(parent);
 		}
 	    }
 

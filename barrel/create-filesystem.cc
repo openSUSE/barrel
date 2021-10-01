@@ -181,6 +181,7 @@ namespace barrel
 	    }
 	}
 
+
 	void
 	Options::check() const
 	{

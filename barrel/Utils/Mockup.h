@@ -20,22 +20,14 @@
  */
 
 
-#ifndef BARREL_PROMPT_H
-#define BARREL_PROMPT_H
-
-
-#include <string>
+#ifndef BARREL_MOCKUP_H
+#define BARREL_MOCKUP_H
 
 
 namespace barrel
 {
 
-    using namespace std;
-
-
-    bool prompt(const string& message);
-
-    string prompt_password();
+    extern bool mockup;
 
 }
 

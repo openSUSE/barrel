@@ -25,6 +25,7 @@
 #include <storage/Devices/Md.h>
 #include <storage/Devices/LvmVg.h>
 #include <storage/Devices/LvmPv.h>
+#include <storage/Devices/Encryption.h>
 #include <storage/Pool.h>
 #include <storage/Storage.h>
 
@@ -54,7 +55,8 @@ namespace barrel
 
 	if (blk_device->has_encryption())
 	{
-	    return "encryption";
+	    const Encryption* encryption = blk_device->get_encryption();
+	    return "encryption " + encryption->get_dm_table_name();
 	}
 
 	if (is_partitionable(blk_device))
@@ -73,7 +75,8 @@ namespace barrel
 
 	    if (is_md(child))
 	    {
-		return "RAID " + to_md(child)->get_name();
+		const Md* md = to_md(child);
+		return "RAID " + md->get_name();
 	    }
 
 	    if (is_lvm_pv(child))
