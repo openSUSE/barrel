@@ -93,6 +93,10 @@ namespace barrel
 	{
 	    BlkDevice* blk_device = BlkDevice::find_by_name(staging, name);
 
+	    if (!blk_device->can_be_removed())
+		throw runtime_error(sformat("block device '%s' cannot be removed",
+					    blk_device->get_name().c_str()));
+
 	    if (!options.keep_partitions)
 	    {
 		if (is_md(blk_device))
@@ -101,7 +105,7 @@ namespace barrel
 
 		    for (BlkDevice* parent : md->get_devices())
 		    {
-			if (is_partition(parent))
+			if (is_partition(parent) && parent->can_be_removed())
 			    staging->remove_device(parent);
 		    }
 		}
@@ -111,7 +115,7 @@ namespace barrel
 		    Encryption* encryption = to_encryption(blk_device);
 
 		    BlkDevice* parent = encryption->get_blk_device();
-		    if (is_partition(parent))
+		    if (is_partition(parent) && parent->can_be_removed())
 			staging->remove_device(parent);
 		}
 	    }

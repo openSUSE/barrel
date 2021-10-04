@@ -542,6 +542,12 @@
 		<para>Show RAIDs of the probed instead of the staging devicegraph.</para>
 	      </listitem>
 	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--no-partitions</option></term>
+	      <listitem>
+		<para>Do not show partitions on the RAIDs.</para>
+	      </listitem>
+	    </varlistentry>
 	  </variablelist>
 	</listitem>
       </varlistentry>

@@ -355,6 +355,13 @@ namespace barrel
 	    break;
 	}
 
+	for (BlkDevice* blk_device : blk_devices)
+	{
+	    if (!blk_device->is_usable_as_blk_device())
+		throw runtime_error(sformat("block device '%s' cannot be used as a regular block device",
+					    blk_device->get_name().c_str()));
+	}
+
 	LvmVg* lvm_vg = LvmVg::create(staging, options.vg_name);
 
 	if (options.extent_size)

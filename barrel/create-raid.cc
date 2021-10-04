@@ -356,6 +356,13 @@ namespace barrel
 	    break;
 	}
 
+	for (BlkDevice* blk_device : blk_devices)
+	{
+	    if (!blk_device->is_usable_as_blk_device())
+		throw runtime_error(sformat("block device '%s' cannot be used as a regular block device",
+					    blk_device->get_name().c_str()));
+	}
+
 	Md* md = Md::create(staging, name);
 	md->set_md_level(options.level.value());
 

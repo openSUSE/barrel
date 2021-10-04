@@ -333,6 +333,10 @@ namespace barrel
 	    break;
 	}
 
+	if (!blk_device->is_usable_as_blk_device())
+	    throw runtime_error(sformat("block device '%s' cannot be used as a regular block device",
+					blk_device->get_name().c_str()));
+
 	FsType fs_type = options.type.value();
 
 	BlkFilesystem* blk_filesystem = blk_device->create_blk_filesystem(fs_type);

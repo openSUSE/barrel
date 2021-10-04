@@ -46,6 +46,7 @@ namespace barrel
     {
 
 	const ExtOptions show_raids_options({
+	    { "no-partitions", no_argument, 0, _("do not show partitions on RAIDs") },
 	    { "probed", no_argument, 0, _("probed instead of staging") }
 	});
 
@@ -54,6 +55,8 @@ namespace barrel
 	{
 	    Options(GetOpts& get_opts);
 
+	    bool show_partitions = true;
+
 	    bool show_probed = false;
 	};
 
@@ -61,6 +64,8 @@ namespace barrel
 	Options::Options(GetOpts& get_opts)
 	{
 	    ParsedOpts parsed_opts = get_opts.parse("raids", show_raids_options);
+
+	    show_partitions = !parsed_opts.has_option("no-partitions");
 
 	    show_probed = parsed_opts.has_option("probed");
 	}
@@ -137,7 +142,8 @@ namespace barrel
 		    get_md_level_name(md->get_md_level()), md->get_metadata(),
 		    t1, devices(devicegraph, md), device_usage(md) });
 
-	    insert_partitions(md, row);
+	    if (options.show_partitions)
+		insert_partitions(md, row);
 
 	    table.add(row);
 	}

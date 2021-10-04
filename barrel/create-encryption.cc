@@ -272,6 +272,10 @@ namespace barrel
 	    break;
 	}
 
+	if (!blk_device->is_usable_as_blk_device())
+	    throw runtime_error(sformat("block device '%s' cannot be used as a regular block device",
+					blk_device->get_name().c_str()));
+
 	Encryption* encryption = blk_device->create_encryption(dm_name, type);
 	encryption->set_password(password);
 
