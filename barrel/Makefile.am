@@ -22,6 +22,7 @@ libbarrel_la_SOURCES =							\
 	help.h				help.cc				\
 	generic.h			generic.cc			\
 	show.h				show.cc				\
+	show-dasds.h			show-dasds.cc			\
 	show-disks.h			show-disks.cc			\
 	show-raids.h			show-raids.cc			\
 	show-lvm-vgs.h			show-lvm-vgs.cc			\

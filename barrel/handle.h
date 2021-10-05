@@ -26,8 +26,7 @@
 
 #include <string>
 
-#include <storage/Actiongraph.h>
-#include <storage/Devices/BlkDevice.h>
+#include <storage/Devices/Device.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Misc.h"

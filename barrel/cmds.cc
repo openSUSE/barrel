@@ -41,6 +41,7 @@
 #include "save-devicegraph.h"
 #include "save-pools.h"
 #include "show-commit.h"
+#include "show-dasds.h"
 #include "show-disks.h"
 #include "show-filesystems.h"
 #include "show-encryptions.h"
@@ -54,6 +55,7 @@ namespace barrel
 
     const vector<Parser> show_cmds = {
 	{ "commit", make_shared<CmdShowCommit>() },
+	{ "dasds", make_shared<CmdShowDasds>() },
 	{ "disks", make_shared<CmdShowDisks>() },
 	{ "encryptions", make_shared<CmdShowEncryptions>() },
 	{ "filesystems", make_shared<CmdShowFilesystems>() },

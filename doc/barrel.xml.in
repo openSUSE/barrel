@@ -470,6 +470,28 @@
       </varlistentry>
 
       <varlistentry>
+	<term><option>show dasds</option></term>
+	<listitem>
+	  <para>Shows DASDs.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Show DASDs of the probed instead of the staging devicegraph.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--no-partitions</option></term>
+	      <listitem>
+		<para>Do not show partitions on the DASDs.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
 	<term><option>show disks</option></term>
 	<listitem>
 	  <para>Shows disks.</para>
@@ -479,6 +501,12 @@
 	      <term><option>--probed</option></term>
 	      <listitem>
 		<para>Show disks of the probed instead of the staging devicegraph.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--no-partitions</option></term>
+	      <listitem>
+		<para>Do not show partitions on the disks.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
@@ -511,12 +539,6 @@
 	      <term><option>--probed</option></term>
 	      <listitem>
 		<para>Show file systems of the probed instead of the staging devicegraph.</para>
-	      </listitem>
-	    </varlistentry>
-	    <varlistentry>
-	      <term><option>--no-partitions</option></term>
-	      <listitem>
-		<para>Do not show partitions on the disks.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>

@@ -34,16 +34,16 @@ BOOST_AUTO_TEST_CASE(test1)
 
     vector<string> output = {
 	"Probing... done",
-	"Name        │      Size │ Usage         │ Pool",
-	"────────────┼───────────┼───────────────┼─────────────",
-	"/dev/sda    │ 32.00 GiB │ GPT           │ HDDs (512 B)",
-	"├─/dev/sda1 │  8.00 MiB │               │",
-	"├─/dev/sda2 │ 29.99 GiB │ ext4          │",
-	"└─/dev/sda3 │  2.00 GiB │ swap          │",
-	"/dev/sdb    │ 32.00 GiB │ GPT           │ HDDs (512 B)",
-	"└─/dev/sdb1 │ 32.00 GiB │ RAID /dev/md0 │",
-	"/dev/sdc    │ 32.00 GiB │ GPT           │ HDDs (512 B)",
-	"└─/dev/sdc1 │ 32.00 GiB │ RAID /dev/md0 │"
+	"Name        │      Size │ Block Size │ Usage         │ Pool",
+	"────────────┼───────────┼────────────┼───────────────┼─────────────",
+	"/dev/sda    │ 32.00 GiB │      512 B │ GPT           │ HDDs (512 B)",
+	"├─/dev/sda1 │  8.00 MiB │            │               │",
+	"├─/dev/sda2 │ 29.99 GiB │            │ ext4          │",
+	"└─/dev/sda3 │  2.00 GiB │            │ swap          │",
+	"/dev/sdb    │ 32.00 GiB │      512 B │ GPT           │ HDDs (512 B)",
+	"└─/dev/sdb1 │ 32.00 GiB │            │ RAID /dev/md0 │",
+	"/dev/sdc    │ 32.00 GiB │      512 B │ GPT           │ HDDs (512 B)",
+	"└─/dev/sdc1 │ 32.00 GiB │            │ RAID /dev/md0 │"
     };
 
     Testsuite testsuite;
