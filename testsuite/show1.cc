@@ -126,8 +126,8 @@ BOOST_AUTO_TEST_CASE(test4)
 	"Probing... done",
 	"Type │ Device         │ Mount Point",
 	"─────┼────────────────┼────────────",
-	"xfs  │ /dev/data/home │ /home",
 	"ext4 │ /dev/sda2      │ /",
+	"xfs  │ /dev/data/home │ /home",
 	"swap │ /dev/sda3      │ swap"
     };
 

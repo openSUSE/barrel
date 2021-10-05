@@ -649,7 +649,7 @@
     <variablelist>
       <varlistentry>
 	<term><command>barrel create vg --name vg1 --size 1TiB /dev/sdb
-	lv --name lv1 --size 100G xfs --path /test1</command></term>
+	lv --name lv1 --size 100G xfs --path /test</command></term>
 	<listitem>
 	  <para>Create a new 1 TiB partition on /dev/sdb, create a
 	  volume group with name vg1 using the partition, create a logical
@@ -689,7 +689,7 @@
 	<para>Translations are missing.</para>
       </listitem>
       <listitem>
-	<para>Support for multipath and DASDs is missing.</para>
+	<para>Imcomplete support for multipath and DASDs.</para>
       </listitem>
       <listitem>
 	<para>Tab completion in the interactive mode is not context aware.</para>

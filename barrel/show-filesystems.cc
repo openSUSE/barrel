@@ -25,6 +25,7 @@
 #include <storage/Filesystems/MountPoint.h>
 #include <storage/Filesystems/Filesystem.h>
 #include <storage/Filesystems/BlkFilesystem.h>
+#include <storage/Filesystems/Nfs.h>
 #include <storage/Storage.h>
 
 #include "Utils/GetOpts.h"
@@ -81,7 +82,30 @@ namespace barrel
 
 	const Options options;
 
+	static bool compare_by_something(const Filesystem* lhs, const Filesystem* rhs);
+
     };
+
+
+    bool
+    ParsedCmdShowFilesystems::compare_by_something(const Filesystem* lhs, const Filesystem* rhs)
+    {
+	bool t1 = lhs->has_mount_point();
+	bool t2 = rhs->has_mount_point();
+
+	if (t1 && t2)
+	    return lhs->get_mount_point()->get_path() < rhs->get_mount_point()->get_path();
+
+	if (t1 && !t2)
+	    return true;
+
+	if (!t1 && t2)
+	    return false;
+
+	// TODO and now?
+
+	return false;
+    }
 
 
     void
@@ -92,7 +116,7 @@ namespace barrel
 	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();
 
 	vector<const Filesystem*> filesystems = Filesystem::get_all(devicegraph);
-	// TODO sort
+	sort(filesystems.begin(), filesystems.end(), compare_by_something);
 
 	Table table({ _("Type"), _("Device"), _("Mount Point") });
 
@@ -104,6 +128,11 @@ namespace barrel
 	    {
 		const BlkFilesystem* blk_filesystem = to_blk_filesystem(filesystem);
 		row.add(blk_filesystem->get_blk_devices()[0]->get_name());
+	    }
+	    else if (is_nfs(filesystem))
+	    {
+		const Nfs* nfs = to_nfs(filesystem);
+		row.add(nfs->get_server() + ":" + nfs->get_path());
 	    }
 	    else
 	    {
