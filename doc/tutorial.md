@@ -131,9 +131,9 @@ Now we can look at the result of creating the RAID and XFS:
 
 ~~~
 barrel[1]> show raids
-Name     │      Size │ Level │ Metadata │ Chunk Size │ Devices │ Usage
-─────────┼───────────┼───────┼──────────┼────────────┼─────────┼──────
-/dev/md0 │ 10.12 GiB │ RAID1 │ 1.0      │            │ 2       │ xfs
+Name     │      Size │ Level │ Metadata │ Chunk Size │ Devices │ Usage │ Pool
+─────────┼───────────┼───────┼──────────┼────────────┼─────────┼───────┼─────
+/dev/md0 │ 10.12 GiB │ RAID1 │ 1.0      │            │ 2       │ xfs   │
 ~~~
 
 In the interactive mode you can also undo previous commands using the

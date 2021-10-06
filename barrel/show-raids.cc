@@ -132,7 +132,7 @@ namespace barrel
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Level"),
 		_("Metadata"), Cell(_("Chunk Size"), Align::RIGHT), _("Devices"),
-		Cell(_("Usage"), Id::USAGE) });
+		Cell(_("Usage"), Id::USAGE), Cell(_("Pool"), Id::POOL) });
 
 	for (const Md* md : mds)
 	{
@@ -140,7 +140,7 @@ namespace barrel
 
 	    Table::Row row(table, { md->get_name(), format_size(md->get_size()),
 		    get_md_level_name(md->get_md_level()), md->get_metadata(),
-		    t1, devices(devicegraph, md), device_usage(md) });
+		    t1, devices(devicegraph, md), device_usage(md), device_pools(storage, md) });
 
 	    if (options.show_partitions)
 		insert_partitions(md, row);

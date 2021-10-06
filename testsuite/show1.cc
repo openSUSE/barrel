@@ -68,9 +68,9 @@ BOOST_AUTO_TEST_CASE(test2)
 
     vector<string> output = {
 	"Probing... done",
-	"Name     │      Size │ Level │ Metadata │ Chunk Size │ Devices │ Usage",
-	"─────────┼───────────┼───────┼──────────┼────────────┼─────────┼─────────",
-	"/dev/md0 │ 32.00 GiB │ RAID1 │ 1.0      │            │ 2       │ LVM data"
+	"Name     │      Size │ Level │ Metadata │ Chunk Size │ Devices │ Usage    │ Pool",
+	"─────────┼───────────┼───────┼──────────┼────────────┼─────────┼──────────┼─────",
+	"/dev/md0 │ 32.00 GiB │ RAID1 │ 1.0      │            │ 2       │ LVM data │"
     };
 
     Testsuite testsuite;
