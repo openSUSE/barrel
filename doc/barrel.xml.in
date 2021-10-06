@@ -41,6 +41,10 @@
     storage systems in one tool. E.g. with a single command of barrel it
     is possible to create partitions on several disks, create a RAID from
     those partitions and create a file system on the RAID.</para>
+
+    <para>Barrel probes the complete storage system at startup and
+    does not save the state between invocations. That allows to mix barrel
+    with other storage tools, although in general not concurrently.</para>
   </refsect1>
 
   <refsect1 id='concepts'>
