@@ -36,7 +36,7 @@ namespace barrel
 
 	string device_usage(const Device* device) const;
 
-	string device_pool(const Storage* storage, const Device* device) const;
+	string device_pools(const Storage* storage, const Device* device) const;
 
 	void insert_partitions(const Partitionable* partitionable, Table::Row& row) const;
 

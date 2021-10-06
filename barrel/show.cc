@@ -102,8 +102,10 @@ namespace barrel
 
 
     string
-    ParsedCmdShow::device_pool(const Storage* storage, const Device* device) const
+    ParsedCmdShow::device_pools(const Storage* storage, const Device* device) const
     {
+	string ret;
+
 	const Devicegraph* probed = storage->get_probed();
 
 	map<string, const Pool*> pools = storage->get_pools();
@@ -113,11 +115,18 @@ namespace barrel
 	    vector<const Device*> devices = pool->get_devices(probed);
 
 	    for (const Device* tmp : devices)
+	    {
 		if (device->get_sid() == tmp->get_sid())
-		    return value.first;
+		{
+		    if (!ret.empty())
+			ret += ", ";
+		    ret += value.first;
+		    break;
+		}
+	    }
 	}
 
-	return "";
+	return ret;
     }
 
 

@@ -109,7 +109,7 @@ namespace barrel
 		    format_size(dasd->get_region().get_block_size(), true), dasd->get_bus_id(),
 		    get_dasd_type_name(dasd->get_type()),
 		    dasd->get_type() == DasdType::ECKD ? get_dasd_format_name(dasd->get_format()) : "",
-		    device_usage(dasd), device_pool(storage, dasd) });
+		    device_usage(dasd), device_pools(storage, dasd) });
 
 	    if (options.show_partitions)
 		insert_partitions(dasd, row);

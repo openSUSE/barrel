@@ -106,7 +106,7 @@ namespace barrel
 	{
 	    Table::Row row(table, { disk->get_name(), format_size(disk->get_size()),
 		    format_size(disk->get_region().get_block_size(), true),
-		    device_usage(disk), device_pool(storage, disk) });
+		    device_usage(disk), device_pools(storage, disk) });
 
 	    if (options.show_partitions)
 		insert_partitions(disk, row);
