@@ -60,7 +60,8 @@
       suitable disk space on its own. For example when the system has
       several SSDs and the user wants to create a file system on some SSD
       barrel can pick an SSD with enough space automatically.</para>
-      <para>So far devices in a pool must have a GPT.</para>
+      <para>So far devices in a pool must have a partition table to be
+      usable.</para>
     </refsect2>
 
     <refsect2 id='stack'>

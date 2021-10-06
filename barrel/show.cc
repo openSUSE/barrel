@@ -47,16 +47,11 @@ namespace barrel
 
 	const BlkDevice* blk_device = to_blk_device(device);
 
-	if (blk_device->has_blk_filesystem())
+	if (is_partition(blk_device))
 	{
-	    const BlkFilesystem* blk_filesystem = blk_device->get_blk_filesystem();
-	    return get_fs_type_name(blk_filesystem->get_type());
-	}
-
-	if (blk_device->has_encryption())
-	{
-	    const Encryption* encryption = blk_device->get_encryption();
-	    return "encryption " + encryption->get_dm_table_name();
+	    const Partition* partition = to_partition(blk_device);
+	    if (partition->get_type() == PartitionType::EXTENDED)
+		return "extended";
 	}
 
 	if (is_partitionable(blk_device))
@@ -67,6 +62,18 @@ namespace barrel
 		const PartitionTable* partition_table = partitionable->get_partition_table();
 		return get_pt_type_name(partition_table->get_type());
 	    }
+	}
+
+	if (blk_device->has_blk_filesystem())
+	{
+	    const BlkFilesystem* blk_filesystem = blk_device->get_blk_filesystem();
+	    return get_fs_type_name(blk_filesystem->get_type());
+	}
+
+	if (blk_device->has_encryption())
+	{
+	    const Encryption* encryption = blk_device->get_encryption();
+	    return "encryption " + encryption->get_dm_table_name();
 	}
 
 	if (blk_device->has_children())
