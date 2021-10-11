@@ -25,6 +25,7 @@
 #include <storage/Actiongraph.h>
 #include <storage/Devices/Md.h>
 #include <storage/Devices/Encryption.h>
+#include <storage/FreeInfo.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
@@ -81,7 +82,27 @@ namespace barrel
 
 	const Options options;
 
+	static void remove_blk_device(Devicegraph* devicegraph, BlkDevice* blk_device);
+
     };
+
+
+    void
+    ParsedCmdRemoveDevice::remove_blk_device(Devicegraph* devicegraph, BlkDevice* blk_device)
+    {
+	// TODO this special handling should be done by the libstorage-ng
+
+	if (is_partition(blk_device))
+	{
+	    Partition* partition = to_partition(blk_device);
+	    PartitionTable* partition_table = partition->get_partition_table();
+	    partition_table->delete_partition(partition);
+	}
+	else
+	{
+	    devicegraph->remove_device(blk_device);
+	}
+    }
 
 
     void
@@ -93,9 +114,11 @@ namespace barrel
 	{
 	    BlkDevice* blk_device = BlkDevice::find_by_name(staging, name);
 
-	    if (!blk_device->can_be_removed())
+	    if (!blk_device->detect_remove_info().remove_ok)
 		throw runtime_error(sformat("block device '%s' cannot be removed",
 					    blk_device->get_name().c_str()));
+
+	    vector<Partition*> partitions;
 
 	    if (!options.keep_partitions)
 	    {
@@ -103,27 +126,31 @@ namespace barrel
 		{
 		    Md* md = to_md(blk_device);
 
-		    for (BlkDevice* parent : md->get_devices())
-		    {
-			if (is_partition(parent) && parent->can_be_removed())
-			    staging->remove_device(parent);
-		    }
+		    for (BlkDevice* tmp : md->get_devices())
+			if (is_partition(tmp))
+			    partitions.push_back(to_partition(tmp));
 		}
 
 		if (is_encryption(blk_device))
 		{
 		    Encryption* encryption = to_encryption(blk_device);
 
-		    BlkDevice* parent = encryption->get_blk_device();
-		    if (is_partition(parent) && parent->can_be_removed())
-			staging->remove_device(parent);
+		    BlkDevice* tmp = encryption->get_blk_device();
+		    if (is_partition(tmp))
+			partitions.push_back(to_partition(tmp));
 		}
 	    }
 
 	    for (Device* descendant : blk_device->get_descendants(false, View::REMOVE))
 		staging->remove_device(descendant);
 
-	    staging->remove_device(blk_device);
+	    remove_blk_device(staging, blk_device);
+
+	    for (Partition* partition : partitions)
+	    {
+		if (partition->detect_remove_info().remove_ok)
+		    remove_blk_device(staging, partition);
+	    }
 	}
 
 	state.modified = true;

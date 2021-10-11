@@ -58,3 +58,40 @@ BOOST_AUTO_TEST_CASE(test1)
 
     BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
 }
+
+
+BOOST_AUTO_TEST_CASE(test2)
+{
+    // Even on GPT partitions can be renumber due to the inability of parted to create
+    // partitions with a defined number.
+
+    Args args({ "barrel", "--dry-run", "--yes" });
+
+    vector<string> actions = {
+	"Create partition /dev/sdb1 (2.03 GiB)",
+	"Set id of partition /dev/sdb1 to Linux RAID",
+	"Create partition /dev/sdc1 (2.03 GiB)",
+	"Set id of partition /dev/sdc1 to Linux RAID",
+	"Create MD RAID1 /dev/md1 (2.00 GiB) from /dev/sdb1 (2.03 GiB) and /dev/sdc1 (2.03 GiB)",
+	"Add /dev/md1 to /etc/mdadm.conf"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    testsuite.readlines = {
+	"create raid0 /dev/sd[bc] --size=1g",
+	"create raid1 /dev/sd[bc] --size=2g",
+	"remove device /dev/md0",
+	"commit"
+    };
+
+    vector<string> tmp;
+    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
+	tmp = actiongraph->get_commit_actions_as_strings();
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+}
