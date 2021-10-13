@@ -60,10 +60,12 @@ namespace barrel
 
 	const map<string, FsType> str_to_fs_type = {
 	    { "btrfs", FsType::BTRFS },
+	    { "f2fs", FsType::F2FS },
 	    { "exfat", FsType::EXFAT },
 	    { "ext2", FsType::EXT2 },
 	    { "ext3", FsType::EXT3 },
 	    { "ext4", FsType::EXT4 },
+	    { "ntfs", FsType::NTFS },
 	    { "swap", FsType::SWAP },
 	    { "vfat", FsType::VFAT },
 	    { "xfs", FsType::XFS }
@@ -437,6 +439,20 @@ namespace barrel
 
 
     shared_ptr<ParsedCmd>
+    CmdCreateF2fs::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::F2FS);
+    }
+
+
+    const char*
+    CmdCreateF2fs::help() const
+    {
+	return _("Alias for 'create filesystem --type f2fs'");
+    }
+
+
+    shared_ptr<ParsedCmd>
     CmdCreateExt2::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::EXT2);
@@ -475,6 +491,20 @@ namespace barrel
     CmdCreateExt4::help() const
     {
 	return _("Alias for 'create filesystem --type ext4'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateNtfs::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::NTFS);
+    }
+
+
+    const char*
+    CmdCreateNtfs::help() const
+    {
+	return _("Alias for 'create filesystem --type ntfs'");
     }
 
 

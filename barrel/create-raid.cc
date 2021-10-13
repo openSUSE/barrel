@@ -48,7 +48,7 @@ namespace barrel
 	const ExtOptions create_raid_options({
 	    { "level", required_argument, 'l', _("set RAID level"), "level" },
 	    { "name", required_argument, 'n', _("set RAID name"), "name" },
-	    { "pool-name", required_argument, 'p', _("name of pool to use"), "name" },
+	    { "pool-name", required_argument, 0, _("name of pool to use"), "name" },
 	    { "size", required_argument, 's', _("set size of RAID"), "size" },
 	    { "metadata", required_argument, 'm', _("set RAID metadata version"), "metadata" },
 	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
@@ -59,7 +59,7 @@ namespace barrel
 
 	const map<string, MdLevel> str_to_md_level = {
 	    { "0", MdLevel::RAID0 },
-	    { "strip", MdLevel::RAID0 },
+	    { "stripe", MdLevel::RAID0 },
 	    { "1", MdLevel::RAID1 },
 	    { "mirror", MdLevel::RAID1 },
 	    { "4", MdLevel::RAID4 },

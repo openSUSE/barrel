@@ -46,6 +46,14 @@ namespace barrel
     };
 
 
+    struct CmdCreateF2fs : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
     struct CmdCreateExt2 : public CmdCreateFilesystem
     {
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
@@ -63,6 +71,14 @@ namespace barrel
 
 
     struct CmdCreateExt4 : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateNtfs : public CmdCreateFilesystem
     {
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
 	virtual const char* help() const override;
