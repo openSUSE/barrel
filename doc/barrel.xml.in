@@ -133,7 +133,7 @@
       <varlistentry>
 	<term><option>--prefix <replaceable>path</replaceable></option></term>
 	<listitem>
-	  <para>Prepend verious path (mount points and files in /etc)
+	  <para>Prepend various path (mount points and files in /etc)
 	  with a prefix. Useful when running in a installation or rescue
 	  system.</para>
 	</listitem>
@@ -193,7 +193,7 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create encryption [devices]</option></term>
+	<term><option>create encryption [device]</option></term>
 	<listitem>
 	  <para>Creates a new encryption device.</para>
 
@@ -210,12 +210,30 @@
 		<para>Name of device-mapper device.</para>
 	      </listitem>
 	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--pool-name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of pool from which to take underlying device.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
+	      <listitem>
+		<para>Approximate size of resulting encryption device.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--force</option></term>
+	      <listitem>
+		<para>Force creation if block device is in use.</para>
+	      </listitem>
+	    </varlistentry>
 	  </variablelist>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
-	<term><option>create filesystem [devices]</option></term>
+	<term><option>create filesystem [device]</option></term>
 	<listitem>
 	  <para>Creates a new file system.</para>
 
@@ -223,17 +241,62 @@
             <varlistentry>
               <term><option>-t, --type</option> <replaceable>type</replaceable></term>
               <listitem>
-		<para>Set file system type. Possible values are
-		btrfs, exfat, ext2, ext3, ext4, swap, vfat, xfs.</para>
+		<para>Set file system type. Possible values are btrfs, f2fs,
+		exfat, ext2, ext3, ext4, ntfs, swap, vfat, xfs.</para>
 	      </listitem>
+            </varlistentry>
+	    <varlistentry>
+              <term><option>-l, --label</option> <replaceable>label</replaceable></term>
+              <listitem>
+		<para>Set label of file system.</para>
+              </listitem>
             </varlistentry>
             <varlistentry>
               <term><option>-p, --path</option> <replaceable>path</replaceable></term>
               <listitem>
-		<para>Path to mount the filesystem.</para>
+		<para>Path to mount the file system.</para>
               </listitem>
             </varlistentry>
-          </variablelist>
+	    <varlistentry>
+              <term><option>--mount-options</option> <replaceable>options</replaceable></term>
+              <listitem>
+		<para>Mount options for the file system.</para>
+              </listitem>
+            </varlistentry>
+	    <varlistentry>
+              <term><option>--mkfs-options</option> <replaceable>options</replaceable></term>
+              <listitem>
+		<para>Options for mkfs command. The options are
+		injected as-is to the command so must be properly quoted.</para>
+	      </listitem>
+            </varlistentry>
+	    <varlistentry>
+              <term><option>--tune-options</option> <replaceable>options</replaceable></term>
+              <listitem>
+		<para>Options for the file system tune command. The
+		options are injected as-is to the command so must be properly
+		quoted. Only supported for ext2, ext3 and ext4.</para>
+	      </listitem>
+            </varlistentry>
+	    <varlistentry>
+              <term><option>--pool-name</option> <replaceable>options</replaceable></term>
+              <listitem>
+		<para>Name of pool from which to take underlying device.</para>
+              </listitem>
+            </varlistentry>
+	    <varlistentry>
+	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
+	      <listitem>
+		<para>Approximate size of resulting file system.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--force</option></term>
+	      <listitem>
+		<para>Force creation if block device is in use.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
 	</listitem>
       </varlistentry>
 
@@ -241,6 +304,41 @@
 	<term><option>create lv</option></term>
 	<listitem>
 	  <para>Creates a new LVM logical volume.</para>
+
+	  <variablelist>
+            <varlistentry>
+              <term><option>-v, --vg-name</option> <replaceable>vg-name</replaceable></term>
+              <listitem>
+		<para>Name of volume group to use.</para>
+	      </listitem>
+            </varlistentry>
+	    <varlistentry>
+              <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+              <listitem>
+		<para>Name of new logical volume.</para>
+              </listitem>
+            </varlistentry>
+	    <varlistentry>
+	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
+	      <listitem>
+		<para>Approximate size of resulting logical volume.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--stripes</option> <replaceable>stripes</replaceable></term>
+	      <listitem>
+		<para>Number of stripes for the logical
+		volume. Default is 1. The special value of 'max' uses all underlying
+		devices of the volume group.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--stripe-size</option> <replaceable>stripe-size</replaceable></term>
+	      <listitem>
+		<para>Stripe size.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
 	</listitem>
       </varlistentry>
 
@@ -248,6 +346,15 @@
 	<term><option>create partition-table</option></term>
 	<listitem>
 	  <para>Creates a new partition table.</para>
+
+	  <variablelist>
+            <varlistentry>
+              <term><option>-t, --type</option> <replaceable>type</replaceable></term>
+              <listitem>
+		<para>Set partition table type. Possible values are gpt and ms-dos.</para>
+	      </listitem>
+            </varlistentry>
+	  </variablelist>
 	</listitem>
       </varlistentry>
 
@@ -276,8 +383,73 @@
 	    <varlistentry>
 	      <term><option>-l, --level</option> <replaceable>level</replaceable></term>
 	      <listitem>
-		<para>Set RAID level. Possible values are 0, strip, 1,
+		<para>Set RAID level. Possible values are 0, stripe, 1,
 		mirror, 4, 5, 6 and 10.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Set name of RAID.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--pool-name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of pool from which to take underlying devices.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
+	      <listitem>
+		<para>Approximate size of resulting RAID.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--metadata</option> <replaceable>metadata</replaceable></term>
+	      <listitem>
+		<para>RAID metadata version. Possible values are 0.9,
+		1.0, 1.1 and 1.2.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>-d, --devices</option> <replaceable>number</replaceable></term>
+	      <listitem>
+		<para>Number of RAID and spare devices. Possible formats are:</para>
+		<glosslist>
+		  <glossentry>
+		    <glossterm>r</glossterm>
+		    <glossdef>
+		      <para>Create a RAID with r RAID devices and no space devices.</para>
+		    </glossdef>
+		  </glossentry>
+		  <glossentry>
+		    <glossterm>r+s</glossterm>
+		    <glossdef>
+		      <para>Create a RAID with r RAID devices and s spare devices.</para>
+		    </glossdef>
+		  </glossentry>
+		  <glossentry>
+		    <glossterm>+s</glossterm>
+		    <glossdef>
+		      <para>Create a RAID with n-s RAID devices and s space devices.</para>
+		    </glossdef>
+		  </glossentry>
+		</glosslist>
+		<para>The default is to use n. n is the number of
+		devices provided or devices of the pool.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--chunk-size</option> <replaceable>chunk-size</replaceable></term>
+	      <listitem>
+		<para>Chunk size.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--force</option></term>
+	      <listitem>
+		<para>Force creation if block devices are in use.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
@@ -288,6 +460,47 @@
 	<term><option>create vg <replaceable>[devices]</replaceable></option></term>
 	<listitem>
 	  <para>Creates a new LVM volume group.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of new volume group.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--pool-name</option> <replaceable>name</replaceable></term>
+	      <listitem>
+		<para>Name of pool from which to take underlying devices.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
+	      <listitem>
+		<para>Approximate size of resulting volume group.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>-d, --devices</option> <replaceable>number</replaceable></term>
+	      <listitem>
+		<para>Number of underlying devices for the volume
+		group. Default is 1. The special value of 'max' uses all devices
+		provided or all devices of the pool.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--extent-size</option> <replaceable>extent-size</replaceable></term>
+	      <listitem>
+		<para>Extent size.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--force</option></term>
+	      <listitem>
+		<para>Force creation if block devices are in use.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
 	</listitem>
       </varlistentry>
 
@@ -388,8 +601,11 @@
 	<term><option>remove device <replaceable>devices</replaceable></option></term>
 	<listitem>
 	  <para>Removes a device and all device and file systems using
-	  it. When removing a RAID or encryption device the underlying
-	  partitions are also removed.</para>
+	  it.</para>
+	  <para>When removing a RAID or encryption device the
+	  underlying partitions are also removed. This is not possible if it
+	  would cause used partitions to be renumbered, e.g. logical partitions
+	  on an MS-DOS partition table.</para>
 
 	  <variablelist>
 	    <varlistentry>
@@ -694,7 +910,7 @@
 	<para>Translations are missing.</para>
       </listitem>
       <listitem>
-	<para>Imcomplete support for multipath and DASDs.</para>
+	<para>Incomplete support for multipath and DASDs.</para>
       </listitem>
       <listitem>
 	<para>Tab completion in the interactive mode is not context aware.</para>
