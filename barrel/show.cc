@@ -23,6 +23,7 @@
 #include <storage/Devices/BlkDevice.h>
 #include <storage/Devices/Partitionable.h>
 #include <storage/Devices/Md.h>
+#include <storage/Devices/DmRaid.h>
 #include <storage/Devices/LvmVg.h>
 #include <storage/Devices/LvmPv.h>
 #include <storage/Devices/Encryption.h>
@@ -84,6 +85,12 @@ namespace barrel
 	    {
 		const Md* md = to_md(child);
 		return "RAID " + md->get_name();
+	    }
+
+	    if (is_dm_raid(child))
+	    {
+		const DmRaid* dm_raid = to_dm_raid(child);
+		return "RAID " + dm_raid->get_name();
 	    }
 
 	    if (is_lvm_pv(child))

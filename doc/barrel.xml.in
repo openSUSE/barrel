@@ -910,7 +910,7 @@
 	<para>Translations are missing.</para>
       </listitem>
       <listitem>
-	<para>Incomplete support for multipath and DASDs.</para>
+	<para>Incomplete support for multipath, BIOS RAIDS and DASDs.</para>
       </listitem>
       <listitem>
 	<para>Tab completion in the interactive mode is not context aware.</para>
