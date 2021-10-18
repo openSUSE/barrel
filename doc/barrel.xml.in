@@ -767,6 +767,28 @@
       </varlistentry>
 
       <varlistentry>
+	<term><option>show multipaths</option></term>
+	<listitem>
+	  <para>Shows multipath devices.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Show multipath devices of the probed instead of the staging devicegraph.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--no-partitions</option></term>
+	      <listitem>
+		<para>Do not show partitions on the multipath devices.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
 	<term><option>show pools</option></term>
 	<listitem>
 	  <para>Shows pools.</para>

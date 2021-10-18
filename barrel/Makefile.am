@@ -25,6 +25,7 @@ libbarrel_la_SOURCES =							\
 	show-dasds.h			show-dasds.cc			\
 	show-disks.h			show-disks.cc			\
 	show-raids.h			show-raids.cc			\
+	show-multipaths.h		show-multipaths.cc		\
 	show-lvm-vgs.h			show-lvm-vgs.cc			\
 	show-filesystems.h		show-filesystems.cc		\
 	show-encryptions.h		show-encryptions.cc		\

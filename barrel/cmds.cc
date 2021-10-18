@@ -43,6 +43,7 @@
 #include "show-commit.h"
 #include "show-dasds.h"
 #include "show-disks.h"
+#include "show-multipaths.h"
 #include "show-filesystems.h"
 #include "show-encryptions.h"
 #include "show-lvm-vgs.h"
@@ -59,6 +60,7 @@ namespace barrel
 	{ "disks", make_shared<CmdShowDisks>() },
 	{ "encryptions", make_shared<CmdShowEncryptions>() },
 	{ "filesystems", make_shared<CmdShowFilesystems>() },
+	{ "multipaths", make_shared<CmdShowMultipaths>() },
 	{ "pools", make_shared<CmdShowPools>() },
 	{ "raids", make_shared<CmdShowRaids>() },
 	{ "vgs", make_shared<CmdShowLvmVgs>() }
