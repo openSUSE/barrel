@@ -26,6 +26,7 @@
 #include <storage/Devicegraph.h>
 #include <storage/Devices/Md.h>
 #include <storage/Holders/MdUser.h>
+#include <storage/Devices/DmRaid.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Table.h"
@@ -130,6 +131,9 @@ namespace barrel
 	vector<const Md*> mds = Md::get_all(devicegraph);
 	sort(mds.begin(), mds.end(), Md::compare_by_name);
 
+	vector<const DmRaid*> dm_raids = DmRaid::get_all(devicegraph);
+	sort(dm_raids.begin(), dm_raids.end(), DmRaid::compare_by_name);
+
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Level"),
 		_("Metadata"), Cell(_("Chunk Size"), Align::RIGHT), _("Devices"),
 		Cell(_("Usage"), Id::USAGE), Cell(_("Pool"), Id::POOL) });
@@ -144,6 +148,17 @@ namespace barrel
 
 	    if (options.show_partitions)
 		insert_partitions(md, row);
+
+	    table.add(row);
+	}
+
+	for (const DmRaid* dm_raid : dm_raids)
+	{
+	    Table::Row row(table, { dm_raid->get_name(), format_size(dm_raid->get_size()),
+		    "", "", "", "", device_usage(dm_raid), device_pools(storage, dm_raid) });
+
+	    if (options.show_partitions)
+		insert_partitions(dm_raid, row);
 
 	    table.add(row);
 	}
