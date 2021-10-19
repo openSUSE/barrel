@@ -44,6 +44,36 @@ namespace barrel
     };
 
 
+    class MyCommitCallbacks : public CommitCallbacks
+    {
+    public:
+
+	void message(const string& message) const override;
+
+	bool error(const std::string& message, const std::string& what) const override;
+
+    };
+
+
+    void
+    MyCommitCallbacks::message(const string& message) const
+    {
+	cout << "  " << message << '\n';
+    }
+
+
+    bool
+    MyCommitCallbacks::error(const std::string& message, const std::string& what) const
+    {
+	if (what.empty())
+	    cerr << "  " << message << '\n';
+	else
+	    cerr << "  " << message << " " << what << '\n';
+
+	return false;
+    }
+
+
     void
     ParsedCmdCommit::doit(const GlobalOptions& global_options, State& state) const
     {
@@ -67,7 +97,8 @@ namespace barrel
 	else
 	{
 	    CommitOptions commit_options(false);
-	    state.storage->commit(commit_options);
+	    MyCommitCallbacks my_commit_callbacks;
+	    state.storage->commit(commit_options, &my_commit_callbacks);
 
 	    if (state.pools_modified)
 		CmdSavePools::parse()->doit(global_options, state);
