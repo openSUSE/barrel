@@ -343,17 +343,23 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create partition-table</option></term>
+	<term><option>create partition-table <replaceable>[device]</replaceable></option></term>
 	<listitem>
 	  <para>Creates a new partition table.</para>
 
 	  <variablelist>
-            <varlistentry>
-              <term><option>-t, --type</option> <replaceable>type</replaceable></term>
-              <listitem>
+	    <varlistentry>
+	      <term><option>-t, --type</option> <replaceable>type</replaceable></term>
+	      <listitem>
 		<para>Set partition table type. Possible values are gpt and ms-dos.</para>
 	      </listitem>
-            </varlistentry>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--force</option></term>
+	      <listitem>
+		<para>Force creation if block device is in use.</para>
+	      </listitem>
+	    </varlistentry>
 	  </variablelist>
 	</listitem>
       </varlistentry>

@@ -43,8 +43,9 @@ namespace barrel
     {
 
 	const ExtOptions create_partition_table_options({
-	    { "type", required_argument, 't', _("partition table type"), "type" }
-	});
+	    { "type", required_argument, 't', _("partition table type"), "type" },
+	    { "force", no_argument, 0, _("force if block device is in use") }
+	}, TakeBlkDevices::MAYBE);
 
 
 	const map<string, PtType> str_to_pt_type = {
@@ -58,6 +59,15 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    optional<PtType> type;
+	    bool force = false;
+
+	    vector<string> blk_devices;
+
+	    enum class ModusOperandi { PARTITIONABLE, PARTITIONABLE_FROM_STACK };
+
+	    ModusOperandi modus_operandi;
+
+	    void calculate_modus_operandi();
 	};
 
 
@@ -75,6 +85,22 @@ namespace barrel
 
 		type = it->second;
 	    }
+
+	    force = parsed_opts.has_option("force");
+
+	    blk_devices = parsed_opts.get_blk_devices();
+
+	    calculate_modus_operandi();
+	}
+
+
+	void
+	Options::calculate_modus_operandi()
+	{
+	    if (blk_devices.empty())
+		modus_operandi = ModusOperandi::PARTITIONABLE_FROM_STACK;
+	    else
+		modus_operandi = ModusOperandi::PARTITIONABLE;
 	}
 
     }
@@ -102,13 +128,54 @@ namespace barrel
     {
 	Devicegraph* staging = state.storage->get_staging();
 
-	if (state.stack.empty())
-	    throw runtime_error("empty stack for create partition table");
-
-	Partitionable* partitionable = to_partitionable(state.stack.top(staging));
-	state.stack.pop();
-
 	PtType pt_type = options.type.value();
+
+	Partitionable* partitionable = nullptr;
+
+	switch (options.modus_operandi)
+	{
+	    case Options::ModusOperandi::PARTITIONABLE_FROM_STACK:
+	    {
+		if (state.stack.empty() || !is_partitionable(state.stack.top(staging)))
+		    throw runtime_error("not a partitionable on stack");
+
+		partitionable = to_partitionable(state.stack.top(staging));
+		state.stack.pop();
+	    }
+	    break;
+
+	    case Options::ModusOperandi::PARTITIONABLE:
+	    {
+		if (options.blk_devices.size() != 1)
+		    throw runtime_error("only one block device allowed");
+
+		BlkDevice* blk_device = BlkDevice::find_by_name(staging, options.blk_devices.front());
+
+		if (!is_partitionable(blk_device))
+		    throw runtime_error("not a partitionable");
+
+		partitionable = to_partitionable(blk_device);
+	    }
+	    break;
+	}
+
+	if (partitionable->has_children())
+	{
+	    if (options.force)
+	    {
+		partitionable->remove_descendants(View::REMOVE);
+	    }
+	    else
+	    {
+		throw runtime_error(sformat("partitionable '%s' is in use", partitionable->get_name().c_str()));
+	    }
+	}
+
+	if (!partitionable->is_usable_as_partitionable())
+	{
+	    throw runtime_error(sformat("partitionable '%s' cannot be used as a regular partitionable",
+					partitionable->get_name().c_str()));
+	}
 
 	PartitionTable* partition_table = partitionable->create_partition_table(pt_type);
 
