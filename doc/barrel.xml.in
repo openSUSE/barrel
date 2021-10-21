@@ -95,8 +95,8 @@
       the staging devicegraph.</para>
     </refsect2>
 
-    <refsect2 id='modus_operandi'>
-      <title>Modus Operandi of Commands</title>
+    <refsect2 id='modi_operandi' xreflabel='Modi Operandi'>
+      <title>Modi Operandi of Commands</title>
       <para>Many commands operate significantly different based on the
       provided options.</para>
       <para>For example when creating a file system using
@@ -229,6 +229,52 @@
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
+
+	  <para>Possible <xref linkend='modi_operandi'/> are:</para>
+	  <glosslist>
+	    <glossentry>
+	      <glossterm>Pool</glossterm>
+	      <glossdef>
+		<para>The encryption device is created on a new
+		partition on a block device from the pool. The options
+		<option>--pool-name</option> and <option>--size</option> are
+		required.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Block Device</glossterm>
+	      <glossdef>
+		<para>The encryption device is created directly on the
+		provided block device. The option <option>--size</option> is not
+		allowed.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Partitionable</glossterm>
+	      <glossdef>
+		<para>The encryption device is created on a new
+		partition on the provided block device, which must be
+		partitionable. The option <option>--size</option> is required.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Block Device from Stack</glossterm>
+	      <glossdef>
+		<para>The encryption device is created directly on the
+		block device from the stack. The option <option>--size</option> is not
+		allowed.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Partitionable from Stack</glossterm>
+	      <glossdef>
+		<para>The encryption device is created on a new
+		partition on the block device from the stack, which must be
+		partitionable. The option <option>--size</option> is required.</para>
+	      </glossdef>
+	    </glossentry>
+	  </glosslist>
+
 	</listitem>
       </varlistentry>
 
@@ -297,6 +343,51 @@
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
+
+	  <para>Possible <xref linkend='modi_operandi'/> are:</para>
+	  <glosslist>
+	    <glossentry>
+	      <glossterm>Pool</glossterm>
+	      <glossdef>
+		<para>The file system is created on a new partition on
+		a block device from the pool. The options <option>--pool-name</option>
+		and <option>--size</option> are required.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Block Device</glossterm>
+	      <glossdef>
+		<para>The file system is created directly on the
+		provided block device. The option <option>--size</option> is not
+		allowed.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Partitionable</glossterm>
+	      <glossdef>
+		<para>The file system is created on a new partition on
+		the provided block device, which must be partitionable. The option
+		<option>--size</option> is required.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Block Device from Stack</glossterm>
+	      <glossdef>
+		<para>The file system is created directly on the block
+		device from the stack. The option <option>--size</option> is not
+		allowed.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Partitionable from Stack</glossterm>
+	      <glossdef>
+		<para>The file system is created on a new partition on
+		the block device from the stack, which must be partitionable. The
+		option <option>--size</option> is required.</para>
+	      </glossdef>
+	    </glossentry>
+	  </glosslist>
+
 	</listitem>
       </varlistentry>
 
@@ -339,6 +430,26 @@
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
+
+	  <para>Possible <xref linkend='modi_operandi'/> are:</para>
+	  <glosslist>
+	    <glossentry>
+	      <glossterm>Volume Group</glossterm>
+	      <glossdef>
+		<para>The logical volume is created on the provided
+		volume group. The option <option>--vg-name</option> is
+		required.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Volume Group from Stack</glossterm>
+	      <glossdef>
+		<para>The logical volume is created on the volume
+		group from the stack.</para>
+	      </glossdef>
+	    </glossentry>
+	  </glosslist>
+
 	</listitem>
       </varlistentry>
 
@@ -361,6 +472,25 @@
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
+
+	  <para>Possible <xref linkend='modi_operandi'/> are:</para>
+	  <glosslist>
+	    <glossentry>
+	      <glossterm>Partitionable</glossterm>
+	      <glossdef>
+		<para>The partition table is created on the provided
+		block device, which must be partitionable.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Partitionable from Stack</glossterm>
+	      <glossdef>
+		<para>The partition table is created on the block
+		device from the stack, which must be partitionable.</para>
+	      </glossdef>
+	    </glossentry>
+	  </glosslist>
+
 	</listitem>
       </varlistentry>
 
@@ -459,6 +589,35 @@
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
+
+	  <para>Possible <xref linkend='modi_operandi'/> are:</para>
+	  <glosslist>
+	    <glossentry>
+	      <glossterm>Pool</glossterm>
+	      <glossdef>
+		<para>The RAID is created on new partitions on block
+		devices from the pool. The options <option>--pool-name</option> and
+		<option>--size</option> are required.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Block Devices</glossterm>
+	      <glossdef>
+		<para>The RAID is created directly on the provided
+		block devices. The option <option>--size</option> is not
+		allowed.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Partitionables</glossterm>
+	      <glossdef>
+		<para>The RAID is created on new partitions on the
+		provided block devices, which must be partitionable. The option
+		<option>--size</option> is required.</para>
+	      </glossdef>
+	    </glossentry>
+	  </glosslist>
+
 	</listitem>
       </varlistentry>
 
@@ -507,6 +666,51 @@
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
+
+	  <para>Possible <xref linkend='modi_operandi'/> are:</para>
+	  <glosslist>
+	    <glossentry>
+	      <glossterm>Pool</glossterm>
+	      <glossdef>
+		<para>The volume group is created on new partitions on
+		block devices from the pool. The options <option>--pool-name</option>
+		and <option>--size</option> are required.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Block Devices</glossterm>
+	      <glossdef>
+		<para>The volume group is created directly on the
+		provided block devices. The option <option>--size</option> is not
+		allowed.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Partitionables</glossterm>
+	      <glossdef>
+		<para>The volume group is created on new partitions on
+		the provided block devices, which must be partitionable. The option
+		<option>--size</option> is required.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Block Device from Stack</glossterm>
+	      <glossdef>
+		<para>The volume group is created directly on the
+		block device from the stack. The option <option>--size</option> is not
+		allowed.</para>
+	      </glossdef>
+	    </glossentry>
+	    <glossentry>
+	      <glossterm>Partitionable from Stack</glossterm>
+	      <glossdef>
+		<para>The volume group is created on a new partition
+		on the block device from the stack, which must be partitionable. The
+		option <option>--size</option> is required.</para>
+	      </glossdef>
+	    </glossentry>
+	  </glosslist>
+
 	</listitem>
       </varlistentry>
 
