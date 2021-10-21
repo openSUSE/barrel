@@ -119,6 +119,12 @@ namespace barrel
 	    optional<SmartSize> size;
 	    optional<SmartNumber> stripes;
 	    optional<unsigned long long> stripe_size;
+
+	    enum class ModusOperandi { LVM_VG, LVM_VG_FROM_STACK };
+
+	    ModusOperandi modus_operandi;
+
+	    void calculate_modus_operandi();
 	};
 
 
@@ -154,6 +160,18 @@ namespace barrel
 		string str = parsed_opts.get("stripe-size");
 		stripe_size = humanstring_to_byte(str, false);
 	    }
+
+	    calculate_modus_operandi();
+	}
+
+
+	void
+	Options::calculate_modus_operandi()
+	{
+	    if (vg_name)
+		modus_operandi = ModusOperandi::LVM_VG;
+	    else
+		modus_operandi = ModusOperandi::LVM_VG_FROM_STACK;
 	}
 
     }
@@ -185,17 +203,23 @@ namespace barrel
 
 	LvmVg* lvm_vg = nullptr;
 
-	if (options.vg_name)
+	switch (options.modus_operandi)
 	{
-	    lvm_vg = LvmVg::find_by_vg_name(staging, options.vg_name.value());
-	}
-	else
-	{
-	    if (state.stack.empty() || !is_lvm_vg(state.stack.top(staging)))
-		throw runtime_error("not a volume group on stack");
+	    case Options::ModusOperandi::LVM_VG:
+	    {
+		lvm_vg = LvmVg::find_by_vg_name(staging, options.vg_name.value());
+	    }
+	    break;
 
-	    lvm_vg = to_lvm_vg(state.stack.top(staging));
-	    state.stack.pop();
+	    case Options::ModusOperandi::LVM_VG_FROM_STACK:
+	    {
+		if (state.stack.empty() || !is_lvm_vg(state.stack.top(staging)))
+		    throw runtime_error("not a volume group on stack");
+
+		lvm_vg = to_lvm_vg(state.stack.top(staging));
+		state.stack.pop();
+	    }
+	    break;
 	}
 
 	for (const LvmLv* lvm_lv : lvm_vg->get_lvm_lvs())
