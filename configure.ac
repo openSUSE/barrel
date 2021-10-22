@@ -36,4 +36,5 @@ AC_OUTPUT(
 	doc/barrel.xml:doc/barrel.xml.in
 	testsuite/Makefile
 	package/barrel.spec:barrel.spec.in
+	po/Makefile
 )

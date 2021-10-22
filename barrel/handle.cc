@@ -216,7 +216,7 @@ namespace barrel
 	    storage.activate(&my_activate_callbacks);
 
 	    if (!global_options.verbose && !global_options.quiet)
-		cout << " done" << endl;
+		cout << " " << _("done") << endl;
 	}
 
 	if (global_options.probe)
@@ -228,7 +228,7 @@ namespace barrel
 	    storage.probe(&my_probe_callbacks);
 
 	    if (!global_options.verbose && !global_options.quiet)
-		cout << " done" << endl;
+		cout << " " << _("done") << endl;
 	}
     }
 
