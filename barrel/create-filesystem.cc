@@ -190,7 +190,7 @@ namespace barrel
 	    if (tune_options)
 	    {
 		if (type.value() != FsType::EXT2 && type.value() != FsType::EXT3 &&
-		    type.value() != FsType::EXT4 && type.value() != FsType::REISERFS)
+		    type.value() != FsType::EXT4)
 		    throw runtime_error(sformat(_("tune options not allowed for %s"),
 						get_fs_type_name(type.value()).c_str()));
 	    }
@@ -340,6 +340,14 @@ namespace barrel
 					blk_device->get_name().c_str()));
 
 	FsType fs_type = options.type.value();
+
+	if (fs_type != FsType::SWAP && options.path)
+	{
+	    string path = options.path.value();
+
+	    if (!MountPoint::find_by_path(staging, path).empty())
+		throw runtime_error(sformat("path '%s' already used", path.c_str()));
+	}
 
 	BlkFilesystem* blk_filesystem = blk_device->create_blk_filesystem(fs_type);
 
