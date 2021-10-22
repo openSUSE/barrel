@@ -250,9 +250,19 @@ namespace barrel
 
 	string name;
 	if (options.name)
+	{
 	    name = DEV_MD_DIR "/" + options.name.value();
+
+	    for (const Md* md : Md::get_all(staging))
+	    {
+		if (md->get_name() == name)
+		    throw runtime_error("name of RAID already exists");
+	    }
+	}
 	else
+	{
 	    name = Md::find_free_numeric_name(staging);
+	}
 
 	vector<BlkDevice*> blk_devices;
 
