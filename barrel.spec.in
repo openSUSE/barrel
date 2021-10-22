@@ -36,7 +36,7 @@ BuildRequires:  libtool
 BuildRequires:  libxslt
 BuildRequires:  readline-devel
 
-Requires:       libstorage-ng1 >= 4.4.44
+Requires:       libstorage-ng1 >= 4.4.50
 
 Summary:        Tool for storage management
 Url:            http://github.com/aschnell/barrel

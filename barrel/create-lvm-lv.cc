@@ -143,11 +143,11 @@ namespace barrel
 	    if (!LvmLv::is_valid_lv_name(lv_name))
 		throw OptionsException("invalid logical volume name for command 'lv'");
 
-	    if (parsed_opts.has_option("size"))
-	    {
-		string str = parsed_opts.get("size");
-		size = SmartSize(str);
-	    }
+	    if (!parsed_opts.has_option("size"))
+		throw OptionsException("size missing for command 'lv'");
+
+	    string str = parsed_opts.get("size");
+	    size = SmartSize(str);
 
 	    if (parsed_opts.has_option("stripes"))
 	    {
