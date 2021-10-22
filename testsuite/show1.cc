@@ -91,10 +91,9 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--dry-run", "show", "vgs" });
+    Args args({ "barrel", "--quiet", "--dry-run", "show", "vgs" });
 
     vector<string> output = {
-	"Probing... done",
 	"Name   │ Extent Size │ Devices │      Size │   Used │ Stripes │ Usage",
 	"───────┼─────────────┼─────────┼───────────┼────────┼─────────┼──────",
 	"data   │       4 MiB │ 1       │ 32.00 GiB │ 62.51% │         │",
@@ -120,10 +119,9 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
-    Args args({ "barrel", "--dry-run", "show", "filesystems" });
+    Args args({ "barrel", "--dry-run", "--quiet", "show", "filesystems" });
 
     vector<string> output = {
-	"Probing... done",
 	"Type │ Device         │ Mount Point",
 	"─────┼────────────────┼────────────",
 	"ext4 │ /dev/sda2      │ /",

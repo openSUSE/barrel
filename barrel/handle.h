@@ -47,6 +47,7 @@ namespace barrel
 
 	bool help = false;
 	bool version = false;
+	bool quiet = false;
 	bool verbose = false;
 	bool dry_run = false;
 	string prefix;

@@ -63,6 +63,7 @@ namespace barrel
     {
 	ParsedOpts parsed_opts = get_opts.parse(get_options());
 
+	quiet = parsed_opts.has_option("quiet");
 	verbose = parsed_opts.has_option("verbose");
 	dry_run = parsed_opts.has_option("dry-run");
 
@@ -127,7 +128,16 @@ namespace barrel
     {
     public:
 
-	virtual void message(const string& message) const override {}
+	MyActivateCallbacks(const GlobalOptions& global_options)
+	    : global_options(global_options)
+	{
+	}
+
+	virtual void message(const string& message) const override
+	{
+	    if (global_options.verbose)
+		cout << message << endl;
+	}
 
 	virtual bool error(const string& message, const string& what) const override
 	{
@@ -150,6 +160,10 @@ namespace barrel
 	    return make_pair(false, "");
 	}
 
+    private:
+
+	const GlobalOptions& global_options;
+
     };
 
 
@@ -157,7 +171,16 @@ namespace barrel
     {
     public:
 
-	virtual void message(const string& message) const override {}
+	MyProbeCallbacks(const GlobalOptions& global_options)
+	    : global_options(global_options)
+	{
+	}
+
+	virtual void message(const string& message) const override
+	{
+	    if (global_options.verbose)
+		cout << message << endl;
+	}
 
 	virtual bool error(const string& message, const string& what) const override
 	{
@@ -172,6 +195,10 @@ namespace barrel
 	    return false;
 	}
 
+    private:
+
+	const GlobalOptions& global_options;
+
     };
 
 
@@ -182,18 +209,26 @@ namespace barrel
 
 	if (global_options.activate)
 	{
-	    cout << _("Activating...") << flush;
-	    MyActivateCallbacks my_activate_callbacks;
+	    if (!global_options.verbose && !global_options.quiet)
+		cout << _("Activating...") << flush;
+
+	    MyActivateCallbacks my_activate_callbacks(global_options);
 	    storage.activate(&my_activate_callbacks);
-	    cout << " done" << endl;
+
+	    if (!global_options.verbose && !global_options.quiet)
+		cout << " done" << endl;
 	}
 
 	if (global_options.probe)
 	{
-	    cout << _("Probing...") << flush;
-	    MyProbeCallbacks my_probe_callbacks;
+	    if (!global_options.verbose && !global_options.quiet)
+		cout << _("Probing...") << flush;
+
+	    MyProbeCallbacks my_probe_callbacks(global_options);
 	    storage.probe(&my_probe_callbacks);
-	    cout << " done" << endl;
+
+	    if (!global_options.verbose && !global_options.quiet)
+		cout << " done" << endl;
 	}
     }
 
