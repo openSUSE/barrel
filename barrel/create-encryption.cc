@@ -123,10 +123,10 @@ namespace barrel
 	    if (pool_name)
 	    {
 		if (!size)
-		    throw runtime_error("size argument missing for command 'filesystem'");
+		    throw runtime_error("size argument missing for command 'encryption'");
 
 		if (!blk_devices.empty())
-		    throw runtime_error("pool argument and blk devices not allowed for command 'filesystem'");
+		    throw runtime_error("pool argument and blk devices not allowed together for command 'encryption'");
 
 		modus_operandi = ModusOperandi::POOL;
 	    }
@@ -177,8 +177,6 @@ namespace barrel
 	EncryptionType type = options.type.value();
 
 	string dm_name = options.name;
-
-	string password = prompt_password();
 
 	BlkDevice* blk_device = nullptr;
 
@@ -275,6 +273,8 @@ namespace barrel
 	if (!blk_device->is_usable_as_blk_device())
 	    throw runtime_error(sformat("block device '%s' cannot be used as a regular block device",
 					blk_device->get_name().c_str()));
+
+	string password = prompt_password();
 
 	Encryption* encryption = blk_device->create_encryption(dm_name, type);
 	encryption->set_password(password);

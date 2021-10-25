@@ -183,7 +183,7 @@ namespace barrel
 		    throw runtime_error("size argument required for command 'vg'");
 
 		if (!blk_devices.empty())
-		    throw runtime_error("pool argument and blk devices not allowed for command 'vg'");
+		    throw runtime_error("pool argument and blk devices not allowed together for command 'vg'");
 
 		modus_operandi = ModusOperandi::POOL;
 	    }

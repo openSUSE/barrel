@@ -160,7 +160,7 @@ namespace barrel
 		    throw runtime_error("size argument missing for command 'filesystem'");
 
 		if (!blk_devices.empty())
-		    throw runtime_error("pool argument and blk devices not allowed for command 'filesystem'");
+		    throw runtime_error("pool argument and blk devices not allowed together for command 'filesystem'");
 
 		modus_operandi = ModusOperandi::POOL;
 	    }
