@@ -89,7 +89,7 @@ namespace barrel
 		return;
 	    }
 
-	    throw runtime_error("bad devices argument");
+	    throw runtime_error(_("bad devices argument"));
 	}
 
 
@@ -180,10 +180,10 @@ namespace barrel
 	    if (pool_name)
 	    {
 		if (!size)
-		    throw runtime_error("size argument required for command 'vg'");
+		    throw runtime_error(_("size argument required for command 'vg'"));
 
 		if (!blk_devices.empty())
-		    throw runtime_error("pool argument and blk devices not allowed together for command 'vg'");
+		    throw runtime_error(_("pool argument and blk devices not allowed together for command 'vg'"));
 
 		modus_operandi = ModusOperandi::POOL;
 	    }
@@ -234,7 +234,7 @@ namespace barrel
 	for (const LvmVg* lvm_vg : LvmVg::get_all(staging))
 	{
 	    if (lvm_vg->get_vg_name() == options.vg_name)
-		throw runtime_error("name of volume group already exists");
+		throw runtime_error(_("name of volume group already exists"));
 	}
 
 	vector<BlkDevice*> blk_devices;
@@ -272,7 +272,7 @@ namespace barrel
 	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
 	    {
 		if (state.stack.empty() || !is_partition_table(state.stack.top(staging)))
-		    throw runtime_error("not a partition table on stack");
+		    throw runtime_error(_("not a partition table on stack"));
 
 		PartitionTable* partition_table = to_partition_table(state.stack.top(staging));
 		state.stack.pop();
@@ -335,7 +335,8 @@ namespace barrel
 			}
 			else
 			{
-			    throw runtime_error(sformat("block device '%s' is in use", blk_device->get_name().c_str()));
+			    throw runtime_error(sformat(_("block device '%s' is in use"),
+							blk_device->get_name().c_str()));
 			}
 		    }
 
@@ -347,7 +348,7 @@ namespace barrel
 	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
 	    {
 		if (state.stack.empty() || !is_blk_device(state.stack.top(staging)))
-		    throw runtime_error("not a block device on stack");
+		    throw runtime_error(_("not a block device on stack"));
 
 		blk_devices.push_back(to_blk_device(state.stack.top(staging)));
 		state.stack.pop();
@@ -358,7 +359,7 @@ namespace barrel
 	for (BlkDevice* blk_device : blk_devices)
 	{
 	    if (!blk_device->is_usable_as_blk_device())
-		throw runtime_error(sformat("block device '%s' cannot be used as a regular block device",
+		throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
 					    blk_device->get_name().c_str()));
 	}
 

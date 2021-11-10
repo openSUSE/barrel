@@ -43,24 +43,24 @@ namespace barrel
     {
 	FILE* fp = fopen(filename.c_str(), "r");
 	if (!fp)
-	    throw runtime_error(sformat("opening json file '%s' failed", filename.c_str()));
+	    throw runtime_error(sformat(_("opening json file '%s' failed"), filename.c_str()));
 
 	struct stat st;
 	if (fstat(fileno(fp), &st) != 0)
 	{
 	    fclose(fp);
-	    throw runtime_error(sformat("stat for json file '%s' failed", filename.c_str()));
+	    throw runtime_error(sformat(_("stat for json file '%s' failed"), filename.c_str()));
 	}
 
 	vector<char> data(st.st_size);
 	if (fread(data.data(), 1, st.st_size, fp) != (size_t)(st.st_size))
 	{
 	    fclose(fp);
-	    throw runtime_error(sformat("read for json file '%s' failed", filename.c_str()));
+	    throw runtime_error(sformat(_("read for json file '%s' failed"), filename.c_str()));
 	}
 
 	if (fclose(fp) != 0)
-	    throw runtime_error(sformat("closing json file '%s' failed", filename.c_str()));
+	    throw runtime_error(sformat(_("closing json file '%s' failed"), filename.c_str()));
 
 	json_tokener* tokener = json_tokener_new();
 
@@ -70,14 +70,14 @@ namespace barrel
 	{
 	    json_tokener_free(tokener);
 	    json_object_put(root);
-	    throw runtime_error(sformat("parsing json file '%s' failed", filename.c_str()));
+	    throw runtime_error(sformat(_("parsing json file '%s' failed"), filename.c_str()));
 	}
 
 	if (tokener->char_offset != st.st_size)
 	{
 	    json_tokener_free(tokener);
 	    json_object_put(root);
-	    throw runtime_error(sformat("excessive content in json file '%s'", filename.c_str()));
+	    throw runtime_error(sformat(_("excessive content in json file '%s'"), filename.c_str()));
 	}
 
 	json_tokener_free(tokener);
@@ -95,7 +95,7 @@ namespace barrel
     {
 	FILE* fp = fopen(filename.c_str(), "w");
 	if (!fp)
-	    throw runtime_error(sformat("opening json file '%s' failed", filename.c_str()));
+	    throw runtime_error(sformat(_("opening json file '%s' failed"), filename.c_str()));
 
 	const int flags = JSON_C_TO_STRING_PRETTY | JSON_C_TO_STRING_SPACED |
 	    JSON_C_TO_STRING_NOSLASHESCAPE;
@@ -103,7 +103,7 @@ namespace barrel
 	fprintf(fp, "%s\n", json_object_to_json_string_ext(root, flags));
 
 	if (fclose(fp) != 0)
-	    throw runtime_error(sformat("closing json file '%s' failed", filename.c_str()));
+	    throw runtime_error(sformat(_("closing json file '%s' failed"), filename.c_str()));
     }
 
 }

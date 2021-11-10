@@ -161,7 +161,7 @@ namespace barrel
 		    }
 		    cerr << endl;
 
-		    throw runtime_error("ambiguous command or sub command");
+		    throw runtime_error(_("ambiguous command or sub command"));
 		}
 
 		best = it;
@@ -169,7 +169,7 @@ namespace barrel
 	}
 
 	if (best == v.end())
-	    throw runtime_error(sformat("unknown command or sub command '%s'", name));
+	    throw runtime_error(sformat(_("unknown command or sub command '%s'"), name));
 
 	return best;
     }

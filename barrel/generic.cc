@@ -54,7 +54,7 @@ namespace barrel
     ParsedCmdPop::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.stack.empty())
-	    throw runtime_error("stack empty during pop");
+	    throw runtime_error(_("stack empty during pop"));
 
 	state.stack.pop();
     }
@@ -125,7 +125,7 @@ namespace barrel
     ParsedCmdDup::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.stack.empty())
-	    throw runtime_error("stack empty during dup");
+	    throw runtime_error(_("stack empty during dup"));
 
 	state.stack.dup();
     }
@@ -168,44 +168,44 @@ namespace barrel
 	if (is_md(device))
 	{
 	    const Md* md = to_md(device);
-	    return sformat("RAID %s", md->get_name().c_str());
+	    return sformat(_("RAID %s"), md->get_name().c_str());
 	}
 
 	if (is_lvm_vg(device))
 	{
 	    const LvmVg* lvm_vg = to_lvm_vg(device);
-	    return sformat("LVM volume group %s", lvm_vg->get_vg_name().c_str());
+	    return sformat(_("LVM volume group %s"), lvm_vg->get_vg_name().c_str());
 	}
 
 	if (is_lvm_lv(device))
 	{
 	    const LvmLv* lvm_lv = to_lvm_lv(device);
-	    return sformat("LVM logical volume %s", lvm_lv->get_name().c_str());
+	    return sformat(_("LVM logical volume %s"), lvm_lv->get_name().c_str());
 	}
 
 	if (is_gpt(device))
 	{
 	    const Gpt* gpt = to_gpt(device);
-	    return sformat("GPT on %s", gpt->get_partitionable()->get_name().c_str());
+	    return sformat(_("GPT on %s"), gpt->get_partitionable()->get_name().c_str());
 	}
 
 	if (is_msdos(device))
 	{
 	    const Msdos* msdos = to_msdos(device);
-	    return sformat("MS-DOS on %s", msdos->get_partitionable()->get_name().c_str());
+	    return sformat(_("MS-DOS on %s"), msdos->get_partitionable()->get_name().c_str());
 	}
 
 	if (is_luks(device))
 	{
 	    const Luks* luks = to_luks(device);
-	    return sformat("LUKS on %s", luks->get_blk_device()->get_name().c_str());
+	    return sformat(_("LUKS on %s"), luks->get_blk_device()->get_name().c_str());
 	}
 
 	if (is_blk_filesystem(device))
 	{
 	    const BlkFilesystem* blk_filesystem = to_blk_filesystem(device);
 	    // TODO support several devices, maybe use join from libstorage-ng
-	    return sformat("filesystem %s on %s", get_fs_type_name(blk_filesystem->get_type()).c_str(),
+	    return sformat(_("filesystem %s on %s"), get_fs_type_name(blk_filesystem->get_type()).c_str(),
 			   blk_filesystem->get_blk_devices()[0]->get_name().c_str());
 	}
 
@@ -274,7 +274,7 @@ namespace barrel
     ParsedCmdUndo::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.backup.empty())
-	    throw runtime_error("backup empty during undo");
+	    throw runtime_error(_("backup empty during undo"));
 
 	state.backup.undo(state.storage);
     }

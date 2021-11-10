@@ -52,7 +52,7 @@ namespace barrel
     ParsedCmdCreatePools::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (global_options.verbose)
-	    cout << "Generating pools" << endl;
+	    cout << _("Generating pools") << endl;
 
 	Storage* storage = state.storage;
 	const Devicegraph* devicegraph = storage->get_staging();

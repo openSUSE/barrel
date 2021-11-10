@@ -115,7 +115,7 @@ namespace barrel
 	    BlkDevice* blk_device = BlkDevice::find_by_name(staging, name);
 
 	    if (!blk_device->detect_remove_info().remove_ok)
-		throw runtime_error(sformat("block device '%s' cannot be removed",
+		throw runtime_error(sformat(_("block device '%s' cannot be removed"),
 					    blk_device->get_name().c_str()));
 
 	    vector<Partition*> partitions;

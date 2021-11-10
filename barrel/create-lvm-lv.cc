@@ -89,7 +89,7 @@ namespace barrel
 		return;
 	    }
 
-	    throw runtime_error("bad stripes argument");
+	    throw runtime_error(_("bad stripes argument"));
 	}
 
 
@@ -214,7 +214,7 @@ namespace barrel
 	    case Options::ModusOperandi::LVM_VG_FROM_STACK:
 	    {
 		if (state.stack.empty() || !is_lvm_vg(state.stack.top(staging)))
-		    throw runtime_error("not a volume group on stack");
+		    throw runtime_error(_("not a volume group on stack"));
 
 		lvm_vg = to_lvm_vg(state.stack.top(staging));
 		state.stack.pop();
@@ -225,7 +225,7 @@ namespace barrel
 	for (const LvmLv* lvm_lv : lvm_vg->get_lvm_lvs())
 	{
 	    if (lvm_lv->get_lv_name() == options.lv_name)
-		throw runtime_error("name of logical volume already exists");
+		throw runtime_error(_("name of logical volume already exists"));
 	}
 
 	unsigned int stripes = 1;
@@ -258,7 +258,7 @@ namespace barrel
 
 	if (lvm_vg->is_overcommitted())
 	{
-	    throw runtime_error(sformat("volume group '%s' is over-committed", lvm_vg->get_vg_name().c_str()));
+	    throw runtime_error(sformat(_("volume group '%s' is over-committed"), lvm_vg->get_vg_name().c_str()));
 	}
 
 	state.stack.push(lvm_lv);

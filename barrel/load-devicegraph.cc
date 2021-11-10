@@ -117,7 +117,7 @@ namespace barrel
 	json_object* tmp1;
 	json_object_object_get_ex(json_file.get_root(), "mapping", &tmp1);
 	if (!json_object_is_type(tmp1, json_type_object))
-	    throw runtime_error(sformat("mapping not found in json file '%s'", filename.c_str()));
+	    throw runtime_error(sformat(_("mapping not found in json file '%s'"), filename.c_str()));
 
 	mapping_t mapping;
 
@@ -135,14 +135,14 @@ namespace barrel
 		{
 		    json_object* tmp2 = json_object_array_get_idx(v, i);
 		    if (!json_object_is_type(tmp2, json_type_string))
-			throw runtime_error(sformat("element of array for '%s' not string", k));
+			throw runtime_error(sformat(_("element of array for '%s' not string"), k));
 
 		    mapping[k].push_back(json_object_get_string(tmp2));
 		}
 	    }
 	    else
 	    {
-		throw runtime_error(sformat("value for '%s' neither string nor array", k));
+		throw runtime_error(sformat(_("value for '%s' neither string nor array"), k));
 	    }
 	}
 
@@ -185,10 +185,10 @@ namespace barrel
 	    }
 
 	    if (matches.size() == 0)
-		throw runtime_error(sformat("no mapping disk for '%s' found", a->get_name().c_str()));
+		throw runtime_error(sformat(_("no mapping disk for '%s' found"), a->get_name().c_str()));
 
 	    if (matches.size() >= 2)
-		throw runtime_error(sformat("several mapping disk for '%s' found", a->get_name().c_str()));
+		throw runtime_error(sformat(_("several mapping disk for '%s' found"), a->get_name().c_str()));
 
 	    mapping[a->get_name()] = { matches.front()->get_name() };
 	}
@@ -226,7 +226,7 @@ namespace barrel
 	}
 
 	if (it == mapping.end())
-	    throw runtime_error(sformat("disk '%s' not found in mapping", name.c_str()));
+	    throw runtime_error(sformat(_("disk '%s' not found in mapping"), name.c_str()));
 
 	const BlkDevice* b = nullptr;
 
@@ -240,21 +240,21 @@ namespace barrel
 	}
 
 	if (!b)
-	    throw runtime_error(sformat("mapped disk for '%s' not found", name.c_str()));
+	    throw runtime_error(sformat(_("mapped disk for '%s' not found"), name.c_str()));
 
 	if (!is_disk(b))
-	    throw runtime_error(sformat("mapped device for '%s' is not a disk", name.c_str()));
+	    throw runtime_error(sformat(_("mapped device for '%s' is not a disk"), name.c_str()));
 
 	if (global_options.verbose)
 	{
-	    cout << "mapping " << name << " to " << b->get_name() << '\n';
+	    cout << sformat(_("mapping %s to %s"), name.c_str(), b->get_name().c_str()) << '\n';
 	}
 
 	if (a->get_region().get_block_size() != b->get_region().get_block_size())
-	    throw runtime_error(sformat("mapped disk for '%s' has different block size", name.c_str()));
+	    throw runtime_error(sformat(_("mapped disk for '%s' has different block size"), name.c_str()));
 
 	if (a->get_region().get_length() > b->get_region().get_length())
-	    throw runtime_error(sformat("mapped disk for '%s' is smaller", name.c_str()));
+	    throw runtime_error(sformat(_("mapped disk for '%s' is smaller"), name.c_str()));
 
 	return to_disk(b);
     }
@@ -291,7 +291,7 @@ namespace barrel
 
 	    if (b->exists_in_devicegraph(staging))
 	    {
-		throw runtime_error(sformat("mapped disk for '%s' mapped twice", a->get_name().c_str()));
+		throw runtime_error(sformat(_("mapped disk for '%s' mapped twice"), a->get_name().c_str()));
 	    }
 
 	    Device* c = b->copy_to_devicegraph(staging);

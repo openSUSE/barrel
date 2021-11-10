@@ -157,10 +157,10 @@ namespace barrel
 	    if (pool_name)
 	    {
 		if (!size)
-		    throw runtime_error("size argument missing for command 'filesystem'");
+		    throw runtime_error(_("size argument missing for command 'filesystem'"));
 
 		if (!blk_devices.empty())
-		    throw runtime_error("pool argument and blk devices not allowed together for command 'filesystem'");
+		    throw runtime_error(_("pool argument and blk devices not allowed together for command 'filesystem'"));
 
 		modus_operandi = ModusOperandi::POOL;
 	    }
@@ -250,7 +250,7 @@ namespace barrel
 	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
 	    {
 		if (state.stack.empty() || !is_blk_device(state.stack.top(staging)))
-		    throw runtime_error("not a block device on stack");
+		    throw runtime_error(_("not a block device on stack"));
 
 		blk_device = to_blk_device(state.stack.top(staging));
 		state.stack.pop();
@@ -274,7 +274,7 @@ namespace barrel
 	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
 	    {
 		if (state.stack.empty() || !is_partition_table(state.stack.top(staging)))
-		    throw runtime_error("not a partition table on stack");
+		    throw runtime_error(_("not a partition table on stack"));
 
 		PartitionTable* partition_table = to_partition_table(state.stack.top(staging));
 		state.stack.pop();
@@ -295,7 +295,7 @@ namespace barrel
 	    case Options::ModusOperandi::BLK_DEVICE:
 	    {
 		if (options.blk_devices.size() != 1)
-		    throw runtime_error("only one block device allowed");
+		    throw runtime_error(_("only one block device allowed"));
 
 		blk_device = BlkDevice::find_by_name(staging, options.blk_devices.front());
 
@@ -307,7 +307,7 @@ namespace barrel
 		    }
 		    else
 		    {
-			throw runtime_error(sformat("block device '%s' is in use", blk_device->get_name().c_str()));
+			throw runtime_error(sformat(_("block device '%s' is in use"), blk_device->get_name().c_str()));
 		    }
 		}
 	    }
@@ -318,7 +318,7 @@ namespace barrel
 		Pool pool;
 
 		if (options.blk_devices.size() != 1)
-		    throw runtime_error("wrong number of partitionables");
+		    throw runtime_error(_("wrong number of partitionables"));
 
 		for (const string& device_name : options.blk_devices)
 		{
@@ -336,7 +336,7 @@ namespace barrel
 	}
 
 	if (!blk_device->is_usable_as_blk_device())
-	    throw runtime_error(sformat("block device '%s' cannot be used as a regular block device",
+	    throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
 					blk_device->get_name().c_str()));
 
 	FsType fs_type = options.type.value();
@@ -346,7 +346,7 @@ namespace barrel
 	    string path = options.path.value();
 
 	    if (!MountPoint::find_by_path(staging, path).empty())
-		throw runtime_error(sformat("path '%s' already used", path.c_str()));
+		throw runtime_error(sformat(_("path '%s' already used"), path.c_str()));
 	}
 
 	BlkFilesystem* blk_filesystem = blk_device->create_blk_filesystem(fs_type);
@@ -398,7 +398,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (options.type)
-	    throw runtime_error("filesystem type already set for command 'filesystem'");
+	    throw runtime_error(_("filesystem type already set for command 'filesystem'"));
 
 	options.type = type;
 
@@ -412,7 +412,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (!options.type)
-	    throw runtime_error("filesystem type missing for command 'filesystem'");
+	    throw runtime_error(_("filesystem type missing for command 'filesystem'"));
 
 	return make_shared<ParsedCmdCreateFilesystem>(options);
     }

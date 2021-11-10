@@ -55,7 +55,7 @@ namespace barrel
     ParsedCmdSavePools::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (global_options.verbose)
-	    cout << "Saving pools..." << endl;
+	    cout << _("Saving pools...") << endl;
 
 	JsonFile json;
 

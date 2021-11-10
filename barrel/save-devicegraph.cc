@@ -54,10 +54,10 @@ namespace barrel
 	{
 	    ParsedOpts parsed_opts = get_opts.parse("devicegraph", save_devicegraph_options);
 
-	    if (parsed_opts.has_option("name"))
-		name = parsed_opts.get("name");
-	    else
-		throw OptionsException("name missing");
+	    if (!parsed_opts.has_option("name"))
+		throw OptionsException(_("name missing"));
+
+	    name = parsed_opts.get("name");
 	}
 
     }

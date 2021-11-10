@@ -60,7 +60,7 @@ namespace barrel
 	}
 	catch (const Exception& e)
 	{
-	    cout << "failed to calculate actions" << endl;
+	    cout << _("failed to calculate actions") << endl;
 	    cout << e.what() << endl;
 	}
     }

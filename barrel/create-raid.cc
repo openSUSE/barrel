@@ -115,7 +115,7 @@ namespace barrel
 		return;
 	    }
 
-	    throw runtime_error("bad devices argument");
+	    throw runtime_error(_("bad devices argument"));
 	}
 
 
@@ -160,7 +160,7 @@ namespace barrel
 
 		map<string, MdLevel>::const_iterator it = str_to_md_level.find(str);
 		if (it == str_to_md_level.end())
-		    throw runtime_error("unknown raid level for command 'raid'");
+		    throw runtime_error(_("unknown raid level for command 'raid'"));
 
 		level = it->second;
 	    }
@@ -203,21 +203,21 @@ namespace barrel
 	    if (pool_name)
 	    {
 		if (!size)
-		    throw runtime_error("size argument required for command 'raid'");
+		    throw runtime_error(_("size argument required for command 'raid'"));
 
 		modus_operandi = ModusOperandi::POOL;
 	    }
 	    else if (size)
 	    {
 		if (blk_devices.empty())
-		    throw runtime_error("block devices missing for command 'raid'");
+		    throw runtime_error(_("block devices missing for command 'raid'"));
 
 		modus_operandi = ModusOperandi::PARTITIONABLES;
 	    }
 	    else
 	    {
 		if (blk_devices.empty())
-		    throw runtime_error("block devices missing for command 'raid'");
+		    throw runtime_error(_("block devices missing for command 'raid'"));
 
 		modus_operandi = ModusOperandi::BLK_DEVICES;
 	    }
@@ -256,7 +256,7 @@ namespace barrel
 	    for (const Md* md : Md::get_all(staging))
 	    {
 		if (md->get_name() == name)
-		    throw runtime_error("name of RAID already exists");
+		    throw runtime_error(_("name of RAID already exists"));
 	    }
 	}
 	else
@@ -354,7 +354,8 @@ namespace barrel
 			}
 			else
 			{
-			    throw runtime_error(sformat("block device '%s' is in use", blk_device->get_name().c_str()));
+			    throw runtime_error(sformat(_("block device '%s' is in use"),
+							blk_device->get_name().c_str()));
 			}
 		    }
 
@@ -369,7 +370,7 @@ namespace barrel
 	for (BlkDevice* blk_device : blk_devices)
 	{
 	    if (!blk_device->is_usable_as_blk_device())
-		throw runtime_error(sformat("block device '%s' cannot be used as a regular block device",
+		throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
 					    blk_device->get_name().c_str()));
 	}
 
@@ -384,12 +385,12 @@ namespace barrel
 
 	if (smart_number.raid < md->minimal_number_of_devices())
 	{
-	    throw runtime_error("too few raid devices for raid level");
+	    throw runtime_error(_("too few raid devices for raid level"));
 	}
 
 	if (smart_number.spare > 0 && !md->supports_spare_devices())
 	{
-	    throw runtime_error("spare devices not allowed for raid level");
+	    throw runtime_error(_("spare devices not allowed for raid level"));
 	}
 
 	unsigned int cnt = 0;

@@ -81,7 +81,7 @@ namespace barrel
 
 		map<string, PtType>::const_iterator it = str_to_pt_type.find(str);
 		if (it == str_to_pt_type.end())
-		    throw runtime_error("unknown partition table type");
+		    throw runtime_error(_("unknown partition table type"));
 
 		type = it->second;
 	    }
@@ -137,7 +137,7 @@ namespace barrel
 	    case Options::ModusOperandi::PARTITIONABLE_FROM_STACK:
 	    {
 		if (state.stack.empty() || !is_partitionable(state.stack.top(staging)))
-		    throw runtime_error("not a partitionable on stack");
+		    throw runtime_error(_("not a partitionable on stack"));
 
 		partitionable = to_partitionable(state.stack.top(staging));
 		state.stack.pop();
@@ -147,12 +147,12 @@ namespace barrel
 	    case Options::ModusOperandi::PARTITIONABLE:
 	    {
 		if (options.blk_devices.size() != 1)
-		    throw runtime_error("only one block device allowed");
+		    throw runtime_error(_("only one block device allowed"));
 
 		BlkDevice* blk_device = BlkDevice::find_by_name(staging, options.blk_devices.front());
 
 		if (!is_partitionable(blk_device))
-		    throw runtime_error("not a partitionable");
+		    throw runtime_error(_("not a partitionable"));
 
 		partitionable = to_partitionable(blk_device);
 	    }
@@ -167,13 +167,13 @@ namespace barrel
 	    }
 	    else
 	    {
-		throw runtime_error(sformat("partitionable '%s' is in use", partitionable->get_name().c_str()));
+		throw runtime_error(sformat(_("partitionable '%s' is in use"), partitionable->get_name().c_str()));
 	    }
 	}
 
 	if (!partitionable->is_usable_as_partitionable())
 	{
-	    throw runtime_error(sformat("partitionable '%s' cannot be used as a regular partitionable",
+	    throw runtime_error(sformat(_("partitionable '%s' cannot be used as a regular partitionable"),
 					partitionable->get_name().c_str()));
 	}
 

@@ -53,7 +53,7 @@ namespace barrel
     ParsedCmdLoadPools::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (global_options.verbose)
-	    cout << "Loading pools..." << endl;
+	    cout << _("Loading pools...") << endl;
 
 	Storage* storage = state.storage;
 
@@ -74,7 +74,7 @@ namespace barrel
 	    if (j_description)
 	    {
 		if (!json_object_is_type(j_description, json_type_string))
-		    throw runtime_error("value of description entry not a string");
+		    throw runtime_error(_("value of description entry not a string"));
 
 		userdata["description"] = json_object_get_string(j_description);
 	    }
@@ -83,13 +83,13 @@ namespace barrel
 	    if (j_devices)
 	    {
 		if (!json_object_is_type(j_devices, json_type_array))
-		    throw runtime_error("value of devices entry not an array");
+		    throw runtime_error(_("value of devices entry not an array"));
 
 		for (size_t i = 0; i < json_object_array_length(j_devices); ++i)
 		{
 		    json_object* j_name = json_object_array_get_idx(j_devices, i);
 		    if (!json_object_is_type(j_name, json_type_string))
-			throw runtime_error(sformat("element of devices array for '%s' not string", k));
+			throw runtime_error(sformat(_("element of devices array for '%s' not string"), k));
 
 		    string name = json_object_get_string(j_name);
 
