@@ -23,6 +23,7 @@
 #include <storage/Storage.h>
 #include <storage/Devicegraph.h>
 #include <storage/Devices/Disk.h>
+#include <storage/Devices/Dasd.h>
 #include <storage/Holders/Holder.h>
 
 #include "Utils/GetOpts.h"
@@ -60,10 +61,10 @@ namespace barrel
 	{
 	    ParsedOpts parsed_opts = get_opts.parse("devicegraph", load_devicegraph_options);
 
-	    if (parsed_opts.has_option("name"))
-		name = parsed_opts.get("name");
-	    else
-		throw OptionsException("name missing");
+	    if (!parsed_opts.has_option("name"))
+		throw OptionsException(_("name missing"));
+
+	    name = parsed_opts.get("name");
 
 	    if (parsed_opts.has_option("mapping"))
 		mapping = parsed_opts.get("mapping");
@@ -91,7 +92,7 @@ namespace barrel
 	mapping_t load_mapping() const;
 
 	/**
-	 * Make an automatic mapping for disks. Either the udev path or id must be
+	 * Make an automatic mapping for disks and DASDs. Either the udev path or id must be
 	 * identical.
 	 */
 	mapping_t make_mapping(const Devicegraph* probed, const Devicegraph* staging) const;
@@ -101,8 +102,15 @@ namespace barrel
 	 */
 	bool same_udev(const BlkDevice* a, const BlkDevice* b) const;
 
+	const BlkDevice* map_blk_device(const GlobalOptions& global_options, const Devicegraph* probed,
+					SystemInfo& system_info, const mapping_t& mapping,
+					const BlkDevice* a) const;
+
 	const Disk* map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
 			     SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const;
+
+	const Dasd* map_dasd(const GlobalOptions& global_options, const Devicegraph* probed,
+			     SystemInfo& system_info, const mapping_t& mapping, const Dasd* a) const;
 
     };
 
@@ -174,11 +182,11 @@ namespace barrel
     {
 	mapping_t mapping;
 
-	for (const Disk* a : staging->get_all_disks())
+	for (const Disk* a : Disk::get_all(staging))
 	{
 	    vector<const Disk*> matches;
 
-	    for (const Disk* b : probed->get_all_disks())
+	    for (const Disk* b : Disk::get_all(probed))
 	    {
 		if (same_udev(a, b))
 		    matches.push_back(b);
@@ -188,7 +196,26 @@ namespace barrel
 		throw runtime_error(sformat(_("no mapping disk for '%s' found"), a->get_name().c_str()));
 
 	    if (matches.size() >= 2)
-		throw runtime_error(sformat(_("several mapping disk for '%s' found"), a->get_name().c_str()));
+		throw runtime_error(sformat(_("several mapping disks for '%s' found"), a->get_name().c_str()));
+
+	    mapping[a->get_name()] = { matches.front()->get_name() };
+	}
+
+	for (const Dasd* a : Dasd::get_all(staging))
+	{
+	    vector<const Dasd*> matches;
+
+	    for (const Dasd* b : Dasd::get_all(probed))
+	    {
+		if (same_udev(a, b))
+		    matches.push_back(b);
+	    }
+
+	    if (matches.size() == 0)
+		throw runtime_error(sformat(_("no mapping DASD for '%s' found"), a->get_name().c_str()));
+
+	    if (matches.size() >= 2)
+		throw runtime_error(sformat(_("several mapping DASDs for '%s' found"), a->get_name().c_str()));
 
 	    mapping[a->get_name()] = { matches.front()->get_name() };
 	}
@@ -197,9 +224,10 @@ namespace barrel
     }
 
 
-    const Disk*
-    ParsedCmdLoadDevicegraph::map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
-				 SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const
+    const BlkDevice*
+    ParsedCmdLoadDevicegraph::map_blk_device(const GlobalOptions& global_options, const Devicegraph* probed,
+					     SystemInfo& system_info, const mapping_t& mapping,
+					     const BlkDevice* a) const
     {
 	const string name = a->get_name();
 
@@ -226,7 +254,7 @@ namespace barrel
 	}
 
 	if (it == mapping.end())
-	    throw runtime_error(sformat(_("disk '%s' not found in mapping"), name.c_str()));
+	    throw runtime_error(sformat(_("device '%s' not found in mapping"), name.c_str()));
 
 	const BlkDevice* b = nullptr;
 
@@ -240,23 +268,44 @@ namespace barrel
 	}
 
 	if (!b)
-	    throw runtime_error(sformat(_("mapped disk for '%s' not found"), name.c_str()));
-
-	if (!is_disk(b))
-	    throw runtime_error(sformat(_("mapped device for '%s' is not a disk"), name.c_str()));
+	    throw runtime_error(sformat(_("mapped device for '%s' not found"), name.c_str()));
 
 	if (global_options.verbose)
-	{
-	    cout << sformat(_("mapping %s to %s"), name.c_str(), b->get_name().c_str()) << '\n';
-	}
+	    cout << sformat(_("mapping %s to %s"), a->get_name().c_str(), b->get_name().c_str()) << '\n';
 
 	if (a->get_region().get_block_size() != b->get_region().get_block_size())
-	    throw runtime_error(sformat(_("mapped disk for '%s' has different block size"), name.c_str()));
+	    throw runtime_error(sformat(_("mapped device for '%s' has different block size"), a->get_name().c_str()));
 
 	if (a->get_region().get_length() > b->get_region().get_length())
-	    throw runtime_error(sformat(_("mapped disk for '%s' is smaller"), name.c_str()));
+	    throw runtime_error(sformat(_("mapped device for '%s' is smaller"), a->get_name().c_str()));
+
+	return b;
+    }
+
+
+    const Disk*
+    ParsedCmdLoadDevicegraph::map_disk(const GlobalOptions& global_options, const Devicegraph* probed,
+				       SystemInfo& system_info, const mapping_t& mapping, const Disk* a) const
+    {
+	const BlkDevice* b = map_blk_device(global_options, probed, system_info, mapping, a);
+
+	if (!is_disk(b))
+	    throw runtime_error(sformat(_("mapped device for '%s' is not a disk"), a->get_name().c_str()));
 
 	return to_disk(b);
+    }
+
+
+    const Dasd*
+    ParsedCmdLoadDevicegraph::map_dasd(const GlobalOptions& global_options, const Devicegraph* probed,
+				       SystemInfo& system_info, const mapping_t& mapping, const Dasd* a) const
+    {
+	const BlkDevice* b = map_blk_device(global_options, probed, system_info, mapping, a);
+
+	if (!is_dasd(b))
+	    throw runtime_error(sformat(_("mapped device for '%s' is not a DASD"), a->get_name().c_str()));
+
+	return to_dasd(b);
     }
 
 
@@ -283,16 +332,32 @@ namespace barrel
 
 	SystemInfo system_info;
 
-	// TODO dasd and multipath
+	// TODO multipath, md raid, dm raid
 
-	for (Disk* a : staging->get_all_disks())
+	for (Disk* a : Disk::get_all(staging))
 	{
 	    const Disk* b = map_disk(global_options, probed, system_info, mapping, a);
 
 	    if (b->exists_in_devicegraph(staging))
-	    {
 		throw runtime_error(sformat(_("mapped disk for '%s' mapped twice"), a->get_name().c_str()));
-	    }
+
+	    Device* c = b->copy_to_devicegraph(staging);
+
+	    for (Holder* holder : a->get_out_holders())
+		holder->set_source(c);
+
+	    staging->remove_device(a);
+
+	    // TODO must anything dependent be update? e.g. name, sysfs_name, sysfs_path
+	    // of partitions, topology, ...
+	}
+
+	for (Dasd* a : Dasd::get_all(staging))
+	{
+	    const Dasd* b = map_dasd(global_options, probed, system_info, mapping, a);
+
+	    if (b->exists_in_devicegraph(staging))
+		throw runtime_error(sformat(_("mapped DASD for '%s' mapped twice"), a->get_name().c_str()));
 
 	    Device* c = b->copy_to_devicegraph(staging);
 
