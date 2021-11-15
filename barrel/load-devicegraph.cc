@@ -305,7 +305,15 @@ namespace barrel
 	if (!is_dasd(b))
 	    throw runtime_error(sformat(_("mapped device for '%s' is not a DASD"), a->get_name().c_str()));
 
-	return to_dasd(b);
+	const Dasd* dasd = to_dasd(b);
+
+	if (a->get_type() != dasd->get_type())
+	    throw runtime_error(sformat(_("mapped DASD for '%s' has different type"), a->get_name().c_str()));
+
+	if (a->get_format() != dasd->get_format())
+	    throw runtime_error(sformat(_("mapped DASD for '%s' has different format"), a->get_name().c_str()));
+
+	return dasd;
     }
 
 
