@@ -76,7 +76,7 @@ namespace barrel
 	else if (it != testsuite->readlines.end())
 	    line = strdup((it++)->c_str());
 
-	if (line)
+	if (line && *line)
 	    add_history(line);
 
 	return line;

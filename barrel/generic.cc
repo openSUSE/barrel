@@ -323,6 +323,13 @@ namespace barrel
 
 
     shared_ptr<ParsedCmd>
+    CmdQuit::parse()
+    {
+	return make_shared<ParsedCmdQuit>();
+    }
+
+
+    shared_ptr<ParsedCmd>
     CmdQuit::parse(GetOpts& get_opts) const
     {
 	get_opts.parse("quit", GetOpts::no_ext_options);

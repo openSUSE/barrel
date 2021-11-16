@@ -67,6 +67,8 @@ namespace barrel
 
     struct CmdQuit : public Cmd
     {
+	static shared_ptr<ParsedCmd> parse();
+
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
 	virtual const char* help() const override;
     };

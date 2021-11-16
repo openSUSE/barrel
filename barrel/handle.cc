@@ -40,6 +40,7 @@
 #include "handle.h"
 #include "cmds.h"
 #include "help.h"
+#include "generic.h"
 #include "commit.h"
 #include "create-pools.h"
 #include "load-pools.h"
@@ -355,7 +356,9 @@ namespace barrel
 	    if (!line)
 	    {
 		cout << endl;
-		break;
+		CmdQuit::parse()->doit(global_options, state);
+
+		continue;
 	    }
 
 	    if (*line)
