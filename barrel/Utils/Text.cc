@@ -22,6 +22,7 @@
 
 #include <stdarg.h>
 #include <libintl.h>
+#include <string.h>
 #include <stdexcept>
 
 #include "Text.h"
@@ -179,6 +180,60 @@ namespace barrel
 	}
 
 	return ret;
+    }
+
+
+    int
+    mbs_width_e(const string& str)
+    {
+	// from snapper, zypper, smpppd
+
+	const char* ptr = str.c_str();
+	size_t s_bytes = str.length();
+	int s_cols = 0;
+	bool in_ctrlseq = false;
+
+	mbstate_t shift_state;
+	memset(&shift_state, 0, sizeof(shift_state));
+
+	wchar_t wc;
+	size_t c_bytes;
+
+	// mbrtowc produces one wide character from a multibyte string
+	while ((c_bytes = mbrtowc(&wc, ptr, s_bytes, &shift_state)) > 0)
+	{
+	    if (c_bytes >= (size_t) -2) // incomplete (-2) or invalid (-1) sequence
+		return -1;
+
+	    // ignore the length of terminal control sequences in order
+	    // to compute the length of colored text correctly
+	    if (!in_ctrlseq && ::wcsncmp(&wc, L"\033", 1) == 0)
+		in_ctrlseq = true;
+	    else if (in_ctrlseq && ::wcsncmp(&wc, L"m", 1) == 0)
+		in_ctrlseq = false;
+	    else if (!in_ctrlseq)
+		s_cols += ::wcwidth(wc);
+
+	    s_bytes -= c_bytes;
+	    ptr += c_bytes;
+
+	    // end of string
+	    if (s_bytes == 0)
+		break;
+	}
+
+	return s_cols;
+    }
+
+
+    size_t
+    mbs_width(const string& str)
+    {
+	int c = mbs_width_e(str);
+	if (c < 0)
+	    return str.length();        // fallback if there was an error
+	else
+	    return (size_t) c;
     }
 
 }

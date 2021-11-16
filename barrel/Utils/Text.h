@@ -46,6 +46,10 @@ namespace barrel
 
     vector<string> parse_line(string_view line);
 
+
+    /* Returns the column width of a multi-byte character string */
+    size_t mbs_width(const string& str);
+
 }
 
 #endif

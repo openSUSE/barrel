@@ -21,6 +21,7 @@
 
 
 #include "Table.h"
+#include "Text.h"
 
 
 namespace barrel
@@ -32,8 +33,6 @@ namespace barrel
     void
     calculate_widths(vector<size_t>& widths, const Table::Row& row, bool indent)
     {
-	// TODO utf-8 and wide chars
-
 	const vector<string>& columns = row.get_columns();
 
 	if (columns.size() > widths.size())
@@ -41,12 +40,12 @@ namespace barrel
 
 	for (size_t i = 0; i < columns.size(); ++i)
 	{
-	    size_t w = columns[i].size();
+	    size_t width = mbs_width(columns[i]);
 
 	    if (i == 0 && indent)
-		w += 2;
+		width += 2;
 
-	    widths[i] = max(widths[i], w);
+	    widths[i] = max(widths[i], width);
 	}
     }
 
@@ -79,8 +78,10 @@ namespace barrel
 
 	    if (aligns[i] == Align::RIGHT)
 	    {
-		if (column.size() < widths[i] - extra)
-		    s << string(widths[i] - column.size() - extra, ' ');
+		size_t width = mbs_width(column);
+
+		if (width < widths[i] - extra)
+		    s << string(widths[i] - width - extra, ' ');
 	    }
 
 	    s << column;
@@ -90,8 +91,10 @@ namespace barrel
 
 	    if (aligns[i] == Align::LEFT)
 	    {
-		if (column.size() < widths[i] - extra)
-		    s << string(widths[i] - column.size() - extra, ' ');
+		size_t width = mbs_width(column);
+
+		if (width < widths[i] - extra)
+		    s << string(widths[i] - width - extra, ' ');
 	    }
 
 	    s << " " << glyph(0);

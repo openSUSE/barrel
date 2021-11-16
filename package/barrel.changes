@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Tue Nov 16 18:09:30 CET 2021 - aschnell@suse.com
+
+- handle multibyte sequences in tables
+- version 0.0.6
+
+-------------------------------------------------------------------
 Tue Nov 09 12:25:33 CET 2021 - aschnell@suse.com
 
 - initial packaging for openSUSE
