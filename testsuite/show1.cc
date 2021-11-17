@@ -116,8 +116,37 @@ BOOST_AUTO_TEST_CASE(test3)
 }
 
 
-
 BOOST_AUTO_TEST_CASE(test4)
+{
+    Args args({ "barrel", "--quiet", "--dry-run", "show", "vgs" });
+
+    vector<string> output = {
+	"Name        │ Extent Size │ Devices │       Size │  Used │ Stripes    │ Usage",
+	"────────────┼─────────────┼─────────┼────────────┼───────┼────────────┼──────",
+	"test        │       4 MiB │ 2       │ 596.17 GiB │ 5.03% │            │",
+	"├─linear    │             │         │  10.00 GiB │       │ 2 (64 KiB) │",
+	"└─thin-pool │             │         │  20.00 GiB │       │ 1          │",
+	"  ├─thin1   │             │         │  10.00 GiB │       │            │ ext4",
+	"  └─thin2   │             │         │  20.00 GiB │       │            │ xfs"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "real2.xml";
+
+    ostringstream buffer;
+    streambuf* old = cout.rdbuf(buffer.rdbuf());
+    handle(args.argc(), args.argv(), &testsuite);
+    cout.rdbuf(old);
+
+    string lhs = buffer.str();
+    string rhs = accumulate(output.begin(), output.end(), ""s,
+			    [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs, rhs);
+}
+
+
+BOOST_AUTO_TEST_CASE(test5)
 {
     Args args({ "barrel", "--dry-run", "--quiet", "show", "filesystems" });
 

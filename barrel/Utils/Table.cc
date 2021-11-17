@@ -31,7 +31,7 @@ namespace barrel
 
 
     void
-    calculate_widths(vector<size_t>& widths, const Table::Row& row, bool indent)
+    Table::calculate_widths(const Table::Row& row, vector<size_t>& widths, unsigned indent) const
     {
 	const vector<string>& columns = row.get_columns();
 
@@ -42,22 +42,30 @@ namespace barrel
 	{
 	    size_t width = mbs_width(columns[i]);
 
-	    if (i == 0 && indent)
-		width += 2;
+	    if (i == 0)
+		width += 2 * indent;
 
 	    widths[i] = max(widths[i], width);
 	}
+
+	for (const Table::Row& subrow : row.get_subrows())
+	    calculate_widths(subrow, widths, indent + 1);
     }
 
 
     void
     Table::output(std::ostream& s, const Table::Row& row, const vector<size_t>& widths,
-		  const vector<Align>& aligns, bool indent, bool last) const
+		  const vector<bool>& lasts) const
     {
 	s << string(global_indent, ' ');
 
-	if (indent)
-	    s << (last ? glyph(4) : glyph(3));
+	for (size_t i = 0; i < lasts.size(); ++i)
+	{
+	    if (i == lasts.size() - 1)
+		s << (lasts[i] ? glyph(4) : glyph(3));
+	    else
+		s << (lasts[i] ? glyph(6) : glyph(5));
+	}
 
 	const vector<string>& columns = row.get_columns();
 
@@ -68,7 +76,7 @@ namespace barrel
 	    bool first = i == 0;
 	    bool last = i == widths.size() - 1;
 
-	    size_t extra = first && indent ? 2 : 0;
+	    size_t extra = first ? 2 * lasts.size() : 0;
 
 	    if (last && column.empty())
 		break;
@@ -101,6 +109,14 @@ namespace barrel
 	}
 
 	s << '\n';
+
+	const vector<Table::Row>& subrows = row.get_subrows();
+	for (size_t i = 0; i < subrows.size(); ++i)
+	{
+	    vector<bool> sub_lasts = lasts;
+	    sub_lasts.push_back(i == subrows.size() - 1);
+	    output(s, subrows[i], widths, sub_lasts);
+	}
     }
 
 
@@ -179,35 +195,21 @@ namespace barrel
 	// calculate widths
 
 	if (table.style != Style::NONE)
-	{
-	    calculate_widths(widths, table.header, false);
-	}
+	    table.calculate_widths(table.header, widths, 0);
 
 	for (const Table::Row& row : table.rows)
-	{
-	    calculate_widths(widths, row, false);
-
-	    const vector<Table::Row>& subrows = row.get_subrows();
-	    for (const Table::Row& subrow : subrows)
-		calculate_widths(widths, subrow, true);
-	}
+	    table.calculate_widths(row, widths, 0);
 
 	// output header and rows
 
 	if (table.style != Style::NONE)
 	{
-	    table.output(s, table.header, widths, table.aligns, 0, false);
+	    table.output(s, table.header, widths, {});
 	    table.output(s, widths);
 	}
 
 	for (const Table::Row& row : table.rows)
-	{
-	    table.output(s, row, widths, table.aligns, 0, false);
-
-	    const vector<Table::Row>& subrows = row.get_subrows();
-	    for (size_t i = 0; i < subrows.size(); ++i)
-		table.output(s, subrows[i], widths, table.aligns, true, i == subrows.size() - 1);
-	}
+	    table.output(s, row, widths, {});
 
 	return s;
     }
@@ -216,10 +218,11 @@ namespace barrel
     const char*
     Table::glyph(unsigned int i) const
     {
-	const char* glyphs[][5] = {
-	    { "│", "─", "┼", "├─", "└─" },
-	    { "|", "-", "+", " -", " -" },
-	    { "", "", "", "  ", "  " }
+	const char* glyphs[][7] = {
+	    { "│", "─", "┼", "├─", "└─", "│ ", "  " },  // STANDARD
+	    { "║", "═", "╬", "├─", "└─", "│ ", "  " },  // DOUBLE
+	    { "|", "-", "+", "+-", "+-", "| ", "  " },  // ASCII
+	    { "",  "",  "",  "  ", "  ", "  ", "  " }   // NONE
 	};
 
 	return glyphs[(unsigned int)(style)][i];

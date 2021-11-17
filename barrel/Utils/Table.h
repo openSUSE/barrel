@@ -49,7 +49,7 @@ namespace barrel
 
     enum class Style
     {
-	STANDARD, ASCII, NONE
+	STANDARD, DOUBLE, ASCII, NONE
     };
 
 
@@ -143,8 +143,10 @@ namespace barrel
 
 	size_t id_to_index(Id id) const;
 
+	void calculate_widths(const Table::Row& row, vector<size_t>& widths, unsigned indent) const;
+
 	void output(std::ostream& s, const Table::Row& row, const vector<size_t>& widths,
-		    const vector<Align>& aligns, bool indent, bool last) const;
+		    const vector<bool>& lasts) const;
 
 	void output(std::ostream& s, const vector<size_t>& widths) const;
 

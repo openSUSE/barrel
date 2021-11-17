@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2021 SUSE LLC
  *
@@ -84,6 +83,7 @@ namespace barrel
 	const Options options;
 
 	void insert_lvm_lvs(const LvmVg* lvm_vg, Table::Row& row) const;
+	void insert_lvm_lvs(const LvmLv* lvm_lv, Table::Row& row) const;
 
     };
 
@@ -106,6 +106,28 @@ namespace barrel
 		subrow[Id::STRIPES] += " (" + format_size(lvm_lv->get_stripe_size(), true) + ")";
 
 	    subrow[Id::USAGE] = device_usage(lvm_lv);
+
+	    insert_lvm_lvs(lvm_lv, subrow);
+
+	    row.add_subrow(subrow);
+	}
+    }
+
+
+    void
+    ParsedCmdShowLvmVgs::insert_lvm_lvs(const LvmLv* lvm_lv, Table::Row& row) const
+    {
+	vector<const LvmLv*> sub_lvm_lvs = lvm_lv->get_lvm_lvs();
+	sort(sub_lvm_lvs.begin(), sub_lvm_lvs.end(), LvmLv::compare_by_name);
+
+	for (const LvmLv* sub_lvm_lv : sub_lvm_lvs)
+	{
+	    Table::Row subrow(row.get_table());
+
+	    subrow[Id::NAME] = sub_lvm_lv->get_lv_name();
+	    subrow[Id::SIZE] = format_size(sub_lvm_lv->get_size());
+
+	    subrow[Id::USAGE] = device_usage(sub_lvm_lv);
 
 	    row.add_subrow(subrow);
 	}
