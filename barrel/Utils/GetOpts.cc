@@ -216,6 +216,10 @@ namespace barrel
 		case required_argument:
 		    optstring += ':';
 		    break;
+
+		case optional_argument:
+		    optstring += "::";
+		    break;
 	    }
 	}
 
