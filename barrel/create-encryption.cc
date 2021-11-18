@@ -95,7 +95,7 @@ namespace barrel
 	    }
 
 	    if (!parsed_opts.has_option("name"))
-		throw OptionsException("name missing");
+		throw OptionsException(_("name missing for command 'encryption'"));
 
 	    name = parsed_opts.get("name");
 
@@ -290,7 +290,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (options.type)
-	    throw OptionsException("encryption type already set");
+	    throw OptionsException(_("encryption type already set for command 'encryption'"));
 
 	options.type = type;
 
@@ -304,7 +304,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (!options.type)
-	    throw OptionsException("encryption type missing");
+	    throw OptionsException(_("encryption type missing for command 'encryption'"));
 
 	return make_shared<ParsedCmdCreateEncryption>(options);
     }

@@ -137,12 +137,12 @@ namespace barrel
 	    ParsedOpts parsed_opts = get_opts.parse("vg", create_lvm_vg_options);
 
 	    if (!parsed_opts.has_option("name"))
-		throw OptionsException("name missing for command 'vg'");
+		throw OptionsException(_("name missing for command 'vg'"));
 
 	    vg_name = parsed_opts.get("name");
 
 	    if (!LvmVg::is_valid_vg_name(vg_name))
-		throw OptionsException("invalid volume group name for command 'vg'");
+		throw OptionsException(_("invalid volume group name for command 'vg'"));
 
 	    pool_name = parsed_opts.get_optional("pool-name");
 

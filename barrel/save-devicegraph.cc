@@ -55,7 +55,7 @@ namespace barrel
 	    ParsedOpts parsed_opts = get_opts.parse("devicegraph", save_devicegraph_options);
 
 	    if (!parsed_opts.has_option("name"))
-		throw OptionsException(_("name missing"));
+		throw OptionsException(_("name missing for command 'devicegraph'"));
 
 	    name = parsed_opts.get("name");
 	}

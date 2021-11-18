@@ -420,7 +420,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (options.level)
-	    throw OptionsException("raid level already set for command 'raid'");
+	    throw OptionsException(_("RAID level already set for command 'raid'"));
 
 	options.level = level;
 
@@ -434,7 +434,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (!options.level)
-	    throw OptionsException("raid level missing for command 'raid'");
+	    throw OptionsException(_("Raid level missing for command 'raid'"));
 
 	return make_shared<ParsedCmdCreateRaid>(options);
     }

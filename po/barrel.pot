@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-16 17:01+0100\n"
+"POT-Creation-Date: 2021-11-18 15:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -240,6 +240,12 @@ msgstr ""
 msgid "RAID %s"
 msgstr ""
 
+msgid "RAID level already set for command 'raid'"
+msgstr ""
+
+msgid "Raid level missing for command 'raid'"
+msgstr ""
+
 msgid "Removes a device."
 msgstr ""
 
@@ -307,9 +313,6 @@ msgid "The command has the following subcommands:"
 msgstr ""
 
 msgid "Type"
-msgstr ""
-
-msgid "Underlying Device"
 msgstr ""
 
 #, c-format
@@ -405,6 +408,12 @@ msgstr ""
 msgid "encryption type"
 msgstr ""
 
+msgid "encryption type already set for command 'encryption'"
+msgstr ""
+
+msgid "encryption type missing for command 'encryption'"
+msgstr ""
+
 msgid "error:"
 msgstr ""
 
@@ -431,8 +440,14 @@ msgstr ""
 msgid "force if block devices are in use"
 msgstr ""
 
+msgid "invalid logical volume name for command 'lv'"
+msgstr ""
+
 #, c-format
 msgid "invalid path '%s'"
+msgstr ""
+
+msgid "invalid volume group name for command 'vg'"
 msgstr ""
 
 msgid "keep underlying partitions"
@@ -494,7 +509,16 @@ msgstr ""
 msgid "mount path"
 msgstr ""
 
-msgid "name missing"
+msgid "name missing for command 'devicegraph'"
+msgstr ""
+
+msgid "name missing for command 'encryption'"
+msgstr ""
+
+msgid "name missing for command 'lv'"
+msgstr ""
+
+msgid "name missing for command 'vg'"
 msgstr ""
 
 msgid "name of RAID already exists"
@@ -571,6 +595,12 @@ msgid "parsing json file '%s' failed"
 msgstr ""
 
 msgid "partition table type"
+msgstr ""
+
+msgid "partition table type already set command 'partition-table'"
+msgstr ""
+
+msgid "partition table type missing for command 'partition-table'"
 msgstr ""
 
 #, c-format
@@ -668,6 +698,12 @@ msgstr ""
 msgid "show help and exit"
 msgstr ""
 
+msgid "show underlying device"
+msgstr ""
+
+msgid "show underlying devices"
+msgstr ""
+
 msgid "show version and exit"
 msgstr ""
 
@@ -681,6 +717,9 @@ msgid "size argument required for command 'raid'"
 msgstr ""
 
 msgid "size argument required for command 'vg'"
+msgstr ""
+
+msgid "size missing for command 'lv'"
 msgstr ""
 
 msgid "size of stripes"

@@ -190,7 +190,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (options.type)
-	    throw OptionsException("partition table type already set");
+	    throw OptionsException(_("partition table type already set command 'partition-table'"));
 
 	options.type = type;
 
@@ -204,7 +204,7 @@ namespace barrel
 	Options options(get_opts);
 
 	if (!options.type)
-	    throw OptionsException("partition table type missing");
+	    throw OptionsException(_("partition table type missing for command 'partition-table'"));
 
 	return make_shared<ParsedCmdCreatePartitionTable>(options);
     }
