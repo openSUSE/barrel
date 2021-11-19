@@ -46,6 +46,7 @@ namespace barrel
 	const ExtOptions create_encryption_options({
 	    { "type", required_argument, 't', _("encryption type"), "type" },
 	    { "name", required_argument, 'n', _("set name of device"), "name" },
+	    { "label", required_argument, 0, _("set label of device"), "label" },
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
 	    { "size", required_argument, 's', _("set size"), "size" },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
@@ -64,6 +65,7 @@ namespace barrel
 
 	    optional<EncryptionType> type;
 	    string name;
+	    optional<string> label;
 	    optional<string> pool_name;
 	    optional<SmartSize> size;
 	    bool force = false;
@@ -98,6 +100,8 @@ namespace barrel
 		throw OptionsException(_("name missing for command 'encryption'"));
 
 	    name = parsed_opts.get("name");
+
+	    label = parsed_opts.get_optional("label");
 
 	    pool_name = parsed_opts.get_optional("pool-name");
 
@@ -278,6 +282,9 @@ namespace barrel
 
 	Encryption* encryption = blk_device->create_encryption(dm_name, type);
 	encryption->set_password(password);
+
+	if (options.label && is_luks(encryption))
+	    to_luks(encryption)->set_label(options.label.value());
 
 	state.stack.push(encryption);
 	state.modified = true;

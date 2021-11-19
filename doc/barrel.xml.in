@@ -211,6 +211,12 @@
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
+	      <term><option>--label</option> <replaceable>label</replaceable></term>
+	      <listitem>
+		<para>Label of device-mapper device.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
 	      <term><option>--pool-name</option> <replaceable>name</replaceable></term>
 	      <listitem>
 		<para>Name of pool from which to take underlying device.</para>
