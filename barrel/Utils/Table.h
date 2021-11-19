@@ -126,6 +126,7 @@ namespace barrel
 	void set_style(enum Style style) { Table::style = style; }
 	void set_global_indent(size_t global_indent) { Table::global_indent = global_indent; }
 	void set_min_width(Id id, size_t min_width);
+	void set_tree_id(Id id);
 
 	friend std::ostream& operator<<(std::ostream& s, const Table& Table);
 
@@ -140,6 +141,7 @@ namespace barrel
 	vector<Align> aligns;
 	vector<Id> ids;
 	vector<size_t> min_widths;
+	size_t tree_index = 0;
 
 	size_t id_to_index(Id id) const;
 

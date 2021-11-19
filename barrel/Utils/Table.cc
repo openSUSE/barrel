@@ -42,7 +42,7 @@ namespace barrel
 	{
 	    size_t width = mbs_width(columns[i]);
 
-	    if (i == 0)
+	    if (i == tree_index)
 		width += 2 * indent;
 
 	    widths[i] = max(widths[i], width);
@@ -59,14 +59,6 @@ namespace barrel
     {
 	s << string(global_indent, ' ');
 
-	for (size_t i = 0; i < lasts.size(); ++i)
-	{
-	    if (i == lasts.size() - 1)
-		s << (lasts[i] ? glyph(4) : glyph(3));
-	    else
-		s << (lasts[i] ? glyph(6) : glyph(5));
-	}
-
 	const vector<string>& columns = row.get_columns();
 
 	for (size_t i = 0; i < widths.size(); ++i)
@@ -76,13 +68,24 @@ namespace barrel
 	    bool first = i == 0;
 	    bool last = i == widths.size() - 1;
 
-	    size_t extra = first ? 2 * lasts.size() : 0;
+	    size_t extra = (i == tree_index) ? 2 * lasts.size() : 0;
 
 	    if (last && column.empty())
 		break;
 
 	    if (!first)
 		s << " ";
+
+	    if (i == tree_index)
+	    {
+		for (size_t tl = 0; tl < lasts.size(); ++tl)
+		{
+		    if (tl == lasts.size() - 1)
+			s << (lasts[tl] ? glyph(4) : glyph(3));
+		    else
+			s << (lasts[tl] ? glyph(6) : glyph(5));
+		}
+	    }
 
 	    if (aligns[i] == Align::RIGHT)
 	    {
@@ -184,6 +187,13 @@ namespace barrel
 	    min_widths.resize(i + 1);
 
 	min_widths[i] = min_width;
+    }
+
+
+    void
+    Table::set_tree_id(Id id)
+    {
+	tree_index = id_to_index(id);
     }
 
 

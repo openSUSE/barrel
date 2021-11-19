@@ -122,3 +122,26 @@ BOOST_AUTO_TEST_CASE(test3)
 
     BOOST_CHECK_EQUAL(o.str(), s);
 }
+
+
+BOOST_AUTO_TEST_CASE(test4)
+{
+    Table table({ "Level", Cell("Name", Id::NAME) });
+    table.set_tree_id(Id::NAME);
+
+    Table::Row a(table, { "1", "a" });
+    Table::Row b(table, { "2", "b" });
+    a.add_subrow(b);
+    table.add(a);
+
+    ostringstream o;
+    o << table;
+
+    string s =
+	"Level │ Name\n"
+	"──────┼─────\n"
+	"1     │ a\n"
+	"2     │ └─b\n";
+
+    BOOST_CHECK_EQUAL(o.str(), s);
+}
