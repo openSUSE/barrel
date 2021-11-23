@@ -28,36 +28,44 @@
 using namespace std;
 
 
-class Args
+namespace barrel
 {
 
-public:
-
-    Args(std::initializer_list<string> init)
+    class Args
     {
-	for (const string& s : init)
-	    tmp.push_back(strdup(s.c_str()));
-	tmp.push_back(nullptr);
-    }
 
-    Args(const vector<string>& init)
-    {
-	for (const string& s : init)
-	    tmp.push_back(strdup(s.c_str()));
-	tmp.push_back(nullptr);
-    }
+    public:
 
-    ~Args()
-    {
-	for (char* p : tmp)
-	    free(p);
-    }
+	Args(std::initializer_list<string> init)
+	{
+	    for (const string& s : init)
+		tmp.push_back(strdup(s.c_str()));
+	    tmp.push_back(nullptr);
+	}
 
-    int argc() const { return tmp.size() - 1; }
-    char** argv() { return tmp.data(); }
+	Args(const vector<string>& init)
+	{
+	    for (const string& s : init)
+		    tmp.push_back(strdup(s.c_str()));
+	    tmp.push_back(nullptr);
+	}
 
-private:
+	~Args()
+	{
+	    // TODO enabling this causes testsuite/strange1.cc to fail
+#if 0
+	    for (char* p : tmp)
+		free(p);
+#endif
+	}
 
-    vector<char*> tmp;
+	int argc() const { return tmp.size() - 1; }
+	char** argv() { return tmp.data(); }
 
-};
+    private:
+
+	vector<char*> tmp;
+
+    };
+
+}

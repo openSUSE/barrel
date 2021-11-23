@@ -198,7 +198,7 @@ namespace barrel
     GetOpts::make_optstring(const vector<Option>& options) const
     {
 	// '+' - do not permute, stop at the 1st non-option, which is the command or an argument
-	// ':' - return ':' to indicate missing arg, not '?'
+	// ':' - return ':' to indicate missing arg, not '?'. also disable error messages.
 	string optstring = "+:";
 
 	for (const Option& option : options)
