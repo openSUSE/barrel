@@ -33,6 +33,7 @@
 #include "Utils/Text.h"
 #include "Utils/Misc.h"
 #include "show-filesystems.h"
+#include "show.h"
 
 
 namespace barrel
@@ -68,7 +69,7 @@ namespace barrel
     }
 
 
-    class ParsedCmdShowFilesystems : public ParsedCmd
+    class ParsedCmdShowFilesystems : public ParsedCmdShow
     {
     public:
 
@@ -118,7 +119,9 @@ namespace barrel
 	vector<const Filesystem*> filesystems = Filesystem::get_all(devicegraph);
 	sort(filesystems.begin(), filesystems.end(), compare_by_something);
 
-	Table table({ _("Type"), _("Device"), _("Mount Point") });
+	Table table({ _("Type"), Cell(_("Label"), Id::LABEL), Cell(_("Name"), Id::NAME),
+		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Mount Point"), Id::MOUNT_POINT) });
+	table.set_tree_id(Id::NAME);
 
 	for (const Filesystem* filesystem : filesystems)
 	{
@@ -127,26 +130,42 @@ namespace barrel
 	    if (is_blk_filesystem(filesystem))
 	    {
 		const BlkFilesystem* blk_filesystem = to_blk_filesystem(filesystem);
-		row.add(blk_filesystem->get_blk_devices()[0]->get_name());
+		row[Id::LABEL] = blk_filesystem->get_label();
+
+		vector<const BlkDevice*> blk_devices = blk_filesystem->get_blk_devices();
+
+		if (blk_devices.size() == 1)
+		{
+		    const BlkDevice* blk_device = blk_devices[0];
+
+		    row[Id::NAME] = blk_device->get_name();
+		    row[Id::SIZE] = format_size(blk_device->get_size());
+		}
+		else
+		{
+		    sort(blk_devices.begin(), blk_devices.end(), BlkDevice::compare_by_name);
+
+		    row[Id::NAME] = _("multiple devices");
+
+		    for (const BlkDevice* blk_device : blk_devices)
+		    {
+			Table::Row subrow(row.get_table());
+			subrow[Id::NAME] = blk_device->get_name();
+			subrow[Id::SIZE] = format_size(blk_device->get_size());
+			row.add_subrow(subrow);
+		    }
+		}
 	    }
 	    else if (is_nfs(filesystem))
 	    {
 		const Nfs* nfs = to_nfs(filesystem);
-		row.add(nfs->get_server() + ":" + nfs->get_path());
-	    }
-	    else
-	    {
-		row.add("");
+		row[Id::NAME] = nfs->get_server() + ":" + nfs->get_path();
 	    }
 
 	    if (filesystem->has_mount_point())
 	    {
 		const MountPoint* mount_point = filesystem->get_mount_point();
-		row.add(mount_point->get_path());
-	    }
-	    else
-	    {
-		row.add("");
+		row[Id::MOUNT_POINT] = mount_point->get_path();
 	    }
 
 	    table.add(row);

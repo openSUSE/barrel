@@ -126,7 +126,7 @@ namespace barrel
 		{
 		    Md* md = to_md(blk_device);
 
-		    for (BlkDevice* tmp : md->get_devices())
+		    for (BlkDevice* tmp : md->get_blk_devices())
 			if (is_partition(tmp))
 			    partitions.push_back(to_partition(tmp));
 		}

@@ -49,6 +49,7 @@
 #include "show-lvm-vgs.h"
 #include "show-pools.h"
 #include "show-raids.h"
+#include "show-tree.h"
 
 
 namespace barrel
@@ -63,6 +64,7 @@ namespace barrel
 	{ "multipaths", make_shared<CmdShowMultipaths>() },
 	{ "pools", make_shared<CmdShowPools>() },
 	{ "raids", make_shared<CmdShowRaids>() },
+	{ "tree", make_shared<CmdShowTree>() },
 	{ "vgs", make_shared<CmdShowLvmVgs>() }
     };
 

@@ -72,13 +72,13 @@ Let's look at the file systems we have on our system by now:
 ~~~
 # barrel show filesystems
 Probing... done
-Type │ Device    │ Mount Point
-─────┼───────────┼────────────
-xfs  │ /dev/sdb1 │
-xfs  │ /dev/sdb2 │ /test1
-xfs  │ /dev/sdc1 │ /test2
-ext4 │ /dev/sda2 │ /
-swap │ /dev/sda3 │ swap
+Type │ Label │ Device    │ Mount Point
+─────┼───────┼───────────┼────────────
+xfs  │       │ /dev/sdb1 │
+xfs  │       │ /dev/sdb2 │ /test1
+xfs  │       │ /dev/sdc1 │ /test2
+ext4 │       │ /dev/sda2 │ /
+swap │       │ /dev/sda3 │ swap
 ~~~
 
 Barrel can also show information about disks, raids and LVM volume

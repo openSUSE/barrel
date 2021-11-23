@@ -23,6 +23,7 @@
 #include <storage/Devices/BlkDevice.h>
 #include <storage/Devices/Partitionable.h>
 #include <storage/Devices/Md.h>
+#include <storage/Devices/Multipath.h>
 #include <storage/Devices/DmRaid.h>
 #include <storage/Devices/LvmVg.h>
 #include <storage/Devices/LvmPv.h>
@@ -79,28 +80,40 @@ namespace barrel
 
 	if (blk_device->has_children())
 	{
-	    const Device* child = blk_device->get_children()[0];
+	    // Note: There can be several children, e.g. for MD IMSM.
 
-	    if (is_md(child))
+	    vector<const Device*> children = blk_device->get_children();
+	    if (children.size() == 1)
 	    {
-		const Md* md = to_md(child);
-		return "RAID " + md->get_name();
-	    }
+		const Device* child = blk_device->get_children()[0];
 
-	    if (is_dm_raid(child))
-	    {
-		const DmRaid* dm_raid = to_dm_raid(child);
-		return "RAID " + dm_raid->get_name();
-	    }
+		if (is_md(child))
+		{
+		    const Md* md = to_md(child);
+		    return "RAID " + md->get_name();
+		}
 
-	    if (is_lvm_pv(child))
-	    {
-		const LvmPv* lvm_pv = to_lvm_pv(child);
+		if (is_multipath(child))
+		{
+		    const Multipath* multipath = to_multipath(child);
+		    return "MP " + multipath->get_name();
+		}
 
-		if (lvm_pv->has_lvm_vg())
-		    return "LVM " + lvm_pv->get_lvm_vg()->get_vg_name();
-		else
-		    return "LVM";
+		if (is_dm_raid(child))
+		{
+		    const DmRaid* dm_raid = to_dm_raid(child);
+		    return "RAID " + dm_raid->get_name();
+		}
+
+		if (is_lvm_pv(child))
+		{
+		    const LvmPv* lvm_pv = to_lvm_pv(child);
+
+		    if (lvm_pv->has_lvm_vg())
+			return "LVM " + lvm_pv->get_lvm_vg()->get_vg_name();
+		    else
+			return "LVM";
+		}
 	    }
 	}
 

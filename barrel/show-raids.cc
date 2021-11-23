@@ -57,7 +57,6 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    bool show_partitions = true;
-
 	    bool show_probed = false;
 	};
 
@@ -67,7 +66,6 @@ namespace barrel
 	    ParsedOpts parsed_opts = get_opts.parse("raids", show_raids_options);
 
 	    show_partitions = !parsed_opts.has_option("no-partitions");
-
 	    show_probed = parsed_opts.has_option("probed");
 	}
 
@@ -101,7 +99,7 @@ namespace barrel
 	unsigned int raid = 0;
 	unsigned int spare = 0;
 
-	for (const BlkDevice* blk_device : md->get_devices())
+	for (const BlkDevice* blk_device : md->get_blk_devices())
 	{
 	    const MdUser* md_user = to_md_user(devicegraph->find_holder(blk_device->get_sid(), md->get_sid()));
 
@@ -121,9 +119,6 @@ namespace barrel
     void
     ParsedCmdShowRaids::doit(const GlobalOptions& global_options, State& state) const
     {
-	// TODO show pool if all underlying devices are in the same pool
-	// TODO show underlying devices
-
 	const Storage* storage = state.storage;
 
 	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();

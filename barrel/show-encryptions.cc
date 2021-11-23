@@ -25,6 +25,7 @@
 #include <storage/Storage.h>
 #include <storage/Devicegraph.h>
 #include <storage/Devices/Encryption.h>
+#include <storage/Devices/Luks.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Table.h"
@@ -97,13 +98,14 @@ namespace barrel
 	sort(encryptions.begin(), encryptions.end(), Encryption::compare_by_dm_table_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Type"),
-		_("Underlying Device"), Cell(_("Usage"), Id::USAGE) });
+		_("Label"), Cell(_("Usage"), Id::USAGE) });
 
 	for (const Encryption* encryption : encryptions)
 	{
 	    Table::Row row(table, { encryption->get_dm_table_name(), format_size(encryption->get_size()),
 		    get_encryption_type_name(encryption->get_type()),
-		    encryption->get_blk_device()->get_name(), device_usage(encryption) });
+		    is_luks(encryption) ? to_luks(encryption)->get_label() : "",
+		    device_usage(encryption) });
 
 	    table.add(row);
 	}

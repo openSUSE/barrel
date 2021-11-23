@@ -39,6 +39,9 @@ namespace barrel
 	{
 	    cout << message << " [" << _("y/n") << "] " << flush;
 
+	    if (cin.eof())	// TODO
+		return false;
+
 	    string reply;
 	    cin >> reply;
 

@@ -54,7 +54,6 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    bool show_partitions = true;
-
 	    bool show_probed = false;
 	};
 
@@ -64,7 +63,6 @@ namespace barrel
 	    ParsedOpts parsed_opts = get_opts.parse("multipaths", show_multipaths_options);
 
 	    show_partitions = !parsed_opts.has_option("no-partitions");
-
 	    show_probed = parsed_opts.has_option("probed");
 	}
 

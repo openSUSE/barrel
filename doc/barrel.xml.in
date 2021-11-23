@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2021-09-27</date>
+    <date>2021-11-23</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2021-09-27</refmiscinfo>
+    <refmiscinfo class='date'>2021-11-23</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -1027,6 +1027,34 @@
 	      <term><option>--no-partitions</option></term>
 	      <listitem>
 		<para>Do not show partitions on the RAIDs.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>show tree <replaceable>devices</replaceable></option></term>
+	<listitem>
+	  <para>Shows a tree of block devices for the provided devices.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--up</option></term>
+	      <listitem>
+		<para>Show tree moving up from the devices.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--down</option></term>
+	      <listitem>
+		<para>Show tree moving down from the devices.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Show tree of the probed instead of the staging devicegraph.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>

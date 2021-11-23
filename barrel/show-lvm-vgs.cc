@@ -25,6 +25,7 @@
 #include <storage/Storage.h>
 #include <storage/Devicegraph.h>
 #include <storage/Devices/LvmVg.h>
+#include <storage/Devices/LvmLv.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Table.h"
@@ -59,7 +60,6 @@ namespace barrel
 
 	Options::Options(GetOpts& get_opts)
 	{
-
 	    ParsedOpts parsed_opts = get_opts.parse("vgs", show_lvm_vgs_options);
 
 	    show_probed = parsed_opts.has_option("probed");
@@ -137,9 +137,6 @@ namespace barrel
     void
     ParsedCmdShowLvmVgs::doit(const GlobalOptions& global_options, State& state) const
     {
-	// TODO show pool if all underlying devices are in the same pool?
-	// TODO show underlying devices
-
 	const Storage* storage = state.storage;
 
 	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();
@@ -147,15 +144,14 @@ namespace barrel
 	vector<const LvmVg*> lvm_vgs = LvmVg::get_all(devicegraph);
 	sort(lvm_vgs.begin(), lvm_vgs.end(), LvmVg::compare_by_name);
 
-	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Extent Size"), Align::RIGHT),
-		_("Devices"), Cell(_("Size"), Id::SIZE, Align::RIGHT),
-		Cell(_("Used"), Id::USED, Align::RIGHT), Cell(_("Stripes"), Id::STRIPES),
-		Cell(_("Usage"), Id::USAGE) });
+	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT),
+		Cell(_("Extent Size"), Align::RIGHT), _("Devices"), Cell(_("Used"), Id::USED, Align::RIGHT),
+		Cell(_("Stripes"), Id::STRIPES), Cell(_("Usage"), Id::USAGE) });
 
 	for (const LvmVg* lvm_vg : lvm_vgs)
 	{
-	    Table::Row row(table, { lvm_vg->get_vg_name(), format_size(lvm_vg->get_extent_size(), true),
-		    sformat("%lu", lvm_vg->get_lvm_pvs().size()), format_size(lvm_vg->get_size()) });
+	    Table::Row row(table, { lvm_vg->get_vg_name(), format_size(lvm_vg->get_size()),
+		    format_size(lvm_vg->get_extent_size(), true), sformat("%lu", lvm_vg->get_lvm_pvs().size()) });
 
 	    unsigned long long total_size = lvm_vg->number_of_extents();
 	    unsigned long long total_used = lvm_vg->number_of_used_extents();
