@@ -30,7 +30,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "show", "disks" });
+    Args args({ "--dry-run", "show", "disks" });
 
     vector<string> output = {
 	"Probing... done",
@@ -64,7 +64,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    Args args({ "barrel", "--dry-run", "show", "raids" });
+    Args args({ "--dry-run", "show", "raids" });
 
     vector<string> output = {
 	"Probing... done",
@@ -91,7 +91,7 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--quiet", "--dry-run", "show", "vgs" });
+    Args args({ "--quiet", "--dry-run", "show", "vgs" });
 
     vector<string> output = {
 	"Name   │      Size │ Extent Size │ Devices │   Used │ Stripes │ Usage",
@@ -118,7 +118,7 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
-    Args args({ "barrel", "--quiet", "--dry-run", "show", "vgs" });
+    Args args({ "--quiet", "--dry-run", "show", "vgs" });
 
     vector<string> output = {
 	"Name        │       Size │ Extent Size │ Devices │  Used │ Stripes    │ Usage",
@@ -148,7 +148,7 @@ BOOST_AUTO_TEST_CASE(test4)
 
 BOOST_AUTO_TEST_CASE(test5)
 {
-    Args args({ "barrel", "--dry-run", "--quiet", "show", "filesystems" });
+    Args args({ "--dry-run", "--quiet", "show", "filesystems" });
 
     vector<string> output = {
 	"Type │ Label │ Name           │      Size │ Mount Point",
@@ -176,7 +176,7 @@ BOOST_AUTO_TEST_CASE(test5)
 
 BOOST_AUTO_TEST_CASE(test6)
 {
-    Args args({ "barrel", "--dry-run", "--quiet", "show", "filesystems" });
+    Args args({ "--dry-run", "--quiet", "show", "filesystems" });
 
     vector<string> output = {
 	"Type  │ Label │ Name             │     Size │ Mount Point",
@@ -204,7 +204,7 @@ BOOST_AUTO_TEST_CASE(test6)
 
 BOOST_AUTO_TEST_CASE(test7)
 {
-    Args args({ "barrel", "--dry-run", "--quiet", "show", "dasds", "--no-partitions" });
+    Args args({ "--dry-run", "--quiet", "show", "dasds", "--no-partitions" });
 
     vector<string> output = {
 	"Name       │     Size │ Block Size │   Bus ID │ Type │ Format │ Usage │ Pool",

@@ -101,6 +101,14 @@ namespace barrel
     {
 	vector<shared_ptr<ParsedCmd>> cmds;
 
+	// This is tricky. getopt needs optind = 0 to reinit itself in interactive
+	// mode. Without that strange things can happen, esp. with short options. So call
+	// GetOpts::parse explicitely. Also notice that getopt sets optind to 1 if it is 0
+	// to skip the program name. For that reason argv includes a program name as first
+	// element.
+
+	get_opts.parse(GetOpts::no_ext_options);
+
 	const char* command = get_opts.pop_arg();
 	vector<MainCmd>::const_iterator main_cmd = sloppy_find(main_cmds, command);
 

@@ -29,7 +29,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool-name=HDDs (512 B)",
+    Args args({ "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool-name=HDDs (512 B)",
 	    "--devices", "3+1", "--size", "8 GiB" });
 
     vector<string> actions = {
@@ -64,7 +64,7 @@ BOOST_AUTO_TEST_CASE(test2)
     // Here the shell does the expansion of /dev/sd[b-e].
     // barrel --dry-run create raid5 /dev/sd[b-e] --size "8 GiB"
 
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid5", "/dev/sdb", "/dev/sdc", "/dev/sdd", "/dev/sde",
+    Args args({ "--dry-run", "--yes", "create", "raid5", "/dev/sdb", "/dev/sdc", "/dev/sdd", "/dev/sde",
 		"--size", "8 GiB" });
 
     vector<string> actions = {
@@ -96,7 +96,7 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--dry-run", "--yes" });
+    Args args({ "--dry-run", "--yes" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (4.06 GiB)",
@@ -133,7 +133,7 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "mirror", "--name", "test",
+    Args args({ "--dry-run", "--yes", "create", "raid", "--level", "mirror", "--name", "test",
 	    "/dev/sdb", "/dev/sdc", "--force" });
 
     vector<string> actions = {

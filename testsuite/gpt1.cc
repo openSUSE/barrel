@@ -29,7 +29,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "gpt", "/dev/sdb", "--force" });
+    Args args({ "--dry-run", "--yes", "create", "gpt", "/dev/sdb", "--force" });
 
     vector<string> actions = {
 	"Delete GPT on /dev/sdb",

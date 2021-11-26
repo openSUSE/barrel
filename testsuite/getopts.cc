@@ -44,7 +44,7 @@ const ExtOptions filesystem_opts({
 
 BOOST_AUTO_TEST_CASE(good1)
 {
-    Args args({ "getopt", "--verbose" });
+    Args args({ "--verbose" });
     GetOpts get_opts(args.argc(), args.argv());
 
     ParsedOpts parsed_global_opts = get_opts.parse(global_opts);
@@ -58,7 +58,7 @@ BOOST_AUTO_TEST_CASE(good1)
 
 BOOST_AUTO_TEST_CASE(good2)
 {
-    Args args({ "getopt", "-v", "create", "raid", "--size", "1 TiB", "/dev/sd[cd]1" });
+    Args args({ "-v", "create", "raid", "--size", "1 TiB", "/dev/sd[cd]1" });
     GetOpts get_opts(args.argc(), args.argv(), true, { "/dev/sda", "/dev/sdb", "/dev/sdc",
 	    "/dev/sdc1", "/dev/sdc2", "/dev/sdd", "/dev/sdd1", "/dev/sdd2" });
 
@@ -99,7 +99,7 @@ BOOST_AUTO_TEST_CASE(good2)
 
 BOOST_AUTO_TEST_CASE(good3)
 {
-    Args args({ "getopt", "--verbose", "create", "raid", "--size=1 TiB", "/dev/sdc1", "/dev/sdd1",
+    Args args({ "--verbose", "create", "raid", "--size=1 TiB", "/dev/sdc1", "/dev/sdd1",
 	    "filesystem", "--type=xfs" });
     GetOpts get_opts(args.argc(), args.argv());
 
@@ -148,7 +148,7 @@ BOOST_AUTO_TEST_CASE(good3)
 
 BOOST_AUTO_TEST_CASE(good4)
 {
-    Args args({ "getopt", "--verbose", "create", "raid", "--size=1 TiB", "/dev/sd[cd]1" });
+    Args args({ "--verbose", "create", "raid", "--size=1 TiB", "/dev/sd[cd]1" });
     GetOpts get_opts(args.argc(), args.argv(), true, { "/dev/sdc", "/dev/sdd" });
 
     // parse global options
@@ -182,7 +182,7 @@ BOOST_AUTO_TEST_CASE(good4)
 
 BOOST_AUTO_TEST_CASE(error1)
 {
-    Args args({ "getopt", "--table-style" });
+    Args args({ "--table-style" });
     GetOpts get_opts(args.argc(), args.argv());
 
     BOOST_CHECK_EXCEPTION(get_opts.parse(global_opts), runtime_error, [](const exception& e) {
@@ -193,7 +193,7 @@ BOOST_AUTO_TEST_CASE(error1)
 
 BOOST_AUTO_TEST_CASE(error2)
 {
-    Args args({ "getopt", "create", "raid", "--size" });
+    Args args({ "create", "raid", "--size" });
     GetOpts get_opts(args.argc(), args.argv());
 
     get_opts.parse(global_opts);
@@ -208,7 +208,7 @@ BOOST_AUTO_TEST_CASE(error2)
 
 BOOST_AUTO_TEST_CASE(error3)
 {
-    Args args({ "getopt", "--read-my-mind" });
+    Args args({ "--read-my-mind" });
     GetOpts get_opts(args.argc(), args.argv());
 
     BOOST_CHECK_EXCEPTION(get_opts.parse(global_opts), runtime_error, [](const exception& e) {
@@ -219,7 +219,7 @@ BOOST_AUTO_TEST_CASE(error3)
 
 BOOST_AUTO_TEST_CASE(error4)
 {
-    Args args({ "getopt", "create", "raid", "--read-my-mind" });
+    Args args({ "create", "raid", "--read-my-mind" });
     GetOpts get_opts(args.argc(), args.argv());
 
     get_opts.parse(global_opts);
@@ -234,7 +234,7 @@ BOOST_AUTO_TEST_CASE(error4)
 
 BOOST_AUTO_TEST_CASE(error5)
 {
-    Args args({ "getopt", "/dev/sdz", "show" });
+    Args args({ "/dev/sdz", "show" });
     GetOpts get_opts(args.argc(), args.argv());
 
     BOOST_CHECK_EXCEPTION(get_opts.parse(global_opts), runtime_error, [](const exception& e) {
@@ -245,7 +245,7 @@ BOOST_AUTO_TEST_CASE(error5)
 
 BOOST_AUTO_TEST_CASE(error6)
 {
-    Args args({ "getopt", "show", "disks", "/dev/sdz" });
+    Args args({ "show", "disks", "/dev/sdz" });
     GetOpts get_opts(args.argc(), args.argv());
 
     get_opts.parse(GetOpts::no_ext_options);

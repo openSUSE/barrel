@@ -29,7 +29,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "xfs", "/dev/sdb", "-s", "8 GiB", "-p", "/test",
+    Args args({ "--dry-run", "--yes", "create", "xfs", "/dev/sdb", "-s", "8 GiB", "-p", "/test",
 	    "-o", "noauto" });
 
     vector<string> actions = {
@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "filesystem", "--type=xfs", "/dev/sdb", "--force" });
+    Args args({ "--dry-run", "--yes", "create", "filesystem", "--type=xfs", "/dev/sdb", "--force" });
 
     vector<string> actions = {
 	"Delete GPT on /dev/sdb",
@@ -78,7 +78,7 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "xfs", "--pool", "HDDs (512 B)", "--size=12 GiB",
+    Args args({ "--dry-run", "--yes", "create", "xfs", "--pool", "HDDs (512 B)", "--size=12 GiB",
 	    "--mkfs-options=-m bigtime=1" });
 
     vector<string> actions = {

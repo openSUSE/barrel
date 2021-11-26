@@ -29,7 +29,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool", "HDDs (512 B)",
+    Args args({ "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool", "HDDs (512 B)",
 	    "--devices", "3+1", "--size", "8 GiB", "xfs", "--path", "/test1" });
 
     vector<string> actions = {
@@ -64,7 +64,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid5", "--pool", "HDDs (512 B)", "--devices",
+    Args args({ "--dry-run", "--yes", "create", "raid5", "--pool", "HDDs (512 B)", "--devices",
 	    "3+1", "--size", "8 GiB", "gpt", "xfs", "--size", "1 GiB", "--path", "/test1" });
 
     vector<string> actions = {
@@ -101,7 +101,7 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool", "HDDs (512 B)",
+    Args args({ "--dry-run", "--yes", "create", "raid", "--level", "5", "--pool", "HDDs (512 B)",
 	    "--devices", "3+1", "--size", "8 GiB", "vg", "--name", "test", "lv", "--name", "foo",
 	    "--size", "2 GiB" });
 
@@ -137,7 +137,7 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "raid5", "--pool", "HDDs (512 B)", "--devices",
+    Args args({ "--dry-run", "--yes", "create", "raid5", "--pool", "HDDs (512 B)", "--devices",
 	    "3+1", "--size", "8 GiB", "gpt", "vg", "--name", "test", "--size", "6 GiB", "lv", "--name",
 	    "foo", "--size", "2 GiB" });
 

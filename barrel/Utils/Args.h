@@ -38,25 +38,28 @@ namespace barrel
 
 	Args(std::initializer_list<string> init)
 	{
+	    tmp.push_back(strdup("barrel"));
+
 	    for (const string& s : init)
 		tmp.push_back(strdup(s.c_str()));
+
 	    tmp.push_back(nullptr);
 	}
 
 	Args(const vector<string>& init)
 	{
+	    tmp.push_back(strdup("barrel"));
+
 	    for (const string& s : init)
-		    tmp.push_back(strdup(s.c_str()));
+		tmp.push_back(strdup(s.c_str()));
+
 	    tmp.push_back(nullptr);
 	}
 
 	~Args()
 	{
-	    // TODO enabling this causes testsuite/strange1.cc to fail
-#if 0
 	    for (char* p : tmp)
 		free(p);
-#endif
 	}
 
 	int argc() const { return tmp.size() - 1; }

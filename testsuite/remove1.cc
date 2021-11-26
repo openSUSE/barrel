@@ -29,7 +29,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes" });
+    Args args({ "--dry-run", "--yes" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (8.12 GiB)",
@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE(test2)
     // Even on GPT partitions can be renumber due to the inability of parted to create
     // partitions with a defined number.
 
-    Args args({ "barrel", "--dry-run", "--yes" });
+    Args args({ "--dry-run", "--yes" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (2.03 GiB)",

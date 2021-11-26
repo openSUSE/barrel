@@ -16,7 +16,7 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes" });
+    Args args({ "--dry-run", "--yes" });
 
     vector<string> output = {
 	"Probing... done",

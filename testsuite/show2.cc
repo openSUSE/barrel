@@ -30,7 +30,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "show", "tree", "/dev/md0" });
+    Args args({ "--dry-run", "show", "tree", "/dev/md0" });
 
     vector<string> output = {
 	"Probing... done",
@@ -61,7 +61,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    Args args({ "barrel", "--quiet", "--dry-run", "show", "tree", "/dev/data/home" });
+    Args args({ "--quiet", "--dry-run", "show", "tree", "/dev/data/home" });
 
     vector<string> output = {
 	"Name           │      Size │ Usage         │ Pool",
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--dry-run", "--quiet", "show", "tree", "/dev/mapper/36005076305ffc73a00000000000013b4" });
+    Args args({ "--dry-run", "--quiet", "show", "tree", "/dev/mapper/36005076305ffc73a00000000000013b4" });
 
     vector<string> output = {
 	"Name                                          │     Size │ Usage                                            │ Pool",
@@ -120,7 +120,7 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
-    Args args({ "barrel", "--dry-run", "--quiet", "show", "tree", "/dev/mapper/isw_ddgdcbibhd_test1" });
+    Args args({ "--dry-run", "--quiet", "show", "tree", "/dev/mapper/isw_ddgdcbibhd_test1" });
 
     vector<string> output = {
 	"Name                             │      Size │ Usage │ Pool",

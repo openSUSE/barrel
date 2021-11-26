@@ -29,7 +29,7 @@ namespace std
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "vg", "--name", "test", "--size", "5g", "--pool",
+    Args args({ "--dry-run", "--yes", "create", "vg", "--name", "test", "--size", "5g", "--pool",
 	    "HDDs (512 B)", "--devices", "2", "lv", "--name", "a", "--size", "2g", "--stripes", "max", "xfs",
 	    "--path", "/test" });
 
@@ -63,7 +63,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    Args args({ "barrel", "--dry-run", "--yes" });
+    Args args({ "--dry-run", "--yes" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (2.50 GiB)",
@@ -102,7 +102,7 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "vg", "--name", "test", "/dev/sdb", "/dev/sdc",
+    Args args({ "--dry-run", "--yes", "create", "vg", "--name", "test", "/dev/sdb", "/dev/sdc",
 	    "--size=max", "--extent-size=8m", "lv", "--name", "a", "--size", "max", "ext4" });
 
     vector<string> actions = {
@@ -133,7 +133,7 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "vg", "--name", "test", "/dev/sdb", "--force",
+    Args args({ "--dry-run", "--yes", "create", "vg", "--name", "test", "/dev/sdb", "--force",
 	    "lv", "--name", "a", "--size", "2g", "--stripes", "max", "xfs", "--path", "/test" });
 
     vector<string> actions = {

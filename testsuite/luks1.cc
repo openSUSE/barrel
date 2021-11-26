@@ -45,7 +45,7 @@ BOOST_TEST_GLOBAL_FIXTURE(Fixture);
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "luks1", "--name=cr1", "/dev/sdb", "-s", "max",
+    Args args({ "--dry-run", "--yes", "create", "luks1", "--name=cr1", "/dev/sdb", "-s", "max",
 	    "ext4" });
 
     vector<string> actions = {
@@ -72,7 +72,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "encryption", "--type=luks2", "--name=cr2",
+    Args args({ "--dry-run", "--yes", "create", "encryption", "--type=luks2", "--name=cr2",
 	    "/dev/sdb", "--force", "ext4" });
 
     vector<string> actions = {
@@ -99,7 +99,7 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    Args args({ "barrel", "--dry-run", "--yes", "create", "luks1", "--pool", "HDDs (512 B)", "--name",
+    Args args({ "--dry-run", "--yes", "create", "luks1", "--pool", "HDDs (512 B)", "--name",
 	    "cr3", "--size=12 GiB", "ext4" });
 
     vector<string> actions = {

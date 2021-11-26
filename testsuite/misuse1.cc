@@ -50,7 +50,7 @@ BOOST_AUTO_TEST_CASE(test1)
 {
     // The block devices are missing. That is detected before probing.
 
-    Args args({ "barrel", "--dry-run", "create", "raid5" });
+    Args args({ "--dry-run", "create", "raid5" });
 
     vector<string> output1 = {
 	// No "Probing..."
@@ -81,7 +81,7 @@ BOOST_AUTO_TEST_CASE(test2)
 {
     // The --size option is missing. That is detected before probing.
 
-    Args args({ "barrel", "--dry-run", "create", "vg", "--name", "test", "--pool", "HDDs (512 B)" });
+    Args args({ "--dry-run", "create", "vg", "--name", "test", "--pool", "HDDs (512 B)" });
 
     vector<string> output1 = {
 	// No "Probing..."
