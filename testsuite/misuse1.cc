@@ -29,7 +29,7 @@ namespace std
 
 
 pair<string, string>
-huhu(int argc, char** argv, const Testsuite* testsuite)
+run_and_capture(int argc, char** argv, const Testsuite* testsuite)
 {
     ostringstream buffer1;
     ostringstream buffer2;
@@ -63,7 +63,7 @@ BOOST_AUTO_TEST_CASE(test1)
     Testsuite testsuite;
     testsuite.devicegraph_filename = "empty1.xml";
 
-    pair<string, string> lhs = huhu(args.argc(), args.argv(), &testsuite);
+    pair<string, string> lhs = run_and_capture(args.argc(), args.argv(), &testsuite);
 
     string rhs1 = accumulate(output1.begin(), output1.end(), ""s,
 			     [](auto a, auto b) { return a + b + "\n"; });
@@ -94,7 +94,7 @@ BOOST_AUTO_TEST_CASE(test2)
     Testsuite testsuite;
     testsuite.devicegraph_filename = "empty1.xml";
 
-    pair<string, string> lhs = huhu(args.argc(), args.argv(), &testsuite);
+    pair<string, string> lhs = run_and_capture(args.argc(), args.argv(), &testsuite);
 
     string rhs1 = accumulate(output1.begin(), output1.end(), ""s,
 			     [](auto a, auto b) { return a + b + "\n"; });

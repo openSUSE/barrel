@@ -197,8 +197,6 @@ namespace barrel
     void
     ParsedCmdCreateLvmLv::doit(const GlobalOptions& global_options, State& state) const
     {
-	// TODO check name (valid, unique)
-
 	Devicegraph* staging = state.storage->get_staging();
 
 	LvmVg* lvm_vg = nullptr;
