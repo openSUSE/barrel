@@ -103,3 +103,32 @@ BOOST_AUTO_TEST_CASE(test2)
 
     BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
 }
+
+
+BOOST_AUTO_TEST_CASE(test3)
+{
+    Args args({ "--dry-run", "--yes", "--verbose", "load", "devicegraph", "--name", "dmraid2.xml",
+	    "--mapping", "mapping2.json" });
+
+    vector<string> actions = {
+	"Delete xfs on /dev/mapper/isw_ccffigbhjc_test2-part1 (6.40 GiB)",
+	"Delete partition /dev/mapper/isw_ccffigbhjc_test2-part1 (6.40 GiB)",
+	"Delete GPT on /dev/mapper/isw_ccffigbhjc_test2",
+	"Create GPT on /dev/mapper/isw_ccffigbhjc_test2",
+	"Create partition /dev/mapper/isw_ccffigbhjc_test2-part1 (31.99 GiB)",
+	"Create xfs on /dev/mapper/isw_ccffigbhjc_test2-part1 (31.99 GiB)",
+	"Set UUID of xfs on /dev/mapper/isw_ccffigbhjc_test2-part1 (31.99 GiB) to eac326ab-fa44-4c0d-9228-256f45eb9609"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "dmraid1.xml";
+
+    vector<string> tmp;
+    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
+	tmp = actiongraph->get_commit_actions_as_strings();
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+}

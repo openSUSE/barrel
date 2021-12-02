@@ -24,6 +24,8 @@
 #include <storage/Devicegraph.h>
 #include <storage/Devices/Disk.h>
 #include <storage/Devices/Dasd.h>
+#include <storage/Devices/Multipath.h>
+#include <storage/Devices/DmRaid.h>
 #include <storage/Holders/Holder.h>
 
 #include "Utils/GetOpts.h"
@@ -93,7 +95,7 @@ namespace barrel
 
 	/**
 	 * Make an automatic mapping for disks and DASDs. Either the udev path or id must be
-	 * identical.
+	 * identical. For multipath and DM RAID the name must be identical.
 	 */
 	mapping_t make_mapping(const Devicegraph* probed, const Devicegraph* staging) const;
 
@@ -111,6 +113,16 @@ namespace barrel
 
 	const Dasd* map_dasd(const GlobalOptions& global_options, const Devicegraph* probed,
 			     SystemInfo& system_info, const mapping_t& mapping, const Dasd* a) const;
+
+	const Multipath* map_multipath(const GlobalOptions& global_options, const Devicegraph* probed,
+				       SystemInfo& system_info, const mapping_t& mapping, const Multipath* a) const;
+
+	const DmRaid* map_dm_raid(const GlobalOptions& global_options, const Devicegraph* probed,
+				  SystemInfo& system_info, const mapping_t& mapping, const DmRaid* a) const;
+
+	bool skip_disk(const Disk* a) const;
+
+	void copy_to_staging(Devicegraph* staging, BlkDevice* a, const BlkDevice* b) const;
 
     };
 
@@ -220,6 +232,44 @@ namespace barrel
 	    mapping[a->get_name()] = { matches.front()->get_name() };
 	}
 
+	for (const Multipath* a : Multipath::get_all(staging))
+	{
+	    vector<const Multipath*> matches;
+
+	    for (const Multipath* b : Multipath::get_all(probed))
+	    {
+		if (a->get_name() == b->get_name())
+		    matches.push_back(b);
+	    }
+
+	    if (matches.size() == 0)
+		throw runtime_error(sformat(_("no mapping multipath for '%s' found"), a->get_name().c_str()));
+
+	    if (matches.size() >= 2)
+		throw runtime_error(sformat(_("several mapping multipath for '%s' found"), a->get_name().c_str()));
+
+	    mapping[a->get_name()] = { matches.front()->get_name() };
+	}
+
+	for (const DmRaid* a : DmRaid::get_all(staging))
+	{
+	    vector<const DmRaid*> matches;
+
+	    for (const DmRaid* b : DmRaid::get_all(probed))
+	    {
+		if (a->get_name() == b->get_name())
+		    matches.push_back(b);
+	    }
+
+	    if (matches.size() == 0)
+		throw runtime_error(sformat(_("no mapping DM RAID for '%s' found"), a->get_name().c_str()));
+
+	    if (matches.size() >= 2)
+		throw runtime_error(sformat(_("several mapping DM RAIDs for '%s' found"), a->get_name().c_str()));
+
+	    mapping[a->get_name()] = { matches.front()->get_name() };
+	}
+
 	return mapping;
     }
 
@@ -317,6 +367,72 @@ namespace barrel
     }
 
 
+    const Multipath*
+    ParsedCmdLoadDevicegraph::map_multipath(const GlobalOptions& global_options, const Devicegraph* probed,
+					    SystemInfo& system_info, const mapping_t& mapping, const Multipath* a) const
+    {
+	const BlkDevice* b = map_blk_device(global_options, probed, system_info, mapping, a);
+
+	if (!is_multipath(b))
+	    throw runtime_error(sformat(_("mapped device for '%s' is not a multipath"), a->get_name().c_str()));
+
+	return to_multipath(b);
+    }
+
+
+    const DmRaid*
+    ParsedCmdLoadDevicegraph::map_dm_raid(const GlobalOptions& global_options, const Devicegraph* probed,
+					  SystemInfo& system_info, const mapping_t& mapping, const DmRaid* a) const
+    {
+	const BlkDevice* b = map_blk_device(global_options, probed, system_info, mapping, a);
+
+	if (!is_dm_raid(b))
+	    throw runtime_error(sformat(_("mapped device for '%s' is not a DM RAID"), a->get_name().c_str()));
+
+	return to_dm_raid(b);
+    }
+
+
+    bool
+    ParsedCmdLoadDevicegraph::skip_disk(const Disk* a) const
+    {
+	for (const Device* child : a->get_children())
+	{
+	    if (is_multipath(child) || is_dm_raid(child))
+		return true;
+	}
+
+	return false;
+    }
+
+
+    void
+    ParsedCmdLoadDevicegraph::copy_to_staging(Devicegraph* staging, BlkDevice* a, const BlkDevice* b) const
+    {
+	// copy device to staging and attach children
+
+	Device* c = b->copy_to_devicegraph(staging);
+
+	for (Holder* holder : a->get_out_holders())
+	    holder->set_source(c);
+
+	// copy parents with holders to staging (e.g. for multipath)
+
+	for (const Holder* holder : b->get_in_holders())
+	{
+	    holder->get_source()->copy_to_devicegraph(staging);
+	    holder->copy_to_devicegraph(staging);
+	}
+
+	// remove old (loaded) device and old (loaded) parents from staging
+
+	for (Holder* holder : a->get_in_holders())
+	    staging->remove_device(holder->get_source());
+
+	staging->remove_device(a);
+    }
+
+
     void
     ParsedCmdLoadDevicegraph::doit(const GlobalOptions& global_options, State& state) const
     {
@@ -340,24 +456,17 @@ namespace barrel
 
 	SystemInfo system_info;
 
-	// TODO multipath, md raid, dm raid
-
 	for (Disk* a : Disk::get_all(staging))
 	{
+	    if (skip_disk(a))
+		continue;
+
 	    const Disk* b = map_disk(global_options, probed, system_info, mapping, a);
 
 	    if (b->exists_in_devicegraph(staging))
 		throw runtime_error(sformat(_("mapped disk for '%s' mapped twice"), a->get_name().c_str()));
 
-	    Device* c = b->copy_to_devicegraph(staging);
-
-	    for (Holder* holder : a->get_out_holders())
-		holder->set_source(c);
-
-	    staging->remove_device(a);
-
-	    // TODO must anything dependent be update? e.g. name, sysfs_name, sysfs_path
-	    // of partitions, topology, ...
+	    copy_to_staging(staging, a, b);
 	}
 
 	for (Dasd* a : Dasd::get_all(staging))
@@ -367,16 +476,31 @@ namespace barrel
 	    if (b->exists_in_devicegraph(staging))
 		throw runtime_error(sformat(_("mapped DASD for '%s' mapped twice"), a->get_name().c_str()));
 
-	    Device* c = b->copy_to_devicegraph(staging);
-
-	    for (Holder* holder : a->get_out_holders())
-		holder->set_source(c);
-
-	    staging->remove_device(a);
-
-	    // TODO must anything dependent be update? e.g. name, sysfs_name, sysfs_path
-	    // of partitions, topology, ...
+	    copy_to_staging(staging, a, b);
 	}
+
+	for (Multipath* a : Multipath::get_all(staging))
+	{
+	    const Multipath* b = map_multipath(global_options, probed, system_info, mapping, a);
+
+	    if (b->exists_in_devicegraph(staging))
+		throw runtime_error(sformat(_("mapped multipath for '%s' mapped twice"), a->get_name().c_str()));
+
+	    copy_to_staging(staging, a, b);
+	}
+
+	for (DmRaid* a : DmRaid::get_all(staging))
+	{
+	    const DmRaid* b = map_dm_raid(global_options, probed, system_info, mapping, a);
+
+	    if (b->exists_in_devicegraph(staging))
+		throw runtime_error(sformat(_("mapped DM RAID for '%s' mapped twice"), a->get_name().c_str()));
+
+	    copy_to_staging(staging, a, b);
+	}
+
+	// TODO must anything dependent be update? libstorage-ng already takes are of some
+	// stuff
 
 	// TODO clear uuids
 	// TODO what to do with subvolumes/snapshots of snapper?
