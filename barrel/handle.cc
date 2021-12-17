@@ -36,6 +36,7 @@
 #include "Utils/Text.h"
 #include "Utils/Misc.h"
 #include "Utils/Readline.h"
+#include "Utils/Prompt.h"
 
 #include "handle.h"
 #include "cmds.h"
@@ -185,28 +186,57 @@ namespace barrel
 	{
 	}
 
+	virtual void begin() const override
+	{
+	    if (global_options.verbose || global_options.quiet)
+		return;
+
+	    cout << _("Probing...") << flush;
+	    beginning_of_line = false;
+	}
+
+	virtual void end() const override
+	{
+	    if (global_options.verbose || global_options.quiet)
+		return;
+
+	    if (!beginning_of_line)
+		cout << " ";
+
+	    cout << _("done") << endl;
+	    beginning_of_line = true;
+	}
+
 	virtual void message(const string& message) const override
 	{
-	    if (global_options.verbose)
-		cout << message << endl;
+	    if (!global_options.verbose)
+		return;
+
+	    cout << message << endl;
 	}
 
 	virtual bool error(const string& message, const string& what) const override
 	{
+	    if (!beginning_of_line)
+		cout << '\n';
+	    beginning_of_line = true;
+
 	    cerr << _("error:") << ' ' << message << endl;
-	    return false;
+
+	    return prompt(_("Continue?"));
 	}
 
 	virtual bool missing_command(const string& message, const string& what,
 				     const string& command, uint64_t used_features) const override
 	{
-	    cerr << _("error:") << ' ' << message << endl;
-	    return false;
+	    return error(message, what);
 	}
 
     private:
 
 	const GlobalOptions& global_options;
+
+	mutable bool beginning_of_line = true;
 
     };
 
@@ -230,14 +260,8 @@ namespace barrel
 
 	if (global_options.probe)
 	{
-	    if (!global_options.verbose && !global_options.quiet)
-		cout << _("Probing...") << flush;
-
 	    MyProbeCallbacks my_probe_callbacks(global_options);
 	    storage.probe(&my_probe_callbacks);
-
-	    if (!global_options.verbose && !global_options.quiet)
-		cout << " " << _("done") << endl;
 	}
     }
 
