@@ -41,7 +41,7 @@ Requires:       libstorage-ng1 >= 4.4.59
 Recommends:     %{name}-lang
 
 Summary:        Tool for storage management
-Url:            http://github.com/aschnell/barrel
+Url:            http://github.com/openSUSE/barrel
 License:        GPL-2.0-only
 Group:          System/Packages
 
