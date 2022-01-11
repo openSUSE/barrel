@@ -54,15 +54,15 @@ namespace barrel
 
 	    for (const string& action : actiongraph->get_commit_actions_as_strings())
 		cout << "  " << action << '\n';
-
-	    if (state.pools_modified)
-		cout << "  " << _("Save pools") << '\n';
 	}
 	catch (const Exception& e)
 	{
 	    cout << _("failed to calculate actions") << endl;
 	    cout << e.what() << endl;
 	}
+
+	if (state.pools_modified)
+	    cout << "  " << _("Save pools") << '\n';
     }
 
 
