@@ -309,7 +309,7 @@ msgid "Shows pools."
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 msgid "Stripes"
 msgstr ""
@@ -822,4 +822,13 @@ msgid "wrong number of partitionables"
 msgstr ""
 
 msgid "y/n"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "show underlying device"
+msgstr ""
+
+msgid "show underlying devices"
 msgstr ""
