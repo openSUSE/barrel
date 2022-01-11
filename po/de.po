@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 15:49+0100\n"
+"POT-Creation-Date: 2022-01-11 16:33+0100\n"
 "PO-Revision-Date: 2022-01-10 10:12+0000\n"
 "Last-Translator: Arvin Schnell <aschnell@suse.com>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
-"\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
+">\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,6 +99,9 @@ msgstr ""
 msgid "Commits changes to disk and quits barrel."
 msgstr ""
 
+msgid "Continue?"
+msgstr ""
+
 msgid "Creates a new LVM logical volume."
 msgstr ""
 
@@ -121,9 +124,6 @@ msgid "Creates a new pool containing devices."
 msgstr ""
 
 msgid "Description"
-msgstr ""
-
-msgid "Device"
 msgstr ""
 
 msgid "Devices"
@@ -168,6 +168,9 @@ msgstr ""
 
 #, c-format
 msgid "LVM volume group %s"
+msgstr ""
+
+msgid "Label"
 msgstr ""
 
 msgid "Level"
@@ -287,6 +290,9 @@ msgid "Shows RAIDs."
 msgstr ""
 
 msgid "Shows commit actions."
+msgstr ""
+
+msgid "Shows device tree."
 msgstr ""
 
 msgid "Shows disks."
@@ -441,6 +447,12 @@ msgstr ""
 msgid "force if block devices are in use"
 msgstr ""
 
+msgid "go downwards"
+msgstr ""
+
+msgid "go upwards"
+msgstr ""
+
 msgid "invalid logical volume name for command 'lv'"
 msgstr ""
 
@@ -467,6 +479,10 @@ msgid "mapped DASD for '%s' mapped twice"
 msgstr ""
 
 #, c-format
+msgid "mapped DM RAID for '%s' mapped twice"
+msgstr ""
+
+#, c-format
 msgid "mapped device for '%s' has different block size"
 msgstr ""
 
@@ -475,7 +491,15 @@ msgid "mapped device for '%s' is not a DASD"
 msgstr ""
 
 #, c-format
+msgid "mapped device for '%s' is not a DM RAID"
+msgstr ""
+
+#, c-format
 msgid "mapped device for '%s' is not a disk"
+msgstr ""
+
+#, c-format
+msgid "mapped device for '%s' is not a multipath"
 msgstr ""
 
 #, c-format
@@ -488,6 +512,10 @@ msgstr ""
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
+msgstr ""
+
+#, c-format
+msgid "mapped multipath for '%s' mapped twice"
 msgstr ""
 
 #, c-format
@@ -508,6 +536,9 @@ msgid "mount options require a path"
 msgstr ""
 
 msgid "mount path"
+msgstr ""
+
+msgid "multiple devices"
 msgstr ""
 
 msgid "name missing for command 'devicegraph'"
@@ -560,7 +591,15 @@ msgid "no mapping DASD for '%s' found"
 msgstr ""
 
 #, c-format
+msgid "no mapping DM RAID for '%s' found"
+msgstr ""
+
+#, c-format
 msgid "no mapping disk for '%s' found"
+msgstr ""
+
+#, c-format
+msgid "no mapping multipath for '%s' found"
 msgstr ""
 
 msgid "not a block device on stack"
@@ -664,6 +703,9 @@ msgstr ""
 msgid "set file system type"
 msgstr ""
 
+msgid "set label of device"
+msgstr ""
+
 msgid "set name of device"
 msgstr ""
 
@@ -693,16 +735,18 @@ msgid "several mapping DASDs for '%s' found"
 msgstr ""
 
 #, c-format
+msgid "several mapping DM RAIDs for '%s' found"
+msgstr ""
+
+#, c-format
 msgid "several mapping disks for '%s' found"
 msgstr ""
 
+#, c-format
+msgid "several mapping multipath for '%s' found"
+msgstr ""
+
 msgid "show help and exit"
-msgstr ""
-
-msgid "show underlying device"
-msgstr ""
-
-msgid "show underlying devices"
 msgstr ""
 
 msgid "show version and exit"
