@@ -1,0 +1,781 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR SUSE LLC
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-18 15:49+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Activating..."
+msgstr ""
+
+msgid "Adds devices to a pool."
+msgstr ""
+
+msgid "Alias for 'create encryption --type luks1'"
+msgstr ""
+
+msgid "Alias for 'create encryption --type luks2'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type btrfs'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type ext2'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type ext3'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type ext4'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type f2fs'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type ntfs'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type swap'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type xfs'"
+msgstr ""
+
+msgid "Alias for 'create partition-table --type gpt'"
+msgstr ""
+
+msgid "Alias for 'create partition-table --type ms-dos'"
+msgstr ""
+
+msgid "Alias for 'create raid --level 0'"
+msgstr ""
+
+msgid "Alias for 'create raid --level 1'"
+msgstr ""
+
+msgid "Alias for 'create raid --level 10'"
+msgstr ""
+
+msgid "Alias for 'create raid --level 4'"
+msgstr ""
+
+msgid "Alias for 'create raid --level 5'"
+msgstr ""
+
+msgid "Alias for 'create raid --level 6'"
+msgstr ""
+
+msgid "Block Size"
+msgstr ""
+
+msgid "Bus ID"
+msgstr ""
+
+msgid "Chunk Size"
+msgstr ""
+
+msgid "Clears the stack."
+msgstr ""
+
+msgid "Commands:"
+msgstr ""
+
+msgid "Commit changes?"
+msgstr ""
+
+msgid "Commits changes to disk and quits barrel."
+msgstr ""
+
+msgid "Creates a new LVM logical volume."
+msgstr ""
+
+msgid "Creates a new LVM volume group."
+msgstr ""
+
+msgid "Creates a new RAID."
+msgstr ""
+
+msgid "Creates a new encryption device."
+msgstr ""
+
+msgid "Creates a new file system."
+msgstr ""
+
+msgid "Creates a new partition table."
+msgstr ""
+
+msgid "Creates a new pool containing devices."
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Duplicates the top object of the stack."
+msgstr ""
+
+msgid "Enter password:"
+msgstr ""
+
+msgid "Extent Size"
+msgstr ""
+
+msgid "Format"
+msgstr ""
+
+#, c-format
+msgid "GPT on %s"
+msgstr ""
+
+msgid "Generating pools"
+msgstr ""
+
+msgid "Global options:"
+msgstr ""
+
+#, c-format
+msgid "Invalid answer '%s'"
+msgstr ""
+
+msgid "Keep smiling, 'cause that's the most important thing."
+msgstr ""
+
+#, c-format
+msgid "LUKS on %s"
+msgstr ""
+
+#, c-format
+msgid "LVM logical volume %s"
+msgstr ""
+
+#, c-format
+msgid "LVM volume group %s"
+msgstr ""
+
+msgid "Level"
+msgstr ""
+
+msgid "Loading pools..."
+msgstr ""
+
+msgid "Loads pools."
+msgstr ""
+
+msgid "Loads the staging devicegraph from a file."
+msgstr ""
+
+#, c-format
+msgid "MS-DOS on %s"
+msgstr ""
+
+msgid "Metadata"
+msgstr ""
+
+#, c-format
+msgid "Missing argument for command option '%s'."
+msgstr ""
+
+#, c-format
+msgid "Missing argument for global option '%s'."
+msgstr ""
+
+msgid "Model"
+msgstr ""
+
+msgid "Mount Point"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+#, c-format
+msgid "No block devices allowed for command option '%s'."
+msgstr ""
+
+msgid "No global block devices allowed."
+msgstr ""
+
+msgid "Passwords do not match."
+msgstr ""
+
+msgid "Pool"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
+msgid "Prints help."
+msgstr ""
+
+msgid "Prints the stack."
+msgstr ""
+
+msgid "Probing..."
+msgstr ""
+
+msgid "Quit?"
+msgstr ""
+
+msgid "Quits barrel."
+msgstr ""
+
+#, c-format
+msgid "RAID %s"
+msgstr ""
+
+msgid "RAID level already set for command 'raid'"
+msgstr ""
+
+msgid "Raid level missing for command 'raid'"
+msgstr ""
+
+msgid "Removes a device."
+msgstr ""
+
+msgid "Removes a pool."
+msgstr ""
+
+msgid "Removes devices from a pool."
+msgstr ""
+
+msgid "Removes the top object from the stack."
+msgstr ""
+
+msgid "Renames pool."
+msgstr ""
+
+msgid "Restores the staging devicegraph to the last backup."
+msgstr ""
+
+msgid "Save pools"
+msgstr ""
+
+msgid "Saves pools."
+msgstr ""
+
+msgid "Saves the staging devicegraph to a file."
+msgstr ""
+
+msgid "Saving pools..."
+msgstr ""
+
+msgid "Shows DASDs."
+msgstr ""
+
+msgid "Shows LVM volume groups."
+msgstr ""
+
+msgid "Shows RAIDs."
+msgstr ""
+
+msgid "Shows commit actions."
+msgstr ""
+
+msgid "Shows disks."
+msgstr ""
+
+msgid "Shows encryption devices."
+msgstr ""
+
+msgid "Shows filesystems."
+msgstr ""
+
+msgid "Shows multipath devices."
+msgstr ""
+
+msgid "Shows pools."
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Stripes"
+msgstr ""
+
+msgid "The command has the following subcommands:"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+#, c-format
+msgid "Unknown global option '%s'."
+msgstr ""
+
+#, c-format
+msgid "Unknown option '%s' for command '%s'."
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "Vendor"
+msgstr ""
+
+msgid "Verify password:"
+msgstr ""
+
+msgid "activate storage systems at startup"
+msgstr ""
+
+msgid "answer all questions with yes"
+msgstr ""
+
+msgid "backup empty during undo"
+msgstr ""
+
+msgid "bad devices argument"
+msgstr ""
+
+msgid "bad stripes argument"
+msgstr ""
+
+msgid "be more verbose"
+msgstr ""
+
+msgid "be quiet"
+msgstr ""
+
+#, c-format
+msgid "block device '%s' cannot be removed"
+msgstr ""
+
+#, c-format
+msgid "block device '%s' cannot be used as a regular block device"
+msgstr ""
+
+#, c-format
+msgid "block device '%s' is in use"
+msgstr ""
+
+msgid "block devices missing for command 'raid'"
+msgstr ""
+
+#, c-format
+msgid "closing json file '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "device '%s' not found in mapping"
+msgstr ""
+
+msgid "do not commit anything to disk"
+msgstr ""
+
+msgid "do not show partitions on DASDs"
+msgstr ""
+
+msgid "do not show partitions on RAIDs"
+msgstr ""
+
+msgid "do not show partitions on disks"
+msgstr ""
+
+msgid "do not show partitions on multipath devices"
+msgstr ""
+
+msgid "done"
+msgstr ""
+
+#, c-format
+msgid "element of array for '%s' not string"
+msgstr ""
+
+#, c-format
+msgid "element of devices array for '%s' not string"
+msgstr ""
+
+msgid "encryption type"
+msgstr ""
+
+msgid "encryption type already set for command 'encryption'"
+msgstr ""
+
+msgid "encryption type missing for command 'encryption'"
+msgstr ""
+
+msgid "error:"
+msgstr ""
+
+#, c-format
+msgid "excessive content in json file '%s'"
+msgstr ""
+
+msgid "failed to calculate actions"
+msgstr ""
+
+#, c-format
+msgid "filesystem %s on %s"
+msgstr ""
+
+msgid "filesystem type already set for command 'filesystem'"
+msgstr ""
+
+msgid "filesystem type missing for command 'filesystem'"
+msgstr ""
+
+msgid "force if block device is in use"
+msgstr ""
+
+msgid "force if block devices are in use"
+msgstr ""
+
+msgid "invalid logical volume name for command 'lv'"
+msgstr ""
+
+#, c-format
+msgid "invalid path '%s'"
+msgstr ""
+
+msgid "invalid volume group name for command 'vg'"
+msgstr ""
+
+msgid "keep underlying partitions"
+msgstr ""
+
+#, c-format
+msgid "mapped DASD for '%s' has different format"
+msgstr ""
+
+#, c-format
+msgid "mapped DASD for '%s' has different type"
+msgstr ""
+
+#, c-format
+msgid "mapped DASD for '%s' mapped twice"
+msgstr ""
+
+#, c-format
+msgid "mapped device for '%s' has different block size"
+msgstr ""
+
+#, c-format
+msgid "mapped device for '%s' is not a DASD"
+msgstr ""
+
+#, c-format
+msgid "mapped device for '%s' is not a disk"
+msgstr ""
+
+#, c-format
+msgid "mapped device for '%s' is smaller"
+msgstr ""
+
+#, c-format
+msgid "mapped device for '%s' not found"
+msgstr ""
+
+#, c-format
+msgid "mapped disk for '%s' mapped twice"
+msgstr ""
+
+#, c-format
+msgid "mapping %s to %s"
+msgstr ""
+
+#, c-format
+msgid "mapping not found in json file '%s'"
+msgstr ""
+
+msgid "mkfs options"
+msgstr ""
+
+msgid "mount options"
+msgstr ""
+
+msgid "mount options require a path"
+msgstr ""
+
+msgid "mount path"
+msgstr ""
+
+msgid "name missing for command 'devicegraph'"
+msgstr ""
+
+msgid "name missing for command 'encryption'"
+msgstr ""
+
+msgid "name missing for command 'lv'"
+msgstr ""
+
+msgid "name missing for command 'vg'"
+msgstr ""
+
+msgid "name of RAID already exists"
+msgstr ""
+
+msgid "name of devicegraph"
+msgstr ""
+
+msgid "name of devicegraph file"
+msgstr ""
+
+msgid "name of logical volume already exists"
+msgstr ""
+
+msgid "name of mapping file"
+msgstr ""
+
+msgid "name of new pool"
+msgstr ""
+
+msgid "name of pool"
+msgstr ""
+
+msgid "name of pool to use"
+msgstr ""
+
+msgid "name of volume group"
+msgstr ""
+
+msgid "name of volume group already exists"
+msgstr ""
+
+msgid "new name"
+msgstr ""
+
+#, c-format
+msgid "no mapping DASD for '%s' found"
+msgstr ""
+
+#, c-format
+msgid "no mapping disk for '%s' found"
+msgstr ""
+
+msgid "not a block device on stack"
+msgstr ""
+
+msgid "not a partition table on stack"
+msgstr ""
+
+msgid "not a partitionable"
+msgstr ""
+
+msgid "not a partitionable on stack"
+msgstr ""
+
+msgid "not a volume group on stack"
+msgstr ""
+
+msgid "number of stripes"
+msgstr ""
+
+msgid "old name"
+msgstr ""
+
+msgid "only one block device allowed"
+msgstr ""
+
+#, c-format
+msgid "opening json file '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "parsing json file '%s' failed"
+msgstr ""
+
+msgid "partition table type"
+msgstr ""
+
+msgid "partition table type already set command 'partition-table'"
+msgstr ""
+
+msgid "partition table type missing for command 'partition-table'"
+msgstr ""
+
+#, c-format
+msgid "partitionable '%s' cannot be used as a regular partitionable"
+msgstr ""
+
+#, c-format
+msgid "partitionable '%s' is in use"
+msgstr ""
+
+#, c-format
+msgid "path '%s' already used"
+msgstr ""
+
+msgid "path must be 'swap'"
+msgstr ""
+
+msgid ""
+"pool argument and blk devices not allowed together for command 'encryption'"
+msgstr ""
+
+msgid ""
+"pool argument and blk devices not allowed together for command 'filesystem'"
+msgstr ""
+
+msgid "pool argument and blk devices not allowed together for command 'vg'"
+msgstr ""
+
+msgid "pool name"
+msgstr ""
+
+msgid "probed instead of staging"
+msgstr ""
+
+#, c-format
+msgid "read for json file '%s' failed"
+msgstr ""
+
+msgid "run with a prefix"
+msgstr ""
+
+msgid "set RAID level"
+msgstr ""
+
+msgid "set RAID metadata version"
+msgstr ""
+
+msgid "set RAID name"
+msgstr ""
+
+msgid "set chunk size"
+msgstr ""
+
+msgid "set extent size"
+msgstr ""
+
+msgid "set file system label"
+msgstr ""
+
+msgid "set file system type"
+msgstr ""
+
+msgid "set name of device"
+msgstr ""
+
+msgid "set name of logical volume"
+msgstr ""
+
+msgid "set name of volume group"
+msgstr ""
+
+msgid "set number of devices"
+msgstr ""
+
+msgid "set size"
+msgstr ""
+
+msgid "set size of RAID"
+msgstr ""
+
+msgid "set size of logical volume"
+msgstr ""
+
+msgid "set size of volume group"
+msgstr ""
+
+#, c-format
+msgid "several mapping DASDs for '%s' found"
+msgstr ""
+
+#, c-format
+msgid "several mapping disks for '%s' found"
+msgstr ""
+
+msgid "show help and exit"
+msgstr ""
+
+msgid "show underlying device"
+msgstr ""
+
+msgid "show underlying devices"
+msgstr ""
+
+msgid "show version and exit"
+msgstr ""
+
+msgid "size argument missing for command 'encryption'"
+msgstr ""
+
+msgid "size argument missing for command 'filesystem'"
+msgstr ""
+
+msgid "size argument required for command 'raid'"
+msgstr ""
+
+msgid "size argument required for command 'vg'"
+msgstr ""
+
+msgid "size missing for command 'lv'"
+msgstr ""
+
+msgid "size of stripes"
+msgstr ""
+
+msgid "spare devices not allowed for raid level"
+msgstr ""
+
+msgid "stack empty during dup"
+msgstr ""
+
+msgid "stack empty during pop"
+msgstr ""
+
+#, c-format
+msgid "stat for json file '%s' failed"
+msgstr ""
+
+msgid "too few raid devices for raid level"
+msgstr ""
+
+msgid "tune options"
+msgstr ""
+
+#, c-format
+msgid "tune options not allowed for %s"
+msgstr ""
+
+msgid "unknown encryption type"
+msgstr ""
+
+#, c-format
+msgid "unknown filesystem type '%s'"
+msgstr ""
+
+msgid "unknown partition table type"
+msgstr ""
+
+msgid "unknown raid level for command 'raid'"
+msgstr ""
+
+#, c-format
+msgid "value for '%s' neither string nor array"
+msgstr ""
+
+msgid "value of description entry not a string"
+msgstr ""
+
+msgid "value of devices entry not an array"
+msgstr ""
+
+#, c-format
+msgid "volume group '%s' is over-committed"
+msgstr ""
+
+msgid "wrong number of partitionables"
+msgstr ""
+
+msgid "y/n"
+msgstr ""
