@@ -79,7 +79,7 @@ msgid "Alias for 'create raid --level 6'"
 msgstr ""
 
 msgid "Block Size"
-msgstr "Block Größe"
+msgstr "Blockgröße"
 
 msgid "Bus ID"
 msgstr ""
@@ -124,7 +124,7 @@ msgid "Creates a new pool containing devices."
 msgstr ""
 
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 msgid "Devices"
 msgstr ""
@@ -337,7 +337,7 @@ msgid "Used"
 msgstr ""
 
 msgid "Vendor"
-msgstr ""
+msgstr "Hersteller"
 
 msgid "Verify password:"
 msgstr ""
@@ -824,4 +824,13 @@ msgid "wrong number of partitionables"
 msgstr ""
 
 msgid "y/n"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "show underlying device"
+msgstr ""
+
+msgid "show underlying devices"
 msgstr ""
