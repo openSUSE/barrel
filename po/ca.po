@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-18 14:12+0000\n"
+"PO-Revision-Date: 2022-01-18 18:12+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
 "\n"
@@ -35,85 +35,85 @@ msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Àlies per a \"create filesystem --type btrfs\""
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "Àlies per a \"create filesystem --type ext2\""
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "Àlies per a \"create filesystem --type ext3\""
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "Àlies per a \"create filesystem --type ext4\""
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "Àlies per a \"create filesystem --type f2fs\""
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "Àlies per a \"create filesystem --type ntfs\""
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "Àlies per a \"create filesystem --type swap\""
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "Àlies per a \"create filesystem --type xfs\""
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "Àlies per a \"create partition-table --type gpt\""
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "Àlies per a \"create partition-table --type ms-dos\""
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "Àlies per a \"create raid --level 0\""
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "Àlies per a \"create raid --level 1\""
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "Àlies per a \"create raid --level 10\""
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "Àlies per a \"create raid --level 4\""
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "Àlies per a \"create raid --level 5\""
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "Àlies per a \"create raid --level 6\""
 
 msgid "Block Size"
-msgstr ""
+msgstr "Mida de bloc"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "ID de BUS"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "Mida del tros"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "Neteja la pila."
 
 msgid "Commands:"
-msgstr ""
+msgstr "Ordres:"
 
 msgid "Commit changes?"
-msgstr ""
+msgstr "Voleu aplicar els canvis?"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
+msgstr "Aplica els canvis al disc i surt del barril."
 
 msgid "Continue?"
-msgstr ""
+msgstr "Voleu continuar?"
 
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "Crea un volum lògic LVM nou."
 
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "Crea un grup de volums LVM nou."
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "Crea una RAID nova."
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "Crea un dispositiu d'encriptació nou."
 
 msgid "Creates a new file system."
 msgstr ""
