@@ -8,341 +8,343 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-11 16:33+0100\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-01-19 15:12+0000\n"
+"Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
+"Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.9.1\n"
 
 msgid "Activating..."
-msgstr ""
+msgstr "有効化しています..."
 
 msgid "Adds devices to a pool."
-msgstr ""
+msgstr "プールにデバイスを追加します。"
 
 msgid "Alias for 'create encryption --type luks1'"
-msgstr ""
+msgstr "'create encryption --type luks1' に対する別名"
 
 msgid "Alias for 'create encryption --type luks2'"
-msgstr ""
+msgstr "'create encryption --type luks2' に対する別名"
 
 msgid "Alias for 'create filesystem --type btrfs'"
-msgstr ""
+msgstr "'create filesystem --type btrfs' に対する別名"
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "'create filesystem --type ext2' に対する別名"
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "'create filesystem --type ext3' に対する別名"
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "'create filesystem --type ext4' に対する別名"
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "'create filesystem --type f2fs' に対する別名"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "'create filesystem --type ntfs' に対する別名"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "'create filesystem --type swap' に対する別名"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "'create filesystem --type xfs' に対する別名"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "'create partition-table --type gpt' に対する別名"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "'create partition-table --type ms-dos' に対する別名"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "'create raid --level 0' に対する別名"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "'create raid --level 1' に対する別名"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "'create raid --level 10' に対する別名"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "'create raid --level 4' に対する別名"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "'create raid --level 5' に対する別名"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "'create raid --level 6' に対する別名"
 
 msgid "Block Size"
-msgstr ""
+msgstr "ブロックサイズ"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "バス ID"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "チャンクサイズ"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "スタックを消去します。"
 
 msgid "Commands:"
-msgstr ""
+msgstr "コマンド:"
 
 msgid "Commit changes?"
-msgstr ""
+msgstr "変更点を適用しますか？"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
+msgstr "変更点をディスクに書き込んで barrel を終了します。"
 
 msgid "Continue?"
-msgstr ""
+msgstr "続行しますか？"
 
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "新しい LVM 論理ボリュームを作成します。"
 
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "新しい LVM ボリュームグループを作成します。"
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "新しい RAID を作成します。"
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "新しい暗号化デバイスを作成します。"
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "新しいファイルシステムを作成します。"
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "新しいパーティションテーブルを作成します。"
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "デバイスを含む新しいプールを作成します。"
 
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 msgid "Devices"
-msgstr ""
+msgstr "デバイス"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "スタックの最上部にあるオブジェクトを複製します。"
 
 msgid "Enter password:"
-msgstr ""
+msgstr "パスワードを入力:"
 
 msgid "Extent Size"
-msgstr ""
+msgstr "エクステントサイズ"
 
 msgid "Format"
-msgstr ""
+msgstr "フォーマット"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "%s にある GPT"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "プールを生成しています"
 
 msgid "Global options:"
-msgstr ""
+msgstr "グローバルオプション:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "回答 '%s' が正しくありません"
 
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr ""
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "%s にある LUKS"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "LVM 論理ボリューム %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "LVM ボリュームグループ %s"
 
 msgid "Label"
-msgstr ""
+msgstr "ラベル"
 
 msgid "Level"
-msgstr ""
+msgstr "レベル"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "プールを読み込んでいます..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "プールを読み込みます。"
 
 msgid "Loads the staging devicegraph from a file."
 msgstr ""
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "%s にある MS-DOS"
 
 msgid "Metadata"
-msgstr ""
+msgstr "メタデータ"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "コマンドオプション '%s' に対するパラメータが指定されていません。"
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "グローバルオプション '%s' に対するパラメータが指定されていません。"
 
 msgid "Model"
-msgstr ""
+msgstr "モデル"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "マウントポイント"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "コマンドオプション '%s' に対してブロックデバイスを指定することはできません。"
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "グローバルなブロックデバイスは指定できません。"
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "パスワードが合致しません。"
 
 msgid "Pool"
-msgstr ""
+msgstr "プール"
 
 msgid "Position"
-msgstr ""
+msgstr "位置"
 
 msgid "Prints help."
-msgstr ""
+msgstr "ヘルプを表示します。"
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "スタックを表示します。"
 
 msgid "Probing..."
-msgstr ""
+msgstr "検出しています..."
 
 msgid "Quit?"
-msgstr ""
+msgstr "終了しますか？"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "barrel を終了します。"
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "コマンド 'raid' に対する RAID レベルは指定済みです"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "コマンド 'raid' に対する RAID レベルが指定されていません"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "デバイスを削除します。"
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "プールを削除します。"
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "プールからデバイスを削除します。"
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "スタックから最上位のオブジェクトを削除します。"
 
 msgid "Renames pool."
-msgstr ""
+msgstr "プールの名前を変更します。"
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
 
 msgid "Save pools"
-msgstr ""
+msgstr "プールの保存"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "プールを保存します。"
 
 msgid "Saves the staging devicegraph to a file."
 msgstr ""
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "プールを保存しています..."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "DASD を表示します。"
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "LVM ボリュームグループを表示します。"
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "RAID を表示します。"
 
 msgid "Shows commit actions."
 msgstr ""
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "デバイスツリーを表示します。"
 
 msgid "Shows disks."
-msgstr ""
+msgstr "ディスクを表示します。"
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "暗号化デバイスを表示します。"
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "ファイルシステムを表示します。"
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "マルチパスデバイスを表示します。"
 
 msgid "Shows pools."
-msgstr ""
+msgstr "プールを表示します。"
 
 msgid "Size"
-msgstr ""
+msgstr "サイズ"
 
 msgid "Stripes"
-msgstr ""
+msgstr "ストライプ"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "このコマンドには下記のようなサブコマンドが用意されています:"
 
 msgid "Type"
-msgstr ""
+msgstr "種類"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "不明なグローバルオプション '%s' です。"
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "コマンド '%s' に対する不明なオプション '%s' です。"
 
 msgid "Usage"
-msgstr ""
+msgstr "用途"
 
 msgid "Used"
-msgstr ""
+msgstr "使用率"
 
 msgid "Vendor"
-msgstr ""
+msgstr "製造元"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "パスワードの確認入力:"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "起動時にストレージシステムを有効化する"
 
 msgid "answer all questions with yes"
 msgstr ""
