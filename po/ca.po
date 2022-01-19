@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-18 18:12+0000\n"
+"PO-Revision-Date: 2022-01-19 15:12+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
 "\n"
@@ -116,599 +116,607 @@ msgid "Creates a new encryption device."
 msgstr "Crea un dispositiu d'encriptació nou."
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "Crea un sistema de fitxers nou."
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "Crea una taula de particions nova."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Crea una agrupació nova per contenir-hi dispositius."
 
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 msgid "Devices"
-msgstr ""
+msgstr "Dispositius"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Duplica l'objecte de dalt de tot de la pila."
 
 msgid "Enter password:"
-msgstr ""
+msgstr "Proporcioneu la contrasenya:"
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Amplia'n la mida"
 
 msgid "Format"
-msgstr ""
+msgstr "Formata"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "GPT a %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Generant agrupacions"
 
 msgid "Global options:"
-msgstr ""
+msgstr "Opcions globals:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Resposta no vàlida: %s"
 
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Continueu somrient, perquè això és el més important."
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "LUKS a %s"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "Volum lògic LVM %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "Grup de volums LVM %s"
 
 msgid "Label"
-msgstr ""
+msgstr "Etiqueta"
 
 msgid "Level"
-msgstr ""
+msgstr "Nivell"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Carregant agrupacions..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Carrega agrupacions."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Carrega el gràfic de dispositius des d'un fitxer."
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "MS-DOS a %s"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metadades"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "Falta l'argument de l'opció d'ordre %s."
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "Falta l'argument de l'opció global %s."
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Punt de muntatge"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "No es permeten dispositius de bloc per a l'opció d'ordre %s."
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "No es permeten dispositius de bloc globals."
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Les contrasenyes no coincideixen."
 
 msgid "Pool"
-msgstr ""
+msgstr "Agrupació"
 
 msgid "Position"
-msgstr ""
+msgstr "Posició"
 
 msgid "Prints help."
-msgstr ""
+msgstr "Imprimeix l'ajuda."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Imprimeix la pila."
 
 msgid "Probing..."
-msgstr ""
+msgstr "Sondant..."
 
 msgid "Quit?"
-msgstr ""
+msgstr "Voleu sortir-ne?"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "Surt del barril."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "Nivell de RAID ja establert per a l'ordre raid"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "Falta el nivell de raid per a l'ordre raid."
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Suprimeix un dispositiu."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Suprimeix una agrupació."
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Suprimeix dispositius d'una agrupació."
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Suprimeix l'objecte de dalt de tot de la pila."
 
 msgid "Renames pool."
-msgstr ""
+msgstr "Canvia el nom de l'agrupació."
 
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
+msgstr "Restaura el gràfic de dispositius a la darrera còpia de seguretat."
 
 msgid "Save pools"
-msgstr ""
+msgstr "Desa les agrupacions"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Desa agrupacions."
 
 msgid "Saves the staging devicegraph to a file."
-msgstr ""
+msgstr "Desa el gràfic de dispositius en un fitxer."
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Desant agrupacions..."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "Mostra DASDs."
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Mostra els grups de volums LVM."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Mostra RAIDs."
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Mostra les accions que s'apliquen."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Mostra l'arbre de dispositius."
 
 msgid "Shows disks."
-msgstr ""
+msgstr "Mostra els discs."
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Mostra els dispositius d'encriptació."
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "Mostra els sistemes de fitxers."
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Mostra els dispositius multicamins."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Mostra les agrupacions."
 
 msgid "Size"
-msgstr ""
+msgstr "Mida"
 
 msgid "Stripes"
-msgstr ""
+msgstr "Franges"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "L'ordre té les subordres següents:"
 
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Opció global desconeguda: %s."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Opció desconeguda %s per a l'ordre %s."
 
 msgid "Usage"
-msgstr ""
+msgstr "Ús"
 
 msgid "Used"
-msgstr ""
+msgstr "Usat"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Proveïdor"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "Verifiqueu la contrasenya:"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "activa els sistemes d'emmagatzematge a l'inici"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "contesta totes les preguntes amb sí"
 
 msgid "backup empty during undo"
-msgstr ""
+msgstr "còpia de seguretat buida durant l'acció de desfer"
 
 msgid "bad devices argument"
-msgstr ""
+msgstr "argument de dispositius malmesos"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "argument de franges malmeses"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "mostra més informació"
 
 msgid "be quiet"
-msgstr ""
+msgstr "mostra menys informació"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "el dispositiu de bloc %s no es pot suprimir"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
-msgstr ""
+msgstr "el dispositiu de bloc %s no es pot usar com a dispositiu de bloc normal"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "el dispositiu de bloc %s està en ús"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "falten dispositius de bloc per a l'ordre raid"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "ha fallat tancar el fitxer json %s"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "el dispositiu %s no s'ha trobat al mapatge"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "no apliquis res al disc"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "no mostris particions als DASD"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "no mostris particions a les RAID"
 
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "no mostris particions als discs"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "no mostris particions en dispositius multicamins"
 
 msgid "done"
-msgstr ""
+msgstr "fet"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "l'element de la matriu per a %s no és una cadena"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "l'element de la matriu de dispositius per a %s no és una cadena"
 
 msgid "encryption type"
-msgstr ""
+msgstr "tipus d'encriptació"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "el tipus d'encriptació ja està definit per a l'ordre encryption"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "falta el tipus d'encriptació per a l'ordre encryption"
 
 msgid "error:"
-msgstr ""
+msgstr "error:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "contingut excessiu al fitxer json %s"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "ha fallat calcular les accions"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "sistema de fitxers %s a %s"
 
 msgid "filesystem type already set for command 'filesystem'"
 msgstr ""
+"el tipus de sistema de fitxers ja està establert per a l'ordre filesystem"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "falta el tipus de sistema de fitxers per a l'ordre filesystem"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "força-ho si el dispositiu de bloc està en ús"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "força-ho si els dispositius de bloc estan en ús"
 
 msgid "go downwards"
-msgstr ""
+msgstr "ves avall"
 
 msgid "go upwards"
-msgstr ""
+msgstr "ves amunt"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "nom de volum lògic no vàlid per a l'ordre lv"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "camí no vàlid: %s"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "nom de grup de volums no vàlid per a l'ordre vg"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "mantén les particions subjacents"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "el DASD mapat per a %s té un format diferent"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "el DASD mapat per a %s té un tipus diferent"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "el DASD mapat per a %s s'ha mapat dos cops"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "la RAID DM mapada per a %s s'ha mapat dos cops"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "el dispositiu mapat per a %s té una mida de bloc diferent"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "el dispositiu mapat per a %s no és DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "el dispositiu mapat per a %s no és RAID DM"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "el dispositiu mapat per a %s no és un disc"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "el dispositiu mapat per a %s no és un multicamí"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "el dispositiu mapat per a %s és més petit"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "el dispositiu mapat per a %s no s'ha trobat"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "el disc mapat per a %s s'ha mapat dos cops"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "el multicamí mapat per a %s s'ha mapat dos cops"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "mapatge de %s a %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "mapatge no trobat al fitxer json %s"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "opcions d'mkfs"
 
 msgid "mount options"
-msgstr ""
+msgstr "opcions de muntatge"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "les opcions de muntatge necessiten un camí"
 
 msgid "mount path"
-msgstr ""
+msgstr "camí de muntatge"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "dispositius múltiples"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "falta el nom per a l'ordre devicegraph"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "falta el nom per a l'ordre encryption"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "falta el nom per a l'ordre lv"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "falta el nom per a l'ordre vg"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "el nom de la RAID ja existeix"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "nom del gràfic de dispositius"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "nom del fitxer del gràfic de dispositius"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "el nom del volum lògic ja existeix"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "nom del fitxer de mapatge"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "nom de l'agrupació nova"
 
 msgid "name of pool"
-msgstr ""
+msgstr "nom de l'agrupació"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "nom de l'agrupació per a usar"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "nom del grup de volums"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "el nom del grup de volums ja existeix"
 
 msgid "new name"
-msgstr ""
+msgstr "nom nou"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "no s'ha trobat cap DASD de mapatge per a %s"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "no s'ha trobat cap RAID DM de mapatge per a %s"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "no s'ha trobat cap disc de mapatge per a %s"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "no s'ha trobat multicamí de mapatge per a %s"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "no hi ha un dispositiu de bloc a la pila"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "no hi ha una taula de particions a la pila"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "no es pot partir"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "no hi ha element partible a la pila"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "no hi ha grup de volums a la pila"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "nombre de franges"
 
 msgid "old name"
-msgstr ""
+msgstr "nom antic"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "només es permet un dispositiu de bloc"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "ha fallat obrir el fitxer json %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "ha fallat analitzar el fitxer json %s"
 
 msgid "partition table type"
-msgstr ""
+msgstr "tipus de taula de particions"
 
 msgid "partition table type already set command 'partition-table'"
 msgstr ""
+"el tipus de taula de particions ja s'ha establert a l'ordre partition-table"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "falta el tipus de taula de particions per a l'ordre partition-table"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "%s partible no es pot usar com a partible normal"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "%s partible està en ús"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "el camí %s ja està en ús"
 
 msgid "path must be 'swap'"
-msgstr ""
+msgstr "el camí ha de ser swap"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
 msgstr ""
+"no es permeten conjuntament l'argument d'agrupació i els dispositius de bloc "
+"per a l'ordre encryption"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
+"no es permeten conjuntament l'argument d'agrupació i els dispositius de bloc "
+"per a l'ordre filesystem"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
+"no es permeten conjuntament l'argument d'agrupació i els dispositius de bloc "
+"per a l'ordre vg"
 
 msgid "pool name"
-msgstr ""
+msgstr "nom d'agrupació"
 
 msgid "probed instead of staging"
-msgstr ""
+msgstr "sondat en lloc d'estadificat"
 
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "ha fallat la lectura del fitxer json %s"
 
 msgid "run with a prefix"
-msgstr ""
+msgstr "executa amb un prefix"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "estableix el nivell de RAID"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "estableix la versió de les metadades de RAID"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "estableix el nom de RAID"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "estableix la mida del tros"
 
 msgid "set extent size"
-msgstr ""
+msgstr "estableix la mida d'ampliació"
 
 msgid "set file system label"
-msgstr ""
+msgstr "estableix l'etiqueta del sistema de fitxers"
 
 msgid "set file system type"
-msgstr ""
+msgstr "estableix el tipus de sistema de fitxers"
 
 msgid "set label of device"
-msgstr ""
+msgstr "estableix l'etiqueta del dispositiu"
 
 msgid "set name of device"
-msgstr ""
+msgstr "estableix el nom del dispositiu"
 
 msgid "set name of logical volume"
 msgstr ""
