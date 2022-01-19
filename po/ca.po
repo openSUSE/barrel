@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-19 15:12+0000\n"
+"PO-Revision-Date: 2022-01-19 20:11+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
 "\n"
@@ -719,74 +719,74 @@ msgid "set name of device"
 msgstr "estableix el nom del dispositiu"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "estableix el nom del volum lògic"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "estableix el nom del grup de volums"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "estableix el nombre de dispositius"
 
 msgid "set size"
-msgstr ""
+msgstr "estableix la mida"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "estableix la mida de la RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "estableix la mida del volum lògic"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "estableix la mida del grup de volums"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "s'han trobat diversos DASD de mapatge per a %s"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "s'han trobat diverses RAID DM de mapatge per a %s"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "s'han trobat diversos discs de mapatge per a %s"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "s'han trobat diversos multicamins de mapatge per a %s"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "mostra l'ajuda i surt"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "mostra'n la versió i surt"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "falta l'argument de mida per a l'ordre encryption"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "falta l'argument de mida per a l'ordre filesystem"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "cal l'argument de mida per a l'ordre raid"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "cal l'argument de mida per a l'ordre vg"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "cal l'argument de mida per a l'ordre lv"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "mida de les franges"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "dispositius de recanvi no permesos per al nivell de raid"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "pila buida durant dup"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "pila buida durant pop"
 
 #, c-format
 msgid "stat for json file '%s' failed"
