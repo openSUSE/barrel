@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-19 20:11+0000\n"
+"PO-Revision-Date: 2022-01-20 12:11+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
 "\n"
@@ -790,47 +790,47 @@ msgstr "pila buida durant pop"
 
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "ha fallat stat per al fitxer json %s"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "massa pocs dispositius de raid per al nivell de raid"
 
 msgid "tune options"
-msgstr ""
+msgstr "opcions d'ajust"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "opcions d'ajust no permeses per a %s"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "tipus d'encriptació desconegut"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "tipus de sistema de fitxers desconegut: %s"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "tipus de taula de particions desconegut"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "nivell de raid desconegut per a l'ordre raid"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "el valor per a %s no és ni cadena ni matriu"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "el valor de l'entrada de descripció no és una cadena"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "el valor de l'entrada de dispositius no és una matriu"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "El grup de volums %s està sobreaplicat"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "nombre incorrecte de partibles"
 
 msgid "y/n"
-msgstr ""
+msgstr "s/n"
