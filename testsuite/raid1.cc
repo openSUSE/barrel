@@ -33,15 +33,15 @@ BOOST_AUTO_TEST_CASE(test1)
 	    "--devices", "3+1", "--size", "8 GiB" });
 
     vector<string> actions = {
-	"Create partition /dev/sdb1 (4.06 GiB)",
+	"Create partition /dev/sdb1 (4.07 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
-	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Create partition /dev/sdc1 (4.07 GiB)",
 	"Set id of partition /dev/sdc1 to Linux RAID",
-	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Create partition /dev/sdd1 (4.07 GiB)",
 	"Set id of partition /dev/sdd1 to Linux RAID",
-	"Create partition /dev/sde1 (4.06 GiB)",
+	"Create partition /dev/sde1 (4.07 GiB)",
 	"Set id of partition /dev/sde1 to Linux RAID",
-	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
+	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.07 GiB), /dev/sdc1 (4.07 GiB), /dev/sdd1 (4.07 GiB) and /dev/sde1 (4.07 GiB)",
 	"Add /dev/md0 to /etc/mdadm.conf"
     };
 
@@ -99,15 +99,15 @@ BOOST_AUTO_TEST_CASE(test3)
     Args args({ "--dry-run", "--yes" });
 
     vector<string> actions = {
-	"Create partition /dev/sdb1 (4.06 GiB)",
+	"Create partition /dev/sdb1 (4.07 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
-	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Create partition /dev/sdc1 (4.07 GiB)",
 	"Set id of partition /dev/sdc1 to Linux RAID",
-	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Create partition /dev/sdd1 (4.07 GiB)",
 	"Set id of partition /dev/sdd1 to Linux RAID",
-	"Create partition /dev/sde1 (4.06 GiB)",
+	"Create partition /dev/sde1 (4.07 GiB)",
 	"Set id of partition /dev/sde1 to Linux RAID",
-	"Create MD RAID6 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
+	"Create MD RAID6 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.07 GiB), /dev/sdc1 (4.07 GiB), /dev/sdd1 (4.07 GiB) and /dev/sde1 (4.07 GiB)",
 	"Add /dev/md0 to /etc/mdadm.conf"
     };
 
@@ -139,7 +139,7 @@ BOOST_AUTO_TEST_CASE(test4)
     vector<string> actions = {
 	"Delete GPT on /dev/sdc",
 	"Delete GPT on /dev/sdb",
-	"Create MD RAID1 /dev/md/test (31.87 GiB) from /dev/sdb (32.00 GiB) and /dev/sdc (32.00 GiB)",
+	"Create MD RAID1 /dev/md/test (31.84 GiB) from /dev/sdb (32.00 GiB) and /dev/sdc (32.00 GiB)",
 	"Add /dev/md/test to /etc/mdadm.conf"
     };
 
