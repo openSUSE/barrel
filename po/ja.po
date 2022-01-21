@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-19 15:12+0000\n"
+"PO-Revision-Date: 2022-01-21 12:12+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -291,7 +291,7 @@ msgid "Shows RAIDs."
 msgstr "RAID を表示します。"
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "適用時に行われる処理を表示します。"
 
 msgid "Shows device tree."
 msgstr "デバイスツリーを表示します。"
@@ -347,261 +347,261 @@ msgid "activate storage systems at startup"
 msgstr "起動時にストレージシステムを有効化する"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "全ての質問に対して 'yes' (はい) と回答します"
 
 msgid "backup empty during undo"
 msgstr ""
 
 msgid "bad devices argument"
-msgstr ""
+msgstr "デバイスパラメータが正しくありません"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "ストライプパラメータが正しくありません"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "より冗長に表示します"
 
 msgid "be quiet"
-msgstr ""
+msgstr "より簡潔に表示します"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "ブロックデバイス '%s' は削除できません"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
-msgstr ""
+msgstr "ブロックデバイス '%s' は通常のブロックデバイスとしては使用できません"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "ブロックデバイス '%s' は使用中です"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "コマンド 'raid' に対するブロックデバイスが指定されていません"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "JSON ファイル '%s' を閉じる処理が失敗しました"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "デバイス '%s' がマッピング内にありません"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "ディスクに対しては何も適用しません"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "DASD 内のパーティションを表示しません"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "RAID 内のパーティションを表示しません"
 
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "ディスク内のパーティションを表示しません"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "マルチパスデバイス内のパーティションを表示しません"
 
 msgid "done"
-msgstr ""
+msgstr "完了"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "'%s' に対する配列の要素が文字列ではありません"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "'%s' に対するデバイス配列の要素が文字列ではありません"
 
 msgid "encryption type"
-msgstr ""
+msgstr "暗号化の種類"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "コマンド 'encryption' に対する暗号化の種類は既に指定されています"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "コマンド 'encryption' に対する暗号化の種類が指定されていません"
 
 msgid "error:"
-msgstr ""
+msgstr "エラー:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "JSON ファイル '%s' 内の内容が過剰です"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "処理の計算に失敗しました"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "ファイルシステム %s (%s 内)"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "コマンド 'filesystem' に対するファイルシステムの種類は既に指定されています"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "コマンド 'filesystem' に対するファイルシステムの種類が指定されていません"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "ブロックデバイスが既に使用されていても強制的に使用します"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "ブロックデバイスが既に使用されていても強制的に使用します"
 
 msgid "go downwards"
-msgstr ""
+msgstr "下に移動"
 
 msgid "go upwards"
-msgstr ""
+msgstr "上に移動"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "コマンド 'lv' に対する論理ボリューム名が正しくありません"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "パス '%s' が正しくありません"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "コマンド 'vg' に対するボリュームグループ名が正しくありません"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "含まれるパーティションを保持します"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "'%s' に対応する DASD が異なる形式になっています"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "'%s' に対応する DASD が異なる種類になっています"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "'%s' に対応する DASD が 2 回マップされています"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "'%s' に対応する DM RAID が 2 回マップされています"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "'%s' に対応するデバイスが異なるブロックサイズになっています"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "'%s' に対応するデバイスは DASD ではありません"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "'%s' に対応するデバイスは DM RAID ではありません"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "'%s' に対応するデバイスはディスクではありません"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "'%s' に対応するデバイスはマルチパスではありません"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "'%s' に対応するデバイスが小さすぎます"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "'%s' に対応するデバイスが見つかりません"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "'%s' に対応するディスクが 2 回マップされています"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "'%s' に対応するマルチパスが 2 回マップされています"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "%s から %s へのマッピング"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "JSON ファイル '%s' 内にはマッピングが見つかりません"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "mkfs のオプション"
 
 msgid "mount options"
-msgstr ""
+msgstr "マウントオプション"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "パスを必要とするマウントオプション"
 
 msgid "mount path"
-msgstr ""
+msgstr "マウントパス"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "複数デバイス"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "コマンド 'devicegraph' に対する名前が指定されていません"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "コマンド 'encryption' に対する名前が指定されていません"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "コマンド 'lv' に対する名前が指定されていません"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "コマンド 'vg' に対する名前が指定されていません"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "その名前の RAID は既に存在しています"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "デバイスグラフの名前"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "デバイスグラフファイルの名前"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "その名前の論理ボリュームは既に存在しています"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "マッピングファイルの名前"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "新しいプールの名前"
 
 msgid "name of pool"
-msgstr ""
+msgstr "プールの名前"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "使用したいプールの名前"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "ボリュームグループの名前"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "その名前のボリュームグループは既に存在しています"
 
 msgid "new name"
-msgstr ""
+msgstr "新しい名前"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "'%s' に対応する DASD が見つかりません"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "'%s' に対応するDM RAID が見つかりません"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "'%s' に対応するディスクが見つかりません"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "'%s' に対応するマルチパスが見つかりません"
 
 msgid "not a block device on stack"
 msgstr ""
@@ -819,7 +819,7 @@ msgstr ""
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "ボリュームグループ '%s' はオーバーコミット状態です"
 
 msgid "wrong number of partitionables"
 msgstr ""
