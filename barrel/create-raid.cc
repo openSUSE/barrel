@@ -375,10 +375,8 @@ namespace barrel
 	}
 
 	Md* md = Md::create(staging, name);
+	md->set_metadata(options.metadata ? options.metadata.value() : "default");
 	md->set_md_level(options.level.value());
-
-	if (options.metadata)
-	    md->set_metadata(options.metadata.value());
 
 	if (options.chunk_size)
 	    md->set_chunk_size(options.chunk_size.value());

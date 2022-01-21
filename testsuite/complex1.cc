@@ -33,15 +33,15 @@ BOOST_AUTO_TEST_CASE(test1)
 	    "--devices", "3+1", "--size", "8 GiB", "xfs", "--path", "/test1" });
 
     vector<string> actions = {
-	"Create partition /dev/sdb1 (4.06 GiB)",
+	"Create partition /dev/sdb1 (4.07 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
-	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Create partition /dev/sdc1 (4.07 GiB)",
 	"Set id of partition /dev/sdc1 to Linux RAID",
-	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Create partition /dev/sdd1 (4.07 GiB)",
 	"Set id of partition /dev/sdd1 to Linux RAID",
-	"Create partition /dev/sde1 (4.06 GiB)",
+	"Create partition /dev/sde1 (4.07 GiB)",
 	"Set id of partition /dev/sde1 to Linux RAID",
-	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
+	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.07 GiB), /dev/sdc1 (4.07 GiB), /dev/sdd1 (4.07 GiB) and /dev/sde1 (4.07 GiB)",
 	"Create xfs on /dev/md0 (8.00 GiB)",
 	"Mount /dev/md0 (8.00 GiB) at /test1",
 	"Add mount point /test1 of /dev/md0 (8.00 GiB) to /etc/fstab",
@@ -68,15 +68,15 @@ BOOST_AUTO_TEST_CASE(test2)
 	    "3+1", "--size", "8 GiB", "gpt", "xfs", "--size", "1 GiB", "--path", "/test1" });
 
     vector<string> actions = {
-	"Create partition /dev/sdb1 (4.06 GiB)",
+	"Create partition /dev/sdb1 (4.07 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
-	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Create partition /dev/sdc1 (4.07 GiB)",
 	"Set id of partition /dev/sdc1 to Linux RAID",
-	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Create partition /dev/sdd1 (4.07 GiB)",
 	"Set id of partition /dev/sdd1 to Linux RAID",
-	"Create partition /dev/sde1 (4.06 GiB)",
+	"Create partition /dev/sde1 (4.07 GiB)",
 	"Set id of partition /dev/sde1 to Linux RAID",
-	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
+	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.07 GiB), /dev/sdc1 (4.07 GiB), /dev/sdd1 (4.07 GiB) and /dev/sde1 (4.07 GiB)",
 	"Create GPT on /dev/md0",
 	"Create partition /dev/md0p1 (1.00 GiB)",
 	"Create xfs on /dev/md0p1 (1.00 GiB)",
@@ -106,15 +106,15 @@ BOOST_AUTO_TEST_CASE(test3)
 	    "--size", "2 GiB" });
 
     vector<string> actions = {
-	"Create partition /dev/sdb1 (4.06 GiB)",
+	"Create partition /dev/sdb1 (4.07 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
-	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Create partition /dev/sdc1 (4.07 GiB)",
 	"Set id of partition /dev/sdc1 to Linux RAID",
-	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Create partition /dev/sdd1 (4.07 GiB)",
 	"Set id of partition /dev/sdd1 to Linux RAID",
-	"Create partition /dev/sde1 (4.06 GiB)",
+	"Create partition /dev/sde1 (4.07 GiB)",
 	"Set id of partition /dev/sde1 to Linux RAID",
-	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
+	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.07 GiB), /dev/sdc1 (4.07 GiB), /dev/sdd1 (4.07 GiB) and /dev/sde1 (4.07 GiB)",
 	"Create physical volume on /dev/md0",
 	"Create volume group test (8.00 GiB) from /dev/md0 (8.00 GiB)",
 	"Create logical volume foo (2.00 GiB) on volume group test",
@@ -142,15 +142,15 @@ BOOST_AUTO_TEST_CASE(test4)
 	    "foo", "--size", "2 GiB" });
 
     vector<string> actions = {
-	"Create partition /dev/sdb1 (4.06 GiB)",
+	"Create partition /dev/sdb1 (4.07 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
-	"Create partition /dev/sdc1 (4.06 GiB)",
+	"Create partition /dev/sdc1 (4.07 GiB)",
 	"Set id of partition /dev/sdc1 to Linux RAID",
-	"Create partition /dev/sdd1 (4.06 GiB)",
+	"Create partition /dev/sdd1 (4.07 GiB)",
 	"Set id of partition /dev/sdd1 to Linux RAID",
-	"Create partition /dev/sde1 (4.06 GiB)",
+	"Create partition /dev/sde1 (4.07 GiB)",
 	"Set id of partition /dev/sde1 to Linux RAID",
-	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.06 GiB), /dev/sdc1 (4.06 GiB), /dev/sdd1 (4.06 GiB) and /dev/sde1 (4.06 GiB)",
+	"Create MD RAID5 /dev/md0 (8.00 GiB) from /dev/sdb1 (4.07 GiB), /dev/sdc1 (4.07 GiB), /dev/sdd1 (4.07 GiB) and /dev/sde1 (4.07 GiB)",
 	"Create GPT on /dev/md0",
 	"Create partition /dev/md0p1 (6.00 GiB)",
 	"Set id of partition /dev/md0p1 to Linux LVM",

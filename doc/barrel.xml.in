@@ -550,8 +550,9 @@
 	    <varlistentry>
 	      <term><option>--metadata</option> <replaceable>metadata</replaceable></term>
 	      <listitem>
-		<para>RAID metadata version. Possible values are 0.9,
-		1.0, 1.1 and 1.2.</para>
+		<para>RAID metadata version. Possible values are 1.0,
+		1.1 and 1.2, although other values might work. Without the option the
+		default of mdadm is used (which is 1.2 at present).</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -1159,8 +1160,8 @@
     </variablelist>
   </refsect1>
 
-  <refsect1 id='bugs'>
-    <title>BUGS</title>
+  <refsect1 id='bugs_and_missing_features'>
+    <title>BUGS AND MISSING FEATURES</title>
     <itemizedlist>
       <listitem>
 	<para>Validation of input is unfinished.</para>
@@ -1173,7 +1174,7 @@
 	environments, can cause race conditions.</para>
       </listitem>
       <listitem>
-	<para>Translations are missing.</para>
+	<para>Translations are incomplete.</para>
       </listitem>
       <listitem>
 	<para>Incomplete support for multipath, BIOS RAIDS and DASDs.</para>

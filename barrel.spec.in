@@ -32,12 +32,12 @@ BuildRequires:  libjson-c-devel
 BuildRequires:  docbook-xsl-stylesheets
 %endif
 BuildRequires:  fdupes
-BuildRequires:  libstorage-ng-devel >= 4.4.59
+BuildRequires:  libstorage-ng-devel >= 4.4.76
 BuildRequires:  libtool
 BuildRequires:  libxslt
 BuildRequires:  readline-devel
 
-Requires:       libstorage-ng1 >= 4.4.59
+Requires:       libstorage-ng1 >= 4.4.76
 Recommends:     %{name}-lang
 
 Summary:        Tool for storage management

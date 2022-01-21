@@ -32,9 +32,9 @@ BOOST_AUTO_TEST_CASE(test1)
     Args args({ "--dry-run", "--yes" });
 
     vector<string> actions = {
-	"Create partition /dev/sdb1 (8.12 GiB)",
+	"Create partition /dev/sdb1 (8.13 GiB)",
 	"Set id of partition /dev/sdb1 to Linux RAID",
-	"Create partition /dev/sdc1 (8.12 GiB)",
+	"Create partition /dev/sdc1 (8.13 GiB)",
 	"Set id of partition /dev/sdc1 to Linux RAID"
     };
 
