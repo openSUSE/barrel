@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-23 18:47+0000\n"
+"PO-Revision-Date: 2022-01-23 22:12+0000\n"
 "Last-Translator: Matías Silva Bustos <matiasasb@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
 "\n"
@@ -32,34 +32,34 @@ msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias para 'create encryption --type luks2'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
-msgstr ""
+msgstr "Alias para 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "Alias para 'create filesystem --type ext2'"
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "Alias para 'create filesystem --type ext3'"
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "Alias para 'create filesystem --type ext4'"
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "Alias para 'create filesystem --type f2fs'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "Alias para 'create filesystem --type ntfs'"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "Alias para 'create filesystem --type swap'"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "Alias para 'create filesystem --type xfs'"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "Alias para 'create partition-table --type gpt'"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "Alias para 'create partition-table --type ms-dos'"
 
 msgid "Alias for 'create raid --level 0'"
 msgstr ""
@@ -94,9 +94,8 @@ msgstr "Limpia la pila."
 msgid "Commands:"
 msgstr "Comandos:"
 
-#, fuzzy
 msgid "Commit changes?"
-msgstr "¿Dar encomienda a los cambios?"
+msgstr "¿Acometer los cambios?"
 
 msgid "Commits changes to disk and quits barrel."
 msgstr "Acomete los cambios al disco y sale de barrel."
@@ -337,25 +336,25 @@ msgid "Unknown option '%s' for command '%s'."
 msgstr "Opción «%s» desconocida para el comando «%s»."
 
 msgid "Usage"
-msgstr ""
+msgstr "Uso"
 
 msgid "Used"
-msgstr ""
+msgstr "Usado"
 
 msgid "Vendor"
 msgstr ""
 
 msgid "Verify password:"
-msgstr ""
+msgstr "Verificar contraseña:"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "activar los sistemas de almacenamiento al inicio"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "responder sí a todas las preguntas"
 
 msgid "backup empty during undo"
-msgstr ""
+msgstr "Respaldo vacío durante la deshechura"
 
 msgid "bad devices argument"
 msgstr ""
@@ -364,191 +363,193 @@ msgid "bad stripes argument"
 msgstr ""
 
 msgid "be more verbose"
-msgstr ""
+msgstr "sé más prolijo"
 
 msgid "be quiet"
-msgstr ""
+msgstr "sé silencioso"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "el dispositivo de bloques «%s» no puede ser removido"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
 msgstr ""
+"El dispositivo de bloques «%s» no puede ser usado como dispositivo de "
+"bloques regular"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "el dispositivo de bloques «%s» está en uso"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "Dispositivos de bloque ausentes para el comando «raid»"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "cierre fallido del archivo json «%s»"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "Dispositivo «%s» no encontrado en el mapeo"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "No acometer nada al disco"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "no mostrar particiones en DASDs"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "no mostrar particiones en RAIDs"
 
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "no mostrar particiones en discos"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "no mostrar particiones en dispositivos multirruta"
 
 msgid "done"
-msgstr ""
+msgstr "hecho"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "elemento de arreglo para «%s» no es una ristra"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
 msgstr ""
 
 msgid "encryption type"
-msgstr ""
+msgstr "tipo de cifrado"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "tipo de cifrado ya establecido para el comando «encryption»"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "tipo de cifrado ausente para el comando «encryption»"
 
 msgid "error:"
-msgstr ""
+msgstr "error:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "contenido excesivo en archivo json «%s»"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "falla al calcular acciones"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "sistema de archivos %s en %s"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "tipos sistema de archivos ya establecido para el comando «filesystem»"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "tipo de sistema de archivo ausente para el comando «filesystem»"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "forzar si el dispositivo de bloques está en uso"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "forzar si los dispositivos de bloques están en uso"
 
 msgid "go downwards"
-msgstr ""
+msgstr "descender"
 
 msgid "go upwards"
-msgstr ""
+msgstr "ascender"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "nombre inválido de volumen lógico para el comando «lv»"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "ruta «%s» inválida"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "nombre inválido de grupo de volúmenes para el comando «vg»"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "mantener particiones subyacentes"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "el DASD mapeado para «%s» tiene diferente formato"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "el DASD mapeado para «%s» es de diferente tipo"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "el DASD mapeado reiteradamente para «%s»"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "el RAID DM mapeado reiteradamente para «%s»"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "dispositivo mapeado para «%s» tiene diferente tamaño de bloque"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "dispositivo mapeado para «%s» no es un DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "dispositivo mapeado para «%s» no es un RAID DM"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "dispositivo mapeado para «%s» no es un disco"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "dispositivo mapeado para «%s» no es multirruta"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "dispositivo mapeado para «%s» es más pequeño"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "dispositivo mapeado para «%s» no encontrado"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "disco mapeado para «%s» mapeado dos veces"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "mapeos mellizos para multirruta «%s»"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "mapeando %s a %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "mapeo no encontrado en archivo json «%s»"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "opciones de mkfs"
 
 msgid "mount options"
-msgstr ""
+msgstr "opciones de montaje"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "opciones de montaje requieren una ruta"
 
 msgid "mount path"
-msgstr ""
+msgstr "ruta de montaje"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "múltiples dispositivos"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "nombre ausente para el comando «devicegraph»"
 
 msgid "name missing for command 'encryption'"
 msgstr ""
@@ -606,63 +607,63 @@ msgstr ""
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "no se encuentra mapeo multirruta para «%s»"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "no hay dispositivo de bloque en la pila"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "no hay tabla de partición en la pila"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "no es particionable"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "no hay particionable en la pila"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "no hay grupo de volúmenes en la pila"
 
 msgid "number of stripes"
 msgstr ""
 
 msgid "old name"
-msgstr ""
+msgstr "nombre previo"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "solamente un dispositivo de bloques permitido"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "fallo abriendo archivo json «%s»"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "falla parseando archivo json «%s»"
 
 msgid "partition table type"
-msgstr ""
+msgstr "tipo de tabla de partición"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr ""
+msgstr "tipo de tabla de partición ya establecido en comando «partition-table»"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "tipo de tabla de partición ausente para comando «partition-table»"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "el particionable «%s» no puede ser usado como regular"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "particionable «%s» en uso"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "ruta «%s» ya usada"
 
 msgid "path must be 'swap'"
-msgstr ""
+msgstr "ruta debe ser «swap»"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
@@ -683,62 +684,62 @@ msgstr ""
 
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "falla al leer archivo json «%s»"
 
 msgid "run with a prefix"
 msgstr ""
 
 msgid "set RAID level"
-msgstr ""
+msgstr "establecer nivel RAID"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "establecer versión de metadatos RAID"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "nombrar RAID"
 
 msgid "set chunk size"
 msgstr ""
 
 msgid "set extent size"
-msgstr ""
+msgstr "extender"
 
 msgid "set file system label"
-msgstr ""
+msgstr "etiquetar sistema de archivos"
 
 msgid "set file system type"
-msgstr ""
+msgstr "tipificar sistema de archivos"
 
 msgid "set label of device"
-msgstr ""
+msgstr "etiquetar un dispositivo"
 
 msgid "set name of device"
-msgstr ""
+msgstr "nombrar un dispositivo"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "nombrar un volumen lógico"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "nombrar un grupo de volúmenes"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "poner número de dispositivos"
 
 msgid "set size"
-msgstr ""
+msgstr "establecer tamaño"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "establecer tamaño de RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "dimensionar volumen lógico"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "dimensionar grupo de volúmenes"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "se encontraron varios mapeos DASDs para «%s»"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
@@ -753,13 +754,13 @@ msgid "several mapping multipath for '%s' found"
 msgstr ""
 
 msgid "show help and exit"
-msgstr ""
+msgstr "mostrar ayuda y salir"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "muestra versión y sale"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "argumento tamaño ausente para comando «encryption»"
 
 msgid "size argument missing for command 'filesystem'"
 msgstr ""
@@ -777,57 +778,57 @@ msgid "size of stripes"
 msgstr ""
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "dispositivos ociosos no permitidos para nivel de RAID"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "pila vacía durante dup"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "pila vacía durante pop"
 
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "falla operación stat en archivo json «%s»"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "demasiado pocos dispositivos RAID para el nivel"
 
 msgid "tune options"
-msgstr ""
+msgstr "opciones de ajuste"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "opciones de ajuste no permitidas para «%s»"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "tipo desconocido de cifrado"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "tipo de sistema de archivos «%s» desconocido"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "tipo desconocido de tabla de partición"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "nivel desconocido de raid para comando «raid»"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "el valor para «%s», ni ristra ni arreglo"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "valor de la entrada descripción no es una ristra"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "valor de entrada de dispositivos no es un arreglo"
 
-#, c-format
+#, c-format, fuzzy
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "grupo de volúmenes «%s» está over-commited"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "número incorrecto de particionables"
 
 msgid "y/n"
-msgstr ""
+msgstr "s/n"
