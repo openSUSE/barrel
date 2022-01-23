@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-23 18:27+0000\n"
+"PO-Revision-Date: 2022-01-23 18:47+0000\n"
 "Last-Translator: Matías Silva Bustos <matiasasb@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
 "\n"
@@ -216,45 +216,47 @@ msgstr "Nombre"
 msgid "No block devices allowed for command option '%s'."
 msgstr "No se permiten dispositivos de bloque para la opción de comando «%s»."
 
+#, fuzzy
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "Dispositivos globales de bloque, prohibidos."
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Las contraseñas no coinciden."
 
 msgid "Pool"
 msgstr ""
 
 msgid "Position"
-msgstr ""
+msgstr "Posición"
 
+#, fuzzy
 msgid "Prints help."
-msgstr ""
+msgstr "Muestra la ayuda."
 
 msgid "Prints the stack."
 msgstr ""
 
 msgid "Probing..."
-msgstr ""
+msgstr "Sondeando..."
 
 msgid "Quit?"
-msgstr ""
+msgstr "¿Salir?"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "Sale de barrel."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "Nivel de RAID ya establecido para el comando «raid»"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "Nivel de RAID ausente para el comando «raid»"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Quita un dispositivo."
 
 msgid "Removes a pool."
 msgstr ""
@@ -263,7 +265,7 @@ msgid "Removes devices from a pool."
 msgstr ""
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Quita el objeto apical de la pila."
 
 msgid "Renames pool."
 msgstr ""
@@ -287,51 +289,52 @@ msgid "Shows DASDs."
 msgstr ""
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Muestra los grupos de volúmenes LVM."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Muestra las RAIDs."
 
+#, fuzzy
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Muestra las encomiendas."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Muestra el árbol de dispositivos."
 
 msgid "Shows disks."
-msgstr ""
+msgstr "Muestra los discos."
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Muestra los dispositivos de cifrado."
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "Muestra sistemas de archivos."
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Muestra dispositivos multirruta."
 
 msgid "Shows pools."
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
 msgid "Stripes"
 msgstr ""
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "El comando tiene los siguientes subcomandos:"
 
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Opción global «%s» desconocida."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Opción «%s» desconocida para el comando «%s»."
 
 msgid "Usage"
 msgstr ""
