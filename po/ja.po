@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-21 12:12+0000\n"
+"PO-Revision-Date: 2022-01-23 09:12+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -157,7 +157,7 @@ msgid "Invalid answer '%s'"
 msgstr "回答 '%s' が正しくありません"
 
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "笑っていましょう。それが一番大事なことですから。"
 
 #, c-format
 msgid "LUKS on %s"
@@ -184,7 +184,7 @@ msgid "Loads pools."
 msgstr "プールを読み込みます。"
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "ファイルからステージングデバイスグラフを読み込みます。"
 
 #, c-format
 msgid "MS-DOS on %s"
@@ -246,7 +246,7 @@ msgid "RAID %s"
 msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr "コマンド 'raid' に対する RAID レベルは指定済みです"
+msgstr "コマンド 'raid' に対する RAID レベルは既に指定されています"
 
 msgid "Raid level missing for command 'raid'"
 msgstr "コマンド 'raid' に対する RAID レベルが指定されていません"
@@ -267,7 +267,7 @@ msgid "Renames pool."
 msgstr "プールの名前を変更します。"
 
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
+msgstr "直近のバックアップからステージングデバイスグラフを復元します。"
 
 msgid "Save pools"
 msgstr "プールの保存"
@@ -276,7 +276,7 @@ msgid "Saves pools."
 msgstr "プールを保存します。"
 
 msgid "Saves the staging devicegraph to a file."
-msgstr ""
+msgstr "ステージングデバイスグラフをファイルに保存します。"
 
 msgid "Saving pools..."
 msgstr "プールを保存しています..."
@@ -350,7 +350,7 @@ msgid "answer all questions with yes"
 msgstr "全ての質問に対して 'yes' (はい) と回答します"
 
 msgid "backup empty during undo"
-msgstr ""
+msgstr "元に戻す際のバックアップがありません"
 
 msgid "bad devices argument"
 msgstr "デバイスパラメータが正しくありません"
@@ -604,225 +604,225 @@ msgid "no mapping multipath for '%s' found"
 msgstr "'%s' に対応するマルチパスが見つかりません"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "スタック内に存在するものがブロックデバイスではありません"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "スタック内に存在するものがパーティションテーブルではありません"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "パーティション作成可能なものではありません"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "スタック内に存在するものがパーティション作成可能なものではありません"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "スタック内に存在するものがボリュームグループではありません"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "ストライプ数"
 
 msgid "old name"
-msgstr ""
+msgstr "古い名前"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "1 つのブロックデバイスのみを指定することができます"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "JSON ファイル '%s' を開く処理が失敗しました"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "JSON ファイル '%s' の解析処理が失敗しました"
 
 msgid "partition table type"
-msgstr ""
+msgstr "パーティションテーブルの種類"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr ""
+msgstr "コマンド 'partition-table' に対するパーティションテーブルの種類は既に指定されています"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "コマンド 'partition-table' に対するパーティションテーブルの種類が指定されていません"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "パーティション設定可能な '%s' を通常のものとして使用することはできません"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "パーティション設定可能な '%s' は使用中です"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "パス '%s' は既に使用されています"
 
 msgid "path must be 'swap'"
-msgstr ""
+msgstr "パスは 'swap' でなければなりません"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
-msgstr ""
+msgstr "コマンド 'encryption' に対してプールパラメータとブロックデバイスの両方を指定することはできません"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
-msgstr ""
+msgstr "コマンド 'filesystem' に対してプールパラメータとブロックデバイスの両方を指定することはできません"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
-msgstr ""
+msgstr "コマンド 'vg' に対してプールパラメータとブロックデバイスの両方を指定することはできません"
 
 msgid "pool name"
-msgstr ""
+msgstr "プールの名前"
 
 msgid "probed instead of staging"
-msgstr ""
+msgstr "ステージングではなく検出して表示します"
 
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "JSON ファイル '%s' の読み込みに失敗しました"
 
 msgid "run with a prefix"
-msgstr ""
+msgstr "プレフィクス付きで実行します"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "RAID レベルを指定します"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "RAID のメタデータバージョンを指定します"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "RAID の名前を指定します"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "チャンクサイズを指定します"
 
 msgid "set extent size"
-msgstr ""
+msgstr "エクステントのサイズを指定します"
 
 msgid "set file system label"
-msgstr ""
+msgstr "ファイルシステムのラベルを指定します"
 
 msgid "set file system type"
-msgstr ""
+msgstr "ファイルシステムの種類を指定します"
 
 msgid "set label of device"
-msgstr ""
+msgstr "デバイスのラベルを指定します"
 
 msgid "set name of device"
-msgstr ""
+msgstr "デバイスの名前を指定します"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "論理ボリュームの名前を指定します"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "ボリュームグループの名前を指定します"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "デバイスの数を指定します"
 
 msgid "set size"
-msgstr ""
+msgstr "サイズを指定します"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "RAID のサイズを指定します"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "論理ボリュームのサイズを指定します"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "ボリュームグループのサイズを指定します"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "'%s' に対する DASD のマッピングが複数見つかりました"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "'%s' に対する DM RAID のマッピングが複数見つかりました"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "'%s' に対するディスクのマッピングが複数見つかりました"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "'%s' に対するマルチパスのマッピングが複数見つかりました"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "ヘルプを表示して終了します"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "バージョンを表示して終了します"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "コマンド 'encryption' に対するサイズパラメータが指定されていません"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "コマンド 'filesystem' に対するサイズパラメータが指定されていません"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "コマンド 'raid' に対してはサイズパラメータを指定する必要があります"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "コマンド 'vg' に対してはサイズパラメータを指定する必要があります"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "コマンド 'lv' に対するサイズパラメータが指定されていません"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "ストライプの数"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "この RAID レベルではスペアデバイスは許可されません"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "dup 時にスタックが空になりました"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "pop 時にスタックが空になりました"
 
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "JSON ファイル '%s' に対する stat が失敗しました"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "この RAID レベルで使用する RAID デバイスが少なすぎます"
 
 msgid "tune options"
-msgstr ""
+msgstr "チューニングオプション"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "%s に対してはチューニングオプションは使用できません"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "不明な暗号化の種類"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "不明なファイルシステムの種類 '%s'"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "不明なパーティションテーブルの種類"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "コマンド 'raid' に対する RAID レベルが不明です"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "'%s' に対する値が文字列でも配列でもありません"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "説明の値が文字列ではありません"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "デバイスの値が配列ではありません"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
 msgstr "ボリュームグループ '%s' はオーバーコミット状態です"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "パーティション設定可能なものの数が正しくありません"
 
 msgid "y/n"
-msgstr ""
+msgstr "y/n"
