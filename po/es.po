@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-23 22:12+0000\n"
+"PO-Revision-Date: 2022-01-24 10:12+0000\n"
 "Last-Translator: Matías Silva Bustos <matiasasb@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
 "\n"
@@ -23,7 +23,7 @@ msgid "Activating..."
 msgstr "Activando..."
 
 msgid "Adds devices to a pool."
-msgstr ""
+msgstr "Añade dispositivos a un pool."
 
 msgid "Alias for 'create encryption --type luks1'"
 msgstr "Alias para 'create encryption --type luks1'"
@@ -62,22 +62,22 @@ msgid "Alias for 'create partition-table --type ms-dos'"
 msgstr "Alias para 'create partition-table --type ms-dos'"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "Sigla para «create raid --level 0»"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "Sigla para «create raid --level 1»"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "Sigla para «create raid --level 10»"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "Sigla para «create raid --level 4»"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "Sigla para «create raid --level 5»"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "Sigla para «create raid --level 6»"
 
 msgid "Block Size"
 msgstr "Tamaño de bloque"
@@ -147,7 +147,7 @@ msgid "GPT on %s"
 msgstr "GPT en %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Generando pooles"
 
 #, fuzzy
 msgid "Global options:"
@@ -179,7 +179,7 @@ msgid "Level"
 msgstr "Nivel"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Cargando pools..."
 
 msgid "Loads pools."
 msgstr ""
@@ -233,7 +233,7 @@ msgid "Prints help."
 msgstr "Muestra la ayuda."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Imprime la pila."
 
 msgid "Probing..."
 msgstr "Sondeando..."
@@ -258,16 +258,18 @@ msgid "Removes a device."
 msgstr "Quita un dispositivo."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Quita un pool."
 
+#, fuzzy
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Quita dispositivos de un pool."
 
 msgid "Removes the top object from the stack."
 msgstr "Quita el objeto apical de la pila."
 
+#, fuzzy
 msgid "Renames pool."
-msgstr ""
+msgstr "Renombra un pool."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
@@ -285,7 +287,7 @@ msgid "Saving pools..."
 msgstr ""
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "Muestra DASDs."
 
 msgid "Shows LVM volume groups."
 msgstr "Muestra los grupos de volúmenes LVM."
@@ -342,7 +344,7 @@ msgid "Used"
 msgstr "Usado"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Fabricante"
 
 msgid "Verify password:"
 msgstr "Verificar contraseña:"
@@ -417,7 +419,7 @@ msgstr "elemento de arreglo para «%s» no es una ristra"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "elemento de arreglo de dispositivos para «%s» no es una ristra"
 
 msgid "encryption type"
 msgstr "tipo de cifrado"
@@ -552,16 +554,16 @@ msgid "name missing for command 'devicegraph'"
 msgstr "nombre ausente para el comando «devicegraph»"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "nombre ausente para comando «encryption»"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "nombre ausente para comando «lv»"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "nombre ausente para comando «vg»"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "nombre de RAID ya existe"
 
 msgid "name of devicegraph"
 msgstr ""
@@ -570,10 +572,10 @@ msgid "name of devicegraph file"
 msgstr ""
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "nombre de volumen lógico ya existe"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "nombre del archivo de mapeo"
 
 msgid "name of new pool"
 msgstr ""
@@ -585,25 +587,25 @@ msgid "name of pool to use"
 msgstr ""
 
 msgid "name of volume group"
-msgstr ""
+msgstr "nombre del grupo de volúmenes"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "nombre del grupo de volúmenes ya existe"
 
 msgid "new name"
-msgstr ""
+msgstr "nuevo nombre"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "no se encuentra mapeo DASD para «%s»"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "no se encuentra mapeo RAID DM para «%s»"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "no se encuentra mapeo de disco para «%s»"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
@@ -679,8 +681,9 @@ msgstr ""
 msgid "pool name"
 msgstr ""
 
+#, fuzzy
 msgid "probed instead of staging"
-msgstr ""
+msgstr "sondeado en vez de ensayado"
 
 #, c-format
 msgid "read for json file '%s' failed"
@@ -743,15 +746,15 @@ msgstr "se encontraron varios mapeos DASDs para «%s»"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "se encontraron varios mapeos RAID DM para «%s»"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "se encontraron varios mapeos de disco para «%s»"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "se encontraron varios mapeos multirruta para «%s»"
 
 msgid "show help and exit"
 msgstr "mostrar ayuda y salir"
@@ -763,16 +766,16 @@ msgid "size argument missing for command 'encryption'"
 msgstr "argumento tamaño ausente para comando «encryption»"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "argumento tamaño ausente para el comando «filesystem»"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "se requiere argumento tamaño para el comando «raid»"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "se requiere argumento tamaño para el comando «vg»"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "tamaño ausente para el comando «lv»"
 
 msgid "size of stripes"
 msgstr ""
