@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-24 10:12+0000\n"
+"PO-Revision-Date: 2022-01-25 16:12+0000\n"
 "Last-Translator: Matías Silva Bustos <matiasasb@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
 "\n"
@@ -86,7 +86,7 @@ msgid "Bus ID"
 msgstr "ID del bus"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "Tamaño del aservo"
 
 msgid "Clears the stack."
 msgstr "Limpia la pila."
@@ -182,7 +182,7 @@ msgid "Loading pools..."
 msgstr "Cargando pools..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Carga reservas."
 
 msgid "Loads the staging devicegraph from a file."
 msgstr ""
@@ -223,7 +223,7 @@ msgid "Passwords do not match."
 msgstr "Las contraseñas no coinciden."
 
 msgid "Pool"
-msgstr ""
+msgstr "Reserva"
 
 msgid "Position"
 msgstr "Posición"
@@ -275,16 +275,16 @@ msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
 
 msgid "Save pools"
-msgstr ""
+msgstr "Guarda reservas"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Guarda reservas."
 
 msgid "Saves the staging devicegraph to a file."
 msgstr ""
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Guardando reservas..."
 
 msgid "Shows DASDs."
 msgstr "Muestra DASDs."
@@ -315,7 +315,7 @@ msgid "Shows multipath devices."
 msgstr "Muestra dispositivos multirruta."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Muestra las reservas."
 
 msgid "Size"
 msgstr "Tamaño"
@@ -569,7 +569,7 @@ msgid "name of devicegraph"
 msgstr ""
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "nombre del archivo de dispograma"
 
 msgid "name of logical volume already exists"
 msgstr "nombre de volumen lógico ya existe"
@@ -578,13 +578,13 @@ msgid "name of mapping file"
 msgstr "nombre del archivo de mapeo"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "nombre de la nueva reserva"
 
 msgid "name of pool"
-msgstr ""
+msgstr "nombre de la reserva"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "nombre de la reserva que usar"
 
 msgid "name of volume group"
 msgstr "nombre del grupo de volúmenes"
@@ -670,6 +670,8 @@ msgstr "ruta debe ser «swap»"
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
 msgstr ""
+"argumento pool y bld devices no se permiten conjuntamente para el comando "
+"«encryption»"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
@@ -679,7 +681,7 @@ msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
 
 msgid "pool name"
-msgstr ""
+msgstr "nombre de la reserva"
 
 #, fuzzy
 msgid "probed instead of staging"
@@ -702,7 +704,7 @@ msgid "set RAID name"
 msgstr "nombrar RAID"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "Dimensionar el aservo"
 
 msgid "set extent size"
 msgstr "extender"
