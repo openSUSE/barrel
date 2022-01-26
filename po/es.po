@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-25 16:12+0000\n"
+"PO-Revision-Date: 2022-01-26 18:12+0000\n"
 "Last-Translator: Matías Silva Bustos <matiasasb@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
 "\n"
@@ -86,7 +86,7 @@ msgid "Bus ID"
 msgstr "ID del bus"
 
 msgid "Chunk Size"
-msgstr "Tamaño del aservo"
+msgstr "Tamaño de la colocación"
 
 msgid "Clears the stack."
 msgstr "Limpia la pila."
@@ -149,7 +149,6 @@ msgstr "GPT en %s"
 msgid "Generating pools"
 msgstr "Generando pooles"
 
-#, fuzzy
 msgid "Global options:"
 msgstr "Opciones globales:"
 
@@ -185,7 +184,7 @@ msgid "Loads pools."
 msgstr "Carga reservas."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Carga el dispograma de ensayo desde un archivo."
 
 #, c-format
 msgid "MS-DOS on %s"
@@ -215,7 +214,6 @@ msgstr "Nombre"
 msgid "No block devices allowed for command option '%s'."
 msgstr "No se permiten dispositivos de bloque para la opción de comando «%s»."
 
-#, fuzzy
 msgid "No global block devices allowed."
 msgstr "Dispositivos globales de bloque, prohibidos."
 
@@ -228,9 +226,8 @@ msgstr "Reserva"
 msgid "Position"
 msgstr "Posición"
 
-#, fuzzy
 msgid "Prints help."
-msgstr "Muestra la ayuda."
+msgstr "Muestra ayuda."
 
 msgid "Prints the stack."
 msgstr "Imprime la pila."
@@ -260,19 +257,17 @@ msgstr "Quita un dispositivo."
 msgid "Removes a pool."
 msgstr "Quita un pool."
 
-#, fuzzy
 msgid "Removes devices from a pool."
-msgstr "Quita dispositivos de un pool."
+msgstr "Quita dispositivos de una reserva."
 
 msgid "Removes the top object from the stack."
 msgstr "Quita el objeto apical de la pila."
 
-#, fuzzy
 msgid "Renames pool."
-msgstr "Renombra un pool."
+msgstr "Renombra una reserva."
 
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
+msgstr "Restaura el dispograma de ensayo al del último respaldo."
 
 msgid "Save pools"
 msgstr "Guarda reservas"
@@ -281,7 +276,7 @@ msgid "Saves pools."
 msgstr "Guarda reservas."
 
 msgid "Saves the staging devicegraph to a file."
-msgstr ""
+msgstr "Guarda el dispograma de ensayo en un archivo."
 
 msgid "Saving pools..."
 msgstr "Guardando reservas..."
@@ -295,9 +290,8 @@ msgstr "Muestra los grupos de volúmenes LVM."
 msgid "Shows RAIDs."
 msgstr "Muestra las RAIDs."
 
-#, fuzzy
 msgid "Shows commit actions."
-msgstr "Muestra las encomiendas."
+msgstr "Muestra los acometimientos."
 
 msgid "Shows device tree."
 msgstr "Muestra el árbol de dispositivos."
@@ -321,7 +315,7 @@ msgid "Size"
 msgstr "Tamaño"
 
 msgid "Stripes"
-msgstr ""
+msgstr "Tiras"
 
 msgid "The command has the following subcommands:"
 msgstr "El comando tiene los siguientes subcomandos:"
@@ -359,10 +353,10 @@ msgid "backup empty during undo"
 msgstr "Respaldo vacío durante la deshechura"
 
 msgid "bad devices argument"
-msgstr ""
+msgstr "devices, mal argumento"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "stripes, mal argumento"
 
 msgid "be more verbose"
 msgstr "sé más prolijo"
@@ -566,7 +560,7 @@ msgid "name of RAID already exists"
 msgstr "nombre de RAID ya existe"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "Nombre del dispograma"
 
 msgid "name of devicegraph file"
 msgstr "nombre del archivo de dispograma"
@@ -627,7 +621,7 @@ msgid "not a volume group on stack"
 msgstr "no hay grupo de volúmenes en la pila"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "número de tiras"
 
 msgid "old name"
 msgstr "nombre previo"
@@ -676,14 +670,16 @@ msgstr ""
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
+"Comando «filesystem» no admite conjuntamente los argumentos «pool» y «blk "
+"devices»"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
+"Comando «vg» no admite conjuntamente los argumentos «pool» y «blk devices»"
 
 msgid "pool name"
 msgstr "nombre de la reserva"
 
-#, fuzzy
 msgid "probed instead of staging"
 msgstr "sondeado en vez de ensayado"
 
@@ -692,7 +688,7 @@ msgid "read for json file '%s' failed"
 msgstr "falla al leer archivo json «%s»"
 
 msgid "run with a prefix"
-msgstr ""
+msgstr "Accionar con un prefijo"
 
 msgid "set RAID level"
 msgstr "establecer nivel RAID"
@@ -780,7 +776,7 @@ msgid "size missing for command 'lv'"
 msgstr "tamaño ausente para el comando «lv»"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "tamaño de las tiras"
 
 msgid "spare devices not allowed for raid level"
 msgstr "dispositivos ociosos no permitidos para nivel de RAID"
@@ -828,9 +824,9 @@ msgstr "valor de la entrada descripción no es una ristra"
 msgid "value of devices entry not an array"
 msgstr "valor de entrada de dispositivos no es un arreglo"
 
-#, c-format, fuzzy
+#, c-format
 msgid "volume group '%s' is over-committed"
-msgstr "grupo de volúmenes «%s» está over-commited"
+msgstr "grupo de volúmenes «%s» está harto acometido"
 
 msgid "wrong number of partitionables"
 msgstr "número incorrecto de particionables"
