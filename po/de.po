@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-02-15 17:54+0000\n"
+"PO-Revision-Date: 2022-02-16 20:12+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
 "\n"
@@ -116,7 +116,7 @@ msgstr "Löscht den Stack."
 
 #, fuzzy
 msgid "Commands:"
-msgstr "Befehle:"
+msgstr "Kommandos:"
 
 #, fuzzy
 msgid "Commit changes?"
@@ -243,7 +243,7 @@ msgstr "Metadaten"
 
 #, c-format, fuzzy
 msgid "Missing argument for command option '%s'."
-msgstr "Fehlendes Argument für Befehlsoption '%s'."
+msgstr "Fehlendes Argument für Kommandooption '%s'."
 
 #, c-format, fuzzy
 msgid "Missing argument for global option '%s'."
@@ -263,7 +263,7 @@ msgstr "Name"
 
 #, c-format, fuzzy
 msgid "No block devices allowed for command option '%s'."
-msgstr "Keine Blockgeräte für Befehlsoption '%s' zulässig."
+msgstr "Keine Blockgeräte für Kommandooption '%s' zulässig."
 
 #, fuzzy
 msgid "No global block devices allowed."
@@ -307,11 +307,11 @@ msgstr "RAID %s"
 
 #, fuzzy
 msgid "RAID level already set for command 'raid'"
-msgstr "RAID-Ebene für Befehl 'raid' ist bereits eingestellt"
+msgstr "RAID-Ebene für Kommando 'raid' ist bereits eingestellt"
 
 #, fuzzy
 msgid "Raid level missing for command 'raid'"
-msgstr "Raid-Ebene  für Befehl 'raid' fehlt"
+msgstr "Raid-Ebene  für Kommando 'raid' fehlt"
 
 #, fuzzy
 msgid "Removes a device."
@@ -403,7 +403,7 @@ msgstr "Stripes"
 
 #, fuzzy
 msgid "The command has the following subcommands:"
-msgstr "Der Befehl hat die folgenden Unterbefehle:"
+msgstr "Kommando hat die folgenden Unterkommandos:"
 
 msgid "Type"
 msgstr "Typ"
@@ -414,7 +414,7 @@ msgstr "Unbekannte globale Option '%s'."
 
 #, c-format, fuzzy
 msgid "Unknown option '%s' for command '%s'."
-msgstr "Unbekannte Option '%s' für den Befehl '%s'."
+msgstr "Unbekannte Option '%s' für Kommando '%s'."
 
 #, fuzzy
 msgid "Usage"
@@ -445,11 +445,11 @@ msgstr "Sicherung leer beim Rückgängigmachen"
 
 #, fuzzy
 msgid "bad devices argument"
-msgstr "falsches Geräteargument"
+msgstr "schlechtes Geräteargument"
 
 #, fuzzy
 msgid "bad stripes argument"
-msgstr "falsches Stripe-Argument"
+msgstr "schlechtes Stripe-Argument"
 
 #, fuzzy
 msgid "be more verbose"
@@ -473,7 +473,7 @@ msgstr "Blockgerät '%s' wird verwendet"
 
 #, fuzzy
 msgid "block devices missing for command 'raid'"
-msgstr "Blockgeräte für Befehl 'raid' fehlen"
+msgstr "Blockgeräte für Kommando 'raid' fehlen"
 
 #, c-format, fuzzy
 msgid "closing json file '%s' failed"
@@ -521,11 +521,12 @@ msgstr "Verschlüsselungstyp"
 
 #, fuzzy
 msgid "encryption type already set for command 'encryption'"
-msgstr "Verschlüsselungstyp für Befehl 'Verschlüsselung' ist bereits festgelegt"
+msgstr ""
+"Verschlüsselungstyp für Kommando 'Verschlüsselung' ist bereits festgelegt"
 
 #, fuzzy
 msgid "encryption type missing for command 'encryption'"
-msgstr "Verschlüsselungstyp für Befehl 'encryption' fehlt"
+msgstr "Verschlüsselungstyp für Kommando 'encryption' fehlt"
 
 #, fuzzy
 msgid "error:"
@@ -545,11 +546,11 @@ msgstr "Dateisystem %s auf %s"
 
 #, fuzzy
 msgid "filesystem type already set for command 'filesystem'"
-msgstr "Dateisystemtyp für Befehl 'filesystem' ist bereits festgelegt"
+msgstr "Dateisystemtyp für Kommando 'filesystem' ist bereits festgelegt"
 
 #, fuzzy
 msgid "filesystem type missing for command 'filesystem'"
-msgstr "Dateisystemtyp für Befehl 'filesystem' fehlt"
+msgstr "Dateisystemtyp für Kommando 'filesystem' fehlt"
 
 #, fuzzy
 msgid "force if block device is in use"
@@ -569,7 +570,7 @@ msgstr "nach oben gehen"
 
 #, fuzzy
 msgid "invalid logical volume name for command 'lv'"
-msgstr "ungültiger Name für logisches Volume in Befehl 'lv'"
+msgstr "ungültiger Name für logisches Volume in Kommando 'lv'"
 
 #, c-format, fuzzy
 msgid "invalid path '%s'"
@@ -577,7 +578,7 @@ msgstr "Pfad '%s' ist ungültig"
 
 #, fuzzy
 msgid "invalid volume group name for command 'vg'"
-msgstr "ungültiger Name für Volume-Gruppe in Befehl 'vg'"
+msgstr "ungültiger Name für Volume-Gruppe in Kommando 'vg'"
 
 #, fuzzy
 msgid "keep underlying partitions"
@@ -665,19 +666,19 @@ msgstr "mehrere Geräte"
 
 #, fuzzy
 msgid "name missing for command 'devicegraph'"
-msgstr "Name für Befehl 'devicegraph' fehlt"
+msgstr "Name für Kommando 'devicegraph' fehlt"
 
 #, fuzzy
 msgid "name missing for command 'encryption'"
-msgstr "Name für Befehl 'encryption' fehlt"
+msgstr "Name für Kommando 'encryption' fehlt"
 
 #, fuzzy
 msgid "name missing for command 'lv'"
-msgstr "Name für Befehl 'lv' fehlt"
+msgstr "Name für Kommando 'lv' fehlt"
 
 #, fuzzy
 msgid "name missing for command 'vg'"
-msgstr "Name für Befehl 'vg' fehlt"
+msgstr "Name für Kommando 'vg' fehlt"
 
 #, fuzzy
 msgid "name of RAID already exists"
@@ -777,7 +778,7 @@ msgstr "Öffnen der json-Datei '%s' fehlgeschlagen"
 
 #, c-format, fuzzy
 msgid "parsing json file '%s' failed"
-msgstr "Analysieren der json-Datei '%s' fehlgeschlagen"
+msgstr "Parsen der json-Datei '%s' fehlgeschlagen"
 
 #, fuzzy
 msgid "partition table type"
@@ -786,11 +787,11 @@ msgstr "Partitionstabellentyp"
 #, fuzzy
 msgid "partition table type already set command 'partition-table'"
 msgstr ""
-"Partitionstabellentyp für Befehl 'partition-table' wurde bereits festgelegt"
+"Partitionstabellentyp für Kommando 'partition-table' wurde bereits festgelegt"
 
 #, fuzzy
 msgid "partition table type missing for command 'partition-table'"
-msgstr "Partitionstabellentyp für Befehl 'partition-table' fehlt"
+msgstr "Partitionstabellentyp für Kommando 'partition-table' fehlt"
 
 #, c-format, fuzzy
 msgid "partitionable '%s' cannot be used as a regular partitionable"
@@ -810,24 +811,23 @@ msgstr "Pfad '%s' wird bereits verwendet"
 msgid "path must be 'swap'"
 msgstr "Pfad muss 'swap' sein"
 
-#, fuzzy
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
 msgstr ""
-"Pool-Argument und 'blk devices' dürfen nicht zusammen für den Befehl "
+"Pool-Argument und 'blk devices' dürfen nicht zusammen für das Kommando "
 "'encryption' verwendet werden"
 
 #, fuzzy
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
-"Pool-Argument und 'blk devices' dürfen nicht zusammen für den Befehl "
+"Pool-Argument und 'blk devices' dürfen nicht zusammen für das Kommando "
 "'filesystem' verwendet werden"
 
 #, fuzzy
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
-"Pool-Argument und 'blk devices' dürfen nicht zusammen für den Befehl 'vg' "
+"Pool-Argument und 'blk devices' dürfen nicht zusammen für das Kommando 'vg' "
 "verwendet werden"
 
 #, fuzzy
@@ -936,23 +936,23 @@ msgstr "Version anzeigen und beenden"
 
 #, fuzzy
 msgid "size argument missing for command 'encryption'"
-msgstr "Größenargument für Befehl 'encryption' fehlt"
+msgstr "Größenargument für Kommando 'encryption' fehlt"
 
 #, fuzzy
 msgid "size argument missing for command 'filesystem'"
-msgstr "Größenargument für Befehl 'filesystem' fehlt"
+msgstr "Größenargument für Kommando 'filesystem' fehlt"
 
 #, fuzzy
 msgid "size argument required for command 'raid'"
-msgstr "Größenargument für Befehl 'raid' erforderlich"
+msgstr "Größenargument für Kommando 'raid' erforderlich"
 
 #, fuzzy
 msgid "size argument required for command 'vg'"
-msgstr "Größenargument für Befehl 'vg' erforderlich"
+msgstr "Größenargument für Kommando 'vg' erforderlich"
 
 #, fuzzy
 msgid "size missing for command 'lv'"
-msgstr "Größe für Befehl 'lv' fehlt"
+msgstr "Größe für Kommando 'lv' fehlt"
 
 #, fuzzy
 msgid "size of stripes"
@@ -1000,7 +1000,7 @@ msgstr "unbekannter Partitionstabellentyp"
 
 #, fuzzy
 msgid "unknown raid level for command 'raid'"
-msgstr "unbekannte Raid-Ebene für Befehl 'raid'"
+msgstr "unbekannte Raid-Ebene für Kommando 'raid'"
 
 #, c-format, fuzzy
 msgid "value for '%s' neither string nor array"
