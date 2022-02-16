@@ -9,818 +9,821 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-11 16:33+0100\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-02-16 05:12+0000\n"
+"Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
+"Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/barrel/"
+"master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.9.1\n"
 
 msgid "Activating..."
-msgstr ""
+msgstr "正在激活..."
 
 msgid "Adds devices to a pool."
-msgstr ""
+msgstr "将设备添加到池中。"
 
 msgid "Alias for 'create encryption --type luks1'"
-msgstr ""
+msgstr "\"create encryption --type luks1\" 的别名"
 
 msgid "Alias for 'create encryption --type luks2'"
-msgstr ""
+msgstr "\"create encryption --type luks2\" 的别名"
 
 msgid "Alias for 'create filesystem --type btrfs'"
-msgstr ""
+msgstr "\"create filesystem --type btrfs\" 的别名"
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "\"create filesystem --type ext2\" 的别名"
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "\"create filesystem --type ext3\" 的别名"
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "\"create filesystem --type ext4\" 的别名"
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "\"create filesystem --type f2fs\" 的别名"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "\"create filesystem --type ntfs\" 的别名"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "\"create filesystem --type swap\" 的别名"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "\"create filesystem --type xfs\" 的别名"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "\"create partition-table --type gpt\" 的别名"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "\"create partition-table --type ms-dos\" 的别名"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "\"create raid --level 0\" 的别名"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "\"create raid --level 1\" 的别名"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "\"create raid --level 10\" 的别名"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "\"create raid --level 4\" 的别名"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "\"create raid --level 5\" 的别名"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "\"create raid --level 6\" 的别名"
 
 msgid "Block Size"
-msgstr ""
+msgstr "块大小"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "总线 ID"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "区块大小"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "清除堆栈。"
 
 msgid "Commands:"
-msgstr ""
+msgstr "命令："
 
 msgid "Commit changes?"
-msgstr ""
+msgstr "是否提交更改？"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
+msgstr "提交对磁盘的更改并退出 barrel。"
 
 msgid "Continue?"
-msgstr ""
+msgstr "是否继续？"
 
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "创建新 LVM 逻辑卷。"
 
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "创建新 LVM 卷组。"
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "创建新 RAID。"
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "创建新加密设备。"
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "创建新文件系统。"
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "创建新分区表。"
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "创建包含设备的新池。"
 
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 msgid "Devices"
-msgstr ""
+msgstr "设备"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "复制堆栈的顶层对象。"
 
 msgid "Enter password:"
-msgstr ""
+msgstr "输入口令："
 
 msgid "Extent Size"
-msgstr ""
+msgstr "盘区大小"
 
 msgid "Format"
-msgstr ""
+msgstr "格式化"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "%s 上的 GPT"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "正在生成池"
 
 msgid "Global options:"
-msgstr ""
+msgstr "全局选项："
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "回复 \"%s\" 无效"
 
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "请耐心等候，因为这是最重要的事。"
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "%s 上的 LUKS"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "LVM 逻辑卷 %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "LVM 卷组 %s"
 
 msgid "Label"
-msgstr ""
+msgstr "标签"
 
 msgid "Level"
-msgstr ""
+msgstr "级别"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "正在加载池..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "加载池。"
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "从文件加载临时设备图表。"
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "%s 上的 MS-DOS"
 
 msgid "Metadata"
-msgstr ""
+msgstr "元数据"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "命令选项 \"%s\" 缺少参数。"
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "全局选项 \"%s\" 缺少参数。"
 
 msgid "Model"
-msgstr ""
+msgstr "型号"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "挂载点"
 
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "没有允许用于命令选项 \"%s\" 的块设备。"
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "没有允许使用的全局块设备。"
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "口令不一致。"
 
 msgid "Pool"
-msgstr ""
+msgstr "池"
 
 msgid "Position"
-msgstr ""
+msgstr "位置"
 
 msgid "Prints help."
-msgstr ""
+msgstr "列显帮助。"
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "列显堆栈。"
 
 msgid "Probing..."
-msgstr ""
+msgstr "正在探测..."
 
 msgid "Quit?"
-msgstr ""
+msgstr "是否退出？"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "退出 barrel。"
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "已为 \"raid\" 命令设置 RAID 级别"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "\"raid\" 命令缺少 RAID 级别"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "去除设备。"
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "去除池。"
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "从池中去除设备。"
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "从堆栈中去除顶层对象。"
 
 msgid "Renames pool."
-msgstr ""
+msgstr "重命名池。"
 
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
+msgstr "将临时设备图表恢复到上次备份。"
 
 msgid "Save pools"
-msgstr ""
+msgstr "保存池"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "保存池。"
 
 msgid "Saves the staging devicegraph to a file."
-msgstr ""
+msgstr "将临时设备图表保存到文件中。"
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "正在保存池..."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "显示 DASD。"
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "显示 LVM 卷组。"
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "显示 RAID。"
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "显示提交操作。"
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "显示设备树。"
 
 msgid "Shows disks."
-msgstr ""
+msgstr "显示磁盘。"
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "显示加密设备。"
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "显示文件系统。"
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "显示多路径设备。"
 
 msgid "Shows pools."
-msgstr ""
+msgstr "显示池。"
 
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 msgid "Stripes"
-msgstr ""
+msgstr "条带"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "该命令包含以下子命令："
 
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "未知的全局选项 \"%s\"。"
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "未知的选项 \"%s\"（对于命令 \"%s\"）。"
 
 msgid "Usage"
-msgstr ""
+msgstr "用法"
 
 msgid "Used"
-msgstr ""
+msgstr "已用"
 
 msgid "Vendor"
-msgstr ""
+msgstr "厂商"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "校验口令："
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "启动时激活储存系统"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "对所有问题都回答 \"是\""
 
 msgid "backup empty during undo"
-msgstr ""
+msgstr "撤消期间备份为空"
 
 msgid "bad devices argument"
-msgstr ""
+msgstr "错误的设备参数"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "错误的条带参数"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "更详尽"
 
 msgid "be quiet"
-msgstr ""
+msgstr "安静"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "无法去除块设备 \"%s\""
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
-msgstr ""
+msgstr "块设备 \"%s\" 不能用作常规块设备"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "块设备 \"%s\" 已在使用中"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "\"raid\" 命令缺少块设备"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "关闭 json 文件 \"%s\" 失败"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "在映射中未找到设备 \"%s\""
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "不向磁盘提交任何内容"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "不显示 DASD 上的分区"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "不显示 RAID 上的分区"
 
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "不显示磁盘上的分区"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "不显示多路径设备上的分区"
 
 msgid "done"
-msgstr ""
+msgstr "完毕"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "\"%s\" 的数组元素不是字符串"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "\"%s\" 的设备数组元素不是字符串"
 
 msgid "encryption type"
-msgstr ""
+msgstr "加密类型"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "已为 \"encryption\" 命令设置加密类型"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "\"encryption\" 命令缺少加密类型"
 
 msgid "error:"
-msgstr ""
+msgstr "错误："
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "json 文件 \"%s\" 中的内容太多"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "无法计算操作"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "文件系统 %s（%s 上）"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "已为 \"filesystem\" 命令设置文件系统类型"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "\"filesystem\" 命令缺少文件系统类型"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "如果块设备在使用中，则强制执行"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "如果块设备在使用中，则强制执行"
 
 msgid "go downwards"
-msgstr ""
+msgstr "向下"
 
 msgid "go upwards"
-msgstr ""
+msgstr "向上"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "逻辑卷名称对 \"lv\" 命令无效"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "路径 \"%s\" 无效"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "卷组名称对 \"vg\" 命令无效"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "保留底层分区"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "\"%s\" 的映射 DASD 的格式不同"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "\"%s\" 的映射 DASD 的类型不同"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "\"%s\" 的映射 DASD 映射了两次"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "\"%s\" 的映射 DM RAID 映射了两次"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "\"%s\" 的映射设备的块大小不同"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "\"%s\" 的映射设备不是 DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "\"%s\" 的映射设备不是 DM RAID"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "\"%s\" 的映射设备不是磁盘"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "\"%s\" 的映射设备不是多路径"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "\"%s\" 的映射设备较小"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "未找到 \"%s\" 的映射设备"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "\"%s\" 的映射磁盘映射了两次"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "\"%s\" 的映射多路径映射了两次"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "正在将 %s 映射到 %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "未在 json 文件 \"%s\" 中找到映射"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "mkfs 选项"
 
 msgid "mount options"
-msgstr ""
+msgstr "挂载选项"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "挂载选项需要路径"
 
 msgid "mount path"
-msgstr ""
+msgstr "挂载路径"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "多个设备"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "\"devicegraph\" 命令缺少名称"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "\"encryption\" 命令缺少名称"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "\"lv\" 命令缺少名称"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "\"vg\" 命令缺少名称"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "RAID 名称已存在"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "设备图表名称"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "设备图表文件名称"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "逻辑卷名称已存在"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "映射文件名称"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "新池名称"
 
 msgid "name of pool"
-msgstr ""
+msgstr "池名称"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "要使用的池名称"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "卷组名称"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "卷组名称已存在"
 
 msgid "new name"
-msgstr ""
+msgstr "新名称"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "未找到 \"%s\" 的映射 DASD"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "未找到 \"%s\" 的映射 DM RAID"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "未找到 \"%s\" 的映射磁盘"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "未找到 \"%s\" 的映射多路径"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "堆栈上不是块设备"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "堆栈上不是分区表"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "不是可分区设备"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "堆栈上不是可分区设备"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "堆栈上不是卷组"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "条带数"
 
 msgid "old name"
-msgstr ""
+msgstr "旧名称"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "只允许一个块设备"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "打开 json 文件 \"%s\" 失败"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "解析 json 文件 \"%s\" 失败"
 
 msgid "partition table type"
-msgstr ""
+msgstr "分区表类型"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr ""
+msgstr "已为 \"partition-table\" 命令设置分区表类型"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "\"partition-table\" 命令缺少分区表类型"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "可分区设备 \"%s\" 不能用作常规可分区设备"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "可分区设备 \"%s\" 已在使用中"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "路径 \"%s\" 已被使用"
 
 msgid "path must be 'swap'"
-msgstr ""
+msgstr "路径必须为 \"swap\""
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
-msgstr ""
+msgstr "\"encryption\" 命令中不允许将池参数和 blk 设备搭配使用"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
-msgstr ""
+msgstr "\"filesystem\" 命令中不允许将池参数和 blk 设备搭配使用"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
-msgstr ""
+msgstr "\"vg\" 命令中不允许将池参数和 blk 设备搭配使用"
 
 msgid "pool name"
-msgstr ""
+msgstr "池名称"
 
 msgid "probed instead of staging"
-msgstr ""
+msgstr "已探测，而非临时"
 
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "读取 json 文件 \"%s\" 失败"
 
 msgid "run with a prefix"
-msgstr ""
+msgstr "使用前缀运行"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "设置 RAID 级别"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "设置 RAID 元数据版本"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "设置 RAID 名称"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "设置区块大小"
 
 msgid "set extent size"
-msgstr ""
+msgstr "设置盘区大小"
 
 msgid "set file system label"
-msgstr ""
+msgstr "设置文件系统标签"
 
 msgid "set file system type"
-msgstr ""
+msgstr "设置文件系统类型"
 
 msgid "set label of device"
-msgstr ""
+msgstr "设置设备标签"
 
 msgid "set name of device"
-msgstr ""
+msgstr "设置设备名称"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "设置逻辑卷名称"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "设置卷组名称"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "设置设备数量"
 
 msgid "set size"
-msgstr ""
+msgstr "设置大小"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "设置 RAID 大小"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "设置逻辑卷大小"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "设置卷组大小"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "发现 \"%s\" 的多个映射 DASD"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "发现 \"%s\" 的多个映射 DM RAID"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "发现 \"%s\" 的多个映射磁盘"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "发现 \"%s\" 的多个映射多路径"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "显示帮助并退出"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "显示版本并退出"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "\"encryption\" 命令缺少大小参数"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "\"filesystem\" 命令缺少大小参数"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "\"raid\" 命令需要大小参数"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "\"vg\" 命令需要大小参数"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "\"lv\" 命令缺少大小"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "条带大小"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "不允许为 Raid 级别使用备用设备"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "执行 dup 期间堆栈为空"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "执行 pop 期间堆栈为空"
 
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "json 文件 \"%s\" 的统计失败"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "Raid 级别的 raid 设备太少"
 
 msgid "tune options"
-msgstr ""
+msgstr "微调选项"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "不允许为 %s 使用微调选项"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "未知加密类型"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "未知文件系统类型 \"%s\""
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "未知分区表类型"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "\"raid\" 命令的 raid 级别未知"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "\"%s\" 的值既不是字符串，也不是数组"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "描述项的值不是字符串"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "设备项的值不是数组"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "卷组 \"%s\" 过量分配"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "可分区设备数量错误"
 
 msgid "y/n"
-msgstr ""
+msgstr "y/n"
