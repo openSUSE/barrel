@@ -8,537 +8,546 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-01-11 16:33+0100\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-02-16 20:12+0000\n"
+"Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9.1\n"
 
 msgid "Activating..."
-msgstr ""
+msgstr "Attivazione in corso..."
 
 msgid "Adds devices to a pool."
-msgstr ""
+msgstr "Consente di aggiungere i dispositivi a un pool."
 
 msgid "Alias for 'create encryption --type luks1'"
-msgstr ""
+msgstr "Alias di 'create encryption --type luks1'"
 
 msgid "Alias for 'create encryption --type luks2'"
-msgstr ""
+msgstr "Alias di 'create encryption --type luks2'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
-msgstr ""
+msgstr "Alias di 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "Alias di 'create filesystem --type ext2'"
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "Alias di 'create filesystem --type ext3'"
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "Alias di 'create filesystem --type ext4'"
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "Alias di 'create filesystem --type f2fs'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "Alias di 'create filesystem --type ntfs'"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "Alias di 'create filesystem --type swap'"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "Alias di 'create filesystem --type xfs'"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "Alias di 'create partition-table --type gpt'"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "Alias di 'create partition-table --type ms-dos'"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "Alias di 'create raid --level 0'"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "Alias di 'create raid --level 1'"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "Alias di 'create raid --level 10'"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "Alias di 'create raid --level 4'"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "Alias di 'create raid --level 5'"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "Alias di 'create raid --level 6'"
 
 msgid "Block Size"
-msgstr ""
+msgstr "Dimensione blocco"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "ID bus"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "Dimensione porzione"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "Consente di cancellare lo stack."
 
 msgid "Commands:"
-msgstr ""
+msgstr "Comandi:"
 
 msgid "Commit changes?"
-msgstr ""
+msgstr "Eseguire il commit delle modifiche?"
 
 msgid "Commits changes to disk and quits barrel."
 msgstr ""
+"Consente di eseguire il commit delle modifiche al disco e di uscire dal "
+"barrel."
 
 msgid "Continue?"
-msgstr ""
+msgstr "Continuare?"
 
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "Consente di creare un nuovo volume logico LVM."
 
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "Consente di creare un nuovo gruppo di volumi LVM."
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "Consente di creare un nuovo RAID."
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "Consente di creare un nuovo dispositivo di cifratura."
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "Consente di creare un nuovo file system."
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "Consente di creare una nuova tabella delle partizioni."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Consente di creare un nuovo pool di dispositivi."
 
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivi"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Consente di duplicare l'oggetto superiore dello stack."
 
 msgid "Enter password:"
-msgstr ""
+msgstr "Immettere la password:"
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Dimensione extent"
 
 msgid "Format"
-msgstr ""
+msgstr "Formato"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "GPT su %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Creazione di pool"
 
 msgid "Global options:"
-msgstr ""
+msgstr "Opzioni globali:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Risposta '%s' non valida"
 
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Continua a sorridere: è questa la cosa più importante."
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "LUKS su %s"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "Volume logico LVM %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "Gruppo di volumi LVM %s"
 
 msgid "Label"
-msgstr ""
+msgstr "Etichetta"
 
 msgid "Level"
-msgstr ""
+msgstr "Livello"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Caricamento dei pool in corso..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Consente di caricare i pool."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Consente di caricare il grafico dispositivo provvisorio da un file."
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "MS-DOS su %s"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metadati"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "Argomento dell'opzione di comando '%s' mancante."
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "Argomento dell'opzione globale '%s' mancante."
 
 msgid "Model"
-msgstr ""
+msgstr "Modello"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Punto di montaggio"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "Nessun dispositivo di blocco consentito per l'opzione di comando '%s'."
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "Nessun dispositivo di blocco globale consentito."
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Le password non corrispondono."
 
 msgid "Pool"
-msgstr ""
+msgstr "Pool"
 
 msgid "Position"
-msgstr ""
+msgstr "Posizione"
 
 msgid "Prints help."
-msgstr ""
+msgstr "Consente di stampare la guida."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Consente di stampare lo stack."
 
 msgid "Probing..."
-msgstr ""
+msgstr "Controllo in corso..."
 
 msgid "Quit?"
-msgstr ""
+msgstr "Uscire?"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "Consente di uscire dal barrel."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "Livello RAID già impostato per il comando 'raid'"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "Livello RAID mancante per il comando 'raid'"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Consente di rimuovere un dispositivo."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Consente di rimuovere un pool."
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Consente di rimuovere dispositivi da un pool."
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Consente di rimuovere l'oggetto superiore dallo stack."
 
 msgid "Renames pool."
-msgstr ""
+msgstr "Consente di rinominare il pool."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
+"Consente di ripristinare il grafico dispositivo provvisorio all'ultimo "
+"backup."
 
 msgid "Save pools"
-msgstr ""
+msgstr "Salva pool"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Consente di salvare i pool."
 
 msgid "Saves the staging devicegraph to a file."
-msgstr ""
+msgstr "Consente di salvare il grafico dispositivo provvisorio su un file."
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Salvataggio dei pool in corso..."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "Mostra i DASD."
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Mostra i gruppi di volumi LVM."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Mostra i RAID."
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Mostra le azioni di commit."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Mostra l'albero di dispositivi."
 
 msgid "Shows disks."
-msgstr ""
+msgstr "Mostra i dischi."
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Mostra i dispositivi di cifratura."
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "Mostra i file system."
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Mostra i dispositivi multipath."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Mostra i pool."
 
 msgid "Size"
-msgstr ""
+msgstr "Dimensione"
 
 msgid "Stripes"
-msgstr ""
+msgstr "Segmenti"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "Il comando dispone dei sottocomandi seguenti:"
 
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Opzione globale '%s' sconosciuta."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Opzione '%s' sconosciuta per il comando '%s'."
 
 msgid "Usage"
-msgstr ""
+msgstr "Uso"
 
 msgid "Used"
-msgstr ""
+msgstr "Usato"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Fornitore"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "Verifica password:"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "attiva sistemi di memorizzazione all'avvio"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "rispondi sì a tutte le domande"
 
 msgid "backup empty during undo"
-msgstr ""
+msgstr "backup vuoto durante l'annullamento"
 
 msgid "bad devices argument"
-msgstr ""
+msgstr "argomento dispositivi non validi"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "argomento segmenti non validi"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "aggiungere ulteriori dettagli"
 
 msgid "be quiet"
-msgstr ""
+msgstr "fare silenzio"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "impossibile rimuovere il dispositivo di blocco '%s'"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
 msgstr ""
+"impossibile utilizzare il dispositivo di blocco '%s' come dispositivo di "
+"blocco normale"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "il dispositivo di blocco '%s' p in uso"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "dispositivi di blocco mancanti per il comando 'raid'"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "chiusura del file json '%s' non riuscita"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "dispositivo '%s' non trovato nella mappatura"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "non eseguire il commit di alcun elemento sul disco"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "non mostrare le partizioni sui DASD"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "non mostrare le partizioni sui RAID"
 
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "non mostrare le partizioni sui dischi"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "non mostrare le partizioni sui dispositivi multipath"
 
 msgid "done"
-msgstr ""
+msgstr "fine"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "elemento della matrice di '%s' diverso da stringa"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "elemento della matrice di dispositivi di '%s' diverso da stringa"
 
 msgid "encryption type"
-msgstr ""
+msgstr "tipo di cifratura"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "tipo di cifratura già impostato per il comando 'encryption'"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "tipo di cifratura mancante per il comando 'encryption'"
 
 msgid "error:"
-msgstr ""
+msgstr "errore:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "contenuto eccessivo nel file json '%s'"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "calcolo delle azioni non riuscito"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "filesystem %s su %s"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "tipo di file system già impostato per il comando 'filesystem'"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "tipo di file system mancante per il comando 'filesystem'"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "forza se il dispositivo di blocco è in uso"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "forza se i dispositivi di blocco sono in uso"
 
 msgid "go downwards"
-msgstr ""
+msgstr "vai giù"
 
 msgid "go upwards"
-msgstr ""
+msgstr "vai su"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "nome del volume logico non valido per il comando 'lv'"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "percorso '%s' non valido"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "nome del gruppo di volumi non valido per il comando 'vg'"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "mantieni partizioni sottostanti"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "il DASD mappato per '%s' dispone di un formato diverso"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "il DASD mappato per '%s' dispone di un tipo diverso"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "il DASD mappato per '%s' è stato mappato due volte"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "il RAID DM mappato per '%s' è stato mappato due volte"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
 msgstr ""
+"il dispositivo mappato per '%s' dispone di una dimensione di blocco diversa"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "il dispositivo mappato per '%s' non è un DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "il dispositivo mappato per '%s' non è un RAID DM"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "il dispositivo mappato per '%s' non è un disco"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "il dispositivo mappato per '%s' non è multipath"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "il dispositivo mappato per '%s' è di dimensioni più piccole"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "il dispositivo mappato per '%s' non è stato trovato"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "il disco mappato per '%s' è stato mappato due volte"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "il multipath mappato per '%s' è stato mappato due volte"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "mappatura di %s a %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "mappatura non trovata nel file json '%s'"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "opzioni mkfs"
 
 msgid "mount options"
-msgstr ""
+msgstr "opzioni di montaggio"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "le opzioni di montaggio richiedono un percorso"
 
 msgid "mount path"
-msgstr ""
+msgstr "percorso di montaggio"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "dispositivi multipli"
 
 msgid "name missing for command 'devicegraph'"
 msgstr ""
