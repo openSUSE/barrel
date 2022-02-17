@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-02-16 20:12+0000\n"
+"PO-Revision-Date: 2022-02-17 19:12+0000\n"
 "Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
 "\n"
@@ -550,286 +550,297 @@ msgid "multiple devices"
 msgstr "dispositivi multipli"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "nome mancante per il comando 'devicegraph'"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "nome mancante per il comando 'encryption'"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "nome mancante per il comando 'lv'"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "nome mancante per il comando 'vg'"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "nome del RAID già esistente"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "nome del grafico del dispositivo"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "nome del file del grafico del dispositivo"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "nome del volume logico già esistente"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "nome del file di mappatura"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "nome del nuovo pool"
 
 msgid "name of pool"
-msgstr ""
+msgstr "nome del pool"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "nome del pool da utilizzare"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "nome del gruppo di volumi"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "nome del gruppo di volumi già esistente"
 
 msgid "new name"
-msgstr ""
+msgstr "nuovo nome"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "nessun DASD di mappatura per '%s' trovato"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "nessun RAID DM di mappatura per '%s' trovato"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "nessun disco di mappatura per '%s' trovato"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "nessun multipath di mappatura per '%s' trovato"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "nessun dispositivo di blocco sullo stack"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "nessuna tabella delle partizioni sullo stack"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "nessun elemento partizionabile"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "nessun elemento partizionabile sullo stack"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "nessun gruppo di volumi sullo stack"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "numero di segmenti"
 
 msgid "old name"
-msgstr ""
+msgstr "nome precedente"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "solo un dispositivo di blocco consentito"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "apertura del file json '%s' non riuscita"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "analisi del file json '%s' non riuscita"
 
 msgid "partition table type"
-msgstr ""
+msgstr "tipo di tabella delle partizioni"
 
 msgid "partition table type already set command 'partition-table'"
 msgstr ""
+"tipo di tabella delle partizioni già impostato per il comando 'partition-"
+"table'"
 
 msgid "partition table type missing for command 'partition-table'"
 msgstr ""
+"tipo di tabella delle partizioni mancante per il comando ''partition-table'"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
 msgstr ""
+"l'elemento partizionabile '%s' non può essere utilizzato come elemento "
+"partizionabile normale"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "l'elemento partizionabile '%s' è in uso"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "il percorso '%s' è già in uso"
 
 msgid "path must be 'swap'"
-msgstr ""
+msgstr "il percorso deve essere 'swap'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
 msgstr ""
+"argomento di pool e dispositivi di blocco non consentiti in contemporanea "
+"per il comando 'encryption'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
+"argomento di pool e dispositivi di blocco non consentiti in contemporanea "
+"per il comando 'filesystem'"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
+"argomento di pool e dispositivi di blocco non consentiti in contemporanea "
+"per il comando 'vg'"
 
 msgid "pool name"
-msgstr ""
+msgstr "nome pool"
 
 msgid "probed instead of staging"
-msgstr ""
+msgstr "analisi al posto della gestione temporanea"
 
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "lettura del file json '%s' non riuscita"
 
 msgid "run with a prefix"
-msgstr ""
+msgstr "esegui con un prefisso"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "imposta livello RAID"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "imposta versione metadati RAID"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "imposta nome RAID"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "imposta dimensione porzione"
 
 msgid "set extent size"
-msgstr ""
+msgstr "imposta dimensione extent"
 
 msgid "set file system label"
-msgstr ""
+msgstr "imposta etichetta file system"
 
 msgid "set file system type"
-msgstr ""
+msgstr "imposta tipo file system"
 
 msgid "set label of device"
-msgstr ""
+msgstr "imposta etichetta dispositivo"
 
 msgid "set name of device"
-msgstr ""
+msgstr "imposta nome dispositivo"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "imposta nome volume logico"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "imposta nome gruppo di volumi"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "imposta numero di dispositivi"
 
 msgid "set size"
-msgstr ""
+msgstr "imposta dimensione"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "imposta dimensione del RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "imposta dimensione del volume logico"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "imposta dimensione del gruppo di volumi"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "più DASD di mappatura per '%s' trovati"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "più RAID DM di mappatura per '%s' trovati"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "più dischi di mappatura per '%s' trovati"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "più multipath di mappatura per '%s' trovati"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "mostra guida ed esci"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "mostra versione ed esci"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "argomento dimensione mancante per il comando 'encryption'"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "argomento dimensione mancante per il comando 'filesystem'"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "argomento dimensione mancante per il comando 'raid'"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "argomento dimensione mancante per il comando 'vg'"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "dimensione mancante per il comando 'lv'"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "dimensione dei segmenti"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "dispositivi di riserva non consentiti per il livello raid"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "stack vuoto durante il dup"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "stack vuoto durante il pop"
 
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "stat per file json '%s' non riuscita"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "dispositivi raid insufficienti per il livello raid"
 
 msgid "tune options"
-msgstr ""
+msgstr "opzioni di ottimizzazione"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "opzioni di ottimizzazione non consentite per %s"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "tipo di cifratura sconosciuto"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "tipo di file system '%s' sconosciuto"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "tipo di tabella delle partizioni sconosciuto"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "livello raid sconosciuto per il comando 'raid'"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "il valore di '%s' non corrispondente a una stringa o a una matrice"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "il valore della descrizione non è una stringa"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "il valore della voce dei dispositivi non è una matrice"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "over-commit nel gruppo di volumi '%s'"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "numero di elementi partizionabili errato"
 
 msgid "y/n"
-msgstr ""
+msgstr "s/n"
