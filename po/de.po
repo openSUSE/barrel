@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-02-16 20:12+0000\n"
+"PO-Revision-Date: 2022-02-18 13:12+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
 "\n"
@@ -108,7 +108,7 @@ msgstr "Bus-ID"
 
 #, fuzzy
 msgid "Chunk Size"
-msgstr "Blockgröße"
+msgstr "Chunk-Größe"
 
 #, fuzzy
 msgid "Clears the stack."
@@ -211,7 +211,7 @@ msgstr "Logisches LVM-Volume %s"
 
 #, c-format, fuzzy
 msgid "LVM volume group %s"
-msgstr "LVM-Volume-Gruppe  %s"
+msgstr "LVM-Volume-Gruppe %s"
 
 #, fuzzy
 msgid "Label"
@@ -311,7 +311,7 @@ msgstr "RAID-Ebene für Kommando 'raid' ist bereits eingestellt"
 
 #, fuzzy
 msgid "Raid level missing for command 'raid'"
-msgstr "Raid-Ebene  für Kommando 'raid' fehlt"
+msgstr "Raid-Ebene für Kommando 'raid' fehlt"
 
 #, fuzzy
 msgid "Removes a device."
@@ -594,15 +594,15 @@ msgstr "zugeordnetes DASD für '%s' hat einen anderen Typ"
 
 #, c-format, fuzzy
 msgid "mapped DASD for '%s' mapped twice"
-msgstr "zugeordnetes DASD für '%s' wurde doppelt zugeordnet"
+msgstr "DASD für '%s' wurde doppelt zugeordnet"
 
 #, c-format, fuzzy
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr "zugeordnetes DM-RAID für '%s' wurde doppelt zugeordnet"
+msgstr "DM-RAID für '%s' wurde doppelt zugeordnet"
 
 #, c-format, fuzzy
 msgid "mapped device for '%s' has different block size"
-msgstr "zugeordnetes Gerät für '%s' hat eine andere Blockgröße"
+msgstr "Gerät für '%s' hat eine andere Blockgröße"
 
 #, c-format, fuzzy
 msgid "mapped device for '%s' is not a DASD"
@@ -630,11 +630,11 @@ msgstr "zugeordnetes Gerät für '%s' nicht gefunden"
 
 #, c-format, fuzzy
 msgid "mapped disk for '%s' mapped twice"
-msgstr "zugeordneter Datenträger für '%s' wurde doppelt zugeordnet"
+msgstr "Datenträger für '%s' wurde doppelt zugeordnet"
 
 #, c-format, fuzzy
 msgid "mapped multipath for '%s' mapped twice"
-msgstr "zugeordnetes Multipath-Gerät für '%s' wurde doppelt zugeordnet"
+msgstr "Multipath-Gerät für '%s' wurde doppelt zugeordnet"
 
 #, c-format, fuzzy
 msgid "mapping %s to %s"
@@ -726,19 +726,19 @@ msgstr "neuer Name"
 
 #, c-format, fuzzy
 msgid "no mapping DASD for '%s' found"
-msgstr "kein zugeordnetes DASD für '%s' gefunden"
+msgstr "kein DASD zur Zuordnung für '%s' gefunden"
 
 #, c-format, fuzzy
 msgid "no mapping DM RAID for '%s' found"
-msgstr "kein zugeordnetes DM-RAID für '%s' gefunden"
+msgstr "kein DM-RAID zur Zuordnung für '%s' gefunden"
 
 #, c-format, fuzzy
 msgid "no mapping disk for '%s' found"
-msgstr "kein zugeordneter Datenträger für '%s' gefunden"
+msgstr "kein Datenträger zur Zuordnung für '%s' gefunden"
 
 #, c-format, fuzzy
 msgid "no mapping multipath for '%s' found"
-msgstr "kein zugeordnetes Multipath-Gerät für '%s' gefunden"
+msgstr "kein Multipath-Gerät zur Zuordnung für '%s' gefunden"
 
 #, fuzzy
 msgid "not a block device on stack"
@@ -860,7 +860,7 @@ msgstr "RAID-Namen festlegen"
 
 #, fuzzy
 msgid "set chunk size"
-msgstr "Blockgröße festlegen"
+msgstr "Chunk-Größe festlegen"
 
 #, fuzzy
 msgid "set extent size"
