@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-02-18 13:12+0000\n"
+"PO-Revision-Date: 2022-02-18 17:12+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/>"
 "\n"
@@ -184,7 +184,7 @@ msgid "Loads pools."
 msgstr "Charge les pools."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr "Charge le graphique du périphérique de transit à partir d'un fichier."
+msgstr "Charge le graphique de périphérique de transit à partir d'un fichier."
 
 #, c-format
 msgid "MS-DOS on %s"
@@ -268,7 +268,7 @@ msgstr "Renomme le pool."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
-"Restaure le graphique du périphérique de transit selon la dernière "
+"Restaure le graphique de périphérique de transit selon la dernière "
 "sauvegarde."
 
 msgid "Save pools"
@@ -385,7 +385,7 @@ msgstr "périphériques de bloc manquants pour la commande 'raid'"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr "échec de la fermeture du fichier json '%s'"
+msgstr "échec de la fermeture du fichier JSON '%s'"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -681,160 +681,162 @@ msgstr ""
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
+"argument de pool et périphériques de bloc non autorisés simultanément pour "
+"la commande 'vg'"
 
 msgid "pool name"
-msgstr ""
+msgstr "nom du pool"
 
 msgid "probed instead of staging"
-msgstr ""
+msgstr "sondé plutôt que transité"
 
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "échec de la lecture du fichier JSON '%s'"
 
 msgid "run with a prefix"
-msgstr ""
+msgstr "exécuter avec un préfixe"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "définir le niveau RAID"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "définir la version des métadonnées RAID"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "définir le nom du RAID"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "définir la taille de la tranche"
 
 msgid "set extent size"
-msgstr ""
+msgstr "définir la taille de l'étendue"
 
 msgid "set file system label"
-msgstr ""
+msgstr "définir l'étiquette du système de fichiers"
 
 msgid "set file system type"
-msgstr ""
+msgstr "définir le type du système de fichiers"
 
 msgid "set label of device"
-msgstr ""
+msgstr "définir l'étiquette du périphérique"
 
 msgid "set name of device"
-msgstr ""
+msgstr "définir le nom du périphérique"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "définir le nom du volume logique"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "définir le nom du groupe de volumes"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "définir le nombre de périphériques"
 
 msgid "set size"
-msgstr ""
+msgstr "définir la taille"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "définir la taille du RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "définir la taille du volume logique"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "définir la taille du groupe de volumes"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "plusieurs DASD d'assignation trouvés pour '%s'"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "plusieurs DM RAID d'assignation trouvés pour '%s'"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "plusieurs disques d'assignation trouvés pour '%s'"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "plusieurs périphériques multipath d'assignation trouvés pour '%s'"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "afficher l'aide et quitter"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "afficher la version et quitter"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "argument de taille manquant pour la commande 'encryption'"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "argument de taille manquant pour la commande 'filesystem'"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "argument de taille requis pour la commande 'raid'"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "argument de taille requis pour la commande 'vg'"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "taille manquante pour la commande 'lv'"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "taille des bandes"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "périphériques de rechange non autorisés pour le niveau RAID"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "pile vide durant dup"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "pile vide durant pop"
 
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "échec stat pour le fichier JSON '%s'"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "trop peu de périphériques RAID pour le niveau RAID"
 
 msgid "tune options"
-msgstr ""
+msgstr "options de réglage"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "options de réglage non autorisées pour %s"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "type de chiffrement inconnu"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "type de système de fichiers '%s' inconnu"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "type de table de partition inconnu"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "niveau RAID inconnu pour la commande 'raid'"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "la valeur pour '%s' n'est ni une chaîne ni un tableau"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "la valeur de la description n'est pas une chaîne"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "la valeur de l'entrée des périphériques n'est pas un tableau"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "le groupe de volumes '%s' est suralloué"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "nombre incorrect d'éléments partitionnables"
 
 msgid "y/n"
-msgstr ""
+msgstr "o/n"
