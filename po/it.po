@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-02-17 19:12+0000\n"
+"PO-Revision-Date: 2022-02-18 13:12+0000\n"
 "Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
 "\n"
@@ -23,7 +23,7 @@ msgid "Activating..."
 msgstr "Attivazione in corso..."
 
 msgid "Adds devices to a pool."
-msgstr "Consente di aggiungere i dispositivi a un pool."
+msgstr "Aggiunge i dispositivi a un pool."
 
 msgid "Alias for 'create encryption --type luks1'"
 msgstr "Alias di 'create encryption --type luks1'"
@@ -89,7 +89,7 @@ msgid "Chunk Size"
 msgstr "Dimensione porzione"
 
 msgid "Clears the stack."
-msgstr "Consente di cancellare lo stack."
+msgstr "Cancella lo stack."
 
 msgid "Commands:"
 msgstr "Comandi:"
@@ -98,33 +98,31 @@ msgid "Commit changes?"
 msgstr "Eseguire il commit delle modifiche?"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
-"Consente di eseguire il commit delle modifiche al disco e di uscire dal "
-"barrel."
+msgstr "Esegue il commit delle modifiche al disco ed esce dal barrel."
 
 msgid "Continue?"
 msgstr "Continuare?"
 
 msgid "Creates a new LVM logical volume."
-msgstr "Consente di creare un nuovo volume logico LVM."
+msgstr "Crea un nuovo volume logico LVM."
 
 msgid "Creates a new LVM volume group."
-msgstr "Consente di creare un nuovo gruppo di volumi LVM."
+msgstr "Crea un nuovo gruppo di volumi LVM."
 
 msgid "Creates a new RAID."
-msgstr "Consente di creare un nuovo RAID."
+msgstr "Crea un nuovo RAID."
 
 msgid "Creates a new encryption device."
-msgstr "Consente di creare un nuovo dispositivo di cifratura."
+msgstr "Crea un nuovo dispositivo di cifratura."
 
 msgid "Creates a new file system."
-msgstr "Consente di creare un nuovo file system."
+msgstr "Crea un nuovo file system."
 
 msgid "Creates a new partition table."
-msgstr "Consente di creare una nuova tabella delle partizioni."
+msgstr "Crea una nuova tabella delle partizioni."
 
 msgid "Creates a new pool containing devices."
-msgstr "Consente di creare un nuovo pool di dispositivi."
+msgstr "Crea un nuovo pool di dispositivi."
 
 msgid "Description"
 msgstr "Descrizione"
@@ -133,7 +131,7 @@ msgid "Devices"
 msgstr "Dispositivi"
 
 msgid "Duplicates the top object of the stack."
-msgstr "Consente di duplicare l'oggetto superiore dello stack."
+msgstr "Duplica l'oggetto superiore dello stack."
 
 msgid "Enter password:"
 msgstr "Immettere la password:"
@@ -183,10 +181,10 @@ msgid "Loading pools..."
 msgstr "Caricamento dei pool in corso..."
 
 msgid "Loads pools."
-msgstr "Consente di caricare i pool."
+msgstr "Carica i pool."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr "Consente di caricare il grafico dispositivo provvisorio da un file."
+msgstr "Carica il grafico dispositivo provvisorio da un file."
 
 #, c-format
 msgid "MS-DOS on %s"
@@ -229,10 +227,10 @@ msgid "Position"
 msgstr "Posizione"
 
 msgid "Prints help."
-msgstr "Consente di stampare la guida."
+msgstr "Stampa la guida."
 
 msgid "Prints the stack."
-msgstr "Consente di stampare lo stack."
+msgstr "Stampa lo stack."
 
 msgid "Probing..."
 msgstr "Controllo in corso..."
@@ -241,7 +239,7 @@ msgid "Quit?"
 msgstr "Uscire?"
 
 msgid "Quits barrel."
-msgstr "Consente di uscire dal barrel."
+msgstr "Esce dal barrel."
 
 #, c-format
 msgid "RAID %s"
@@ -254,33 +252,31 @@ msgid "Raid level missing for command 'raid'"
 msgstr "Livello RAID mancante per il comando 'raid'"
 
 msgid "Removes a device."
-msgstr "Consente di rimuovere un dispositivo."
+msgstr "Rimuove un dispositivo."
 
 msgid "Removes a pool."
-msgstr "Consente di rimuovere un pool."
+msgstr "Rimuove un pool."
 
 msgid "Removes devices from a pool."
-msgstr "Consente di rimuovere dispositivi da un pool."
+msgstr "Rimuove i dispositivi da un pool."
 
 msgid "Removes the top object from the stack."
-msgstr "Consente di rimuovere l'oggetto superiore dallo stack."
+msgstr "Rimuove l'oggetto superiore dallo stack."
 
 msgid "Renames pool."
-msgstr "Consente di rinominare il pool."
+msgstr "Rinomina il pool."
 
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
-"Consente di ripristinare il grafico dispositivo provvisorio all'ultimo "
-"backup."
+msgstr "Ripristina il grafico dispositivo provvisorio all'ultimo backup."
 
 msgid "Save pools"
 msgstr "Salva pool"
 
 msgid "Saves pools."
-msgstr "Consente di salvare i pool."
+msgstr "Salva i pool."
 
 msgid "Saves the staging devicegraph to a file."
-msgstr "Consente di salvare il grafico dispositivo provvisorio su un file."
+msgstr "Salva il grafico dispositivo provvisorio su un file."
 
 msgid "Saving pools..."
 msgstr "Salvataggio dei pool in corso..."
@@ -357,16 +353,16 @@ msgid "backup empty during undo"
 msgstr "backup vuoto durante l'annullamento"
 
 msgid "bad devices argument"
-msgstr "argomento dispositivi non validi"
+msgstr "argomento dispositivi non valido"
 
 msgid "bad stripes argument"
-msgstr "argomento segmenti non validi"
+msgstr "argomento segmenti non valido"
 
 msgid "be more verbose"
 msgstr "aggiungere ulteriori dettagli"
 
 msgid "be quiet"
-msgstr "fare silenzio"
+msgstr "silenzio"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
@@ -380,7 +376,7 @@ msgstr ""
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr "il dispositivo di blocco '%s' p in uso"
+msgstr "il dispositivo di blocco '%s' è in uso"
 
 msgid "block devices missing for command 'raid'"
 msgstr "dispositivi di blocco mancanti per il comando 'raid'"
@@ -413,11 +409,11 @@ msgstr "fine"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr "elemento della matrice di '%s' diverso da stringa"
+msgstr "l'elemento della matrice di '%s' non è una stringa"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr "elemento della matrice di dispositivi di '%s' diverso da stringa"
+msgstr "l'elemento della matrice di dispositivi di '%s' non è una stringa"
 
 msgid "encryption type"
 msgstr "tipo di cifratura"
@@ -440,7 +436,7 @@ msgstr "calcolo delle azioni non riuscito"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr "filesystem %s su %s"
+msgstr "file system %s su %s"
 
 msgid "filesystem type already set for command 'filesystem'"
 msgstr "tipo di file system già impostato per il comando 'filesystem'"
@@ -541,7 +537,7 @@ msgid "mount options"
 msgstr "opzioni di montaggio"
 
 msgid "mount options require a path"
-msgstr "le opzioni di montaggio richiedono un percorso"
+msgstr "per le opzioni di montaggio è necessario un percorso"
 
 msgid "mount path"
 msgstr "percorso di montaggio"
@@ -565,10 +561,10 @@ msgid "name of RAID already exists"
 msgstr "nome del RAID già esistente"
 
 msgid "name of devicegraph"
-msgstr "nome del grafico del dispositivo"
+msgstr "nome del grafico dispositivo"
 
 msgid "name of devicegraph file"
-msgstr "nome del file del grafico del dispositivo"
+msgstr "nome del file del grafico dispositivo"
 
 msgid "name of logical volume already exists"
 msgstr "nome del volume logico già esistente"
@@ -611,19 +607,19 @@ msgid "no mapping multipath for '%s' found"
 msgstr "nessun multipath di mappatura per '%s' trovato"
 
 msgid "not a block device on stack"
-msgstr "nessun dispositivo di blocco sullo stack"
+msgstr "non è un dispositivo di blocco sullo stack"
 
 msgid "not a partition table on stack"
-msgstr "nessuna tabella delle partizioni sullo stack"
+msgstr "non è una tabella delle partizioni sullo stack"
 
 msgid "not a partitionable"
-msgstr "nessun elemento partizionabile"
+msgstr "non è un elemento partizionabile"
 
 msgid "not a partitionable on stack"
-msgstr "nessun elemento partizionabile sullo stack"
+msgstr "non è un elemento partizionabile sullo stack"
 
 msgid "not a volume group on stack"
-msgstr "nessun gruppo di volumi sullo stack"
+msgstr "non è un gruppo di volumi sullo stack"
 
 msgid "number of stripes"
 msgstr "numero di segmenti"
@@ -692,7 +688,7 @@ msgid "pool name"
 msgstr "nome pool"
 
 msgid "probed instead of staging"
-msgstr "analisi al posto della gestione temporanea"
+msgstr "analisi al posto di gestione temporanea"
 
 #, c-format
 msgid "read for json file '%s' failed"
@@ -793,17 +789,17 @@ msgid "spare devices not allowed for raid level"
 msgstr "dispositivi di riserva non consentiti per il livello raid"
 
 msgid "stack empty during dup"
-msgstr "stack vuoto durante il dup"
+msgstr "stack vuoto durante l'operazione di dup"
 
 msgid "stack empty during pop"
-msgstr "stack vuoto durante il pop"
+msgstr "stack vuoto durante l'operazione di pop"
 
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr "stat per file json '%s' non riuscita"
+msgstr "stat per il file json '%s' non riuscita"
 
 msgid "too few raid devices for raid level"
-msgstr "dispositivi raid insufficienti per il livello raid"
+msgstr "numero di dispositivi raid insufficiente per il livello raid"
 
 msgid "tune options"
 msgstr "opzioni di ottimizzazione"
@@ -827,17 +823,17 @@ msgstr "livello raid sconosciuto per il comando 'raid'"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr "il valore di '%s' non corrispondente a una stringa o a una matrice"
+msgstr "il valore di '%s' non corrisponde a una stringa o a una matrice"
 
 msgid "value of description entry not a string"
-msgstr "il valore della descrizione non è una stringa"
+msgstr "il valore della voce di descrizione non è una stringa"
 
 msgid "value of devices entry not an array"
 msgstr "il valore della voce dei dispositivi non è una matrice"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr "over-commit nel gruppo di volumi '%s'"
+msgstr "over-commit del gruppo di volumi '%s'"
 
 msgid "wrong number of partitionables"
 msgstr "numero di elementi partizionabili errato"
