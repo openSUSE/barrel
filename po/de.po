@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-11 16:33+0100\n"
-"PO-Revision-Date: 2022-02-18 13:12+0000\n"
+"PO-Revision-Date: 2022-02-21 18:12+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
 "\n"
@@ -18,796 +18,648 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.9.1\n"
 
-#, fuzzy
 msgid "Activating..."
 msgstr "Wird aktiviert..."
 
-#, fuzzy
 msgid "Adds devices to a pool."
 msgstr "Fügt Geräte zu einem Pool hinzu."
 
-#, fuzzy
 msgid "Alias for 'create encryption --type luks1'"
 msgstr "Alias für 'create encryption --type luks1'"
 
-#, fuzzy
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias für 'create encryption --type luks2'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias für 'create filesystem --type btrfs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "Alias für 'create filesystem --type ext2'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type ext3'"
 msgstr "Alias für 'create filesystem --type ext3'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type ext4'"
 msgstr "Alias für 'create filesystem --type ext4'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias für 'create filesystem --type f2fs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias für 'create filesystem --type ntfs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias für 'create filesystem --type swap'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "Alias für 'create filesystem --type xfs'"
 
-#, fuzzy
 msgid "Alias for 'create partition-table --type gpt'"
 msgstr "Alias für 'create partition-table --type gpt'"
 
-#, fuzzy
 msgid "Alias for 'create partition-table --type ms-dos'"
 msgstr "Alias für 'create partition-table --type ms-dos'"
 
-#, fuzzy
 msgid "Alias for 'create raid --level 0'"
 msgstr "Alias für 'create raid --level 0'"
 
-#, fuzzy
 msgid "Alias for 'create raid --level 1'"
 msgstr "Alias für 'create raid --level 1'"
 
-#, fuzzy
 msgid "Alias for 'create raid --level 10'"
 msgstr "Alias für 'create raid --level 10'"
 
-#, fuzzy
 msgid "Alias for 'create raid --level 4'"
 msgstr "Alias für 'create raid --level 4'"
 
-#, fuzzy
 msgid "Alias for 'create raid --level 5'"
 msgstr "Alias für 'create raid --level 5'"
 
-#, fuzzy
 msgid "Alias for 'create raid --level 6'"
 msgstr "Alias für 'create raid --level 6'"
 
-#, fuzzy
 msgid "Block Size"
 msgstr "Blockgröße"
 
-#, fuzzy
 msgid "Bus ID"
 msgstr "Bus-ID"
 
-#, fuzzy
 msgid "Chunk Size"
 msgstr "Chunk-Größe"
 
-#, fuzzy
 msgid "Clears the stack."
 msgstr "Löscht den Stack."
 
-#, fuzzy
 msgid "Commands:"
 msgstr "Kommandos:"
 
-#, fuzzy
 msgid "Commit changes?"
 msgstr "Änderungen speichern?"
 
-#, fuzzy
 msgid "Commits changes to disk and quits barrel."
 msgstr "Speichert Änderungen auf dem Datenträger und beendet Barrel."
 
-#, fuzzy
 msgid "Continue?"
 msgstr "Weiter?"
 
-#, fuzzy
 msgid "Creates a new LVM logical volume."
 msgstr "Erstellt ein neues logisches LVM-Volume."
 
-#, fuzzy
 msgid "Creates a new LVM volume group."
 msgstr "Erstellt eine neue LVM-Volume-Gruppe."
 
-#, fuzzy
 msgid "Creates a new RAID."
 msgstr "Erstellt ein neues RAID."
 
-#, fuzzy
 msgid "Creates a new encryption device."
 msgstr "Erstellt ein neues Verschlüsselungsgerät."
 
-#, fuzzy
 msgid "Creates a new file system."
 msgstr "Erstellt ein neues Dateisystem."
 
-#, fuzzy
 msgid "Creates a new partition table."
 msgstr "Erstellt eine neue Partitionstabelle."
 
-#, fuzzy
 msgid "Creates a new pool containing devices."
 msgstr "Erstellt einen neuen Pool mit Geräten."
 
 msgid "Description"
 msgstr "Beschreibung"
 
-#, fuzzy
 msgid "Devices"
 msgstr "Geräte"
 
-#, fuzzy
 msgid "Duplicates the top object of the stack."
 msgstr "Dupliziert das oberste Objekt im Stack."
 
-#, fuzzy
 msgid "Enter password:"
 msgstr "Passwort eingeben:"
 
-#, fuzzy
 msgid "Extent Size"
 msgstr "Extent-Größe"
 
-#, fuzzy
 msgid "Format"
 msgstr "Format"
 
-#, c-format, fuzzy
+#, c-format
 msgid "GPT on %s"
 msgstr "GPT auf %s"
 
-#, fuzzy
 msgid "Generating pools"
 msgstr "Pools werden generiert"
 
-#, fuzzy
 msgid "Global options:"
 msgstr "Globale Optionen:"
 
-#, c-format, fuzzy
+#, c-format
 msgid "Invalid answer '%s'"
 msgstr "Antwort '%s' ist ungültig"
 
-#, fuzzy
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Immer lächeln, denn das ist das Wichtigste."
 
-#, c-format, fuzzy
+#, c-format
 msgid "LUKS on %s"
 msgstr "LUKS auf %s"
 
-#, c-format, fuzzy
+#, c-format
 msgid "LVM logical volume %s"
 msgstr "Logisches LVM-Volume %s"
 
-#, c-format, fuzzy
+#, c-format
 msgid "LVM volume group %s"
 msgstr "LVM-Volume-Gruppe %s"
 
-#, fuzzy
 msgid "Label"
 msgstr "Bezeichnung"
 
-#, fuzzy
 msgid "Level"
 msgstr "Ebene"
 
-#, fuzzy
 msgid "Loading pools..."
 msgstr "Pools werden geladen..."
 
-#, fuzzy
 msgid "Loads pools."
 msgstr "Lädt Pools."
 
-#, fuzzy
 msgid "Loads the staging devicegraph from a file."
 msgstr "Lädt den Staging-Gerätegraphen aus einer Datei."
 
-#, c-format, fuzzy
+#, c-format
 msgid "MS-DOS on %s"
 msgstr "MS-DOS auf %s"
 
-#, fuzzy
 msgid "Metadata"
 msgstr "Metadaten"
 
-#, c-format, fuzzy
+#, c-format
 msgid "Missing argument for command option '%s'."
 msgstr "Fehlendes Argument für Kommandooption '%s'."
 
-#, c-format, fuzzy
+#, c-format
 msgid "Missing argument for global option '%s'."
 msgstr "Fehlendes Argument für globale Option '%s'."
 
-#, fuzzy
 msgid "Model"
 msgstr "Modell"
 
-#, fuzzy
 msgid "Mount Point"
 msgstr "Einhängepunkt"
 
-#, fuzzy
 msgid "Name"
 msgstr "Name"
 
-#, c-format, fuzzy
+#, c-format
 msgid "No block devices allowed for command option '%s'."
 msgstr "Keine Blockgeräte für Kommandooption '%s' zulässig."
 
-#, fuzzy
 msgid "No global block devices allowed."
 msgstr "Keine globalen Blockgeräte zulässig."
 
-#, fuzzy
 msgid "Passwords do not match."
 msgstr "Passwörter stimmen nicht überein."
 
-#, fuzzy
 msgid "Pool"
 msgstr "Pool"
 
-#, fuzzy
 msgid "Position"
 msgstr "Position"
 
-#, fuzzy
 msgid "Prints help."
 msgstr "Gibt Hilfetext aus."
 
-#, fuzzy
 msgid "Prints the stack."
 msgstr "Gibt den Stack aus."
 
-#, fuzzy
 msgid "Probing..."
 msgstr "Prüfung wird ausgeführt..."
 
-#, fuzzy
 msgid "Quit?"
 msgstr "Beenden?"
 
-#, fuzzy
 msgid "Quits barrel."
 msgstr "Beendet Barrel."
 
-#, c-format, fuzzy
+#, c-format
 msgid "RAID %s"
 msgstr "RAID %s"
 
-#, fuzzy
 msgid "RAID level already set for command 'raid'"
 msgstr "RAID-Ebene für Kommando 'raid' ist bereits eingestellt"
 
-#, fuzzy
 msgid "Raid level missing for command 'raid'"
 msgstr "Raid-Ebene für Kommando 'raid' fehlt"
 
-#, fuzzy
 msgid "Removes a device."
 msgstr "Entfernt ein Gerät."
 
-#, fuzzy
 msgid "Removes a pool."
 msgstr "Entfernt einen Pool."
 
-#, fuzzy
 msgid "Removes devices from a pool."
 msgstr "Entfernt Geräte aus einem Pool."
 
-#, fuzzy
 msgid "Removes the top object from the stack."
 msgstr "Entfernt das oberste Objekt im Stack."
 
-#, fuzzy
 msgid "Renames pool."
 msgstr "Benennt den Pool um."
 
-#, fuzzy
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
 "Stellt den Staging-Gerätegraphen gemäß der letzten Sicherung wieder her."
 
-#, fuzzy
 msgid "Save pools"
 msgstr "Pools speichern"
 
-#, fuzzy
 msgid "Saves pools."
 msgstr "Speichert Pools."
 
-#, fuzzy
 msgid "Saves the staging devicegraph to a file."
 msgstr "Speichert den Staging-Gerätegraphen in einer Datei."
 
-#, fuzzy
 msgid "Saving pools..."
 msgstr "Pools werden gespeichert..."
 
-#, fuzzy
 msgid "Shows DASDs."
 msgstr "Zeigt DASDs an."
 
-#, fuzzy
 msgid "Shows LVM volume groups."
 msgstr "Zeigt LVM-Volume-Gruppen an."
 
-#, fuzzy
 msgid "Shows RAIDs."
 msgstr "Zeigt RAIDs an."
 
-#, fuzzy
 msgid "Shows commit actions."
 msgstr "Zeigt Commit-Aktionen an."
 
-#, fuzzy
 msgid "Shows device tree."
 msgstr "Zeigt den Gerätebaum an."
 
-#, fuzzy
 msgid "Shows disks."
 msgstr "Zeigt Datenträger an."
 
-#, fuzzy
 msgid "Shows encryption devices."
 msgstr "Zeigt Verschlüsselungsgeräte an."
 
-#, fuzzy
 msgid "Shows filesystems."
 msgstr "Zeigt Dateisysteme an."
 
-#, fuzzy
 msgid "Shows multipath devices."
 msgstr "Zeigt Multipath-Geräte an."
 
-#, fuzzy
 msgid "Shows pools."
 msgstr "Zeigt Pools an."
 
 msgid "Size"
 msgstr "Größe"
 
-#, fuzzy
 msgid "Stripes"
 msgstr "Stripes"
 
-#, fuzzy
 msgid "The command has the following subcommands:"
 msgstr "Kommando hat die folgenden Unterkommandos:"
 
 msgid "Type"
 msgstr "Typ"
 
-#, c-format, fuzzy
+#, c-format
 msgid "Unknown global option '%s'."
 msgstr "Unbekannte globale Option '%s'."
 
-#, c-format, fuzzy
+#, c-format
 msgid "Unknown option '%s' for command '%s'."
 msgstr "Unbekannte Option '%s' für Kommando '%s'."
 
-#, fuzzy
 msgid "Usage"
 msgstr "Verwendung"
 
-#, fuzzy
 msgid "Used"
 msgstr "Verwendet"
 
 msgid "Vendor"
 msgstr "Hersteller"
 
-#, fuzzy
 msgid "Verify password:"
 msgstr "Passwort bestätigen:"
 
-#, fuzzy
 msgid "activate storage systems at startup"
 msgstr "Speichersysteme beim Start aktivieren"
 
-#, fuzzy
 msgid "answer all questions with yes"
 msgstr "alle Fragen mit ja beantworten"
 
-#, fuzzy
 msgid "backup empty during undo"
 msgstr "Sicherung leer beim Rückgängigmachen"
 
-#, fuzzy
 msgid "bad devices argument"
 msgstr "schlechtes Geräteargument"
 
-#, fuzzy
 msgid "bad stripes argument"
 msgstr "schlechtes Stripe-Argument"
 
-#, fuzzy
 msgid "be more verbose"
 msgstr "ausführlichere Angaben anzeigen"
 
-#, fuzzy
 msgid "be quiet"
 msgstr "keine Angaben anzeigen"
 
-#, c-format, fuzzy
+#, c-format
 msgid "block device '%s' cannot be removed"
 msgstr "Blockgerät '%s' kann nicht entfernt werden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "block device '%s' cannot be used as a regular block device"
 msgstr "Blockgerät '%s' kann nicht als normales Blockgerät verwendet werden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "block device '%s' is in use"
 msgstr "Blockgerät '%s' wird verwendet"
 
-#, fuzzy
 msgid "block devices missing for command 'raid'"
 msgstr "Blockgeräte für Kommando 'raid' fehlen"
 
-#, c-format, fuzzy
+#, c-format
 msgid "closing json file '%s' failed"
 msgstr "Schließen der json-Datei '%s' fehlgeschlagen"
 
-#, c-format, fuzzy
+#, c-format
 msgid "device '%s' not found in mapping"
 msgstr "Gerät '%s' nicht in Zuordnung gefunden"
 
-#, fuzzy
 msgid "do not commit anything to disk"
 msgstr "nichts auf Datenträger speichern"
 
-#, fuzzy
 msgid "do not show partitions on DASDs"
 msgstr "Partitionen auf DASDs nicht anzeigen"
 
-#, fuzzy
 msgid "do not show partitions on RAIDs"
 msgstr "Partitionen auf RAIDs nicht anzeigen"
 
-#, fuzzy
 msgid "do not show partitions on disks"
 msgstr "Partitionen auf Datenträgern nicht anzeigen"
 
-#, fuzzy
 msgid "do not show partitions on multipath devices"
 msgstr "Partitionen auf Multipath-Geräten nicht anzeigen"
 
-#, fuzzy
 msgid "done"
 msgstr "fertig"
 
-#, c-format, fuzzy
+#, c-format
 msgid "element of array for '%s' not string"
 msgstr "Element des Arrays für '%s' ist keine Zeichenkette"
 
-#, c-format, fuzzy
+#, c-format
 msgid "element of devices array for '%s' not string"
 msgstr "Element des Geräte-Arrays für '%s' ist keine Zeichenkette"
 
-#, fuzzy
 msgid "encryption type"
 msgstr "Verschlüsselungstyp"
 
-#, fuzzy
 msgid "encryption type already set for command 'encryption'"
 msgstr ""
 "Verschlüsselungstyp für Kommando 'Verschlüsselung' ist bereits festgelegt"
 
-#, fuzzy
 msgid "encryption type missing for command 'encryption'"
 msgstr "Verschlüsselungstyp für Kommando 'encryption' fehlt"
 
-#, fuzzy
 msgid "error:"
 msgstr "Fehler:"
 
-#, c-format, fuzzy
+#, c-format
 msgid "excessive content in json file '%s'"
 msgstr "überschüssiger Inhalt in json-Datei '%s'"
 
-#, fuzzy
 msgid "failed to calculate actions"
 msgstr "Berechnung von Aktionen fehlgeschlagen"
 
-#, c-format, fuzzy
+#, c-format
 msgid "filesystem %s on %s"
 msgstr "Dateisystem %s auf %s"
 
-#, fuzzy
 msgid "filesystem type already set for command 'filesystem'"
 msgstr "Dateisystemtyp für Kommando 'filesystem' ist bereits festgelegt"
 
-#, fuzzy
 msgid "filesystem type missing for command 'filesystem'"
 msgstr "Dateisystemtyp für Kommando 'filesystem' fehlt"
 
-#, fuzzy
 msgid "force if block device is in use"
 msgstr "erzwingen, wenn Blockgerät in Verwendung ist"
 
-#, fuzzy
 msgid "force if block devices are in use"
 msgstr "erzwingen, wenn Blockgeräte in Verwendung sind"
 
-#, fuzzy
 msgid "go downwards"
 msgstr "nach unten gehen"
 
-#, fuzzy
 msgid "go upwards"
 msgstr "nach oben gehen"
 
-#, fuzzy
 msgid "invalid logical volume name for command 'lv'"
 msgstr "ungültiger Name für logisches Volume in Kommando 'lv'"
 
-#, c-format, fuzzy
+#, c-format
 msgid "invalid path '%s'"
 msgstr "Pfad '%s' ist ungültig"
 
-#, fuzzy
 msgid "invalid volume group name for command 'vg'"
 msgstr "ungültiger Name für Volume-Gruppe in Kommando 'vg'"
 
-#, fuzzy
 msgid "keep underlying partitions"
 msgstr "zugrunde liegende Partitionen beibehalten"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "zugeordnetes DASD für '%s' hat ein anderes Format"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped DASD for '%s' has different type"
 msgstr "zugeordnetes DASD für '%s' hat einen anderen Typ"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped DASD for '%s' mapped twice"
 msgstr "DASD für '%s' wurde doppelt zugeordnet"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
 msgstr "DM-RAID für '%s' wurde doppelt zugeordnet"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped device for '%s' has different block size"
 msgstr "Gerät für '%s' hat eine andere Blockgröße"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped device for '%s' is not a DASD"
 msgstr "zugeordnetes Gerät für '%s' ist kein DASD"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped device for '%s' is not a DM RAID"
 msgstr "zugeordnetes Gerät für '%s' ist kein DM-RAID"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped device for '%s' is not a disk"
 msgstr "zugeordnetes Gerät für '%s' ist kein Datenträger"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped device for '%s' is not a multipath"
 msgstr "zugeordnetes Gerät für '%s' ist kein Multipath-Gerät"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped device for '%s' is smaller"
 msgstr "zugeordnetes Gerät für '%s' ist kleiner"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped device for '%s' not found"
 msgstr "zugeordnetes Gerät für '%s' nicht gefunden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped disk for '%s' mapped twice"
 msgstr "Datenträger für '%s' wurde doppelt zugeordnet"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapped multipath for '%s' mapped twice"
 msgstr "Multipath-Gerät für '%s' wurde doppelt zugeordnet"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapping %s to %s"
 msgstr "%s wird %s zugeordnet"
 
-#, c-format, fuzzy
+#, c-format
 msgid "mapping not found in json file '%s'"
 msgstr "Zuordnung nicht in json-Datei '%s' gefunden"
 
-#, fuzzy
 msgid "mkfs options"
 msgstr "mkfs-Optionen"
 
-#, fuzzy
 msgid "mount options"
 msgstr "Einhängeoptionen"
 
-#, fuzzy
 msgid "mount options require a path"
 msgstr "für Einhängeoptionen ist ein Pfad erforderlich"
 
-#, fuzzy
 msgid "mount path"
 msgstr "Einhängepfad"
 
-#, fuzzy
 msgid "multiple devices"
 msgstr "mehrere Geräte"
 
-#, fuzzy
 msgid "name missing for command 'devicegraph'"
 msgstr "Name für Kommando 'devicegraph' fehlt"
 
-#, fuzzy
 msgid "name missing for command 'encryption'"
 msgstr "Name für Kommando 'encryption' fehlt"
 
-#, fuzzy
 msgid "name missing for command 'lv'"
 msgstr "Name für Kommando 'lv' fehlt"
 
-#, fuzzy
 msgid "name missing for command 'vg'"
 msgstr "Name für Kommando 'vg' fehlt"
 
-#, fuzzy
 msgid "name of RAID already exists"
 msgstr "RAID-Name ist bereits vorhanden"
 
-#, fuzzy
 msgid "name of devicegraph"
 msgstr "Name des Gerätegraphen"
 
-#, fuzzy
 msgid "name of devicegraph file"
 msgstr "Name der Gerätegraph-Datei"
 
-#, fuzzy
 msgid "name of logical volume already exists"
 msgstr "Name des logischen Volume ist bereits vorhanden"
 
-#, fuzzy
 msgid "name of mapping file"
 msgstr "Name der Zuordnungsdatei"
 
-#, fuzzy
 msgid "name of new pool"
 msgstr "Name des neuen Pools"
 
-#, fuzzy
 msgid "name of pool"
 msgstr "Name des Pools"
 
-#, fuzzy
 msgid "name of pool to use"
 msgstr "Name des zu verwendenden Pools"
 
-#, fuzzy
 msgid "name of volume group"
 msgstr "Name der Volume-Gruppe"
 
-#, fuzzy
 msgid "name of volume group already exists"
 msgstr "Name der Volume-Gruppe ist bereits vorhanden"
 
-#, fuzzy
 msgid "new name"
 msgstr "neuer Name"
 
-#, c-format, fuzzy
+#, c-format
 msgid "no mapping DASD for '%s' found"
 msgstr "kein DASD zur Zuordnung für '%s' gefunden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "no mapping DM RAID for '%s' found"
 msgstr "kein DM-RAID zur Zuordnung für '%s' gefunden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "no mapping disk for '%s' found"
 msgstr "kein Datenträger zur Zuordnung für '%s' gefunden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "no mapping multipath for '%s' found"
 msgstr "kein Multipath-Gerät zur Zuordnung für '%s' gefunden"
 
-#, fuzzy
 msgid "not a block device on stack"
 msgstr "kein Blockgerät im Stack"
 
-#, fuzzy
 msgid "not a partition table on stack"
 msgstr "keine Partitionstabelle im Stack"
 
-#, fuzzy
 msgid "not a partitionable"
 msgstr "kann nicht partitioniert werden"
 
-#, fuzzy
 msgid "not a partitionable on stack"
 msgstr "kein partitionierbares Element im Stack"
 
-#, fuzzy
 msgid "not a volume group on stack"
 msgstr "keine Volume-Gruppe im Stack"
 
-#, fuzzy
 msgid "number of stripes"
 msgstr "Anzahl der Stripes"
 
-#, fuzzy
 msgid "old name"
 msgstr "alter Name"
 
-#, fuzzy
 msgid "only one block device allowed"
 msgstr "nur ein Blockgerät ist zulässig"
 
-#, c-format, fuzzy
+#, c-format
 msgid "opening json file '%s' failed"
 msgstr "Öffnen der json-Datei '%s' fehlgeschlagen"
 
-#, c-format, fuzzy
+#, c-format
 msgid "parsing json file '%s' failed"
 msgstr "Parsen der json-Datei '%s' fehlgeschlagen"
 
-#, fuzzy
 msgid "partition table type"
 msgstr "Partitionstabellentyp"
 
-#, fuzzy
 msgid "partition table type already set command 'partition-table'"
 msgstr ""
 "Partitionstabellentyp für Kommando 'partition-table' wurde bereits festgelegt"
 
-#, fuzzy
 msgid "partition table type missing for command 'partition-table'"
 msgstr "Partitionstabellentyp für Kommando 'partition-table' fehlt"
 
-#, c-format, fuzzy
+#, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
 msgstr ""
 "partitionierbares Element '%s' kann nicht als normales patitionierbares "
 "Element verwendet werden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "partitionable '%s' is in use"
 msgstr "partitionierbares Element '%s' wird verwendet"
 
-#, c-format, fuzzy
+#, c-format
 msgid "path '%s' already used"
 msgstr "Pfad '%s' wird bereits verwendet"
 
-#, fuzzy
 msgid "path must be 'swap'"
 msgstr "Pfad muss 'swap' sein"
 
@@ -817,223 +669,179 @@ msgstr ""
 "Pool-Argument und 'blk devices' dürfen nicht zusammen für das Kommando "
 "'encryption' verwendet werden"
 
-#, fuzzy
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
 "Pool-Argument und 'blk devices' dürfen nicht zusammen für das Kommando "
 "'filesystem' verwendet werden"
 
-#, fuzzy
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
 "Pool-Argument und 'blk devices' dürfen nicht zusammen für das Kommando 'vg' "
 "verwendet werden"
 
-#, fuzzy
 msgid "pool name"
 msgstr "Poolname"
 
-#, fuzzy
 msgid "probed instead of staging"
 msgstr "geprüft statt Staging"
 
-#, c-format, fuzzy
+#, c-format
 msgid "read for json file '%s' failed"
 msgstr "Lesen von json-Datei '%s' fehlgeschlagen"
 
-#, fuzzy
 msgid "run with a prefix"
 msgstr "mit Präfix ausführen"
 
-#, fuzzy
 msgid "set RAID level"
 msgstr "RAID-Ebene festlegen"
 
-#, fuzzy
 msgid "set RAID metadata version"
 msgstr "RAID-Metadaten-Version festlegen"
 
-#, fuzzy
 msgid "set RAID name"
 msgstr "RAID-Namen festlegen"
 
-#, fuzzy
 msgid "set chunk size"
 msgstr "Chunk-Größe festlegen"
 
-#, fuzzy
 msgid "set extent size"
 msgstr "Extent-Größe festlegen"
 
-#, fuzzy
 msgid "set file system label"
 msgstr "Dateisystem-Bezeichnung festlegen"
 
-#, fuzzy
 msgid "set file system type"
 msgstr "Dateisystemtyp festlegen"
 
-#, fuzzy
 msgid "set label of device"
 msgstr "Bezeichnung des Geräts festlegen"
 
-#, fuzzy
 msgid "set name of device"
 msgstr "Namen des Geräts festlegen"
 
-#, fuzzy
 msgid "set name of logical volume"
 msgstr "Namen des logischen Volume festlegen"
 
-#, fuzzy
 msgid "set name of volume group"
 msgstr "Namen der Volume-Gruppe festlegen"
 
-#, fuzzy
 msgid "set number of devices"
 msgstr "Anzahl der Geräte festlegen"
 
-#, fuzzy
 msgid "set size"
 msgstr "Größe festlegen"
 
-#, fuzzy
 msgid "set size of RAID"
 msgstr "RAID-Größe festlegen"
 
-#, fuzzy
 msgid "set size of logical volume"
 msgstr "Größe des logischen Volume festlegen"
 
-#, fuzzy
 msgid "set size of volume group"
 msgstr "Größe der Volume-Gruppe festlegen"
 
-#, c-format, fuzzy
+#, c-format
 msgid "several mapping DASDs for '%s' found"
 msgstr "mehrere DASDs zur Zuordnung für '%s' gefunden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "several mapping DM RAIDs for '%s' found"
 msgstr "mehrere DM-RAIDs zur Zuordnung für '%s' gefunden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "several mapping disks for '%s' found"
 msgstr "mehrere Datenträger zur Zuordnung für '%s' gefunden"
 
-#, c-format, fuzzy
+#, c-format
 msgid "several mapping multipath for '%s' found"
 msgstr "mehrere Multipath-Geräte zur Zuordnung für '%s' gefunden"
 
-#, fuzzy
 msgid "show help and exit"
 msgstr "Hilfe anzeigen und beenden"
 
-#, fuzzy
 msgid "show version and exit"
 msgstr "Version anzeigen und beenden"
 
-#, fuzzy
 msgid "size argument missing for command 'encryption'"
 msgstr "Größenargument für Kommando 'encryption' fehlt"
 
-#, fuzzy
 msgid "size argument missing for command 'filesystem'"
 msgstr "Größenargument für Kommando 'filesystem' fehlt"
 
-#, fuzzy
 msgid "size argument required for command 'raid'"
 msgstr "Größenargument für Kommando 'raid' erforderlich"
 
-#, fuzzy
 msgid "size argument required for command 'vg'"
 msgstr "Größenargument für Kommando 'vg' erforderlich"
 
-#, fuzzy
 msgid "size missing for command 'lv'"
 msgstr "Größe für Kommando 'lv' fehlt"
 
-#, fuzzy
 msgid "size of stripes"
 msgstr "Größe der Stripes"
 
-#, fuzzy
 msgid "spare devices not allowed for raid level"
 msgstr "Ersatzgeräte für Raid-Ebene nicht zulässig"
 
-#, fuzzy
 msgid "stack empty during dup"
 msgstr "Stack beim Ausführen von 'dup' leer"
 
-#, fuzzy
 msgid "stack empty during pop"
 msgstr "Stack beim Ausführen von 'pop' leer"
 
-#, c-format, fuzzy
+#, c-format
 msgid "stat for json file '%s' failed"
 msgstr "'stat' für json-Datei '%s' fehlgeschlagen"
 
-#, fuzzy
 msgid "too few raid devices for raid level"
 msgstr "zu wenige Raid-Geräte für Raid-Ebene"
 
-#, fuzzy
 msgid "tune options"
 msgstr "Abstimmungsoptionen"
 
-#, c-format, fuzzy
+#, c-format
 msgid "tune options not allowed for %s"
 msgstr "Abstimmungsoptionen für %s nicht zulässig"
 
-#, fuzzy
 msgid "unknown encryption type"
 msgstr "unbekannter Verschlüsselungstyp"
 
-#, c-format, fuzzy
+#, c-format
 msgid "unknown filesystem type '%s'"
 msgstr "unbekannter Dateisystemtyp '%s'"
 
-#, fuzzy
 msgid "unknown partition table type"
 msgstr "unbekannter Partitionstabellentyp"
 
-#, fuzzy
 msgid "unknown raid level for command 'raid'"
 msgstr "unbekannte Raid-Ebene für Kommando 'raid'"
 
-#, c-format, fuzzy
+#, c-format
 msgid "value for '%s' neither string nor array"
 msgstr "Wert für '%s' ist weder eine Zeichenkette noch ein Array"
 
-#, fuzzy
 msgid "value of description entry not a string"
 msgstr "Wert des Beschreibungseintrags ist keine Zeichenkette"
 
-#, fuzzy
 msgid "value of devices entry not an array"
 msgstr "Wert des Geräteeintrags kein Array"
 
-#, c-format, fuzzy
+#, c-format
 msgid "volume group '%s' is over-committed"
 msgstr "Volume-Gruppe '%s' ist überlastet"
 
-#, fuzzy
 msgid "wrong number of partitionables"
 msgstr "falsche Anzahl von partitionierbaren Elementen"
 
-#, fuzzy
 msgid "y/n"
 msgstr "j/n"
 
-#, fuzzy
 msgid "Device"
 msgstr "Gerät"
 
-#, fuzzy
 msgid "show underlying device"
 msgstr "zugrunde liegendes Gerät anzeigen"
 
-#, fuzzy
 msgid "show underlying devices"
 msgstr "zugrunde liegende Geräte anzeigen"
