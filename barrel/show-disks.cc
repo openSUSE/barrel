@@ -44,8 +44,10 @@ namespace barrel
     {
 
 	const ExtOptions show_disks_options({
+	    // TRANSLATORS: help text
 	    { "no-partitions", no_argument, 0, _("do not show partitions on disks") },
-	    { "probed", no_argument, 0, _("probed instead of staging") }
+	    // TRANSLATORS: help text
+	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") }
 	});
 
 

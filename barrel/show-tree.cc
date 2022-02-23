@@ -48,7 +48,7 @@ namespace barrel
 	const ExtOptions show_tree_options({
 	    { "up", no_argument, 'u', _("go upwards") },
 	    { "down", no_argument, 'd', _("go downwards") },
-	    { "probed", no_argument, 0, _("probed instead of staging") }
+	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") }
 	}, TakeBlkDevices::YES);
 
 

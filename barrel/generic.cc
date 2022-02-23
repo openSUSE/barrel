@@ -274,7 +274,8 @@ namespace barrel
     ParsedCmdUndo::doit(const GlobalOptions& global_options, State& state) const
     {
 	if (state.backup.empty())
-	    throw runtime_error(_("backup empty during undo"));
+	    // TRANSLATORS: error message
+	    throw runtime_error(_("no backup available for undo"));
 
 	state.backup.undo(state.storage);
     }

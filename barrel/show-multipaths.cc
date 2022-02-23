@@ -45,7 +45,7 @@ namespace barrel
 
 	const ExtOptions show_multipaths_options({
 	    { "no-partitions", no_argument, 0, _("do not show partitions on multipath devices") },
-	    { "probed", no_argument, 0, _("probed instead of staging") }
+	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") }
 	});
 
 
