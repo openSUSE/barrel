@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 16:05+0100\n"
-"PO-Revision-Date: 2022-01-23 09:12+0000\n"
+"PO-Revision-Date: 2022-02-24 01:12+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -381,9 +381,9 @@ msgid "block devices missing for command 'raid'"
 msgstr "コマンド 'raid' に対するブロックデバイスが指定されていません"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
-#, fuzzy, c-format
+#, c-format
 msgid "close for json file '%s' failed"
-msgstr "JSON ファイル '%s' の読み込みに失敗しました"
+msgstr "JSON ファイル '%s' を閉じる処理が失敗しました"
 
 #, c-format
 msgid "closing json file '%s' failed"
@@ -598,7 +598,7 @@ msgstr "新しい名前"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "取り消すためのバックアップがありません"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
@@ -641,9 +641,9 @@ msgid "only one block device allowed"
 msgstr "1 つのブロックデバイスのみを指定することができます"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
-#, fuzzy, c-format
+#, c-format
 msgid "open for json file '%s' failed"
-msgstr "JSON ファイル '%s' の読み込みに失敗しました"
+msgstr "JSON ファイル '%s' を開く処理が失敗しました"
 
 #, c-format
 msgid "opening json file '%s' failed"
@@ -836,9 +836,8 @@ msgid "unknown raid level for command 'raid'"
 msgstr "コマンド 'raid' に対する RAID レベルが不明です"
 
 #. TRANSLATORS: help text
-#, fuzzy
 msgid "use probed instead of staging devicegraph"
-msgstr "ステージングではなく検出して表示します"
+msgstr "ステージングではなく検出してデバイスグラフを表示します"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
