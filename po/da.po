@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 16:33+0100\n"
+"POT-Creation-Date: 2022-02-23 16:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -153,6 +153,7 @@ msgstr ""
 msgid "Invalid answer '%s'"
 msgstr ""
 
+#. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr ""
 
@@ -346,9 +347,8 @@ msgstr ""
 msgid "answer all questions with yes"
 msgstr ""
 
-msgid "backup empty during undo"
-msgstr ""
-
+#. TRANSLATORS: error message, the argument for the command line option
+#. 'devices' is bad
 msgid "bad devices argument"
 msgstr ""
 
@@ -376,6 +376,11 @@ msgstr ""
 msgid "block devices missing for command 'raid'"
 msgstr ""
 
+#. TRANSLATORS: error message, 'close' refers to close system call
+#, c-format
+msgid "close for json file '%s' failed"
+msgstr ""
+
 #, c-format
 msgid "closing json file '%s' failed"
 msgstr ""
@@ -393,6 +398,7 @@ msgstr ""
 msgid "do not show partitions on RAIDs"
 msgstr ""
 
+#. TRANSLATORS: help text
 msgid "do not show partitions on disks"
 msgstr ""
 
@@ -584,6 +590,10 @@ msgstr ""
 msgid "new name"
 msgstr ""
 
+#. TRANSLATORS: error message
+msgid "no backup available for undo"
+msgstr ""
+
 #, c-format
 msgid "no mapping DASD for '%s' found"
 msgstr ""
@@ -622,6 +632,11 @@ msgid "old name"
 msgstr ""
 
 msgid "only one block device allowed"
+msgstr ""
+
+#. TRANSLATORS: error message, 'open' refers to open system call
+#, c-format
+msgid "open for json file '%s' failed"
 msgstr ""
 
 #, c-format
@@ -670,9 +685,7 @@ msgstr ""
 msgid "pool name"
 msgstr ""
 
-msgid "probed instead of staging"
-msgstr ""
-
+#. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
 msgstr ""
@@ -777,6 +790,7 @@ msgstr ""
 msgid "stack empty during pop"
 msgstr ""
 
+#. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
 msgstr ""
@@ -804,6 +818,10 @@ msgstr ""
 msgid "unknown raid level for command 'raid'"
 msgstr ""
 
+#. TRANSLATORS: help text
+msgid "use probed instead of staging devicegraph"
+msgstr ""
+
 #, c-format
 msgid "value for '%s' neither string nor array"
 msgstr ""
@@ -822,13 +840,4 @@ msgid "wrong number of partitionables"
 msgstr ""
 
 msgid "y/n"
-msgstr ""
-
-msgid "Device"
-msgstr ""
-
-msgid "show underlying device"
-msgstr ""
-
-msgid "show underlying devices"
 msgstr ""

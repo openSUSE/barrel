@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 16:33+0100\n"
+"POT-Creation-Date: 2022-02-23 16:05+0100\n"
 "PO-Revision-Date: 2022-02-21 18:12+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
-"\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
+">\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -155,6 +155,7 @@ msgstr "Globale Optionen:"
 msgid "Invalid answer '%s'"
 msgstr "Antwort '%s' ist ungültig"
 
+#. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Immer lächeln, denn das ist das Wichtigste."
 
@@ -349,9 +350,8 @@ msgstr "Speichersysteme beim Start aktivieren"
 msgid "answer all questions with yes"
 msgstr "alle Fragen mit ja beantworten"
 
-msgid "backup empty during undo"
-msgstr "Sicherung leer beim Rückgängigmachen"
-
+#. TRANSLATORS: error message, the argument for the command line option
+#. 'devices' is bad
 msgid "bad devices argument"
 msgstr "schlechtes Geräteargument"
 
@@ -379,6 +379,11 @@ msgstr "Blockgerät '%s' wird verwendet"
 msgid "block devices missing for command 'raid'"
 msgstr "Blockgeräte für Kommando 'raid' fehlen"
 
+#. TRANSLATORS: error message, 'close' refers to close system call
+#, fuzzy, c-format
+msgid "close for json file '%s' failed"
+msgstr "Lesen von json-Datei '%s' fehlgeschlagen"
+
 #, c-format
 msgid "closing json file '%s' failed"
 msgstr "Schließen der json-Datei '%s' fehlgeschlagen"
@@ -396,6 +401,7 @@ msgstr "Partitionen auf DASDs nicht anzeigen"
 msgid "do not show partitions on RAIDs"
 msgstr "Partitionen auf RAIDs nicht anzeigen"
 
+#. TRANSLATORS: help text
 msgid "do not show partitions on disks"
 msgstr "Partitionen auf Datenträgern nicht anzeigen"
 
@@ -588,6 +594,10 @@ msgstr "Name der Volume-Gruppe ist bereits vorhanden"
 msgid "new name"
 msgstr "neuer Name"
 
+#. TRANSLATORS: error message
+msgid "no backup available for undo"
+msgstr ""
+
 #, c-format
 msgid "no mapping DASD for '%s' found"
 msgstr "kein DASD zur Zuordnung für '%s' gefunden"
@@ -627,6 +637,11 @@ msgstr "alter Name"
 
 msgid "only one block device allowed"
 msgstr "nur ein Blockgerät ist zulässig"
+
+#. TRANSLATORS: error message, 'open' refers to open system call
+#, fuzzy, c-format
+msgid "open for json file '%s' failed"
+msgstr "Lesen von json-Datei '%s' fehlgeschlagen"
 
 #, c-format
 msgid "opening json file '%s' failed"
@@ -683,9 +698,7 @@ msgstr ""
 msgid "pool name"
 msgstr "Poolname"
 
-msgid "probed instead of staging"
-msgstr "geprüft statt Staging"
-
+#. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
 msgstr "Lesen von json-Datei '%s' fehlgeschlagen"
@@ -790,6 +803,7 @@ msgstr "Stack beim Ausführen von 'dup' leer"
 msgid "stack empty during pop"
 msgstr "Stack beim Ausführen von 'pop' leer"
 
+#. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
 msgstr "'stat' für json-Datei '%s' fehlgeschlagen"
@@ -817,6 +831,11 @@ msgstr "unbekannter Partitionstabellentyp"
 msgid "unknown raid level for command 'raid'"
 msgstr "unbekannte Raid-Ebene für Kommando 'raid'"
 
+#. TRANSLATORS: help text
+#, fuzzy
+msgid "use probed instead of staging devicegraph"
+msgstr "geprüft statt Staging"
+
 #, c-format
 msgid "value for '%s' neither string nor array"
 msgstr "Wert für '%s' ist weder eine Zeichenkette noch ein Array"
@@ -837,11 +856,14 @@ msgstr "falsche Anzahl von partitionierbaren Elementen"
 msgid "y/n"
 msgstr "j/n"
 
-msgid "Device"
-msgstr "Gerät"
+#~ msgid "backup empty during undo"
+#~ msgstr "Sicherung leer beim Rückgängigmachen"
 
-msgid "show underlying device"
-msgstr "zugrunde liegendes Gerät anzeigen"
+#~ msgid "Device"
+#~ msgstr "Gerät"
 
-msgid "show underlying devices"
-msgstr "zugrunde liegende Geräte anzeigen"
+#~ msgid "show underlying device"
+#~ msgstr "zugrunde liegendes Gerät anzeigen"
+
+#~ msgid "show underlying devices"
+#~ msgstr "zugrunde liegende Geräte anzeigen"

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 16:33+0100\n"
+"POT-Creation-Date: 2022-02-23 16:05+0100\n"
 "PO-Revision-Date: 2022-01-26 18:12+0000\n"
 "Last-Translator: Matías Silva Bustos <matiasasb@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
-"\n"
+"Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -156,6 +156,7 @@ msgstr "Opciones globales:"
 msgid "Invalid answer '%s'"
 msgstr "Respuesta «%s» inválida"
 
+#. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Sonríe porque esa es la cosa más importante."
 
@@ -349,9 +350,8 @@ msgstr "activar los sistemas de almacenamiento al inicio"
 msgid "answer all questions with yes"
 msgstr "responder sí a todas las preguntas"
 
-msgid "backup empty during undo"
-msgstr "Respaldo vacío durante la deshechura"
-
+#. TRANSLATORS: error message, the argument for the command line option
+#. 'devices' is bad
 msgid "bad devices argument"
 msgstr "devices, mal argumento"
 
@@ -381,6 +381,11 @@ msgstr "el dispositivo de bloques «%s» está en uso"
 msgid "block devices missing for command 'raid'"
 msgstr "Dispositivos de bloque ausentes para el comando «raid»"
 
+#. TRANSLATORS: error message, 'close' refers to close system call
+#, fuzzy, c-format
+msgid "close for json file '%s' failed"
+msgstr "falla al leer archivo json «%s»"
+
 #, c-format
 msgid "closing json file '%s' failed"
 msgstr "cierre fallido del archivo json «%s»"
@@ -398,6 +403,7 @@ msgstr "no mostrar particiones en DASDs"
 msgid "do not show partitions on RAIDs"
 msgstr "no mostrar particiones en RAIDs"
 
+#. TRANSLATORS: help text
 msgid "do not show partitions on disks"
 msgstr "no mostrar particiones en discos"
 
@@ -589,6 +595,10 @@ msgstr "nombre del grupo de volúmenes ya existe"
 msgid "new name"
 msgstr "nuevo nombre"
 
+#. TRANSLATORS: error message
+msgid "no backup available for undo"
+msgstr ""
+
 #, c-format
 msgid "no mapping DASD for '%s' found"
 msgstr "no se encuentra mapeo DASD para «%s»"
@@ -628,6 +638,11 @@ msgstr "nombre previo"
 
 msgid "only one block device allowed"
 msgstr "solamente un dispositivo de bloques permitido"
+
+#. TRANSLATORS: error message, 'open' refers to open system call
+#, fuzzy, c-format
+msgid "open for json file '%s' failed"
+msgstr "falla al leer archivo json «%s»"
 
 #, c-format
 msgid "opening json file '%s' failed"
@@ -680,9 +695,7 @@ msgstr ""
 msgid "pool name"
 msgstr "nombre de la reserva"
 
-msgid "probed instead of staging"
-msgstr "sondeado en vez de ensayado"
-
+#. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
 msgstr "falla al leer archivo json «%s»"
@@ -787,6 +800,7 @@ msgstr "pila vacía durante dup"
 msgid "stack empty during pop"
 msgstr "pila vacía durante pop"
 
+#. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
 msgstr "falla operación stat en archivo json «%s»"
@@ -814,6 +828,11 @@ msgstr "tipo desconocido de tabla de partición"
 msgid "unknown raid level for command 'raid'"
 msgstr "nivel desconocido de raid para comando «raid»"
 
+#. TRANSLATORS: help text
+#, fuzzy
+msgid "use probed instead of staging devicegraph"
+msgstr "sondeado en vez de ensayado"
+
 #, c-format
 msgid "value for '%s' neither string nor array"
 msgstr "el valor para «%s», ni ristra ni arreglo"
@@ -833,3 +852,6 @@ msgstr "número incorrecto de particionables"
 
 msgid "y/n"
 msgstr "s/n"
+
+#~ msgid "backup empty during undo"
+#~ msgstr "Respaldo vacío durante la deshechura"

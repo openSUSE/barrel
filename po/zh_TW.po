@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 16:33+0100\n"
+"POT-Creation-Date: 2022-02-23 16:05+0100\n"
 "PO-Revision-Date: 2022-02-18 13:12+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
@@ -157,6 +157,7 @@ msgstr "全域選項："
 msgid "Invalid answer '%s'"
 msgstr "回答 \"%s\" 無效"
 
+#. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "請耐心等候，因為這是最重要的事。"
 
@@ -350,9 +351,8 @@ msgstr "啟動時啟用儲存系統"
 msgid "answer all questions with yes"
 msgstr "對所有問題都回答 \"是\""
 
-msgid "backup empty during undo"
-msgstr "復原期間備份為空白"
-
+#. TRANSLATORS: error message, the argument for the command line option
+#. 'devices' is bad
 msgid "bad devices argument"
 msgstr "錯誤的裝置引數"
 
@@ -380,6 +380,11 @@ msgstr "區塊裝置 \"%s\" 已在使用中"
 msgid "block devices missing for command 'raid'"
 msgstr "\"raid\" 指令遺失區塊裝置"
 
+#. TRANSLATORS: error message, 'close' refers to close system call
+#, fuzzy, c-format
+msgid "close for json file '%s' failed"
+msgstr "讀取 json 檔案 \"%s\" 失敗"
+
 #, c-format
 msgid "closing json file '%s' failed"
 msgstr "關閉 json 檔案 \"%s\" 失敗"
@@ -397,6 +402,7 @@ msgstr "不顯示 DASD 上的分割區"
 msgid "do not show partitions on RAIDs"
 msgstr "不顯示 RAID 上的分割區"
 
+#. TRANSLATORS: help text
 msgid "do not show partitions on disks"
 msgstr "不顯示磁碟上的分割區"
 
@@ -588,6 +594,10 @@ msgstr "磁碟區群組名稱已存在"
 msgid "new name"
 msgstr "新名稱"
 
+#. TRANSLATORS: error message
+msgid "no backup available for undo"
+msgstr ""
+
 #, c-format
 msgid "no mapping DASD for '%s' found"
 msgstr "找不到 \"%s\" 的對應 DASD"
@@ -627,6 +637,11 @@ msgstr "舊名稱"
 
 msgid "only one block device allowed"
 msgstr "只允許一個區塊裝置"
+
+#. TRANSLATORS: error message, 'open' refers to open system call
+#, fuzzy, c-format
+msgid "open for json file '%s' failed"
+msgstr "讀取 json 檔案 \"%s\" 失敗"
 
 #, c-format
 msgid "opening json file '%s' failed"
@@ -674,9 +689,7 @@ msgstr "\"vg\" 指令中不允許將池引數和 blk 裝置配合使用"
 msgid "pool name"
 msgstr "池名稱"
 
-msgid "probed instead of staging"
-msgstr "已探測取代了預備"
-
+#. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
 msgstr "讀取 json 檔案 \"%s\" 失敗"
@@ -781,6 +794,7 @@ msgstr "執行 dup 期間堆疊為空白"
 msgid "stack empty during pop"
 msgstr "執行 pop 期間堆疊為空白"
 
+#. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
 msgstr "Json 檔案 \"%s\" 的統計失敗"
@@ -808,6 +822,11 @@ msgstr "未知的分割區表類型"
 msgid "unknown raid level for command 'raid'"
 msgstr "\"raid\" 指令的 raid 層級未知"
 
+#. TRANSLATORS: help text
+#, fuzzy
+msgid "use probed instead of staging devicegraph"
+msgstr "已探測取代了預備"
+
 #, c-format
 msgid "value for '%s' neither string nor array"
 msgstr "\"%s\" 的值既不是字串，也不是陣列"
@@ -827,3 +846,6 @@ msgstr "可分割裝置數量錯誤"
 
 msgid "y/n"
 msgstr "y/n"
+
+#~ msgid "backup empty during undo"
+#~ msgstr "復原期間備份為空白"
