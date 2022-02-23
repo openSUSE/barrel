@@ -43,12 +43,14 @@ namespace barrel
     {
 	FILE* fp = fopen(filename.c_str(), "r");
 	if (!fp)
-	    throw runtime_error(sformat(_("opening json file '%s' failed"), filename.c_str()));
+	    // TRANSLATORS: error message, 'open' refers to open system call
+	    throw runtime_error(sformat(_("open for json file '%s' failed"), filename.c_str()));
 
 	struct stat st;
 	if (fstat(fileno(fp), &st) != 0)
 	{
 	    fclose(fp);
+	    // TRANSLATORS: error message, 'stat' refers to stat system call
 	    throw runtime_error(sformat(_("stat for json file '%s' failed"), filename.c_str()));
 	}
 
@@ -56,11 +58,13 @@ namespace barrel
 	if (fread(data.data(), 1, st.st_size, fp) != (size_t)(st.st_size))
 	{
 	    fclose(fp);
+	    // TRANSLATORS: error message, 'read' refers to read system call
 	    throw runtime_error(sformat(_("read for json file '%s' failed"), filename.c_str()));
 	}
 
 	if (fclose(fp) != 0)
-	    throw runtime_error(sformat(_("closing json file '%s' failed"), filename.c_str()));
+	    // TRANSLATORS: error message, 'close' refers to close system call
+	    throw runtime_error(sformat(_("close for json file '%s' failed"), filename.c_str()));
 
 	json_tokener* tokener = json_tokener_new();
 

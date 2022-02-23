@@ -201,6 +201,7 @@ namespace barrel
 		{
 		    if (main_cmd->name == "help")
 		    {
+			// TRANSLATORS: just a funny remark without further meaning nor context
 			cout << _("Keep smiling, 'cause that's the most important thing.") << '\n';
 			return;
 		    }

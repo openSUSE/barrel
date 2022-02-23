@@ -46,7 +46,7 @@ namespace barrel
     {
 
 	const ExtOptions show_lvm_vgs_options({
-	    { "probed", no_argument, 0, _("probed instead of staging") }
+	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") }
 	});
 
 

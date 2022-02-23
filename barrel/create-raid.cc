@@ -115,6 +115,8 @@ namespace barrel
 		return;
 	    }
 
+	    // TRANSLATORS: error message, the argument for the command line option
+	    // 'devices' is bad
 	    throw runtime_error(_("bad devices argument"));
 	}
 
