@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-11 16:33+0100\n"
+"POT-Creation-Date: 2022-02-23 16:05+0100\n"
 "PO-Revision-Date: 2022-01-23 09:12+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
@@ -156,6 +156,7 @@ msgstr "グローバルオプション:"
 msgid "Invalid answer '%s'"
 msgstr "回答 '%s' が正しくありません"
 
+#. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "笑っていましょう。それが一番大事なことですから。"
 
@@ -212,7 +213,8 @@ msgstr "名前"
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr "コマンドオプション '%s' に対してブロックデバイスを指定することはできません。"
+msgstr ""
+"コマンドオプション '%s' に対してブロックデバイスを指定することはできません。"
 
 msgid "No global block devices allowed."
 msgstr "グローバルなブロックデバイスは指定できません。"
@@ -349,9 +351,8 @@ msgstr "起動時にストレージシステムを有効化する"
 msgid "answer all questions with yes"
 msgstr "全ての質問に対して 'yes' (はい) と回答します"
 
-msgid "backup empty during undo"
-msgstr "元に戻す際のバックアップがありません"
-
+#. TRANSLATORS: error message, the argument for the command line option
+#. 'devices' is bad
 msgid "bad devices argument"
 msgstr "デバイスパラメータが正しくありません"
 
@@ -379,6 +380,11 @@ msgstr "ブロックデバイス '%s' は使用中です"
 msgid "block devices missing for command 'raid'"
 msgstr "コマンド 'raid' に対するブロックデバイスが指定されていません"
 
+#. TRANSLATORS: error message, 'close' refers to close system call
+#, fuzzy, c-format
+msgid "close for json file '%s' failed"
+msgstr "JSON ファイル '%s' の読み込みに失敗しました"
+
 #, c-format
 msgid "closing json file '%s' failed"
 msgstr "JSON ファイル '%s' を閉じる処理が失敗しました"
@@ -396,6 +402,7 @@ msgstr "DASD 内のパーティションを表示しません"
 msgid "do not show partitions on RAIDs"
 msgstr "RAID 内のパーティションを表示しません"
 
+#. TRANSLATORS: help text
 msgid "do not show partitions on disks"
 msgstr "ディスク内のパーティションを表示しません"
 
@@ -437,10 +444,12 @@ msgid "filesystem %s on %s"
 msgstr "ファイルシステム %s (%s 内)"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr "コマンド 'filesystem' に対するファイルシステムの種類は既に指定されています"
+msgstr ""
+"コマンド 'filesystem' に対するファイルシステムの種類は既に指定されています"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr "コマンド 'filesystem' に対するファイルシステムの種類が指定されていません"
+msgstr ""
+"コマンド 'filesystem' に対するファイルシステムの種類が指定されていません"
 
 msgid "force if block device is in use"
 msgstr "ブロックデバイスが既に使用されていても強制的に使用します"
@@ -587,6 +596,10 @@ msgstr "その名前のボリュームグループは既に存在しています
 msgid "new name"
 msgstr "新しい名前"
 
+#. TRANSLATORS: error message
+msgid "no backup available for undo"
+msgstr ""
+
 #, c-format
 msgid "no mapping DASD for '%s' found"
 msgstr "'%s' に対応する DASD が見つかりません"
@@ -627,6 +640,11 @@ msgstr "古い名前"
 msgid "only one block device allowed"
 msgstr "1 つのブロックデバイスのみを指定することができます"
 
+#. TRANSLATORS: error message, 'open' refers to open system call
+#, fuzzy, c-format
+msgid "open for json file '%s' failed"
+msgstr "JSON ファイル '%s' の読み込みに失敗しました"
+
 #, c-format
 msgid "opening json file '%s' failed"
 msgstr "JSON ファイル '%s' を開く処理が失敗しました"
@@ -639,14 +657,19 @@ msgid "partition table type"
 msgstr "パーティションテーブルの種類"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr "コマンド 'partition-table' に対するパーティションテーブルの種類は既に指定されています"
+msgstr ""
+"コマンド 'partition-table' に対するパーティションテーブルの種類は既に指定され"
+"ています"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr "コマンド 'partition-table' に対するパーティションテーブルの種類が指定されていません"
+msgstr ""
+"コマンド 'partition-table' に対するパーティションテーブルの種類が指定されてい"
+"ません"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr "パーティション設定可能な '%s' を通常のものとして使用することはできません"
+msgstr ""
+"パーティション設定可能な '%s' を通常のものとして使用することはできません"
 
 #, c-format
 msgid "partitionable '%s' is in use"
@@ -661,21 +684,25 @@ msgstr "パスは 'swap' でなければなりません"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
-msgstr "コマンド 'encryption' に対してプールパラメータとブロックデバイスの両方を指定することはできません"
+msgstr ""
+"コマンド 'encryption' に対してプールパラメータとブロックデバイスの両方を指定"
+"することはできません"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
-msgstr "コマンド 'filesystem' に対してプールパラメータとブロックデバイスの両方を指定することはできません"
+msgstr ""
+"コマンド 'filesystem' に対してプールパラメータとブロックデバイスの両方を指定"
+"することはできません"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
-msgstr "コマンド 'vg' に対してプールパラメータとブロックデバイスの両方を指定することはできません"
+msgstr ""
+"コマンド 'vg' に対してプールパラメータとブロックデバイスの両方を指定すること"
+"はできません"
 
 msgid "pool name"
 msgstr "プールの名前"
 
-msgid "probed instead of staging"
-msgstr "ステージングではなく検出して表示します"
-
+#. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
 msgstr "JSON ファイル '%s' の読み込みに失敗しました"
@@ -780,6 +807,7 @@ msgstr "dup 時にスタックが空になりました"
 msgid "stack empty during pop"
 msgstr "pop 時にスタックが空になりました"
 
+#. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
 msgstr "JSON ファイル '%s' に対する stat が失敗しました"
@@ -807,6 +835,11 @@ msgstr "不明なパーティションテーブルの種類"
 msgid "unknown raid level for command 'raid'"
 msgstr "コマンド 'raid' に対する RAID レベルが不明です"
 
+#. TRANSLATORS: help text
+#, fuzzy
+msgid "use probed instead of staging devicegraph"
+msgstr "ステージングではなく検出して表示します"
+
 #, c-format
 msgid "value for '%s' neither string nor array"
 msgstr "'%s' に対する値が文字列でも配列でもありません"
@@ -826,3 +859,6 @@ msgstr "パーティション設定可能なものの数が正しくありませ
 
 msgid "y/n"
 msgstr "y/n"
+
+#~ msgid "backup empty during undo"
+#~ msgstr "元に戻す際のバックアップがありません"
