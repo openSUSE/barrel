@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 16:05+0100\n"
-"PO-Revision-Date: 2022-01-20 12:11+0000\n"
+"PO-Revision-Date: 2022-02-24 12:12+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -381,9 +381,9 @@ msgid "block devices missing for command 'raid'"
 msgstr "falten dispositius de bloc per a l'ordre raid"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
-#, fuzzy, c-format
+#, c-format
 msgid "close for json file '%s' failed"
-msgstr "ha fallat la lectura del fitxer json %s"
+msgstr "ha fallat tancar el fitxer json %s"
 
 #, c-format
 msgid "closing json file '%s' failed"
@@ -597,7 +597,7 @@ msgstr "nom nou"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "no hi ha còpia de seguretat disponible per a l'acció de desfer"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
@@ -640,9 +640,9 @@ msgid "only one block device allowed"
 msgstr "només es permet un dispositiu de bloc"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
-#, fuzzy, c-format
+#, c-format
 msgid "open for json file '%s' failed"
-msgstr "ha fallat la lectura del fitxer json %s"
+msgstr "ha fallat obrir el fitxer json %s"
 
 #, c-format
 msgid "opening json file '%s' failed"
@@ -831,9 +831,8 @@ msgid "unknown raid level for command 'raid'"
 msgstr "nivell de raid desconegut per a l'ordre raid"
 
 #. TRANSLATORS: help text
-#, fuzzy
 msgid "use probed instead of staging devicegraph"
-msgstr "sondat en lloc d'estadificat"
+msgstr "usa el sondatge en lloc del gràfic de dispositius estadificat"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
