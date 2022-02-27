@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 16:05+0100\n"
-"PO-Revision-Date: 2022-02-21 18:12+0000\n"
-"Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
+"PO-Revision-Date: 2022-02-27 17:12+0000\n"
+"Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
 "barrel/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -383,9 +383,9 @@ msgid "block devices missing for command 'raid'"
 msgstr "dispositivos de blocos ausentes para o comando \"raid\""
 
 #. TRANSLATORS: error message, 'close' refers to close system call
-#, fuzzy, c-format
+#, c-format
 msgid "close for json file '%s' failed"
-msgstr "falha na leitura do arquivo json '%s'"
+msgstr "fechar para o arquivo json '%s' falhou"
 
 #, c-format
 msgid "closing json file '%s' failed"
@@ -598,7 +598,7 @@ msgstr "novo nome"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "nenhum backup disponível para desfazer"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
@@ -641,9 +641,9 @@ msgid "only one block device allowed"
 msgstr "apenas um dispositivo de blocos permitido"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
-#, fuzzy, c-format
+#, c-format
 msgid "open for json file '%s' failed"
-msgstr "falha na leitura do arquivo json '%s'"
+msgstr "abertura do arquivo json '%s' falhou"
 
 #, c-format
 msgid "opening json file '%s' failed"
@@ -832,9 +832,8 @@ msgid "unknown raid level for command 'raid'"
 msgstr "nível de raid desconhecido para o comando \"raid\""
 
 #. TRANSLATORS: help text
-#, fuzzy
 msgid "use probed instead of staging devicegraph"
-msgstr "investigado em vez de em teste"
+msgstr "use sondado em vez de staging devicegraph"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
