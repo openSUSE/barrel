@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 16:05+0100\n"
-"PO-Revision-Date: 2022-03-03 21:12+0000\n"
+"PO-Revision-Date: 2022-03-04 18:12+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
 "\n"
@@ -380,7 +380,7 @@ msgid "block devices missing for command 'raid'"
 msgstr "Blockgeräte für Kommando 'raid' fehlen"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
-#, fuzzy, c-format
+#, c-format
 msgid "close for json file '%s' failed"
 msgstr "Schließen von json-Datei '%s' fehlgeschlagen"
 
@@ -639,7 +639,7 @@ msgid "only one block device allowed"
 msgstr "nur ein Blockgerät ist zulässig"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
-#, fuzzy, c-format
+#, c-format
 msgid "open for json file '%s' failed"
 msgstr "Öffnen von json-Datei '%s' fehlgeschlagen"
 
@@ -832,7 +832,6 @@ msgid "unknown raid level for command 'raid'"
 msgstr "unbekannte Raid-Ebene für Kommando 'raid'"
 
 #. TRANSLATORS: help text
-#, fuzzy
 msgid "use probed instead of staging devicegraph"
 msgstr "Graph für geprüfte statt für Staging-Geräte verwenden"
 
