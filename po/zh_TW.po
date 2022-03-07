@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 16:05+0100\n"
-"PO-Revision-Date: 2022-02-18 13:12+0000\n"
+"PO-Revision-Date: 2022-03-07 11:12+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
 "master/zh_TW/>\n"
@@ -159,7 +159,7 @@ msgstr "回答 \"%s\" 無效"
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr "請耐心等候，因為這是最重要的事。"
+msgstr "Keep smiling, 'cause that's the most important thing."
 
 #, c-format
 msgid "LUKS on %s"
@@ -381,9 +381,9 @@ msgid "block devices missing for command 'raid'"
 msgstr "\"raid\" 指令遺失區塊裝置"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
-#, fuzzy, c-format
+#, c-format
 msgid "close for json file '%s' failed"
-msgstr "讀取 json 檔案 \"%s\" 失敗"
+msgstr "關閉 json 檔案 \"%s\" 失敗"
 
 #, c-format
 msgid "closing json file '%s' failed"
@@ -596,7 +596,7 @@ msgstr "新名稱"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "沒有可用於復原的備份"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
@@ -639,9 +639,9 @@ msgid "only one block device allowed"
 msgstr "只允許一個區塊裝置"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
-#, fuzzy, c-format
+#, c-format
 msgid "open for json file '%s' failed"
-msgstr "讀取 json 檔案 \"%s\" 失敗"
+msgstr "開啟 json 檔案 \"%s\" 失敗"
 
 #, c-format
 msgid "opening json file '%s' failed"
@@ -797,7 +797,7 @@ msgstr "執行 pop 期間堆疊為空白"
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr "Json 檔案 \"%s\" 的統計失敗"
+msgstr "對 json 檔案 \"%s\" 執行 stat 失敗"
 
 msgid "too few raid devices for raid level"
 msgstr "Raid 層級的 raid 裝置太少"
@@ -823,9 +823,8 @@ msgid "unknown raid level for command 'raid'"
 msgstr "\"raid\" 指令的 raid 層級未知"
 
 #. TRANSLATORS: help text
-#, fuzzy
 msgid "use probed instead of staging devicegraph"
-msgstr "已探測取代了預備"
+msgstr "使用已查探的而不是預備裝置圖表"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
