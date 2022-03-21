@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -72,6 +72,7 @@ namespace barrel
     const vector<Parser> create_cmds = {
 	{ "btrfs", make_shared<CmdCreateBtrfs>() },
 	{ "encryption", make_shared<CmdCreateEncryption>() },
+	{ "exfat", make_shared<CmdCreateExfat>() },
 	{ "ext2", make_shared<CmdCreateExt2>() },
 	{ "ext3", make_shared<CmdCreateExt3>() },
 	{ "ext4", make_shared<CmdCreateExt4>() },
@@ -93,6 +94,7 @@ namespace barrel
 	{ "raid6", make_shared<CmdCreateRaid6>() },
 	{ "raid10", make_shared<CmdCreateRaid10>() },
 	{ "swap", make_shared<CmdCreateSwap>() },
+	{ "vfat", make_shared<CmdCreateVfat>() },
 	{ "vg", make_shared<CmdCreateLvmVg>() },
 	{ "xfs", make_shared<CmdCreateXfs>() }
     };
