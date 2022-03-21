@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 16:05+0100\n"
+"POT-Creation-Date: 2022-03-21 18:18+0100\n"
 "PO-Revision-Date: 2022-02-27 17:12+0000\n"
 "Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
@@ -35,6 +35,10 @@ msgstr "Álias de \"create encryption --type luks2\""
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Álias de \"create filesystem --type btrfs\""
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type exfat'"
+msgstr "Álias de \"create filesystem --type ext2\""
+
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "Álias de \"create filesystem --type ext2\""
 
@@ -52,6 +56,10 @@ msgstr "Álias de \"create filesystem --type ntfs\""
 
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Álias de \"create filesystem --type swap\""
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type vfat'"
+msgstr "Álias de \"create filesystem --type xfs\""
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "Álias de \"create filesystem --type xfs\""

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 16:05+0100\n"
+"POT-Creation-Date: 2022-03-21 18:18+0100\n"
 "PO-Revision-Date: 2022-02-24 12:12+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
-"Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/>"
-"\n"
+"Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,6 +34,10 @@ msgstr "Alias pour \"create encryption --type luks2\""
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias pour \"create filesystem --type btrfs\""
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type exfat'"
+msgstr "Alias pour \"create filesystem --type ext2\""
+
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "Alias pour \"create filesystem --type ext2\""
 
@@ -51,6 +55,10 @@ msgstr "Alias pour \"create filesystem --type ntfs\""
 
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias pour \"create filesystem --type swap\""
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type vfat'"
+msgstr "Alias pour \"create filesystem --type xfs\""
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "Alias pour \"create filesystem --type xfs\""
