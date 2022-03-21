@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -60,11 +60,11 @@ namespace barrel
 
 	const map<string, FsType> str_to_fs_type = {
 	    { "btrfs", FsType::BTRFS },
-	    { "f2fs", FsType::F2FS },
 	    { "exfat", FsType::EXFAT },
 	    { "ext2", FsType::EXT2 },
 	    { "ext3", FsType::EXT3 },
 	    { "ext4", FsType::EXT4 },
+	    { "f2fs", FsType::F2FS },
 	    { "ntfs", FsType::NTFS },
 	    { "swap", FsType::SWAP },
 	    { "vfat", FsType::VFAT },
@@ -447,16 +447,16 @@ namespace barrel
 
 
     shared_ptr<ParsedCmd>
-    CmdCreateF2fs::parse(GetOpts& get_opts) const
+    CmdCreateExfat::parse(GetOpts& get_opts) const
     {
-	return parse_create_filesystem(get_opts, FsType::F2FS);
+	return parse_create_filesystem(get_opts, FsType::EXFAT);
     }
 
 
     const char*
-    CmdCreateF2fs::help() const
+    CmdCreateExfat::help() const
     {
-	return _("Alias for 'create filesystem --type f2fs'");
+	return _("Alias for 'create filesystem --type exfat'");
     }
 
 
@@ -503,6 +503,20 @@ namespace barrel
 
 
     shared_ptr<ParsedCmd>
+    CmdCreateF2fs::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::F2FS);
+    }
+
+
+    const char*
+    CmdCreateF2fs::help() const
+    {
+	return _("Alias for 'create filesystem --type f2fs'");
+    }
+
+
+    shared_ptr<ParsedCmd>
     CmdCreateNtfs::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::NTFS);
@@ -527,6 +541,20 @@ namespace barrel
     CmdCreateSwap::help() const
     {
 	return _("Alias for 'create filesystem --type swap'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateVfat::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::VFAT);
+    }
+
+
+    const char*
+    CmdCreateVfat::help() const
+    {
+	return _("Alias for 'create filesystem --type vfat'");
     }
 
 
