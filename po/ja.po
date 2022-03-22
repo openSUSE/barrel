@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-21 18:18+0100\n"
-"PO-Revision-Date: 2022-02-24 01:12+0000\n"
+"PO-Revision-Date: 2022-03-22 08:12+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -34,9 +34,8 @@ msgstr "'create encryption --type luks2' に対する別名"
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "'create filesystem --type btrfs' に対する別名"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr "'create filesystem --type ext2' に対する別名"
+msgstr "'create filesystem --type exfat' に対する別名"
 
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "'create filesystem --type ext2' に対する別名"
@@ -56,9 +55,8 @@ msgstr "'create filesystem --type ntfs' に対する別名"
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "'create filesystem --type swap' に対する別名"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr "'create filesystem --type xfs' に対する別名"
+msgstr "'create filesystem --type vfat' に対する別名"
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "'create filesystem --type xfs' に対する別名"
