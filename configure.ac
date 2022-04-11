@@ -1,5 +1,6 @@
+AC_INIT
 
-AC_INIT(barrel/barrel.cc)
+AC_CONFIG_SRCDIR([barrel/barrel.cc])
 
 VERSION=`cat ./VERSION`
 
@@ -27,7 +28,7 @@ PKG_CHECK_MODULES(JSONC, json-c, [], [AC_MSG_WARN([Cannot find json-c. Please in
 
 AC_SUBST(VERSION)
 
-AC_OUTPUT(
+AC_CONFIG_FILES([
 	Makefile
 	barrel/Makefile
 	barrel/Utils/Makefile
@@ -37,4 +38,6 @@ AC_OUTPUT(
 	testsuite/Makefile
 	package/barrel.spec:barrel.spec.in
 	po/Makefile
-)
+])
+
+AC_OUTPUT
