@@ -1185,6 +1185,18 @@
     </itemizedlist>
   </refsect1>
 
+  <refsect1 id='files'>
+    <title>FILES</title>
+    <variablelist>
+      <varlistentry>
+        <term><filename>/var/log/barrel.log</filename></term>
+        <listitem>
+          <para>Logfile. Please include this file in bug reports.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
   <refsect1 id='homepage'>
     <title>HOMEPAGE</title>
     <para><ulink url='http://github.com/openSUSE/barrel/'>http://github.com/openSUSE/barrel/</ulink></para>
@@ -1206,7 +1218,7 @@
       <citerefentry role="nolink"><refentrytitle>cryptsetup</refentrytitle><manvolnum>8</manvolnum></citerefentry>,
       <citerefentry role="nolink"><refentrytitle>fstab</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
       <citerefentry role="nolink"><refentrytitle>crypttab</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
-      <citerefentry role="nolink"><refentrytitle>mdadm.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>,
+      <citerefentry role="nolink"><refentrytitle>mdadm.conf</refentrytitle><manvolnum>5</manvolnum></citerefentry>
     </para>
   </refsect1>
 
