@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -38,6 +38,8 @@
 // files
 
 #define POOLS_FILE SYSCONF_DIR "/barrel/pools.json"
+
+#define LOG_FILE "/var/log/barrel.log"
 
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -22,7 +22,9 @@
 
 #include <iostream>
 
+#include "config.h"
 #include "handle.h"
+#include "Utils/BarrelDefines.h"
 
 
 using namespace barrel;
@@ -39,6 +41,11 @@ main(int argc, char** argv)
     {
 	cerr << "Failed to set locale." << endl;
     }
+
+    set_logger(get_logfile_logger(LOG_FILE));
+
+    get_logger()->write(LogLevel::MILESTONE, "barrel", __FILE__, __LINE__, __FUNCTION__,
+			"barrel version " VERSION);
 
     if (!handle(argc, argv))
 	return EXIT_FAILURE;
