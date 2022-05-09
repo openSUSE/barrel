@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-21 18:18+0100\n"
+"POT-Creation-Date: 2022-05-09 10:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -44,6 +44,9 @@ msgid "Alias for 'create filesystem --type ext4'"
 msgstr ""
 
 msgid "Alias for 'create filesystem --type f2fs'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr ""
 
 msgid "Alias for 'create filesystem --type ntfs'"

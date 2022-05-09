@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-21 18:18+0100\n"
+"POT-Creation-Date: 2022-05-09 10:34+0200\n"
 "PO-Revision-Date: 2022-02-24 12:12+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
@@ -49,6 +49,10 @@ msgstr "Àlies per a \"create filesystem --type ext4\""
 
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Àlies per a \"create filesystem --type f2fs\""
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type nilfs2'"
+msgstr "Àlies per a \"create filesystem --type ntfs\""
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Àlies per a \"create filesystem --type ntfs\""
