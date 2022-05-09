@@ -34,9 +34,8 @@ msgstr "'create encryption --type luks2' に対する別名"
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "'create filesystem --type btrfs' に対する別名"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr "'create filesystem --type ext2' に対する別名"
+msgstr "'create filesystem --type exfat' に対する別名"
 
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "'create filesystem --type ext2' に対する別名"
@@ -60,9 +59,8 @@ msgstr "'create filesystem --type ntfs' に対する別名"
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "'create filesystem --type swap' に対する別名"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr "'create filesystem --type xfs' に対する別名"
+msgstr "'create filesystem --type vfat' に対する別名"
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "'create filesystem --type xfs' に対する別名"
