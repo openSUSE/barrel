@@ -65,6 +65,7 @@ namespace barrel
 	    { "ext3", FsType::EXT3 },
 	    { "ext4", FsType::EXT4 },
 	    { "f2fs", FsType::F2FS },
+	    { "nilfs2", FsType::NILFS2 },
 	    { "ntfs", FsType::NTFS },
 	    { "swap", FsType::SWAP },
 	    { "vfat", FsType::VFAT },
@@ -513,6 +514,20 @@ namespace barrel
     CmdCreateF2fs::help() const
     {
 	return _("Alias for 'create filesystem --type f2fs'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateNilfs2::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::NILFS2);
+    }
+
+
+    const char*
+    CmdCreateNilfs2::help() const
+    {
+	return _("Alias for 'create filesystem --type nilfs2'");
     }
 
 

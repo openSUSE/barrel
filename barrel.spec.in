@@ -1,7 +1,7 @@
 #
 # spec file for package barrel
 #
-# Copyright (c) 2021 SUSE LLC, Nuernberg, Germany.
+# Copyright (c) 2022 SUSE LLC, Nuernberg, Germany.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -37,7 +37,7 @@ BuildRequires:  libtool
 BuildRequires:  libxslt
 BuildRequires:  readline-devel
 
-Requires:       libstorage-ng1 >= 4.4.76
+Requires:       libstorage-ng1 >= 4.5.10
 Recommends:     %{name}-lang
 Recommends:     logrotate
 
