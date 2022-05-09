@@ -49,6 +49,10 @@ msgstr "Àlies per a \"create filesystem --type ext4\""
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Àlies per a \"create filesystem --type f2fs\""
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type nilfs2'"
+msgstr "Àlies per a \"create filesystem --type ntfs\""
+
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Àlies per a \"create filesystem --type ntfs\""
 

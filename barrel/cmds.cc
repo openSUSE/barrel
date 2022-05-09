@@ -83,6 +83,7 @@ namespace barrel
 	{ "luks2", make_shared<CmdCreateLuks2>() },
 	{ "lv", make_shared<CmdCreateLvmLv>() },
 	{ "ms-dos", make_shared<CmdCreateMsdos>() },
+	{ "nilfs2", make_shared<CmdCreateNilfs2>() },
 	{ "ntfs", make_shared<CmdCreateNtfs>() },
 	{ "partition-table", make_shared<CmdCreatePartitionTable>() },
 	{ "pool", make_shared<CmdCreatePool>() },
