@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -134,7 +134,7 @@ namespace barrel
     }
 
 
-    class MyActivateCallbacks : public ActivateCallbacksLuks
+    class MyActivateCallbacks : public ActivateCallbacksV3
     {
     public:
 
@@ -143,15 +143,47 @@ namespace barrel
 	{
 	}
 
+	virtual void begin() const override
+	{
+	    if (global_options.verbose || global_options.quiet)
+		return;
+
+	    cout << _("Activating...") << flush;
+	    beginning_of_line = false;
+	}
+
+	virtual void end() const override
+	{
+	    if (global_options.verbose || global_options.quiet)
+		return;
+
+	    if (!beginning_of_line)
+		cout << " ";
+
+	    cout << _("done") << endl;
+	    beginning_of_line = true;
+	}
+
 	virtual void message(const string& message) const override
 	{
-	    if (global_options.verbose)
-		cout << message << endl;
+	    if (!global_options.verbose)
+		return;
+
+	    if (!beginning_of_line)
+		cout << '\n';
+	    beginning_of_line = true;
+
+	    cout << message << endl;
 	}
 
 	virtual bool error(const string& message, const string& what) const override
 	{
+	    if (!beginning_of_line)
+		cout << '\n';
+	    beginning_of_line = true;
+
 	    cerr << _("error:") << ' ' << message << endl;
+
 	    return false;
 	}
 
@@ -162,17 +194,73 @@ namespace barrel
 
 	virtual pair<bool, string> luks(const string& uuid, int attempt) const override
 	{
-	    return make_pair(false, "");
+	    return make_pair(false, "");	// unused
 	}
 
-	virtual pair<bool, string> luks(const LuksInfo& info, int attempt) const override
+	virtual pair<bool, string> luks(const LuksInfo& luks_info, int attempt) const override
 	{
-	    return make_pair(false, "");
+	    string message;
+
+	    if (luks_info.is_dm_table_name_generated())
+	    {
+		message = sformat(_("Activate LUKS on %1$s (%2$s) with UUID %3$s..."),
+				  luks_info.get_device_name().c_str(),
+				  format_size(luks_info.get_size(), false).c_str(),
+				  luks_info.get_uuid().c_str());
+	    }
+	    else
+	    {
+		message = sformat(_("Activate LUKS %1$s on %2$s (%3$s) with UUID %4$s..."),
+				  luks_info.get_dm_table_name().c_str(),
+				  luks_info.get_device_name().c_str(),
+				  format_size(luks_info.get_size(), false).c_str(),
+				  luks_info.get_uuid().c_str());
+	    }
+
+	    return password(message);
+	}
+
+	virtual pair<bool, string> bitlocker(const BitlockerInfo& bitlocker_info, int attempt) const override
+	{
+	    string message;
+
+	    if (bitlocker_info.is_dm_table_name_generated())
+	    {
+		message = sformat(_("Activate BitLocker on %1$s (%2$s) with UUID %3$s..."),
+				  bitlocker_info.get_device_name().c_str(),
+				  format_size(bitlocker_info.get_size(), false).c_str(),
+				  bitlocker_info.get_uuid().c_str());
+	    }
+	    else
+	    {
+		message = sformat(_("Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."),
+				  bitlocker_info.get_dm_table_name().c_str(),
+				  bitlocker_info.get_device_name().c_str(),
+				  format_size(bitlocker_info.get_size(), false).c_str(),
+				  bitlocker_info.get_uuid().c_str());
+	    }
+
+	    return password(message);
 	}
 
     private:
 
+	pair<bool, string> password(const string& message) const
+	{
+	    if (!beginning_of_line)
+		cout << '\n';
+	    beginning_of_line = true;
+
+	    cout << message << endl;
+
+	    string password = prompt_password(false);
+
+	    return make_pair(!password.empty(), password);
+	}
+
 	const GlobalOptions& global_options;
+
+	mutable bool beginning_of_line = true;
 
     };
 
@@ -248,14 +336,8 @@ namespace barrel
 
 	if (global_options.activate)
 	{
-	    if (!global_options.verbose && !global_options.quiet)
-		cout << _("Activating...") << flush;
-
 	    MyActivateCallbacks my_activate_callbacks(global_options);
 	    storage.activate(&my_activate_callbacks);
-
-	    if (!global_options.verbose && !global_options.quiet)
-		cout << " " << _("done") << endl;
 	}
 
 	if (global_options.probe)
