@@ -35,7 +35,7 @@ namespace barrel
 
     bool prompt(const string& message);
 
-    string prompt_password();
+    string prompt_password(bool verify);
 
 }
 

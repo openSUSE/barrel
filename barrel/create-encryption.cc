@@ -278,7 +278,7 @@ namespace barrel
 	    throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
 					blk_device->get_name().c_str()));
 
-	string password = prompt_password();
+	string password = prompt_password(true);
 
 	Encryption* encryption = blk_device->create_encryption(dm_name, type);
 	encryption->set_password(password);

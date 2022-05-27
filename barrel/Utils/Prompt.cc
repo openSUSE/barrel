@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -56,7 +56,7 @@ namespace barrel
 
 
     string
-    prompt_password()
+    prompt_password(bool verify)
     {
 	if (mockup)
 	    return "mockup";
@@ -79,18 +79,24 @@ namespace barrel
 		password1.push_back(c);
 	    cout << '\n';
 
-	    cout << _("Verify password:") << " " << flush;
 	    string password2;
-	    while ((c = getchar())!= '\n' && c != EOF)
-		password2.push_back(c);
-	    cout << '\n';
+	    if (verify)
+	    {
+		cout << _("Verify password:") << " " << flush;
+		while ((c = getchar())!= '\n' && c != EOF)
+		    password2.push_back(c);
+		cout << '\n';
+	    }
 
 	    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 
-	    if (password1 == password2)
-		return password1;
+	    if (verify && password1 != password2)
+	    {
+		cout << _("Passwords do not match.") << '\n';
+		continue;
+	    }
 
-	    cout << _("Passwords do not match.") << '\n';
+	    return password1;
 	}
     }
 
