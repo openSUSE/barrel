@@ -380,12 +380,28 @@ namespace barrel
 
 	if (is_partition(blk_device))
 	{
-	    Partition* partition = to_partition(blk_device);
+	    unsigned int id = ID_LINUX;
 
 	    if (fs_type == FsType::SWAP)
-		partition->set_id(ID_SWAP);
-	    else
-		partition->set_id(ID_LINUX);
+	    {
+		id = ID_SWAP;
+	    }
+	    else if (options.path)
+	    {
+		// Requires SUSE parted 3.5 or higher.
+
+#if 0
+		const string& path = options.path.value();
+
+		if (path == "/home")
+		    id = ID_LINUX_HOME;
+		else if (path == "/srv")
+		    id = ID_LINUX_SERVER_DATA;
+#endif
+	    }
+
+	    Partition* partition = to_partition(blk_device);
+	    partition->set_id(id);
 	}
 
 	state.stack.push(blk_filesystem);
