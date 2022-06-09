@@ -179,11 +179,11 @@ BOOST_AUTO_TEST_CASE(test6)
     Args args({ "--dry-run", "--quiet", "show", "filesystems" });
 
     vector<string> output = {
-	"Type  │ Label │ Name             │     Size │ Mount Point",
-	"──────┼───────┼──────────────────┼──────────┼────────────",
-	"btrfs │       │ multiple devices │          │",
-	"      │       │ ├─/dev/sdc1      │ 2.98 GiB │",
-	"      │       │ └─/dev/sdd1      │ 2.98 GiB │"
+	"Type  │ Label │ Name             │     Size │ Profile       │ Mount Point",
+	"──────┼───────┼──────────────────┼──────────┼───────────────┼────────────",
+	"btrfs │       │ multiple devices │          │ single, raid1 │",
+	"      │       │ ├─/dev/sdc1      │ 2.98 GiB │               │",
+	"      │       │ └─/dev/sdd1      │ 2.98 GiB │               │"
     };
 
     Testsuite testsuite;

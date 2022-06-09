@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -30,8 +30,51 @@ namespace barrel
     using namespace std;
 
 
+    Table::OutputInfo::OutputInfo(const Table& table)
+    {
+	// calculate hidden, default to false
+
+	hidden.resize(table.header.get_columns().size());
+
+	for (size_t i = 0; i < table.visibilities.size(); ++i)
+	{
+	    if (table.visibilities[i] == Visibility::AUTO || table.visibilities[i] == Visibility::OFF)
+		hidden[i] = true;
+	}
+
+	for (const Table::Row& row : table.rows)
+	    calculate_hidden(table, row);
+
+	// calculate widths
+
+	widths = table.min_widths;
+
+	if (table.style != Style::NONE)
+	    calculate_widths(table, table.header, 0);
+
+	for (const Table::Row& row : table.rows)
+	    calculate_widths(table, row, 0);
+    }
+
+
     void
-    Table::calculate_widths(const Table::Row& row, vector<size_t>& widths, unsigned indent) const
+    Table::OutputInfo::calculate_hidden(const Table& table, const Table::Row& row)
+    {
+	const vector<string>& columns = row.get_columns();
+
+	for (size_t i = 0; i < min(columns.size(), table.visibilities.size()); ++i)
+	{
+	    if (table.visibilities[i] == Visibility::AUTO && !columns[i].empty())
+		hidden[i] = false;
+	}
+
+	for (const Table::Row& subrow : row.get_subrows())
+	    calculate_hidden(table, subrow);
+    }
+
+
+    void
+    Table::OutputInfo::calculate_widths(const Table& table, const Table::Row& row, unsigned indent)
     {
 	const vector<string>& columns = row.get_columns();
 
@@ -40,33 +83,38 @@ namespace barrel
 
 	for (size_t i = 0; i < columns.size(); ++i)
 	{
+	    if (hidden[i])
+		continue;
+
 	    size_t width = mbs_width(columns[i]);
 
-	    if (i == tree_index)
+	    if (i == table.tree_index)
 		width += 2 * indent;
 
 	    widths[i] = max(widths[i], width);
 	}
 
 	for (const Table::Row& subrow : row.get_subrows())
-	    calculate_widths(subrow, widths, indent + 1);
+	    calculate_widths(table, subrow, indent + 1);
     }
 
 
     void
-    Table::output(std::ostream& s, const Table::Row& row, const vector<size_t>& widths,
-		  const vector<bool>& lasts) const
+    Table::output(std::ostream& s, const Table::Row& row, const OutputInfo& output_info, const vector<bool>& lasts) const
     {
 	s << string(global_indent, ' ');
 
 	const vector<string>& columns = row.get_columns();
 
-	for (size_t i = 0; i < widths.size(); ++i)
+	for (size_t i = 0; i < output_info.widths.size(); ++i)
 	{
+	    if (output_info.hidden[i])
+		continue;
+
 	    string column = i < columns.size() ? columns[i] : "";
 
 	    bool first = i == 0;
-	    bool last = i == widths.size() - 1;
+	    bool last = i == output_info.widths.size() - 1;
 
 	    size_t extra = (i == tree_index) ? 2 * lasts.size() : 0;
 
@@ -91,8 +139,8 @@ namespace barrel
 	    {
 		size_t width = mbs_width(column);
 
-		if (width < widths[i] - extra)
-		    s << string(widths[i] - width - extra, ' ');
+		if (width < output_info.widths[i] - extra)
+		    s << string(output_info.widths[i] - width - extra, ' ');
 	    }
 
 	    s << column;
@@ -104,8 +152,8 @@ namespace barrel
 	    {
 		size_t width = mbs_width(column);
 
-		if (width < widths[i] - extra)
-		    s << string(widths[i] - width - extra, ' ');
+		if (width < output_info.widths[i] - extra)
+		    s << string(output_info.widths[i] - width - extra, ' ');
 	    }
 
 	    s << " " << glyph(0);
@@ -118,22 +166,25 @@ namespace barrel
 	{
 	    vector<bool> sub_lasts = lasts;
 	    sub_lasts.push_back(i == subrows.size() - 1);
-	    output(s, subrows[i], widths, sub_lasts);
+	    output(s, subrows[i], output_info, sub_lasts);
 	}
     }
 
 
     void
-    Table::output(std::ostream& s, const vector<size_t>& widths) const
+    Table::output(std::ostream& s, const OutputInfo& output_info) const
     {
 	s << string(global_indent, ' ');
 
-	for (size_t i = 0; i < widths.size(); ++i)
+	for (size_t i = 0; i < output_info.widths.size(); ++i)
 	{
-	    for (size_t j = 0; j < widths[i]; ++j)
+	    if (output_info.hidden[i])
+		continue;
+
+	    for (size_t j = 0; j < output_info.widths[i]; ++j)
 		s << glyph(1);
 
-	    if (i == widths.size() - 1)
+	    if (i == output_info.widths.size() - 1)
 		break;
 
 	    s << glyph(1) << glyph(2) << glyph(1);
@@ -191,6 +242,18 @@ namespace barrel
 
 
     void
+    Table::set_visibility(Id id, Visibility visibility)
+    {
+	size_t i = id_to_index(id);
+
+	if (visibilities.size() < i + 1)
+	    visibilities.resize(i + 1);
+
+	visibilities[i] = visibility;
+    }
+
+
+    void
     Table::set_tree_id(Id id)
     {
 	tree_index = id_to_index(id);
@@ -200,26 +263,20 @@ namespace barrel
     std::ostream&
     operator<<(std::ostream& s, const Table& table)
     {
-	vector<size_t> widths = table.min_widths;
+	// calculate hidden and widths
 
-	// calculate widths
-
-	if (table.style != Style::NONE)
-	    table.calculate_widths(table.header, widths, 0);
-
-	for (const Table::Row& row : table.rows)
-	    table.calculate_widths(row, widths, 0);
+	Table::OutputInfo output_info(table);
 
 	// output header and rows
 
 	if (table.style != Style::NONE)
 	{
-	    table.output(s, table.header, widths, {});
-	    table.output(s, widths);
+	    table.output(s, table.header, output_info, {});
+	    table.output(s, output_info);
 	}
 
 	for (const Table::Row& row : table.rows)
-	    table.output(s, row, widths, {});
+	    table.output(s, row, output_info, {});
 
 	return s;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -25,6 +25,7 @@
 #include <storage/Filesystems/MountPoint.h>
 #include <storage/Filesystems/Filesystem.h>
 #include <storage/Filesystems/BlkFilesystem.h>
+#include <storage/Filesystems/Btrfs.h>
 #include <storage/Filesystems/Nfs.h>
 #include <storage/Storage.h>
 
@@ -120,8 +121,10 @@ namespace barrel
 	sort(filesystems.begin(), filesystems.end(), compare_by_something);
 
 	Table table({ _("Type"), Cell(_("Label"), Id::LABEL), Cell(_("Name"), Id::NAME),
-		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Mount Point"), Id::MOUNT_POINT) });
+		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Profile"), Id::PROFILE),
+		Cell(_("Mount Point"), Id::MOUNT_POINT) });
 	table.set_tree_id(Id::NAME);
+	table.set_visibility(Id::PROFILE, Visibility::AUTO);
 
 	for (const Filesystem* filesystem : filesystems)
 	{
@@ -154,6 +157,20 @@ namespace barrel
 			subrow[Id::SIZE] = format_size(blk_device->get_size());
 			row.add_subrow(subrow);
 		    }
+		}
+
+		if (is_btrfs(blk_filesystem))
+		{
+		    const Btrfs* btrfs = to_btrfs(blk_filesystem);
+
+		    BtrfsRaidLevel data_raid_level = btrfs->get_data_raid_level();
+		    BtrfsRaidLevel metadata_raid_level = btrfs->get_metadata_raid_level();
+
+		    string tmp = get_btrfs_raid_level_name(data_raid_level);
+		    if (metadata_raid_level != data_raid_level)
+			tmp += ", " + get_btrfs_raid_level_name(metadata_raid_level);
+
+		    row[Id::PROFILE] = boost::to_lower_copy(tmp, locale::classic());
 		}
 	    }
 	    else if (is_nfs(filesystem))

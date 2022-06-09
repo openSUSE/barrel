@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -37,13 +37,19 @@ namespace barrel
 
     enum class Id
     {
-	NONE, NAME, SIZE, USAGE, POOL, USED, NUMBER, STRIPES, LABEL, MOUNT_POINT
+	NONE, NAME, SIZE, USAGE, POOL, USED, NUMBER, STRIPES, LABEL, MOUNT_POINT, PROFILE
     };
 
 
     enum class Align
     {
 	LEFT, RIGHT
+    };
+
+
+    enum class Visibility
+    {
+	ON, AUTO, OFF
     };
 
 
@@ -126,6 +132,7 @@ namespace barrel
 	void set_style(enum Style style) { Table::style = style; }
 	void set_global_indent(size_t global_indent) { Table::global_indent = global_indent; }
 	void set_min_width(Id id, size_t min_width);
+	void set_visibility(Id id, Visibility visibility);
 	void set_tree_id(Id id);
 
 	friend std::ostream& operator<<(std::ostream& s, const Table& Table);
@@ -141,16 +148,25 @@ namespace barrel
 	vector<Align> aligns;
 	vector<Id> ids;
 	vector<size_t> min_widths;
+	vector<Visibility> visibilities;
 	size_t tree_index = 0;
 
 	size_t id_to_index(Id id) const;
 
-	void calculate_widths(const Table::Row& row, vector<size_t>& widths, unsigned indent) const;
+	struct OutputInfo
+	{
+	    OutputInfo(const Table& table);
 
-	void output(std::ostream& s, const Table::Row& row, const vector<size_t>& widths,
-		    const vector<bool>& lasts) const;
+	    void calculate_hidden(const Table& table, const Table::Row& row);
+	    void calculate_widths(const Table& table, const Table::Row& row, unsigned indent);
 
-	void output(std::ostream& s, const vector<size_t>& widths) const;
+	    vector<bool> hidden;
+	    vector<size_t> widths;
+	};
+
+	void output(std::ostream& s, const Table::Row& row, const OutputInfo& output_info, const vector<bool>& lasts) const;
+
+	void output(std::ostream& s, const OutputInfo& output_info) const;
 
 	const char* glyph(unsigned int i) const;
 
