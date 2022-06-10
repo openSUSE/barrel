@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -153,6 +153,27 @@ namespace barrel
 
 	    return;
 	}
+    }
+
+
+    StagingGuard::StagingGuard(Storage* storage)
+	: storage(storage)
+    {
+	storage->copy_devicegraph("staging", name);
+    }
+
+
+    StagingGuard::~StagingGuard()
+    {
+	if (storage->exist_devicegraph(name))
+	    storage->restore_devicegraph(name);
+    }
+
+
+    void
+    StagingGuard::release()
+    {
+	storage->remove_devicegraph(name);
     }
 
 }
