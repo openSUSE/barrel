@@ -15,14 +15,14 @@ namespace std
     ostream&
     operator<<(ostream& s, const vector<string>& v)
     {
-        for (vector<string>::const_iterator it = v.begin(); it != v.end(); ++it)
-        {
-            if (it != v.begin())
-                s << ' ';
-            s << '{' << *it << '}';
-        }
+	for (vector<string>::const_iterator it = v.begin(); it != v.end(); ++it)
+	{
+	    if (it != v.begin())
+		s << ' ';
+	    s << '{' << *it << '}';
+	}
 
-        return s;
+	return s;
     }
 
 }
