@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -94,6 +94,27 @@ namespace barrel
 
     void
     pimp_pool(Pool* pool, const BlkDevice* blk_device);
+
+
+    /**
+     * This class helps to restore the staging devicegraph in the case of an exception.
+     */
+    class StagingGuard
+    {
+    public:
+
+	StagingGuard(Storage* storage);
+	~StagingGuard();
+
+	void release();
+
+    private:
+
+	const string name = "barrel-staging-guard";
+
+	Storage* storage;
+
+    };
 
 }
 

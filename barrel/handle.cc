@@ -491,18 +491,20 @@ namespace barrel
 		    if (do_backup)
 			state.backup.add(&storage);
 
+		    StagingGuard staging_guard(&storage);
+
 		    for (const shared_ptr<ParsedCmd>& cmd : cmds)
 		    {
 			cmd->doit(global_options, state);
 		    }
+
+		    staging_guard.release();
 
 		    if (do_backup)
 			state.backup.dump_last(&storage);
 		}
 		catch (const exception& e)
 		{
-		    // TODO undo?
-
 		    cerr << "error: " << e.what() << endl;
 		}
 	    }
