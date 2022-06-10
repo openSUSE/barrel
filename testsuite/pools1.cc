@@ -29,8 +29,7 @@ BOOST_AUTO_TEST_CASE(test1)
 	"Test       │       3 │ 96.00 GiB │ 0.00%",
 	"├─/dev/sdb │         │ 32.00 GiB │ 0.00%",
 	"├─/dev/sdc │         │ 32.00 GiB │ 0.00%",
-	"└─/dev/sde │         │ 32.00 GiB │ 0.00%",
-
+	"└─/dev/sde │         │ 32.00 GiB │ 0.00%"
     };
 
     Testsuite testsuite;
@@ -53,7 +52,7 @@ BOOST_AUTO_TEST_CASE(test1)
 
     string lhs = buffer.str();
     string rhs = accumulate(output.begin(), output.end(), ""s,
-                            [](auto a, auto b) { return a + b + "\n"; });
+			    [](auto a, auto b) { return a + b + "\n"; });
 
     BOOST_CHECK_EQUAL(lhs, rhs);
 }
