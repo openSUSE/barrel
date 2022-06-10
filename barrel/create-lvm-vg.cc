@@ -356,6 +356,9 @@ namespace barrel
 	    break;
 	}
 
+	if (blk_devices.empty())
+	    throw runtime_error(_("block devices for LVM volume group missing"));
+
 	for (BlkDevice* blk_device : blk_devices)
 	{
 	    if (!blk_device->is_usable_as_blk_device())
