@@ -65,7 +65,14 @@ namespace barrel
 	{
 	    type = ABSOLUTE;
 
-	    absolute = humanstring_to_byte(str, false);
+	    try
+	    {
+		absolute = humanstring_to_byte(str, false);
+	    }
+	    catch (...)
+	    {
+		throw runtime_error(sformat(_("failed to parse size '%s'"), str.c_str()));
+	    }
 	}
     }
 
