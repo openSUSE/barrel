@@ -332,8 +332,6 @@ namespace barrel
     void
     startup(const GlobalOptions& global_options, Storage& storage)
     {
-	storage.set_rootprefix(global_options.prefix);
-
 	if (global_options.activate)
 	{
 	    MyActivateCallbacks my_activate_callbacks(global_options);
@@ -441,6 +439,7 @@ namespace barrel
     {
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
+	environment.set_rootprefix(global_options.prefix);
 
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
@@ -522,6 +521,7 @@ namespace barrel
 
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
+	environment.set_rootprefix(global_options.prefix);
 
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);

@@ -179,7 +179,7 @@ BOOST_AUTO_TEST_CASE(test6)
     Args args({ "--dry-run", "--quiet", "show", "filesystems" });
 
     vector<string> output = {
-	"Type  │ Label │ Name             │     Size │ Profile       │ Mount Point",
+	"Type  │ Label │ Name             │     Size │ Profiles      │ Mount Point",
 	"──────┼───────┼──────────────────┼──────────┼───────────────┼────────────",
 	"btrfs │       │ multiple devices │          │ single, raid1 │",
 	"      │       │ ├─/dev/sdc1      │ 2.98 GiB │               │",

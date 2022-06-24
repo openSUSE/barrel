@@ -121,10 +121,10 @@ namespace barrel
 	sort(filesystems.begin(), filesystems.end(), compare_by_something);
 
 	Table table({ _("Type"), Cell(_("Label"), Id::LABEL), Cell(_("Name"), Id::NAME),
-		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Profile"), Id::PROFILE),
+		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Profiles"), Id::PROFILES),
 		Cell(_("Mount Point"), Id::MOUNT_POINT) });
 	table.set_tree_id(Id::NAME);
-	table.set_visibility(Id::PROFILE, Visibility::AUTO);
+	table.set_visibility(Id::PROFILES, Visibility::AUTO);
 
 	for (const Filesystem* filesystem : filesystems)
 	{
@@ -170,7 +170,7 @@ namespace barrel
 		    if (metadata_raid_level != data_raid_level)
 			tmp += ", " + get_btrfs_raid_level_name(metadata_raid_level);
 
-		    row[Id::PROFILE] = boost::to_lower_copy(tmp, locale::classic());
+		    row[Id::PROFILES] = boost::to_lower_copy(tmp, locale::classic());
 		}
 	    }
 	    else if (is_nfs(filesystem))
