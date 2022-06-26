@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-03 14:37+0200\n"
-"PO-Revision-Date: 2022-06-26 21:13+0000\n"
+"PO-Revision-Date: 2022-06-27 00:13+0000\n"
 "Last-Translator: Jaime Marquínez Ferrándiz <jaime.marquinez."
 "ferrandiz@fastmail.net>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
@@ -22,15 +22,15 @@ msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Activar BitLocker %1$s en %2$s (%3$s) con UUID %4$s..."
 
 #, c-format
 msgid "Activate BitLocker on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Activar BitLocker en %1$s (%2$s) con UUID %3$s..."
 
 #, c-format
 msgid "Activate LUKS %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Activar LUKS %1$s en %2$s (%3$s) con UUID %4$s..."
 
 #, c-format
 msgid "Activate LUKS on %1$s (%2$s) with UUID %3$s..."
@@ -51,9 +51,8 @@ msgstr "Alias para 'create encryption --type luks2'"
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias para 'create filesystem --type btrfs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr "Alias para 'create filesystem --type ext2'"
+msgstr "Alias para 'create filesystem --type exfat'"
 
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "Alias para 'create filesystem --type ext2'"
@@ -67,9 +66,8 @@ msgstr "Alias para 'create filesystem --type ext4'"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias para 'create filesystem --type f2fs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr "Alias para 'create filesystem --type ntfs'"
+msgstr "Alias para 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias para 'create filesystem --type ntfs'"
@@ -77,9 +75,8 @@ msgstr "Alias para 'create filesystem --type ntfs'"
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias para 'create filesystem --type swap'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr "Alias para 'create filesystem --type xfs'"
+msgstr "Alias para 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "Alias para 'create filesystem --type xfs'"
