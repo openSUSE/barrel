@@ -27,6 +27,7 @@
 #include <storage/Devices/Multipath.h>
 #include <storage/Devices/DmRaid.h>
 #include <storage/Holders/Holder.h>
+#include <storage/SystemInfo/SystemInfo.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/JsonFile.h"

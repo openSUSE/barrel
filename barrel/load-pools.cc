@@ -24,6 +24,7 @@
 #include <storage/Devicegraph.h>
 #include <storage/Pool.h>
 #include <storage/Devices/Partitionable.h>
+#include <storage/SystemInfo/SystemInfo.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/JsonFile.h"
