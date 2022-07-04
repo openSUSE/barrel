@@ -198,8 +198,6 @@ namespace barrel
 
 	    case Options::ModusOperandi::POOL:
 	    {
-		Devicegraph* staging = state.storage->get_staging();
-
 		Pool* pool = state.storage->get_pool(options.pool_name.value());
 
 		SmartSize smart_size = options.size.value();
@@ -217,8 +215,6 @@ namespace barrel
 
 		PartitionTable* partition_table = to_partition_table(state.stack.top(staging));
 		state.stack.pop();
-
-		Devicegraph* staging = state.storage->get_staging();
 
 		Pool pool;
 		pool.add_device(partition_table->get_partitionable());
