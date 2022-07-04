@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -96,15 +96,24 @@ namespace barrel
 	    {
 		string n1 = match[1];
 		raid = atoi(n1.c_str());
+		if (raid < 1)
+		    throw runtime_error(sformat(_("invalid devices value '%d'"), raid));
+
 		return;
 	    }
 
 	    if (regex_match(str, match, raid_and_spare_rx))
 	    {
 		string n1 = match[1];
-		string n2 = match[2];
 		raid = atoi(n1.c_str());
+		if (raid < 1)
+		    throw runtime_error(sformat(_("invalid devices value '%d'"), raid));
+
+		string n2 = match[2];
 		spare = atoi(n2.c_str());
+		if (spare < 1)
+		    throw runtime_error(sformat(_("invalid devices value '%d'"), spare));
+
 		return;
 	    }
 
@@ -112,6 +121,9 @@ namespace barrel
 	    {
 		string n1 = match[1];
 		spare = atoi(n1.c_str());
+		if (spare < 1)
+		    throw runtime_error(sformat(_("invalid devices value '%d'"), spare));
+
 		return;
 	    }
 

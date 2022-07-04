@@ -50,7 +50,7 @@ namespace barrel
 
     /**
      * Class to parse a size, e.g. "2 TiB". The special value "max" is also
-     * allowed.
+     * allowed. A size of 0 B is not allowed.
      */
     struct SmartSize
     {
