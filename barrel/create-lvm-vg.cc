@@ -277,8 +277,6 @@ namespace barrel
 		PartitionTable* partition_table = to_partition_table(state.stack.top(staging));
 		state.stack.pop();
 
-		Devicegraph* staging = state.storage->get_staging();
-
 		Pool pool;
 		pool.add_device(partition_table->get_partitionable());
 

@@ -73,6 +73,9 @@ namespace barrel
 	    {
 		throw runtime_error(sformat(_("failed to parse size '%s'"), str.c_str()));
 	    }
+
+	    if (absolute == 0)
+		throw runtime_error(sformat(_("invalid size '%s'"), str.c_str()));
 	}
     }
 

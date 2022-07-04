@@ -110,8 +110,8 @@ namespace barrel
 
 	get_opts.parse(GetOpts::no_ext_options);
 
-	const char* command = get_opts.pop_arg();
-	vector<MainCmd>::const_iterator main_cmd = sloppy_find(main_cmds, command);
+	const char* command1 = get_opts.pop_arg();
+	vector<MainCmd>::const_iterator main_cmd = sloppy_find(main_cmds, command1);
 
 	if (main_cmd->cmd)
 	{
@@ -124,8 +124,8 @@ namespace barrel
 
 	    while (get_opts.has_args())
 	    {
-		const char* command = get_opts.pop_arg();
-		vector<Parser>::const_iterator parse_cmd = sloppy_find(main_cmd->sub_cmds, command);
+		const char* command2 = get_opts.pop_arg();
+		vector<Parser>::const_iterator parse_cmd = sloppy_find(main_cmd->sub_cmds, command2);
 		cmds.emplace_back(parse_cmd->cmd->parse(get_opts));
 	    }
 	}
