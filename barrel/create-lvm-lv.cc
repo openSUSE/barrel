@@ -211,10 +211,11 @@ namespace barrel
 
 	    case Options::ModusOperandi::LVM_VG_FROM_STACK:
 	    {
-		if (state.stack.empty() || !is_lvm_vg(state.stack.top(staging)))
+		Device* device = state.stack.top(staging);
+		if (!is_lvm_vg(device))
 		    throw runtime_error(_("not a volume group on stack"));
 
-		lvm_vg = to_lvm_vg(state.stack.top(staging));
+		lvm_vg = to_lvm_vg(device);
 		state.stack.pop();
 	    }
 	    break;

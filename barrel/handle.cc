@@ -57,7 +57,17 @@ namespace barrel
     Device*
     Stack::top(Devicegraph* devicegraph)
     {
+	if (data.empty())
+	    throw runtime_error(_("stack empty"));
+
 	return devicegraph->find_device(data.front());
+    }
+
+
+    void
+    Stack::push(Device* device)
+    {
+	data.push_front(device->get_sid());
     }
 
 

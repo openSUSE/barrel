@@ -271,10 +271,11 @@ namespace barrel
 
 	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
 	    {
-		if (state.stack.empty() || !is_partition_table(state.stack.top(staging)))
+		Device* device = state.stack.top(staging);
+		if (!is_partition_table(device))
 		    throw runtime_error(_("not a partition table on stack"));
 
-		PartitionTable* partition_table = to_partition_table(state.stack.top(staging));
+		PartitionTable* partition_table = to_partition_table(device);
 		state.stack.pop();
 
 		Pool pool;
@@ -345,10 +346,11 @@ namespace barrel
 
 	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
 	    {
-		if (state.stack.empty() || !is_blk_device(state.stack.top(staging)))
+		Device* device = state.stack.top(staging);
+		if (!is_blk_device(device))
 		    throw runtime_error(_("not a block device on stack"));
 
-		blk_devices.push_back(to_blk_device(state.stack.top(staging)));
+		blk_devices.push_back(to_blk_device(device));
 		state.stack.pop();
 	    }
 	    break;
