@@ -285,7 +285,7 @@ namespace barrel
 
 		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
 
-		blk_devices.push_back(pool.create_partitions(staging, 1, size)[0]);
+		blk_devices = up_cast<BlkDevice*>(pool.create_partitions(staging, 1, size));
 	    }
 	    break;
 
