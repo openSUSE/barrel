@@ -157,7 +157,7 @@ namespace barrel
 
 
     bool
-    handle(int argc, char** argv, const Testsuite* testsuite = nullptr);
+    handle(int argc, char** argv, Testsuite* testsuite = nullptr);
 
 }
 

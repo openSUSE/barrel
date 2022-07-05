@@ -5,6 +5,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include <storage/Actiongraph.h>
+#include <storage/Devices/Md.h>
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
@@ -56,6 +57,11 @@ BOOST_AUTO_TEST_CASE(test1)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+
+    const Devicegraph* staging = testsuite.storage->get_staging();
+
+    const Md* md0 = Md::find_by_name(staging, "/dev/md0");
+    BOOST_CHECK_EQUAL(md0->get_metadata(), "default");
 }
 
 
@@ -128,6 +134,11 @@ BOOST_AUTO_TEST_CASE(test3)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+
+    const Devicegraph* staging = testsuite.storage->get_staging();
+
+    const Md* md0 = Md::find_by_name(staging, "/dev/md0");
+    BOOST_CHECK_EQUAL(md0->get_metadata(), "1.2");
 }
 
 

@@ -29,7 +29,7 @@ namespace std
 
 
 pair<string, string>
-run_and_capture(int argc, char** argv, const Testsuite* testsuite)
+run_and_capture(int argc, char** argv, Testsuite* testsuite)
 {
     ostringstream buffer1;
     ostringstream buffer2;

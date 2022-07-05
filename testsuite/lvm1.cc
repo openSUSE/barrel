@@ -5,6 +5,8 @@
 #include <boost/test/unit_test.hpp>
 
 #include <storage/Actiongraph.h>
+#include <storage/Devices/LvmVg.h>
+#include <storage/Utils/HumanString.h>
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
@@ -128,6 +130,11 @@ BOOST_AUTO_TEST_CASE(test3)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+
+    const Devicegraph* staging = testsuite.storage->get_staging();
+
+    const LvmVg* lvm_vg = LvmVg::find_by_vg_name(staging, "test");
+    BOOST_CHECK_EQUAL(lvm_vg->get_extent_size(), 8 * MiB);
 }
 
 

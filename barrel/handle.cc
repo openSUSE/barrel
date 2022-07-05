@@ -435,7 +435,7 @@ namespace barrel
 
 
     void
-    handle_interactive(const GlobalOptions& global_options, const Testsuite* testsuite)
+    handle_interactive(const GlobalOptions& global_options, Testsuite* testsuite)
     {
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
@@ -444,14 +444,15 @@ namespace barrel
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
 
-	Storage storage(environment);
-	startup(global_options, storage);
+	unique_ptr<Storage> storage = make_unique<Storage>(environment);
 
-	Readline readline(&storage, testsuite);
+	startup(global_options, *storage);
+
+	Readline readline(storage.get(), testsuite);
 	make_fixed_comp_names();
 
 	State state(global_options);
-	state.storage = &storage;
+	state.storage = storage.get();
 	state.testsuite = testsuite;
 
 	startup_pools(global_options, state);
@@ -479,7 +480,7 @@ namespace barrel
 		try
 		{
 		    Args args(parse_line(line));
-		    GetOpts get_opts(args.argc(), args.argv(), true, possible_blk_devices(&storage));
+		    GetOpts get_opts(args.argc(), args.argv(), true, possible_blk_devices(storage.get()));
 
 		    vector<shared_ptr<ParsedCmd>> cmds = parse(get_opts);
 
@@ -488,9 +489,9 @@ namespace barrel
 		    });
 
 		    if (do_backup)
-			state.backup.add(&storage);
+			state.backup.add(storage.get());
 
-		    StagingGuard staging_guard(&storage);
+		    StagingGuard staging_guard(storage.get());
 
 		    for (const shared_ptr<ParsedCmd>& cmd : cmds)
 		    {
@@ -500,7 +501,7 @@ namespace barrel
 		    staging_guard.release();
 
 		    if (do_backup)
-			state.backup.dump_last(&storage);
+			state.backup.dump_last(storage.get());
 		}
 		catch (const exception& e)
 		{
@@ -510,11 +511,14 @@ namespace barrel
 
 	    free(line);
 	}
+
+	if (testsuite)
+	    testsuite->storage = move(storage);
     }
 
 
     void
-    handle_cmdline(const GlobalOptions& global_options, const Testsuite* testsuite, GetOpts& get_opts)
+    handle_cmdline(const GlobalOptions& global_options, Testsuite* testsuite, GetOpts& get_opts)
     {
 	// parsing must happen before probing to inform early about wrong usage
 	vector<shared_ptr<ParsedCmd>> cmds = parse(get_opts);
@@ -526,11 +530,12 @@ namespace barrel
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
 
-	Storage storage(environment);
-	startup(global_options, storage);
+	unique_ptr<Storage> storage = make_unique<Storage>(environment);
+
+	startup(global_options, *storage);
 
 	State state(global_options);
-	state.storage = &storage;
+	state.storage = storage.get();
 	state.testsuite = testsuite;
 
 	startup_pools(global_options, state);
@@ -544,11 +549,14 @@ namespace barrel
 	{
 	    CmdCommit::parse()->doit(global_options, state);
 	}
+
+	if (testsuite)
+	    testsuite->storage = move(storage);
     }
 
 
     bool
-    handle(int argc, char** argv, const Testsuite* testsuite)
+    handle(int argc, char** argv, Testsuite* testsuite)
     {
 	GetOpts get_opts(argc, argv);
 

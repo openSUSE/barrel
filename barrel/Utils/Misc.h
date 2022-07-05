@@ -85,6 +85,10 @@ namespace barrel
 	vector<string> readlines;
 
 	std::function<void(const Actiongraph*)> save_actiongraph = nullptr;
+
+	// The handle function moves overship of the Storage object here to the testsuite
+	// can do further checks on e.g. the staging devicegraph.
+	unique_ptr<Storage> storage;
     };
 
 
