@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -61,8 +61,8 @@ namespace barrel
     {
     public:
 
-	size_t size() const { return data.size(); }
 	bool empty() const { return data.empty(); }
+	size_t size() const { return data.size(); }
 
 	using const_iterator = deque<sid_t>::const_iterator;
 
@@ -74,7 +74,7 @@ namespace barrel
 	void dup() { data.push_front(data.front()); }
 
 	Device* top(Devicegraph* devicegraph);
-	void push(Device* device) { data.push_front(device->get_sid()); }
+	void push(Device* device);
 
     private:
 
@@ -157,7 +157,7 @@ namespace barrel
 
 
     bool
-    handle(int argc, char** argv, const Testsuite* testsuite = nullptr);
+    handle(int argc, char** argv, Testsuite* testsuite = nullptr);
 
 }
 

@@ -48,16 +48,14 @@ run_and_capture(int argc, char** argv, Testsuite* testsuite)
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    // The block devices are missing. That is detected before probing.
-
-    Args args({ "--dry-run", "create", "raid5" });
+    Args args({ "--dry-run", "create", "xfs", "--size", "10g" });
 
     vector<string> output1 = {
-	// No "Probing..."
+	"Probing... done"
     };
 
     vector<string> output2 = {
-	"error: block devices missing for command 'raid'"
+	"error: stack empty"
     };
 
     Testsuite testsuite;
@@ -79,16 +77,14 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    // The --size option is missing. That is detected before probing.
-
-    Args args({ "--dry-run", "create", "vg", "--name", "test", "--pool", "HDDs (512 B)" });
+    Args args({ "--dry-run", "create", "xfs", "--size", "10g", "/dev/sda", "xfs" });
 
     vector<string> output1 = {
-	// No "Probing..."
+	"Probing... done"
     };
 
     vector<string> output2 = {
-	"error: size argument required for command 'vg'"
+	"error: not a block device on stack"
     };
 
     Testsuite testsuite;

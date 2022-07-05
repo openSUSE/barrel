@@ -102,14 +102,14 @@ namespace barrel
     {
 	vector<string> blk_devices;
 
-	for (auto x : BlkDevice::get_all(storage->get_staging()))
+	for (const BlkDevice* blk_device : BlkDevice::get_all(storage->get_staging()))
 	{
-	    blk_devices.push_back(x->get_name());
+	    blk_devices.push_back(blk_device->get_name());
 
-	    for (const string& t : x->get_udev_paths())
-		blk_devices.push_back(DEV_DISK_BY_PATH_DIR "/" + t);
-	    for (const string& t : x->get_udev_ids())
-		blk_devices.push_back(DEV_DISK_BY_ID_DIR "/" + t);
+	    for (const string& tmp : blk_device->get_udev_paths())
+		blk_devices.push_back(DEV_DISK_BY_PATH_DIR "/" + tmp);
+	    for (const string& tmp : blk_device->get_udev_ids())
+		blk_devices.push_back(DEV_DISK_BY_ID_DIR "/" + tmp);
 	}
 
 	sort(blk_devices.begin(), blk_devices.end());

@@ -5,6 +5,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include <storage/Actiongraph.h>
+#include <storage/Devices/Partition.h>
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
@@ -97,4 +98,9 @@ BOOST_AUTO_TEST_CASE(test3)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, tmp);
+
+    const Devicegraph* staging = testsuite.storage->get_staging();
+
+    const Partition* sdb1 = Partition::find_by_name(staging, "/dev/sdb1");
+    BOOST_CHECK_EQUAL(sdb1->get_id(), ID_LINUX);
 }

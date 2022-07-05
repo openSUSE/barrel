@@ -136,10 +136,11 @@ namespace barrel
 	{
 	    case Options::ModusOperandi::PARTITIONABLE_FROM_STACK:
 	    {
-		if (state.stack.empty() || !is_partitionable(state.stack.top(staging)))
+		Device* device = state.stack.top(staging);
+		if (!is_partitionable(device))
 		    throw runtime_error(_("not a partitionable on stack"));
 
-		partitionable = to_partitionable(state.stack.top(staging));
+		partitionable = to_partitionable(device);
 		state.stack.pop();
 	    }
 	    break;
