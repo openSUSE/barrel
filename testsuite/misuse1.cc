@@ -106,3 +106,35 @@ BOOST_AUTO_TEST_CASE(test2)
 
     BOOST_CHECK_EQUAL(lhs.second, rhs2);
 }
+
+
+BOOST_AUTO_TEST_CASE(test3)
+{
+    // The --devices option is not allowed for xfs. That is detected before probing.
+
+    Args args({ "--dry-run", "create", "xfs", "--size", "10g", "--pool-name", "HDDs (512 B)",
+	    "--devices", "2" });
+
+    vector<string> output1 = {
+	// No "Probing..."
+    };
+
+    vector<string> output2 = {
+	"error: option --devices not allowed for xfs"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty1.xml";
+
+    pair<string, string> lhs = run_and_capture(args.argc(), args.argv(), &testsuite);
+
+    string rhs1 = accumulate(output1.begin(), output1.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.first, rhs1);
+
+    string rhs2 = accumulate(output2.begin(), output2.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.second, rhs2);
+}

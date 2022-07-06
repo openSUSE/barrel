@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -201,11 +201,7 @@ namespace barrel
 	    {
 		Pool* pool = state.storage->get_pool(options.pool_name.value());
 
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = smart_size.value(pool->max_partition_size(staging, 1));
-
-		blk_device = pool->create_partitions(staging, 1, size)[0];
+		blk_device = PartitionCreator::create_partition(pool, staging, options.size.value());
 	    }
 	    break;
 
@@ -221,11 +217,7 @@ namespace barrel
 		Pool pool;
 		pool.add_device(partition_table->get_partitionable());
 
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
-
-		blk_device = pool.create_partitions(staging, 1, size)[0];
+		blk_device = PartitionCreator::create_partition(&pool, staging, options.size.value());
 	    }
 	    break;
 
@@ -263,11 +255,7 @@ namespace barrel
 		    pool.add_device(partitionable);
 		}
 
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
-
-		blk_device = pool.create_partitions(staging, 1, size)[0];
+		blk_device = PartitionCreator::create_partition(&pool, staging, options.size.value());
 	    }
 	    break;
 	}
