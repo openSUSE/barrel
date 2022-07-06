@@ -16,6 +16,7 @@ libutils_la_SOURCES =			\
 	Prompt.h	Prompt.cc	\
 	Misc.h		Misc.cc		\
 	Mockup.h	Mockup.cc	\
+	BarrelTmpl.h			\
 	BarrelDefines.h
 
 libutils_la_LIBADD =			\

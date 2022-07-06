@@ -29,10 +29,12 @@
 #include <storage/Devices/Partitionable.h>
 #include <storage/Devices/Partition.h>
 #include <storage/Filesystems/MountPoint.h>
+#include <storage/Filesystems/Btrfs.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
 #include "Utils/Misc.h"
+#include "Utils/BarrelTmpl.h"
 #include "create-filesystem.h"
 
 
@@ -54,6 +56,8 @@ namespace barrel
 	    { "tune-options", required_argument, 0, _("tune options"), "options" },
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
 	    { "size", required_argument, 's', _("set size"), "size" },
+	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
+	    { "profiles", required_argument, 0, _("set profiles"), "profiles" },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
 
@@ -73,6 +77,38 @@ namespace barrel
 	};
 
 
+	const map<string, BtrfsRaidLevel> str_to_btrfs_raid_level = {
+	    { "default", BtrfsRaidLevel::DEFAULT },
+	    { "single", BtrfsRaidLevel::SINGLE },
+	    { "dup", BtrfsRaidLevel::DUP },
+	    { "raid0", BtrfsRaidLevel::RAID0 },
+	    { "raid1", BtrfsRaidLevel::RAID1 },
+	    { "raid1c3", BtrfsRaidLevel::RAID1C3 },
+	    { "raid1c4", BtrfsRaidLevel::RAID1C4 },
+	    { "raid5", BtrfsRaidLevel::RAID5 },
+	    { "raid6", BtrfsRaidLevel::RAID6 },
+	    { "raid10", BtrfsRaidLevel::RAID10 }
+	};
+
+
+	BtrfsRaidLevel
+	parse_btrfs_raid_level(const string& str)
+	{
+	    map<string, BtrfsRaidLevel>::const_iterator it = str_to_btrfs_raid_level.find(str);
+	    if (it == str_to_btrfs_raid_level.end())
+		throw runtime_error(sformat(_("unknown btrfs profile '%s'"), str.c_str()));
+
+	    return it->second;
+	}
+
+
+	bool
+	supports_multiple_devices(FsType fs_type)
+	{
+	    return fs_type == FsType::BTRFS;
+	}
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -85,12 +121,15 @@ namespace barrel
 	    optional<string> tune_options;
 	    optional<string> pool_name;
 	    optional<SmartSize> size;
+	    optional<SmartNumber> number;
+	    BtrfsRaidLevel btrfs_data_raid_level = BtrfsRaidLevel::DEFAULT;
+	    BtrfsRaidLevel btrfs_metadata_raid_level = BtrfsRaidLevel::DEFAULT;
 	    bool force = false;
 
 	    vector<string> blk_devices;
 
-	    enum class ModusOperandi { BLK_DEVICE, POOL, PARTITION_TABLE_FROM_STACK, BLK_DEVICE_FROM_STACK,
-		PARTITIONABLE };
+	    enum class ModusOperandi { BLK_DEVICES, POOL, PARTITION_TABLE_FROM_STACK, BLK_DEVICE_FROM_STACK,
+		PARTITIONABLES };
 
 	    ModusOperandi modus_operandi;
 
@@ -142,6 +181,28 @@ namespace barrel
 		size = SmartSize(str);
 	    }
 
+	    if (parsed_opts.has_option("devices"))
+	    {
+		string str = parsed_opts.get("devices");
+		number = SmartNumber(str);
+	    }
+
+	    if (parsed_opts.has_option("profiles"))
+	    {
+		string str = parsed_opts.get("profiles");
+
+		string::size_type pos = str.find(',');
+		if (pos == string::npos)
+		{
+		    btrfs_data_raid_level = btrfs_metadata_raid_level = parse_btrfs_raid_level(str);
+		}
+		else
+		{
+		    btrfs_data_raid_level = parse_btrfs_raid_level(str.substr(0, pos));
+		    btrfs_metadata_raid_level = parse_btrfs_raid_level(str.substr(pos + 1));
+		}
+	    }
+
 	    force = parsed_opts.has_option("force");
 
 	    blk_devices = parsed_opts.get_blk_devices();
@@ -172,14 +233,14 @@ namespace barrel
 		    if (blk_devices.empty())
 			modus_operandi = ModusOperandi::PARTITION_TABLE_FROM_STACK;
 		    else
-			modus_operandi = ModusOperandi::PARTITIONABLE;
+			modus_operandi = ModusOperandi::PARTITIONABLES;
 		}
 		else
 		{
 		    if (blk_devices.empty())
 			modus_operandi = ModusOperandi::BLK_DEVICE_FROM_STACK;
 		    else
-			modus_operandi = ModusOperandi::BLK_DEVICE;
+			modus_operandi = ModusOperandi::BLK_DEVICES;
 		}
 	    }
 	}
@@ -213,6 +274,12 @@ namespace barrel
 	    {
 		throw runtime_error(_("mount options require a path"));
 	    }
+
+	    if (number && !supports_multiple_devices(type.value()))
+	    {
+		throw runtime_error(sformat(_("option --devices not allowed for %s"),
+					    get_fs_type_name(type.value()).c_str()));
+	    }
 	}
 
     }
@@ -244,7 +311,9 @@ namespace barrel
     {
 	Devicegraph* staging = state.storage->get_staging();
 
-	BlkDevice* blk_device = nullptr;
+	FsType fs_type = options.type.value();
+
+	vector<BlkDevice*> blk_devices;
 
 	switch (options.modus_operandi)
 	{
@@ -254,7 +323,7 @@ namespace barrel
 		if (!is_blk_device(device))
 		    throw runtime_error(_("not a block device on stack"));
 
-		blk_device = to_blk_device(device);
+		blk_devices.push_back(to_blk_device(device));
 		state.stack.pop();
 	    }
 	    break;
@@ -263,11 +332,8 @@ namespace barrel
 	    {
 		Pool* pool = state.storage->get_pool(options.pool_name.value());
 
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = smart_size.value(pool->max_partition_size(staging, 1));
-
-		blk_device = pool->create_partitions(staging, 1, size)[0];
+		blk_devices = PartitionCreator::create_partitions(pool, staging, PartitionCreator::ONE,
+								  options.number, options.size.value());
 	    }
 	    break;
 
@@ -283,41 +349,50 @@ namespace barrel
 		Pool pool;
 		pool.add_device(partition_table->get_partitionable());
 
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
-
-		blk_device = pool.create_partitions(staging, 1, size)[0];
+		blk_devices = PartitionCreator::create_partitions(&pool, staging, PartitionCreator::POOL_SIZE,
+								  options.number, options.size.value());
 	    }
 	    break;
 
-	    case Options::ModusOperandi::BLK_DEVICE:
+	    case Options::ModusOperandi::BLK_DEVICES:
 	    {
-		if (options.blk_devices.size() != 1)
+		if (options.blk_devices.size() < 1)
+		    throw runtime_error(_("missing block device"));
+
+		if (!supports_multiple_devices(fs_type) && options.blk_devices.size() > 1)
 		    throw runtime_error(_("only one block device allowed"));
 
-		blk_device = BlkDevice::find_by_name(staging, options.blk_devices.front());
-
-		if (blk_device->has_children())
+		for (const string& device_name : options.blk_devices)
 		{
-		    if (options.force)
+		    blk_devices.push_back(BlkDevice::find_by_name(staging, device_name));
+		}
+
+		for (BlkDevice* blk_device : blk_devices)
+		{
+		    if (blk_device->has_children())
 		    {
-			blk_device->remove_descendants(View::REMOVE);
-		    }
-		    else
-		    {
-			throw runtime_error(sformat(_("block device '%s' is in use"), blk_device->get_name().c_str()));
+			if (options.force)
+			{
+			    blk_device->remove_descendants(View::REMOVE);
+			}
+			else
+			{
+			    throw runtime_error(sformat(_("block device '%s' is in use"), blk_device->get_name().c_str()));
+			}
 		    }
 		}
 	    }
 	    break;
 
-	    case Options::ModusOperandi::PARTITIONABLE:
+	    case Options::ModusOperandi::PARTITIONABLES:
 	    {
-		Pool pool;
+		if (options.blk_devices.size() < 1)
+		    throw runtime_error(_("missing partitionable"));
 
-		if (options.blk_devices.size() != 1)
-		    throw runtime_error(_("wrong number of partitionables"));
+		if (!supports_multiple_devices(fs_type) && options.blk_devices.size() > 1)
+		    throw runtime_error(_("only one partitionable allowed"));
+
+		Pool pool;
 
 		for (const string& device_name : options.blk_devices)
 		{
@@ -325,20 +400,21 @@ namespace barrel
 		    pool.add_device(partitionable);
 		}
 
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
-
-		blk_device = pool.create_partitions(staging, 1, size)[0];
+		blk_devices = PartitionCreator::create_partitions(&pool, staging, PartitionCreator::POOL_SIZE,
+								  options.number, options.size.value());
 	    }
 	    break;
 	}
 
-	if (!blk_device->is_usable_as_blk_device())
-	    throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
-					blk_device->get_name().c_str()));
+	if (blk_devices.empty())
+	    throw runtime_error(_("block devices for filesystem missing"));
 
-	FsType fs_type = options.type.value();
+	for (BlkDevice* blk_device : blk_devices)
+	{
+	    if (!blk_device->is_usable_as_blk_device())
+		throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
+					    blk_device->get_name().c_str()));
+	}
 
 	if (fs_type != FsType::SWAP && options.path)
 	{
@@ -348,7 +424,28 @@ namespace barrel
 		throw runtime_error(sformat(_("path '%s' already used"), path.c_str()));
 	}
 
-	BlkFilesystem* blk_filesystem = blk_device->create_blk_filesystem(fs_type);
+	BlkFilesystem* blk_filesystem = blk_devices[0]->create_blk_filesystem(fs_type);
+
+	if (fs_type == FsType::BTRFS)
+	{
+	    Btrfs* btrfs = to_btrfs(blk_filesystem);
+
+	    for (vector<BlkDevice*>::iterator it = blk_devices.begin(); it != blk_devices.end(); ++it)
+	    {
+		if (it != blk_devices.begin())
+		    btrfs->add_device(*it);
+	    }
+
+	    if (options.btrfs_data_raid_level != BtrfsRaidLevel::DEFAULT &&
+		!contains(btrfs->get_allowed_data_raid_levels(), options.btrfs_data_raid_level))
+		throw runtime_error("unsupported number of devices for profile");
+	    btrfs->set_data_raid_level(options.btrfs_data_raid_level);
+
+	    if (options.btrfs_metadata_raid_level != BtrfsRaidLevel::DEFAULT &&
+		!contains(btrfs->get_allowed_metadata_raid_levels(), options.btrfs_metadata_raid_level))
+		throw runtime_error("unsupported number of devices for profile");
+	    btrfs->set_metadata_raid_level(options.btrfs_metadata_raid_level);
+	}
 
 	if (options.label)
 	{
@@ -376,7 +473,6 @@ namespace barrel
 	    }
 	}
 
-	if (is_partition(blk_device))
 	{
 	    unsigned int id = ID_LINUX;
 
@@ -398,8 +494,11 @@ namespace barrel
 #endif
 	    }
 
-	    Partition* partition = to_partition(blk_device);
-	    partition->set_id(id);
+	    for (BlkDevice* blk_device : blk_devices)
+	    {
+		if (is_partition(blk_device))
+		    to_partition(blk_device)->set_id(id);
+	    }
 	}
 
 	state.stack.push(blk_filesystem);

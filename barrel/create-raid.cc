@@ -31,7 +31,7 @@
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
-#include "Utils/Misc.h"
+#include "Utils/BarrelTmpl.h"
 #include "Utils/BarrelDefines.h"
 #include "create-raid.h"
 
@@ -69,11 +69,11 @@ namespace barrel
 	};
 
 
-	struct SmartNumber
+	struct SmartRaidNumber
 	{
-	    SmartNumber() = default;
+	    SmartRaidNumber() = default;
 
-	    SmartNumber(const string& str);
+	    SmartRaidNumber(const string& str);
 
 	    void fill(unsigned int max);
 
@@ -84,7 +84,7 @@ namespace barrel
 	};
 
 
-	SmartNumber::SmartNumber(const string& str)
+	SmartRaidNumber::SmartRaidNumber(const string& str)
 	{
 	    static const regex raid_rx("([0-9]+)", regex::extended);
 	    static const regex raid_and_spare_rx("([0-9]+)\\+([0-9]+)", regex::extended);
@@ -134,7 +134,7 @@ namespace barrel
 
 
 	void
-	SmartNumber::fill(unsigned int max)
+	SmartRaidNumber::fill(unsigned int max)
 	{
 	    if (raid == 0)
 		raid = max - spare;
@@ -149,7 +149,7 @@ namespace barrel
 	    optional<SmartSize> size;
 	    optional<string> pool_name;
 	    optional<string> name;
-	    optional<SmartNumber> number;
+	    optional<SmartRaidNumber> number;
 	    optional<string> metadata;
 	    optional<unsigned long> chunk_size;
 	    bool force = false;
@@ -186,7 +186,7 @@ namespace barrel
 	    if (parsed_opts.has_option("devices"))
 	    {
 		string str = parsed_opts.get("devices");
-		number = SmartNumber(str);
+		number = SmartRaidNumber(str);
 	    }
 
 	    if (parsed_opts.has_option("size"))
@@ -280,7 +280,7 @@ namespace barrel
 
 	vector<BlkDevice*> blk_devices;
 
-	SmartNumber smart_number;
+	SmartRaidNumber smart_number;
 
 	switch (options.modus_operandi)
 	{
@@ -294,7 +294,11 @@ namespace barrel
 		    smart_number.fill(pool->size(staging));
 		}
 		else
+		{
 		    smart_number.raid = pool->size(staging);
+		}
+
+		// TODO try to somehow use PartitionCreator here
 
 		SmartSize smart_size = options.size.value();
 
@@ -303,7 +307,7 @@ namespace barrel
 		switch (smart_size.type)
 		{
 		    case SmartSize::MAX:
-			size = smart_size.value(pool->max_partition_size(staging, smart_number.sum()));
+			size = pool->max_partition_size(staging, smart_number.sum());
 			break;
 
 		    case SmartSize::ABSOLUTE:
@@ -341,7 +345,7 @@ namespace barrel
 		switch (smart_size.type)
 		{
 		    case SmartSize::MAX:
-			size = smart_size.value(pool.max_partition_size(staging, smart_number.sum()));
+			size = pool.max_partition_size(staging, smart_number.sum());
 			break;
 
 		    case SmartSize::ABSOLUTE:

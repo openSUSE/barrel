@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -20,8 +20,6 @@
  */
 
 
-#include <regex>
-
 #include <storage/Storage.h>
 #include <storage/Pool.h>
 #include <storage/Devices/BlkDevice.h>
@@ -30,7 +28,7 @@
 #include <storage/Utils/HumanString.h>
 
 #include "Utils/GetOpts.h"
-#include "Utils/Misc.h"
+#include "Utils/BarrelTmpl.h"
 #include "Utils/Text.h"
 #include "create-lvm-vg.h"
 
@@ -52,62 +50,6 @@ namespace barrel
 	    { "extent-size", required_argument, 0, _("set extent size"), "extent-size" },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
-
-
-	struct SmartNumber
-	{
-	    enum Type { MAX, ABSOLUTE };
-
-	    SmartNumber(const string& str);
-
-	    unsigned int value(unsigned int max) const;
-
-	    Type type = ABSOLUTE;
-
-	    unsigned int absolute = 1;
-	};
-
-
-	SmartNumber::SmartNumber(const string& str)
-	{
-	    static const regex absolute_rx("([0-9]+)", regex::extended);
-
-	    if (str == "max")
-	    {
-		type = MAX;
-		return;
-	    }
-
-	    smatch match;
-
-	    if (regex_match(str, match, absolute_rx))
-	    {
-		type = ABSOLUTE;
-
-		string n1 = match[1];
-		absolute = atoi(n1.c_str());
-		return;
-	    }
-
-	    throw runtime_error(_("bad devices argument"));
-	}
-
-
-	unsigned int
-	SmartNumber::value(unsigned int max) const
-	{
-	    switch (type)
-	    {
-		case SmartNumber::MAX:
-		    return max;
-
-		case SmartNumber::ABSOLUTE:
-		    return absolute;
-
-		default:
-		    throw runtime_error("unknown SmartNumber type");
-	    }
-	}
 
 
 	struct Options
@@ -245,27 +187,8 @@ namespace barrel
 	    {
 		Pool* pool = state.storage->get_pool(options.pool_name.value());
 
-		unsigned int number = 1;
-
-		if (options.number)
-		    number = options.number->value(pool->size(staging));
-
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = 0;
-
-		switch (smart_size.type)
-		{
-		    case SmartSize::MAX:
-			size = smart_size.value(pool->max_partition_size(staging, number));
-			break;
-
-		    case SmartSize::ABSOLUTE:
-			size = smart_size.absolute / number + 1 * MiB;
-			break;
-		}
-
-		blk_devices = up_cast<BlkDevice*>(pool->create_partitions(staging, number, size));
+		blk_devices = PartitionCreator::create_partitions(pool, staging, PartitionCreator::ONE,
+								  options.number, options.size.value());
 	    }
 	    break;
 
@@ -281,11 +204,8 @@ namespace barrel
 		Pool pool;
 		pool.add_device(partition_table->get_partitionable());
 
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = smart_size.value(pool.max_partition_size(staging, 1));
-
-		blk_devices = up_cast<BlkDevice*>(pool.create_partitions(staging, 1, size));
+		blk_devices = PartitionCreator::create_partitions(&pool, staging, PartitionCreator::POOL_SIZE,
+								  options.number, options.size.value());
 	    }
 	    break;
 
@@ -299,24 +219,8 @@ namespace barrel
 		    pool.add_device(partitionable);
 		}
 
-		unsigned int number = pool.size(staging);
-
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = 0;
-
-		switch (smart_size.type)
-		{
-		    case SmartSize::MAX:
-			size = smart_size.value(pool.max_partition_size(staging, number));
-			break;
-
-		    case SmartSize::ABSOLUTE:
-			size = smart_size.absolute / number + 1 * MiB;
-			break;
-		}
-
-		blk_devices = up_cast<BlkDevice*>(pool.create_partitions(staging, pool.size(staging), size));
+		blk_devices = PartitionCreator::create_partitions(&pool, staging, PartitionCreator::POOL_SIZE,
+								  options.number, options.size.value());
 	    }
 	    break;
 

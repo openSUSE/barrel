@@ -27,6 +27,7 @@
 #include <string>
 #include <vector>
 #include <functional>
+#include <optional>
 
 #include <storage/Storage.h>
 #include <storage/Devices/BlkDevice.h>
@@ -49,8 +50,26 @@ namespace barrel
 
 
     /**
-     * Class to parse a size, e.g. "2 TiB". The special value "max" is also
-     * allowed. A size of 0 B is not allowed.
+     * Class to parse a number, e.g. "2". The special value "max" is also allowed. A
+     * absolute number of 0 is not allowed.
+     */
+    struct SmartNumber
+    {
+	enum Type { MAX, ABSOLUTE };
+
+	SmartNumber(const string& str);
+
+	unsigned int value(unsigned int max) const;
+
+	Type type = ABSOLUTE;
+
+	unsigned int absolute = 0;
+    };
+
+
+    /**
+     * Class to parse a size, e.g. "2 TiB". The special value "max" is also allowed. A
+     * absolute size of 0 B is not allowed.
      */
     struct SmartSize
     {
@@ -60,18 +79,26 @@ namespace barrel
 
 	unsigned long long value(unsigned long long max) const;
 
-	Type type;
+	Type type = ABSOLUTE;
 
-	unsigned long long absolute;
+	unsigned long long absolute = 0;
     };
 
 
-    template<typename Type1, typename Type2>
-    vector<Type1>
-    up_cast(const vector<Type2>& v)
+    /**
+     *
+     */
+    struct PartitionCreator
     {
-	return vector<Type1>(v.begin(), v.end());
-    }
+	enum DefaultNumber { ONE, POOL_SIZE };
+
+	static BlkDevice*
+	create_partition(const Pool* pool, Devicegraph* devicegraph, const SmartSize& smart_size);
+
+	static vector<BlkDevice*>
+	create_partitions(const Pool* pool, Devicegraph* devicegraph, DefaultNumber default_number,
+			  const optional<SmartNumber>& smart_number, const SmartSize& smart_size);
+    };
 
 
     vector<string>

@@ -20,14 +20,17 @@
  */
 
 
+#include <regex>
+#include <vector>
 #include <stdexcept>
 #include <algorithm>
 
-#include <storage/Devices/BlkDevice.h>
+#include <storage/Devices/Partition.h>
 #include <storage/Utils/HumanString.h>
 
 #include "Misc.h"
 #include "Text.h"
+#include "BarrelTmpl.h"
 #include "BarrelDefines.h"
 
 
@@ -52,6 +55,48 @@ namespace barrel
 	    return "";
 
 	return sformat("%.2f%%", 100.0 * (double)(a) / (double)(b));
+    }
+
+
+    SmartNumber::SmartNumber(const string& str)
+    {
+	static const regex absolute_rx("([0-9]+)", regex::extended);
+
+	if (str == "max")
+	{
+	    type = MAX;
+	}
+	else
+	{
+	    type = ABSOLUTE;
+
+	    smatch match;
+
+	    if (!regex_match(str, match, absolute_rx))
+		throw runtime_error(_("bad devices argument"));
+
+	    string n1 = match[1];
+	    absolute = atoi(n1.c_str());
+
+	    if (absolute == 0)
+		throw runtime_error(sformat(_("invalid devices value '%d'"), absolute));
+	}
+    }
+
+
+    unsigned int
+    SmartNumber::value(unsigned int max) const
+    {
+	switch (type)
+	{
+	    case SmartNumber::MAX:
+		return max;
+
+	    case SmartNumber::ABSOLUTE:
+		return absolute;
+	}
+
+	throw logic_error("unknown SmartNumber type");
     }
 
 
@@ -90,10 +135,45 @@ namespace barrel
 
 	    case SmartSize::ABSOLUTE:
 		return absolute;
-
-	    default:
-		throw runtime_error("unknown SmartSize type");
 	}
+
+	throw logic_error("unknown SmartSize type");
+    }
+
+
+    BlkDevice*
+    PartitionCreator::create_partition(const Pool* pool, Devicegraph* devicegraph, const SmartSize& smart_size)
+    {
+	unsigned long long size = smart_size.value(pool->max_partition_size(devicegraph, 1));
+
+	return pool->create_partitions(devicegraph, 1, size)[0];
+    }
+
+
+    vector<BlkDevice*>
+    PartitionCreator::create_partitions(const Pool* pool, Devicegraph* devicegraph, DefaultNumber default_number,
+					const optional<SmartNumber>& smart_number,
+					const SmartSize& smart_size)
+    {
+	unsigned int number = default_number == ONE ? 1 : pool->size(devicegraph);
+
+	if (smart_number)
+	    number = smart_number.value().value(pool->size(devicegraph));
+
+	unsigned long long size = 0;
+
+	switch (smart_size.type)
+	{
+	    case SmartSize::MAX:
+		size = pool->max_partition_size(devicegraph, number);
+		break;
+
+	    case SmartSize::ABSOLUTE:
+		size = smart_size.absolute / number + 1 * MiB;
+		break;
+	}
+
+	return up_cast<BlkDevice*>(pool->create_partitions(devicegraph, number, size));
     }
 
 

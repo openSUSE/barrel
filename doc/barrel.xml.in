@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2022-05-09</date>
+    <date>2022-07-06</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2022-05-09</refmiscinfo>
+    <refmiscinfo class='date'>2022-07-06</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -339,7 +339,28 @@
 	    <varlistentry>
 	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
 	      <listitem>
-		<para>Approximate size of resulting file system.</para>
+		<para>Approximate size of the block device or sum of
+		the sizes of the block devices for the file system. </para>
+		<para>Due to file system metadata and for btrfs also
+		data duplication the usable space of the resulting file system can be
+		much smaller.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>-d, --devices</option> <replaceable>number</replaceable></term>
+	      <listitem>
+		<para>For btrfs the number of underlying devices for
+		the file system. Default is 1. The special value of 'max' uses all
+		devices provided or all devices of the pool.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--profile</option> <replaceable>profile</replaceable></term>
+	      <listitem>
+		<para>Btrfs profiles for data and metadata. Either one
+		profile can be provided for both data and metadata, or two profiles
+		separated by comma, the first for data and the second for
+		metadata.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -1110,6 +1131,18 @@
 	<term><command>barrel create xfs /dev/sdb --size 10G --path /test</command></term>
 	<listitem>
 	  <para>Create a 10 GiB partition on /dev/sdb with an XFS and
+	  mount it at /test.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+	<term><command>barrel create btrfs --size 1TiB --pool "SSDs (512 B)"
+	--devices 2 --profiles raid0,raid1 --path /test</command></term>
+	<listitem>
+	  <para>Create two 0.5 TiB partitions on two devices from the
+	  pool "SSDs (512 B)", create a btrfs with raid0 profile for
+	  data and raid1 profile for metadata on those partitions and
 	  mount it at /test.</para>
 	</listitem>
       </varlistentry>
