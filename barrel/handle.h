@@ -109,7 +109,7 @@ namespace barrel
 	    : global_options(global_options) {}
 
 	const GlobalOptions& global_options;
-	const Testsuite* testsuite = nullptr;
+	Testsuite* testsuite = nullptr;
 
 	bool run = true;
 

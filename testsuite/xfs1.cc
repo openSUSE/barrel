@@ -43,14 +43,9 @@ BOOST_AUTO_TEST_CASE(test1)
     Testsuite testsuite;
     testsuite.devicegraph_filename = "empty2.xml";
 
-    vector<string> tmp;
-    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
-	tmp = actiongraph->get_commit_actions_as_strings();
-    };
-
     handle(args.argc(), args.argv(), &testsuite);
 
-    BOOST_CHECK_EQUAL(actions, tmp);
+    BOOST_CHECK_EQUAL(actions, testsuite.actions);
 }
 
 
@@ -66,14 +61,9 @@ BOOST_AUTO_TEST_CASE(test2)
     Testsuite testsuite;
     testsuite.devicegraph_filename = "empty2.xml";
 
-    vector<string> tmp;
-    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
-	tmp = actiongraph->get_commit_actions_as_strings();
-    };
-
     handle(args.argc(), args.argv(), &testsuite);
 
-    BOOST_CHECK_EQUAL(actions, tmp);
+    BOOST_CHECK_EQUAL(actions, testsuite.actions);
 }
 
 
@@ -90,14 +80,9 @@ BOOST_AUTO_TEST_CASE(test3)
     Testsuite testsuite;
     testsuite.devicegraph_filename = "empty2.xml";
 
-    vector<string> tmp;
-    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
-	tmp = actiongraph->get_commit_actions_as_strings();
-    };
-
     handle(args.argc(), args.argv(), &testsuite);
 
-    BOOST_CHECK_EQUAL(actions, tmp);
+    BOOST_CHECK_EQUAL(actions, testsuite.actions);
 
     const Devicegraph* staging = testsuite.storage->get_staging();
 
