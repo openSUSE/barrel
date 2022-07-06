@@ -87,8 +87,8 @@ namespace barrel
 
 	const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
 
-	if (state.testsuite && state.testsuite->save_actiongraph)
-	    state.testsuite->save_actiongraph(actiongraph);
+	if (state.testsuite)
+	    state.testsuite->actions = actiongraph->get_commit_actions_as_strings();
 
 	if (state.global_options.dry_run)
 	{

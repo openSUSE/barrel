@@ -57,14 +57,9 @@ BOOST_AUTO_TEST_CASE(test1)
     Testsuite testsuite;
     testsuite.devicegraph_filename = "empty1.xml";
 
-    vector<string> tmp;
-    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
-	tmp = actiongraph->get_commit_actions_as_strings();
-    };
-
     handle(args.argc(), args.argv(), &testsuite);
 
-    BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+    BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
 }
 
 
@@ -94,14 +89,9 @@ BOOST_AUTO_TEST_CASE(test2)
     Testsuite testsuite;
     testsuite.devicegraph_filename = "empty1.xml";
 
-    vector<string> tmp;
-    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
-	tmp = actiongraph->get_commit_actions_as_strings();
-    };
-
     handle(args.argc(), args.argv(), &testsuite);
 
-    BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+    BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
 }
 
 
@@ -123,12 +113,7 @@ BOOST_AUTO_TEST_CASE(test3)
     Testsuite testsuite;
     testsuite.devicegraph_filename = "dmraid1.xml";
 
-    vector<string> tmp;
-    testsuite.save_actiongraph = [&tmp](const Actiongraph* actiongraph) {
-	tmp = actiongraph->get_commit_actions_as_strings();
-    };
-
     handle(args.argc(), args.argv(), &testsuite);
 
-    BOOST_CHECK_EQUAL(actions, tmp); // TODO sort
+    BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
 }
