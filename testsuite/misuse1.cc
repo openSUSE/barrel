@@ -9,23 +9,12 @@
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
+#include "helpers.h"
 
 
 using namespace std;
 using namespace storage;
 using namespace barrel;
-
-
-namespace std
-{
-    ostream& operator<<(ostream& s, const vector<string>& lines)
-    {
-	for (const string& line : lines)
-	    s << line << '\n';
-
-	return s;
-    }
-}
 
 
 pair<string, string>

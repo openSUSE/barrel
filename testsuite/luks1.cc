@@ -5,10 +5,14 @@
 #include <boost/test/unit_test.hpp>
 
 #include <storage/Actiongraph.h>
+#include <storage/Devices/Disk.h>
+#include <storage/Devices/Partition.h>
+#include <storage/Devices/Encryption.h>
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
 #include "../barrel/Utils/Mockup.h"
+#include "helpers.h"
 
 
 using namespace std;
@@ -18,12 +22,9 @@ using namespace barrel;
 
 namespace std
 {
-    ostream& operator<<(ostream& s, const vector<string>& lines)
+    ostream& operator<<(ostream& s, EncryptionType encryption_type)
     {
-	for (const string& line : lines)
-	    s << line << '\n';
-
-	return s;
+	return s << get_encryption_type_name(encryption_type);
     }
 }
 
@@ -62,6 +63,12 @@ BOOST_AUTO_TEST_CASE(test1)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, testsuite.actions);
+
+    const Devicegraph* staging = testsuite.storage->get_staging();
+
+    const Partition* sdb1 = Partition::find_by_name(staging, "/dev/sdb1");
+    const Encryption* encryption = sdb1->get_encryption();
+    BOOST_CHECK_EQUAL(encryption->get_type(), EncryptionType::LUKS1);
 }
 
 
@@ -84,6 +91,12 @@ BOOST_AUTO_TEST_CASE(test2)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, testsuite.actions);
+
+    const Devicegraph* staging = testsuite.storage->get_staging();
+
+    const Disk* sdb = Disk::find_by_name(staging, "/dev/sdb");
+    const Encryption* encryption = sdb->get_encryption();
+    BOOST_CHECK_EQUAL(encryption->get_type(), EncryptionType::LUKS2);
 }
 
 
