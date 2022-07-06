@@ -257,6 +257,31 @@ namespace barrel
     };
 
 
+    namespace PartitionCreator
+    {
+	vector<BlkDevice*>
+	create_partitions(const Pool* pool, Devicegraph* devicegraph, MdLevel md_level,
+			  const SmartRaidNumber& smart_number, const SmartSize& smart_size)
+	{
+	    unsigned long long size = 0;
+
+	    switch (smart_size.type)
+	    {
+		case SmartSize::MAX:
+		    size = pool->max_partition_size(devicegraph, smart_number.sum());
+		    break;
+
+		case SmartSize::ABSOLUTE:
+		    size = Md::calculate_underlying_size(md_level, smart_number.raid,
+							 smart_size.absolute);
+		    break;
+	    }
+
+	    return up_cast<BlkDevice*>(pool->create_partitions(devicegraph, smart_number.sum(), size));
+	}
+    };
+
+
     void
     ParsedCmdCreateRaid::doit(const GlobalOptions& global_options, State& state) const
     {
@@ -298,25 +323,8 @@ namespace barrel
 		    smart_number.raid = pool->size(staging);
 		}
 
-		// TODO try to somehow use PartitionCreator here
-
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = 0;
-
-		switch (smart_size.type)
-		{
-		    case SmartSize::MAX:
-			size = pool->max_partition_size(staging, smart_number.sum());
-			break;
-
-		    case SmartSize::ABSOLUTE:
-			size = Md::calculate_underlying_size(options.level.value(), smart_number.raid,
-							     smart_size.absolute);
-			break;
-		}
-
-		blk_devices = up_cast<BlkDevice*>(pool->create_partitions(staging, smart_number.sum(), size));
+		blk_devices = PartitionCreator::create_partitions(pool, staging, options.level.value(),
+								  smart_number, options.size.value());
 	    }
 	    break;
 
@@ -336,25 +344,12 @@ namespace barrel
 		    smart_number.fill(pool.size(staging));
 		}
 		else
-		    smart_number.raid = pool.size(staging);
-
-		SmartSize smart_size = options.size.value();
-
-		unsigned long long size = 0;
-
-		switch (smart_size.type)
 		{
-		    case SmartSize::MAX:
-			size = pool.max_partition_size(staging, smart_number.sum());
-			break;
-
-		    case SmartSize::ABSOLUTE:
-			size = Md::calculate_underlying_size(options.level.value(), smart_number.raid,
-							     smart_size.absolute);
-			break;
+		    smart_number.raid = pool.size(staging);
 		}
 
-		blk_devices = up_cast<BlkDevice*>(pool.create_partitions(staging, pool.size(staging), size));
+		blk_devices = PartitionCreator::create_partitions(&pool, staging, options.level.value(),
+								  smart_number, options.size.value());
 	    }
 	    break;
 
