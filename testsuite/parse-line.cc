@@ -11,9 +11,7 @@ using namespace barrel;
 
 namespace std
 {
-
-    ostream&
-    operator<<(ostream& s, const vector<string>& v)
+    ostream& operator<<(ostream& s, const vector<string>& v)
     {
 	for (vector<string>::const_iterator it = v.begin(); it != v.end(); ++it)
 	{
@@ -24,7 +22,6 @@ namespace std
 
 	return s;
     }
-
 }
 
 

@@ -10,6 +10,7 @@
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
+#include "helpers.h"
 
 
 using namespace std;
@@ -19,19 +20,9 @@ using namespace barrel;
 
 namespace std
 {
-    ostream& operator<<(ostream& s, const vector<string>& lines)
-    {
-	for (const string& line : lines)
-	    s << line << '\n';
-
-	return s;
-    }
-
     ostream& operator<<(ostream& s, BtrfsRaidLevel btrfs_raid_level)
     {
-	s << get_btrfs_raid_level_name(btrfs_raid_level);
-
-	return s;
+	return s << get_btrfs_raid_level_name(btrfs_raid_level);
     }
 }
 
