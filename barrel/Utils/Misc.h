@@ -85,17 +85,14 @@ namespace barrel
     };
 
 
-    /**
-     *
-     */
-    struct PartitionCreator
+    namespace PartitionCreator
     {
 	enum DefaultNumber { ONE, POOL_SIZE };
 
-	static BlkDevice*
+	BlkDevice*
 	create_partition(const Pool* pool, Devicegraph* devicegraph, const SmartSize& smart_size);
 
-	static vector<BlkDevice*>
+	vector<BlkDevice*>
 	create_partitions(const Pool* pool, Devicegraph* devicegraph, DefaultNumber default_number,
 			  const optional<SmartNumber>& smart_number, const SmartSize& smart_size);
     };
