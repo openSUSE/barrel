@@ -263,6 +263,9 @@ namespace barrel
 	create_partitions(const Pool* pool, Devicegraph* devicegraph, MdLevel md_level,
 			  const SmartRaidNumber& smart_number, const SmartSize& smart_size)
 	{
+	    if (pool->empty(devicegraph))
+		throw runtime_error(_("pool is empty"));
+
 	    unsigned long long size = 0;
 
 	    switch (smart_size.type)

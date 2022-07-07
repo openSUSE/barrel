@@ -144,6 +144,9 @@ namespace barrel
     BlkDevice*
     PartitionCreator::create_partition(const Pool* pool, Devicegraph* devicegraph, const SmartSize& smart_size)
     {
+	if (pool->empty(devicegraph))
+	    throw runtime_error(_("pool is empty"));
+
 	unsigned long long size = smart_size.value(pool->max_partition_size(devicegraph, 1));
 
 	return pool->create_partitions(devicegraph, 1, size)[0];
@@ -155,6 +158,9 @@ namespace barrel
 					const optional<SmartNumber>& smart_number,
 					const SmartSize& smart_size)
     {
+	if (pool->empty(devicegraph))
+	    throw runtime_error(_("pool is empty"));
+
 	unsigned int number = default_number == ONE ? 1 : pool->size(devicegraph);
 
 	if (smart_number)
