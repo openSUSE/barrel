@@ -16,7 +16,7 @@ Probing... done
 Commit changes? [y/n] y
 ~~~
 
-This simply runs mkfs.xfs so is not very existing. So lets tell barrel
+This simply runs mkfs.xfs so is not very exiting. So let's tell barrel
 to create a XFS on /dev/sdb and also give a mount point:
 
 ~~~
