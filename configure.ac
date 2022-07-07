@@ -36,6 +36,7 @@ AC_CONFIG_FILES([
 	doc/Makefile
 	doc/barrel.xml:doc/barrel.xml.in
 	testsuite/Makefile
+	testsuite/helpers/Makefile
 	package/barrel.spec:barrel.spec.in
 	po/Makefile
 ])

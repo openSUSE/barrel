@@ -2,6 +2,8 @@
 # Makefile.am for barrel/testsuite
 #
 
+SUBDIRS = helpers .
+
 AM_CPPFLAGS = -I$(top_srcdir) $(XML2_CFLAGS)
 
 LDADD =								\
