@@ -30,6 +30,7 @@
 
 #include "Utils/GetOpts.h"
 #include "Utils/Misc.h"
+#include "stack.h"
 
 
 namespace barrel
@@ -54,32 +55,6 @@ namespace barrel
 	bool activate = false;
 	bool probe = true;
 	bool yes = false;
-    };
-
-
-    class Stack
-    {
-    public:
-
-	bool empty() const { return data.empty(); }
-	size_t size() const { return data.size(); }
-
-	using const_iterator = deque<sid_t>::const_iterator;
-
-	const_iterator begin() const { return data.begin(); }
-	const_iterator end() const { return data.end(); }
-
-	void pop() { data.pop_front(); }
-	void clear() { data.clear(); }
-	void dup() { data.push_front(data.front()); }
-
-	Device* top(Devicegraph* devicegraph);
-	void push(Device* device);
-
-    private:
-
-	deque<sid_t> data;
-
     };
 
 

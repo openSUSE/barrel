@@ -18,6 +18,7 @@ noinst_LTLIBRARIES = libbarrel.la
 
 libbarrel_la_SOURCES =							\
 	handle.h			handle.cc			\
+	stack.h				stack.cc			\
 	cmds.h				cmds.cc				\
 	help.h				help.cc				\
 	generic.h			generic.cc			\
