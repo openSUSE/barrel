@@ -134,3 +134,37 @@ BOOST_AUTO_TEST_CASE(test4)
 
     BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
 }
+
+
+BOOST_AUTO_TEST_CASE(test5)
+{
+    Args args({ "--dry-run", "--yes" });
+
+    vector<string> actions = {
+	"Create partition /dev/sdb1 (4.00 GiB)",
+	"Set id of partition /dev/sdb1 to Linux LVM",
+	"Create physical volume on /dev/sdb1",
+	"Create volume group test (4.00 GiB) from /dev/sdb1 (4.00 GiB)",
+	"Create logical volume b (1.00 GiB) on volume group test",
+	"Create xfs on /dev/test/b (1.00 GiB)",
+	"Create logical volume a (1.00 GiB) on volume group test",
+	"Create xfs on /dev/test/a (1.00 GiB)"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    testsuite.readlines = {
+	"create vg --name test --size 4g /dev/sdb",
+	"dup",
+	"create lv --name a --size 1g xfs",
+	"pop",
+	"create lv --name b --size 1g xfs",
+	"pop",
+	"commit"
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
+}
