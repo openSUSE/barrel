@@ -54,23 +54,6 @@ namespace barrel
     using namespace storage;
 
 
-    Device*
-    Stack::top(Devicegraph* devicegraph)
-    {
-	if (data.empty())
-	    throw runtime_error(_("stack empty"));
-
-	return devicegraph->find_device(data.front());
-    }
-
-
-    void
-    Stack::push(Device* device)
-    {
-	data.push_front(device->get_sid());
-    }
-
-
     GlobalOptions::GlobalOptions(GetOpts& get_opts)
     {
 	ParsedOpts parsed_opts = get_opts.parse(get_options());
