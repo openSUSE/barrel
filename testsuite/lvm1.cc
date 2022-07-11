@@ -105,9 +105,7 @@ BOOST_AUTO_TEST_CASE(test3)
 
     BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
 
-    const Storage* storage = testsuite.storage.get();
-
-    const Devicegraph* staging = storage->get_staging();
+    const Devicegraph* staging = testsuite.storage->get_staging();
 
     const LvmVg* lvm_vg = LvmVg::find_by_vg_name(staging, "test");
     BOOST_CHECK_EQUAL(lvm_vg->get_extent_size(), 8 * MiB);
@@ -169,8 +167,4 @@ BOOST_AUTO_TEST_CASE(test5)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
-
-    const Stack* stack = testsuite.stack.get();
-
-    BOOST_CHECK(stack->empty());
 }
