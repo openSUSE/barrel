@@ -16,7 +16,7 @@ check_PROGRAMS =						\
 	complex1.test parse-line.test lvm1.test load1.test	\
 	pools1.test show1.test show2.test remove1.test		\
 	luks1.test gpt1.test misuse1.test misuse2.test		\
-	misuse3.test ext1.test btrfs1.test
+	misuse3.test ext1.test btrfs1.test stack1.test
 
 AM_DEFAULT_SOURCE_EXT = .cc
 

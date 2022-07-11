@@ -463,6 +463,7 @@ namespace barrel
 	    if (!line)
 	    {
 		cout << endl;
+
 		CmdQuit::parse()->doit(global_options, state);
 
 		continue;
@@ -470,6 +471,9 @@ namespace barrel
 
 	    if (*line)
 	    {
+		if (testsuite)
+		    cout << line << '\n';
+
 		try
 		{
 		    Args args(parse_line(line));

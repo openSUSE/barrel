@@ -20,6 +20,12 @@ BOOST_AUTO_TEST_CASE(test1)
 
     vector<string> output = {
 	"Probing... done",
+	"remove pool --name \"SSDs (512 B)\"",
+	"rename pool --old-name \"HDDs (512 B)\" --new-name HDDs",
+	"reduce pool --name HDDs /dev/sde",
+	"create pool --name Test /dev/sd[bc]",
+	"extend pool --name Test /dev/sde",
+	"show pools",
 	"Name       │ Devices │      Size │  Used",
 	"───────────┼─────────┼───────────┼──────",
 	"HDDs       │       3 │ 96.00 GiB │ 0.00%",
@@ -29,7 +35,8 @@ BOOST_AUTO_TEST_CASE(test1)
 	"Test       │       3 │ 96.00 GiB │ 0.00%",
 	"├─/dev/sdb │         │ 32.00 GiB │ 0.00%",
 	"├─/dev/sdc │         │ 32.00 GiB │ 0.00%",
-	"└─/dev/sde │         │ 32.00 GiB │ 0.00%"
+	"└─/dev/sde │         │ 32.00 GiB │ 0.00%",
+	"quit"
     };
 
     Testsuite testsuite;
