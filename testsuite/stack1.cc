@@ -7,6 +7,7 @@
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
+#include "helpers/output.h"
 
 
 using namespace std;
@@ -16,27 +17,33 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    // Check that no RAID is created in case of the specific error. Tests the StagingGuard
-    // in handle_interactive() (at least right now since surely the problem could also be
-    // handled somewhere else).
-
     Args args({ "--dry-run", "--yes" });
 
     vector<string> output = {
 	"Probing... done",
-	"create raid6 --pool-name \"HDDs (512 B)\" --size max",
-	"show raids",
-	"Name │ Size │ Level │ Metadata │ Chunk Size │ Devices │ Usage │ Pool",
-	"─────┼──────┼───────┼──────────┼────────────┼─────────┼───────┼─────",
+	"create vg --name test --size 4g /dev/sdb",
+	"  Create partition /dev/sdb1 (4.00 GiB)",
+	"  Set id of partition /dev/sdb1 to Linux LVM",
+	"  Create physical volume on /dev/sdb1",
+	"  Create volume group test (4.00 GiB) from /dev/sdb1 (4.00 GiB)",
+	"dup",
+	"create lv --name a --size 1g xfs",
+	"  Create logical volume a (1.00 GiB) on volume group test",
+	"  Create xfs on /dev/test/a (1.00 GiB)",
+	"stack",
+	"top  filesystem xfs on /dev/test/a",
+	"     LVM volume group test",
 	"quit"
     };
 
     Testsuite testsuite;
-    testsuite.devicegraph_filename = "empty1.xml";
+    testsuite.devicegraph_filename = "empty2.xml";
 
     testsuite.readlines = {
-	"create raid6 --pool-name \"HDDs (512 B)\" --size max",
-	"show raids",
+	"create vg --name test --size 4g /dev/sdb",
+	"dup",
+	"create lv --name a --size 1g xfs",
+	"stack",
 	"quit"
     };
 
