@@ -33,6 +33,8 @@
 #include <storage/Devices/BlkDevice.h>
 #include <storage/Pool.h>
 
+#include "../stack.h"
+
 
 namespace barrel
 {
@@ -114,6 +116,10 @@ namespace barrel
 
 	// The handle function saves the action texts here.
 	vector<string> actions;
+
+	// The handle function moves overship of the State object here to the testsuite
+	// can do further checks.
+	unique_ptr<Stack> stack;
     };
 
 
