@@ -506,7 +506,10 @@ namespace barrel
 	}
 
 	if (testsuite)
-	    testsuite->storage = move(storage);
+	{
+	    testsuite->storage = std::move(storage);
+	    testsuite->stack = make_unique<Stack>(std::move(state.stack));
+	}
     }
 
 
@@ -544,7 +547,10 @@ namespace barrel
 	}
 
 	if (testsuite)
-	    testsuite->storage = move(storage);
+	{
+	    testsuite->storage = std::move(storage);
+	    testsuite->stack = make_unique<Stack>(std::move(state.stack));
+	}
     }
 
 
