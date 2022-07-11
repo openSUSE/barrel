@@ -33,6 +33,8 @@ BOOST_AUTO_TEST_CASE(test1)
 	"stack",
 	"top  filesystem xfs on /dev/test/a",
 	"     LVM volume group test",
+	"pop",
+	"pop",
 	"quit"
     };
 
@@ -44,6 +46,8 @@ BOOST_AUTO_TEST_CASE(test1)
 	"dup",
 	"create lv --name a --size 1g xfs",
 	"stack",
+	"pop",
+	"pop",
 	"quit"
     };
 
@@ -57,4 +61,8 @@ BOOST_AUTO_TEST_CASE(test1)
 			    [](auto a, auto b) { return a + b + "\n"; });
 
     BOOST_CHECK_EQUAL(lhs, rhs);
+
+    const Stack* stack = testsuite.stack.get();
+
+    BOOST_CHECK(stack->empty());
 }
