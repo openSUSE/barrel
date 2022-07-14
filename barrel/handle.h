@@ -51,7 +51,7 @@ namespace barrel
 	bool quiet = false;
 	bool verbose = false;
 	bool dry_run = false;
-	string prefix;
+	string rootprefix;
 	bool activate = false;
 	bool probe = true;
 	bool yes = false;
