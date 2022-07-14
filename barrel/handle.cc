@@ -62,8 +62,10 @@ namespace barrel
 	verbose = parsed_opts.has_option("verbose");
 	dry_run = parsed_opts.has_option("dry-run");
 
-	if (parsed_opts.has_option("prefix"))
-	    prefix = parsed_opts.get("prefix");
+	if (parsed_opts.has_option("rootprefix"))
+	    rootprefix = parsed_opts.get("rootprefix");
+	else if (parsed_opts.has_option("prefix"))
+	    rootprefix = parsed_opts.get("prefix");
 
 	activate = parsed_opts.has_option("activate");
 	yes = parsed_opts.has_option("yes");
@@ -79,7 +81,8 @@ namespace barrel
 	    { "quiet", no_argument, 'q', _("be quiet") },
 	    { "verbose", no_argument, 'v', _("be more verbose") },
 	    { "dry-run", no_argument, 0, _("do not commit anything to disk") },
-	    { "prefix", required_argument, 0, _("run with a prefix"), "prefix" },
+	    { "rootprefix", required_argument, 0, _("run with a rootprefix"), "rootprefix" },
+	    { "prefix", required_argument, 0, nullptr }, // replaced by rootprefix
 	    { "activate", no_argument, 'a', _("activate storage systems at startup") },
 	    { "yes", no_argument, 0, _("answer all questions with yes") },
 	    { "help", no_argument, 'h', _("show help and exit") } ,
@@ -432,7 +435,7 @@ namespace barrel
     {
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
-	environment.set_rootprefix(global_options.prefix);
+	environment.set_rootprefix(global_options.rootprefix);
 
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
@@ -525,7 +528,7 @@ namespace barrel
 
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
-	environment.set_rootprefix(global_options.prefix);
+	environment.set_rootprefix(global_options.rootprefix);
 
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);

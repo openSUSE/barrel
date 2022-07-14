@@ -131,10 +131,10 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
-	<term><option>--prefix <replaceable>path</replaceable></option></term>
+	<term><option>--rootprefix <replaceable>path</replaceable></option></term>
 	<listitem>
 	  <para>Prepend various path (mount points and files in /etc)
-	  with a prefix. Useful when running in a installation or rescue
+	  with a rootprefix. Useful when running in a installation or rescue
 	  system.</para>
 	</listitem>
       </varlistentry>
