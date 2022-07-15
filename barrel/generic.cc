@@ -22,13 +22,6 @@
 
 #include <storage/Storage.h>
 #include <storage/Devicegraph.h>
-#include <storage/Devices/Md.h>
-#include <storage/Devices/LvmVg.h>
-#include <storage/Devices/LvmLv.h>
-#include <storage/Devices/Gpt.h>
-#include <storage/Devices/Msdos.h>
-#include <storage/Devices/Luks.h>
-#include <storage/Filesystems/BlkFilesystem.h>
 
 #include "generic.h"
 #include "Utils/Prompt.h"
@@ -183,62 +176,7 @@ namespace barrel
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const override;
 
-    private:
-
-	string description(const Device* device) const;
-
     };
-
-
-    string
-    ParsedCmdStack::description(const Device* device) const
-    {
-	if (is_md(device))
-	{
-	    const Md* md = to_md(device);
-	    return sformat(_("RAID %s"), md->get_name().c_str());
-	}
-
-	if (is_lvm_vg(device))
-	{
-	    const LvmVg* lvm_vg = to_lvm_vg(device);
-	    return sformat(_("LVM volume group %s"), lvm_vg->get_vg_name().c_str());
-	}
-
-	if (is_lvm_lv(device))
-	{
-	    const LvmLv* lvm_lv = to_lvm_lv(device);
-	    return sformat(_("LVM logical volume %s"), lvm_lv->get_name().c_str());
-	}
-
-	if (is_gpt(device))
-	{
-	    const Gpt* gpt = to_gpt(device);
-	    return sformat(_("GPT on %s"), gpt->get_partitionable()->get_name().c_str());
-	}
-
-	if (is_msdos(device))
-	{
-	    const Msdos* msdos = to_msdos(device);
-	    return sformat(_("MS-DOS on %s"), msdos->get_partitionable()->get_name().c_str());
-	}
-
-	if (is_luks(device))
-	{
-	    const Luks* luks = to_luks(device);
-	    return sformat(_("LUKS on %s"), luks->get_blk_device()->get_name().c_str());
-	}
-
-	if (is_blk_filesystem(device))
-	{
-	    const BlkFilesystem* blk_filesystem = to_blk_filesystem(device);
-	    // TODO support several devices, maybe use join from libstorage-ng
-	    return sformat(_("filesystem %s on %s"), get_fs_type_name(blk_filesystem->get_type()).c_str(),
-			   blk_filesystem->get_blk_devices()[0]->get_name().c_str());
-	}
-
-	return "unknown";
-    }
 
 
     void
