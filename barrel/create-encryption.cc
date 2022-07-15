@@ -188,7 +188,7 @@ namespace barrel
 	{
 	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
 	    {
-		Device* device = state.stack.top(staging);
+		Device* device = state.stack.top_as_device(staging);
 		if (!is_blk_device(device))
 		    throw runtime_error(_("not a block device on stack"));
 
@@ -207,7 +207,7 @@ namespace barrel
 
 	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
 	    {
-		Device* device = state.stack.top(staging);
+		Device* device = state.stack.top_as_device(staging);
 		if (!is_partition_table(device))
 		    throw runtime_error(_("not a partition table on stack"));
 
