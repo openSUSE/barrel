@@ -53,9 +53,6 @@ namespace barrel
     void
     ParsedCmdPop::doit(const GlobalOptions& global_options, State& state) const
     {
-	if (state.stack.empty())
-	    throw runtime_error(_("stack empty during pop"));
-
 	state.stack.pop();
     }
 
@@ -124,9 +121,6 @@ namespace barrel
     void
     ParsedCmdDup::doit(const GlobalOptions& global_options, State& state) const
     {
-	if (state.stack.empty())
-	    throw runtime_error(_("stack empty during dup"));
-
 	state.stack.dup();
     }
 
@@ -144,6 +138,40 @@ namespace barrel
     CmdDup::help() const
     {
 	return _("Duplicates the top object of the stack.");
+    }
+
+
+    class ParsedCmdExch : public ParsedCmd
+    {
+    public:
+
+	virtual bool do_backup() const override { return false; }
+
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
+
+    };
+
+
+    void
+    ParsedCmdExch::doit(const GlobalOptions& global_options, State& state) const
+    {
+	state.stack.exch();
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdExch::parse(GetOpts& get_opts) const
+    {
+	get_opts.parse("exch", GetOpts::no_ext_options);
+
+	return make_shared<ParsedCmdExch>();
+    }
+
+
+    const char*
+    CmdExch::help() const
+    {
+	return _("Exchanges the top two elements of the stack.");
     }
 
 

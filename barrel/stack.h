@@ -49,9 +49,10 @@ namespace barrel
 	const_iterator begin() const { return data.begin(); }
 	const_iterator end() const { return data.end(); }
 
-	void pop() { data.pop_front(); }
+	void pop();
 	void clear() { data.clear(); }
-	void dup() { data.push_front(data.front()); }
+	void dup();
+	void exch();
 
 	Device* top(Devicegraph* devicegraph);
 	void push(Device* device);

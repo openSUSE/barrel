@@ -139,6 +139,7 @@ namespace barrel
 	{ "commit", make_shared<CmdCommit>(), {} },
 	{ "create", nullptr, create_cmds },
 	{ "dup", make_shared<CmdDup>(), {} },
+	{ "exch", make_shared<CmdExch>(), {} },
 	{ "extend", nullptr, extend_cmds },
 	{ "help", make_shared<CmdHelp>(), {} },
 	{ "load", nullptr, load_cmds },
