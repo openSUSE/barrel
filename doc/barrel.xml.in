@@ -750,6 +750,13 @@
       </varlistentry>
 
       <varlistentry>
+	<term><option>exch</option></term>
+	<listitem>
+	  <para>Exchanges the two top objects of the stack.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
 	<term><option>extend pool <replaceable>devices</replaceable></option></term>
 	<listitem>
 	  <para>Adds devices to a pool.</para>

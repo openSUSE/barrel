@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -45,6 +45,13 @@ namespace barrel
 
 
     struct CmdDup : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
+
+
+    struct CmdExch : public Cmd
     {
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
 	virtual const char* help() const override;

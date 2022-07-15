@@ -33,6 +33,36 @@ namespace barrel
     using namespace storage;
 
 
+    void
+    Stack::pop()
+    {
+	if (data.empty())
+	    throw runtime_error(_("stack empty during pop"));
+
+	data.pop_front();
+    }
+
+
+    void
+    Stack::dup()
+    {
+	if (data.empty())
+	    throw runtime_error(_("stack empty during dup"));
+
+	data.push_front(data.front());
+    }
+
+
+    void
+    Stack::exch()
+    {
+	if (data.size() < 2)
+	    throw runtime_error(_("stackunderflow during exch"));
+
+	swap(data[0], data[1]);
+    }
+
+
     Device*
     Stack::top(Devicegraph* devicegraph)
     {
