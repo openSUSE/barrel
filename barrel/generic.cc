@@ -244,27 +244,19 @@ namespace barrel
     void
     ParsedCmdStack::doit(const GlobalOptions& global_options, State& state) const
     {
+	const Stack& stack = state.stack;
 	Devicegraph* staging = state.storage->get_staging();
 
 	Table table({ _("Position"), _("Description") });
 	table.set_style(Style::NONE);
 
-	for (Stack::const_iterator it = state.stack.begin(); it != state.stack.end(); ++it)
+	for (Stack::const_iterator it = stack.begin(); it != stack.end(); ++it)
 	{
-	    const sid_t sid = *it;
+	    string p = it == stack.begin() ? "top" : "";
 
-	    string p = it == state.stack.begin() ? "top" : "";
+	    const StackObject::Base* stack_object = it->get();
 
-	    string d = "deleted";
-
-	    if (staging->device_exists(sid))
-	    {
-		const Device* device = staging->find_device(sid);
-		d = description(device);
-	    }
-
-	    Table::Row row(table, { p, d });
-	    table.add(row);
+	    table.add(Table::Row(table, { p, stack_object->print(staging) }));
 	}
 
 	cout << table;

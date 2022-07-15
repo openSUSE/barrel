@@ -36,6 +36,12 @@ namespace barrel
     using namespace storage;
 
 
+    namespace StackObject
+    {
+	class Base;
+    }
+
+
     class Stack
     {
     public:
@@ -43,7 +49,8 @@ namespace barrel
 	bool empty() const { return data.empty(); }
 	size_t size() const { return data.size(); }
 
-	using data_type = deque<sid_t>;
+	using data_type = deque<unique_ptr<const StackObject::Base>>;
+	using value_type = data_type::value_type;
 	using const_iterator = data_type::const_iterator;
 
 	const_iterator begin() const { return data.begin(); }
@@ -54,7 +61,10 @@ namespace barrel
 	void dup();
 	void exch();
 
-	Device* top(Devicegraph* devicegraph);
+	const StackObject::Base* top() const;
+	void push(unique_ptr<const StackObject::Base>&& stack_object);
+
+	Device* top_as_device(Devicegraph* devicegraph) const;
 	void push(Device* device);
 
     private:
@@ -62,6 +72,58 @@ namespace barrel
 	data_type data;
 
     };
+
+
+    namespace StackObject
+    {
+
+	class Base
+	{
+	public:
+
+	    virtual ~Base() = default;
+
+	    virtual unique_ptr<Base> copy() const = 0;
+	    virtual string print(const Devicegraph* devicegraph) const = 0;
+
+	};
+
+
+	class Sid : public Base
+	{
+	public:
+
+	    Sid(sid_t sid) : sid(sid) {}
+
+	    virtual unique_ptr<Base> copy() const override;
+	    virtual string print(const Devicegraph* devicegraph) const override;
+
+	    Device* get_device(Devicegraph* devicegraph) const;
+	    const Device* get_device(const Devicegraph* devicegraph) const;
+
+	private:
+
+	    const sid_t sid;
+
+	};
+
+
+	class Integer : public Base
+	{
+	public:
+
+	    Integer(int i) : i(i) {}
+
+	    virtual unique_ptr<Base> copy() const override;
+	    virtual string print(const Devicegraph* devicegraph) const override;
+
+	private:
+
+	    const int i;
+
+	};
+
+    }
 
 }
 

@@ -211,7 +211,7 @@ namespace barrel
 
 	    case Options::ModusOperandi::LVM_VG_FROM_STACK:
 	    {
-		Device* device = state.stack.top(staging);
+		Device* device = state.stack.top_as_device(staging);
 		if (!is_lvm_vg(device))
 		    throw runtime_error(_("not a volume group on stack"));
 

@@ -136,7 +136,7 @@ namespace barrel
 	{
 	    case Options::ModusOperandi::PARTITIONABLE_FROM_STACK:
 	    {
-		Device* device = state.stack.top(staging);
+		Device* device = state.stack.top_as_device(staging);
 		if (!is_partitionable(device))
 		    throw runtime_error(_("not a partitionable on stack"));
 
