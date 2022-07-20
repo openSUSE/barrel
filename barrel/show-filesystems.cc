@@ -28,6 +28,7 @@
 #include <storage/Filesystems/Btrfs.h>
 #include <storage/Filesystems/Nfs.h>
 #include <storage/Storage.h>
+#include <storage/Environment.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Table.h"
@@ -114,6 +115,8 @@ namespace barrel
     ParsedCmdShowFilesystems::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Storage* storage = state.storage;
+	const Environment& environment = storage->get_environment();
+	const string& rootprefix = environment.get_rootprefix();
 
 	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();
 
@@ -182,7 +185,16 @@ namespace barrel
 	    if (filesystem->has_mount_point())
 	    {
 		const MountPoint* mount_point = filesystem->get_mount_point();
-		row[Id::MOUNT_POINT] = mount_point->get_path();
+
+		string tmp = mount_point->get_path();
+
+		if (!rootprefix.empty())
+		{
+		    if (mount_point->is_rootprefixed() && mount_point->get_path() != "swap")
+			tmp = "[" + rootprefix + "] " + tmp;
+		}
+
+		row[Id::MOUNT_POINT] = tmp;
 	    }
 
 	    table.add(row);
