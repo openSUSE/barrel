@@ -26,8 +26,6 @@
 
 #include <string>
 
-#include <storage/Devices/Device.h>
-
 #include "Utils/GetOpts.h"
 #include "Utils/Misc.h"
 #include "stack.h"
