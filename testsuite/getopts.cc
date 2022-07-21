@@ -28,6 +28,7 @@ namespace std
 const ExtOptions global_opts({
     { "verbose", no_argument, 'v', "be verbose" },
     { "dry-run", no_argument, 0, "dry run" },
+    { "rootprefix", required_argument, 0, "set rootprefix", "rootprefix" },
     { "table-style", required_argument, 't', "set table style", "table-style" }
 });
 
@@ -44,12 +45,19 @@ const ExtOptions filesystem_opts({
 
 BOOST_AUTO_TEST_CASE(good1)
 {
-    Args args({ "--verbose" });
+    Args args({ "--verbose", "--rootprefix", "", "--table-style", "42" });
     GetOpts get_opts(args.argc(), args.argv());
 
     ParsedOpts parsed_global_opts = get_opts.parse(global_opts);
 
     BOOST_CHECK(parsed_global_opts.has_option("verbose"));
+
+    BOOST_CHECK(parsed_global_opts.has_option("rootprefix"));
+    BOOST_CHECK_EQUAL(parsed_global_opts.get("rootprefix"), "");
+
+    BOOST_CHECK(parsed_global_opts.has_option("table-style"));
+    BOOST_CHECK_EQUAL(parsed_global_opts.get("table-style"), "42");
+
     BOOST_CHECK(!parsed_global_opts.has_option("read-my-mind"));
 
     BOOST_CHECK(!get_opts.has_args());
