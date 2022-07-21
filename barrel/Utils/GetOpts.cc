@@ -71,7 +71,12 @@ namespace barrel
 		case -1:
 		{
 		    if (!has_args() || !is_blk_device(argv[optind]))
+		    {
+			if (ext_options.take_blk_devices == TakeBlkDevices::YES && blk_devices.empty())
+			    throw OptionsException(_("Missing block devices."));
+
 			return ParsedOpts(result, blk_devices);
+		    }
 
 		    if (ext_options.take_blk_devices == TakeBlkDevices::NO)
 		    {
@@ -166,6 +171,9 @@ namespace barrel
 		break;
 	    }
 	}
+
+	if (ext_options.take_blk_devices == TakeBlkDevices::YES && blk_devices.empty())
+	    throw OptionsException(_("Missing block devices."));
 
 	return ParsedOpts(result, blk_devices);
     }

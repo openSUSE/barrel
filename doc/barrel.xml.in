@@ -522,7 +522,7 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create pool <replaceable>devices</replaceable></option></term>
+	<term><option>create pool <replaceable>[devices]</replaceable></option></term>
 	<listitem>
 	  <para>Creates a new pool containing devices.</para>
 

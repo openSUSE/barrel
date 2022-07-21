@@ -42,7 +42,7 @@ namespace barrel
 
 	const ExtOptions create_pool_options({
 	    { "name", required_argument, 'n', _("name of new pool"), "name" }
-	}, TakeBlkDevices::YES);
+	}, TakeBlkDevices::MAYBE);
 
 
 	struct Options
