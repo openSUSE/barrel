@@ -264,3 +264,22 @@ BOOST_AUTO_TEST_CASE(error6)
 	return strcmp(e.what(), "No block devices allowed for command option 'disks'.") == 0;
     });
 }
+
+
+BOOST_AUTO_TEST_CASE(error7)
+{
+    Args args({ "create", "raid" });
+    GetOpts get_opts(args.argc(), args.argv(), true, { "/dev/sda", "/dev/sdb" });
+
+    ParsedOpts parsed_global_opts = get_opts.parse(global_opts);
+
+    BOOST_CHECK(get_opts.has_args());
+    BOOST_CHECK_EQUAL(get_opts.pop_arg(), "create");
+
+    BOOST_CHECK(get_opts.has_args());
+    BOOST_CHECK_EQUAL(get_opts.pop_arg(), "raid");
+
+    BOOST_CHECK_EXCEPTION(get_opts.parse("raid", raid_opts), runtime_error, [](const exception& e) {
+	return strcmp(e.what(), "Missing block devices.") == 0;
+    });
+}
