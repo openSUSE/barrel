@@ -435,7 +435,9 @@ namespace barrel
     {
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
-	environment.set_rootprefix(global_options.rootprefix);
+
+	if (global_options.rootprefix)
+	    environment.set_rootprefix(global_options.rootprefix.value());
 
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
@@ -528,7 +530,9 @@ namespace barrel
 
 	Environment environment(false, testsuite ? ProbeMode::READ_DEVICEGRAPH : ProbeMode::STANDARD,
 				TargetMode::DIRECT);
-	environment.set_rootprefix(global_options.rootprefix);
+
+	if (global_options.rootprefix)
+	    environment.set_rootprefix(global_options.rootprefix.value());
 
 	if (testsuite)
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);

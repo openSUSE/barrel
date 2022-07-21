@@ -259,12 +259,6 @@ namespace barrel
 	    throw runtime_error("missing argument");
 	}
 
-	if (it->second.empty())
-	{
-	    cerr << "missing argument " << name << endl;
-	    throw runtime_error("missing argument");
-	}
-
 	return it->second;
     }
 
