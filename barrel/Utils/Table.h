@@ -37,7 +37,8 @@ namespace barrel
 
     enum class Id
     {
-	NONE, NAME, SIZE, USAGE, POOL, USED, NUMBER, STRIPES, LABEL, MOUNT_POINT, PROFILES
+	NONE, NAME, SIZE, USAGE, POOL, USED, NUMBER, STRIPES, LABEL, MOUNT_POINT, PROFILES,
+	DESCRIPTION
     };
 
 
@@ -55,7 +56,7 @@ namespace barrel
 
     enum class Style
     {
-	STANDARD, DOUBLE, ASCII, NONE
+	STANDARD, DOUBLE, ASCII
     };
 
 
@@ -129,6 +130,8 @@ namespace barrel
 
 	const vector<Row> get_rows() const { return rows; }
 
+	void set_show_header(bool show_header) { Table::show_header = show_header; }
+	void set_show_grid(bool show_grid) { Table::show_grid = show_grid; }
 	void set_style(enum Style style) { Table::style = style; }
 	void set_global_indent(size_t global_indent) { Table::global_indent = global_indent; }
 	void set_min_width(Id id, size_t min_width);
@@ -142,6 +145,8 @@ namespace barrel
 	Header header;
 	vector<Row> rows;
 
+	bool show_header = true;
+	bool show_grid = true;
 	Style style = Style::STANDARD;
 	size_t global_indent = 0;
 

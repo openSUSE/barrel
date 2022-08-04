@@ -494,12 +494,14 @@ namespace barrel
 			state.backup.add(storage.get());
 
 		    StagingGuard staging_guard(storage.get());
+		    StackGuard stack_guard(state.stack);
 
 		    for (const shared_ptr<ParsedCmd>& cmd : cmds)
 		    {
 			cmd->doit(global_options, state);
 		    }
 
+		    stack_guard.release();
 		    staging_guard.release();
 
 		    if (do_backup)

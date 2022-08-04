@@ -62,7 +62,8 @@ namespace barrel
 	print_options_help(const ExtOptions& ext_options)
 	{
 	    Table table({ Cell(_("Name"), Id::NAME), _("Description") });
-	    table.set_style(Style::NONE);
+	    table.set_show_header(false);
+	    table.set_show_grid(false);
 	    table.set_global_indent(6);
 	    table.set_min_width(Id::NAME, 28);
 

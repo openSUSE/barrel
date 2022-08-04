@@ -51,3 +51,32 @@ BOOST_AUTO_TEST_CASE(test1)
 
     BOOST_CHECK_EQUAL(lhs, rhs);
 }
+
+
+BOOST_AUTO_TEST_CASE(test2)
+{
+    // Check that the RAID is still on the stack after the exception of the second 'create
+    // vg' command. Tests the StackGuard in handle_interactive() (at least right now since
+    // surely the problem could also be handled somewhere else).
+
+    Args args({ "--dry-run", "--yes" });
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    testsuite.readlines = {
+	"create raid1 --pool-name \"HDDs (512 B)\" --size max --devices 2",
+	"dup",
+	"create vg --name test1",
+	"pop",
+	"create vg --name test2"
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    const Devicegraph* staging = testsuite.storage->get_staging();
+    const Stack* stack = testsuite.stack.get();
+
+    BOOST_CHECK(stack->size() == 1);
+    BOOST_CHECK(stack->top()->print(staging) == "RAID /dev/md0");
+}

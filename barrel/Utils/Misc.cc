@@ -26,6 +26,7 @@
 #include <algorithm>
 
 #include <storage/Devices/Partition.h>
+#include <storage/Devices/Partitionable.h>
 #include <storage/Utils/HumanString.h>
 
 #include "Misc.h"
@@ -205,6 +206,52 @@ namespace barrel
 
 
     void
+    check_usable(BlkDevice* blk_device, bool force)
+    {
+	if (!blk_device->is_usable_as_blk_device())
+	{
+	    throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
+					blk_device->get_name().c_str()));
+	}
+
+	if (blk_device->has_children())
+	{
+	    if (force)
+		blk_device->remove_descendants(View::REMOVE);
+	    else
+		throw runtime_error(sformat(_("block device '%s' is in use"), blk_device->get_name().c_str()));
+	}
+    }
+
+
+    void
+    check_usable(vector<BlkDevice*>& blk_devices, bool force)
+    {
+	for (BlkDevice* blk_device : blk_devices)
+	    check_usable(blk_device, force);
+    }
+
+
+    void
+    check_usable(Partitionable* partitionable, bool force)
+    {
+	if (!partitionable->is_usable_as_partitionable())
+	{
+	    throw runtime_error(sformat(_("partitionable '%s' cannot be used as a regular partitionable"),
+					partitionable->get_name().c_str()));
+	}
+
+	if (partitionable->has_children())
+	{
+	    if (force)
+		partitionable->remove_descendants(View::REMOVE);
+	    else
+		throw runtime_error(sformat(_("partitionable '%s' is in use"), partitionable->get_name().c_str()));
+	}
+    }
+
+
+    void
     remove_pools(Storage* storage)
     {
 	for (const map<string, Pool*>::value_type& value : storage->get_pools())
@@ -263,6 +310,28 @@ namespace barrel
     StagingGuard::release()
     {
 	storage->remove_devicegraph(name);
+    }
+
+
+    StackGuard::StackGuard(Stack& stack)
+       : stack(stack), backup(stack)
+    {
+    }
+
+
+    StackGuard::~StackGuard()
+    {
+	if (released)
+	    return;
+
+	stack = std::move(backup);
+    }
+
+
+    void
+    StackGuard::release()
+    {
+	released = true;
     }
 
 }

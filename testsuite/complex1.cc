@@ -141,3 +141,99 @@ BOOST_AUTO_TEST_CASE(test4)
 
     BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
 }
+
+
+BOOST_AUTO_TEST_CASE(test5)
+{
+    Args args({ "--dry-run", "--yes" });
+
+    vector<string> actions = {
+	"Create partition /dev/sdd1 (2.03 GiB)",
+	"Set id of partition /dev/sdd1 to Linux RAID",
+	"Create partition /dev/sde1 (2.03 GiB)",
+	"Set id of partition /dev/sde1 to Linux RAID",
+	"Create MD RAID1 /dev/md1 (2.00 GiB) from /dev/sdd1 (2.03 GiB) and /dev/sde1 (2.03 GiB)",
+	"Create physical volume on /dev/md1",
+	"Add /dev/md1 to /etc/mdadm.conf",
+	"Create partition /dev/sdb1 (1.02 GiB)",
+	"Set id of partition /dev/sdb1 to Linux RAID",
+	"Create partition /dev/sdc1 (1.02 GiB)",
+	"Set id of partition /dev/sdc1 to Linux RAID",
+	"Create MD RAID0 /dev/md0 (2.00 GiB) from /dev/sdb1 (1.02 GiB) and /dev/sdc1 (1.02 GiB)",
+	"Create physical volume on /dev/md0",
+	"Create volume group test (3.99 GiB) from /dev/md0 (2.00 GiB) and /dev/md1 (2.00 GiB)",
+	"Add /dev/md0 to /etc/mdadm.conf"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    testsuite.readlines = {
+	"[",
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2",
+	"create raid1 --pool-name \"HDDs (512 B)\" --size 2g --devices 2",
+	"]",
+	"create vg --name test",
+	"commit"
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
+}
+
+
+BOOST_AUTO_TEST_CASE(test6)
+{
+    Args args({ "--dry-run", "--yes" });
+
+    vector<string> actions = {
+	"Create partition /dev/sdd1 (2.03 GiB)",
+	"Set id of partition /dev/sdd1 to Linux RAID",
+	"Create partition /dev/sde1 (2.03 GiB)",
+	"Set id of partition /dev/sde1 to Linux RAID",
+	"Create MD RAID1 /dev/md1 (2.00 GiB) from /dev/sdd1 (2.03 GiB) and /dev/sde1 (2.03 GiB)",
+	"Create GPT on /dev/md1",
+	"Create partition /dev/md1p1 (1.00 GiB)",
+	"Create partition /dev/md1p2 (1021.00 MiB)",
+	"Set id of partition /dev/md1p2 to Linux LVM",
+	"Create physical volume on /dev/md1p2",
+	"Set id of partition /dev/md1p1 to Linux LVM",
+	"Create physical volume on /dev/md1p1",
+	"Add /dev/md1 to /etc/mdadm.conf",
+	"Create partition /dev/sdb1 (1.02 GiB)",
+	"Set id of partition /dev/sdb1 to Linux RAID",
+	"Create partition /dev/sdc1 (1.02 GiB)",
+	"Set id of partition /dev/sdc1 to Linux RAID",
+	"Create MD RAID0 /dev/md0 (2.00 GiB) from /dev/sdb1 (1.02 GiB) and /dev/sdc1 (1.02 GiB)",
+	"Create GPT on /dev/md0",
+	"Create partition /dev/md0p1 (1.00 GiB)",
+	"Create partition /dev/md0p2 (1021.00 MiB)",
+	"Set id of partition /dev/md0p2 to Linux LVM",
+	"Create physical volume on /dev/md0p2",
+	"Create volume group test2 (1.99 GiB) from /dev/md0p2 (1021.00 MiB) and /dev/md1p2 (1021.00 MiB)",
+	"Set id of partition /dev/md0p1 to Linux LVM",
+	"Create physical volume on /dev/md0p1",
+	"Create volume group test1 (2.00 GiB) from /dev/md0p1 (1.00 GiB) and /dev/md1p1 (1.00 GiB)",
+	"Add /dev/md0 to /etc/mdadm.conf"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    testsuite.readlines = {
+	"[",
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2 gpt",
+	"create raid1 --pool-name \"HDDs (512 B)\" --size 2g --devices 2 gpt",
+	"]",
+	"dup",
+	"create vg --name test1 --size 2g",
+	"exch",
+	"create vg --name test2 --size max",
+	"commit"
+    };
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
+}

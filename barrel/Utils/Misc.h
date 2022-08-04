@@ -104,6 +104,16 @@ namespace barrel
     possible_blk_devices(const Storage* storage);
 
 
+    void
+    check_usable(BlkDevice* blk_device, bool force);
+
+    void
+    check_usable(vector<BlkDevice*>& blk_devices, bool force);
+
+    void
+    check_usable(Partitionable* partitionable, bool force);
+
+
     struct Testsuite
     {
 	string devicegraph_filename;
@@ -148,6 +158,29 @@ namespace barrel
 	const string name = "barrel-staging-guard";
 
 	Storage* storage;
+
+    };
+
+
+    /**
+     * This class helps to restore the stack in the case of an exception. Note: Usually a
+     * stack guard is something completely different.
+     */
+    class StackGuard
+    {
+    public:
+
+	StackGuard(Stack& stack);
+	~StackGuard();
+
+	void release();
+
+    private:
+
+	bool released = false;
+
+	Stack& stack;
+	Stack backup;
 
     };
 

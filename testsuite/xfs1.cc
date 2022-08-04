@@ -20,11 +20,12 @@ using namespace barrel;
 BOOST_AUTO_TEST_CASE(test1)
 {
     Args args({ "--dry-run", "--yes", "create", "xfs", "/dev/sdb", "-s", "8 GiB", "-p", "/test",
-	    "-o", "noauto" });
+	    "-o", "noauto", "-l", "TEST", "--mount-by", "label" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (8.00 GiB)",
 	"Create xfs on /dev/sdb1 (8.00 GiB)",
+	"Set label of xfs on /dev/sdb1 (8.00 GiB) to TEST",
 	"Mount /dev/sdb1 (8.00 GiB) at /test",
 	"Add mount point /test of /dev/sdb1 (8.00 GiB) to /etc/fstab"
     };

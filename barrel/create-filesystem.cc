@@ -51,6 +51,7 @@ namespace barrel
 	    { "type", required_argument, 't', _("set file system type"), "type" },
 	    { "label", required_argument, 'l', _("set file system label"), "label" },
 	    { "path", required_argument, 'p', _("mount path"), "path" },
+	    { "mount-by", required_argument, 0, _("mount by"), "type" },
 	    { "mount-options", required_argument, 'o', _("mount options"), "options" },
 	    { "mkfs-options", required_argument, 0, _("mkfs options"), "options" },
 	    { "tune-options", required_argument, 0, _("tune options"), "options" },
@@ -74,6 +75,19 @@ namespace barrel
 	    { "swap", FsType::SWAP },
 	    { "vfat", FsType::VFAT },
 	    { "xfs", FsType::XFS }
+	};
+
+
+	const map<string, MountByType> str_to_mount_by_type = {
+	    { "device", MountByType::DEVICE },
+	    { "path", MountByType::PATH },
+	    { "id", MountByType::ID },
+	    { "uuid", MountByType::UUID },
+	    { "label", MountByType::LABEL },
+#if 0
+	    { "partuuid", MountByType::PARTUUID },
+	    { "partlabel", MountByType::PARTLABEL }
+#endif
 	};
 
 
@@ -116,6 +130,7 @@ namespace barrel
 	    optional<FsType> type;
 	    optional<string> label;
 	    optional<string> path;
+	    optional<MountByType> mount_by;
 	    optional<vector<string>> mount_options;
 	    optional<string> mkfs_options;
 	    optional<string> tune_options;
@@ -128,7 +143,7 @@ namespace barrel
 
 	    vector<string> blk_devices;
 
-	    enum class ModusOperandi { BLK_DEVICES, POOL, PARTITION_TABLE_FROM_STACK, BLK_DEVICE_FROM_STACK,
+	    enum class ModusOperandi { BLK_DEVICES, POOL, PARTITION_TABLES_FROM_STACK, BLK_DEVICES_FROM_STACK,
 		PARTITIONABLES };
 
 	    ModusOperandi modus_operandi;
@@ -157,6 +172,17 @@ namespace barrel
 	    label = parsed_opts.get_optional("label");
 
 	    path = parsed_opts.get_optional("path");
+
+	    if (parsed_opts.has_option("mount-by"))
+	    {
+		string str = parsed_opts.get("mount-by");
+
+		map<string, MountByType>::const_iterator it = str_to_mount_by_type.find(str);
+		if (it == str_to_mount_by_type.end())
+		    throw runtime_error(sformat(_("unknown mount-by type type '%s'"), str.c_str()));
+
+		mount_by = it->second;
+	    }
 
 	    if (parsed_opts.has_option("mount-options"))
 	    {
@@ -231,14 +257,14 @@ namespace barrel
 		if (size)
 		{
 		    if (blk_devices.empty())
-			modus_operandi = ModusOperandi::PARTITION_TABLE_FROM_STACK;
+			modus_operandi = ModusOperandi::PARTITION_TABLES_FROM_STACK;
 		    else
 			modus_operandi = ModusOperandi::PARTITIONABLES;
 		}
 		else
 		{
 		    if (blk_devices.empty())
-			modus_operandi = ModusOperandi::BLK_DEVICE_FROM_STACK;
+			modus_operandi = ModusOperandi::BLK_DEVICES_FROM_STACK;
 		    else
 			modus_operandi = ModusOperandi::BLK_DEVICES;
 		}
@@ -260,19 +286,18 @@ namespace barrel
 	    if (path)
 	    {
 		if (type.value() != FsType::SWAP && !boost::starts_with(path.value(), "/"))
-		{
 		    throw runtime_error(sformat(_("invalid path '%s'"), path.value().c_str()));
-		}
 
 		if (type.value() == FsType::SWAP && path.value() != "swap")
-		{
 		    throw runtime_error(_("path must be 'swap'"));
-		}
 	    }
-
-	    if (!path && mount_options)
+	    else
 	    {
-		throw runtime_error(_("mount options require a path"));
+		if (mount_by)
+		    throw runtime_error(_("mount-by requires a path"));
+
+		if (mount_options)
+		    throw runtime_error(_("mount options require a path"));
 	    }
 
 	    if (number && !supports_multiple_devices(type.value()))
@@ -317,13 +342,13 @@ namespace barrel
 
 	switch (options.modus_operandi)
 	{
-	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
+	    case Options::ModusOperandi::BLK_DEVICES_FROM_STACK:
 	    {
-		Device* device = state.stack.top_as_device(staging);
-		if (!is_blk_device(device))
-		    throw runtime_error(_("not a block device on stack"));
+		blk_devices = state.stack.top_as_blk_devices(staging);
 
-		blk_devices.push_back(to_blk_device(device));
+		if (!supports_multiple_devices(fs_type) && blk_devices.size() > 1)
+		    throw runtime_error(_("only one block device allowed"));
+
 		state.stack.pop();
 	    }
 	    break;
@@ -337,20 +362,22 @@ namespace barrel
 	    }
 	    break;
 
-	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
+	    case Options::ModusOperandi::PARTITION_TABLES_FROM_STACK:
 	    {
-		Device* device = state.stack.top_as_device(staging);
-		if (!is_partition_table(device))
-		    throw runtime_error(_("not a partition table on stack"));
+		vector<PartitionTable*> partition_tables = state.stack.top_as_partition_tables(staging);
 
-		PartitionTable* partition_table = to_partition_table(device);
-		state.stack.pop();
+		if (!supports_multiple_devices(fs_type) && partition_tables.size() > 1)
+		    throw runtime_error(_("only one partition table allowed"));
 
 		Pool pool;
-		pool.add_device(partition_table->get_partitionable());
+
+		for (const PartitionTable* partition_table : partition_tables)
+		    pool.add_device(partition_table->get_partitionable());
 
 		blk_devices = PartitionCreator::create_partitions(&pool, staging, PartitionCreator::POOL_SIZE,
 								  options.number, options.size.value());
+
+		state.stack.pop();
 	    }
 	    break;
 
@@ -365,21 +392,6 @@ namespace barrel
 		for (const string& device_name : options.blk_devices)
 		{
 		    blk_devices.push_back(BlkDevice::find_by_name(staging, device_name));
-		}
-
-		for (BlkDevice* blk_device : blk_devices)
-		{
-		    if (blk_device->has_children())
-		    {
-			if (options.force)
-			{
-			    blk_device->remove_descendants(View::REMOVE);
-			}
-			else
-			{
-			    throw runtime_error(sformat(_("block device '%s' is in use"), blk_device->get_name().c_str()));
-			}
-		    }
 		}
 	    }
 	    break;
@@ -396,7 +408,7 @@ namespace barrel
 
 		for (const string& device_name : options.blk_devices)
 		{
-		    Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
+		    const Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
 		    pool.add_device(partitionable);
 		}
 
@@ -409,12 +421,7 @@ namespace barrel
 	if (blk_devices.empty())
 	    throw runtime_error(_("block devices for filesystem missing"));
 
-	for (BlkDevice* blk_device : blk_devices)
-	{
-	    if (!blk_device->is_usable_as_blk_device())
-		throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
-					    blk_device->get_name().c_str()));
-	}
+	check_usable(blk_devices, options.force);
 
 	if (fs_type != FsType::SWAP && options.path)
 	{
@@ -467,10 +474,11 @@ namespace barrel
 	    string path = options.path.value();
 	    MountPoint* mount_point = blk_filesystem->create_mount_point(path);
 
+	    if (options.mount_by)
+		mount_point->set_mount_by(options.mount_by.value());
+
 	    if (options.mount_options)
-	    {
 		mount_point->set_mount_options(options.mount_options.value());
-	    }
 	}
 
 	{

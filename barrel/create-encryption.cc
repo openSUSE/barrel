@@ -207,14 +207,15 @@ namespace barrel
 
 	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
 	    {
-		Device* device = state.stack.top_as_device(staging);
+		const Device* device = state.stack.top_as_device(staging);
 		if (!is_partition_table(device))
 		    throw runtime_error(_("not a partition table on stack"));
 
-		PartitionTable* partition_table = to_partition_table(device);
+		const PartitionTable* partition_table = to_partition_table(device);
 		state.stack.pop();
 
 		Pool pool;
+
 		pool.add_device(partition_table->get_partitionable());
 
 		blk_device = PartitionCreator::create_partition(&pool, staging, options.size.value());
@@ -227,18 +228,6 @@ namespace barrel
 		    throw runtime_error(_("only one block device allowed"));
 
 		blk_device = BlkDevice::find_by_name(staging, options.blk_devices.front());
-
-		if (blk_device->has_children())
-		{
-		    if (options.force)
-		    {
-			blk_device->remove_descendants(View::REMOVE);
-		    }
-		    else
-		    {
-			throw runtime_error(sformat(_("block device '%s' is in use"), blk_device->get_name().c_str()));
-		    }
-		}
 	    }
 	    break;
 
@@ -251,7 +240,7 @@ namespace barrel
 
 		for (const string& device_name : options.blk_devices)
 		{
-		    Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
+		    const Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
 		    pool.add_device(partitionable);
 		}
 
@@ -260,9 +249,7 @@ namespace barrel
 	    break;
 	}
 
-	if (!blk_device->is_usable_as_blk_device())
-	    throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
-					blk_device->get_name().c_str()));
+	check_usable(blk_device, options.force);
 
 	string password = prompt_password(true);
 

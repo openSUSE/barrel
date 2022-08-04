@@ -26,7 +26,10 @@
 
 #include <deque>
 
-#include <storage/Devices/Device.h>
+#include <storage/Devices/BlkDevice.h>
+#include <storage/Devices/PartitionTable.h>
+
+#include "Utils/Table.h"
 
 
 namespace barrel
@@ -46,20 +49,30 @@ namespace barrel
     {
     public:
 
-	bool empty() const { return data.empty(); }
-	size_t size() const { return data.size(); }
+	Stack() = default;
+	Stack(const Stack&);
+	Stack(Stack&&) = default;
 
-	using data_type = deque<unique_ptr<const StackObject::Base>>;
-	using value_type = data_type::value_type;
-	using const_iterator = data_type::const_iterator;
+	Stack operator=(Stack&&);
 
-	const_iterator begin() const { return data.begin(); }
-	const_iterator end() const { return data.end(); }
+	bool empty() const { return objects.empty(); }
+	size_t size() const { return objects.size(); }
+
+	using objects_type = deque<unique_ptr<const StackObject::Base>>;
+	using value_type = objects_type::value_type;
+	using const_iterator = objects_type::const_iterator;
+
+	const_iterator begin() const { return objects.begin(); }
+	const_iterator end() const { return objects.end(); }
 
 	void pop();
-	void clear() { data.clear(); }
+	void clear() { objects.clear(); }
 	void dup();
 	void exch();
+
+	const_iterator find_mark() const;
+	void open_mark();
+	void close_mark();
 
 	const StackObject::Base* top() const;
 	void push(unique_ptr<const StackObject::Base>&& stack_object);
@@ -67,9 +80,12 @@ namespace barrel
 	Device* top_as_device(Devicegraph* devicegraph) const;
 	void push(Device* device);
 
+	vector<BlkDevice*> top_as_blk_devices(Devicegraph* devicegraph) const;
+	vector<PartitionTable*> top_as_partition_tables(Devicegraph* devicegraph) const;
+
     private:
 
-	data_type data;
+	objects_type objects;
 
     };
 
@@ -85,6 +101,7 @@ namespace barrel
 
 	    virtual unique_ptr<Base> copy() const = 0;
 	    virtual string print(const Devicegraph* devicegraph) const = 0;
+	    virtual void print(const Devicegraph* devicegraph, Table::Row& row) const;
 
 	};
 
@@ -120,6 +137,35 @@ namespace barrel
 	private:
 
 	    const int i;
+
+	};
+
+
+	class Mark : public Base
+	{
+	public:
+
+	    virtual unique_ptr<Base> copy() const override;
+	    virtual string print(const Devicegraph* devicegraph) const override;
+
+	};
+
+
+	class Array : public Base
+	{
+	public:
+
+	    Array(Stack::objects_type&& objects) : objects(std::move(objects)) {}
+
+	    virtual unique_ptr<Base> copy() const override;
+	    virtual string print(const Devicegraph* devicegraph) const override;
+	    virtual void print(const Devicegraph* devicegraph, Table::Row& row) const override;
+
+	    vector<Device*> get_devices(Devicegraph* devicegraph) const;
+
+	private:
+
+	    const Stack::objects_type objects;
 
 	};
 

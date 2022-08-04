@@ -40,50 +40,66 @@ namespace barrel
     using namespace storage;
 
 
+    Stack::Stack(const Stack& stack)
+    {
+	for (const Stack::value_type& object : stack.objects)
+	    objects.push_back(object->copy());
+    }
+
+
+    Stack
+    Stack::operator=(Stack&& stack)
+    {
+	objects = std::move(stack.objects);
+
+	return *this;
+    }
+
+
     void
     Stack::pop()
     {
-	if (data.empty())
+	if (objects.empty())
 	    throw runtime_error(_("stack empty during pop"));
 
-	data.pop_front();
+	objects.pop_front();
     }
 
 
     void
     Stack::dup()
     {
-	if (data.empty())
+	if (objects.empty())
 	    throw runtime_error(_("stack empty during dup"));
 
-	data.push_front(data.front().get()->copy());
+	objects.push_front(objects.front().get()->copy());
     }
 
 
     void
     Stack::exch()
     {
-	if (data.size() < 2)
+	if (objects.size() < 2)
 	    throw runtime_error(_("stackunderflow during exch"));
 
-	swap(data[0], data[1]);
+	swap(objects[0], objects[1]);
     }
 
 
     const StackObject::Base*
     Stack::top() const
     {
-	if (data.empty())
+	if (objects.empty())
 	    throw runtime_error(_("stack empty"));
 
-	return data.front().get();
+	return objects.front().get();
     }
 
 
     void
     Stack::push(unique_ptr<const StackObject::Base>&& stack_object)
     {
-	data.push_front(std::move(stack_object));
+	objects.push_front(std::move(stack_object));
     }
 
 
@@ -103,7 +119,117 @@ namespace barrel
     void
     Stack::push(Device* device)
     {
-	data.push_front(make_unique<StackObject::Sid>(device->get_sid()));
+	objects.push_front(make_unique<StackObject::Sid>(device->get_sid()));
+    }
+
+
+    vector<BlkDevice*>
+    Stack::top_as_blk_devices(Devicegraph* devicegraph) const
+    {
+	const StackObject::Base* base = top();
+
+	const StackObject::Sid* sid = dynamic_cast<const StackObject::Sid*>(base);
+	if (sid)
+	{
+	    Device* device = sid->get_device(devicegraph);
+	    if (!is_blk_device(device))
+		throw runtime_error(_("not a block device on stack"));
+
+	    return { to_blk_device(device) };
+	}
+
+	const StackObject::Array* array = dynamic_cast<const StackObject::Array*>(base);
+	if (array)
+	{
+	    vector<BlkDevice*> blk_devices;
+
+	    for (Device* device : array->get_devices(devicegraph))
+	    {
+		if (!is_blk_device(device))
+		    throw runtime_error(_("not a block device in array"));
+
+		blk_devices.push_back(to_blk_device(device));
+	    }
+
+	    return blk_devices;
+	}
+
+	throw runtime_error(_("not a block device or array of block devices on stack"));
+    }
+
+
+    vector<PartitionTable*>
+    Stack::top_as_partition_tables(Devicegraph* devicegraph) const
+    {
+	const StackObject::Base* base = top();
+
+	const StackObject::Sid* sid = dynamic_cast<const StackObject::Sid*>(base);
+	if (sid)
+	{
+	    Device* device = sid->get_device(devicegraph);
+	    if (!is_partition_table(device))
+		throw runtime_error(_("not a partition table on stack"));
+
+	    return { to_partition_table(device) };
+	}
+
+	const StackObject::Array* array = dynamic_cast<const StackObject::Array*>(base);
+	if (array)
+	{
+	    vector<PartitionTable*> partition_tables;
+
+	    for (Device* device : array->get_devices(devicegraph))
+	    {
+		if (!is_partition_table(device))
+		    throw runtime_error(_("not a partition table in array"));
+
+		partition_tables.push_back(to_partition_table(device));
+	    }
+
+	    return partition_tables;
+	}
+
+	throw runtime_error(_("not a partition table or array of partition tables on stack"));
+    }
+
+
+    Stack::const_iterator
+    Stack::find_mark() const
+    {
+	return find_if(begin(), end(), [](const value_type& tmp) {
+	    return dynamic_cast<const StackObject::Mark*>(tmp.get());
+	});
+    }
+
+
+    void
+    Stack::open_mark()
+    {
+	objects.push_front(make_unique<StackObject::Mark>());
+    }
+
+
+    void
+    Stack::close_mark()
+    {
+	const_iterator mark = find_mark();
+	if (mark == end())
+	    throw runtime_error(_("no mark on stack"));
+
+	Stack::objects_type tmp;
+
+	std::move(begin(), mark, front_inserter(tmp));
+
+	objects.erase(begin(), ++mark);
+
+	objects.push_front(make_unique<StackObject::Array>(std::move(tmp)));
+    }
+
+
+    void
+    StackObject::Base::print(const Devicegraph* devicegraph, Table::Row& row) const
+    {
+	row[Id::DESCRIPTION] = print(devicegraph);
     }
 
 
@@ -118,7 +244,7 @@ namespace barrel
     StackObject::Sid::print(const Devicegraph* devicegraph) const
     {
 	if (!devicegraph->device_exists(sid))
-	    return "deleted";
+	    return _("deleted device");
 
 	const Device* device = get_device(devicegraph);
 
@@ -195,6 +321,73 @@ namespace barrel
     StackObject::Integer::print(const Devicegraph* devicegraph) const
     {
 	return to_string(i);
+    }
+
+
+    unique_ptr<StackObject::Base>
+    StackObject::Mark::copy() const
+    {
+	return make_unique<Mark>();
+    }
+
+
+    string
+    StackObject::Mark::print(const Devicegraph* devicegraph) const
+    {
+	return "mark";
+    }
+
+
+    unique_ptr<StackObject::Base>
+    StackObject::Array::copy() const
+    {
+	Stack::objects_type tmp;
+
+	for (const Stack::value_type& object : objects)
+	    tmp.push_back(object->copy());
+
+	return make_unique<Array>(std::move(tmp));
+    }
+
+
+    string
+    StackObject::Array::print(const Devicegraph* devicegraph) const
+    {
+	size_t n = objects.size();
+
+	return sformat(_("array with %d object", "array with %d objects", n), n);
+    }
+
+
+    void
+    StackObject::Array::print(const Devicegraph* devicegraph, Table::Row& row) const
+    {
+	row[Id::DESCRIPTION] = print(devicegraph);
+
+	for (const Stack::value_type& object : objects)
+	{
+	    Table::Row subrow(row.get_table());
+	    object->print(devicegraph, subrow);
+	    row.add_subrow(subrow);
+	}
+    }
+
+
+    vector<Device*>
+    StackObject::Array::get_devices(Devicegraph* devicegraph) const
+    {
+	vector<Device*> ret;
+
+	for (const Stack::value_type& object : objects)
+	{
+	    const StackObject::Sid* sid = dynamic_cast<const StackObject::Sid*>(object.get());
+	    if (!sid)
+		throw runtime_error(_("not a device in array"));
+
+	    ret.push_back(sid->get_device(devicegraph));
+	}
+
+	return ret;
     }
 
 }

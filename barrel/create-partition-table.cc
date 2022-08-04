@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -23,7 +23,6 @@
 #include <boost/algorithm/string.hpp>
 
 #include <storage/Storage.h>
-#include <storage/Pool.h>
 #include <storage/Devices/Partitionable.h>
 #include <storage/Devices/PartitionTable.h>
 
@@ -160,23 +159,7 @@ namespace barrel
 	    break;
 	}
 
-	if (partitionable->has_children())
-	{
-	    if (options.force)
-	    {
-		partitionable->remove_descendants(View::REMOVE);
-	    }
-	    else
-	    {
-		throw runtime_error(sformat(_("partitionable '%s' is in use"), partitionable->get_name().c_str()));
-	    }
-	}
-
-	if (!partitionable->is_usable_as_partitionable())
-	{
-	    throw runtime_error(sformat(_("partitionable '%s' cannot be used as a regular partitionable"),
-					partitionable->get_name().c_str()));
-	}
+	check_usable(partitionable, options.force);
 
 	PartitionTable* partition_table = partitionable->create_partition_table(pt_type);
 

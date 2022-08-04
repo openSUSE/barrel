@@ -65,8 +65,8 @@ namespace barrel
 
 	    vector<string> blk_devices;
 
-	    enum class ModusOperandi { POOL, PARTITIONABLES, BLK_DEVICES, BLK_DEVICE_FROM_STACK,
-		PARTITION_TABLE_FROM_STACK };
+	    enum class ModusOperandi { POOL, PARTITIONABLES, BLK_DEVICES, BLK_DEVICES_FROM_STACK,
+		PARTITION_TABLES_FROM_STACK };
 
 	    ModusOperandi modus_operandi;
 
@@ -134,14 +134,14 @@ namespace barrel
 		if (size)
 		{
 		    if (blk_devices.empty())
-			modus_operandi = ModusOperandi::PARTITION_TABLE_FROM_STACK;
+			modus_operandi = ModusOperandi::PARTITION_TABLES_FROM_STACK;
 		    else
 			modus_operandi = ModusOperandi::PARTITIONABLES;
 		}
 		else
 		{
 		    if (blk_devices.empty())
-			modus_operandi = ModusOperandi::BLK_DEVICE_FROM_STACK;
+			modus_operandi = ModusOperandi::BLK_DEVICES_FROM_STACK;
 		    else
 			modus_operandi = ModusOperandi::BLK_DEVICES;
 		}
@@ -192,20 +192,19 @@ namespace barrel
 	    }
 	    break;
 
-	    case Options::ModusOperandi::PARTITION_TABLE_FROM_STACK:
+	    case Options::ModusOperandi::PARTITION_TABLES_FROM_STACK:
 	    {
-		Device* device = state.stack.top_as_device(staging);
-		if (!is_partition_table(device))
-		    throw runtime_error(_("not a partition table on stack"));
-
-		PartitionTable* partition_table = to_partition_table(device);
-		state.stack.pop();
+		vector<PartitionTable*> partition_tables = state.stack.top_as_partition_tables(staging);
 
 		Pool pool;
-		pool.add_device(partition_table->get_partitionable());
+
+		for (const PartitionTable* partition_table : partition_tables)
+		    pool.add_device(partition_table->get_partitionable());
 
 		blk_devices = PartitionCreator::create_partitions(&pool, staging, PartitionCreator::POOL_SIZE,
 								  options.number, options.size.value());
+
+		state.stack.pop();
 	    }
 	    break;
 
@@ -215,7 +214,7 @@ namespace barrel
 
 		for (const string& device_name : options.blk_devices)
 		{
-		    Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
+		    const Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
 		    pool.add_device(partitionable);
 		}
 
@@ -229,32 +228,14 @@ namespace barrel
 		for (const string& device_name : options.blk_devices)
 		{
 		    BlkDevice* blk_device = BlkDevice::find_by_name(staging, device_name);
-
-		    if (blk_device->has_children())
-		    {
-			if (options.force)
-			{
-			    blk_device->remove_descendants(View::REMOVE);
-			}
-			else
-			{
-			    throw runtime_error(sformat(_("block device '%s' is in use"),
-							blk_device->get_name().c_str()));
-			}
-		    }
-
 		    blk_devices.push_back(blk_device);
 		}
 	    }
 	    break;
 
-	    case Options::ModusOperandi::BLK_DEVICE_FROM_STACK:
+	    case Options::ModusOperandi::BLK_DEVICES_FROM_STACK:
 	    {
-		Device* device = state.stack.top_as_device(staging);
-		if (!is_blk_device(device))
-		    throw runtime_error(_("not a block device on stack"));
-
-		blk_devices.push_back(to_blk_device(device));
+		blk_devices = state.stack.top_as_blk_devices(staging);
 		state.stack.pop();
 	    }
 	    break;
@@ -263,12 +244,7 @@ namespace barrel
 	if (blk_devices.empty())
 	    throw runtime_error(_("block devices for LVM volume group missing"));
 
-	for (BlkDevice* blk_device : blk_devices)
-	{
-	    if (!blk_device->is_usable_as_blk_device())
-		throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
-					    blk_device->get_name().c_str()));
-	}
+	check_usable(blk_devices, options.force);
 
 	LvmVg* lvm_vg = LvmVg::create(staging, options.vg_name);
 
