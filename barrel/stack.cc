@@ -218,7 +218,12 @@ namespace barrel
 
 	Stack::objects_type tmp;
 
+#if __GNUC__ >= 11
 	std::move(begin(), mark, front_inserter(tmp));
+#else
+	for (const_iterator it = begin(); it != mark; ++it)
+	    tmp.push_front(it->get()->copy());
+#endif
 
 	objects.erase(begin(), ++mark);
 
