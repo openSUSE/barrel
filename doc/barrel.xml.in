@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2022-07-06</date>
+    <date>2022-08-04</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2022-07-06</refmiscinfo>
+    <refmiscinfo class='date'>2022-08-04</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -70,13 +70,18 @@
 
     <refsect2 id='stack'>
       <title>Stack</title>
-      <para>Barrel has a stack of "storage objects" that allows
-      commands to be chained. For example creating a RAID places the
-      resulting RAID on the stack. A consecutive command to create a
-      file system can then pick the RAID from the stack. Using the
-      stack the user does not have to deal with the name of the newly
-      created RAID and thus the two commands can be provided on the
-      command line.</para>
+
+      <para>Barrel has a stack that allows commands to be chained. For
+      example creating a RAID places the resulting RAID on the stack. A
+      consecutive command to create a file system can then pick the RAID
+      from the stack. Using the stack the user does not have to deal with
+      the name of the newly created RAID and thus the two commands can be
+      provided on the command line.</para>
+
+      <para>The stack can hold different objects: storage objects
+      (e.g. block devices, LVM volume groups or file systems), integers, a
+      mark and arrays. Arrays are contructed using the [ and ]
+      commands.</para>
     </refsect2>
 
     <refsect2 id='devicegraph'>
@@ -177,6 +182,23 @@
     commands some options are mandatory.</para>
 
     <variablelist>
+
+      <varlistentry>
+	<term><option>[</option></term>
+	<listitem>
+	  <para>Starts an array contruction by pushing a mark on the stack.</para>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
+	<term><option>]</option></term>
+	<listitem>
+	  <para>Ends an array contruction by creating a new array from
+	  the objects on the stack upto the next mark, removing the objects and
+	  the mark from the stack and finally pushing the new array onto the
+	  stack.</para>
+	</listitem>
+      </varlistentry>
 
       <varlistentry>
 	<term><option>clear</option></term>
@@ -310,6 +332,17 @@
               </listitem>
             </varlistentry>
 	    <varlistentry>
+              <term><option>--mount-by</option> <replaceable>type</replaceable></term>
+              <listitem>
+		<para>Set the mount-by type used in
+		/etc/fstab. Possible values are device, path, id, uuid and label. The
+		default is usually uuid. For some devices it is different, e.g. for
+		LVM logical volumes it is device since LVM has stable device names. If
+		the selected type is not available, e.g. no label set, the fallback is
+		device.</para>
+	      </listitem>
+            </varlistentry>
+	    <varlistentry>
               <term><option>--mount-options</option> <replaceable>options</replaceable></term>
               <listitem>
 		<para>Mount options for the file system.</para>
@@ -398,19 +431,21 @@
 	      </glossdef>
 	    </glossentry>
 	    <glossentry>
-	      <glossterm>Block Device from Stack</glossterm>
+	      <glossterm>Block Devices from Stack</glossterm>
 	      <glossdef>
-		<para>The file system is created directly on the block
-		device from the stack. The option <option>--size</option> is not
-		allowed.</para>
+		<para>The file system is created directly on block
+		devices from the stack. The option <option>--size</option> is not
+		allowed. The top object on the stack must be a block device or an
+		array of block devices.</para>
 	      </glossdef>
 	    </glossentry>
 	    <glossentry>
-	      <glossterm>Partitionable from Stack</glossterm>
+	      <glossterm>Partitionables from Stack</glossterm>
 	      <glossdef>
-		<para>The file system is created on a new partition on
-		the block device from the stack, which must be partitionable. The
-		option <option>--size</option> is required.</para>
+		<para>The file system is created on new partitions on
+		the block devices from the stack. The option <option>--size</option>
+		is required. The top object on the stack must be a partitionable
+		block device or an array of partitionable block devices.</para>
 	      </glossdef>
 	    </glossentry>
 	  </glosslist>
@@ -722,19 +757,22 @@
 	      </glossdef>
 	    </glossentry>
 	    <glossentry>
-	      <glossterm>Block Device from Stack</glossterm>
+	      <glossterm>Block Devices from Stack</glossterm>
 	      <glossdef>
 		<para>The volume group is created directly on the
-		block device from the stack. The option <option>--size</option> is not
-		allowed.</para>
+		block devices from the stack. The option <option>--size</option> is not
+		allowed. The top object on the stack must be a block device or an
+		array of block devices. </para>
 	      </glossdef>
 	    </glossentry>
 	    <glossentry>
-	      <glossterm>Partitionable from Stack</glossterm>
+	      <glossterm>Partitionables from Stack</glossterm>
 	      <glossdef>
-		<para>The volume group is created on a new partition
-		on the block device from the stack, which must be partitionable. The
-		option <option>--size</option> is required.</para>
+		<para>The volume group is created on new partitions on
+		the block devices from the stack. The option <option>--size</option>
+		is required. The top object on the stack must be a partitionable
+		block device or an array of partitionable block devices.
+		</para>
 	      </glossdef>
 	    </glossentry>
 	  </glosslist>
@@ -1212,9 +1250,6 @@
       <listitem>
 	<para>Tools doing automounts, e.g. systemd and desktop
 	environments, can cause race conditions.</para>
-      </listitem>
-      <listitem>
-	<para>Translations are incomplete.</para>
       </listitem>
       <listitem>
 	<para>Incomplete support for multipath, BIOS RAIDS and DASDs.</para>

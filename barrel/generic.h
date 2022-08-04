@@ -58,6 +58,20 @@ namespace barrel
     };
 
 
+    struct CmdOpenMark : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
+
+
+    struct CmdCloseMark : public Cmd
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+    };
+
+
     struct CmdStack : public Cmd
     {
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;

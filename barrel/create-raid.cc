@@ -337,7 +337,7 @@ namespace barrel
 
 		for (const string& device_name : options.blk_devices)
 		{
-		    Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
+		    const Partitionable* partitionable = Partitionable::find_by_name(staging, device_name);
 		    pool.add_device(partitionable);
 		}
 
@@ -361,20 +361,6 @@ namespace barrel
 		for (const string& device_name : options.blk_devices)
 		{
 		    BlkDevice* blk_device = BlkDevice::find_by_name(staging, device_name);
-
-		    if (blk_device->has_children())
-		    {
-			if (options.force)
-			{
-			    blk_device->remove_descendants(View::REMOVE);
-			}
-			else
-			{
-			    throw runtime_error(sformat(_("block device '%s' is in use"),
-							blk_device->get_name().c_str()));
-			}
-		    }
-
 		    blk_devices.push_back(blk_device);
 		}
 
@@ -386,12 +372,7 @@ namespace barrel
 	if (blk_devices.empty())
 	    throw runtime_error(_("block devices for RAID missing"));
 
-	for (BlkDevice* blk_device : blk_devices)
-	{
-	    if (!blk_device->is_usable_as_blk_device())
-		throw runtime_error(sformat(_("block device '%s' cannot be used as a regular block device"),
-					    blk_device->get_name().c_str()));
-	}
+	check_usable(blk_devices, options.force);
 
 	Md* md = Md::create(staging, name);
 	md->set_metadata(options.metadata ? options.metadata.value() : "default");

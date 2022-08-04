@@ -93,7 +93,7 @@ namespace barrel
 
 	for (const string& blk_device_name : options.blk_devices)
 	{
-	    BlkDevice* blk_device = BlkDevice::find_by_name(staging, blk_device_name);
+	    const BlkDevice* blk_device = BlkDevice::find_by_name(staging, blk_device_name);
 	    pool->add_device(blk_device);
 
 	    pimp_pool(pool, blk_device);

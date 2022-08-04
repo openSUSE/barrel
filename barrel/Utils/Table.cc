@@ -49,7 +49,7 @@ namespace barrel
 
 	widths = table.min_widths;
 
-	if (table.style != Style::NONE)
+	if (table.show_header)
 	    calculate_widths(table, table.header, 0);
 
 	for (const Table::Row& row : table.rows)
@@ -156,7 +156,10 @@ namespace barrel
 		    s << string(output_info.widths[i] - width - extra, ' ');
 	    }
 
-	    s << " " << glyph(0);
+	    s << " ";
+
+	    if (show_grid)
+		s << glyph(0);
 	}
 
 	s << '\n';
@@ -269,11 +272,11 @@ namespace barrel
 
 	// output header and rows
 
-	if (table.style != Style::NONE)
-	{
+	if (table.show_header)
 	    table.output(s, table.header, output_info, {});
+
+	if (table.show_header && table.show_grid)
 	    table.output(s, output_info);
-	}
 
 	for (const Table::Row& row : table.rows)
 	    table.output(s, row, output_info, {});
@@ -286,10 +289,9 @@ namespace barrel
     Table::glyph(unsigned int i) const
     {
 	const char* glyphs[][7] = {
-	    { "│", "─", "┼", "├─", "└─", "│ ", "  " },  // STANDARD
-	    { "║", "═", "╬", "├─", "└─", "│ ", "  " },  // DOUBLE
-	    { "|", "-", "+", "+-", "+-", "| ", "  " },  // ASCII
-	    { "",  "",  "",  "  ", "  ", "  ", "  " }   // NONE
+	    { "│", "─", "┼", "├─", "└─", "│ ", "  " },	// STANDARD
+	    { "║", "═", "╬", "├─", "└─", "│ ", "  " },	// DOUBLE
+	    { "|", "-", "+", "+-", "+-", "| ", "  " }	// ASCII
 	};
 
 	return glyphs[(unsigned int)(style)][i];

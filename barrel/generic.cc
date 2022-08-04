@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2022] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -168,6 +168,74 @@ namespace barrel
     }
 
 
+    class ParsedCmdOpenMark : public ParsedCmd
+    {
+    public:
+
+	virtual bool do_backup() const override { return false; }
+
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
+
+    };
+
+
+    void
+    ParsedCmdOpenMark::doit(const GlobalOptions& global_options, State& state) const
+    {
+       state.stack.open_mark();
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdOpenMark::parse(GetOpts& get_opts) const
+    {
+	get_opts.parse("[", GetOpts::no_ext_options);
+
+	return make_shared<ParsedCmdOpenMark>();
+    }
+
+
+    const char*
+    CmdOpenMark::help() const
+    {
+	return _("[ pushes a mark on the stack.");
+    }
+
+
+    class ParsedCmdCloseMark : public ParsedCmd
+    {
+    public:
+
+	virtual bool do_backup() const override { return false; }
+
+	virtual void doit(const GlobalOptions& global_options, State& state) const override;
+
+    };
+
+
+    void
+    ParsedCmdCloseMark::doit(const GlobalOptions& global_options, State& state) const
+    {
+	state.stack.close_mark();
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCloseMark::parse(GetOpts& get_opts) const
+    {
+	get_opts.parse("]", GetOpts::no_ext_options);
+
+	return make_shared<ParsedCmdCloseMark>();
+    }
+
+
+    const char*
+    CmdCloseMark::help() const
+    {
+	return _("] constructs an array.");
+    }
+
+
     class ParsedCmdStack : public ParsedCmd
     {
     public:
@@ -185,8 +253,10 @@ namespace barrel
 	const Stack& stack = state.stack;
 	Devicegraph* staging = state.storage->get_staging();
 
-	Table table({ _("Position"), _("Description") });
-	table.set_style(Style::NONE);
+	Table table({ _("Position"), Cell(_("Description"), Id::DESCRIPTION) });
+	table.set_show_header(false);
+	table.set_show_grid(false);
+	table.set_tree_id(Id::DESCRIPTION);
 
 	for (Stack::const_iterator it = stack.begin(); it != stack.end(); ++it)
 	{
@@ -194,7 +264,9 @@ namespace barrel
 
 	    const StackObject::Base* stack_object = it->get();
 
-	    table.add(Table::Row(table, { p, stack_object->print(staging) }));
+	    Table::Row row = Table::Row(table, { p });
+	    stack_object->print(staging, row);
+	    table.add(row);
 	}
 
 	cout << table;

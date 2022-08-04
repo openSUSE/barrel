@@ -135,6 +135,8 @@ namespace barrel
 
 
     const vector<MainCmd> main_cmds = {
+	{ "[", make_shared<CmdOpenMark>(), {} },
+	{ "]", make_shared<CmdCloseMark>(), {} },
 	{ "clear", make_shared<CmdClear>(), {} },
 	{ "commit", make_shared<CmdCommit>(), {} },
 	{ "create", nullptr, create_cmds },

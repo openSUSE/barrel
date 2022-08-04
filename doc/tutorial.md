@@ -154,8 +154,8 @@ barrel[1]> commit
 Commit changes? [y/n] y
 ~~~
 
-Finally one example to create an LVM volume group with one logical
-volume and an ext4 in one step:
+One more example to create an LVM volume group with one logical volume
+and an ext4 in one step:
 
 ~~~
 barrel> create vg --name vg1 --size 10g --pool "SSDs (512 B)" lv --name lv1 --size 5g ext4 --path /test4
@@ -167,6 +167,18 @@ barrel> create vg --name vg1 --size 10g --pool "SSDs (512 B)" lv --name lv1 --si
   Create ext4 on /dev/vg1/lv1 (5.00 GiB)
   Mount /dev/vg1/lv1 (5.00 GiB) at /test4
   Add mount point /test4 of /dev/vg1/lv1 (5.00 GiB) to /etc/fstab
+~~~
+
+And finally a complex example that first creates an array containing
+two RAIDs and then a LVM volume group using the two RAIDs
+(intermediate output omitted):
+
+~~~
+barrel> [
+barrel[1]> create raid1 --pool-name \"SSDs (512 B)\" --devices 2 --size 100g
+barrel[2]> create raid1 --pool-name \"HDDs (512 B)\" --devices 2 --size 2t
+barrel[3]> ]
+barrel[1]> create vg --name test
 ~~~
 
 So, that is all for the tutorial. More information is available in the
