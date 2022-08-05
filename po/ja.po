@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-05 08:29+0200\n"
-"PO-Revision-Date: 2022-06-04 00:13+0000\n"
+"PO-Revision-Date: 2022-08-05 13:13+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -161,9 +161,8 @@ msgstr "スタックの最上部にあるオブジェクトを複製します。
 msgid "Enter password:"
 msgstr "パスワードを入力:"
 
-#, fuzzy
 msgid "Exchanges the top two elements of the stack."
-msgstr "スタックの最上部にあるオブジェクトを複製します。"
+msgstr "スタックの最上部にある 2 つの要素を入れ替えます。"
 
 msgid "Extent Size"
 msgstr "エクステントサイズ"
@@ -231,9 +230,8 @@ msgstr "コマンドオプション '%s' に対するパラメータが指定さ
 msgid "Missing argument for global option '%s'."
 msgstr "グローバルオプション '%s' に対するパラメータが指定されていません。"
 
-#, fuzzy
 msgid "Missing block devices."
-msgstr "スタック内に存在するものがブロックデバイスではありません"
+msgstr "ブロックデバイスがありません。"
 
 msgid "Model"
 msgstr "モデル"
@@ -271,7 +269,7 @@ msgid "Probing..."
 msgstr "検出しています..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "プロファイル"
 
 msgid "Quit?"
 msgstr "終了しますか？"
@@ -381,12 +379,11 @@ msgstr "製造元"
 msgid "Verify password:"
 msgstr "パスワードの確認入力:"
 
-#, fuzzy
 msgid "[ pushes a mark on the stack."
-msgstr "スタックを消去します。"
+msgstr "[ はスタック内にマークをプッシュします。"
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] は配列を構築します。"
 
 msgid "activate storage systems at startup"
 msgstr "起動時にストレージシステムを有効化する"
@@ -397,7 +394,7 @@ msgstr "全ての質問に対して 'yes' (はい) と回答します"
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
+msgstr[0] "%d 個のオブジェクトがある配列"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
@@ -425,17 +422,14 @@ msgstr "ブロックデバイス '%s' は通常のブロックデバイスとし
 msgid "block device '%s' is in use"
 msgstr "ブロックデバイス '%s' は使用中です"
 
-#, fuzzy
 msgid "block devices for LVM volume group missing"
-msgstr "LVM ボリュームグループを表示します。"
+msgstr "LVM ボリュームグループに対するブロックデバイスがありません"
 
-#, fuzzy
 msgid "block devices for RAID missing"
-msgstr "ブロックデバイス '%s' は使用中です"
+msgstr "RAID に対するブロックデバイスがありません"
 
-#, fuzzy
 msgid "block devices for filesystem missing"
-msgstr "ブロックデバイス '%s' は使用中です"
+msgstr "ファイルシステムに対するブロックデバイスがありません"
 
 msgid "block devices missing for command 'raid'"
 msgstr "コマンド 'raid' に対するブロックデバイスが指定されていません"
@@ -449,9 +443,8 @@ msgstr "JSON ファイル '%s' を閉じる処理が失敗しました"
 msgid "closing json file '%s' failed"
 msgstr "JSON ファイル '%s' を閉じる処理が失敗しました"
 
-#, fuzzy
 msgid "deleted device"
-msgstr "複数デバイス"
+msgstr "削除済みのデバイス"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -505,7 +498,7 @@ msgstr "処理の計算に失敗しました"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "サイズ '%s' の解釈に失敗しました"
 
 #, c-format
 msgid "filesystem %s on %s"
@@ -531,9 +524,9 @@ msgstr "下に移動"
 msgid "go upwards"
 msgstr "上に移動"
 
-#, fuzzy, c-format
+#, c-format
 msgid "invalid devices value '%d'"
-msgstr "デバイスパラメータが正しくありません"
+msgstr "デバイスの値 '%d' が正しくありません"
 
 msgid "invalid logical volume name for command 'lv'"
 msgstr "コマンド 'lv' に対する論理ボリューム名が正しくありません"
@@ -542,9 +535,9 @@ msgstr "コマンド 'lv' に対する論理ボリューム名が正しくあり
 msgid "invalid path '%s'"
 msgstr "パス '%s' が正しくありません"
 
-#, fuzzy, c-format
+#, c-format
 msgid "invalid size '%s'"
-msgstr "回答 '%s' が正しくありません"
+msgstr "サイズ '%s' が正しくありません"
 
 msgid "invalid volume group name for command 'vg'"
 msgstr "コマンド 'vg' に対するボリュームグループ名が正しくありません"
@@ -612,20 +605,17 @@ msgstr "%s から %s へのマッピング"
 msgid "mapping not found in json file '%s'"
 msgstr "JSON ファイル '%s' 内にはマッピングが見つかりません"
 
-#, fuzzy
 msgid "missing block device"
-msgstr "デバイスのラベルを指定します"
+msgstr "ブロックデバイスがありません"
 
-#, fuzzy
 msgid "missing partitionable"
-msgstr "パーティション作成可能なものではありません"
+msgstr "パーティション設定可能なものがありません"
 
 msgid "mkfs options"
 msgstr "mkfs のオプション"
 
-#, fuzzy
 msgid "mount by"
-msgstr "マウントパス"
+msgstr "マウント方法"
 
 msgid "mount options"
 msgstr "マウントオプション"
@@ -636,9 +626,8 @@ msgstr "パスを必要とするマウントオプション"
 msgid "mount path"
 msgstr "マウントパス"
 
-#, fuzzy
 msgid "mount-by requires a path"
-msgstr "パスを必要とするマウントオプション"
+msgstr "mount-by にはパスを指定する必要があります"
 
 msgid "multiple devices"
 msgstr "複数デバイス"
@@ -708,39 +697,32 @@ msgstr "'%s' に対応するディスクが見つかりません"
 msgid "no mapping multipath for '%s' found"
 msgstr "'%s' に対応するマルチパスが見つかりません"
 
-#, fuzzy
 msgid "no mark on stack"
-msgstr "スタック内に存在するものがブロックデバイスではありません"
+msgstr "スタック内にはマークが設定されていません"
 
-#, fuzzy
 msgid "not a block device in array"
-msgstr "スタック内に存在するものがブロックデバイスではありません"
+msgstr "配列内のブロックデバイスではありません"
 
 msgid "not a block device on stack"
 msgstr "スタック内に存在するものがブロックデバイスではありません"
 
-#, fuzzy
 msgid "not a block device or array of block devices on stack"
-msgstr "スタック内に存在するものがブロックデバイスではありません"
+msgstr "スタック内のブロックデバイスもしくはブロックデバイスの配列ではありません"
 
-#, fuzzy
 msgid "not a device in array"
-msgstr "スタック内に存在するものがブロックデバイスではありません"
+msgstr "配列内のデバイスではありません"
 
-#, fuzzy
 msgid "not a device on stack"
-msgstr "スタック内に存在するものがブロックデバイスではありません"
+msgstr "スタック内のデバイスではありません"
 
-#, fuzzy
 msgid "not a partition table in array"
-msgstr "スタック内に存在するものがパーティションテーブルではありません"
+msgstr "配列内のパーティションテーブルではありません"
 
 msgid "not a partition table on stack"
 msgstr "スタック内に存在するものがパーティションテーブルではありません"
 
-#, fuzzy
 msgid "not a partition table or array of partition tables on stack"
-msgstr "スタック内に存在するものがパーティションテーブルではありません"
+msgstr "スタック内のパーティションテーブルもしくはパーティションテーブルの配列ではありません"
 
 msgid "not a partitionable"
 msgstr "パーティション作成可能なものではありません"
@@ -760,13 +742,11 @@ msgstr "古い名前"
 msgid "only one block device allowed"
 msgstr "1 つのブロックデバイスのみを指定することができます"
 
-#, fuzzy
 msgid "only one partition table allowed"
-msgstr "不明なパーティションテーブルの種類"
+msgstr "1 つのパーティションテーブルのみを指定することができます"
 
-#, fuzzy
 msgid "only one partitionable allowed"
-msgstr "1 つのブロックデバイスのみを指定することができます"
+msgstr "1 つのパーティション設定可能なもののみを指定することができます"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
@@ -777,9 +757,9 @@ msgstr "JSON ファイル '%s' を開く処理が失敗しました"
 msgid "opening json file '%s' failed"
 msgstr "JSON ファイル '%s' を開く処理が失敗しました"
 
-#, fuzzy, c-format
+#, c-format
 msgid "option --devices not allowed for %s"
-msgstr "%s に対してはチューニングオプションは使用できません"
+msgstr "%s に対してはオプション --devices が許可されません"
 
 #, c-format
 msgid "parsing json file '%s' failed"
@@ -832,7 +812,7 @@ msgstr ""
 "はできません"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "プールが空になっています"
 
 msgid "pool name"
 msgstr "プールの名前"
@@ -842,9 +822,8 @@ msgstr "プールの名前"
 msgid "read for json file '%s' failed"
 msgstr "JSON ファイル '%s' の読み込みに失敗しました"
 
-#, fuzzy
 msgid "run with a rootprefix"
-msgstr "プレフィクス付きで実行します"
+msgstr "ルートプレフィクス付きで実行します"
 
 msgid "set RAID level"
 msgstr "RAID レベルを指定します"
@@ -882,9 +861,8 @@ msgstr "ボリュームグループの名前を指定します"
 msgid "set number of devices"
 msgstr "デバイスの数を指定します"
 
-#, fuzzy
 msgid "set profiles"
-msgstr "デバイスの数を指定します"
+msgstr "プロファイルを設定します"
 
 msgid "set size"
 msgstr "サイズを指定します"
@@ -941,9 +919,8 @@ msgstr "ストライプの数"
 msgid "spare devices not allowed for raid level"
 msgstr "この RAID レベルではスペアデバイスは許可されません"
 
-#, fuzzy
 msgid "stack empty"
-msgstr "dup 時にスタックが空になりました"
+msgstr "スタックが空になっています"
 
 msgid "stack empty during dup"
 msgstr "dup 時にスタックが空になりました"
@@ -952,7 +929,7 @@ msgid "stack empty during pop"
 msgstr "pop 時にスタックが空になりました"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "exch 時にスタックが不足しました"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
@@ -969,9 +946,9 @@ msgstr "チューニングオプション"
 msgid "tune options not allowed for %s"
 msgstr "%s に対してはチューニングオプションは使用できません"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr "不明なファイルシステムの種類 '%s'"
+msgstr "不明な btrfs プロファイル '%s'"
 
 msgid "unknown encryption type"
 msgstr "不明な暗号化の種類"
@@ -980,9 +957,9 @@ msgstr "不明な暗号化の種類"
 msgid "unknown filesystem type '%s'"
 msgstr "不明なファイルシステムの種類 '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type type '%s'"
-msgstr "不明なファイルシステムの種類 '%s'"
+msgstr "不明な mount-by の種類 '%s'"
 
 msgid "unknown partition table type"
 msgstr "不明なパーティションテーブルの種類"
