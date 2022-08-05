@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 14:37+0200\n"
+"POT-Creation-Date: 2022-08-05 08:29+0200\n"
 "PO-Revision-Date: 2022-06-03 16:13+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
-"\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,6 +161,10 @@ msgstr "Duplica l'objecte de dalt de tot de la pila."
 msgid "Enter password:"
 msgstr "Proporcioneu la contrasenya:"
 
+#, fuzzy
+msgid "Exchanges the top two elements of the stack."
+msgstr "Duplica l'objecte de dalt de tot de la pila."
+
 msgid "Extent Size"
 msgstr "Amplia'n la mida"
 
@@ -227,6 +231,10 @@ msgstr "Falta l'argument de l'opció d'ordre %s."
 msgid "Missing argument for global option '%s'."
 msgstr "Falta l'argument de l'opció global %s."
 
+#, fuzzy
+msgid "Missing block devices."
+msgstr "no hi ha un dispositiu de bloc a la pila"
+
 msgid "Model"
 msgstr "Model"
 
@@ -260,6 +268,9 @@ msgstr "Imprimeix la pila."
 
 msgid "Probing..."
 msgstr "Sondant..."
+
+msgid "Profiles"
+msgstr ""
 
 msgid "Quit?"
 msgstr "Voleu sortir-ne?"
@@ -369,11 +380,24 @@ msgstr "Proveïdor"
 msgid "Verify password:"
 msgstr "Verifiqueu la contrasenya:"
 
+#, fuzzy
+msgid "[ pushes a mark on the stack."
+msgstr "Neteja la pila."
+
+msgid "] constructs an array."
+msgstr ""
+
 msgid "activate storage systems at startup"
 msgstr "activa els sistemes d'emmagatzematge a l'inici"
 
 msgid "answer all questions with yes"
 msgstr "contesta totes les preguntes amb sí"
+
+#, c-format
+msgid "array with %d object"
+msgid_plural "array with %d objects"
+msgstr[0] ""
+msgstr[1] ""
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
@@ -402,6 +426,18 @@ msgstr ""
 msgid "block device '%s' is in use"
 msgstr "el dispositiu de bloc %s està en ús"
 
+#, fuzzy
+msgid "block devices for LVM volume group missing"
+msgstr "Mostra els grups de volums LVM."
+
+#, fuzzy
+msgid "block devices for RAID missing"
+msgstr "el dispositiu de bloc %s està en ús"
+
+#, fuzzy
+msgid "block devices for filesystem missing"
+msgstr "el dispositiu de bloc %s està en ús"
+
 msgid "block devices missing for command 'raid'"
 msgstr "falten dispositius de bloc per a l'ordre raid"
 
@@ -413,6 +449,10 @@ msgstr "ha fallat tancar el fitxer json %s"
 #, c-format
 msgid "closing json file '%s' failed"
 msgstr "ha fallat tancar el fitxer json %s"
+
+#, fuzzy
+msgid "deleted device"
+msgstr "dispositius múltiples"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -465,6 +505,10 @@ msgid "failed to calculate actions"
 msgstr "ha fallat calcular les accions"
 
 #, c-format
+msgid "failed to parse size '%s'"
+msgstr ""
+
+#, c-format
 msgid "filesystem %s on %s"
 msgstr "sistema de fitxers %s a %s"
 
@@ -487,12 +531,20 @@ msgstr "ves avall"
 msgid "go upwards"
 msgstr "ves amunt"
 
+#, fuzzy, c-format
+msgid "invalid devices value '%d'"
+msgstr "argument de dispositius malmesos"
+
 msgid "invalid logical volume name for command 'lv'"
 msgstr "nom de volum lògic no vàlid per a l'ordre lv"
 
 #, c-format
 msgid "invalid path '%s'"
 msgstr "camí no vàlid: %s"
+
+#, fuzzy, c-format
+msgid "invalid size '%s'"
+msgstr "Resposta no vàlida: %s"
 
 msgid "invalid volume group name for command 'vg'"
 msgstr "nom de grup de volums no vàlid per a l'ordre vg"
@@ -560,8 +612,20 @@ msgstr "mapatge de %s a %s"
 msgid "mapping not found in json file '%s'"
 msgstr "mapatge no trobat al fitxer json %s"
 
+#, fuzzy
+msgid "missing block device"
+msgstr "estableix l'etiqueta del dispositiu"
+
+#, fuzzy
+msgid "missing partitionable"
+msgstr "no es pot partir"
+
 msgid "mkfs options"
 msgstr "opcions d'mkfs"
+
+#, fuzzy
+msgid "mount by"
+msgstr "camí de muntatge"
 
 msgid "mount options"
 msgstr "opcions de muntatge"
@@ -571,6 +635,10 @@ msgstr "les opcions de muntatge necessiten un camí"
 
 msgid "mount path"
 msgstr "camí de muntatge"
+
+#, fuzzy
+msgid "mount-by requires a path"
+msgstr "les opcions de muntatge necessiten un camí"
 
 msgid "multiple devices"
 msgstr "dispositius múltiples"
@@ -640,10 +708,38 @@ msgstr "no s'ha trobat cap disc de mapatge per a %s"
 msgid "no mapping multipath for '%s' found"
 msgstr "no s'ha trobat multicamí de mapatge per a %s"
 
+#, fuzzy
+msgid "no mark on stack"
+msgstr "no hi ha un dispositiu de bloc a la pila"
+
+#, fuzzy
+msgid "not a block device in array"
+msgstr "no hi ha un dispositiu de bloc a la pila"
+
 msgid "not a block device on stack"
 msgstr "no hi ha un dispositiu de bloc a la pila"
 
+#, fuzzy
+msgid "not a block device or array of block devices on stack"
+msgstr "no hi ha un dispositiu de bloc a la pila"
+
+#, fuzzy
+msgid "not a device in array"
+msgstr "no hi ha un dispositiu de bloc a la pila"
+
+#, fuzzy
+msgid "not a device on stack"
+msgstr "no hi ha un dispositiu de bloc a la pila"
+
+#, fuzzy
+msgid "not a partition table in array"
+msgstr "no hi ha una taula de particions a la pila"
+
 msgid "not a partition table on stack"
+msgstr "no hi ha una taula de particions a la pila"
+
+#, fuzzy
+msgid "not a partition table or array of partition tables on stack"
 msgstr "no hi ha una taula de particions a la pila"
 
 msgid "not a partitionable"
@@ -664,6 +760,14 @@ msgstr "nom antic"
 msgid "only one block device allowed"
 msgstr "només es permet un dispositiu de bloc"
 
+#, fuzzy
+msgid "only one partition table allowed"
+msgstr "tipus de taula de particions desconegut"
+
+#, fuzzy
+msgid "only one partitionable allowed"
+msgstr "només es permet un dispositiu de bloc"
+
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
@@ -672,6 +776,10 @@ msgstr "ha fallat obrir el fitxer json %s"
 #, c-format
 msgid "opening json file '%s' failed"
 msgstr "ha fallat obrir el fitxer json %s"
+
+#, fuzzy, c-format
+msgid "option --devices not allowed for %s"
+msgstr "opcions d'ajust no permeses per a %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
@@ -719,6 +827,9 @@ msgstr ""
 "no es permeten conjuntament l'argument d'agrupació i els dispositius de bloc "
 "per a l'ordre vg"
 
+msgid "pool is empty"
+msgstr ""
+
 msgid "pool name"
 msgstr "nom d'agrupació"
 
@@ -727,7 +838,8 @@ msgstr "nom d'agrupació"
 msgid "read for json file '%s' failed"
 msgstr "ha fallat la lectura del fitxer json %s"
 
-msgid "run with a prefix"
+#, fuzzy
+msgid "run with a rootprefix"
 msgstr "executa amb un prefix"
 
 msgid "set RAID level"
@@ -764,6 +876,10 @@ msgid "set name of volume group"
 msgstr "estableix el nom del grup de volums"
 
 msgid "set number of devices"
+msgstr "estableix el nombre de dispositius"
+
+#, fuzzy
+msgid "set profiles"
 msgstr "estableix el nombre de dispositius"
 
 msgid "set size"
@@ -821,11 +937,18 @@ msgstr "mida de les franges"
 msgid "spare devices not allowed for raid level"
 msgstr "dispositius de recanvi no permesos per al nivell de raid"
 
+#, fuzzy
+msgid "stack empty"
+msgstr "pila buida durant dup"
+
 msgid "stack empty during dup"
 msgstr "pila buida durant dup"
 
 msgid "stack empty during pop"
 msgstr "pila buida durant pop"
+
+msgid "stackunderflow during exch"
+msgstr ""
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
@@ -842,11 +965,19 @@ msgstr "opcions d'ajust"
 msgid "tune options not allowed for %s"
 msgstr "opcions d'ajust no permeses per a %s"
 
+#, fuzzy, c-format
+msgid "unknown btrfs profile '%s'"
+msgstr "tipus de sistema de fitxers desconegut: %s"
+
 msgid "unknown encryption type"
 msgstr "tipus d'encriptació desconegut"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
+msgstr "tipus de sistema de fitxers desconegut: %s"
+
+#, fuzzy, c-format
+msgid "unknown mount-by type type '%s'"
 msgstr "tipus de sistema de fitxers desconegut: %s"
 
 msgid "unknown partition table type"
