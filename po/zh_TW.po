@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 14:37+0200\n"
+"POT-Creation-Date: 2022-08-05 08:29+0200\n"
 "PO-Revision-Date: 2022-03-07 11:12+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
@@ -165,6 +165,10 @@ msgstr "複製堆疊的頂層物件。"
 msgid "Enter password:"
 msgstr "輸入密碼："
 
+#, fuzzy
+msgid "Exchanges the top two elements of the stack."
+msgstr "複製堆疊的頂層物件。"
+
 msgid "Extent Size"
 msgstr "範圍大小"
 
@@ -231,6 +235,10 @@ msgstr "指令選項 \"%s\" 遺失引數。"
 msgid "Missing argument for global option '%s'."
 msgstr "全域選項 \"%s\" 遺失引數。"
 
+#, fuzzy
+msgid "Missing block devices."
+msgstr "堆疊上不是區塊裝置"
+
 msgid "Model"
 msgstr "型號"
 
@@ -264,6 +272,9 @@ msgstr "列印堆疊。"
 
 msgid "Probing..."
 msgstr "正在查探..."
+
+msgid "Profiles"
+msgstr ""
 
 msgid "Quit?"
 msgstr "是否結束？"
@@ -373,11 +384,23 @@ msgstr "廠商"
 msgid "Verify password:"
 msgstr "驗證密碼："
 
+#, fuzzy
+msgid "[ pushes a mark on the stack."
+msgstr "清除堆疊。"
+
+msgid "] constructs an array."
+msgstr ""
+
 msgid "activate storage systems at startup"
 msgstr "啟動時啟用儲存系統"
 
 msgid "answer all questions with yes"
 msgstr "對所有問題都回答 \"是\""
+
+#, c-format
+msgid "array with %d object"
+msgid_plural "array with %d objects"
+msgstr[0] ""
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
@@ -405,6 +428,18 @@ msgstr "區塊裝置 \"%s\" 不能用做一般區塊裝置"
 msgid "block device '%s' is in use"
 msgstr "區塊裝置 \"%s\" 已在使用中"
 
+#, fuzzy
+msgid "block devices for LVM volume group missing"
+msgstr "顯示 LVM 磁碟區群組。"
+
+#, fuzzy
+msgid "block devices for RAID missing"
+msgstr "區塊裝置 \"%s\" 已在使用中"
+
+#, fuzzy
+msgid "block devices for filesystem missing"
+msgstr "區塊裝置 \"%s\" 已在使用中"
+
 msgid "block devices missing for command 'raid'"
 msgstr "\"raid\" 指令遺失區塊裝置"
 
@@ -416,6 +451,10 @@ msgstr "關閉 json 檔案 \"%s\" 失敗"
 #, c-format
 msgid "closing json file '%s' failed"
 msgstr "關閉 json 檔案 \"%s\" 失敗"
+
+#, fuzzy
+msgid "deleted device"
+msgstr "多部裝置"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -468,6 +507,10 @@ msgid "failed to calculate actions"
 msgstr "無法計算動作"
 
 #, c-format
+msgid "failed to parse size '%s'"
+msgstr ""
+
+#, c-format
 msgid "filesystem %s on %s"
 msgstr "檔案系統 %s (%s 上)"
 
@@ -489,12 +532,20 @@ msgstr "向下"
 msgid "go upwards"
 msgstr "向上"
 
+#, fuzzy, c-format
+msgid "invalid devices value '%d'"
+msgstr "錯誤的裝置引數"
+
 msgid "invalid logical volume name for command 'lv'"
 msgstr "邏輯磁碟區名稱對 \"lv\" 指令無效"
 
 #, c-format
 msgid "invalid path '%s'"
 msgstr "路徑 \"%s\" 無效"
+
+#, fuzzy, c-format
+msgid "invalid size '%s'"
+msgstr "回答 \"%s\" 無效"
 
 msgid "invalid volume group name for command 'vg'"
 msgstr "磁碟區群組名稱對 \"vg\" 指令無效"
@@ -562,8 +613,20 @@ msgstr "正在將 %s 對應至 %s"
 msgid "mapping not found in json file '%s'"
 msgstr "在 json 檔案 \"%s\" 中找不到對應"
 
+#, fuzzy
+msgid "missing block device"
+msgstr "設定裝置標籤"
+
+#, fuzzy
+msgid "missing partitionable"
+msgstr "不是可分割裝置"
+
 msgid "mkfs options"
 msgstr "Mkfs 選項"
+
+#, fuzzy
+msgid "mount by"
+msgstr "裝載路徑"
 
 msgid "mount options"
 msgstr "裝載選項"
@@ -573,6 +636,10 @@ msgstr "裝載選項需要路徑"
 
 msgid "mount path"
 msgstr "裝載路徑"
+
+#, fuzzy
+msgid "mount-by requires a path"
+msgstr "裝載選項需要路徑"
 
 msgid "multiple devices"
 msgstr "多部裝置"
@@ -642,10 +709,38 @@ msgstr "找不到 \"%s\" 的對應磁碟"
 msgid "no mapping multipath for '%s' found"
 msgstr "找不到 \"%s\" 的對應多重路徑"
 
+#, fuzzy
+msgid "no mark on stack"
+msgstr "堆疊上不是區塊裝置"
+
+#, fuzzy
+msgid "not a block device in array"
+msgstr "堆疊上不是區塊裝置"
+
 msgid "not a block device on stack"
 msgstr "堆疊上不是區塊裝置"
 
+#, fuzzy
+msgid "not a block device or array of block devices on stack"
+msgstr "堆疊上不是區塊裝置"
+
+#, fuzzy
+msgid "not a device in array"
+msgstr "堆疊上不是區塊裝置"
+
+#, fuzzy
+msgid "not a device on stack"
+msgstr "堆疊上不是區塊裝置"
+
+#, fuzzy
+msgid "not a partition table in array"
+msgstr "堆疊上不是分割區表"
+
 msgid "not a partition table on stack"
+msgstr "堆疊上不是分割區表"
+
+#, fuzzy
+msgid "not a partition table or array of partition tables on stack"
 msgstr "堆疊上不是分割區表"
 
 msgid "not a partitionable"
@@ -666,6 +761,14 @@ msgstr "舊名稱"
 msgid "only one block device allowed"
 msgstr "只允許一個區塊裝置"
 
+#, fuzzy
+msgid "only one partition table allowed"
+msgstr "未知的分割區表類型"
+
+#, fuzzy
+msgid "only one partitionable allowed"
+msgstr "只允許一個區塊裝置"
+
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
@@ -674,6 +777,10 @@ msgstr "開啟 json 檔案 \"%s\" 失敗"
 #, c-format
 msgid "opening json file '%s' failed"
 msgstr "開啟 json 檔案 \"%s\" 失敗"
+
+#, fuzzy, c-format
+msgid "option --devices not allowed for %s"
+msgstr "不允許為 %s 使用微調選項"
 
 #, c-format
 msgid "parsing json file '%s' failed"
@@ -714,6 +821,9 @@ msgstr "\"filesystem\" 指令中不允許將池引數和 blk 裝置配合使用"
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr "\"vg\" 指令中不允許將池引數和 blk 裝置配合使用"
 
+msgid "pool is empty"
+msgstr ""
+
 msgid "pool name"
 msgstr "池名稱"
 
@@ -722,7 +832,8 @@ msgstr "池名稱"
 msgid "read for json file '%s' failed"
 msgstr "讀取 json 檔案 \"%s\" 失敗"
 
-msgid "run with a prefix"
+#, fuzzy
+msgid "run with a rootprefix"
 msgstr "使用字首執行"
 
 msgid "set RAID level"
@@ -759,6 +870,10 @@ msgid "set name of volume group"
 msgstr "設定磁碟區群組名稱"
 
 msgid "set number of devices"
+msgstr "設定裝置數量"
+
+#, fuzzy
+msgid "set profiles"
 msgstr "設定裝置數量"
 
 msgid "set size"
@@ -816,11 +931,18 @@ msgstr "等量磁碟區大小"
 msgid "spare devices not allowed for raid level"
 msgstr "不允許為 raid 層級使用備用裝置"
 
+#, fuzzy
+msgid "stack empty"
+msgstr "執行 dup 期間堆疊為空白"
+
 msgid "stack empty during dup"
 msgstr "執行 dup 期間堆疊為空白"
 
 msgid "stack empty during pop"
 msgstr "執行 pop 期間堆疊為空白"
+
+msgid "stackunderflow during exch"
+msgstr ""
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
@@ -837,11 +959,19 @@ msgstr "微調選項"
 msgid "tune options not allowed for %s"
 msgstr "不允許為 %s 使用微調選項"
 
+#, fuzzy, c-format
+msgid "unknown btrfs profile '%s'"
+msgstr "未知的檔案系統類型 \"%s\""
+
 msgid "unknown encryption type"
 msgstr "未知的加密類型"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
+msgstr "未知的檔案系統類型 \"%s\""
+
+#, fuzzy, c-format
+msgid "unknown mount-by type type '%s'"
 msgstr "未知的檔案系統類型 \"%s\""
 
 msgid "unknown partition table type"

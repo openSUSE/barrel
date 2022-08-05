@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 14:37+0200\n"
+"POT-Creation-Date: 2022-08-05 08:29+0200\n"
 "PO-Revision-Date: 2022-03-04 18:12+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
@@ -160,6 +160,10 @@ msgstr "Dupliziert das oberste Objekt im Stack."
 msgid "Enter password:"
 msgstr "Passwort eingeben:"
 
+#, fuzzy
+msgid "Exchanges the top two elements of the stack."
+msgstr "Dupliziert das oberste Objekt im Stack."
+
 msgid "Extent Size"
 msgstr "Extent-Größe"
 
@@ -226,6 +230,10 @@ msgstr "Fehlendes Argument für Kommandooption '%s'."
 msgid "Missing argument for global option '%s'."
 msgstr "Fehlendes Argument für globale Option '%s'."
 
+#, fuzzy
+msgid "Missing block devices."
+msgstr "kein Blockgerät im Stack"
+
 msgid "Model"
 msgstr "Modell"
 
@@ -259,6 +267,9 @@ msgstr "Gibt den Stack aus."
 
 msgid "Probing..."
 msgstr "Prüfung wird ausgeführt..."
+
+msgid "Profiles"
+msgstr ""
 
 msgid "Quit?"
 msgstr "Beenden?"
@@ -369,11 +380,24 @@ msgstr "Hersteller"
 msgid "Verify password:"
 msgstr "Passwort bestätigen:"
 
+#, fuzzy
+msgid "[ pushes a mark on the stack."
+msgstr "Löscht den Stack."
+
+msgid "] constructs an array."
+msgstr ""
+
 msgid "activate storage systems at startup"
 msgstr "Speichersysteme beim Start aktivieren"
 
 msgid "answer all questions with yes"
 msgstr "alle Fragen mit ja beantworten"
+
+#, c-format
+msgid "array with %d object"
+msgid_plural "array with %d objects"
+msgstr[0] ""
+msgstr[1] ""
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
@@ -401,6 +425,18 @@ msgstr "Blockgerät '%s' kann nicht als normales Blockgerät verwendet werden"
 msgid "block device '%s' is in use"
 msgstr "Blockgerät '%s' wird verwendet"
 
+#, fuzzy
+msgid "block devices for LVM volume group missing"
+msgstr "Zeigt LVM-Volume-Gruppen an."
+
+#, fuzzy
+msgid "block devices for RAID missing"
+msgstr "Blockgerät '%s' wird verwendet"
+
+#, fuzzy
+msgid "block devices for filesystem missing"
+msgstr "Blockgerät '%s' wird verwendet"
+
 msgid "block devices missing for command 'raid'"
 msgstr "Blockgeräte für Kommando 'raid' fehlen"
 
@@ -412,6 +448,10 @@ msgstr "Schließen von json-Datei '%s' fehlgeschlagen"
 #, c-format
 msgid "closing json file '%s' failed"
 msgstr "Schließen der json-Datei '%s' fehlgeschlagen"
+
+#, fuzzy
+msgid "deleted device"
+msgstr "mehrere Geräte"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -465,6 +505,10 @@ msgid "failed to calculate actions"
 msgstr "Berechnung von Aktionen fehlgeschlagen"
 
 #, c-format
+msgid "failed to parse size '%s'"
+msgstr ""
+
+#, c-format
 msgid "filesystem %s on %s"
 msgstr "Dateisystem %s auf %s"
 
@@ -486,12 +530,20 @@ msgstr "nach unten gehen"
 msgid "go upwards"
 msgstr "nach oben gehen"
 
+#, fuzzy, c-format
+msgid "invalid devices value '%d'"
+msgstr "schlechtes Geräteargument"
+
 msgid "invalid logical volume name for command 'lv'"
 msgstr "ungültiger Name für logisches Volume in Kommando 'lv'"
 
 #, c-format
 msgid "invalid path '%s'"
 msgstr "Pfad '%s' ist ungültig"
+
+#, fuzzy, c-format
+msgid "invalid size '%s'"
+msgstr "Antwort '%s' ist ungültig"
 
 msgid "invalid volume group name for command 'vg'"
 msgstr "ungültiger Name für Volume-Gruppe in Kommando 'vg'"
@@ -559,8 +611,20 @@ msgstr "%s wird %s zugeordnet"
 msgid "mapping not found in json file '%s'"
 msgstr "Zuordnung nicht in json-Datei '%s' gefunden"
 
+#, fuzzy
+msgid "missing block device"
+msgstr "Bezeichnung des Geräts festlegen"
+
+#, fuzzy
+msgid "missing partitionable"
+msgstr "kann nicht partitioniert werden"
+
 msgid "mkfs options"
 msgstr "mkfs-Optionen"
+
+#, fuzzy
+msgid "mount by"
+msgstr "Einhängepfad"
 
 msgid "mount options"
 msgstr "Einhängeoptionen"
@@ -570,6 +634,10 @@ msgstr "für Einhängeoptionen ist ein Pfad erforderlich"
 
 msgid "mount path"
 msgstr "Einhängepfad"
+
+#, fuzzy
+msgid "mount-by requires a path"
+msgstr "für Einhängeoptionen ist ein Pfad erforderlich"
 
 msgid "multiple devices"
 msgstr "mehrere Geräte"
@@ -639,10 +707,38 @@ msgstr "kein Datenträger zur Zuordnung für '%s' gefunden"
 msgid "no mapping multipath for '%s' found"
 msgstr "kein Multipath-Gerät zur Zuordnung für '%s' gefunden"
 
+#, fuzzy
+msgid "no mark on stack"
+msgstr "kein Blockgerät im Stack"
+
+#, fuzzy
+msgid "not a block device in array"
+msgstr "kein Blockgerät im Stack"
+
 msgid "not a block device on stack"
 msgstr "kein Blockgerät im Stack"
 
+#, fuzzy
+msgid "not a block device or array of block devices on stack"
+msgstr "kein Blockgerät im Stack"
+
+#, fuzzy
+msgid "not a device in array"
+msgstr "kein Blockgerät im Stack"
+
+#, fuzzy
+msgid "not a device on stack"
+msgstr "kein Blockgerät im Stack"
+
+#, fuzzy
+msgid "not a partition table in array"
+msgstr "keine Partitionstabelle im Stack"
+
 msgid "not a partition table on stack"
+msgstr "keine Partitionstabelle im Stack"
+
+#, fuzzy
+msgid "not a partition table or array of partition tables on stack"
 msgstr "keine Partitionstabelle im Stack"
 
 msgid "not a partitionable"
@@ -663,6 +759,14 @@ msgstr "alter Name"
 msgid "only one block device allowed"
 msgstr "nur ein Blockgerät ist zulässig"
 
+#, fuzzy
+msgid "only one partition table allowed"
+msgstr "unbekannter Partitionstabellentyp"
+
+#, fuzzy
+msgid "only one partitionable allowed"
+msgstr "nur ein Blockgerät ist zulässig"
+
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
@@ -671,6 +775,10 @@ msgstr "Öffnen von json-Datei '%s' fehlgeschlagen"
 #, c-format
 msgid "opening json file '%s' failed"
 msgstr "Öffnen der json-Datei '%s' fehlgeschlagen"
+
+#, fuzzy, c-format
+msgid "option --devices not allowed for %s"
+msgstr "Abstimmungsoptionen für %s nicht zulässig"
 
 #, c-format
 msgid "parsing json file '%s' failed"
@@ -720,6 +828,9 @@ msgstr ""
 "Pool-Argument und 'blk devices' dürfen nicht zusammen für das Kommando 'vg' "
 "verwendet werden"
 
+msgid "pool is empty"
+msgstr ""
+
 msgid "pool name"
 msgstr "Poolname"
 
@@ -728,7 +839,8 @@ msgstr "Poolname"
 msgid "read for json file '%s' failed"
 msgstr "Lesen von json-Datei '%s' fehlgeschlagen"
 
-msgid "run with a prefix"
+#, fuzzy
+msgid "run with a rootprefix"
 msgstr "mit Präfix ausführen"
 
 msgid "set RAID level"
@@ -765,6 +877,10 @@ msgid "set name of volume group"
 msgstr "Namen der Volume-Gruppe festlegen"
 
 msgid "set number of devices"
+msgstr "Anzahl der Geräte festlegen"
+
+#, fuzzy
+msgid "set profiles"
 msgstr "Anzahl der Geräte festlegen"
 
 msgid "set size"
@@ -822,11 +938,18 @@ msgstr "Größe der Stripes"
 msgid "spare devices not allowed for raid level"
 msgstr "Ersatzgeräte für Raid-Ebene nicht zulässig"
 
+#, fuzzy
+msgid "stack empty"
+msgstr "Stack beim Ausführen von 'dup' leer"
+
 msgid "stack empty during dup"
 msgstr "Stack beim Ausführen von 'dup' leer"
 
 msgid "stack empty during pop"
 msgstr "Stack beim Ausführen von 'pop' leer"
+
+msgid "stackunderflow during exch"
+msgstr ""
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
@@ -843,11 +966,19 @@ msgstr "Abstimmungsoptionen"
 msgid "tune options not allowed for %s"
 msgstr "Abstimmungsoptionen für %s nicht zulässig"
 
+#, fuzzy, c-format
+msgid "unknown btrfs profile '%s'"
+msgstr "unbekannter Dateisystemtyp '%s'"
+
 msgid "unknown encryption type"
 msgstr "unbekannter Verschlüsselungstyp"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
+msgstr "unbekannter Dateisystemtyp '%s'"
+
+#, fuzzy, c-format
+msgid "unknown mount-by type type '%s'"
 msgstr "unbekannter Dateisystemtyp '%s'"
 
 msgid "unknown partition table type"

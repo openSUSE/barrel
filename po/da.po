@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 14:37+0200\n"
+"POT-Creation-Date: 2022-08-05 08:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -158,6 +158,9 @@ msgstr ""
 msgid "Enter password:"
 msgstr ""
 
+msgid "Exchanges the top two elements of the stack."
+msgstr ""
+
 msgid "Extent Size"
 msgstr ""
 
@@ -224,6 +227,9 @@ msgstr ""
 msgid "Missing argument for global option '%s'."
 msgstr ""
 
+msgid "Missing block devices."
+msgstr ""
+
 msgid "Model"
 msgstr ""
 
@@ -256,6 +262,9 @@ msgid "Prints the stack."
 msgstr ""
 
 msgid "Probing..."
+msgstr ""
+
+msgid "Profiles"
 msgstr ""
 
 msgid "Quit?"
@@ -366,11 +375,23 @@ msgstr ""
 msgid "Verify password:"
 msgstr ""
 
+msgid "[ pushes a mark on the stack."
+msgstr ""
+
+msgid "] constructs an array."
+msgstr ""
+
 msgid "activate storage systems at startup"
 msgstr ""
 
 msgid "answer all questions with yes"
 msgstr ""
+
+#, c-format
+msgid "array with %d object"
+msgid_plural "array with %d objects"
+msgstr[0] ""
+msgstr[1] ""
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
@@ -398,6 +419,15 @@ msgstr ""
 msgid "block device '%s' is in use"
 msgstr ""
 
+msgid "block devices for LVM volume group missing"
+msgstr ""
+
+msgid "block devices for RAID missing"
+msgstr ""
+
+msgid "block devices for filesystem missing"
+msgstr ""
+
 msgid "block devices missing for command 'raid'"
 msgstr ""
 
@@ -408,6 +438,9 @@ msgstr ""
 
 #, c-format
 msgid "closing json file '%s' failed"
+msgstr ""
+
+msgid "deleted device"
 msgstr ""
 
 #, c-format
@@ -461,6 +494,10 @@ msgid "failed to calculate actions"
 msgstr ""
 
 #, c-format
+msgid "failed to parse size '%s'"
+msgstr ""
+
+#, c-format
 msgid "filesystem %s on %s"
 msgstr ""
 
@@ -482,11 +519,19 @@ msgstr ""
 msgid "go upwards"
 msgstr ""
 
+#, c-format
+msgid "invalid devices value '%d'"
+msgstr ""
+
 msgid "invalid logical volume name for command 'lv'"
 msgstr ""
 
 #, c-format
 msgid "invalid path '%s'"
+msgstr ""
+
+#, c-format
+msgid "invalid size '%s'"
 msgstr ""
 
 msgid "invalid volume group name for command 'vg'"
@@ -555,7 +600,16 @@ msgstr ""
 msgid "mapping not found in json file '%s'"
 msgstr ""
 
+msgid "missing block device"
+msgstr ""
+
+msgid "missing partitionable"
+msgstr ""
+
 msgid "mkfs options"
+msgstr ""
+
+msgid "mount by"
 msgstr ""
 
 msgid "mount options"
@@ -565,6 +619,9 @@ msgid "mount options require a path"
 msgstr ""
 
 msgid "mount path"
+msgstr ""
+
+msgid "mount-by requires a path"
 msgstr ""
 
 msgid "multiple devices"
@@ -635,10 +692,31 @@ msgstr ""
 msgid "no mapping multipath for '%s' found"
 msgstr ""
 
+msgid "no mark on stack"
+msgstr ""
+
+msgid "not a block device in array"
+msgstr ""
+
 msgid "not a block device on stack"
 msgstr ""
 
+msgid "not a block device or array of block devices on stack"
+msgstr ""
+
+msgid "not a device in array"
+msgstr ""
+
+msgid "not a device on stack"
+msgstr ""
+
+msgid "not a partition table in array"
+msgstr ""
+
 msgid "not a partition table on stack"
+msgstr ""
+
+msgid "not a partition table or array of partition tables on stack"
 msgstr ""
 
 msgid "not a partitionable"
@@ -659,6 +737,12 @@ msgstr ""
 msgid "only one block device allowed"
 msgstr ""
 
+msgid "only one partition table allowed"
+msgstr ""
+
+msgid "only one partitionable allowed"
+msgstr ""
+
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
@@ -666,6 +750,10 @@ msgstr ""
 
 #, c-format
 msgid "opening json file '%s' failed"
+msgstr ""
+
+#, c-format
+msgid "option --devices not allowed for %s"
 msgstr ""
 
 #, c-format
@@ -707,6 +795,9 @@ msgstr ""
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
 
+msgid "pool is empty"
+msgstr ""
+
 msgid "pool name"
 msgstr ""
 
@@ -715,7 +806,7 @@ msgstr ""
 msgid "read for json file '%s' failed"
 msgstr ""
 
-msgid "run with a prefix"
+msgid "run with a rootprefix"
 msgstr ""
 
 msgid "set RAID level"
@@ -752,6 +843,9 @@ msgid "set name of volume group"
 msgstr ""
 
 msgid "set number of devices"
+msgstr ""
+
+msgid "set profiles"
 msgstr ""
 
 msgid "set size"
@@ -809,10 +903,16 @@ msgstr ""
 msgid "spare devices not allowed for raid level"
 msgstr ""
 
+msgid "stack empty"
+msgstr ""
+
 msgid "stack empty during dup"
 msgstr ""
 
 msgid "stack empty during pop"
+msgstr ""
+
+msgid "stackunderflow during exch"
 msgstr ""
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
@@ -830,11 +930,19 @@ msgstr ""
 msgid "tune options not allowed for %s"
 msgstr ""
 
+#, c-format
+msgid "unknown btrfs profile '%s'"
+msgstr ""
+
 msgid "unknown encryption type"
 msgstr ""
 
 #, c-format
 msgid "unknown filesystem type '%s'"
+msgstr ""
+
+#, c-format
+msgid "unknown mount-by type type '%s'"
 msgstr ""
 
 msgid "unknown partition table type"
