@@ -1235,6 +1235,12 @@
 	  <para>JSON file defining pools.</para>
 	</listitem>
       </varlistentry>
+      <varlistentry>
+        <term><filename>/var/log/barrel.log</filename></term>
+        <listitem>
+          <para>Logfile. Please include this file in bug reports.</para>
+        </listitem>
+      </varlistentry>
     </variablelist>
   </refsect1>
 
@@ -1258,18 +1264,6 @@
 	<para>Tab completion in the interactive mode is not context aware.</para>
       </listitem>
     </itemizedlist>
-  </refsect1>
-
-  <refsect1 id='files'>
-    <title>FILES</title>
-    <variablelist>
-      <varlistentry>
-        <term><filename>/var/log/barrel.log</filename></term>
-        <listitem>
-          <para>Logfile. Please include this file in bug reports.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
   </refsect1>
 
   <refsect1 id='homepage'>
