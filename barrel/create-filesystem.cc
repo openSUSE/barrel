@@ -70,9 +70,12 @@ namespace barrel
 	    { "ext3", FsType::EXT3 },
 	    { "ext4", FsType::EXT4 },
 	    { "f2fs", FsType::F2FS },
+	    { "jfs", FsType::JFS },
 	    { "nilfs2", FsType::NILFS2 },
 	    { "ntfs", FsType::NTFS },
+	    { "reiserfs", FsType::REISERFS },
 	    { "swap", FsType::SWAP },
+	    { "udf", FsType::UDF },
 	    { "vfat", FsType::VFAT },
 	    { "xfs", FsType::XFS }
 	};
@@ -639,6 +642,20 @@ namespace barrel
 
 
     shared_ptr<ParsedCmd>
+    CmdCreateJfs::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::JFS);
+    }
+
+
+    const char*
+    CmdCreateJfs::help() const
+    {
+	return _("Alias for 'create filesystem --type jfs'");
+    }
+
+
+    shared_ptr<ParsedCmd>
     CmdCreateNilfs2::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::NILFS2);
@@ -667,6 +684,20 @@ namespace barrel
 
 
     shared_ptr<ParsedCmd>
+    CmdCreateReiserfs::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::REISERFS);
+    }
+
+
+    const char*
+    CmdCreateReiserfs::help() const
+    {
+	return _("Alias for 'create filesystem --type reiserfs'");
+    }
+
+
+    shared_ptr<ParsedCmd>
     CmdCreateSwap::parse(GetOpts& get_opts) const
     {
 	return parse_create_filesystem(get_opts, FsType::SWAP);
@@ -677,6 +708,20 @@ namespace barrel
     CmdCreateSwap::help() const
     {
 	return _("Alias for 'create filesystem --type swap'");
+    }
+
+
+    shared_ptr<ParsedCmd>
+    CmdCreateUdf::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::UDF);
+    }
+
+
+    const char*
+    CmdCreateUdf::help() const
+    {
+	return _("Alias for 'create filesystem --type udf'");
     }
 
 

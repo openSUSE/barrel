@@ -315,8 +315,11 @@
             <varlistentry>
               <term><option>-t, --type</option> <replaceable>type</replaceable></term>
               <listitem>
-		<para>Set file system type. Possible values are btrfs, f2fs,
-		exfat, ext2, ext3, ext4, nilfs2, ntfs, swap, vfat, xfs.</para>
+		<para>Set file system type. Possible values are btrfs, exfat,
+		ext2, ext3, ext4, f2fs, jfs, nilfs2, ntfs, reiserfs, swap, udf,
+		vfat, xfs.</para>
+		<para>Not all file systems may be available on the
+		system.</para>
 	      </listitem>
             </varlistentry>
 	    <varlistentry>

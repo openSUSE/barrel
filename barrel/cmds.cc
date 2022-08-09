@@ -79,6 +79,7 @@ namespace barrel
 	{ "f2fs", make_shared<CmdCreateF2fs>() },
 	{ "filesystem", make_shared<CmdCreateFilesystem>() },
 	{ "gpt", make_shared<CmdCreateGpt>() },
+	{ "jfs", make_shared<CmdCreateJfs>() },
 	{ "luks1", make_shared<CmdCreateLuks1>() },
 	{ "luks2", make_shared<CmdCreateLuks2>() },
 	{ "lv", make_shared<CmdCreateLvmLv>() },
@@ -94,7 +95,9 @@ namespace barrel
 	{ "raid5", make_shared<CmdCreateRaid5>() },
 	{ "raid6", make_shared<CmdCreateRaid6>() },
 	{ "raid10", make_shared<CmdCreateRaid10>() },
+	{ "reiserfs", make_shared<CmdCreateReiserfs>() },
 	{ "swap", make_shared<CmdCreateSwap>() },
+	{ "udf", make_shared<CmdCreateUdf>() },
 	{ "vfat", make_shared<CmdCreateVfat>() },
 	{ "vg", make_shared<CmdCreateLvmVg>() },
 	{ "xfs", make_shared<CmdCreateXfs>() }
