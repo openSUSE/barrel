@@ -86,6 +86,14 @@ namespace barrel
     };
 
 
+    struct CmdCreateJfs : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
     struct CmdCreateNilfs2 : public CmdCreateFilesystem
     {
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
@@ -102,7 +110,23 @@ namespace barrel
     };
 
 
+    struct CmdCreateReiserfs : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
     struct CmdCreateSwap : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+
+    struct CmdCreateUdf : public CmdCreateFilesystem
     {
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
 	virtual const char* help() const override;
