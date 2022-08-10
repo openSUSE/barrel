@@ -116,7 +116,10 @@ namespace barrel
 	{
 	    case Direction::UP:
 	    {
-		for (const Device* parent : device->get_parents())
+		vector<const Device*> parents = device->get_parents();
+		sort(parents.begin(), parents.end(), Device::compare_by_name);
+
+		for (const Device* parent : parents)
 		{
 		    if (is_blk_device(parent))
 		    {
@@ -134,7 +137,10 @@ namespace barrel
 
 	    case Direction::DOWN:
 	    {
-		for (const Device* child : device->get_children())
+		vector<const Device*> children = device->get_children();
+		sort(children.begin(), children.end(), Device::compare_by_name);
+
+		for (const Device* child : children)
 		{
 		    if (is_blk_device(child))
 		    {
