@@ -53,8 +53,8 @@
     <refsect2 id='modes'>
       <title>Script and Interactive Mode</title>
       <para>Barrel can run either in script or interactive mode. In
-      script mode the commands must be provided on the command line. If no
-      commands are provided on the command line the interactive mode is
+      script mode the command must be provided on the command line. If no
+      command is provided on the command line the interactive mode is
       started where a prompt asks for the commands.</para>
     </refsect2>
 
@@ -79,7 +79,7 @@
       provided on the command line.</para>
 
       <para>The stack can hold different objects: storage objects
-      (e.g. block devices, LVM volume groups or file systems), integers, a
+      (e.g. block devices, LVM volume groups or file systems), a
       mark and arrays. Arrays are contructed using the [ and ]
       commands.</para>
     </refsect2>
@@ -89,7 +89,8 @@
       <para>Barrel saves all information about storage devices and
       file systems together with their relations in a devicegraph. At
       startup the system is probed and the state is saved in the "probed"
-      and the "staging" devicegraphs. All commands only modify the staging
+      and the "staging" devicegraphs. All commands, except of the
+      <command>commit</command> command, only modify the staging
       devicegraph.</para>
 
       <para>Barrel makes a backup of the staging devicegraph whenever
@@ -97,7 +98,8 @@
       <command>undo</command>.</para>
 
       <para>During commit barrel runs actions to make the system match
-      the staging devicegraph.</para>
+      the staging devicegraph. In script mode a commit it done
+      automatically if needed.</para>
     </refsect2>
 
     <refsect2 id='modi_operandi' xreflabel='Modi Operandi'>
