@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-05 08:29+0200\n"
-"PO-Revision-Date: 2022-03-04 18:12+0000\n"
-"Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
-">\n"
+"PO-Revision-Date: 2022-10-11 13:13+0000\n"
+"Last-Translator: filippo zelocchi <filippo.zelocchi@gmail.com>\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,19 +21,19 @@ msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Attivare BitLocker %1$s su %2$s (%3$s) con UUID %4$s..."
 
 #, c-format
 msgid "Activate BitLocker on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Attivare BitLocker su %1$s (%2$s) con UUID %3$s..."
 
 #, c-format
 msgid "Activate LUKS %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Attivare LUKS %1$s su %2$s (%3$s) con UUID %4$s..."
 
 #, c-format
 msgid "Activate LUKS on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Attivare LUKS su %1$s (%2$s) with UUID %3$s..."
 
 msgid "Activating..."
 msgstr "Attivazione in corso..."
@@ -50,9 +50,8 @@ msgstr "Alias di 'create encryption --type luks2'"
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias di 'create filesystem --type btrfs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr "Alias di 'create filesystem --type ext2'"
+msgstr "collegamento per 'create filesystem --type ext2'"
 
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "Alias di 'create filesystem --type ext2'"
@@ -66,9 +65,8 @@ msgstr "Alias di 'create filesystem --type ext4'"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias di 'create filesystem --type f2fs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr "Alias di 'create filesystem --type ntfs'"
+msgstr "Collegamento per 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias di 'create filesystem --type ntfs'"
@@ -76,9 +74,8 @@ msgstr "Alias di 'create filesystem --type ntfs'"
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias di 'create filesystem --type swap'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr "Alias di 'create filesystem --type xfs'"
+msgstr "Collegametno per 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "Alias di 'create filesystem --type xfs'"
@@ -164,9 +161,8 @@ msgstr "Duplica l'oggetto superiore dello stack."
 msgid "Enter password:"
 msgstr "Immettere la password:"
 
-#, fuzzy
 msgid "Exchanges the top two elements of the stack."
-msgstr "Duplica l'oggetto superiore dello stack."
+msgstr "Scambia i due oggetti superiori dello stack."
 
 msgid "Extent Size"
 msgstr "Dimensione extent"
@@ -234,9 +230,8 @@ msgstr "Argomento dell'opzione di comando '%s' mancante."
 msgid "Missing argument for global option '%s'."
 msgstr "Argomento dell'opzione globale '%s' mancante."
 
-#, fuzzy
 msgid "Missing block devices."
-msgstr "non è un dispositivo di blocco sullo stack"
+msgstr "dispositivi di blocco mancanti."
 
 msgid "Model"
 msgstr "Modello"
@@ -273,7 +268,7 @@ msgid "Probing..."
 msgstr "Controllo in corso..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "Profili"
 
 msgid "Quit?"
 msgstr "Uscire?"
@@ -383,12 +378,11 @@ msgstr "Fornitore"
 msgid "Verify password:"
 msgstr "Verifica password:"
 
-#, fuzzy
 msgid "[ pushes a mark on the stack."
-msgstr "Cancella lo stack."
+msgstr "[ porre un contrassegno sullo stack."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] costruisce un array."
 
 msgid "activate storage systems at startup"
 msgstr "attiva sistemi di memorizzazione all'avvio"
@@ -399,8 +393,8 @@ msgstr "rispondi sì a tutte le domande"
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "array con %d oggetto"
+msgstr[1] "array con %d oggetti"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
@@ -430,17 +424,14 @@ msgstr ""
 msgid "block device '%s' is in use"
 msgstr "il dispositivo di blocco '%s' è in uso"
 
-#, fuzzy
 msgid "block devices for LVM volume group missing"
-msgstr "Mostra i gruppi di volumi LVM."
+msgstr "dispositivi di blocco per il volume LVM mancanti"
 
-#, fuzzy
 msgid "block devices for RAID missing"
-msgstr "il dispositivo di blocco '%s' è in uso"
+msgstr "dispositivi di blocco per RAID mancanti"
 
-#, fuzzy
 msgid "block devices for filesystem missing"
-msgstr "il dispositivo di blocco '%s' è in uso"
+msgstr "dispositivi di blocco per il filesystem mancanti"
 
 msgid "block devices missing for command 'raid'"
 msgstr "dispositivi di blocco mancanti per il comando 'raid'"
@@ -454,9 +445,8 @@ msgstr "chiusura del file json '%s' non riuscita"
 msgid "closing json file '%s' failed"
 msgstr "chiusura del file json '%s' non riuscita"
 
-#, fuzzy
 msgid "deleted device"
-msgstr "dispositivi multipli"
+msgstr "dispostivo rimosso"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -510,7 +500,7 @@ msgstr "calcolo delle azioni non riuscito"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "impossibile analizzare la dimensione '%s'"
 
 #, c-format
 msgid "filesystem %s on %s"
@@ -534,9 +524,9 @@ msgstr "vai giù"
 msgid "go upwards"
 msgstr "vai su"
 
-#, fuzzy, c-format
+#, c-format
 msgid "invalid devices value '%d'"
-msgstr "argomento dispositivi non valido"
+msgstr "valore dispositivi '%d' non valido"
 
 msgid "invalid logical volume name for command 'lv'"
 msgstr "nome del volume logico non valido per il comando 'lv'"
@@ -545,9 +535,9 @@ msgstr "nome del volume logico non valido per il comando 'lv'"
 msgid "invalid path '%s'"
 msgstr "percorso '%s' non valido"
 
-#, fuzzy, c-format
+#, c-format
 msgid "invalid size '%s'"
-msgstr "Risposta '%s' non valida"
+msgstr "dimensione '%s' non valida"
 
 msgid "invalid volume group name for command 'vg'"
 msgstr "nome del gruppo di volumi non valido per il comando 'vg'"
@@ -616,13 +606,11 @@ msgstr "mappatura di %s a %s"
 msgid "mapping not found in json file '%s'"
 msgstr "mappatura non trovata nel file json '%s'"
 
-#, fuzzy
 msgid "missing block device"
-msgstr "imposta etichetta dispositivo"
+msgstr "dispositivo di blocco mancante"
 
-#, fuzzy
 msgid "missing partitionable"
-msgstr "non è un elemento partizionabile"
+msgstr "non partizionabile"
 
 msgid "mkfs options"
 msgstr "opzioni mkfs"
@@ -714,7 +702,7 @@ msgstr "nessun multipath di mappatura per '%s' trovato"
 
 #, fuzzy
 msgid "no mark on stack"
-msgstr "non è un dispositivo di blocco sullo stack"
+msgstr "nessun avvertimento sullo stack"
 
 #, fuzzy
 msgid "not a block device in array"
@@ -835,8 +823,9 @@ msgstr ""
 "argomento di pool e dispositivi di blocco non consentiti in contemporanea "
 "per il comando 'vg'"
 
+#, fuzzy
 msgid "pool is empty"
-msgstr ""
+msgstr "pool è vuoto"
 
 msgid "pool name"
 msgstr "nome pool"
@@ -956,7 +945,7 @@ msgid "stack empty during pop"
 msgstr "stack vuoto durante l'operazione di pop"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "stackunderflow durante exch"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
