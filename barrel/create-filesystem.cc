@@ -493,7 +493,7 @@ namespace barrel
 	    }
 	    else if (options.path)
 	    {
-		// Requires SUSE parted 3.5 or higher.
+		// Requires GPT and SUSE parted 3.5 or higher.
 
 #if 0
 		const string& path = options.path.value();
