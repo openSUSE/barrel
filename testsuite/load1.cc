@@ -18,6 +18,8 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
+    setenv("LIBSTORAGE_OS_FLAVOUR", "suse", 1);
+
     // So far only /dev/sda and alike can be used in the mapping file. E.g. by-path links
     // need a real system lookup (in find_by_any_name()).
 
