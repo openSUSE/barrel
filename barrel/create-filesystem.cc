@@ -493,22 +493,26 @@ namespace barrel
 	    }
 	    else if (options.path)
 	    {
-		// Requires GPT and SUSE parted 3.5 or higher.
-
-#if 0
 		const string& path = options.path.value();
 
 		if (path == "/home")
 		    id = ID_LINUX_HOME;
 		else if (path == "/srv")
 		    id = ID_LINUX_SERVER_DATA;
-#endif
 	    }
 
 	    for (BlkDevice* blk_device : blk_devices)
 	    {
 		if (is_partition(blk_device))
-		    to_partition(blk_device)->set_id(id);
+		{
+		    Partition* partition = to_partition(blk_device);
+		    const PartitionTable* partition_table = partition->get_partition_table();
+
+		    if (partition_table->is_partition_id_supported(id))
+			partition->set_id(id);
+		    else
+			partition->set_id(ID_LINUX);
+		}
 	    }
 	}
 
