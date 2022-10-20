@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-05 08:29+0200\n"
+"POT-Creation-Date: 2022-10-20 10:21+0200\n"
 "PO-Revision-Date: 2022-02-24 12:12+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
@@ -67,14 +67,26 @@ msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias pour \"create filesystem --type f2fs\""
 
 #, fuzzy
+msgid "Alias for 'create filesystem --type jfs'"
+msgstr "Alias pour \"create filesystem --type xfs\""
+
+#, fuzzy
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "Alias pour \"create filesystem --type ntfs\""
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias pour \"create filesystem --type ntfs\""
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type reiserfs'"
+msgstr "Alias pour \"create filesystem --type btrfs\""
+
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias pour \"create filesystem --type swap\""
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type udf'"
+msgstr "Alias pour \"create filesystem --type xfs\""
 
 #, fuzzy
 msgid "Alias for 'create filesystem --type vfat'"
@@ -649,6 +661,11 @@ msgstr "les options de montage nécessitent un chemin"
 msgid "multiple devices"
 msgstr "plusieurs périphériques"
 
+#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. translation for "y" ("yes").
+msgid "n"
+msgstr ""
+
 msgid "name missing for command 'devicegraph'"
 msgstr "nom manquant pour la commande 'devicegraph'"
 
@@ -1016,8 +1033,13 @@ msgstr "le groupe de volumes '%s' est suralloué"
 msgid "wrong number of partitionables"
 msgstr "nombre incorrect d'éléments partitionnables"
 
-msgid "y/n"
-msgstr "o/n"
+#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. translation for "n" ("no").
+msgid "y"
+msgstr ""
+
+#~ msgid "y/n"
+#~ msgstr "o/n"
 
 #~ msgid "backup empty during undo"
 #~ msgstr "vider la sauvegarde lors de l'annulation"

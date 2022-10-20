@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-05 08:29+0200\n"
+"POT-Creation-Date: 2022-10-20 10:21+0200\n"
 "PO-Revision-Date: 2022-03-04 18:12+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
@@ -64,14 +64,26 @@ msgstr "Alias für 'create filesystem --type ext4'"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias für 'create filesystem --type f2fs'"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type jfs'"
+msgstr "Alias für 'create filesystem --type xfs'"
+
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "Alias für 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias für 'create filesystem --type ntfs'"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type reiserfs'"
+msgstr "Alias für 'create filesystem --type btrfs'"
+
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias für 'create filesystem --type swap'"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type udf'"
+msgstr "Alias für 'create filesystem --type xfs'"
 
 msgid "Alias for 'create filesystem --type vfat'"
 msgstr "Alias für 'create filesystem --type vfat'"
@@ -642,6 +654,11 @@ msgstr "für Einhängeoptionen ist ein Pfad erforderlich"
 msgid "multiple devices"
 msgstr "mehrere Geräte"
 
+#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. translation for "y" ("yes").
+msgid "n"
+msgstr ""
+
 msgid "name missing for command 'devicegraph'"
 msgstr "Name für Kommando 'devicegraph' fehlt"
 
@@ -1008,8 +1025,13 @@ msgstr "Volume-Gruppe '%s' ist überlastet"
 msgid "wrong number of partitionables"
 msgstr "falsche Anzahl von partitionierbaren Elementen"
 
-msgid "y/n"
-msgstr "j/n"
+#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. translation for "n" ("no").
+msgid "y"
+msgstr ""
+
+#~ msgid "y/n"
+#~ msgstr "j/n"
 
 #~ msgid "backup empty during undo"
 #~ msgstr "Sicherung leer beim Rückgängigmachen"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-05 08:29+0200\n"
+"POT-Creation-Date: 2022-10-20 10:21+0200\n"
 "PO-Revision-Date: 2022-03-07 11:12+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
@@ -68,14 +68,26 @@ msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "\"create filesystem --type f2fs\" 的別名"
 
 #, fuzzy
+msgid "Alias for 'create filesystem --type jfs'"
+msgstr "\"create filesystem --type xfs\" 的別名"
+
+#, fuzzy
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "\"create filesystem --type ntfs\" 的別名"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "\"create filesystem --type ntfs\" 的別名"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type reiserfs'"
+msgstr "\"create filesystem --type btrfs\" 的別名"
+
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "\"create filesystem --type swap\" 的別名"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type udf'"
+msgstr "\"create filesystem --type xfs\" 的別名"
 
 #, fuzzy
 msgid "Alias for 'create filesystem --type vfat'"
@@ -644,6 +656,11 @@ msgstr "裝載選項需要路徑"
 msgid "multiple devices"
 msgstr "多部裝置"
 
+#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. translation for "y" ("yes").
+msgid "n"
+msgstr ""
+
 msgid "name missing for command 'devicegraph'"
 msgstr "\"devicegraph\" 指令遺失名稱"
 
@@ -1001,8 +1018,13 @@ msgstr "磁碟區群組 \"%s\" 過量配置"
 msgid "wrong number of partitionables"
 msgstr "可分割裝置數量錯誤"
 
-msgid "y/n"
-msgstr "y/n"
+#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. translation for "n" ("no").
+msgid "y"
+msgstr ""
+
+#~ msgid "y/n"
+#~ msgstr "y/n"
 
 #~ msgid "backup empty during undo"
 #~ msgstr "復原期間備份為空白"

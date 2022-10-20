@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-05 08:29+0200\n"
+"POT-Creation-Date: 2022-10-20 10:21+0200\n"
 "PO-Revision-Date: 2022-10-11 13:13+0000\n"
 "Last-Translator: filippo zelocchi <filippo.zelocchi@gmail.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
-"\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
+">\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,14 +65,26 @@ msgstr "Alias di 'create filesystem --type ext4'"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias di 'create filesystem --type f2fs'"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type jfs'"
+msgstr "Alias di 'create filesystem --type xfs'"
+
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "Collegamento per 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias di 'create filesystem --type ntfs'"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type reiserfs'"
+msgstr "Alias di 'create filesystem --type btrfs'"
+
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias di 'create filesystem --type swap'"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type udf'"
+msgstr "Alias di 'create filesystem --type xfs'"
 
 msgid "Alias for 'create filesystem --type vfat'"
 msgstr "Collegametno per 'create filesystem --type vfat'"
@@ -635,6 +647,11 @@ msgstr "per le opzioni di montaggio è necessario un percorso"
 msgid "multiple devices"
 msgstr "dispositivi multipli"
 
+#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. translation for "y" ("yes").
+msgid "n"
+msgstr ""
+
 msgid "name missing for command 'devicegraph'"
 msgstr "nome mancante per il comando 'devicegraph'"
 
@@ -1004,8 +1021,13 @@ msgstr "over-commit del gruppo di volumi '%s'"
 msgid "wrong number of partitionables"
 msgstr "numero di elementi partizionabili errato"
 
-msgid "y/n"
-msgstr "s/n"
+#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. translation for "n" ("no").
+msgid "y"
+msgstr ""
+
+#~ msgid "y/n"
+#~ msgstr "s/n"
 
 #~ msgid "backup empty during undo"
 #~ msgstr "backup vuoto durante l'annullamento"

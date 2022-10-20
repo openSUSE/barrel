@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-05 08:29+0200\n"
+"POT-Creation-Date: 2022-10-20 10:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -62,13 +62,22 @@ msgstr ""
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr ""
 
+msgid "Alias for 'create filesystem --type jfs'"
+msgstr ""
+
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr ""
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr ""
 
+msgid "Alias for 'create filesystem --type reiserfs'"
+msgstr ""
+
 msgid "Alias for 'create filesystem --type swap'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type udf'"
 msgstr ""
 
 msgid "Alias for 'create filesystem --type vfat'"
@@ -627,6 +636,11 @@ msgstr ""
 msgid "multiple devices"
 msgstr ""
 
+#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. translation for "y" ("yes").
+msgid "n"
+msgstr ""
+
 msgid "name missing for command 'devicegraph'"
 msgstr ""
 
@@ -972,5 +986,7 @@ msgstr ""
 msgid "wrong number of partitionables"
 msgstr ""
 
-msgid "y/n"
+#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. translation for "n" ("no").
+msgid "y"
 msgstr ""
