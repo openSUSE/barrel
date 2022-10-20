@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-20 10:21+0200\n"
-"PO-Revision-Date: 2022-09-25 19:13+0000\n"
+"PO-Revision-Date: 2022-10-20 22:14+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -64,9 +64,8 @@ msgstr "Alias pro 'create filesystem --type ext4'"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias pro 'create filesystem --type f2fs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type jfs'"
-msgstr "Alias pro 'create filesystem --type xfs'"
+msgstr "Alias pro 'create filesystem --type jfs'"
 
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "Alias pro 'create filesystem --type nilfs2'"
@@ -74,16 +73,14 @@ msgstr "Alias pro 'create filesystem --type nilfs2'"
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias pro 'create filesystem --type ntfs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr "Alias pro 'create filesystem --type btrfs'"
+msgstr "Alias pro 'create filesystem --type reiserfs'"
 
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias pro 'create filesystem --type swap'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type udf'"
-msgstr "Alias pro 'create filesystem --type xfs'"
+msgstr "Alias pro 'create filesystem --type udf'"
 
 msgid "Alias for 'create filesystem --type vfat'"
 msgstr "Alias pro 'create filesystem --type vfat'"
@@ -146,34 +143,34 @@ msgid "Creates a new LVM volume group."
 msgstr "Vytvoří novou skupinu svazků LVM."
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "Vytvoří nový RAID."
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "Vytvoří nové šifrovací zařízení."
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "Vytvoří nový systém souborů."
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "Vytvoří novou tabulku oddílů."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Vytvoří novou zásobárnu obsahující zařízení."
 
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 msgid "Devices"
-msgstr ""
+msgstr "Zařízení"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Duplikuje nejvyšší objekt zásobníku."
 
 msgid "Enter password:"
-msgstr ""
+msgstr "Zadejte heslo:"
 
 msgid "Exchanges the top two elements of the stack."
-msgstr ""
+msgstr "Vymění dva nejvyšší prvky zásobníku."
 
 msgid "Extent Size"
 msgstr ""
