@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-20 10:21+0200\n"
-"PO-Revision-Date: 2022-08-05 13:13+0000\n"
+"PO-Revision-Date: 2022-10-20 12:13+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -65,9 +65,8 @@ msgstr "'create filesystem --type ext4' に対する別名"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "'create filesystem --type f2fs' に対する別名"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type jfs'"
-msgstr "'create filesystem --type xfs' に対する別名"
+msgstr "'create filesystem --type jfs' に対する別名"
 
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "'create filesystem --type nilfs2' に対する別名"
@@ -75,16 +74,14 @@ msgstr "'create filesystem --type nilfs2' に対する別名"
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "'create filesystem --type ntfs' に対する別名"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr "'create filesystem --type btrfs' に対する別名"
+msgstr "'create filesystem --type reiserfs' に対する別名"
 
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "'create filesystem --type swap' に対する別名"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type udf'"
-msgstr "'create filesystem --type xfs' に対する別名"
+msgstr "'create filesystem --type udf' に対する別名"
 
 msgid "Alias for 'create filesystem --type vfat'"
 msgstr "'create filesystem --type vfat' に対する別名"
@@ -647,7 +644,7 @@ msgstr "複数デバイス"
 #. TRANSLATORS: Abbriviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
-msgstr ""
+msgstr "n"
 
 msgid "name missing for command 'devicegraph'"
 msgstr "コマンド 'devicegraph' に対する名前が指定されていません"
@@ -1011,7 +1008,7 @@ msgstr "パーティション設定可能なものの数が正しくありませ
 #. TRANSLATORS: Abbriviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "y"
 
 #~ msgid "y/n"
 #~ msgstr "y/n"
