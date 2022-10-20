@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-05 08:29+0200\n"
+"POT-Creation-Date: 2022-10-20 10:21+0200\n"
 "PO-Revision-Date: 2022-06-27 00:13+0000\n"
 "Last-Translator: Jaime Marquínez Ferrándiz <jaime.marquinez."
 "ferrandiz@fastmail.net>\n"
@@ -66,14 +66,26 @@ msgstr "Alias para 'create filesystem --type ext4'"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias para 'create filesystem --type f2fs'"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type jfs'"
+msgstr "Alias para 'create filesystem --type xfs'"
+
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "Alias para 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias para 'create filesystem --type ntfs'"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type reiserfs'"
+msgstr "Alias para 'create filesystem --type btrfs'"
+
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias para 'create filesystem --type swap'"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type udf'"
+msgstr "Alias para 'create filesystem --type xfs'"
 
 msgid "Alias for 'create filesystem --type vfat'"
 msgstr "Alias para 'create filesystem --type vfat'"
@@ -644,6 +656,11 @@ msgstr "opciones de montaje requieren una ruta"
 msgid "multiple devices"
 msgstr "múltiples dispositivos"
 
+#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. translation for "y" ("yes").
+msgid "n"
+msgstr ""
+
 msgid "name missing for command 'devicegraph'"
 msgstr "nombre ausente para el comando «devicegraph»"
 
@@ -1006,8 +1023,13 @@ msgstr "grupo de volúmenes «%s» está harto acometido"
 msgid "wrong number of partitionables"
 msgstr "número incorrecto de particionables"
 
-msgid "y/n"
-msgstr "s/n"
+#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. translation for "n" ("no").
+msgid "y"
+msgstr ""
+
+#~ msgid "y/n"
+#~ msgstr "s/n"
 
 #~ msgid "backup empty during undo"
 #~ msgstr "Respaldo vacío durante la deshechura"

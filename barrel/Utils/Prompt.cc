@@ -37,7 +37,16 @@ namespace barrel
     {
 	while (true)
 	{
-	    cout << message << " [" << _("y/n") << "] " << flush;
+
+	    // TRANSLATORS: Abbriviation for "yes". Translation must be different from
+	    // translation for "n" ("no").
+	    string y = _("y");
+
+	    // TRANSLATORS: Abbriviation for "no". Translation must be different from
+	    // translation for "y" ("yes").
+	    string n = _("n");
+
+	    cout << message << " [" << y << "/" << n << "] " << flush;
 
 	    if (cin.eof())	// TODO
 		return false;
@@ -45,9 +54,9 @@ namespace barrel
 	    string reply;
 	    cin >> reply;
 
-	    if (reply == "y")
+	    if (reply == y)
 		return true;
-	    else if (reply == "n")
+	    else if (reply == n)
 		return false;
 
 	    cout << sformat(_("Invalid answer '%s'"), reply.c_str()) << '\n';

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-05 08:29+0200\n"
+"POT-Creation-Date: 2022-10-20 10:21+0200\n"
 "PO-Revision-Date: 2022-08-05 13:13+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
@@ -65,14 +65,26 @@ msgstr "'create filesystem --type ext4' に対する別名"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "'create filesystem --type f2fs' に対する別名"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type jfs'"
+msgstr "'create filesystem --type xfs' に対する別名"
+
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "'create filesystem --type nilfs2' に対する別名"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "'create filesystem --type ntfs' に対する別名"
 
+#, fuzzy
+msgid "Alias for 'create filesystem --type reiserfs'"
+msgstr "'create filesystem --type btrfs' に対する別名"
+
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "'create filesystem --type swap' に対する別名"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type udf'"
+msgstr "'create filesystem --type xfs' に対する別名"
 
 msgid "Alias for 'create filesystem --type vfat'"
 msgstr "'create filesystem --type vfat' に対する別名"
@@ -632,6 +644,11 @@ msgstr "mount-by にはパスを指定する必要があります"
 msgid "multiple devices"
 msgstr "複数デバイス"
 
+#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. translation for "y" ("yes").
+msgid "n"
+msgstr ""
+
 msgid "name missing for command 'devicegraph'"
 msgstr "コマンド 'devicegraph' に対する名前が指定されていません"
 
@@ -707,7 +724,8 @@ msgid "not a block device on stack"
 msgstr "スタック内に存在するものがブロックデバイスではありません"
 
 msgid "not a block device or array of block devices on stack"
-msgstr "スタック内のブロックデバイスもしくはブロックデバイスの配列ではありません"
+msgstr ""
+"スタック内のブロックデバイスもしくはブロックデバイスの配列ではありません"
 
 msgid "not a device in array"
 msgstr "配列内のデバイスではありません"
@@ -722,7 +740,9 @@ msgid "not a partition table on stack"
 msgstr "スタック内に存在するものがパーティションテーブルではありません"
 
 msgid "not a partition table or array of partition tables on stack"
-msgstr "スタック内のパーティションテーブルもしくはパーティションテーブルの配列ではありません"
+msgstr ""
+"スタック内のパーティションテーブルもしくはパーティションテーブルの配列ではあ"
+"りません"
 
 msgid "not a partitionable"
 msgstr "パーティション作成可能なものではありません"
@@ -988,8 +1008,13 @@ msgstr "ボリュームグループ '%s' はオーバーコミット状態です
 msgid "wrong number of partitionables"
 msgstr "パーティション設定可能なものの数が正しくありません"
 
-msgid "y/n"
-msgstr "y/n"
+#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. translation for "n" ("no").
+msgid "y"
+msgstr ""
+
+#~ msgid "y/n"
+#~ msgstr "y/n"
 
 #~ msgid "backup empty during undo"
 #~ msgstr "元に戻す際のバックアップがありません"
