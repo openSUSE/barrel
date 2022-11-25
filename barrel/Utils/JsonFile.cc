@@ -39,7 +39,6 @@ namespace barrel
 
 
     JsonFile::JsonFile(const string& filename)
-	: root(nullptr)
     {
 	FILE* fp = fopen(filename.c_str(), "r");
 	if (!fp)
