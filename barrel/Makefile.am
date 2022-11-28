@@ -23,7 +23,9 @@ libbarrel_la_SOURCES =							\
 	help.h				help.cc				\
 	generic.h			generic.cc			\
 	show.h				show.cc				\
+	show-actiongraph.h		show-actiongraph.cc		\
 	show-dasds.h			show-dasds.cc			\
+	show-devicegraph.h		show-devicegraph.cc		\
 	show-disks.h			show-disks.cc			\
 	show-raids.h			show-raids.cc			\
 	show-multipaths.h		show-multipaths.cc		\
