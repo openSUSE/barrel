@@ -40,8 +40,10 @@
 #include "rename-pool.h"
 #include "save-devicegraph.h"
 #include "save-pools.h"
+#include "show-actiongraph.h"
 #include "show-commit.h"
 #include "show-dasds.h"
+#include "show-devicegraph.h"
 #include "show-disks.h"
 #include "show-multipaths.h"
 #include "show-filesystems.h"
@@ -56,8 +58,14 @@ namespace barrel
 {
 
     const vector<Parser> show_cmds = {
+#if 0
+	{ "actiongraph", make_shared<CmdShowActiongraph>() },
+#endif
 	{ "commit", make_shared<CmdShowCommit>() },
 	{ "dasds", make_shared<CmdShowDasds>() },
+#if 0
+	{ "devicegraph", make_shared<CmdShowDevicegraph>() },
+#endif
 	{ "disks", make_shared<CmdShowDisks>() },
 	{ "encryptions", make_shared<CmdShowEncryptions>() },
 	{ "filesystems", make_shared<CmdShowFilesystems>() },
