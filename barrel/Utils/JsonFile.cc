@@ -24,6 +24,8 @@
 #include <sys/stat.h>
 
 #include <stdexcept>
+#include <functional>
+#include <memory>
 
 #include "JsonFile.h"
 #include "Text.h"
@@ -65,25 +67,23 @@ namespace barrel
 	    // TRANSLATORS: error message, 'close' refers to close system call
 	    throw runtime_error(sformat(_("close for json file '%s' failed"), filename.c_str()));
 
-	json_tokener* tokener = json_tokener_new();
+	std::unique_ptr<json_tokener, std::function<void(json_tokener*)>> tokener(
+	    json_tokener_new(), [](json_tokener* p) { json_tokener_free(p); }
+	);
 
-	root = json_tokener_parse_ex(tokener, data.data(), st.st_size);
+	root = json_tokener_parse_ex(tokener.get(), data.data(), data.size());
 
-	if (json_tokener_get_error(tokener) != json_tokener_success)
+	if (json_tokener_get_error(tokener.get()) != json_tokener_success)
 	{
-	    json_tokener_free(tokener);
 	    json_object_put(root);
 	    throw runtime_error(sformat(_("parsing json file '%s' failed"), filename.c_str()));
 	}
 
 	if (tokener->char_offset != st.st_size)
 	{
-	    json_tokener_free(tokener);
 	    json_object_put(root);
 	    throw runtime_error(sformat(_("excessive content in json file '%s'"), filename.c_str()));
 	}
-
-	json_tokener_free(tokener);
     }
 
 
