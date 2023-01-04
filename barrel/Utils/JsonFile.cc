@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2017-2021] SUSE LLC
+ * Copyright (c) [2017-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -34,6 +34,31 @@
 namespace barrel
 {
 
+    class JsonTokener
+    {
+    public:
+
+	JsonTokener()
+	    : p(json_tokener_new())
+	{
+	    if (!p)
+		throw runtime_error("out of memory");
+	}
+
+	~JsonTokener()
+	{
+	    json_tokener_free(p);
+	}
+
+	json_tokener* get() { return p; }
+
+    private:
+
+	json_tokener* p;
+
+    };
+
+
     JsonFile::JsonFile()
 	: root(json_object_new_object())
     {
@@ -67,9 +92,7 @@ namespace barrel
 	    // TRANSLATORS: error message, 'close' refers to close system call
 	    throw runtime_error(sformat(_("close for json file '%s' failed"), filename.c_str()));
 
-	std::unique_ptr<json_tokener, std::function<void(json_tokener*)>> tokener(
-	    json_tokener_new(), [](json_tokener* p) { json_tokener_free(p); }
-	);
+	JsonTokener tokener;
 
 	root = json_tokener_parse_ex(tokener.get(), data.data(), data.size());
 
@@ -79,7 +102,7 @@ namespace barrel
 	    throw runtime_error(sformat(_("parsing json file '%s' failed"), filename.c_str()));
 	}
 
-	if (tokener->char_offset != st.st_size)
+	if (tokener.get()->char_offset != st.st_size)
 	{
 	    json_object_put(root);
 	    throw runtime_error(sformat(_("excessive content in json file '%s'"), filename.c_str()));
