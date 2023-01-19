@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 10:21+0200\n"
+"POT-Creation-Date: 2023-01-19 16:45+0100\n"
 "PO-Revision-Date: 2022-10-20 12:13+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
@@ -335,10 +335,18 @@ msgstr "LVM ボリュームグループを表示します。"
 msgid "Shows RAIDs."
 msgstr "RAID を表示します。"
 
+#, fuzzy
+msgid "Shows actiongraph."
+msgstr "適用時に行われる処理を表示します。"
+
 msgid "Shows commit actions."
 msgstr "適用時に行われる処理を表示します。"
 
 msgid "Shows device tree."
+msgstr "デバイスツリーを表示します。"
+
+#, fuzzy
+msgid "Shows devicegraph."
 msgstr "デバイスツリーを表示します。"
 
 msgid "Shows disks."
@@ -808,7 +816,9 @@ msgstr "パーティション設定可能な '%s' は使用中です"
 msgid "path '%s' already used"
 msgstr "パス '%s' は既に使用されています"
 
-msgid "path must be 'swap'"
+#. TRANSLATORS: do not translate 'swap' nor 'none'
+#, fuzzy
+msgid "path must be 'swap' or 'none'"
 msgstr "パスは 'swap' でなければなりません"
 
 msgid ""

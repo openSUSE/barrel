@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 10:21+0200\n"
+"POT-Creation-Date: 2023-01-19 16:45+0100\n"
 "PO-Revision-Date: 2022-06-27 00:13+0000\n"
 "Last-Translator: Jaime Marquínez Ferrándiz <jaime.marquinez."
 "ferrandiz@fastmail.net>\n"
@@ -340,10 +340,18 @@ msgstr "Muestra los grupos de volúmenes LVM."
 msgid "Shows RAIDs."
 msgstr "Muestra las RAIDs."
 
+#, fuzzy
+msgid "Shows actiongraph."
+msgstr "Muestra los acometimientos."
+
 msgid "Shows commit actions."
 msgstr "Muestra los acometimientos."
 
 msgid "Shows device tree."
+msgstr "Muestra el árbol de dispositivos."
+
+#, fuzzy
+msgid "Shows devicegraph."
 msgstr "Muestra el árbol de dispositivos."
 
 msgid "Shows disks."
@@ -824,7 +832,9 @@ msgstr "particionable «%s» en uso"
 msgid "path '%s' already used"
 msgstr "ruta «%s» ya usada"
 
-msgid "path must be 'swap'"
+#. TRANSLATORS: do not translate 'swap' nor 'none'
+#, fuzzy
+msgid "path must be 'swap' or 'none'"
 msgstr "ruta debe ser «swap»"
 
 msgid ""

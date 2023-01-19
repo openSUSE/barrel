@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 10:21+0200\n"
+"POT-Creation-Date: 2023-01-19 16:45+0100\n"
 "PO-Revision-Date: 2022-05-27 15:13+0000\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
@@ -340,10 +340,18 @@ msgstr "Mostra grupos de volumes LVM."
 msgid "Shows RAIDs."
 msgstr "Mostra RAIDs."
 
+#, fuzzy
+msgid "Shows actiongraph."
+msgstr "Mostra ações de confirmação."
+
 msgid "Shows commit actions."
 msgstr "Mostra ações de confirmação."
 
 msgid "Shows device tree."
+msgstr "Mostra árvore de dispositivos."
+
+#, fuzzy
+msgid "Shows devicegraph."
 msgstr "Mostra árvore de dispositivos."
 
 msgid "Shows disks."
@@ -825,7 +833,9 @@ msgstr "elemento particionável '%s' em uso"
 msgid "path '%s' already used"
 msgstr "caminho '%s' já usado"
 
-msgid "path must be 'swap'"
+#. TRANSLATORS: do not translate 'swap' nor 'none'
+#, fuzzy
+msgid "path must be 'swap' or 'none'"
 msgstr "caminho deve ser de \"troca\""
 
 msgid ""

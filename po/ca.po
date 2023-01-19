@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 10:21+0200\n"
+"POT-Creation-Date: 2023-01-19 16:45+0100\n"
 "PO-Revision-Date: 2022-10-20 12:13+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
-"\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -334,10 +334,18 @@ msgstr "Mostra els grups de volums LVM."
 msgid "Shows RAIDs."
 msgstr "Mostra RAIDs."
 
+#, fuzzy
+msgid "Shows actiongraph."
+msgstr "Mostra les accions que s'apliquen."
+
 msgid "Shows commit actions."
 msgstr "Mostra les accions que s'apliquen."
 
 msgid "Shows device tree."
+msgstr "Mostra l'arbre de dispositius."
+
+#, fuzzy
+msgid "Shows devicegraph."
 msgstr "Mostra l'arbre de dispositius."
 
 msgid "Shows disks."
@@ -801,7 +809,9 @@ msgstr "%s partible està en ús"
 msgid "path '%s' already used"
 msgstr "el camí %s ja està en ús"
 
-msgid "path must be 'swap'"
+#. TRANSLATORS: do not translate 'swap' nor 'none'
+#, fuzzy
+msgid "path must be 'swap' or 'none'"
 msgstr "el camí ha de ser swap"
 
 msgid ""
