@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -288,11 +288,20 @@ namespace barrel
 
 	    if (path)
 	    {
-		if (type.value() != FsType::SWAP && !boost::starts_with(path.value(), "/"))
-		    throw runtime_error(sformat(_("invalid path '%s'"), path.value().c_str()));
+		const FsType fs_type = type.value();
 
-		if (type.value() == FsType::SWAP && path.value() != "swap")
-		    throw runtime_error(_("path must be 'swap'"));
+		if (!Mountable::is_valid_path(fs_type, path.value()))
+		{
+		    switch (fs_type)
+		    {
+			case FsType::SWAP:
+			    // TRANSLATORS: do not translate 'swap' nor 'none'
+			    throw runtime_error(_("path must be 'swap' or 'none'"));
+
+			default:
+			    throw runtime_error(sformat(_("invalid path '%s'"), path.value().c_str()));
+		    }
+		}
 	    }
 	    else
 	    {

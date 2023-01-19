@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -26,6 +26,7 @@
 #include <storage/Filesystems/Filesystem.h>
 #include <storage/Filesystems/BlkFilesystem.h>
 #include <storage/Filesystems/Btrfs.h>
+#include <storage/Filesystems/Swap.h>
 #include <storage/Filesystems/Nfs.h>
 #include <storage/Storage.h>
 #include <storage/Environment.h>
@@ -190,7 +191,7 @@ namespace barrel
 
 		if (!rootprefix.empty())
 		{
-		    if (mount_point->is_rootprefixed() && mount_point->get_path() != "swap")
+		    if (mount_point->is_rootprefixed() && !is_swap(filesystem))
 			tmp = "[" + rootprefix + "] " + tmp;
 		}
 
