@@ -62,5 +62,3 @@ More commands for the interactive mode are: stack, undo, show pools,
 show raids, show vgs, show filesystems, quit, pop, dup, extend pool,
 reduce pool.
 
-Note: Pools are so far auto-generated at startup and not saved.
-
