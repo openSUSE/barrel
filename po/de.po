@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 10:21+0200\n"
+"POT-Creation-Date: 2023-01-19 16:45+0100\n"
 "PO-Revision-Date: 2022-03-04 18:12+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
@@ -339,10 +339,18 @@ msgstr "Zeigt LVM-Volume-Gruppen an."
 msgid "Shows RAIDs."
 msgstr "Zeigt RAIDs an."
 
+#, fuzzy
+msgid "Shows actiongraph."
+msgstr "Zeigt Commit-Aktionen an."
+
 msgid "Shows commit actions."
 msgstr "Zeigt Commit-Aktionen an."
 
 msgid "Shows device tree."
+msgstr "Zeigt den Gerätebaum an."
+
+#, fuzzy
+msgid "Shows devicegraph."
 msgstr "Zeigt den Gerätebaum an."
 
 msgid "Shows disks."
@@ -825,7 +833,9 @@ msgstr "partitionierbares Element '%s' wird verwendet"
 msgid "path '%s' already used"
 msgstr "Pfad '%s' wird bereits verwendet"
 
-msgid "path must be 'swap'"
+#. TRANSLATORS: do not translate 'swap' nor 'none'
+#, fuzzy
+msgid "path must be 'swap' or 'none'"
 msgstr "Pfad muss 'swap' sein"
 
 msgid ""

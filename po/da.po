@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-20 10:21+0200\n"
+"POT-Creation-Date: 2023-01-19 16:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -331,10 +331,16 @@ msgstr ""
 msgid "Shows RAIDs."
 msgstr ""
 
+msgid "Shows actiongraph."
+msgstr ""
+
 msgid "Shows commit actions."
 msgstr ""
 
 msgid "Shows device tree."
+msgstr ""
+
+msgid "Shows devicegraph."
 msgstr ""
 
 msgid "Shows disks."
@@ -795,7 +801,8 @@ msgstr ""
 msgid "path '%s' already used"
 msgstr ""
 
-msgid "path must be 'swap'"
+#. TRANSLATORS: do not translate 'swap' nor 'none'
+msgid "path must be 'swap' or 'none'"
 msgstr ""
 
 msgid ""
