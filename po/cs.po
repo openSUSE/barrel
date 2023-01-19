@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 16:45+0100\n"
-"PO-Revision-Date: 2022-10-20 22:14+0000\n"
+"PO-Revision-Date: 2023-01-19 19:14+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -173,52 +173,52 @@ msgid "Exchanges the top two elements of the stack."
 msgstr "Vymění dva nejvyšší prvky zásobníku."
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Velikost rozsahu"
 
 msgid "Format"
-msgstr ""
+msgstr "Formát"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "GPT na %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Generování zásobníků"
 
 msgid "Global options:"
-msgstr ""
+msgstr "Globální volby:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Chybná odpověď '%s'"
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Vždy s úsměvem, to je nejdůležitější."
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "LUKS na %s"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "LVM logický svazek %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "LVM skupina svazků %s"
 
 msgid "Label"
-msgstr ""
+msgstr "Štítek"
 
 msgid "Level"
-msgstr ""
+msgstr "Úroveň"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Zavádím zásobníky..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Zavádí zásobníky."
 
 msgid "Loads the staging devicegraph from a file."
 msgstr ""
