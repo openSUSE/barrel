@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 16:45+0100\n"
-"PO-Revision-Date: 2023-01-19 19:14+0000\n"
+"PO-Revision-Date: 2023-01-26 17:14+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -220,118 +220,122 @@ msgstr "Zavádím zásobníky..."
 msgid "Loads pools."
 msgstr "Zavádí zásobníky."
 
+#, fuzzy
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Zavádí inscenující devicegraf ze souboru."
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "MS-DOS na %s"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "Chybí argument pro příkazovou volbu '%s'."
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "Chybí argument pro globální volbu '%s'."
 
 msgid "Missing block devices."
-msgstr ""
+msgstr "Chybí bloková zařízení."
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Přípojný bod"
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "Pro příkazovou volbu '%s' nejsou povolena bloková zařízení."
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "Nejsou povolena globální bloková zařízení."
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Hesla se neshodují."
 
 msgid "Pool"
-msgstr ""
+msgstr "Zásobárna"
 
 msgid "Position"
-msgstr ""
+msgstr "Poloha"
 
 msgid "Prints help."
-msgstr ""
+msgstr "Tisk nápovědy."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Tisk zásobníku."
 
 msgid "Probing..."
-msgstr ""
+msgstr "Sonduji..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "Profily"
 
 msgid "Quit?"
-msgstr ""
+msgstr "Ukončit?"
 
+#, fuzzy
 msgid "Quits barrel."
-msgstr ""
+msgstr "Ukončí barrel."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "Úroveň RAID je pro příkaz 'raid' již nastavena"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "Chybí úroveň RAID pro příkaz 'raid'"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Odstraní zařízení."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Odstraní zásobárnu."
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Odstraní zařízení ze zásobárny."
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Odstraní horní objekt ze zásobníku."
 
 msgid "Renames pool."
-msgstr ""
+msgstr "Přejmenuje zásobárnu."
 
+#, fuzzy
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
+msgstr "Obnoví inscenující devicegraf z poslední zálohy."
 
 msgid "Save pools"
-msgstr ""
+msgstr "Uloží zásobárny"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Uloží zásobárny."
 
+#, fuzzy
 msgid "Saves the staging devicegraph to a file."
-msgstr ""
+msgstr "Uloží inscenační devicegraf do souboru."
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Ukládám zásobárny..."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "Ukáže DASDy."
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Ukáže skupiny svazků LVM."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Ukáže RAIDy."
 
 msgid "Shows actiongraph."
 msgstr ""
