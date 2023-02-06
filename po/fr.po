@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 16:45+0100\n"
-"PO-Revision-Date: 2022-02-24 12:12+0000\n"
+"PO-Revision-Date: 2023-02-06 14:14+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
-"Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,19 +21,19 @@ msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Activer BitLocker %1$s sur %2$s (%3$s) avec l'UUID %4$s..."
 
 #, c-format
 msgid "Activate BitLocker on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Activer BitLocker sur %1$s (%2$s) avec l'UUID %3$s..."
 
 #, c-format
 msgid "Activate LUKS %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Activer LUKS %1$s sur %2$s (%3$s) avec l'UUID %4$s..."
 
 #, c-format
 msgid "Activate LUKS on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Activer LUKS sur %1$s (%2$s) avec l'UUID %3$s..."
 
 msgid "Activating..."
 msgstr "Activation en cours..."
@@ -50,9 +50,8 @@ msgstr "Alias pour \"create encryption --type luks2\""
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias pour \"create filesystem --type btrfs\""
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr "Alias pour \"create filesystem --type ext2\""
+msgstr "Alias pour \"create filesystem --type exfat\""
 
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "Alias pour \"create filesystem --type ext2\""
@@ -66,31 +65,26 @@ msgstr "Alias pour \"create filesystem --type ext4\""
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias pour \"create filesystem --type f2fs\""
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type jfs'"
-msgstr "Alias pour \"create filesystem --type xfs\""
+msgstr "Alias pour \"create filesystem --type jfs\""
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr "Alias pour \"create filesystem --type ntfs\""
+msgstr "Alias pour \"create filesystem --type nilfs2\""
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias pour \"create filesystem --type ntfs\""
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr "Alias pour \"create filesystem --type btrfs\""
+msgstr "Alias pour \"create filesystem --type reiserfs\""
 
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias pour \"create filesystem --type swap\""
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type udf'"
-msgstr "Alias pour \"create filesystem --type xfs\""
+msgstr "Alias pour \"create filesystem --type udf\""
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr "Alias pour \"create filesystem --type xfs\""
+msgstr "Alias pour \"create filesystem --type vfat\""
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "Alias pour \"create filesystem --type xfs\""
@@ -176,9 +170,8 @@ msgstr "Duplique le premier objet de la pile."
 msgid "Enter password:"
 msgstr "Entrez le mot de passe :"
 
-#, fuzzy
 msgid "Exchanges the top two elements of the stack."
-msgstr "Duplique le premier objet de la pile."
+msgstr "Échange les deux premiers éléments de la pile."
 
 msgid "Extent Size"
 msgstr "Étendre la taille"
@@ -246,9 +239,8 @@ msgstr "Argument manquant pour l'option de commande '%s'."
 msgid "Missing argument for global option '%s'."
 msgstr "Argument manquant pour l'option globale '%s'."
 
-#, fuzzy
 msgid "Missing block devices."
-msgstr "pas de périphérique de bloc sur la pile"
+msgstr "Périphériques de bloc manquants."
 
 msgid "Model"
 msgstr "Modèle"
@@ -285,7 +277,7 @@ msgid "Probing..."
 msgstr "Sondage en cours..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "Profils"
 
 msgid "Quit?"
 msgstr "Quitter ?"
@@ -344,9 +336,8 @@ msgstr "Affiche les groupes de volumes LVM."
 msgid "Shows RAIDs."
 msgstr "Affiche les RAID."
 
-#, fuzzy
 msgid "Shows actiongraph."
-msgstr "Affiche les actions de validation."
+msgstr "Affiche actiongraph."
 
 msgid "Shows commit actions."
 msgstr "Affiche les actions de validation."
@@ -354,9 +345,8 @@ msgstr "Affiche les actions de validation."
 msgid "Shows device tree."
 msgstr "Affiche l'arborescence du périphérique."
 
-#, fuzzy
 msgid "Shows devicegraph."
-msgstr "Affiche l'arborescence du périphérique."
+msgstr "Affiche devicegraph."
 
 msgid "Shows disks."
 msgstr "Affiche les disques."
@@ -405,12 +395,11 @@ msgstr "Fournisseur"
 msgid "Verify password:"
 msgstr "Confirmez le mot de passe :"
 
-#, fuzzy
 msgid "[ pushes a mark on the stack."
-msgstr "Efface la pile."
+msgstr "[ distribue une marque sur la pile."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] construit un tableau."
 
 msgid "activate storage systems at startup"
 msgstr "activer les systèmes de stockage au démarrage"
@@ -421,8 +410,8 @@ msgstr "répondre à toutes les questions par \"oui\""
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "tableau avec %d objet"
+msgstr[1] "tableau avec %d objets"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
@@ -452,17 +441,14 @@ msgstr ""
 msgid "block device '%s' is in use"
 msgstr "le périphérique de bloc '%s' est en cours d'utilisation"
 
-#, fuzzy
 msgid "block devices for LVM volume group missing"
-msgstr "Affiche les groupes de volumes LVM."
+msgstr "périphériques de bloc manquants pour le groupe de volumes LVM"
 
-#, fuzzy
 msgid "block devices for RAID missing"
-msgstr "le périphérique de bloc '%s' est en cours d'utilisation"
+msgstr "périphériques de bloc manquants pour RAID"
 
-#, fuzzy
 msgid "block devices for filesystem missing"
-msgstr "le périphérique de bloc '%s' est en cours d'utilisation"
+msgstr "périphériques de bloc manquants pour le système de fichiers"
 
 msgid "block devices missing for command 'raid'"
 msgstr "périphériques de bloc manquants pour la commande 'raid'"
@@ -476,9 +462,8 @@ msgstr "échec de la fermeture du fichier JSON '%s'"
 msgid "closing json file '%s' failed"
 msgstr "échec de la fermeture du fichier JSON '%s'"
 
-#, fuzzy
 msgid "deleted device"
-msgstr "plusieurs périphériques"
+msgstr "périphérique supprimé"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -532,7 +517,7 @@ msgstr "échec du calcul des actions"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "échec de l'analyse de la taille '%s'"
 
 #, c-format
 msgid "filesystem %s on %s"
@@ -556,9 +541,9 @@ msgstr "descendre"
 msgid "go upwards"
 msgstr "monter"
 
-#, fuzzy, c-format
+#, c-format
 msgid "invalid devices value '%d'"
-msgstr "argument incorrect pour les périphériques"
+msgstr "valeur '%d' non valide pour les périphériques"
 
 msgid "invalid logical volume name for command 'lv'"
 msgstr "nom de volume logique non valide pour la commande 'lv'"
@@ -567,9 +552,9 @@ msgstr "nom de volume logique non valide pour la commande 'lv'"
 msgid "invalid path '%s'"
 msgstr "chemin '%s' non valide"
 
-#, fuzzy, c-format
+#, c-format
 msgid "invalid size '%s'"
-msgstr "Réponse non valide '%s'"
+msgstr "taille '%s' non valide"
 
 msgid "invalid volume group name for command 'vg'"
 msgstr "nom du groupes de volumes non valide pour la commande 'vg'"
@@ -638,20 +623,17 @@ msgstr "assignation de %s à %s"
 msgid "mapping not found in json file '%s'"
 msgstr "assignation introuvable dans le fichier JSON '%s'"
 
-#, fuzzy
 msgid "missing block device"
-msgstr "définir l'étiquette du périphérique"
+msgstr "périphérique de bloc manquant"
 
-#, fuzzy
 msgid "missing partitionable"
-msgstr "non partitionnable"
+msgstr "élément partitionnable manquant"
 
 msgid "mkfs options"
 msgstr "options mkfs"
 
-#, fuzzy
 msgid "mount by"
-msgstr "chemin de montage"
+msgstr "monter par"
 
 msgid "mount options"
 msgstr "options de montage"
@@ -662,9 +644,8 @@ msgstr "les options de montage nécessitent un chemin"
 msgid "mount path"
 msgstr "chemin de montage"
 
-#, fuzzy
 msgid "mount-by requires a path"
-msgstr "les options de montage nécessitent un chemin"
+msgstr "l'option \"monter par\" nécessite un chemin"
 
 msgid "multiple devices"
 msgstr "plusieurs périphériques"
@@ -672,7 +653,7 @@ msgstr "plusieurs périphériques"
 #. TRANSLATORS: Abbriviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
-msgstr ""
+msgstr "n"
 
 msgid "name missing for command 'devicegraph'"
 msgstr "nom manquant pour la commande 'devicegraph'"
@@ -739,39 +720,35 @@ msgstr "aucun disque d'assignation trouvé pour '%s'"
 msgid "no mapping multipath for '%s' found"
 msgstr "aucun périphérique multipath d'assignation trouvé pour '%s'"
 
-#, fuzzy
 msgid "no mark on stack"
-msgstr "pas de périphérique de bloc sur la pile"
+msgstr "aucune marque sur la pile"
 
-#, fuzzy
 msgid "not a block device in array"
-msgstr "pas de périphérique de bloc sur la pile"
+msgstr "pas de périphérique de bloc dans le tableau"
 
 msgid "not a block device on stack"
 msgstr "pas de périphérique de bloc sur la pile"
 
-#, fuzzy
 msgid "not a block device or array of block devices on stack"
-msgstr "pas de périphérique de bloc sur la pile"
+msgstr ""
+"pas de périphérique de bloc ou de tableau de périphériques de bloc sur la "
+"pile"
 
-#, fuzzy
 msgid "not a device in array"
-msgstr "pas de périphérique de bloc sur la pile"
+msgstr "pas de périphérique dans le tableau"
 
-#, fuzzy
 msgid "not a device on stack"
-msgstr "pas de périphérique de bloc sur la pile"
+msgstr "pas de périphérique sur la pile"
 
-#, fuzzy
 msgid "not a partition table in array"
-msgstr "pas de table de partition sur la pile"
+msgstr "pas de table de partitions dans le tableau"
 
 msgid "not a partition table on stack"
 msgstr "pas de table de partition sur la pile"
 
-#, fuzzy
 msgid "not a partition table or array of partition tables on stack"
-msgstr "pas de table de partition sur la pile"
+msgstr ""
+"pas de table de partitions ou de tableau de tables de partitions sur la pile"
 
 msgid "not a partitionable"
 msgstr "non partitionnable"
@@ -791,9 +768,8 @@ msgstr "ancien nom"
 msgid "only one block device allowed"
 msgstr "un seul périphérique de bloc autorisé"
 
-#, fuzzy
 msgid "only one partition table allowed"
-msgstr "type de table de partition inconnu"
+msgstr "une seule table de partitions autorisée"
 
 #, fuzzy
 msgid "only one partitionable allowed"
