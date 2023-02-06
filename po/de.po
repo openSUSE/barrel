@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 16:45+0100\n"
-"PO-Revision-Date: 2023-01-28 17:14+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2023-02-06 14:14+0000\n"
+"Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
 "\n"
 "Language: de\n"
@@ -393,9 +393,8 @@ msgstr "Hersteller"
 msgid "Verify password:"
 msgstr "Passwort bestätigen:"
 
-#, fuzzy
 msgid "[ pushes a mark on the stack."
-msgstr "[ schiebt eine Markierung auf den Stack."
+msgstr "[ überträgt eine Markierung auf den Stack."
 
 msgid "] constructs an array."
 msgstr "] baut ein Array auf."
@@ -641,9 +640,8 @@ msgstr "für Einhängeoptionen ist ein Pfad erforderlich"
 msgid "mount path"
 msgstr "Einhängepfad"
 
-#, fuzzy
 msgid "mount-by requires a path"
-msgstr "für Einhängeoptionen ist ein Pfad erforderlich"
+msgstr "für 'Einhängen durch' ist ein Pfad erforderlich"
 
 msgid "multiple devices"
 msgstr "mehrere Geräte"
@@ -718,7 +716,6 @@ msgstr "kein Datenträger zur Zuordnung für '%s' gefunden"
 msgid "no mapping multipath for '%s' found"
 msgstr "kein Multipath-Gerät zur Zuordnung für '%s' gefunden"
 
-#, fuzzy
 msgid "no mark on stack"
 msgstr "keine Markierung im Stack"
 
@@ -844,7 +841,7 @@ msgid "read for json file '%s' failed"
 msgstr "Lesen von json-Datei '%s' fehlgeschlagen"
 
 msgid "run with a rootprefix"
-msgstr ""
+msgstr "mit Root-Präfix ausführen"
 
 msgid "set RAID level"
 msgstr "RAID-Ebene festlegen"
@@ -950,7 +947,7 @@ msgid "stack empty during pop"
 msgstr "Stack beim Ausführen von 'pop' leer"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "Stack-Unterlauf bei Austausch"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
@@ -980,7 +977,7 @@ msgstr "unbekannter Dateisystemtyp '%s'"
 
 #, c-format
 msgid "unknown mount-by type type '%s'"
-msgstr ""
+msgstr "unbekannter Typ für 'Einhängen durch'. Typ: '%s'"
 
 msgid "unknown partition table type"
 msgstr "unbekannter Partitionstabellentyp"
