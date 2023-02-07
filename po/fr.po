@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 16:45+0100\n"
-"PO-Revision-Date: 2023-02-06 14:14+0000\n"
+"PO-Revision-Date: 2023-02-07 18:14+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/>"
 "\n"
@@ -771,9 +771,8 @@ msgstr "un seul périphérique de bloc autorisé"
 msgid "only one partition table allowed"
 msgstr "une seule table de partitions autorisée"
 
-#, fuzzy
 msgid "only one partitionable allowed"
-msgstr "un seul périphérique de bloc autorisé"
+msgstr "un seul élément partionnable autorisé"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
@@ -784,9 +783,9 @@ msgstr "échec de l'ouverture du fichier JSON '%s'"
 msgid "opening json file '%s' failed"
 msgstr "échec de l'ouverture du fichier JSON '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "option --devices not allowed for %s"
-msgstr "options de réglage non autorisées pour %s"
+msgstr "option --devices non autorisée pour %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
@@ -817,9 +816,8 @@ msgid "path '%s' already used"
 msgstr "chemin '%s' déjà utilisé"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
-#, fuzzy
 msgid "path must be 'swap' or 'none'"
-msgstr "le chemin doit être 'swap'"
+msgstr "le chemin doit être 'swap' ou 'none'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
@@ -839,7 +837,7 @@ msgstr ""
 "la commande 'vg'"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "le pool est vide"
 
 msgid "pool name"
 msgstr "nom du pool"
@@ -849,9 +847,8 @@ msgstr "nom du pool"
 msgid "read for json file '%s' failed"
 msgstr "échec de la lecture du fichier JSON '%s'"
 
-#, fuzzy
 msgid "run with a rootprefix"
-msgstr "exécuter avec un préfixe"
+msgstr "exécuter avec un préfixe racine"
 
 msgid "set RAID level"
 msgstr "définir le niveau RAID"
@@ -889,9 +886,8 @@ msgstr "définir le nom du groupe de volumes"
 msgid "set number of devices"
 msgstr "définir le nombre de périphériques"
 
-#, fuzzy
 msgid "set profiles"
-msgstr "définir le nombre de périphériques"
+msgstr "définir des profils"
 
 msgid "set size"
 msgstr "définir la taille"
@@ -948,9 +944,8 @@ msgstr "taille des bandes"
 msgid "spare devices not allowed for raid level"
 msgstr "périphériques de rechange non autorisés pour le niveau RAID"
 
-#, fuzzy
 msgid "stack empty"
-msgstr "pile vide durant dup"
+msgstr "pile vide"
 
 msgid "stack empty during dup"
 msgstr "pile vide durant dup"
@@ -959,7 +954,7 @@ msgid "stack empty during pop"
 msgstr "pile vide durant pop"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "soupassement de pile durant l'échange"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
@@ -976,9 +971,9 @@ msgstr "options de réglage"
 msgid "tune options not allowed for %s"
 msgstr "options de réglage non autorisées pour %s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr "type de système de fichiers '%s' inconnu"
+msgstr "profil btrfs '%s' inconnu"
 
 msgid "unknown encryption type"
 msgstr "type de chiffrement inconnu"
@@ -987,9 +982,9 @@ msgstr "type de chiffrement inconnu"
 msgid "unknown filesystem type '%s'"
 msgstr "type de système de fichiers '%s' inconnu"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type type '%s'"
-msgstr "type de système de fichiers '%s' inconnu"
+msgstr "type de montage '%s' inconnu"
 
 msgid "unknown partition table type"
 msgstr "type de table de partition inconnu"
@@ -1022,7 +1017,7 @@ msgstr "nombre incorrect d'éléments partitionnables"
 #. TRANSLATORS: Abbriviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "o"
 
 #~ msgid "y/n"
 #~ msgstr "o/n"
