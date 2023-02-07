@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 16:45+0100\n"
-"PO-Revision-Date: 2022-11-12 19:13+0000\n"
-"Last-Translator: Paolo Za <zapaolo@email.it>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
-">\n"
+"PO-Revision-Date: 2023-02-07 13:14+0000\n"
+"Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -334,9 +334,8 @@ msgstr "Mostra i gruppi di volumi LVM."
 msgid "Shows RAIDs."
 msgstr "Mostra i RAID."
 
-#, fuzzy
 msgid "Shows actiongraph."
-msgstr "Mostra le azioni di commit."
+msgstr "Mostra actiongraph."
 
 msgid "Shows commit actions."
 msgstr "Mostra le azioni di commit."
@@ -344,9 +343,8 @@ msgstr "Mostra le azioni di commit."
 msgid "Shows device tree."
 msgstr "Mostra l'albero di dispositivi."
 
-#, fuzzy
 msgid "Shows devicegraph."
-msgstr "Mostra l'albero di dispositivi."
+msgstr "Mostra devicegraph."
 
 msgid "Shows disks."
 msgstr "Mostra i dischi."
@@ -632,9 +630,8 @@ msgstr "non partizionabile"
 msgid "mkfs options"
 msgstr "opzioni mkfs"
 
-#, fuzzy
 msgid "mount by"
-msgstr "percorso di montaggio"
+msgstr "Montaggio in base a"
 
 msgid "mount options"
 msgstr "opzioni di montaggio"
@@ -645,9 +642,8 @@ msgstr "per le opzioni di montaggio è necessario un percorso"
 msgid "mount path"
 msgstr "percorso di montaggio"
 
-#, fuzzy
 msgid "mount-by requires a path"
-msgstr "per le opzioni di montaggio è necessario un percorso"
+msgstr "per il montaggio in base a è necessario un percorso"
 
 msgid "multiple devices"
 msgstr "dispositivi multipli"
@@ -722,39 +718,36 @@ msgstr "nessun disco di mappatura per '%s' trovato"
 msgid "no mapping multipath for '%s' found"
 msgstr "nessun multipath di mappatura per '%s' trovato"
 
-#, fuzzy
 msgid "no mark on stack"
-msgstr "nessun avvertimento sullo stack"
+msgstr "nessun contrassegno sullo stack"
 
-#, fuzzy
 msgid "not a block device in array"
-msgstr "non è un dispositivo di blocco sullo stack"
+msgstr "non è un dispositivo di blocco nella matrice"
 
 msgid "not a block device on stack"
 msgstr "non è un dispositivo di blocco sullo stack"
 
-#, fuzzy
 msgid "not a block device or array of block devices on stack"
-msgstr "non è un dispositivo di blocco sullo stack"
+msgstr ""
+"non è un dispositivo di blocco o una matrice di dispositivi di blocco sullo "
+"stack"
 
-#, fuzzy
 msgid "not a device in array"
-msgstr "non è un dispositivo di blocco sullo stack"
+msgstr "non è un dispositivo nella matrice"
 
-#, fuzzy
 msgid "not a device on stack"
-msgstr "non è un dispositivo di blocco sullo stack"
+msgstr "non è un dispositivo sullo stack"
 
-#, fuzzy
 msgid "not a partition table in array"
-msgstr "non è una tabella delle partizioni sullo stack"
+msgstr "non è una tabella delle partizioni nella matrice"
 
 msgid "not a partition table on stack"
 msgstr "non è una tabella delle partizioni sullo stack"
 
-#, fuzzy
 msgid "not a partition table or array of partition tables on stack"
-msgstr "non è una tabella delle partizioni sullo stack"
+msgstr ""
+"non è una tabella delle partizioni o una matrice delle tabelle delle "
+"partizioni sullo stack"
 
 msgid "not a partitionable"
 msgstr "non è un elemento partizionabile"
@@ -774,13 +767,11 @@ msgstr "nome precedente"
 msgid "only one block device allowed"
 msgstr "solo un dispositivo di blocco consentito"
 
-#, fuzzy
 msgid "only one partition table allowed"
-msgstr "tipo di tabella delle partizioni sconosciuto"
+msgstr "solo una tabella delle partizioni consentita"
 
-#, fuzzy
 msgid "only one partitionable allowed"
-msgstr "solo un dispositivo di blocco consentito"
+msgstr "solo un elemento partizionabile consentito"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
@@ -791,9 +782,9 @@ msgstr "apertura del file json '%s' non riuscita"
 msgid "opening json file '%s' failed"
 msgstr "apertura del file json '%s' non riuscita"
 
-#, fuzzy, c-format
+#, c-format
 msgid "option --devices not allowed for %s"
-msgstr "opzioni di ottimizzazione non consentite per %s"
+msgstr "opzione --devices non consentita per %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
@@ -826,9 +817,8 @@ msgid "path '%s' already used"
 msgstr "il percorso '%s' è già in uso"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
-#, fuzzy
 msgid "path must be 'swap' or 'none'"
-msgstr "il percorso deve essere 'swap'"
+msgstr "il percorso deve essere 'swap' o 'none'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
@@ -847,9 +837,8 @@ msgstr ""
 "argomento di pool e dispositivi di blocco non consentiti in contemporanea "
 "per il comando 'vg'"
 
-#, fuzzy
 msgid "pool is empty"
-msgstr "pool è vuoto"
+msgstr "pool vuoto"
 
 msgid "pool name"
 msgstr "nome pool"
@@ -859,9 +848,8 @@ msgstr "nome pool"
 msgid "read for json file '%s' failed"
 msgstr "lettura del file json '%s' non riuscita"
 
-#, fuzzy
 msgid "run with a rootprefix"
-msgstr "esegui con un prefisso"
+msgstr "esegui con un rootprefix"
 
 msgid "set RAID level"
 msgstr "imposta livello RAID"
@@ -899,9 +887,8 @@ msgstr "imposta nome gruppo di volumi"
 msgid "set number of devices"
 msgstr "imposta numero di dispositivi"
 
-#, fuzzy
 msgid "set profiles"
-msgstr "imposta numero di dispositivi"
+msgstr "imposta profili"
 
 msgid "set size"
 msgstr "imposta dimensione"
@@ -958,9 +945,8 @@ msgstr "dimensione dei segmenti"
 msgid "spare devices not allowed for raid level"
 msgstr "dispositivi di riserva non consentiti per il livello raid"
 
-#, fuzzy
 msgid "stack empty"
-msgstr "stack vuoto durante l'operazione di dup"
+msgstr "stack vuoto"
 
 msgid "stack empty during dup"
 msgstr "stack vuoto durante l'operazione di dup"
@@ -986,9 +972,9 @@ msgstr "opzioni di ottimizzazione"
 msgid "tune options not allowed for %s"
 msgstr "opzioni di ottimizzazione non consentite per %s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr "tipo di file system '%s' sconosciuto"
+msgstr "profilo btrfs '%s' sconosciuto"
 
 msgid "unknown encryption type"
 msgstr "tipo di cifratura sconosciuto"
@@ -997,9 +983,9 @@ msgstr "tipo di cifratura sconosciuto"
 msgid "unknown filesystem type '%s'"
 msgstr "tipo di file system '%s' sconosciuto"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type type '%s'"
-msgstr "tipo di file system '%s' sconosciuto"
+msgstr "tipo di montaggio in base al tipo '%s' sconosciuto"
 
 msgid "unknown partition table type"
 msgstr "tipo di tabella delle partizioni sconosciuto"
@@ -1031,7 +1017,7 @@ msgstr "numero di elementi partizionabili errato"
 #. TRANSLATORS: Abbriviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "S"
 
 #~ msgid "y/n"
 #~ msgstr "s/n"
