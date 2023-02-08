@@ -8,11 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 16:45+0100\n"
-"PO-Revision-Date: 2022-06-27 00:13+0000\n"
-"Last-Translator: Jaime Marquínez Ferrándiz <jaime.marquinez."
-"ferrandiz@fastmail.net>\n"
-"Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/"
-">\n"
+"PO-Revision-Date: 2023-02-08 23:14+0000\n"
+"Last-Translator: Antonio Simón <antonio@trans-mission.com>\n"
+"Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,9 +65,8 @@ msgstr "Alias para 'create filesystem --type ext4'"
 msgid "Alias for 'create filesystem --type f2fs'"
 msgstr "Alias para 'create filesystem --type f2fs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type jfs'"
-msgstr "Alias para 'create filesystem --type xfs'"
+msgstr "Alias para \"create filesystem --type jfs\""
 
 msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "Alias para 'create filesystem --type nilfs2'"
@@ -76,16 +74,14 @@ msgstr "Alias para 'create filesystem --type nilfs2'"
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias para 'create filesystem --type ntfs'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr "Alias para 'create filesystem --type btrfs'"
+msgstr "Alias para \"create filesystem --type reiserfs\""
 
 msgid "Alias for 'create filesystem --type swap'"
 msgstr "Alias para 'create filesystem --type swap'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type udf'"
-msgstr "Alias para 'create filesystem --type xfs'"
+msgstr "Alias para \"create filesystem --type udf\""
 
 msgid "Alias for 'create filesystem --type vfat'"
 msgstr "Alias para 'create filesystem --type vfat'"
@@ -174,9 +170,8 @@ msgstr "Duplica el objeto apical de la pila."
 msgid "Enter password:"
 msgstr "Ingresar contraseña:"
 
-#, fuzzy
 msgid "Exchanges the top two elements of the stack."
-msgstr "Duplica el objeto apical de la pila."
+msgstr "Intercambia los dos elementos superiores de la pila."
 
 msgid "Extent Size"
 msgstr "Extender"
@@ -244,9 +239,8 @@ msgstr "Argumento ausente para la opción de comando «%s»."
 msgid "Missing argument for global option '%s'."
 msgstr "Argumento ausente para opción global «%s»."
 
-#, fuzzy
 msgid "Missing block devices."
-msgstr "no hay dispositivo de bloque en la pila"
+msgstr "Faltan dispositivos de bloques."
 
 msgid "Model"
 msgstr "Modelo"
@@ -283,7 +277,7 @@ msgid "Probing..."
 msgstr "Sondeando..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "Perfiles"
 
 msgid "Quit?"
 msgstr "¿Salir?"
@@ -340,9 +334,8 @@ msgstr "Muestra los grupos de volúmenes LVM."
 msgid "Shows RAIDs."
 msgstr "Muestra las RAIDs."
 
-#, fuzzy
 msgid "Shows actiongraph."
-msgstr "Muestra los acometimientos."
+msgstr "Muestra el gráfico de acción."
 
 msgid "Shows commit actions."
 msgstr "Muestra los acometimientos."
@@ -350,9 +343,8 @@ msgstr "Muestra los acometimientos."
 msgid "Shows device tree."
 msgstr "Muestra el árbol de dispositivos."
 
-#, fuzzy
 msgid "Shows devicegraph."
-msgstr "Muestra el árbol de dispositivos."
+msgstr "Muestra el gráfico de dispositivos."
 
 msgid "Shows disks."
 msgstr "Muestra los discos."
@@ -401,12 +393,11 @@ msgstr "Fabricante"
 msgid "Verify password:"
 msgstr "Verificar contraseña:"
 
-#, fuzzy
 msgid "[ pushes a mark on the stack."
-msgstr "Limpia la pila."
+msgstr "[ empuja una marca a la pila."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] construye una matriz."
 
 msgid "activate storage systems at startup"
 msgstr "activar los sistemas de almacenamiento al inicio"
@@ -417,8 +408,8 @@ msgstr "responder sí a todas las preguntas"
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "matriz con %d objeto"
+msgstr[1] "matriz con %d objetos"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
@@ -448,17 +439,14 @@ msgstr ""
 msgid "block device '%s' is in use"
 msgstr "el dispositivo de bloques «%s» está en uso"
 
-#, fuzzy
 msgid "block devices for LVM volume group missing"
-msgstr "Muestra los grupos de volúmenes LVM."
+msgstr "los dispositivos de bloques para el grupo de volúmenes LVM faltan"
 
-#, fuzzy
 msgid "block devices for RAID missing"
-msgstr "el dispositivo de bloques «%s» está en uso"
+msgstr "los dispositivos de bloques para RAID faltan"
 
-#, fuzzy
 msgid "block devices for filesystem missing"
-msgstr "el dispositivo de bloques «%s» está en uso"
+msgstr "los dispositivos de bloques para el sistema de archivos faltan"
 
 msgid "block devices missing for command 'raid'"
 msgstr "Dispositivos de bloque ausentes para el comando «raid»"
@@ -472,9 +460,8 @@ msgstr "cerrar si el archivo json %s falla"
 msgid "closing json file '%s' failed"
 msgstr "cierre fallido del archivo json «%s»"
 
-#, fuzzy
 msgid "deleted device"
-msgstr "múltiples dispositivos"
+msgstr "dispositivo suprimido"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -528,7 +515,7 @@ msgstr "falla al calcular acciones"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "error al analizar el tamaño %s"
 
 #, c-format
 msgid "filesystem %s on %s"
@@ -552,9 +539,9 @@ msgstr "descender"
 msgid "go upwards"
 msgstr "ascender"
 
-#, fuzzy, c-format
+#, c-format
 msgid "invalid devices value '%d'"
-msgstr "devices, mal argumento"
+msgstr "Valor de dispositivos no válido: %d"
 
 msgid "invalid logical volume name for command 'lv'"
 msgstr "nombre inválido de volumen lógico para el comando «lv»"
@@ -563,9 +550,9 @@ msgstr "nombre inválido de volumen lógico para el comando «lv»"
 msgid "invalid path '%s'"
 msgstr "ruta «%s» inválida"
 
-#, fuzzy, c-format
+#, c-format
 msgid "invalid size '%s'"
-msgstr "Respuesta «%s» inválida"
+msgstr "tamaño %s no válido"
 
 msgid "invalid volume group name for command 'vg'"
 msgstr "nombre inválido de grupo de volúmenes para el comando «vg»"
@@ -633,20 +620,17 @@ msgstr "mapeando %s a %s"
 msgid "mapping not found in json file '%s'"
 msgstr "mapeo no encontrado en archivo json «%s»"
 
-#, fuzzy
 msgid "missing block device"
-msgstr "etiquetar un dispositivo"
+msgstr "dispositivo de bloques que falta"
 
-#, fuzzy
 msgid "missing partitionable"
-msgstr "no es particionable"
+msgstr "particionable que falta"
 
 msgid "mkfs options"
 msgstr "opciones de mkfs"
 
-#, fuzzy
 msgid "mount by"
-msgstr "ruta de montaje"
+msgstr "montaje por"
 
 msgid "mount options"
 msgstr "opciones de montaje"
@@ -657,9 +641,8 @@ msgstr "opciones de montaje requieren una ruta"
 msgid "mount path"
 msgstr "ruta de montaje"
 
-#, fuzzy
 msgid "mount-by requires a path"
-msgstr "opciones de montaje requieren una ruta"
+msgstr "mount-by requiere una ruta"
 
 msgid "multiple devices"
 msgstr "múltiples dispositivos"
@@ -667,7 +650,7 @@ msgstr "múltiples dispositivos"
 #. TRANSLATORS: Abbriviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
-msgstr ""
+msgstr "n"
 
 msgid "name missing for command 'devicegraph'"
 msgstr "nombre ausente para el comando «devicegraph»"
@@ -734,39 +717,36 @@ msgstr "no se encuentra mapeo de disco para «%s»"
 msgid "no mapping multipath for '%s' found"
 msgstr "no se encuentra mapeo multirruta para «%s»"
 
-#, fuzzy
 msgid "no mark on stack"
-msgstr "no hay dispositivo de bloque en la pila"
+msgstr "no hay marca en la pila"
 
-#, fuzzy
 msgid "not a block device in array"
-msgstr "no hay dispositivo de bloque en la pila"
+msgstr "no es un dispositivo de bloques en la matriz"
 
 msgid "not a block device on stack"
 msgstr "no hay dispositivo de bloque en la pila"
 
-#, fuzzy
 msgid "not a block device or array of block devices on stack"
-msgstr "no hay dispositivo de bloque en la pila"
+msgstr ""
+"no es un dispositivo de bloques ni una matriz de dispositivos de bloques en "
+"la pila"
 
-#, fuzzy
 msgid "not a device in array"
-msgstr "no hay dispositivo de bloque en la pila"
+msgstr "no es un dispositivo en la matriz"
 
-#, fuzzy
 msgid "not a device on stack"
-msgstr "no hay dispositivo de bloque en la pila"
+msgstr "no es un dispositivo en la pila"
 
-#, fuzzy
 msgid "not a partition table in array"
-msgstr "no hay tabla de partición en la pila"
+msgstr "no es una tabla de partición en la matriz"
 
 msgid "not a partition table on stack"
 msgstr "no hay tabla de partición en la pila"
 
-#, fuzzy
 msgid "not a partition table or array of partition tables on stack"
-msgstr "no hay tabla de partición en la pila"
+msgstr ""
+"no es una tabla de particiones ni una matriz de tablas de particiones en la "
+"pila"
 
 msgid "not a partitionable"
 msgstr "no es particionable"
@@ -786,13 +766,11 @@ msgstr "nombre previo"
 msgid "only one block device allowed"
 msgstr "solamente un dispositivo de bloques permitido"
 
-#, fuzzy
 msgid "only one partition table allowed"
-msgstr "tipo desconocido de tabla de partición"
+msgstr "solo se permite una tabla de particiones"
 
-#, fuzzy
 msgid "only one partitionable allowed"
-msgstr "solamente un dispositivo de bloques permitido"
+msgstr "solo se permite un particionable"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
@@ -803,9 +781,9 @@ msgstr "abrir si el archivo json %s falla"
 msgid "opening json file '%s' failed"
 msgstr "fallo abriendo archivo json «%s»"
 
-#, fuzzy, c-format
+#, c-format
 msgid "option --devices not allowed for %s"
-msgstr "opciones de ajuste no permitidas para «%s»"
+msgstr "la opción --devices no se admite para %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
@@ -833,9 +811,8 @@ msgid "path '%s' already used"
 msgstr "ruta «%s» ya usada"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
-#, fuzzy
 msgid "path must be 'swap' or 'none'"
-msgstr "ruta debe ser «swap»"
+msgstr "la ruta debe ser \"swap\" o \"none\""
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
@@ -854,7 +831,7 @@ msgstr ""
 "Comando «vg» no admite conjuntamente los argumentos «pool» y «blk devices»"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "el repositorio está vacío"
 
 msgid "pool name"
 msgstr "nombre de la reserva"
@@ -864,9 +841,8 @@ msgstr "nombre de la reserva"
 msgid "read for json file '%s' failed"
 msgstr "falla al leer archivo json «%s»"
 
-#, fuzzy
 msgid "run with a rootprefix"
-msgstr "Accionar con un prefijo"
+msgstr "ejecutar con un prefijo raíz"
 
 msgid "set RAID level"
 msgstr "establecer nivel RAID"
@@ -904,9 +880,8 @@ msgstr "nombrar un grupo de volúmenes"
 msgid "set number of devices"
 msgstr "poner número de dispositivos"
 
-#, fuzzy
 msgid "set profiles"
-msgstr "poner número de dispositivos"
+msgstr "definir perfiles"
 
 msgid "set size"
 msgstr "establecer tamaño"
@@ -963,9 +938,8 @@ msgstr "tamaño de las tiras"
 msgid "spare devices not allowed for raid level"
 msgstr "dispositivos ociosos no permitidos para nivel de RAID"
 
-#, fuzzy
 msgid "stack empty"
-msgstr "pila vacía durante dup"
+msgstr "pila vacía"
 
 msgid "stack empty during dup"
 msgstr "pila vacía durante dup"
@@ -974,7 +948,7 @@ msgid "stack empty during pop"
 msgstr "pila vacía durante pop"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "subdesbordamiento de pila durante exch"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
@@ -991,9 +965,9 @@ msgstr "opciones de ajuste"
 msgid "tune options not allowed for %s"
 msgstr "opciones de ajuste no permitidas para «%s»"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr "tipo de sistema de archivos «%s» desconocido"
+msgstr "perfil btrfs %s desconocido"
 
 msgid "unknown encryption type"
 msgstr "tipo desconocido de cifrado"
@@ -1002,9 +976,9 @@ msgstr "tipo desconocido de cifrado"
 msgid "unknown filesystem type '%s'"
 msgstr "tipo de sistema de archivos «%s» desconocido"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type type '%s'"
-msgstr "tipo de sistema de archivos «%s» desconocido"
+msgstr "tipo mount-by %s desconocido"
 
 msgid "unknown partition table type"
 msgstr "tipo desconocido de tabla de partición"
@@ -1036,7 +1010,7 @@ msgstr "número incorrecto de particionables"
 #. TRANSLATORS: Abbriviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "s"
 
 #~ msgid "y/n"
 #~ msgstr "s/n"
