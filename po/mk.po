@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 16:45+0100\n"
-"PO-Revision-Date: 2023-01-07 22:13+0000\n"
+"PO-Revision-Date: 2023-02-16 03:14+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/master/"
 "mk/>\n"
@@ -72,19 +72,19 @@ msgid "Alias for 'create filesystem --type nilfs2'"
 msgstr "Алиас за 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "Алиас за 'create filesystem --type ntfs'"
 
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr ""
+msgstr "Алиас за 'create filesystem --type reiserfs'"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "Алиас за 'create filesystem --type swap'"
 
 msgid "Alias for 'create filesystem --type udf'"
-msgstr ""
+msgstr "Алиас за 'create filesystem --type udf'"
 
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr ""
+msgstr "Алиас за 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr ""
