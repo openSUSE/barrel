@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-13 08:05+0100\n"
-"PO-Revision-Date: 2023-01-26 17:14+0000\n"
+"PO-Revision-Date: 2023-03-13 12:14+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -282,7 +282,6 @@ msgstr "Profily"
 msgid "Quit?"
 msgstr "Ukončit?"
 
-#, fuzzy
 msgid "Quits barrel."
 msgstr "Ukončí barrel."
 
@@ -337,38 +336,44 @@ msgstr "Ukáže skupiny svazků LVM."
 msgid "Shows RAIDs."
 msgstr "Ukáže RAIDy."
 
+#, fuzzy
 msgid "Shows actiongraph."
-msgstr ""
+msgstr "Ukáže graf akce."
 
+#, fuzzy
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Ukáže potvrzené akce."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Ukáže strom zařízení."
 
+#, fuzzy
 msgid "Shows devicegraph."
-msgstr ""
+msgstr "Ukáže devicegraf."
 
 msgid "Shows disks."
-msgstr ""
+msgstr "Ukáže disky."
 
+#, fuzzy
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Ukáže šifrovací zařízení."
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "Ukáže systémy souborů."
 
+#, fuzzy
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Ukáže vícecestná zařízení."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Ukáže zásobárny."
 
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
+#, fuzzy
 msgid "Stripes"
-msgstr ""
+msgstr "Proužky"
 
 msgid "The command has the following subcommands:"
 msgstr ""
