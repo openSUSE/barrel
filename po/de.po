@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 16:45+0100\n"
+"POT-Creation-Date: 2023-03-13 08:05+0100\n"
 "PO-Revision-Date: 2023-02-06 14:14+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
-"\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
+">\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -468,6 +468,10 @@ msgstr "Gerät '%s' nicht in Zuordnung gefunden"
 msgid "do not commit anything to disk"
 msgstr "nichts auf Datenträger speichern"
 
+#, fuzzy
+msgid "do not show colors"
+msgstr "Partitionen auf DASDs nicht anzeigen"
+
 msgid "do not show partitions on DASDs"
 msgstr "Partitionen auf DASDs nicht anzeigen"
 
@@ -909,6 +913,9 @@ msgstr "mehrere Datenträger zur Zuordnung für '%s' gefunden"
 #, c-format
 msgid "several mapping multipath for '%s' found"
 msgstr "mehrere Multipath-Geräte zur Zuordnung für '%s' gefunden"
+
+msgid "show colors"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "Hilfe anzeigen und beenden"
