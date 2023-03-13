@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-13 08:05+0100\n"
-"PO-Revision-Date: 2023-01-20 00:14+0000\n"
+"PO-Revision-Date: 2023-03-13 12:14+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -468,9 +468,8 @@ msgstr "デバイス '%s' がマッピング内にありません"
 msgid "do not commit anything to disk"
 msgstr "ディスクに対しては何も適用しません"
 
-#, fuzzy
 msgid "do not show colors"
-msgstr "DASD 内のパーティションを表示しません"
+msgstr "色を表示しません"
 
 msgid "do not show partitions on DASDs"
 msgstr "DASD 内のパーティションを表示しません"
@@ -921,7 +920,7 @@ msgid "several mapping multipath for '%s' found"
 msgstr "'%s' に対するマルチパスのマッピングが複数見つかりました"
 
 msgid "show colors"
-msgstr ""
+msgstr "色を表示します"
 
 msgid "show help and exit"
 msgstr "ヘルプを表示して終了します"
