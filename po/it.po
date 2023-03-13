@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 16:45+0100\n"
+"POT-Creation-Date: 2023-03-13 08:05+0100\n"
 "PO-Revision-Date: 2023-02-07 13:14+0000\n"
 "Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
-"\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
+">\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -470,6 +470,10 @@ msgstr "dispositivo '%s' non trovato nella mappatura"
 msgid "do not commit anything to disk"
 msgstr "non eseguire il commit di alcun elemento sul disco"
 
+#, fuzzy
+msgid "do not show colors"
+msgstr "non mostrare le partizioni sui DASD"
+
 msgid "do not show partitions on DASDs"
 msgstr "non mostrare le partizioni sui DASD"
 
@@ -917,6 +921,9 @@ msgstr "più dischi di mappatura per '%s' trovati"
 #, c-format
 msgid "several mapping multipath for '%s' found"
 msgstr "più multipath di mappatura per '%s' trovati"
+
+msgid "show colors"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "mostra guida ed esci"

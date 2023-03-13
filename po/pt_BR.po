@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 16:45+0100\n"
+"POT-Creation-Date: 2023-03-13 08:05+0100\n"
 "PO-Revision-Date: 2023-02-08 14:14+0000\n"
 "Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
@@ -471,6 +471,10 @@ msgstr "dispositivo '%s' não encontrado no mapeamento"
 msgid "do not commit anything to disk"
 msgstr "não confirmar nada no disco"
 
+#, fuzzy
+msgid "do not show colors"
+msgstr "não mostrar partições em DASDs"
+
 msgid "do not show partitions on DASDs"
 msgstr "não mostrar partições em DASDs"
 
@@ -744,7 +748,8 @@ msgid "not a partition table on stack"
 msgstr "não é uma tabela de partição na pilha"
 
 msgid "not a partition table or array of partition tables on stack"
-msgstr "não há uma tabela de partição ou matriz de tabelas de partição na pilha"
+msgstr ""
+"não há uma tabela de partição ou matriz de tabelas de partição na pilha"
 
 msgid "not a partitionable"
 msgstr "não é particionável"
@@ -910,6 +915,9 @@ msgstr "vários discos de mapeamento para '%s' encontrados"
 #, c-format
 msgid "several mapping multipath for '%s' found"
 msgstr "múltiplos caminhos de mapeamento para '%s' encontrados"
+
+msgid "show colors"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "mostrar ajuda e sair"

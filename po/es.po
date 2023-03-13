@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 16:45+0100\n"
+"POT-Creation-Date: 2023-03-13 08:05+0100\n"
 "PO-Revision-Date: 2023-02-08 23:14+0000\n"
 "Last-Translator: Antonio Simón <antonio@trans-mission.com>\n"
-"Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
-"\n"
+"Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -470,6 +470,10 @@ msgstr "Dispositivo «%s» no encontrado en el mapeo"
 msgid "do not commit anything to disk"
 msgstr "No acometer nada al disco"
 
+#, fuzzy
+msgid "do not show colors"
+msgstr "no mostrar particiones en DASDs"
+
 msgid "do not show partitions on DASDs"
 msgstr "no mostrar particiones en DASDs"
 
@@ -910,6 +914,9 @@ msgstr "se encontraron varios mapeos de disco para «%s»"
 #, c-format
 msgid "several mapping multipath for '%s' found"
 msgstr "se encontraron varios mapeos multirruta para «%s»"
+
+msgid "show colors"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "mostrar ayuda y salir"
