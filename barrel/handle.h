@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -48,6 +48,7 @@ namespace barrel
 	bool version = false;
 	bool quiet = false;
 	bool verbose = false;
+	optional<bool> color;
 	bool dry_run = false;
 	optional<string> rootprefix;
 	bool activate = false;

@@ -10,6 +10,7 @@ libutils_la_SOURCES =			\
 	GetOpts.h	GetOpts.cc	\
 	Args.h				\
 	Table.h		Table.cc	\
+	Colors.h	Colors.cc	\
 	Text.h		Text.cc		\
 	JsonFile.h	JsonFile.cc	\
 	Readline.h	Readline.cc	\

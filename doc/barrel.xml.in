@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2023-01-17</date>
+    <date>2023-03-10</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2023-01-17</refmiscinfo>
+    <refmiscinfo class='date'>2023-03-10</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -129,6 +129,18 @@
 	<term><option>-v, --verbose</option></term>
 	<listitem>
 	  <para>Increase verbosity.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>--color</option></term>
+	<listitem>
+	  <para>Use colors colors in output.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>--no-color</option></term>
+	<listitem>
+	  <para>Do not use colors colors in output.</para>
 	</listitem>
       </varlistentry>
       <varlistentry>

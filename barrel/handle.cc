@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -30,6 +30,8 @@
 #include <storage/Storage.h>
 #include <storage/Devicegraph.h>
 #include <storage/Actiongraph.h>
+#include <storage/Actions/Create.h>
+#include <storage/Actions/Delete.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Args.h"
@@ -37,6 +39,7 @@
 #include "Utils/Misc.h"
 #include "Utils/Readline.h"
 #include "Utils/Prompt.h"
+#include "Utils/Colors.h"
 
 #include "handle.h"
 #include "cmds.h"
@@ -60,6 +63,12 @@ namespace barrel
 
 	quiet = parsed_opts.has_option("quiet");
 	verbose = parsed_opts.has_option("verbose");
+
+	if (parsed_opts.has_option("color"))
+	    color = true;
+	if (parsed_opts.has_option("no-color"))
+	    color = false;
+
 	dry_run = parsed_opts.has_option("dry-run");
 
 	if (parsed_opts.has_option("rootprefix"))
@@ -80,6 +89,8 @@ namespace barrel
 	static const ExtOptions options({
 	    { "quiet", no_argument, 'q', _("be quiet") },
 	    { "verbose", no_argument, 'v', _("be more verbose") },
+	    { "color", no_argument, 0, _("show colors") },
+	    { "no-color", no_argument, 0, _("do not show colors") },
 	    { "dry-run", no_argument, 0, _("do not commit anything to disk") },
 	    { "rootprefix", required_argument, 0, _("run with a rootprefix"), "rootprefix" },
 	    { "prefix", required_argument, 0, nullptr }, // replaced by rootprefix
@@ -391,8 +402,11 @@ namespace barrel
 	{
 	    Actiongraph actiongraph(*storage, lhs, storage->get_staging());
 
-	    for (const string& action : actiongraph.get_commit_actions_as_strings())
-		cout << "  " << action << '\n';
+	    for (const Action::Base* action : actiongraph.get_commit_actions())
+	    {
+		cout << "  " << colorize_message(get_string(&actiongraph, action),
+						 is_create(action), is_delete(action)) << '\n';
+	    }
 	}
 	catch (const Exception& e)
 	{
@@ -587,6 +601,11 @@ namespace barrel
 		cout << "barrel " VERSION << '\n';
 		return true;
 	    }
+
+	    if (global_options.color.has_value())
+		Colors::use_ansi_escape_codes = global_options.color.value();
+	    else
+		Colors::use_ansi_escape_codes = Colors::may_use_ansi_escapes_codes();
 
 	    bool interactive = !get_opts.has_args();
 
