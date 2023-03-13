@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -21,9 +21,12 @@
 
 
 #include <storage/Actiongraph.h>
+#include <storage/Actions/Create.h>
+#include <storage/Actions/Delete.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
+#include "Utils/Colors.h"
 #include "show-commit.h"
 
 
@@ -52,8 +55,11 @@ namespace barrel
 	{
 	    const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
 
-	    for (const string& action : actiongraph->get_commit_actions_as_strings())
-		cout << "  " << action << '\n';
+	    for (const Action::Base* action : actiongraph->get_commit_actions())
+	    {
+		cout << "  " << colorize_message(get_string(actiongraph, action),
+						 is_create(action), is_delete(action)) << '\n';
+	    }
 	}
 	catch (const Exception& e)
 	{

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -22,10 +22,13 @@
 
 #include <storage/Storage.h>
 #include <storage/Actiongraph.h>
+#include <storage/Actions/Create.h>
+#include <storage/Actions/Delete.h>
 
 #include "commit.h"
 #include "Utils/Text.h"
 #include "Utils/Prompt.h"
+#include "Utils/Colors.h"
 #include "show-commit.h"
 #include "save-pools.h"
 
@@ -44,13 +47,24 @@ namespace barrel
     };
 
 
-    class MyCommitCallbacks : public CommitCallbacks
+    class MyCommitCallbacks : public CommitCallbacksV2
     {
     public:
+
+	void begin_action(const Action::Base* action) const override
+	{
+	    is_create = storage::is_create(action);
+	    is_delete = storage::is_delete(action);
+	}
 
 	void message(const string& message) const override;
 
 	bool error(const std::string& message, const std::string& what) const override;
+
+    private:
+
+	mutable bool is_create = false;
+	mutable bool is_delete = false;
 
     };
 
@@ -58,7 +72,7 @@ namespace barrel
     void
     MyCommitCallbacks::message(const string& message) const
     {
-	cout << "  " << message << '\n';
+	cout << "  " << colorize_message(message, is_create, is_delete) << '\n';
     }
 
 
