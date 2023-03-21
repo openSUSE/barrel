@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-13 08:05+0100\n"
-"PO-Revision-Date: 2023-02-16 03:14+0000\n"
+"PO-Revision-Date: 2023-03-21 04:14+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/master/"
 "mk/>\n"
@@ -87,31 +87,31 @@ msgid "Alias for 'create filesystem --type vfat'"
 msgstr "Алиас за 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "Алиас за'create filesystem --type xfs'"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "Алиас за 'create partition-table --type gpt'"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "Алиас за 'create partition-table --type ms-dos'"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "Алиас за 'create raid --level 0'"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "Алиас за 'create raid --level 1'"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "Алиас за 'create raid --level 10'"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "Алиас за 'create raid --level 4'"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "Алиас за 'create raid --level 5'"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "Алиас за 'create raid --level 6'"
 
 msgid "Block Size"
 msgstr ""
