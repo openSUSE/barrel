@@ -101,12 +101,16 @@ namespace barrel
 	sort(disks.begin(), disks.end(), Disk::compare_by_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT),
-		Cell(_("Block Size"), Align::RIGHT), Cell(_("Usage"), Id::USAGE),
-		Cell(_("Pool"), Id::POOL) });
+		Cell(_("Transport"), Id::TRANSPORT), Cell(_("Block Size"), Align::RIGHT),
+		Cell(_("Usage"), Id::USAGE), Cell(_("Pool"), Id::POOL) });
+	table.set_visibility(Id::TRANSPORT, Visibility::AUTO);
 
 	for (const Disk* disk : disks)
 	{
+	    Transport transport = disk->get_transport();
+
 	    Table::Row row(table, { disk->get_name(), format_size(disk->get_size()),
+		    transport != Transport::UNKNOWN ? get_transport_name(disk->get_transport()) : "",
 		    format_size(disk->get_region().get_block_size(), true),
 		    device_usage(disk), device_pools(storage, disk) });
 
