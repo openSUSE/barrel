@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-13 08:05+0100\n"
+"POT-Creation-Date: 2023-03-27 11:46+0200\n"
 "PO-Revision-Date: 2023-03-21 04:14+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/master/"
@@ -368,6 +368,10 @@ msgid "Stripes"
 msgstr ""
 
 msgid "The command has the following subcommands:"
+msgstr ""
+
+#. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
+msgid "Transport"
 msgstr ""
 
 msgid "Type"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-13 08:05+0100\n"
+"POT-Creation-Date: 2023-03-27 11:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -367,6 +367,10 @@ msgid "Stripes"
 msgstr ""
 
 msgid "The command has the following subcommands:"
+msgstr ""
+
+#. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
+msgid "Transport"
 msgstr ""
 
 msgid "Type"
