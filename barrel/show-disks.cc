@@ -101,7 +101,9 @@ namespace barrel
 	sort(disks.begin(), disks.end(), Disk::compare_by_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT),
-		Cell(_("Transport"), Id::TRANSPORT), Cell(_("Block Size"), Align::RIGHT),
+		// TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
+		Cell(_("Transport"), Id::TRANSPORT),
+		Cell(_("Block Size"), Align::RIGHT),
 		Cell(_("Usage"), Id::USAGE), Cell(_("Pool"), Id::POOL) });
 	table.set_visibility(Id::TRANSPORT, Visibility::AUTO);
 

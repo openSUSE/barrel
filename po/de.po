@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-13 08:05+0100\n"
+"POT-Creation-Date: 2023-03-27 11:46+0200\n"
 "PO-Revision-Date: 2023-02-06 14:14+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
@@ -369,6 +369,10 @@ msgstr "Stripes"
 
 msgid "The command has the following subcommands:"
 msgstr "Kommando hat die folgenden Unterkommandos:"
+
+#. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
+msgid "Transport"
+msgstr ""
 
 msgid "Type"
 msgstr "Typ"
