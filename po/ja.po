@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-27 11:46+0200\n"
-"PO-Revision-Date: 2023-03-13 12:14+0000\n"
+"PO-Revision-Date: 2023-03-27 12:14+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -373,7 +373,7 @@ msgstr "このコマンドには下記のようなサブコマンドが用意さ
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "トランスポート"
 
 msgid "Type"
 msgstr "種類"
