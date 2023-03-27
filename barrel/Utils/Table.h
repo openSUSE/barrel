@@ -38,7 +38,7 @@ namespace barrel
     enum class Id
     {
 	NONE, NAME, SIZE, USAGE, POOL, USED, NUMBER, STRIPES, LABEL, MOUNT_POINT, PROFILES,
-	DESCRIPTION
+	DESCRIPTION, TRANSPORT
     };
 
 
