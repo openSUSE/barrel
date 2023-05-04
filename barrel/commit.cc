@@ -51,10 +51,12 @@ namespace barrel
     {
     public:
 
+	MyCommitCallbacks(const Actiongraph* actiongraph)
+	    : actiongraph(actiongraph) {}
+
 	void begin_action(const Action::Base* action) const override
 	{
-	    is_create = storage::is_create(action);
-	    is_delete = storage::is_delete(action);
+	    color = get_color(actiongraph, action);
 	}
 
 	void message(const string& message) const override;
@@ -63,8 +65,9 @@ namespace barrel
 
     private:
 
-	mutable bool is_create = false;
-	mutable bool is_delete = false;
+	const Actiongraph* actiongraph;
+
+	mutable Color color = Color::BLACK;
 
     };
 
@@ -72,7 +75,7 @@ namespace barrel
     void
     MyCommitCallbacks::message(const string& message) const
     {
-	cout << "  " << colorize_message(message, is_create, is_delete) << '\n';
+	cout << "  " << colorize_message(message, color) << '\n';
     }
 
 
@@ -111,7 +114,7 @@ namespace barrel
 	else
 	{
 	    CommitOptions commit_options(false);
-	    MyCommitCallbacks my_commit_callbacks;
+	    MyCommitCallbacks my_commit_callbacks(actiongraph);
 	    state.storage->commit(commit_options, &my_commit_callbacks);
 
 	    if (state.pools_modified)
