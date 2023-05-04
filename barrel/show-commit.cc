@@ -58,7 +58,7 @@ namespace barrel
 	    for (const Action::Base* action : actiongraph->get_commit_actions())
 	    {
 		cout << "  " << colorize_message(get_string(actiongraph, action),
-						 is_create(action), is_delete(action)) << '\n';
+						 get_color(actiongraph, action)) << '\n';
 	    }
 	}
 	catch (const Exception& e)

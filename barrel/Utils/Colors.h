@@ -26,7 +26,11 @@
 
 #include <string>
 
+#include <storage/Actions/Base.h>
+
+
 using namespace std;
+using namespace storage;
 
 
 class Colors
@@ -44,7 +48,7 @@ public:
 
 
 string
-colorize_message(const string& s, bool green, bool red);
+colorize_message(const string& s, Color color);
 
 
 #endif

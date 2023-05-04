@@ -21,7 +21,7 @@
 
 
 #include <unistd.h>
-#include <string.h>
+#include <cstring>
 
 #include "Colors.h"
 
@@ -73,15 +73,19 @@ Colors::may_use_ansi_escapes_codes()
 
 
 string
-colorize_message(const string& s, bool green, bool red)
+colorize_message(const string& s, Color color)
 {
+    switch (color)
+    {
 #if 0
-    if (green)
-	return Colors::green(s);
+	case Color::GREEN:
+	    return Colors::green(s);
 #endif
 
-    if (red)
-	return Colors::red(s);
+	case Color::RED:
+	    return Colors::red(s);
 
-    return s;
+	default:
+	    return s;
+    }
 }
