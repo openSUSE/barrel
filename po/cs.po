@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-27 11:46+0200\n"
-"PO-Revision-Date: 2023-03-13 12:14+0000\n"
+"PO-Revision-Date: 2023-05-14 19:14+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -376,91 +376,92 @@ msgid "Stripes"
 msgstr "Proužky"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "Příkaz má následující dílčí příkazy:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
+#, fuzzy
 msgid "Transport"
-msgstr ""
+msgstr "Transport"
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Neznámá globální volba '%s'."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Neznámá volba %s příkazu %s."
 
 msgid "Usage"
-msgstr ""
+msgstr "Použití"
 
 msgid "Used"
-msgstr ""
+msgstr "Použito"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Obchodník"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "Ověřit heslo:"
 
 msgid "[ pushes a mark on the stack."
-msgstr ""
+msgstr "[ vloží značku do zásobníku."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] vytvoří pole."
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "při startu aktivovat paměťové systémy"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "na všechny otázky odpovědět 'yes' (ano)"
 
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "pole s %d objektem"
+msgstr[1] "pole s %d objekty"
+msgstr[2] "pole s %d objekty"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
 msgid "bad devices argument"
-msgstr ""
+msgstr "chybný argument 'devices'"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "chybný argument 'stripes'"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "více zpráv o průběhu"
 
 msgid "be quiet"
-msgstr ""
+msgstr "bez zpráv o průběhu"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "blokové zařízení %s nelze odstranit"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
-msgstr ""
+msgstr "blokové zařízení %s nelze použít jako obvyklé blokové z."
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "blokové zařízení %s se používá"
 
 msgid "block devices for LVM volume group missing"
-msgstr ""
+msgstr "chybí bloková zařízení pro skupinu svazků LVM"
 
 msgid "block devices for RAID missing"
-msgstr ""
+msgstr "chybí bloková zařízení pro RAID"
 
 msgid "block devices for filesystem missing"
-msgstr ""
+msgstr "chybí bloková zařízení pro systém souborů"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "chybí bloková zařízení pro příkaz 'raid'"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
 #, c-format
