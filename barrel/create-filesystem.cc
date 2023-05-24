@@ -30,6 +30,7 @@
 #include <storage/Devices/Partition.h>
 #include <storage/Filesystems/MountPoint.h>
 #include <storage/Filesystems/Btrfs.h>
+#include <storage/SystemInfo/SystemInfo.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
@@ -502,9 +503,15 @@ namespace barrel
 	    }
 	    else if (options.path)
 	    {
+		SystemInfo system_info;
+
 		const string& path = options.path.value();
 
-		if (path == "/home")
+		if (path == "/")
+		    id = get_linux_partition_id(LinuxPartitionIdCategory::ROOT, system_info);
+		else if (path == "/usr")
+		    id = get_linux_partition_id(LinuxPartitionIdCategory::USR, system_info);
+		else if (path == "/home")
 		    id = ID_LINUX_HOME;
 		else if (path == "/srv")
 		    id = ID_LINUX_SERVER_DATA;
