@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-27 11:46+0200\n"
+"POT-Creation-Date: 2023-05-31 12:46+0200\n"
 "PO-Revision-Date: 2023-02-08 23:14+0000\n"
 "Last-Translator: Antonio Simón <antonio@trans-mission.com>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/"
@@ -324,6 +324,10 @@ msgstr "Guarda el dispograma de ensayo en un archivo."
 
 msgid "Saving pools..."
 msgstr "Guardando reservas..."
+
+#, c-format
+msgid "Setting id of partition %s from unsupported value to %s."
+msgstr ""
 
 msgid "Shows DASDs."
 msgstr "Muestra DASDs."
