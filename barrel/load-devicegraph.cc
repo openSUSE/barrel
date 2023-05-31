@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -23,6 +23,7 @@
 #include <storage/Storage.h>
 #include <storage/Devicegraph.h>
 #include <storage/Devices/Disk.h>
+#include <storage/Devices/Partition.h>
 #include <storage/Devices/Dasd.h>
 #include <storage/Devices/Multipath.h>
 #include <storage/Devices/DmRaid.h>
@@ -498,6 +499,26 @@ namespace barrel
 		throw runtime_error(sformat(_("mapped DM RAID for '%s' mapped twice"), a->get_name().c_str()));
 
 	    copy_to_staging(staging, a, b);
+	}
+
+	for (Partitionable* partitionable : Partitionable::get_all(staging))
+	{
+	    if (!partitionable->has_partition_table())
+		continue;
+
+	    PartitionTable* partition_table = partitionable->get_partition_table();
+
+	    for (Partition* partition : partition_table->get_partitions())
+	    {
+		unsigned int id = partition->get_id();
+
+		if (id == ID_UNKNOWN || !partition_table->is_partition_id_supported(id))
+		{
+		    cout << sformat(_("Setting id of partition %s from unsupported value to %s."),
+				    partition->get_name().c_str(), get_partition_id_name(ID_LINUX).c_str()) << '\n';
+		    partition->set_id(ID_LINUX);
+		}
+	    }
 	}
 
 	// TODO must anything dependent be update? libstorage-ng already takes are of some
