@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-27 11:46+0200\n"
+"POT-Creation-Date: 2023-05-31 12:46+0200\n"
 "PO-Revision-Date: 2023-05-14 19:14+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -326,6 +326,10 @@ msgstr "Uloží inscenační devicegraf do souboru."
 
 msgid "Saving pools..."
 msgstr "Ukládám zásobárny..."
+
+#, c-format
+msgid "Setting id of partition %s from unsupported value to %s."
+msgstr ""
 
 msgid "Shows DASDs."
 msgstr "Ukáže DASDy."
