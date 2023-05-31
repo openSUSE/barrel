@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-31 12:46+0200\n"
-"PO-Revision-Date: 2023-03-27 12:14+0000\n"
+"PO-Revision-Date: 2023-05-31 14:14+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -328,7 +328,7 @@ msgstr "プールを保存しています..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "パーティション %s の ID を未サポート値から %s に変更しています。"
 
 msgid "Shows DASDs."
 msgstr "DASD を表示します。"
