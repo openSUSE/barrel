@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-31 12:46+0200\n"
-"PO-Revision-Date: 2023-05-14 19:14+0000\n"
+"PO-Revision-Date: 2023-06-02 22:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -329,7 +329,7 @@ msgstr "Ukládám zásobárny..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "Nastavit ID oddílu %s z nepodporované hodnoty na %s."
 
 msgid "Shows DASDs."
 msgstr "Ukáže DASDy."
@@ -358,7 +358,6 @@ msgstr "Ukáže devicegraf."
 msgid "Shows disks."
 msgstr "Ukáže disky."
 
-#, fuzzy
 msgid "Shows encryption devices."
 msgstr "Ukáže šifrovací zařízení."
 
@@ -470,18 +469,18 @@ msgstr "chybí bloková zařízení pro příkaz 'raid'"
 #. TRANSLATORS: error message, 'close' refers to close system call
 #, c-format
 msgid "close for json file '%s' failed"
-msgstr ""
+msgstr "close json souboru '%s' selhalo"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "uzavření json souboru '%s' selhalo"
 
 msgid "deleted device"
-msgstr ""
+msgstr "odstraněné zařízení"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "zařízení '%s' nenalezeno v mapování"
 
 msgid "do not commit anything to disk"
 msgstr ""
