@@ -38,13 +38,46 @@ namespace barrel
     using namespace storage;
 
 
+    namespace
+    {
+
+	const ExtOptions show_pools_options({
+	    // TRANSLATORS: help text
+	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") }
+	});
+
+
+	struct Options
+	{
+	    Options(GetOpts& get_opts);
+
+	    bool show_probed = false;
+	};
+
+
+	Options::Options(GetOpts& get_opts)
+	{
+	    ParsedOpts parsed_opts = get_opts.parse("pools", show_pools_options);
+
+	    show_probed = parsed_opts.has_option("probed");
+	}
+
+    }
+
+
     class ParsedCmdShowPools : public ParsedCmd
     {
     public:
 
+	ParsedCmdShowPools(const Options& options) : options(options) {}
+
 	virtual bool do_backup() const override { return false; }
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const override;
+
+    private:
+
+	const Options options;
 
     };
 
@@ -52,19 +85,21 @@ namespace barrel
     void
     ParsedCmdShowPools::doit(const GlobalOptions& global_options, State& state) const
     {
-	const Devicegraph* staging = state.storage->get_staging();
+	const Storage* storage = state.storage;
+
+	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Devices"), Id::NUMBER, Align::RIGHT),
 		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Used"), Id::USED, Align::RIGHT) });
 
-	map<string, Pool*> pools = state.storage->get_pools();
-	for (const map<string, Pool*>::value_type& value : pools)
+	map<string, const Pool*> pools = storage->get_pools();
+	for (const map<string, const Pool*>::value_type& value : pools)
 	{
 	    const Pool* pool = value.second;
 
 	    Table::Row row(table, { value.first });
 
-	    vector<const Device*> devices = pool->get_devices(staging);
+	    vector<const Device*> devices = pool->get_devices(devicegraph);
 	    sort(devices.begin(), devices.end(), Device::compare_by_name);
 
 	    unsigned long long total_size = 0;
@@ -126,9 +161,9 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdShowPools::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("pools", GetOpts::no_ext_options);
+	Options options(get_opts);
 
-	return make_shared<ParsedCmdShowPools>();
+	return make_shared<ParsedCmdShowPools>(options);
     }
 
 
@@ -136,6 +171,13 @@ namespace barrel
     CmdShowPools::help() const
     {
 	return _("Shows pools.");
+    }
+
+
+    const ExtOptions&
+    CmdShowPools::options() const
+    {
+	return show_pools_options;
     }
 
 }

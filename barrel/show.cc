@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -126,13 +126,13 @@ namespace barrel
     {
 	string ret;
 
-	const Devicegraph* probed = storage->get_probed();
+	const Devicegraph* devicegraph = device->get_devicegraph();
 
 	map<string, const Pool*> pools = storage->get_pools();
 	for (const map<string, const Pool*>::value_type& value : pools)
 	{
 	    const Pool* pool = value.second;
-	    vector<const Device*> devices = pool->get_devices(probed);
+	    vector<const Device*> devices = pool->get_devices(devicegraph);
 
 	    for (const Device* tmp : devices)
 	    {
