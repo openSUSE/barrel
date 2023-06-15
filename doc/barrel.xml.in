@@ -1093,6 +1093,19 @@
 	<term><option>show pools</option></term>
 	<listitem>
 	  <para>Shows pools.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Use the probed instead of the staging
+		devicegraph for finding devices of the pools.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+
+	  <para>Devices that are currently not usable since they do
+	  not have a partition table are marked with an '!'.</para>
 	</listitem>
       </varlistentry>
 
