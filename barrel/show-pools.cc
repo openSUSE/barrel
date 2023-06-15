@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -67,48 +67,52 @@ namespace barrel
 	    vector<const Device*> devices = pool->get_devices(staging);
 	    sort(devices.begin(), devices.end(), Device::compare_by_name);
 
-	    unsigned int number = 0;
 	    unsigned long long total_size = 0;
 	    unsigned long long total_used = 0;
 
 	    for (const Device* device : devices)
 	    {
-		if (!is_partitionable(device))
-		    continue;
-
-		const Partitionable* partitionable = to_partitionable(device);
-		if (!partitionable->has_partition_table())
-		    continue;
-
-		++number;
-
 		Table::Row subrow(row.get_table());
-		subrow[Id::NAME] = partitionable->get_name();
+		subrow[Id::NAME] = device->get_displayname();
 
-		const PartitionTable* partition_table = partitionable->get_partition_table();
+		bool usable = false;
 
-		// TODO better sum of all slots?
-		unsigned long long size = partitionable->get_size();
-		unsigned long long used = 0;
-
-		for (const Partition* partition : partition_table->get_partitions())
+		if (is_partitionable(device))
 		{
-		    PartitionType partition_type = partition->get_type();
+		    const Partitionable* partitionable = to_partitionable(device);
+		    if (partitionable->has_partition_table())
+		    {
+			usable = true;
 
-		    if (partition_type == PartitionType::PRIMARY || partition_type == PartitionType::LOGICAL)
-			used += partition->get_size();
+			const PartitionTable* partition_table = partitionable->get_partition_table();
+
+			// TODO better sum of all slots?
+			unsigned long long size = partitionable->get_size();
+			unsigned long long used = 0;
+
+			for (const Partition* partition : partition_table->get_partitions())
+			{
+			    PartitionType partition_type = partition->get_type();
+
+			    if (partition_type == PartitionType::PRIMARY || partition_type == PartitionType::LOGICAL)
+				used += partition->get_size();
+			}
+
+			subrow[Id::SIZE] = format_size(size);
+			subrow[Id::USED] = format_percentage(used, size);
+
+			total_size += size;
+			total_used += used;
+		    }
 		}
 
-		subrow[Id::SIZE] = format_size(size);
-		subrow[Id::USED] = format_percentage(used, size);
-
-		total_size += size;
-		total_used += used;
+		if (!usable)
+		    subrow[Id::NAME] += " !";
 
 		row.add_subrow(subrow);
 	    }
 
-	    row[Id::NUMBER] = sformat("%u", number);
+	    row[Id::NUMBER] = sformat("%zu", devices.size());
 	    row[Id::SIZE] = format_size(total_size);
 	    row[Id::USED] = format_percentage(total_used, total_size);
 

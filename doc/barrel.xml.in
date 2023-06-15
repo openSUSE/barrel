@@ -1093,6 +1093,9 @@
 	<term><option>show pools</option></term>
 	<listitem>
 	  <para>Shows pools.</para>
+
+	  <para>Devices that are currently not usable since they do
+	  not have a partition table are marked with an '!'.</para>
 	</listitem>
       </varlistentry>
 
