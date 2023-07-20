@@ -32,6 +32,7 @@
 #include <storage/Actiongraph.h>
 #include <storage/Actions/Create.h>
 #include <storage/Actions/Delete.h>
+#include <storage/Version.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Args.h"
@@ -599,6 +600,14 @@ namespace barrel
 	    if (global_options.version)
 	    {
 		cout << "barrel " VERSION << '\n';
+
+		cout << "libstorage-ng " << LIBSTORAGE_NG_VERSION_STRING;
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 90)
+		if (strcmp(LIBSTORAGE_NG_VERSION_STRING, get_version_string()) != 0)
+		    cout << " (" << get_version_string() << ")";
+#endif
+		cout << '\n';
+
 		return true;
 	    }
 
