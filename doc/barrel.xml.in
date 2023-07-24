@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2023-03-10</date>
+    <date>2023-07-24</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2023-03-10</refmiscinfo>
+    <refmiscinfo class='date'>2023-07-24</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -962,13 +962,19 @@
       <varlistentry>
 	<term><option>save devicegraph</option></term>
 	<listitem>
-	  <para>Saves the staging devicegraph to a file.</para>
+	  <para>Saves the devicegraph to a file.</para>
 
 	  <variablelist>
 	    <varlistentry>
 	      <term><option>-n, --name</option> <replaceable>name</replaceable></term>
 	      <listitem>
 		<para>Name of devicegraph file.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--probed</option></term>
+	      <listitem>
+		<para>Save the probed instead of the staging devicegraph.</para>
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
