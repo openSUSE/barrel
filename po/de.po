@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-31 12:46+0200\n"
+"POT-Creation-Date: 2023-07-24 08:08+0200\n"
 "PO-Revision-Date: 2023-05-13 02:15+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
@@ -319,7 +319,8 @@ msgstr "Pools speichern"
 msgid "Saves pools."
 msgstr "Speichert Pools."
 
-msgid "Saves the staging devicegraph to a file."
+#, fuzzy
+msgid "Saves the devicegraph to a file."
 msgstr "Speichert den Staging-Gerätegraphen in einer Datei."
 
 msgid "Saving pools..."
