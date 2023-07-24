@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -38,7 +38,8 @@ namespace barrel
     {
 
 	const ExtOptions save_devicegraph_options({
-	    { "name", required_argument, 'n', _("name of devicegraph"), "name" }
+	    { "name", required_argument, 'n', _("name of devicegraph"), "name" },
+	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") }
 	});
 
 
@@ -47,6 +48,8 @@ namespace barrel
 	    Options(GetOpts& get_opts);
 
 	    string name;
+
+	    bool show_probed = false;
 	};
 
 
@@ -58,6 +61,8 @@ namespace barrel
 		throw OptionsException(_("name missing for command 'devicegraph'"));
 
 	    name = parsed_opts.get("name");
+
+	    show_probed = parsed_opts.has_option("probed");
 	}
 
     }
@@ -83,9 +88,11 @@ namespace barrel
     void
     ParsedCmdSaveDevicegraph::doit(const GlobalOptions& global_options, State& state) const
     {
-	const Devicegraph* staging = state.storage->get_staging();
+	const Storage* storage = state.storage;
 
-	staging->save(options.name);
+	const Devicegraph* devicegraph = options.show_probed ? storage->get_probed() : storage->get_staging();
+
+	devicegraph->save(options.name);
     }
 
 
@@ -101,7 +108,7 @@ namespace barrel
     const char*
     CmdSaveDevicegraph::help() const
     {
-	return _("Saves the staging devicegraph to a file.");
+	return _("Saves the devicegraph to a file.");
     }
 
 
