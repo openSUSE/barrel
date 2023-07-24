@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-24 08:08+0200\n"
-"PO-Revision-Date: 2023-06-06 12:15+0000\n"
+"PO-Revision-Date: 2023-07-24 10:15+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
 "\n"
@@ -319,7 +319,6 @@ msgstr "Desa les agrupacions"
 msgid "Saves pools."
 msgstr "Desa agrupacions."
 
-#, fuzzy
 msgid "Saves the devicegraph to a file."
 msgstr "Desa el gràfic de dispositius en un fitxer."
 
