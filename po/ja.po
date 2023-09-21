@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 08:08+0200\n"
+"POT-Creation-Date: 2023-09-21 08:53+0200\n"
 "PO-Revision-Date: 2023-07-24 10:15+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
@@ -472,6 +472,9 @@ msgstr "削除済みのデバイス"
 #, c-format
 msgid "device '%s' not found in mapping"
 msgstr "デバイス '%s' がマッピング内にありません"
+
+msgid "do not add in /etc/fstab"
+msgstr ""
 
 msgid "do not commit anything to disk"
 msgstr "ディスクに対しては何も適用しません"

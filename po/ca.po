@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 08:08+0200\n"
+"POT-Creation-Date: 2023-09-21 08:53+0200\n"
 "PO-Revision-Date: 2023-07-24 10:15+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
@@ -473,6 +473,9 @@ msgstr "dispositiu suprimit"
 #, c-format
 msgid "device '%s' not found in mapping"
 msgstr "el dispositiu %s no s'ha trobat al mapatge"
+
+msgid "do not add in /etc/fstab"
+msgstr ""
 
 msgid "do not commit anything to disk"
 msgstr "no apliquis res al disc"
