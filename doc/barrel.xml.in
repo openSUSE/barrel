@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2023-07-24</date>
+    <date>2023-09-21</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2023-07-24</refmiscinfo>
+    <refmiscinfo class='date'>2023-09-21</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -412,6 +412,12 @@
 		profile can be provided for both data and metadata, or two profiles
 		separated by comma, the first for data and the second for
 		metadata.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--no-fstab</option></term>
+	      <listitem>
+		<para>Do not add the file system in /etc/fstab.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>

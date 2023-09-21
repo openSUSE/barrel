@@ -60,6 +60,7 @@ namespace barrel
 	    { "size", required_argument, 's', _("set size"), "size" },
 	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
 	    { "profiles", required_argument, 0, _("set profiles"), "profiles" },
+	    { "no-fstab", no_argument, 0, _("do not add in /etc/fstab") },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
 
@@ -143,6 +144,7 @@ namespace barrel
 	    optional<SmartNumber> number;
 	    BtrfsRaidLevel btrfs_data_raid_level = BtrfsRaidLevel::DEFAULT;
 	    BtrfsRaidLevel btrfs_metadata_raid_level = BtrfsRaidLevel::DEFAULT;
+	    bool fstab = true;
 	    bool force = false;
 
 	    vector<string> blk_devices;
@@ -232,6 +234,8 @@ namespace barrel
 		    btrfs_metadata_raid_level = parse_btrfs_raid_level(str.substr(pos + 1));
 		}
 	    }
+
+	    fstab = !parsed_opts.has_option("no-fstab");
 
 	    force = parsed_opts.has_option("force");
 
@@ -486,6 +490,8 @@ namespace barrel
 	{
 	    string path = options.path.value();
 	    MountPoint* mount_point = blk_filesystem->create_mount_point(path);
+
+	    mount_point->set_in_etc_fstab(options.fstab);
 
 	    if (options.mount_by)
 		mount_point->set_mount_by(options.mount_by.value());
