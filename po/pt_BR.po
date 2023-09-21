@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 08:08+0200\n"
+"POT-Creation-Date: 2023-09-21 08:53+0200\n"
 "PO-Revision-Date: 2023-02-08 14:14+0000\n"
 "Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
@@ -476,6 +476,9 @@ msgstr "dispositivos excluídos"
 #, c-format
 msgid "device '%s' not found in mapping"
 msgstr "dispositivo '%s' não encontrado no mapeamento"
+
+msgid "do not add in /etc/fstab"
+msgstr ""
 
 msgid "do not commit anything to disk"
 msgstr "não confirmar nada no disco"

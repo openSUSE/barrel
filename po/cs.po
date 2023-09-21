@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 08:08+0200\n"
+"POT-Creation-Date: 2023-09-21 08:53+0200\n"
 "PO-Revision-Date: 2023-06-02 22:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -481,6 +481,9 @@ msgstr "odstraněné zařízení"
 #, c-format
 msgid "device '%s' not found in mapping"
 msgstr "zařízení '%s' nenalezeno v mapování"
+
+msgid "do not add in /etc/fstab"
+msgstr ""
 
 msgid "do not commit anything to disk"
 msgstr ""
