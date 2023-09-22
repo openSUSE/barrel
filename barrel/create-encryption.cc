@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -49,6 +49,7 @@ namespace barrel
 	    { "label", required_argument, 0, _("set label of device"), "label" },
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
 	    { "size", required_argument, 's', _("set size"), "size" },
+	    { "no-crypttab", no_argument, 0, _("do not add in /etc/crypttab") },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
 
@@ -68,6 +69,7 @@ namespace barrel
 	    optional<string> label;
 	    optional<string> pool_name;
 	    optional<SmartSize> size;
+	    bool crypttab = true;
 	    bool force = false;
 
 	    vector<string> blk_devices;
@@ -110,6 +112,8 @@ namespace barrel
 		string str = parsed_opts.get("size");
 		size = SmartSize(str);
 	    }
+
+	    crypttab = !parsed_opts.has_option("no-crypttab");
 
 	    force = parsed_opts.has_option("force");
 
@@ -255,6 +259,8 @@ namespace barrel
 
 	Encryption* encryption = blk_device->create_encryption(dm_name, type);
 	encryption->set_password(password);
+
+	encryption->set_in_etc_crypttab(options.crypttab);
 
 	if (options.label && is_luks(encryption))
 	    to_luks(encryption)->set_label(options.label.value());

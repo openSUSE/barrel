@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2023-09-21</date>
+    <date>2023-09-22</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2023-09-21</refmiscinfo>
+    <refmiscinfo class='date'>2023-09-22</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -262,6 +262,12 @@
 	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
 	      <listitem>
 		<para>Approximate size of resulting encryption device.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--no-crypttab</option></term>
+	      <listitem>
+		<para>Do not add the encryption in /etc/crypttab.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -605,7 +611,7 @@
 	    <varlistentry>
 	      <term><option>-l, --level</option> <replaceable>level</replaceable></term>
 	      <listitem>
-		<para>Set RAID level. Possible values are 0, stripe, 1,
+		<para>Set RAID level. Possible values are linear, 0, stripe, 1,
 		mirror, 4, 5, 6 and 10.</para>
 	      </listitem>
 	    </varlistentry>
