@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-21 08:53+0200\n"
-"PO-Revision-Date: 2023-09-27 12:15+0000\n"
+"PO-Revision-Date: 2023-09-27 23:15+0000\n"
 "Last-Translator: Giacomo Solinas <sardiniangale24+opensuse@gmail.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
 "\n"
@@ -51,7 +51,7 @@ msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias di 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr "collegamento per 'create filesystem --type ext2'"
+msgstr "Alias per 'create filesystem --type exfat'"
 
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "Alias di 'create filesystem --type ext2'"
@@ -69,7 +69,7 @@ msgid "Alias for 'create filesystem --type jfs'"
 msgstr "Alias di 'create filesystem --type jfs'"
 
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr "Collegamento per 'create filesystem --type nilfs2'"
+msgstr "Alias per 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias di 'create filesystem --type ntfs'"
@@ -84,7 +84,7 @@ msgid "Alias for 'create filesystem --type udf'"
 msgstr "Alias di 'create filesystem --type udf'"
 
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr "Collegametno per 'create filesystem --type vfat'"
+msgstr "Alias per 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "Alias di 'create filesystem --type xfs'"
@@ -325,7 +325,7 @@ msgstr "Salva il grafico dispositivo provvisorio su un file."
 msgid "Saving pools..."
 msgstr "Salvataggio dei pool in corso..."
 
-#, c-format, fuzzy
+#, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
 msgstr "Impostazione id della partizione %s da un valore non supportato su %s."
 
