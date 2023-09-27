@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-21 08:53+0200\n"
-"PO-Revision-Date: 2023-02-07 13:14+0000\n"
-"Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
-">\n"
+"PO-Revision-Date: 2023-09-27 12:15+0000\n"
+"Last-Translator: Giacomo Solinas <sardiniangale24+opensuse@gmail.com>\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -319,16 +319,15 @@ msgstr "Salva pool"
 msgid "Saves pools."
 msgstr "Salva i pool."
 
-#, fuzzy
 msgid "Saves the devicegraph to a file."
 msgstr "Salva il grafico dispositivo provvisorio su un file."
 
 msgid "Saving pools..."
 msgstr "Salvataggio dei pool in corso..."
 
-#, c-format
+#, c-format, fuzzy
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "Impostazione id della partizione %s da un valore non supportato su %s."
 
 msgid "Shows DASDs."
 msgstr "Mostra i DASD."
@@ -377,7 +376,7 @@ msgstr "Il comando dispone dei sottocomandi seguenti:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "Trasporto"
 
 msgid "Type"
 msgstr "Tipo"
@@ -477,14 +476,13 @@ msgid "device '%s' not found in mapping"
 msgstr "dispositivo '%s' non trovato nella mappatura"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "no aggiungere nell /etc/fstab"
 
 msgid "do not commit anything to disk"
 msgstr "non eseguire il commit di alcun elemento sul disco"
 
-#, fuzzy
 msgid "do not show colors"
-msgstr "non mostrare le partizioni sui DASD"
+msgstr "non mostra i colori"
 
 msgid "do not show partitions on DASDs"
 msgstr "non mostrare le partizioni sui DASD"
@@ -935,7 +933,7 @@ msgid "several mapping multipath for '%s' found"
 msgstr "più multipath di mappatura per '%s' trovati"
 
 msgid "show colors"
-msgstr ""
+msgstr "colori visibili"
 
 msgid "show help and exit"
 msgstr "mostra guida ed esci"
