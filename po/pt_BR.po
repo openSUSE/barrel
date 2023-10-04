@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-21 08:53+0200\n"
-"PO-Revision-Date: 2023-02-08 14:14+0000\n"
-"Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
+"PO-Revision-Date: 2023-10-04 23:15+0000\n"
+"Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
 "barrel/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -320,16 +320,15 @@ msgstr "Salvar pools"
 msgid "Saves pools."
 msgstr "Salva os pools."
 
-#, fuzzy
 msgid "Saves the devicegraph to a file."
-msgstr "Salva o gráfico do dispositivo temporário em um arquivo."
+msgstr "Salva o gráfico do dispositivo em um arquivo."
 
 msgid "Saving pools..."
 msgstr "Salvando pools..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "Configurando o ID da partição %s de um valor não suportado para %s."
 
 msgid "Shows DASDs."
 msgstr "Mostra DASDs."
@@ -378,7 +377,7 @@ msgstr "O comando tem os seguintes subcomandos:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "Transporte"
 
 msgid "Type"
 msgstr "Tipo"
@@ -478,14 +477,13 @@ msgid "device '%s' not found in mapping"
 msgstr "dispositivo '%s' não encontrado no mapeamento"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "não adicionar no /etc/fstab"
 
 msgid "do not commit anything to disk"
 msgstr "não confirmar nada no disco"
 
-#, fuzzy
 msgid "do not show colors"
-msgstr "não mostrar partições em DASDs"
+msgstr "não mostrar cores"
 
 msgid "do not show partitions on DASDs"
 msgstr "não mostrar partições em DASDs"
@@ -929,7 +927,7 @@ msgid "several mapping multipath for '%s' found"
 msgstr "múltiplos caminhos de mapeamento para '%s' encontrados"
 
 msgid "show colors"
-msgstr ""
+msgstr "mostrar cores"
 
 msgid "show help and exit"
 msgstr "mostrar ajuda e sair"
