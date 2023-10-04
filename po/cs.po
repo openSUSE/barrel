@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-21 08:53+0200\n"
-"PO-Revision-Date: 2023-06-02 22:15+0000\n"
+"PO-Revision-Date: 2023-10-04 11:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -220,9 +220,8 @@ msgstr "Zavádím zásobníky..."
 msgid "Loads pools."
 msgstr "Zavádí zásobníky."
 
-#, fuzzy
 msgid "Loads the staging devicegraph from a file."
-msgstr "Zavádí inscenující devicegraf ze souboru."
+msgstr "Zavádí stavovou mapu zařízení ze souboru."
 
 #, c-format
 msgid "MS-DOS on %s"
@@ -310,9 +309,8 @@ msgstr "Odstraní horní objekt ze zásobníku."
 msgid "Renames pool."
 msgstr "Přejmenuje zásobárnu."
 
-#, fuzzy
 msgid "Restores the staging devicegraph to the last backup."
-msgstr "Obnoví inscenující devicegraf z poslední zálohy."
+msgstr "Obnoví stavovou mapu zařízení z poslední zálohy."
 
 msgid "Save pools"
 msgstr "Uloží zásobárny"
@@ -320,9 +318,8 @@ msgstr "Uloží zásobárny"
 msgid "Saves pools."
 msgstr "Uloží zásobárny."
 
-#, fuzzy
 msgid "Saves the devicegraph to a file."
-msgstr "Uloží inscenační devicegraf do souboru."
+msgstr "Uloží mapu zařízení do souboru."
 
 msgid "Saving pools..."
 msgstr "Ukládám zásobárny..."
@@ -340,20 +337,17 @@ msgstr "Ukáže skupiny svazků LVM."
 msgid "Shows RAIDs."
 msgstr "Ukáže RAIDy."
 
-#, fuzzy
 msgid "Shows actiongraph."
 msgstr "Ukáže graf akce."
 
-#, fuzzy
 msgid "Shows commit actions."
-msgstr "Ukáže potvrzené akce."
+msgstr "Ukáže potvrzující akce."
 
 msgid "Shows device tree."
 msgstr "Ukáže strom zařízení."
 
-#, fuzzy
 msgid "Shows devicegraph."
-msgstr "Ukáže devicegraf."
+msgstr "Ukáže mapu zařízení."
 
 msgid "Shows disks."
 msgstr "Ukáže disky."
@@ -364,7 +358,6 @@ msgstr "Ukáže šifrovací zařízení."
 msgid "Shows filesystems."
 msgstr "Ukáže systémy souborů."
 
-#, fuzzy
 msgid "Shows multipath devices."
 msgstr "Ukáže vícecestná zařízení."
 
@@ -374,7 +367,6 @@ msgstr "Ukáže zásobárny."
 msgid "Size"
 msgstr "Velikost"
 
-#, fuzzy
 msgid "Stripes"
 msgstr "Proužky"
 
@@ -382,7 +374,6 @@ msgid "The command has the following subcommands:"
 msgstr "Příkaz má následující dílčí příkazy:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
-#, fuzzy
 msgid "Transport"
 msgstr "Transport"
 
@@ -483,135 +474,135 @@ msgid "device '%s' not found in mapping"
 msgstr "zařízení '%s' nenalezeno v mapování"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "nepřidat do /etc/fstab"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "nic nepotvrdit na disk"
 
 msgid "do not show colors"
-msgstr ""
+msgstr "neukázat barvy"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "neukázat oddíly na zařízeních DASD"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "neukázat oddíly na zařízeních RAID"
 
 #. TRANSLATORS: help text
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "neukázat oddíly na discích"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "neukázat oddíly na vícecestných zařízeních"
 
 msgid "done"
-msgstr ""
+msgstr "hotovo"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "prvek pole '%s' není řetězec"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "prvek pole zařízení '%s' není řetězec"
 
 msgid "encryption type"
-msgstr ""
+msgstr "typ šifrování"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "typ šifrování pro příkaz 'encryption' je již nastaven"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "chybí typ šifrování pro příkaz 'encryption'"
 
 msgid "error:"
-msgstr ""
+msgstr "chyba:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "nadbytečný obsah souboru json '%s'"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "nepodařilo se vypočítat akce"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "nepodařilo se zpracovat velikost '%s'"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "systém souborů %s na %s"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "typ souborového systému pro příkaz 'filesystem' je již nastaven"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "chybí typ souborového systému pro příkaz 'filesystem'"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "násilně, pokud se blokové zařízení používá"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "násilně, pokud se bloková zařízení používají"
 
 msgid "go downwards"
-msgstr ""
+msgstr "směrem dolů"
 
 msgid "go upwards"
-msgstr ""
+msgstr "směrem nahoru"
 
 #, c-format
 msgid "invalid devices value '%d'"
-msgstr ""
+msgstr "neplatná hodnota zařízení '%d'"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "neplatný název logického svazku pro příkaz 'lv'"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "neplatná cesta '%s'"
 
 #, c-format
 msgid "invalid size '%s'"
-msgstr ""
+msgstr "neplatná velikost '%s'"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "neplatný název skupiny svazků pro příkaz 'vg'"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "zachovat podřazené oddíly"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "mapované zařízení DASD pro '%s' má jiný formát"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "mapované zařízení DASD pro '%s' má jiný typ"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "namapovaný DASD pro '%s' je mapován dvakrát"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "namapovaný DM RAID pro '%s' je mapován dvakrát"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "zařízení mapované pro '%s' má jinou velikost bloku"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "zařízení mapované pro '%s' není typu DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "zařízení mapované pro '%s' není typu DM RAID"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "zařízení mapované pro '%s' není disk"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
