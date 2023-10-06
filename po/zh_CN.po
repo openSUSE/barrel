@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-21 08:53+0200\n"
+"POT-Creation-Date: 2023-10-06 12:47+0200\n"
 "PO-Revision-Date: 2023-02-08 05:14+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/barrel/"
@@ -474,6 +474,9 @@ msgstr "已删除设备"
 msgid "device '%s' not found in mapping"
 msgstr "在映射中未找到设备 \"%s\""
 
+msgid "do not add in /etc/crypttab"
+msgstr ""
+
 msgid "do not add in /etc/fstab"
 msgstr ""
 
@@ -857,6 +860,10 @@ msgstr "设置 RAID 元数据版本"
 
 msgid "set RAID name"
 msgstr "设置 RAID 名称"
+
+#, fuzzy
+msgid "set a key file"
+msgstr "设置设备名称"
 
 msgid "set chunk size"
 msgstr "设置区块大小"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-21 08:53+0200\n"
+"POT-Creation-Date: 2023-10-06 12:47+0200\n"
 "PO-Revision-Date: 2023-02-07 18:14+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
@@ -478,6 +478,9 @@ msgstr "périphérique supprimé"
 msgid "device '%s' not found in mapping"
 msgstr "périphérique '%s' introuvable dans le mappage"
 
+msgid "do not add in /etc/crypttab"
+msgstr ""
+
 msgid "do not add in /etc/fstab"
 msgstr ""
 
@@ -874,6 +877,10 @@ msgstr "définir la version des métadonnées RAID"
 
 msgid "set RAID name"
 msgstr "définir le nom du RAID"
+
+#, fuzzy
+msgid "set a key file"
+msgstr "définir le nom du périphérique"
 
 msgid "set chunk size"
 msgstr "définir la taille de la tranche"
