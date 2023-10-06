@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-21 08:53+0200\n"
+"POT-Creation-Date: 2023-10-06 12:47+0200\n"
 "PO-Revision-Date: 2023-09-27 23:15+0000\n"
 "Last-Translator: Giacomo Solinas <sardiniangale24+opensuse@gmail.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
-"\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
+">\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -475,6 +475,10 @@ msgstr "dispostivo rimosso"
 msgid "device '%s' not found in mapping"
 msgstr "dispositivo '%s' non trovato nella mappatura"
 
+#, fuzzy
+msgid "do not add in /etc/crypttab"
+msgstr "no aggiungere nell /etc/fstab"
+
 msgid "do not add in /etc/fstab"
 msgstr "no aggiungere nell /etc/fstab"
 
@@ -873,6 +877,10 @@ msgstr "imposta versione metadati RAID"
 
 msgid "set RAID name"
 msgstr "imposta nome RAID"
+
+#, fuzzy
+msgid "set a key file"
+msgstr "imposta nome dispositivo"
 
 msgid "set chunk size"
 msgstr "imposta dimensioni blocco"

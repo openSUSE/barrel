@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-21 08:53+0200\n"
+"POT-Creation-Date: 2023-10-06 12:47+0200\n"
 "PO-Revision-Date: 2023-10-04 23:15+0000\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
@@ -476,6 +476,10 @@ msgstr "dispositivos excluídos"
 msgid "device '%s' not found in mapping"
 msgstr "dispositivo '%s' não encontrado no mapeamento"
 
+#, fuzzy
+msgid "do not add in /etc/crypttab"
+msgstr "não adicionar no /etc/fstab"
+
 msgid "do not add in /etc/fstab"
 msgstr "não adicionar no /etc/fstab"
 
@@ -867,6 +871,10 @@ msgstr "definir versão de metadados RAID"
 
 msgid "set RAID name"
 msgstr "definir nome do RAID"
+
+#, fuzzy
+msgid "set a key file"
+msgstr "definir nome do dispositivo"
 
 msgid "set chunk size"
 msgstr "definir tamanho do pacote"
