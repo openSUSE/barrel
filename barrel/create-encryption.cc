@@ -49,6 +49,7 @@ namespace barrel
 	    { "label", required_argument, 0, _("set label of device"), "label" },
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
 	    { "size", required_argument, 's', _("set size"), "size" },
+	    { "key-file", required_argument, 0, _("set a key file") },
 	    { "no-crypttab", no_argument, 0, _("do not add in /etc/crypttab") },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
@@ -69,6 +70,7 @@ namespace barrel
 	    optional<string> label;
 	    optional<string> pool_name;
 	    optional<SmartSize> size;
+	    optional<string> key_file;
 	    bool crypttab = true;
 	    bool force = false;
 
@@ -112,6 +114,9 @@ namespace barrel
 		string str = parsed_opts.get("size");
 		size = SmartSize(str);
 	    }
+
+	    if (parsed_opts.has_option("key-file"))
+		key_file = parsed_opts.get("key-file");
 
 	    crypttab = !parsed_opts.has_option("no-crypttab");
 
@@ -255,10 +260,13 @@ namespace barrel
 
 	check_usable(blk_device, options.force);
 
-	string password = prompt_password(true);
+	string password = !options.key_file ? prompt_password(true) : "";
 
 	Encryption* encryption = blk_device->create_encryption(dm_name, type);
-	encryption->set_password(password);
+	if (!options.key_file)
+	    encryption->set_password(password);
+	else
+	    encryption->set_key_file(options.key_file.value());
 
 	encryption->set_in_etc_crypttab(options.crypttab);
 

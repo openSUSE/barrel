@@ -69,6 +69,7 @@ BOOST_AUTO_TEST_CASE(test1)
     const Partition* sdb1 = Partition::find_by_name(staging, "/dev/sdb1");
     const Encryption* encryption = sdb1->get_encryption();
     BOOST_CHECK_EQUAL(encryption->get_type(), EncryptionType::LUKS1);
+    BOOST_CHECK_EQUAL(encryption->get_password(), "mockup");
 }
 
 
@@ -97,6 +98,7 @@ BOOST_AUTO_TEST_CASE(test2)
     const Disk* sdb = Disk::find_by_name(staging, "/dev/sdb");
     const Encryption* encryption = sdb->get_encryption();
     BOOST_CHECK_EQUAL(encryption->get_type(), EncryptionType::LUKS2);
+    BOOST_CHECK_EQUAL(encryption->get_password(), "mockup");
 }
 
 
@@ -119,4 +121,35 @@ BOOST_AUTO_TEST_CASE(test3)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, testsuite.actions);
+}
+
+
+BOOST_AUTO_TEST_CASE(test4)
+{
+    // Since we use a key file we do not get a prompt for a password. So the password is
+    // "" instead of "mockup".
+
+    Args args({ "--dry-run", "--yes", "create", "luks2", "--name=cr-test", "/dev/sdb", "--size", "max",
+	    "--key-file", "/secret.key", "ext4" });
+
+    vector<string> actions = {
+	"Create partition /dev/sdb1 (32.00 GiB)",
+	"Create encryption layer device on /dev/sdb1",
+	"Activate encryption layer device on /dev/sdb1",
+	"Create ext4 on /dev/mapper/cr-test (31.98 GiB)",
+	"Add encryption layer device on /dev/sdb1 to /etc/crypttab"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    handle(args.argc(), args.argv(), &testsuite);
+
+    BOOST_CHECK_EQUAL(actions, testsuite.actions);
+
+    const Devicegraph* staging = testsuite.storage->get_staging();
+
+    const Partition* sdb1 = Partition::find_by_name(staging, "/dev/sdb1");
+    const Encryption* encryption = sdb1->get_encryption();
+    BOOST_CHECK_EQUAL(encryption->get_password(), "");
 }

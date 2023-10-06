@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2023-09-22</date>
+    <date>2023-10-06</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2023-09-22</refmiscinfo>
+    <refmiscinfo class='date'>2023-10-06</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -262,6 +262,13 @@
 	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
 	      <listitem>
 		<para>Approximate size of resulting encryption device.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--key-file</option></term>
+	      <listitem>
+		<para>Set a key file. The key file is used during commit and
+		in /etc/crypttab. Also the key file must already exist.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>

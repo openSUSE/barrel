@@ -37,7 +37,6 @@ namespace barrel
     {
 	while (true)
 	{
-
 	    // TRANSLATORS: Abbriviation for "yes". Translation must be different from
 	    // translation for "n" ("no").
 	    string y = _("y");
