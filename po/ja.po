@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-06 12:47+0200\n"
-"PO-Revision-Date: 2023-09-21 10:15+0000\n"
+"PO-Revision-Date: 2023-10-06 14:15+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -473,9 +473,8 @@ msgstr "削除済みのデバイス"
 msgid "device '%s' not found in mapping"
 msgstr "デバイス '%s' がマッピング内にありません"
 
-#, fuzzy
 msgid "do not add in /etc/crypttab"
-msgstr "/etc/fstab 内に追加しません"
+msgstr "/etc/crypttab 内に追加しません"
 
 msgid "do not add in /etc/fstab"
 msgstr "/etc/fstab 内に追加しません"
@@ -876,9 +875,8 @@ msgstr "RAID のメタデータバージョンを指定します"
 msgid "set RAID name"
 msgstr "RAID の名前を指定します"
 
-#, fuzzy
 msgid "set a key file"
-msgstr "デバイスの名前を指定します"
+msgstr "鍵ファイルを指定します"
 
 msgid "set chunk size"
 msgstr "チャンクサイズを指定します"
