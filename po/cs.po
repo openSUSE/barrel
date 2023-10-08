@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-06 12:47+0200\n"
-"PO-Revision-Date: 2023-10-04 11:15+0000\n"
+"PO-Revision-Date: 2023-10-08 13:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -473,9 +473,8 @@ msgstr "odstraněné zařízení"
 msgid "device '%s' not found in mapping"
 msgstr "zařízení '%s' nenalezeno v mapování"
 
-#, fuzzy
 msgid "do not add in /etc/crypttab"
-msgstr "nepřidat do /etc/fstab"
+msgstr "nepřidat do /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
 msgstr "nepřidat do /etc/fstab"
@@ -610,108 +609,109 @@ msgstr "zařízení mapované pro '%s' není disk"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "mapované zařízení pro '%s' není vícecestné"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "mapované zařízení pro '%s' je menší"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "mapované zařízení pro '%s' nenalezeno"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "mapovaný disk pro '%s' namapován dvakrát"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "mapovaná vícecestná cesta pro '%s' mapována dvakrát"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "mapuji %s na %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "v souboru json '%s' nebylo nalezeno mapování"
 
 msgid "missing block device"
-msgstr ""
+msgstr "chybí blokové zařízení"
 
 msgid "missing partitionable"
-msgstr ""
+msgstr "chybějící dělitelný na oddíly"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "volby pro mkfs"
 
+#, fuzzy
 msgid "mount by"
-msgstr ""
+msgstr "připojit"
 
 msgid "mount options"
-msgstr ""
+msgstr "volby připojení"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "možnosti připojení vyžadují zadání cesty"
 
 msgid "mount path"
-msgstr ""
+msgstr "cesta pro připojení"
 
 msgid "mount-by requires a path"
-msgstr ""
+msgstr "mount-by vyžaduje zadat cestu"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "více zařízení"
 
 #. TRANSLATORS: Abbriviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
-msgstr ""
+msgstr "n"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "chybí název pro příkaz 'devicegraph'"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "chybí název pro příkaz 'encryption'"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "chybí název pro příkaz 'lv'"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "chybí název pro příkaz 'vg'"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "název pro RAID již existuje"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "název pro mapu zařízení"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "název souboru s mapou zařízení"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "název logického svazku již existuje"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "název mapovacího souboru"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "název nové zásobárny"
 
 msgid "name of pool"
-msgstr ""
+msgstr "název zásobárny"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "název zásobárny k použití"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "název skupiny svazků"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "název skupiny svazků již existuje"
 
 msgid "new name"
-msgstr ""
+msgstr "nový název"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
