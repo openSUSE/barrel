@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-06 12:47+0200\n"
-"PO-Revision-Date: 2023-10-10 13:15+0000\n"
+"PO-Revision-Date: 2023-10-10 18:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -722,142 +722,142 @@ msgstr "nenalezeno mapování DASD pro '%s'"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "nebylo nalezeno mapování DM RAID pro '%s'"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "nenalezen mapovaný disk pro '%s'"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "nebylo nalezeno vícecestné mapování pro '%s'"
 
 msgid "no mark on stack"
-msgstr ""
+msgstr "na zásobníku není značka"
 
 msgid "not a block device in array"
-msgstr ""
+msgstr "není blokové zařízení v poli"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "není blokové zařízení na zásobníku"
 
 msgid "not a block device or array of block devices on stack"
-msgstr ""
+msgstr "na zásobníku není blokové zařízení ani pole blokových zařízení"
 
 msgid "not a device in array"
-msgstr ""
+msgstr "není zařízení v poli"
 
 msgid "not a device on stack"
-msgstr ""
+msgstr "není zařízení na zásobníku"
 
 msgid "not a partition table in array"
-msgstr ""
+msgstr "není tabulka oddílů v poli"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "není tabulka oddílů na zásobníku"
 
 msgid "not a partition table or array of partition tables on stack"
-msgstr ""
+msgstr "není tabulka oddílů ani pole tabulek oddílů na zásobníku"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "není rozdělitelný na oddíly"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "není rozdělitelný na zásobníku"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "není skupina svazků na zásobníku"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "počet proužků"
 
 msgid "old name"
-msgstr ""
+msgstr "starý název"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "je povoleno pouze jedno blokové zařízení"
 
 msgid "only one partition table allowed"
-msgstr ""
+msgstr "je povolena pouze jedna tabulka oddílů"
 
 msgid "only one partitionable allowed"
-msgstr ""
+msgstr "povoleno pouze jedno dělitelné zařízení"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
-msgstr ""
+msgstr "operace 'open' souboru json '%s' selhala"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "otevření souboru json '%s' selhalo"
 
 #, c-format
 msgid "option --devices not allowed for %s"
-msgstr ""
+msgstr "volba --devices není povolena pro %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "zpracování json souboru '%s' selhalo"
 
 msgid "partition table type"
-msgstr ""
+msgstr "typ tabulky oddílů"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr ""
+msgstr "typ tabulky oddílů je již nastaven příkazem 'partition-table'"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "chybí typ tabulky oddílů pro příkaz 'partition-table'"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "dělitelný '%s' nelze použít jako běžný dělitelný typ"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "dělitelný '%s' se používá"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "cesta '%s' je již použita"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
 msgid "path must be 'swap' or 'none'"
-msgstr ""
+msgstr "cesta musí mít hodnotu 'swap' nebo 'none'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
-msgstr ""
+msgstr "pro příkaz 'encryption' není povolen argument pool u blokových zařízení"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
-msgstr ""
+msgstr "pro příkaz 'filesystem' není povolen argument pool u blokových zařízení"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
-msgstr ""
+msgstr "pro příkaz 'vg' není povolen argument pool u blokových zařízení"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "zásobník (pool) je prázdný"
 
 msgid "pool name"
-msgstr ""
+msgstr "název zásobníku"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "'read' souboru json '%s' selhal"
 
 msgid "run with a rootprefix"
-msgstr ""
+msgstr "spustit s předponou root"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "nastavit úroveň RAID"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "Nastavit verzi metadat RAID"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "nastavit název RAID"
 
 msgid "set a key file"
 msgstr ""
