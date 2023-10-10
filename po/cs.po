@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-06 12:47+0200\n"
-"PO-Revision-Date: 2023-10-08 13:15+0000\n"
+"PO-Revision-Date: 2023-10-10 13:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -644,9 +644,8 @@ msgstr "chybějící dělitelný na oddíly"
 msgid "mkfs options"
 msgstr "volby pro mkfs"
 
-#, fuzzy
 msgid "mount by"
-msgstr "připojit"
+msgstr "připojit podle"
 
 msgid "mount options"
 msgstr "volby připojení"
@@ -715,11 +714,11 @@ msgstr "nový název"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "neexistuje záloha pro vrácení"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "nenalezeno mapování DASD pro '%s'"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
