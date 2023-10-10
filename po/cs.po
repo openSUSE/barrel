@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-06 12:47+0200\n"
-"PO-Revision-Date: 2023-10-10 18:15+0000\n"
+"PO-Revision-Date: 2023-10-10 22:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -860,83 +860,83 @@ msgid "set RAID name"
 msgstr "nastavit název RAID"
 
 msgid "set a key file"
-msgstr ""
+msgstr "nastavit soubor klíče"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "nastavit velikost kousku (chunk)"
 
 msgid "set extent size"
-msgstr ""
+msgstr "nastavit velikost rozsahu"
 
 msgid "set file system label"
-msgstr ""
+msgstr "nastavit název souborového systému"
 
 msgid "set file system type"
-msgstr ""
+msgstr "nastavit typ systému souborů"
 
 msgid "set label of device"
-msgstr ""
+msgstr "nastavit štítek zařízení"
 
 msgid "set name of device"
-msgstr ""
+msgstr "nastavit název zařízení"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "nastavit název logického svazku"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "nastavit název skupiny svazků"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "nastavit počet zařízení"
 
 msgid "set profiles"
-msgstr ""
+msgstr "nastavit profily"
 
 msgid "set size"
-msgstr ""
+msgstr "nastavit velikost"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "nastavit velikost RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "nastavit velikost logického svazku"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "nastavit velikost skupiny svazků"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "nalezeno několik mapování DASD pro '%s'"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "nalezeno několik mapování DM RAID pro '%s'"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "nalezeno několik mapovacích disků pro '%s'"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "nalezeno několik mapování vícecestných zařízení pro '%s'"
 
 msgid "show colors"
-msgstr ""
+msgstr "zobrazit barvy"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "zobrazit nápovědu a ukončit"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "zobrazit verzi a ukončit"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "v příkazu 'encryption' chybí argument size"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "v příkazu 'filesystem' chybí argument size"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "pro příkaz 'raid' je vyžadován argument size"
 
 msgid "size argument required for command 'vg'"
 msgstr ""
