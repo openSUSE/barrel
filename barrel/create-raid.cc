@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -28,6 +28,7 @@
 #include <storage/Devices/Md.h>
 #include <storage/Holders/MdUser.h>
 #include <storage/Utils/HumanString.h>
+#include <storage/Version.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
@@ -58,6 +59,9 @@ namespace barrel
 
 
 	const map<string, MdLevel> str_to_md_level = {
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 94)
+	    { "linear", MdLevel::LINEAR },
+#endif
 	    { "0", MdLevel::RAID0 },
 	    { "stripe", MdLevel::RAID0 },
 	    { "1", MdLevel::RAID1 },

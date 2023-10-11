@@ -602,9 +602,9 @@ namespace barrel
 		cout << "barrel " VERSION << '\n';
 
 		cout << "libstorage-ng " << LIBSTORAGE_NG_VERSION_STRING;
-#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 90)
-		if (strcmp(LIBSTORAGE_NG_VERSION_STRING, get_version_string()) != 0)
-		    cout << " (" << get_version_string() << ")";
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 92)
+		if (strcmp(LIBSTORAGE_NG_VERSION_STRING, get_libversion_string()) != 0)
+		    cout << " (" << get_libversion_string() << ")";
 #endif
 		cout << '\n';
 
