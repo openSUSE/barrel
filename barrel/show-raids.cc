@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2023] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -27,6 +27,7 @@
 #include <storage/Devices/Md.h>
 #include <storage/Holders/MdUser.h>
 #include <storage/Devices/DmRaid.h>
+#include <storage/Version.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Table.h"
@@ -135,7 +136,11 @@ namespace barrel
 
 	for (const Md* md : mds)
 	{
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 94)
+	    string t1 = md->is_chunk_size_meaningful() ? format_size(md->get_chunk_size(), true) : "";
+#else
 	    string t1 = md->get_md_level() != MdLevel::RAID1 ? format_size(md->get_chunk_size(), true) : "";
+#endif
 
 	    Table::Row row(table, { md->get_name(), format_size(md->get_size()),
 		    get_md_level_name(md->get_md_level()), md->get_metadata(),
