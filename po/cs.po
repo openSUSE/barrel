@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-06 12:47+0200\n"
-"PO-Revision-Date: 2023-10-10 22:15+0000\n"
+"PO-Revision-Date: 2023-10-13 11:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -939,87 +939,87 @@ msgid "size argument required for command 'raid'"
 msgstr "pro příkaz 'raid' je vyžadován argument size"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "pro příkaz 'vg' je vyžadován argument size"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "pro příkaz 'lv' chybí velikost"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "velikost proužků"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "pro úroveň raid nejsou povolena náhradní zařízení"
 
 msgid "stack empty"
-msgstr ""
+msgstr "zásobník je prázdný"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "prázdný zásobník během duplikace"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "při vytahování (pop) je zásobník prázdný"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "podtečení (underflow) zásobníku při výměně"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "'stat' pro soubor json '%s' selhal"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "pro tuto úroveň raid je příliš málo zařízení raid"
 
 msgid "tune options"
-msgstr ""
+msgstr "možnosti ladění"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "možnosti ladění nejsou pro %s povoleny"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr ""
+msgstr "neznámý btrfs profil '%s'"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "neznámý typ šifrování"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "neznámý typ systému souborů '%s'"
 
 #, c-format
 msgid "unknown mount-by type type '%s'"
-msgstr ""
+msgstr "neznámý typ mount-by typ: '%s'"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "neznámý typ tabulky oddílů"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "neznámá úroveň raid pro příkaz 'raid'"
 
 #. TRANSLATORS: help text
 msgid "use probed instead of staging devicegraph"
-msgstr ""
+msgstr "místo etapové mapy zařízení použít probed"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "hodnota '%s' není řetězec ani pole"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "hodnota položky popisu (description) není řetězec"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "hodnota položky zařízení (devices) není pole"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "skupina svazků '%s' je nadměrně obsazena"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "špatný počet dělitelných položek"
 
 #. TRANSLATORS: Abbriviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "a"
