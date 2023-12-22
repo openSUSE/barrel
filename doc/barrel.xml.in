@@ -80,7 +80,7 @@
 
       <para>The stack can hold different objects: storage objects
       (e.g. block devices, LVM volume groups or file systems), a
-      mark and arrays. Arrays are contructed using the [ and ]
+      mark and arrays. Arrays are constructed using the [ and ]
       commands.</para>
     </refsect2>
 
@@ -200,14 +200,14 @@
       <varlistentry>
 	<term><option>[</option></term>
 	<listitem>
-	  <para>Starts an array contruction by pushing a mark on the stack.</para>
+	  <para>Starts an array construction by pushing a mark on the stack.</para>
 	</listitem>
       </varlistentry>
 
       <varlistentry>
 	<term><option>]</option></term>
 	<listitem>
-	  <para>Ends an array contruction by creating a new array from
+	  <para>Ends an array construction by creating a new array from
 	  the objects on the stack upto the next mark, removing the objects and
 	  the mark from the stack and finally pushing the new array onto the
 	  stack.</para>
