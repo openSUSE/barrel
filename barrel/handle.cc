@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2023] SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -33,6 +33,7 @@
 #include <storage/Actions/Create.h>
 #include <storage/Actions/Delete.h>
 #include <storage/Version.h>
+#include <storage/SystemInfo/SystemInfo.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Args.h"
@@ -338,30 +339,38 @@ namespace barrel
 
 
     void
-    startup(const GlobalOptions& global_options, Storage& storage)
+    startup(const GlobalOptions& global_options, unique_ptr<SystemInfo>& system_info, Storage& storage)
     {
 	if (global_options.activate)
 	{
 	    MyActivateCallbacks my_activate_callbacks(global_options);
 	    storage.activate(&my_activate_callbacks);
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 96)
+	    system_info = make_unique<SystemInfo>();	// used as reset
+#endif
 	}
 
 	if (global_options.probe)
 	{
 	    MyProbeCallbacks my_probe_callbacks(global_options);
+
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 96)
+	    storage.probe(*system_info, &my_probe_callbacks);
+#else
 	    storage.probe(&my_probe_callbacks);
+#endif
 	}
     }
 
 
     void
-    startup_pools(const GlobalOptions& global_options, State& state)
+    startup_pools(const GlobalOptions& global_options, unique_ptr<SystemInfo>& system_info, State& state)
     {
 	if (!state.testsuite)
 	{
 	    try
 	    {
-		CmdLoadPools::parse()->doit(global_options, state);
+		cmd_load_pools(global_options, *system_info, state);
 	    }
 	    catch (...)
 	    {
@@ -458,8 +467,9 @@ namespace barrel
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
 
 	unique_ptr<Storage> storage = make_unique<Storage>(environment);
+	unique_ptr<SystemInfo> system_info = make_unique<SystemInfo>();
 
-	startup(global_options, *storage);
+	startup(global_options, system_info, *storage);
 
 	Readline readline(storage.get(), testsuite);
 	make_fixed_comp_names();
@@ -468,7 +478,7 @@ namespace barrel
 	state.storage = storage.get();
 	state.testsuite = testsuite;
 
-	startup_pools(global_options, state);
+	startup_pools(global_options, system_info, state);
 
 	// TODO readline completion with proper parsing, commands, options, pools, ...
 
@@ -555,14 +565,15 @@ namespace barrel
 	    environment.set_devicegraph_filename(testsuite->devicegraph_filename);
 
 	unique_ptr<Storage> storage = make_unique<Storage>(environment);
+	unique_ptr<SystemInfo> system_info = make_unique<SystemInfo>();
 
-	startup(global_options, *storage);
+	startup(global_options, system_info, *storage);
 
 	State state(global_options);
 	state.storage = storage.get();
 	state.testsuite = testsuite;
 
-	startup_pools(global_options, state);
+	startup_pools(global_options, system_info, state);
 
 	for (const shared_ptr<ParsedCmd>& parsed_cmd : cmds)
 	{

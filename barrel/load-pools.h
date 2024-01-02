@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -37,6 +37,9 @@ namespace barrel
 	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
 	virtual const char* help() const override;
     };
+
+
+    void cmd_load_pools(const GlobalOptions& global_options, SystemInfo& system_info, State& state);
 
 }
 

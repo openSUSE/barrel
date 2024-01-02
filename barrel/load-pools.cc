@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -53,6 +53,15 @@ namespace barrel
     void
     ParsedCmdLoadPools::doit(const GlobalOptions& global_options, State& state) const
     {
+	SystemInfo system_info;
+
+	cmd_load_pools(global_options, system_info, state);
+    }
+
+
+    void
+    cmd_load_pools(const GlobalOptions& global_options, SystemInfo& system_info, State& state)
+    {
 	if (global_options.verbose)
 	    cout << _("Loading pools...") << endl;
 
@@ -63,8 +72,6 @@ namespace barrel
 	remove_pools(storage);
 
 	const Devicegraph* probed = storage->get_probed();
-
-	SystemInfo system_info;
 
 	json_object_object_foreach(json.get_root(), k, j_pool)
 	{
