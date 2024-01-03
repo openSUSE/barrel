@@ -113,7 +113,7 @@ namespace barrel
 
 	// This is tricky. getopt needs optind = 0 to reinit itself in interactive
 	// mode. Without that strange things can happen, esp. with short options. So call
-	// GetOpts::parse explicitely. Also notice that getopt sets optind to 1 if it is 0
+	// GetOpts::parse explicitly. Also notice that getopt sets optind to 1 if it is 0
 	// to skip the program name. For that reason argv includes a program name as first
 	// element.
 
