@@ -1,4 +1,9 @@
 -------------------------------------------------------------------
+Mon Jan 29 11:16:40 CET 2024 - aschnell@suse.com
+
+- experimental support for bcachefs
+
+-------------------------------------------------------------------
 Tue Jan 02 16:34:48 CET 2024 - aschnell@suse.com
 
 - speedup startup

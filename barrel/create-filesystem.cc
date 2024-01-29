@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2023] SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -31,6 +31,7 @@
 #include <storage/Filesystems/MountPoint.h>
 #include <storage/Filesystems/Btrfs.h>
 #include <storage/SystemInfo/SystemInfo.h>
+#include <storage/Version.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
@@ -66,6 +67,9 @@ namespace barrel
 
 
 	const map<string, FsType> str_to_fs_type = {
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 100)
+	    { "bcachefs", FsType::BCACHEFS },
+#endif
 	    { "btrfs", FsType::BTRFS },
 	    { "exfat", FsType::EXFAT },
 	    { "ext2", FsType::EXT2 },
@@ -581,6 +585,24 @@ namespace barrel
     {
 	return create_filesystem_options;
     }
+
+
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 100)
+
+    shared_ptr<ParsedCmd>
+    CmdCreateBcachefs::parse(GetOpts& get_opts) const
+    {
+	return parse_create_filesystem(get_opts, FsType::BCACHEFS);
+    }
+
+
+    const char*
+    CmdCreateBcachefs::help() const
+    {
+	return _("Alias for 'create filesystem --type bcachefs'");
+    }
+
+#endif
 
 
     shared_ptr<ParsedCmd>

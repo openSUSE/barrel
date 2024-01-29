@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -19,6 +19,8 @@
  * find current contact information at www.suse.com.
  */
 
+
+#include <storage/Version.h>
 
 #include "cmds.h"
 #include "commit.h"
@@ -78,6 +80,9 @@ namespace barrel
 
 
     const vector<Parser> create_cmds = {
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 100)
+	{ "bcachefs", make_shared<CmdCreateBcachefs>() },
+#endif
 	{ "btrfs", make_shared<CmdCreateBtrfs>() },
 	{ "encryption", make_shared<CmdCreateEncryption>() },
 	{ "exfat", make_shared<CmdCreateExfat>() },
