@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2023-10-06</date>
+    <date>2024-01-29</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2023-10-06</refmiscinfo>
+    <refmiscinfo class='date'>2024-01-29</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -342,7 +342,7 @@
             <varlistentry>
               <term><option>-t, --type</option> <replaceable>type</replaceable></term>
               <listitem>
-		<para>Set file system type. Possible values are btrfs, exfat,
+		<para>Set file system type. Possible values are bcachefs, btrfs, exfat,
 		ext2, ext3, ext4, f2fs, jfs, nilfs2, ntfs, reiserfs, swap, udf,
 		vfat, xfs.</para>
 		<para>Not all file systems may be available on the

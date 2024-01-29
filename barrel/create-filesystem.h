@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -24,6 +24,8 @@
 #define BARREL_CREATE_FILESYSTEM_H
 
 
+#include <storage/Version.h>
+
 #include "handle.h"
 
 
@@ -36,6 +38,18 @@ namespace barrel
 	virtual const char* help() const override;
 	virtual const ExtOptions& options() const override;
     };
+
+
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 100)
+
+    struct CmdCreateBcachefs : public CmdCreateFilesystem
+    {
+	virtual shared_ptr<ParsedCmd> parse(GetOpts& get_opts) const override;
+	virtual const char* help() const override;
+	virtual bool is_alias() const override { return true; }
+    };
+
+#endif
 
 
     struct CmdCreateBtrfs : public CmdCreateFilesystem
