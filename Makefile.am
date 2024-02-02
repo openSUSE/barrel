@@ -15,7 +15,7 @@ EXTRA_DIST = $(doc_DATA) VERSION
 barrel-$(VERSION).tar.xz: dist-xz
 
 package: barrel-$(VERSION).tar.xz
-	rm -f package/barrel.tar.xz
+	rm -f package/barrel-*.tar.xz
 	mv barrel-$(VERSION).tar.xz package/
 
 changes:
