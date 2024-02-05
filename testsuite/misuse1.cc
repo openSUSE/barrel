@@ -127,3 +127,44 @@ BOOST_AUTO_TEST_CASE(test3)
 
     BOOST_CHECK_EQUAL(lhs.second, rhs2);
 }
+
+
+BOOST_AUTO_TEST_CASE(test4)
+{
+    // Instructing barrel to remove both the extended and the logical partitions results
+    // in an error since removing the extended partition already removed the logical
+    // partitions. Thus the later lookup for the logical partitions fails.
+
+    Args args({ "--dry-run", "--yes" });
+
+    vector<string> output1 = {
+	"Probing... done",
+	"remove device /dev/sdd[1-7]",
+	"commit",
+	"dry run"
+    };
+
+    vector<string> output2 = {
+	"error: device not found, name:/dev/sdd5"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "msdos1.xml";
+
+    testsuite.readlines = {
+        "remove device /dev/sdd[1-7]",
+        "commit"
+    };
+
+    pair<string, string> lhs = run_and_capture(args.argc(), args.argv(), &testsuite);
+
+    string rhs1 = accumulate(output1.begin(), output1.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.first, rhs1);
+
+    string rhs2 = accumulate(output2.begin(), output2.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.second, rhs2);
+}
