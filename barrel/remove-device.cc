@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -108,7 +108,13 @@ namespace barrel
     void
     ParsedCmdRemoveDevice::doit(const GlobalOptions& global_options, State& state) const
     {
+	// Since partitions can be renumbered during remove (logical on MS-DOS and primary
+	// on DASD) we first have to look up the stable sid before actually removing block
+	// devices.
+
 	Devicegraph* staging = state.storage->get_staging();
+
+	vector<pair<string, sid_t>> blk_devices_with_sid;
 
 	for (const string& name : options.blk_devices)
 	{
@@ -117,6 +123,26 @@ namespace barrel
 	    if (!blk_device->detect_remove_info().remove_ok)
 		throw runtime_error(sformat(_("block device '%s' cannot be removed"),
 					    blk_device->get_name().c_str()));
+
+	    blk_devices_with_sid.push_back(make_pair(name, blk_device->get_sid()));
+	}
+
+	for (const pair<string, sid_t>& blk_device_with_sid : blk_devices_with_sid)
+	{
+	    BlkDevice* blk_device = nullptr;
+
+	    try
+	    {
+		// Although we found the block device just ten lines above it can already
+		// be removed, e.g. when removing extended and logical partitions on
+		// MS-DOS or when providing the same device twice.
+		blk_device = to_blk_device(staging->find_device(blk_device_with_sid.second));
+	    }
+	    catch (const Exception& e)
+	    {
+		// Although we search by sid we want the name in the error message.
+		throw DeviceNotFoundByName(blk_device_with_sid.first.c_str());
+	    }
 
 	    vector<Partition*> partitions;
 
