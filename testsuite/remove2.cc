@@ -5,6 +5,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include <storage/Actiongraph.h>
+#include <storage/Version.h>
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
@@ -104,5 +105,9 @@ BOOST_AUTO_TEST_CASE(test3)
 
     handle(args.argc(), args.argv(), &testsuite);
 
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 90)
     BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
+#else
+    BOOST_CHECK_EQUAL(actions.size(), testsuite.actions.size());
+#endif
 }
