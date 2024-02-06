@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-06 12:47+0200\n"
+"POT-Creation-Date: 2024-02-06 09:29+0100\n"
 "PO-Revision-Date: 2023-02-08 09:14+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
@@ -47,6 +47,10 @@ msgstr "\"create encryption --type luks1\" 的別名"
 
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "\"create encryption --type luks2\" 的別名"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type bcachefs'"
+msgstr "\"create filesystem --type btrfs\" 的別名"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "\"create filesystem --type btrfs\" 的別名"
@@ -664,7 +668,7 @@ msgstr "掛接方式需要路徑"
 msgid "multiple devices"
 msgstr "多部裝置"
 
-#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
 msgstr "n"
@@ -1022,7 +1026,7 @@ msgstr "磁碟區群組 \"%s\" 過量配置"
 msgid "wrong number of partitionables"
 msgstr "可分割裝置數量錯誤"
 
-#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
 msgstr "y"

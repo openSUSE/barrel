@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-06 12:47+0200\n"
+"POT-Creation-Date: 2024-02-06 09:29+0100\n"
 "PO-Revision-Date: 2023-05-13 02:15+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
@@ -45,6 +45,10 @@ msgstr "Alias für 'create encryption --type luks1'"
 
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias für 'create encryption --type luks2'"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type bcachefs'"
+msgstr "Alias für 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias für 'create filesystem --type btrfs'"
@@ -664,7 +668,7 @@ msgstr "für 'Einhängen durch' ist ein Pfad erforderlich"
 msgid "multiple devices"
 msgstr "mehrere Geräte"
 
-#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
 msgstr "n"
@@ -1031,7 +1035,7 @@ msgstr "Volume-Gruppe '%s' ist überlastet"
 msgid "wrong number of partitionables"
 msgstr "falsche Anzahl von partitionierbaren Elementen"
 
-#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
 msgstr "j"
