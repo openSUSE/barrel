@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-06 12:47+0200\n"
+"POT-Creation-Date: 2024-02-06 09:29+0100\n"
 "PO-Revision-Date: 2023-10-06 14:15+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
@@ -46,6 +46,10 @@ msgstr "'create encryption --type luks1' に対する別名"
 
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "'create encryption --type luks2' に対する別名"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type bcachefs'"
+msgstr "'create filesystem --type btrfs' に対する別名"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "'create filesystem --type btrfs' に対する別名"
@@ -664,7 +668,7 @@ msgstr "mount-by にはパスを指定する必要があります"
 msgid "multiple devices"
 msgstr "複数デバイス"
 
-#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
 msgstr "n"
@@ -1035,7 +1039,7 @@ msgstr "ボリュームグループ '%s' はオーバーコミット状態です
 msgid "wrong number of partitionables"
 msgstr "パーティション設定可能なものの数が正しくありません"
 
-#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
 msgstr "y"

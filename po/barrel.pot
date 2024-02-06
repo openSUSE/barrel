@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-06 12:47+0200\n"
+"POT-Creation-Date: 2024-02-06 09:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,6 +44,9 @@ msgid "Alias for 'create encryption --type luks1'"
 msgstr ""
 
 msgid "Alias for 'create encryption --type luks2'"
+msgstr ""
+
+msgid "Alias for 'create filesystem --type bcachefs'"
 msgstr ""
 
 msgid "Alias for 'create filesystem --type btrfs'"
@@ -661,7 +664,7 @@ msgstr ""
 msgid "multiple devices"
 msgstr ""
 
-#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
 msgstr ""
@@ -1018,7 +1021,7 @@ msgstr ""
 msgid "wrong number of partitionables"
 msgstr ""
 
-#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-06 12:47+0200\n"
+"POT-Creation-Date: 2024-02-06 09:29+0100\n"
 "PO-Revision-Date: 2023-10-13 11:15+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -45,6 +45,10 @@ msgstr "Alias pro 'create encryption --type luks1'"
 
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias pro 'create encryption --type luks2'"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type bcachefs'"
+msgstr "Alias pro 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias pro 'create filesystem --type btrfs'"
@@ -662,7 +666,7 @@ msgstr "mount-by vyžaduje zadat cestu"
 msgid "multiple devices"
 msgstr "více zařízení"
 
-#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
 msgstr "n"
@@ -827,11 +831,13 @@ msgstr "cesta musí mít hodnotu 'swap' nebo 'none'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
-msgstr "pro příkaz 'encryption' není povolen argument pool u blokových zařízení"
+msgstr ""
+"pro příkaz 'encryption' není povolen argument pool u blokových zařízení"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
-msgstr "pro příkaz 'filesystem' není povolen argument pool u blokových zařízení"
+msgstr ""
+"pro příkaz 'filesystem' není povolen argument pool u blokových zařízení"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr "pro příkaz 'vg' není povolen argument pool u blokových zařízení"
@@ -1019,7 +1025,7 @@ msgstr "skupina svazků '%s' je nadměrně obsazena"
 msgid "wrong number of partitionables"
 msgstr "špatný počet dělitelných položek"
 
-#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
 msgstr "a"

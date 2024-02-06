@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-06 12:47+0200\n"
+"POT-Creation-Date: 2024-02-06 09:29+0100\n"
 "PO-Revision-Date: 2023-09-27 23:15+0000\n"
 "Last-Translator: Giacomo Solinas <sardiniangale24+opensuse@gmail.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
@@ -46,6 +46,10 @@ msgstr "Alias di 'create encryption --type luks1'"
 
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias di 'create encryption --type luks2'"
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type bcachefs'"
+msgstr "Alias di 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias di 'create filesystem --type btrfs'"
@@ -666,7 +670,7 @@ msgstr "per il montaggio in base a è necessario un percorso"
 msgid "multiple devices"
 msgstr "dispositivi multipli"
 
-#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
 msgstr "n"
@@ -1039,7 +1043,7 @@ msgstr "over-commit del gruppo di volumi '%s'"
 msgid "wrong number of partitionables"
 msgstr "numero di elementi partizionabili errato"
 
-#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
 msgstr "S"

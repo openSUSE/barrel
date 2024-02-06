@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-06 12:47+0200\n"
+"POT-Creation-Date: 2024-02-06 09:29+0100\n"
 "PO-Revision-Date: 2023-10-06 14:15+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
-"\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,10 @@ msgstr "Àlies per a \"create encryption --type luks1\""
 
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Àlies per a \"create encryption --type luks2\""
+
+#, fuzzy
+msgid "Alias for 'create filesystem --type bcachefs'"
+msgstr "Àlies per a \"create filesystem --type btrfs\""
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Àlies per a \"create filesystem --type btrfs\""
@@ -665,7 +669,7 @@ msgstr "El muntatge requereix un camí."
 msgid "multiple devices"
 msgstr "dispositius múltiples"
 
-#. TRANSLATORS: Abbriviation for "no". Translation must be different from
+#. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
 msgstr "n"
@@ -1029,7 +1033,7 @@ msgstr "El grup de volums %s està sobreaplicat"
 msgid "wrong number of partitionables"
 msgstr "nombre incorrecte de partibles"
 
-#. TRANSLATORS: Abbriviation for "yes". Translation must be different from
+#. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
 msgstr "s"
