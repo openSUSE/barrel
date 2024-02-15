@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -147,7 +147,7 @@ namespace barrel
 
 	bool show_header = true;
 	bool show_grid = true;
-	Style style = Style::STANDARD;
+	Style style = Style::ASCII;
 	size_t global_indent = 0;
 
 	vector<Align> aligns;

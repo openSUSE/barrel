@@ -19,6 +19,8 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "show", "disks" });
 
     vector<string> output = {
@@ -53,6 +55,8 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "show", "raids" });
 
     vector<string> output = {
@@ -80,6 +84,8 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--quiet", "--dry-run", "show", "vgs" });
 
     vector<string> output = {
@@ -107,6 +113,8 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--quiet", "--dry-run", "show", "vgs" });
 
     vector<string> output = {
@@ -137,6 +145,8 @@ BOOST_AUTO_TEST_CASE(test4)
 
 BOOST_AUTO_TEST_CASE(test5)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "--quiet", "show", "filesystems" });
 
     vector<string> output = {
@@ -165,6 +175,8 @@ BOOST_AUTO_TEST_CASE(test5)
 
 BOOST_AUTO_TEST_CASE(test6)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "--quiet", "show", "filesystems" });
 
     vector<string> output = {
@@ -193,6 +205,8 @@ BOOST_AUTO_TEST_CASE(test6)
 
 BOOST_AUTO_TEST_CASE(test7)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "--quiet", "show", "dasds", "--no-partitions" });
 
     vector<string> output = {

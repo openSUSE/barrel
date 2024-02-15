@@ -16,6 +16,8 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     // Check that no RAID is created in case of the specific error. Tests the StagingGuard
     // in handle_interactive() (at least right now since surely the problem could also be
     // handled somewhere else).

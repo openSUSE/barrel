@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -19,6 +19,9 @@
  * find current contact information at www.suse.com.
  */
 
+
+#include <langinfo.h>
+#include <cstring>
 
 #include "Table.h"
 #include "Text.h"
@@ -229,6 +232,9 @@ namespace barrel
 	    ids.push_back(cell.id);
 	    aligns.push_back(cell.align);
 	}
+
+	if (strcmp(nl_langinfo(CODESET), "UTF-8") == 0)
+	    style = Style::STANDARD;
     }
 
 
