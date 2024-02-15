@@ -16,6 +16,8 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "--yes" });
 
     vector<string> output = {

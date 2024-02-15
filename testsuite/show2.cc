@@ -19,6 +19,8 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "show", "tree", "/dev/md0" });
 
     vector<string> output = {
@@ -50,6 +52,8 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--quiet", "--dry-run", "show", "tree", "/dev/data/home" });
 
     vector<string> output = {
@@ -81,6 +85,8 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "--quiet", "show", "tree", "/dev/mapper/36005076305ffc73a00000000000013b4" });
 
     vector<string> output = {
@@ -109,6 +115,8 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Args args({ "--dry-run", "--quiet", "show", "tree", "/dev/mapper/isw_ddgdcbibhd_test1" });
 
     vector<string> output = {

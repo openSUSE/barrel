@@ -11,6 +11,8 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Table table({ "Name", Cell("Size", Id::SIZE, Align::RIGHT), "Usage" });
 
     Table::Row sda(table, { "/dev/sda", "12.00 TiB", "GPT" });
@@ -39,6 +41,8 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Table table({ "Name", Cell("Size", Id::SIZE, Align::RIGHT) });
 
     Table::Row vg(table, { "/dev/vg", "12.00 TiB" });
@@ -85,6 +89,8 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Table table({ "Name", "Level" });
 
     Table::Row a(table, { "a", "1" });
@@ -126,6 +132,8 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
+    setlocale(LC_ALL, "C.UTF-8");
+
     Table table({ "Level", Cell("Name", Id::NAME) });
     table.set_tree_id(Id::NAME);
 
@@ -142,6 +150,31 @@ BOOST_AUTO_TEST_CASE(test4)
 	"──────┼─────\n"
 	"1     │ a\n"
 	"2     │ └─b\n";
+
+    BOOST_CHECK_EQUAL(o.str(), s);
+}
+
+
+BOOST_AUTO_TEST_CASE(test5)
+{
+    setlocale(LC_ALL, "C");
+
+    Table table({ "Level", Cell("Name", Id::NAME) });
+    table.set_tree_id(Id::NAME);
+
+    Table::Row a(table, { "1", "a" });
+    Table::Row b(table, { "2", "b" });
+    a.add_subrow(b);
+    table.add(a);
+
+    ostringstream o;
+    o << table;
+
+    string s =
+	"Level | Name\n"
+	"------+-----\n"
+	"1     | a\n"
+	"2     | +-b\n";
 
     BOOST_CHECK_EQUAL(o.str(), s);
 }
