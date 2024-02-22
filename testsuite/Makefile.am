@@ -17,7 +17,8 @@ check_PROGRAMS =						\
 	pools1.test pools2.test show1.test show2.test		\
 	show3.test remove1.test remove2.test			\
 	luks1.test gpt1.test misuse1.test misuse2.test		\
-	misuse3.test ext1.test btrfs1.test stack1.test
+	misuse3.test ext1.test btrfs1.test stack1.test		\
+	help1.test
 
 AM_DEFAULT_SOURCE_EXT = .cc
 

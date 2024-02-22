@@ -49,7 +49,7 @@ namespace barrel
 	    { "label", required_argument, 0, _("set label of device"), "label" },
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
 	    { "size", required_argument, 's', _("set size"), "size" },
-	    { "key-file", required_argument, 0, _("set a key file") },
+	    { "key-file", required_argument, 0, _("set a key file"), "key-file" },
 	    { "no-crypttab", no_argument, 0, _("do not add in /etc/crypttab") },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
