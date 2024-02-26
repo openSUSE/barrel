@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2024-02-07 00:42+0000\n"
+"PO-Revision-Date: 2024-02-26 17:42+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -195,9 +195,9 @@ msgstr "Globální volby:"
 msgid "Invalid answer '%s'"
 msgstr "Chybná odpověď '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid table style '%s'."
-msgstr "Chybná odpověď '%s'"
+msgstr "Chybný styl tabulky '%s'."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
@@ -400,7 +400,7 @@ msgstr "Použití"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Použijte celé číslo od %d do %d."
 
 msgid "Used"
 msgstr "Použito"
@@ -450,7 +450,7 @@ msgstr "blokové zařízení %s nelze odstranit"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
-msgstr "blokové zařízení %s nelze použít jako obvyklé blokové z."
+msgstr "blokové zařízení %s nelze použít jako běžné blokové zařízení"
 
 #, c-format
 msgid "block device '%s' is in use"
@@ -981,7 +981,7 @@ msgid "stat for json file '%s' failed"
 msgstr "'stat' pro soubor json '%s' selhal"
 
 msgid "table style"
-msgstr ""
+msgstr "styl tabulky"
 
 msgid "too few raid devices for raid level"
 msgstr "pro tuto úroveň raid je příliš málo zařízení raid"
