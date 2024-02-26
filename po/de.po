@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 09:29+0100\n"
+"POT-Creation-Date: 2024-02-26 12:54+0100\n"
 "PO-Revision-Date: 2023-05-13 02:15+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
@@ -194,6 +194,10 @@ msgstr "Globale Optionen:"
 
 #, c-format
 msgid "Invalid answer '%s'"
+msgstr "Antwort '%s' ist ungültig"
+
+#, fuzzy, c-format
+msgid "Invalid table style '%s'."
 msgstr "Antwort '%s' ist ungültig"
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
@@ -396,6 +400,10 @@ msgstr "Unbekannte Option '%s' für Kommando '%s'."
 
 msgid "Usage"
 msgstr "Verwendung"
+
+#, c-format
+msgid "Use an integer number from %d to %d."
+msgstr ""
 
 msgid "Used"
 msgstr "Verwendet"
@@ -982,6 +990,9 @@ msgstr "Stack-Unterlauf bei Austausch"
 #, c-format
 msgid "stat for json file '%s' failed"
 msgstr "'stat' für json-Datei '%s' fehlgeschlagen"
+
+msgid "table style"
+msgstr ""
 
 msgid "too few raid devices for raid level"
 msgstr "zu wenige Raid-Geräte für Raid-Ebene"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 09:29+0100\n"
+"POT-Creation-Date: 2024-02-26 12:54+0100\n"
 "PO-Revision-Date: 2023-02-07 18:14+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
@@ -195,6 +195,10 @@ msgstr "Options globales :"
 
 #, c-format
 msgid "Invalid answer '%s'"
+msgstr "Réponse non valide '%s'"
+
+#, fuzzy, c-format
+msgid "Invalid table style '%s'."
 msgstr "Réponse non valide '%s'"
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
@@ -398,6 +402,10 @@ msgstr "Option '%s' inconnue pour la commande '%s'."
 
 msgid "Usage"
 msgstr "Syntaxe"
+
+#, c-format
+msgid "Use an integer number from %d to %d."
+msgstr ""
 
 msgid "Used"
 msgstr "Utilisé"
@@ -990,6 +998,9 @@ msgstr "soupassement de pile durant l'échange"
 #, c-format
 msgid "stat for json file '%s' failed"
 msgstr "échec stat pour le fichier JSON '%s'"
+
+msgid "table style"
+msgstr ""
 
 msgid "too few raid devices for raid level"
 msgstr "trop peu de périphériques RAID pour le niveau RAID"

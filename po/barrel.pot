@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 09:29+0100\n"
+"POT-Creation-Date: 2024-02-26 12:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,6 +193,10 @@ msgstr ""
 
 #, c-format
 msgid "Invalid answer '%s'"
+msgstr ""
+
+#, c-format
+msgid "Invalid table style '%s'."
 msgstr ""
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
@@ -392,6 +396,10 @@ msgid "Unknown option '%s' for command '%s'."
 msgstr ""
 
 msgid "Usage"
+msgstr ""
+
+#, c-format
+msgid "Use an integer number from %d to %d."
 msgstr ""
 
 msgid "Used"
@@ -967,6 +975,9 @@ msgstr ""
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
+msgstr ""
+
+msgid "table style"
 msgstr ""
 
 msgid "too few raid devices for raid level"

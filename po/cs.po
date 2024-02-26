@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 09:29+0100\n"
+"POT-Creation-Date: 2024-02-26 12:54+0100\n"
 "PO-Revision-Date: 2024-02-07 00:42+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -193,6 +193,10 @@ msgstr "Globální volby:"
 
 #, c-format
 msgid "Invalid answer '%s'"
+msgstr "Chybná odpověď '%s'"
+
+#, fuzzy, c-format
+msgid "Invalid table style '%s'."
 msgstr "Chybná odpověď '%s'"
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
@@ -393,6 +397,10 @@ msgstr "Neznámá volba %s příkazu %s."
 
 msgid "Usage"
 msgstr "Použití"
+
+#, c-format
+msgid "Use an integer number from %d to %d."
+msgstr ""
 
 msgid "Used"
 msgstr "Použito"
@@ -971,6 +979,9 @@ msgstr "podtečení (underflow) zásobníku při výměně"
 #, c-format
 msgid "stat for json file '%s' failed"
 msgstr "'stat' pro soubor json '%s' selhal"
+
+msgid "table style"
+msgstr ""
 
 msgid "too few raid devices for raid level"
 msgstr "pro tuto úroveň raid je příliš málo zařízení raid"
