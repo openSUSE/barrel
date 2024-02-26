@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2024-02-22 13:42+0000\n"
+"PO-Revision-Date: 2024-02-26 17:42+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -196,9 +196,9 @@ msgstr "Opcions globals:"
 msgid "Invalid answer '%s'"
 msgstr "Resposta no vàlida: %s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid table style '%s'."
-msgstr "Resposta no vàlida: %s"
+msgstr "Estil de taula no vàlid: %s"
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
@@ -402,7 +402,7 @@ msgstr "Ús"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Useu un nombre enter de %d a %d."
 
 msgid "Used"
 msgstr "Usat"
@@ -989,7 +989,7 @@ msgid "stat for json file '%s' failed"
 msgstr "ha fallat stat per al fitxer json %s"
 
 msgid "table style"
-msgstr ""
+msgstr "estil de la taula"
 
 msgid "too few raid devices for raid level"
 msgstr "massa pocs dispositius de raid per al nivell de raid"
