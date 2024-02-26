@@ -38,8 +38,10 @@ namespace barrel
     using namespace storage;
 
 
-    struct GlobalOptions
+    class GlobalOptions
     {
+    public:
+
 	GlobalOptions(GetOpts& get_opts);
 
 	static const ExtOptions& get_options();
@@ -48,12 +50,18 @@ namespace barrel
 	bool version = false;
 	bool quiet = false;
 	bool verbose = false;
+	Style table_style = Style::ASCII;
 	optional<bool> color;
 	bool dry_run = false;
 	optional<string> rootprefix;
 	bool activate = false;
 	bool probe = true;
 	bool yes = false;
+
+    private:
+
+	Style table_style_value(const ParsedOpts& opts) const;
+
     };
 
 

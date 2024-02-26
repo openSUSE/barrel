@@ -127,6 +127,7 @@ namespace barrel
 	Table table({ _("Type"), Cell(_("Label"), Id::LABEL), Cell(_("Name"), Id::NAME),
 		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Profiles"), Id::PROFILES),
 		Cell(_("Mount Point"), Id::MOUNT_POINT) });
+	table.set_style(global_options.table_style);
 	table.set_tree_id(Id::NAME);
 	table.set_visibility(Id::PROFILES, Visibility::AUTO);
 

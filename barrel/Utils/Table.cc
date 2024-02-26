@@ -57,6 +57,8 @@ namespace barrel
 
 	for (const Table::Row& row : table.rows)
 	    calculate_widths(table, row, 0);
+
+	calculate_abbriviated_widths(table);
     }
 
 
@@ -102,6 +104,57 @@ namespace barrel
     }
 
 
+    /**
+     * Including global_indent and grid. Excluding screen_width.
+     */
+    size_t
+    Table::OutputInfo::calculate_total_width(const Table& table) const
+    {
+	size_t total_width = table.global_indent;
+
+	bool first = true;
+
+	for (size_t i = 0; i < widths.size(); ++i)
+	{
+	    if (hidden[i])
+		continue;
+
+	    if (first)
+		first = false;
+	    else
+		total_width += 2 + (table.show_grid ? 1 : 0);
+
+	    total_width += widths[i];
+	}
+
+	return total_width;
+    }
+
+
+    /**
+     * So far only one column can be abbreviated.
+     */
+    void
+    Table::OutputInfo::calculate_abbriviated_widths(const Table& table)
+    {
+	size_t total_width = calculate_total_width(table);
+
+	if (total_width <= table.screen_width)
+	    return;
+
+	size_t too_much = total_width - table.screen_width;
+
+	for (size_t i = 0; i < table.abbreviates.size(); ++i)
+	{
+	    if (table.abbreviates[i])
+	    {
+		widths[i] = max(widths[i] - too_much, (size_t) 5);
+		break;
+	    }
+	}
+    }
+
+
     void
     Table::output(std::ostream& s, const Table::Row& row, const OutputInfo& output_info, const vector<bool>& lasts) const
     {
@@ -138,10 +191,10 @@ namespace barrel
 		}
 	    }
 
+	    size_t width = mbs_width(column);
+
 	    if (aligns[i] == Align::RIGHT)
 	    {
-		size_t width = mbs_width(column);
-
 		if (width < output_info.widths[i] - extra)
 		    s << string(output_info.widths[i] - width - extra, ' ');
 	    }
@@ -153,8 +206,6 @@ namespace barrel
 
 	    if (aligns[i] == Align::LEFT)
 	    {
-		size_t width = mbs_width(column);
-
 		if (width < output_info.widths[i] - extra)
 		    s << string(output_info.widths[i] - width - extra, ' ');
 	    }
@@ -177,6 +228,9 @@ namespace barrel
     }
 
 
+    /**
+     * Output grid line under header.
+     */
     void
     Table::output(std::ostream& s, const OutputInfo& output_info) const
     {
@@ -223,8 +277,21 @@ namespace barrel
     }
 
 
-    Table::Table(std::initializer_list<Cell> init)
+    Style
+    Table::auto_style()
+    {
+	return strcmp(nl_langinfo(CODESET), "UTF-8") == 0 ? Style::LIGHT : Style::ASCII;
+    }
+
+
+    Table::Table()
 	: header(*this)
+    {
+    }
+
+
+    Table::Table(std::initializer_list<Cell> init)
+	: Table()
     {
 	for (const Cell& cell : init)
 	{
@@ -232,9 +299,18 @@ namespace barrel
 	    ids.push_back(cell.id);
 	    aligns.push_back(cell.align);
 	}
+    }
 
-	if (strcmp(nl_langinfo(CODESET), "UTF-8") == 0)
-	    style = Style::STANDARD;
+
+    Table::Table(const vector<Cell>& init)
+	: Table()
+    {
+	for (const Cell& cell : init)
+	{
+	    header.add(cell.name);
+	    ids.push_back(cell.id);
+	    aligns.push_back(cell.align);
+	}
     }
 
 
@@ -259,6 +335,18 @@ namespace barrel
 	    visibilities.resize(i + 1);
 
 	visibilities[i] = visibility;
+    }
+
+
+    void
+    Table::set_abbreviate(Id id, bool abbreviate)
+    {
+	size_t i = id_to_index(id);
+
+	if (abbreviates.size() < i + 1)
+	    abbreviates.resize(i + 1);
+
+	abbreviates[i] = abbreviate;
     }
 
 
@@ -294,10 +382,11 @@ namespace barrel
     const char*
     Table::glyph(unsigned int i) const
     {
-	const char* glyphs[][7] = {
-	    { "│", "─", "┼", "├─", "└─", "│ ", "  " },	// STANDARD
-	    { "║", "═", "╬", "├─", "└─", "│ ", "  " },	// DOUBLE
-	    { "|", "-", "+", "+-", "+-", "| ", "  " }	// ASCII
+	const char* glyphs[][8] = {
+	    { "|", "-", "+", "+-", "+-", "| ", "  ", "..." },	// ASCII
+	    { "│", "─", "┼", "├─", "└─", "│ ", "  ", "…" },	// LIGHT
+	    { "┃", "━", "╋", "├─", "└─", "│ ", "  ", "…" },	// HEAVY
+	    { "║", "═", "╬", "├─", "└─", "│ ", "  ", "…" },	// DOUBLE
 	};
 
 	return glyphs[(unsigned int)(style)][i];

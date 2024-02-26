@@ -102,6 +102,7 @@ namespace barrel
 		Cell(_("Block Size"), Align::RIGHT), Cell(_("Bus ID"), Align::RIGHT),
 		Cell(_("Type")), Cell(_("Format")), Cell(_("Usage"), Id::USAGE),
 		Cell(_("Pool"), Id::POOL) });
+	table.set_style(global_options.table_style);
 
 	for (const Dasd* dasd : dasds)
 	{

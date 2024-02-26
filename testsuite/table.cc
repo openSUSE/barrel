@@ -11,9 +11,8 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
-    setlocale(LC_ALL, "C.UTF-8");
-
     Table table({ "Name", Cell("Size", Id::SIZE, Align::RIGHT), "Usage" });
+    table.set_style(Style::LIGHT);
 
     Table::Row sda(table, { "/dev/sda", "12.00 TiB", "GPT" });
 
@@ -41,9 +40,8 @@ BOOST_AUTO_TEST_CASE(test1)
 
 BOOST_AUTO_TEST_CASE(test2)
 {
-    setlocale(LC_ALL, "C.UTF-8");
-
     Table table({ "Name", Cell("Size", Id::SIZE, Align::RIGHT) });
+    table.set_style(Style::LIGHT);
 
     Table::Row vg(table, { "/dev/vg", "12.00 TiB" });
 
@@ -89,9 +87,8 @@ BOOST_AUTO_TEST_CASE(test2)
 
 BOOST_AUTO_TEST_CASE(test3)
 {
-    setlocale(LC_ALL, "C.UTF-8");
-
     Table table({ "Name", "Level" });
+    table.set_style(Style::LIGHT);
 
     Table::Row a(table, { "a", "1" });
     Table::Row b(table, { "b", "2" });
@@ -132,9 +129,8 @@ BOOST_AUTO_TEST_CASE(test3)
 
 BOOST_AUTO_TEST_CASE(test4)
 {
-    setlocale(LC_ALL, "C.UTF-8");
-
     Table table({ "Level", Cell("Name", Id::NAME) });
+    table.set_style(Style::LIGHT);
     table.set_tree_id(Id::NAME);
 
     Table::Row a(table, { "1", "a" });
@@ -157,9 +153,8 @@ BOOST_AUTO_TEST_CASE(test4)
 
 BOOST_AUTO_TEST_CASE(test5)
 {
-    setlocale(LC_ALL, "C");
-
     Table table({ "Level", Cell("Name", Id::NAME) });
+    table.set_style(Style::ASCII);
     table.set_tree_id(Id::NAME);
 
     Table::Row a(table, { "1", "a" });

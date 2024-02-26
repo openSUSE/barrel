@@ -91,6 +91,7 @@ namespace barrel
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Devices"), Id::NUMBER, Align::RIGHT),
 		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Used"), Id::USED, Align::RIGHT) });
+	table.set_style(global_options.table_style);
 
 	map<string, const Pool*> pools = storage->get_pools();
 	for (const map<string, const Pool*>::value_type& value : pools)

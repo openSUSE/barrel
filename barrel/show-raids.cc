@@ -133,6 +133,7 @@ namespace barrel
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Level"),
 		_("Metadata"), Cell(_("Chunk Size"), Align::RIGHT), _("Devices"),
 		Cell(_("Usage"), Id::USAGE), Cell(_("Pool"), Id::POOL) });
+	table.set_style(global_options.table_style);
 
 	for (const Md* md : mds)
 	{

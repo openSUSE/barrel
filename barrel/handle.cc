@@ -66,6 +66,8 @@ namespace barrel
 	quiet = parsed_opts.has_option("quiet");
 	verbose = parsed_opts.has_option("verbose");
 
+	table_style = table_style_value(parsed_opts);
+
 	if (parsed_opts.has_option("color"))
 	    color = true;
 	if (parsed_opts.has_option("no-color"))
@@ -85,12 +87,41 @@ namespace barrel
     }
 
 
+    Style
+    GlobalOptions::table_style_value(const ParsedOpts& opts) const
+    {
+	ParsedOpts::const_iterator it = opts.find("table-style");
+	if (it == opts.end())
+	    return Table::auto_style();
+
+	try
+	{
+	    unsigned long value = stoul(it->second);
+
+	    if (value >= Table::num_styles)
+		throw exception();
+
+	    return (Style)(value);
+	}
+	catch (const exception&)
+	{
+	    string error = sformat(_("Invalid table style '%s'."), it->second.c_str()) + '\n' +
+		sformat(_("Use an integer number from %d to %d."), 0, Table::num_styles - 1);
+
+	    throw runtime_error(error);
+	}
+
+	return Table::auto_style();
+    }
+
+
     const ExtOptions&
     GlobalOptions::get_options()
     {
 	static const ExtOptions options({
 	    { "quiet", no_argument, 'q', _("be quiet") },
 	    { "verbose", no_argument, 'v', _("be more verbose") },
+	    { "table-style", required_argument, 't', _("table style"), "table-style" },
 	    { "color", no_argument, 0, _("show colors") },
 	    { "no-color", no_argument, 0, _("do not show colors") },
 	    { "dry-run", no_argument, 0, _("do not commit anything to disk") },

@@ -29,6 +29,12 @@
 #include <iostream>
 
 
+/*
+ * Try to keep in sync between barrel and snapper even if some features are not needed
+ * here or there.
+ */
+
+
 namespace barrel
 {
 
@@ -56,7 +62,7 @@ namespace barrel
 
     enum class Style
     {
-	STANDARD, DOUBLE, ASCII
+	ASCII, LIGHT, HEAVY, DOUBLE
     };
 
 
@@ -78,7 +84,12 @@ namespace barrel
 
     public:
 
+	static const unsigned int num_styles = 4;
+
+	static Style auto_style();
+
 	explicit Table(std::initializer_list<Cell> init);
+	explicit Table(const vector<Cell>& init);
 
 	class Row
 	{
@@ -117,7 +128,8 @@ namespace barrel
 	{
 	public:
 
-	    explicit Header(const Table& table) : Row(table) {}
+	    explicit Header(const Table& table)
+		: Row(table) {}
 
 	    explicit Header(const Table& table, std::initializer_list<string> init)
 		: Row(table, init) {}
@@ -132,15 +144,19 @@ namespace barrel
 
 	void set_show_header(bool show_header) { Table::show_header = show_header; }
 	void set_show_grid(bool show_grid) { Table::show_grid = show_grid; }
-	void set_style(enum Style style) { Table::style = style; }
+	void set_style(Style style) { Table::style = style; }
 	void set_global_indent(size_t global_indent) { Table::global_indent = global_indent; }
+	void set_screen_width(size_t screen_width) { Table::screen_width = screen_width; }
 	void set_min_width(Id id, size_t min_width);
 	void set_visibility(Id id, Visibility visibility);
+	void set_abbreviate(Id id, bool abbreviate);
 	void set_tree_id(Id id);
 
 	friend std::ostream& operator<<(std::ostream& s, const Table& Table);
 
     private:
+
+	Table();
 
 	Header header;
 	vector<Row> rows;
@@ -149,11 +165,13 @@ namespace barrel
 	bool show_grid = true;
 	Style style = Style::ASCII;
 	size_t global_indent = 0;
+	size_t screen_width = -1;
 
 	vector<Align> aligns;
 	vector<Id> ids;
 	vector<size_t> min_widths;
 	vector<Visibility> visibilities;
+	vector<bool> abbreviates;
 	size_t tree_index = 0;
 
 	size_t id_to_index(Id id) const;
@@ -164,12 +182,15 @@ namespace barrel
 
 	    void calculate_hidden(const Table& table, const Table::Row& row);
 	    void calculate_widths(const Table& table, const Table::Row& row, unsigned indent);
+	    size_t calculate_total_width(const Table& table) const;
+	    void calculate_abbriviated_widths(const Table& table);
 
 	    vector<bool> hidden;
 	    vector<size_t> widths;
 	};
 
-	void output(std::ostream& s, const Table::Row& row, const OutputInfo& output_info, const vector<bool>& lasts) const;
+	void output(std::ostream& s, const Table::Row& row, const OutputInfo& output_info,
+		    const vector<bool>& lasts) const;
 
 	void output(std::ostream& s, const OutputInfo& output_info) const;
 

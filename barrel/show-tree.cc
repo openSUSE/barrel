@@ -168,6 +168,7 @@ namespace barrel
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT),
 		Cell(_("Usage"), Id::USAGE), Cell(_("Pool"), Id::POOL) });
+	table.set_style(global_options.table_style);
 
 	for (const string& name : options.blk_devices)
 	{

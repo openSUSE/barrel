@@ -147,6 +147,7 @@ namespace barrel
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT),
 		Cell(_("Extent Size"), Align::RIGHT), _("Devices"), Cell(_("Used"), Id::USED, Align::RIGHT),
 		Cell(_("Stripes"), Id::STRIPES), Cell(_("Usage"), Id::USAGE) });
+	table.set_style(global_options.table_style);
 
 	for (const LvmVg* lvm_vg : lvm_vgs)
 	{

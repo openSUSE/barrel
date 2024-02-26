@@ -99,6 +99,7 @@ namespace barrel
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT),
 		Cell(_("Block Size"), Align::RIGHT), Cell(_("Vendor")), Cell(_("Model")),
 		Cell(_("Usage"), Id::USAGE), Cell(_("Pool"), Id::POOL) });
+	table.set_style(global_options.table_style);
 
 	for (const Multipath* multipath : multipaths)
 	{
