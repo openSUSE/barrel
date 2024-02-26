@@ -85,7 +85,13 @@ namespace barrel
 	{
 	}
 
+	using const_iterator = map<string, string>::const_iterator;
+
 	bool has_option(const string& name) const { return args.find(name) != args.end(); }
+
+	const_iterator find(const string& name) const { return args.find(name); }
+
+	const_iterator end() const { return args.end(); }
 
 	const string& get(const string& name) const;
 

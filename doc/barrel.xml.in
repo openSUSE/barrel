@@ -132,6 +132,12 @@
 	</listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>-t, --table-style <replaceable>style</replaceable></option></term>
+        <listitem>
+          <para>Specifies table style. Table style is identified by an integer number.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
 	<term><option>--color</option></term>
 	<listitem>
 	  <para>Use colors colors in output.</para>

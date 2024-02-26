@@ -105,6 +105,7 @@ namespace barrel
 		Cell(_("Transport"), Id::TRANSPORT),
 		Cell(_("Block Size"), Align::RIGHT),
 		Cell(_("Usage"), Id::USAGE), Cell(_("Pool"), Id::POOL) });
+	table.set_style(global_options.table_style);
 	table.set_visibility(Id::TRANSPORT, Visibility::AUTO);
 
 	for (const Disk* disk : disks)

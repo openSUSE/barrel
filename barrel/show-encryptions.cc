@@ -99,6 +99,7 @@ namespace barrel
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Type"),
 		_("Label"), Cell(_("Usage"), Id::USAGE) });
+	table.set_style(global_options.table_style);
 
 	for (const Encryption* encryption : encryptions)
 	{
