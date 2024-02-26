@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2024-02-06 12:42+0000\n"
+"PO-Revision-Date: 2024-02-27 00:42+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -196,9 +196,9 @@ msgstr "グローバルオプション:"
 msgid "Invalid answer '%s'"
 msgstr "回答 '%s' が正しくありません"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid table style '%s'."
-msgstr "回答 '%s' が正しくありません"
+msgstr "表形式 '%s' が正しくありません。"
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
@@ -402,7 +402,7 @@ msgstr "用途"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "%d から %d までの整数を指定してください。"
 
 msgid "Used"
 msgstr "使用率"
@@ -995,7 +995,7 @@ msgid "stat for json file '%s' failed"
 msgstr "JSON ファイル '%s' に対する stat が失敗しました"
 
 msgid "table style"
-msgstr ""
+msgstr "表の形式"
 
 msgid "too few raid devices for raid level"
 msgstr "この RAID レベルで使用する RAID デバイスが少なすぎます"
