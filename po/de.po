@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2023-05-13 02:15+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
-">\n"
+"PO-Revision-Date: 2024-02-29 14:42+0000\n"
+"Last-Translator: Gemineo <vistatec@gemineo.de>\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,6 @@ msgstr "Alias für 'create encryption --type luks1'"
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias für 'create encryption --type luks2'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type bcachefs'"
 msgstr "Alias für 'create filesystem --type btrfs'"
 
@@ -196,9 +195,9 @@ msgstr "Globale Optionen:"
 msgid "Invalid answer '%s'"
 msgstr "Antwort '%s' ist ungültig"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid table style '%s'."
-msgstr "Antwort '%s' ist ungültig"
+msgstr "Ungültiger Tabellenstil '%s'."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
@@ -327,9 +326,8 @@ msgstr "Pools speichern"
 msgid "Saves pools."
 msgstr "Speichert Pools."
 
-#, fuzzy
 msgid "Saves the devicegraph to a file."
-msgstr "Speichert den Staging-Gerätegraphen in einer Datei."
+msgstr "Speichert den Gerätegraphen in einer Datei."
 
 msgid "Saving pools..."
 msgstr "Pools werden gespeichert..."
@@ -337,6 +335,8 @@ msgstr "Pools werden gespeichert..."
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
 msgstr ""
+"ID der Partition '%s' wird von einem nicht unterstützten Wert auf '%s' "
+"festgelegt."
 
 msgid "Shows DASDs."
 msgstr "Zeigt DASDs an."
@@ -403,7 +403,7 @@ msgstr "Verwendung"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Verwenden Sie eine Ganzzahl von %d bis %d."
 
 msgid "Used"
 msgstr "Verwendet"
@@ -487,10 +487,10 @@ msgid "device '%s' not found in mapping"
 msgstr "Gerät '%s' nicht in Zuordnung gefunden"
 
 msgid "do not add in /etc/crypttab"
-msgstr ""
+msgstr "nicht in /etc/crypttab hinzufügen"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "nicht in /etc/fstab hinzufügen"
 
 msgid "do not commit anything to disk"
 msgstr "nichts auf Datenträger speichern"
@@ -882,9 +882,8 @@ msgstr "RAID-Metadaten-Version festlegen"
 msgid "set RAID name"
 msgstr "RAID-Namen festlegen"
 
-#, fuzzy
 msgid "set a key file"
-msgstr "Namen des Geräts festlegen"
+msgstr "Schlüsseldatei festlegen"
 
 msgid "set chunk size"
 msgstr "Chunk-Größe festlegen"
@@ -992,7 +991,7 @@ msgid "stat for json file '%s' failed"
 msgstr "'stat' für json-Datei '%s' fehlgeschlagen"
 
 msgid "table style"
-msgstr ""
+msgstr "Tabellenstil"
 
 msgid "too few raid devices for raid level"
 msgstr "zu wenige Raid-Geräte für Raid-Ebene"
