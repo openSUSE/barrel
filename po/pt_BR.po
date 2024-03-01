@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2023-10-04 23:15+0000\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
+"PO-Revision-Date: 2024-03-01 17:42+0000\n"
+"Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
 "barrel/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -48,9 +48,8 @@ msgstr "Álias de \"create encryption --type luks1\""
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Álias de \"create encryption --type luks2\""
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr "Álias de \"create filesystem --type btrfs\""
+msgstr "Álias de \"create filesystem --type bcachefs\""
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Álias de \"create filesystem --type btrfs\""
@@ -198,9 +197,9 @@ msgstr "Opções globais:"
 msgid "Invalid answer '%s'"
 msgstr "Resposta inválida '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid table style '%s'."
-msgstr "Resposta inválida '%s'"
+msgstr "Estilo de tabela inválido '%s'."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
@@ -403,7 +402,7 @@ msgstr "Uso"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Use um número inteiro de %d a %d."
 
 msgid "Used"
 msgstr "Usado"
@@ -488,9 +487,8 @@ msgstr "dispositivos excluídos"
 msgid "device '%s' not found in mapping"
 msgstr "dispositivo '%s' não encontrado no mapeamento"
 
-#, fuzzy
 msgid "do not add in /etc/crypttab"
-msgstr "não adicionar no /etc/fstab"
+msgstr "não adicionar a /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
 msgstr "não adicionar no /etc/fstab"
@@ -884,9 +882,8 @@ msgstr "definir versão de metadados RAID"
 msgid "set RAID name"
 msgstr "definir nome do RAID"
 
-#, fuzzy
 msgid "set a key file"
-msgstr "definir nome do dispositivo"
+msgstr "definir um arquivo de chave"
 
 msgid "set chunk size"
 msgstr "definir tamanho do pacote"
@@ -994,7 +991,7 @@ msgid "stat for json file '%s' failed"
 msgstr "falha na estatística do arquivo json '%s'"
 
 msgid "table style"
-msgstr ""
+msgstr "estilo de tabela"
 
 msgid "too few raid devices for raid level"
 msgstr "poucos dispositivos raid para nível de raid"
