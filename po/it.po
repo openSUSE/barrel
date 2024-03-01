@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2023-09-27 23:15+0000\n"
-"Last-Translator: Giacomo Solinas <sardiniangale24+opensuse@gmail.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
-">\n"
+"PO-Revision-Date: 2024-03-01 12:42+0000\n"
+"Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,9 +47,8 @@ msgstr "Alias di 'create encryption --type luks1'"
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias di 'create encryption --type luks2'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr "Alias di 'create filesystem --type btrfs'"
+msgstr "Alias di 'create filesystem --type bcachefs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias di 'create filesystem --type btrfs'"
@@ -197,9 +196,9 @@ msgstr "Opzioni globali:"
 msgid "Invalid answer '%s'"
 msgstr "Risposta '%s' non valida"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid table style '%s'."
-msgstr "Risposta '%s' non valida"
+msgstr "Risposta '%s' non valida."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
@@ -402,7 +401,7 @@ msgstr "Uso"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Usare un numero intero compreso fra %d e %d."
 
 msgid "Used"
 msgstr "Usato"
@@ -487,9 +486,8 @@ msgstr "dispostivo rimosso"
 msgid "device '%s' not found in mapping"
 msgstr "dispositivo '%s' non trovato nella mappatura"
 
-#, fuzzy
 msgid "do not add in /etc/crypttab"
-msgstr "no aggiungere nell /etc/fstab"
+msgstr "non aggiungere in /etc/fstab"
 
 msgid "do not add in /etc/fstab"
 msgstr "no aggiungere nell /etc/fstab"
@@ -890,7 +888,6 @@ msgstr "imposta versione metadati RAID"
 msgid "set RAID name"
 msgstr "imposta nome RAID"
 
-#, fuzzy
 msgid "set a key file"
 msgstr "imposta nome dispositivo"
 
@@ -1000,7 +997,7 @@ msgid "stat for json file '%s' failed"
 msgstr "stat per il file json '%s' non riuscita"
 
 msgid "table style"
-msgstr ""
+msgstr "stile tabella"
 
 msgid "too few raid devices for raid level"
 msgstr "numero di dispositivi raid insufficiente per il livello raid"
