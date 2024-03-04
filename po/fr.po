@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2023-02-07 18:14+0000\n"
+"PO-Revision-Date: 2024-03-04 15:43+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
-"Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,9 +47,8 @@ msgstr "Alias pour \"create encryption --type luks1\""
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias pour \"create encryption --type luks2\""
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr "Alias pour \"create filesystem --type btrfs\""
+msgstr "Alias pour \"create filesystem --type bcachefs\""
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias pour \"create filesystem --type btrfs\""
@@ -197,9 +196,9 @@ msgstr "Options globales :"
 msgid "Invalid answer '%s'"
 msgstr "Réponse non valide '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid table style '%s'."
-msgstr "Réponse non valide '%s'"
+msgstr "Style de table '%s' non valide."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
@@ -329,7 +328,6 @@ msgstr "Enregistrer les pools"
 msgid "Saves pools."
 msgstr "Enregistre les pools."
 
-#, fuzzy
 msgid "Saves the devicegraph to a file."
 msgstr "Enregistre le graphique de périphérique de transit dans un fichier."
 
@@ -339,6 +337,7 @@ msgstr "Enregistrement des pools..."
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
 msgstr ""
+"Définition de l'ID de partition %s d'une valeur non prise en charge vers %s."
 
 msgid "Shows DASDs."
 msgstr "Affiche les DASD."
@@ -387,7 +386,7 @@ msgstr "La commande comporte les sous-commandes suivantes :"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "Transport"
 
 msgid "Type"
 msgstr "Type"
@@ -405,7 +404,7 @@ msgstr "Syntaxe"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Utilise un nombre entier compris entre %d et %d."
 
 msgid "Used"
 msgstr "Utilisé"
@@ -491,17 +490,16 @@ msgid "device '%s' not found in mapping"
 msgstr "périphérique '%s' introuvable dans le mappage"
 
 msgid "do not add in /etc/crypttab"
-msgstr ""
+msgstr "ne pas ajouter dans /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "ne pas ajouter dans /etc/fstab"
 
 msgid "do not commit anything to disk"
 msgstr "ne rien valider sur le disque"
 
-#, fuzzy
 msgid "do not show colors"
-msgstr "ne pas afficher les partitions sur les DASD"
+msgstr "ne pas afficher les couleurs"
 
 msgid "do not show partitions on DASDs"
 msgstr "ne pas afficher les partitions sur les DASD"
@@ -890,9 +888,8 @@ msgstr "définir la version des métadonnées RAID"
 msgid "set RAID name"
 msgstr "définir le nom du RAID"
 
-#, fuzzy
 msgid "set a key file"
-msgstr "définir le nom du périphérique"
+msgstr "définir un fichier de clé"
 
 msgid "set chunk size"
 msgstr "définir la taille de la tranche"
@@ -953,7 +950,7 @@ msgid "several mapping multipath for '%s' found"
 msgstr "plusieurs périphériques multipath d'assignation trouvés pour '%s'"
 
 msgid "show colors"
-msgstr ""
+msgstr "Afficher les couleurs"
 
 msgid "show help and exit"
 msgstr "afficher l'aide et quitter"
@@ -1000,7 +997,7 @@ msgid "stat for json file '%s' failed"
 msgstr "échec stat pour le fichier JSON '%s'"
 
 msgid "table style"
-msgstr ""
+msgstr "style de table"
 
 msgid "too few raid devices for raid level"
 msgstr "trop peu de périphériques RAID pour le niveau RAID"
