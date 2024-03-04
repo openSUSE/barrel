@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2023-02-08 05:14+0000\n"
+"PO-Revision-Date: 2024-03-04 05:42+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/barrel/"
 "master/zh_CN/>\n"
@@ -48,9 +48,8 @@ msgstr "\"create encryption --type luks1\" 的别名"
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "\"create encryption --type luks2\" 的别名"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr "\"create filesystem --type btrfs\" 的别名"
+msgstr "\"create filesystem --type bcachefs\" 的别名"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "\"create filesystem --type btrfs\" 的别名"
@@ -198,9 +197,9 @@ msgstr "全局选项："
 msgid "Invalid answer '%s'"
 msgstr "回复 \"%s\" 无效"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid table style '%s'."
-msgstr "回复 \"%s\" 无效"
+msgstr "表格样式 \"%s\" 无效。"
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
@@ -328,16 +327,15 @@ msgstr "保存池"
 msgid "Saves pools."
 msgstr "保存池。"
 
-#, fuzzy
 msgid "Saves the devicegraph to a file."
-msgstr "将临时设备图表保存到文件中。"
+msgstr "将设备图表保存到文件中。"
 
 msgid "Saving pools..."
 msgstr "正在保存池..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "正在将分区 %s 的 ID 从不支持的值设为 %s。"
 
 msgid "Shows DASDs."
 msgstr "显示 DASD。"
@@ -386,7 +384,7 @@ msgstr "该命令包含以下子命令："
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "传输"
 
 msgid "Type"
 msgstr "类型"
@@ -404,7 +402,7 @@ msgstr "用法"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "请使用一个从 %d 到 %d 的整数。"
 
 msgid "Used"
 msgstr "已用"
@@ -487,17 +485,16 @@ msgid "device '%s' not found in mapping"
 msgstr "在映射中未找到设备 \"%s\""
 
 msgid "do not add in /etc/crypttab"
-msgstr ""
+msgstr "不在 /etc/crypttab 中添加"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "不在 /etc/fstab 中添加"
 
 msgid "do not commit anything to disk"
 msgstr "不向磁盘提交任何内容"
 
-#, fuzzy
 msgid "do not show colors"
-msgstr "不显示 DASD 上的分区"
+msgstr "不显示颜色"
 
 msgid "do not show partitions on DASDs"
 msgstr "不显示 DASD 上的分区"
@@ -873,9 +870,8 @@ msgstr "设置 RAID 元数据版本"
 msgid "set RAID name"
 msgstr "设置 RAID 名称"
 
-#, fuzzy
 msgid "set a key file"
-msgstr "设置设备名称"
+msgstr "设置密钥文件"
 
 msgid "set chunk size"
 msgstr "设置区块大小"
@@ -936,7 +932,7 @@ msgid "several mapping multipath for '%s' found"
 msgstr "发现 \"%s\" 的多个映射多路径"
 
 msgid "show colors"
-msgstr ""
+msgstr "显示颜色"
 
 msgid "show help and exit"
 msgstr "显示帮助并退出"
@@ -983,7 +979,7 @@ msgid "stat for json file '%s' failed"
 msgstr "对 json 文件 \"%s\" 执行 stat 失败"
 
 msgid "table style"
-msgstr ""
+msgstr "表格样式"
 
 msgid "too few raid devices for raid level"
 msgstr "Raid 级别的 raid 设备太少"
