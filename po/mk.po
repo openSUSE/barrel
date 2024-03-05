@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:54+0100\n"
-"PO-Revision-Date: 2023-03-21 04:14+0000\n"
+"PO-Revision-Date: 2024-03-05 07:42+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/master/"
 "mk/>\n"
@@ -47,9 +47,8 @@ msgstr "Алиас за 'create encryption --type luks1'"
 msgid "Alias for 'create encryption --type luks2'"
 msgstr "Алиас за 'create encryption --type luks2'"
 
-#, fuzzy
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr "Алиас за 'create filesystem --type btrfs'"
+msgstr "Алиас за 'create filesystem --type bcachefs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Алиас за 'create filesystem --type btrfs'"
@@ -118,19 +117,19 @@ msgid "Alias for 'create raid --level 6'"
 msgstr "Алиас за 'create raid --level 6'"
 
 msgid "Block Size"
-msgstr ""
+msgstr "Големина на блок"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "Бус ИД"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "Големина на парче"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "Го чисти стекот."
 
 msgid "Commands:"
-msgstr ""
+msgstr "Команди:"
 
 msgid "Commit changes?"
 msgstr ""
