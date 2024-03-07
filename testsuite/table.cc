@@ -11,6 +11,44 @@ using namespace barrel;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
+    Table table({ "A", "B" });
+
+    table.set_style(Style::LIGHT);
+
+    Table::Row row1(table, { "a" });
+    table.add(row1);
+
+    Table::Row row2(table, { "a", "b" });
+    table.add(row2);
+
+    ostringstream o;
+    o << table;
+
+    string s =
+	"A │ B\n"
+	"──┼──\n"
+	"a │\n"
+	"a │ b\n";
+
+    BOOST_CHECK_EQUAL(o.str(), s);
+}
+
+
+BOOST_AUTO_TEST_CASE(test2)
+{
+    Table table({ "A", "B" });
+
+    Table::Row row1(table, { "a", "b", "c" });
+    table.add(row1);
+
+    BOOST_CHECK_EXCEPTION({ ostringstream tmp; tmp << table; }, runtime_error, [](const exception& e) {
+        return strcmp(e.what(), "too many columns") == 0;
+    });
+}
+
+
+BOOST_AUTO_TEST_CASE(test3)
+{
     Table table({ "Name", Cell("Size", Id::SIZE, Align::RIGHT), "Usage" });
     table.set_style(Style::LIGHT);
 
@@ -38,7 +76,7 @@ BOOST_AUTO_TEST_CASE(test1)
 }
 
 
-BOOST_AUTO_TEST_CASE(test2)
+BOOST_AUTO_TEST_CASE(test4)
 {
     Table table({ "Name", Cell("Size", Id::SIZE, Align::RIGHT) });
     table.set_style(Style::LIGHT);
@@ -85,7 +123,7 @@ BOOST_AUTO_TEST_CASE(test2)
 }
 
 
-BOOST_AUTO_TEST_CASE(test3)
+BOOST_AUTO_TEST_CASE(test5)
 {
     Table table({ "Name", "Level" });
     table.set_style(Style::LIGHT);
@@ -127,7 +165,7 @@ BOOST_AUTO_TEST_CASE(test3)
 }
 
 
-BOOST_AUTO_TEST_CASE(test4)
+BOOST_AUTO_TEST_CASE(test6)
 {
     Table table({ "Level", Cell("Name", Id::NAME) });
     table.set_style(Style::LIGHT);
@@ -151,7 +189,7 @@ BOOST_AUTO_TEST_CASE(test4)
 }
 
 
-BOOST_AUTO_TEST_CASE(test5)
+BOOST_AUTO_TEST_CASE(test7)
 {
     Table table({ "Level", Cell("Name", Id::NAME) });
     table.set_style(Style::ASCII);

@@ -142,6 +142,8 @@ namespace barrel
 
 	const vector<Row> get_rows() const { return rows; }
 
+	bool has_id(Id id) const;
+
 	void set_show_header(bool show_header) { Table::show_header = show_header; }
 	void set_show_grid(bool show_grid) { Table::show_grid = show_grid; }
 	void set_style(Style style) { Table::style = style; }
@@ -166,30 +168,26 @@ namespace barrel
 	Style style = Style::ASCII;
 	size_t global_indent = 0;
 	size_t screen_width = -1;
+	size_t tree_idx = 0;
 
-	vector<Align> aligns;
-	vector<Id> ids;
-	vector<size_t> min_widths;
-	vector<Visibility> visibilities;
-	vector<bool> abbreviates;
-	size_t tree_index = 0;
-
-	size_t id_to_index(Id id) const;
-
-	struct OutputInfo
+	struct ColumnParams
 	{
-	    OutputInfo(const Table& table);
+	    ColumnParams(Id id, Align align) : id(id), align(align) {}
 
-	    void calculate_hidden(const Table& table, const Table::Row& row);
-	    void calculate_widths(const Table& table, const Table::Row& row, unsigned indent);
-	    size_t calculate_total_width(const Table& table) const;
-	    void calculate_abbriviated_widths(const Table& table);
-
-	    vector<bool> hidden;
-	    vector<size_t> widths;
+	    Id id = Id::NONE;
+	    Align align = Align::LEFT;
+	    size_t min_width = 0;
+	    Visibility visibility = Visibility::ON;
+	    bool abbreviate = false;
 	};
 
-	void output(std::ostream& s, const Table::Row& row, const OutputInfo& output_info,
+	vector<ColumnParams> column_params;
+
+	size_t id_to_idx(Id id) const;
+
+	struct OutputInfo;
+
+	void output(std::ostream& s, const OutputInfo& output_info, const Table::Row& row,
 		    const vector<bool>& lasts) const;
 
 	void output(std::ostream& s, const OutputInfo& output_info) const;
