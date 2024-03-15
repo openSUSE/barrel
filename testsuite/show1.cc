@@ -154,7 +154,7 @@ BOOST_AUTO_TEST_CASE(test5)
 	"─────┼───────┼────────────────┼───────────┼────────────",
 	"ext4 │       │ /dev/sda2      │ 29.99 GiB │ /",
 	"xfs  │       │ /dev/data/home │ 20.00 GiB │ /home",
-	"swap │       │ /dev/sda3      │  2.00 GiB │ swap"
+	"swap │       │ /dev/sda3      │  2.00 GiB │ swap !"
     };
 
     Testsuite testsuite;

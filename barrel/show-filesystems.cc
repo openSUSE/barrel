@@ -196,6 +196,9 @@ namespace barrel
 			tmp = "[" + rootprefix + "] " + tmp;
 		}
 
+		if (!mount_point->is_active())
+		    tmp += " !";
+
 		row[Id::MOUNT_POINT] = tmp;
 	    }
 

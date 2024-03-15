@@ -253,7 +253,7 @@
       <rootprefixed>true</rootprefixed>
       <mount-by>uuid</mount-by>
       <mount-type>swap</mount-type>
-      <active>true</active>
+      <active>false</active>
       <in-etc-fstab>true</in-etc-fstab>
       <freq>0</freq>
       <passno>0</passno>
