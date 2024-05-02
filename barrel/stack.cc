@@ -20,6 +20,8 @@
  */
 
 
+#include <algorithm>
+
 #include <storage/Devicegraph.h>
 #include <storage/Devices/Md.h>
 #include <storage/Devices/LvmVg.h>
