@@ -30,6 +30,7 @@
 #include <storage/Filesystems/Nfs.h>
 #include <storage/Storage.h>
 #include <storage/Environment.h>
+#include <storage/FreeInfo.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Table.h"
@@ -182,6 +183,12 @@ namespace barrel
 	    {
 		const Nfs* nfs = to_nfs(filesystem);
 		row[Id::NAME] = nfs->get_server() + ":" + nfs->get_path();
+
+		if (filesystem->has_space_info())
+		{
+		    SpaceInfo space_info = nfs->detect_space_info();
+		    row[Id::SIZE] = format_size(space_info.size);
+		}
 	    }
 
 	    if (filesystem->has_mount_point())
