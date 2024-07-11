@@ -1,4 +1,9 @@
 -------------------------------------------------------------------
+Thu Jul 11 15:40:12 CEST 2024 - aschnell@suse.com
+
+- allow to set more options for encryptions
+
+-------------------------------------------------------------------
 Thu May 02 07:31:27 CEST 2024 - aschnell@suse.com
 
 - fix build with gcc14
