@@ -205,6 +205,10 @@ namespace barrel
 	void
 	Options::check() const
 	{
+	    if (activate_by && activate_by.value() == MountByType::LABEL && !label)
+	    {
+		throw runtime_error(_("activate-by label requires a label"));
+	    }
 	}
 
     }

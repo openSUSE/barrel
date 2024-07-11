@@ -321,6 +321,11 @@ namespace barrel
 		    throw runtime_error(_("mount options require a path"));
 	    }
 
+	    if (mount_by && mount_by.value() == MountByType::LABEL && !label)
+	    {
+		throw runtime_error(_("mount-by label requires a label"));
+	    }
+
 	    if (number && !supports_multiple_devices(type.value()))
 	    {
 		throw runtime_error(sformat(_("option --devices not allowed for %s"),
