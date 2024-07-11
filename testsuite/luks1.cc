@@ -130,7 +130,8 @@ BOOST_AUTO_TEST_CASE(test4)
     // "" instead of "mockup".
 
     Args args({ "--dry-run", "--yes", "create", "luks2", "--name=cr-test", "/dev/sdb", "--size", "max",
-	    "--key-file", "/secret.key", "ext4" });
+	    "--key-file", "/secret.key", "--label", "CR-TEST2", "--activate-by", "label",
+	    "--activate-options", "nofail", "ext4" });
 
     vector<string> actions = {
 	"Create partition /dev/sdb1 (32.00 GiB)",

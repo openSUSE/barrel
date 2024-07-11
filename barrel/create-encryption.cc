@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2023] SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -47,6 +47,8 @@ namespace barrel
 	    { "type", required_argument, 't', _("encryption type"), "type" },
 	    { "name", required_argument, 'n', _("set name of device"), "name" },
 	    { "label", required_argument, 0, _("set label of device"), "label" },
+	    { "activate-by", required_argument, 0, _("activate by"), "type" },
+	    { "activate-options", required_argument, 'o', _("activate options"), "options" },
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
 	    { "size", required_argument, 's', _("set size"), "size" },
 	    { "key-file", required_argument, 0, _("set a key file"), "key-file" },
@@ -61,6 +63,19 @@ namespace barrel
 	};
 
 
+	const map<string, MountByType> str_to_activate_by_type = {
+	    { "device", MountByType::DEVICE },
+	    { "path", MountByType::PATH },
+	    { "id", MountByType::ID },
+	    { "uuid", MountByType::UUID },
+	    { "label", MountByType::LABEL },
+#if 0
+	    { "partuuid", MountByType::PARTUUID },
+	    { "partlabel", MountByType::PARTLABEL }
+#endif
+	};
+
+
 	struct Options
 	{
 	    Options(GetOpts& get_opts);
@@ -68,6 +83,8 @@ namespace barrel
 	    optional<EncryptionType> type;
 	    string name;
 	    optional<string> label;
+	    optional<MountByType> activate_by;
+	    optional<vector<string>> activate_options;
 	    optional<string> pool_name;
 	    optional<SmartSize> size;
 	    optional<string> key_file;
@@ -82,6 +99,8 @@ namespace barrel
 	    ModusOperandi modus_operandi;
 
 	    void calculate_modus_operandi();
+
+	    void check() const;
 	};
 
 
@@ -106,6 +125,26 @@ namespace barrel
 	    name = parsed_opts.get("name");
 
 	    label = parsed_opts.get_optional("label");
+
+	    if (parsed_opts.has_option("activate-by"))
+	    {
+		string str = parsed_opts.get("activate-by");
+
+		map<string, MountByType>::const_iterator it = str_to_activate_by_type.find(str);
+		if (it == str_to_activate_by_type.end())
+		    throw runtime_error(sformat(_("unknown activate-by type '%s'"), str.c_str()));
+
+		activate_by = it->second;
+	    }
+
+	    if (parsed_opts.has_option("activate-options"))
+	    {
+		string str = parsed_opts.get("activate-options");
+
+		vector<string> tmp;
+		boost::split(tmp, str, boost::is_any_of(","), boost::token_compress_on);
+		activate_options = tmp;
+	    }
 
 	    pool_name = parsed_opts.get_optional("pool-name");
 
@@ -162,6 +201,16 @@ namespace barrel
 	    }
 	}
 
+
+	void
+	Options::check() const
+	{
+	    if (activate_by && activate_by.value() == MountByType::LABEL && !label)
+	    {
+		throw runtime_error(_("activate-by label requires a label"));
+	    }
+	}
+
     }
 
 
@@ -169,7 +218,11 @@ namespace barrel
     {
     public:
 
-	ParsedCmdCreateEncryption(const Options& options) : options(options) {}
+	ParsedCmdCreateEncryption(const Options& options)
+	    : options(options)
+	{
+	    options.check();
+	}
 
 	virtual bool do_backup() const override { return true; }
 
@@ -270,8 +323,19 @@ namespace barrel
 
 	encryption->set_in_etc_crypttab(options.crypttab);
 
-	if (options.label && is_luks(encryption))
-	    to_luks(encryption)->set_label(options.label.value());
+	if (is_luks(encryption))
+	{
+	    Luks* luks = to_luks(encryption);
+
+	    if (options.label)
+		luks->set_label(options.label.value());
+
+	    if (options.activate_by)
+		luks->set_mount_by(options.activate_by.value());
+
+	    if (options.activate_options)
+		luks->set_crypt_options(options.activate_options.value());
+	}
 
 	state.stack.push(encryption);
 	state.modified = true;

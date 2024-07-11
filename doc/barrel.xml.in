@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2024-01-29</date>
+    <date>2024-07-11</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2024-01-29</refmiscinfo>
+    <refmiscinfo class='date'>2024-07-11</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -255,9 +255,26 @@
 	    <varlistentry>
 	      <term><option>--label</option> <replaceable>label</replaceable></term>
 	      <listitem>
-		<para>Label of device-mapper device.</para>
+		<para>Label of device-mapper device. Only for LUKS2.</para>
 	      </listitem>
 	    </varlistentry>
+	    <varlistentry>
+              <term><option>--activate-by</option> <replaceable>type</replaceable></term>
+              <listitem>
+		<para>Set the activate-by type used in
+		/etc/crypttab. Possible values are device, path, id, uuid and label
+		(only for LUKS2). The default is usually uuid. For some devices it is
+		different, e.g. for LVM logical volumes it is device since LVM has
+		stable device names. If the selected type is not available, e.g. no
+		label set, the fallback is device.</para>
+	      </listitem>
+            </varlistentry>
+	    <varlistentry>
+              <term><option>--activate-options</option> <replaceable>options</replaceable></term>
+              <listitem>
+		<para>Options in /etc/crypttab for the encryption.</para>
+              </listitem>
+            </varlistentry>
 	    <varlistentry>
 	      <term><option>--pool-name</option> <replaceable>name</replaceable></term>
 	      <listitem>
