@@ -240,6 +240,12 @@ namespace barrel
     {
 	Devicegraph* staging = state.storage->get_staging();
 
+	for (const Encryption* encryption : Encryption::get_all(staging))
+	{
+	    if (encryption->get_dm_table_name() == options.name)
+		throw runtime_error(_("name of encryption already exists"));
+	}
+
 	EncryptionType type = options.type.value();
 
 	string dm_name = options.name;
