@@ -189,7 +189,7 @@ namespace barrel
 
 		map<string, MountByType>::const_iterator it = str_to_mount_by_type.find(str);
 		if (it == str_to_mount_by_type.end())
-		    throw runtime_error(sformat(_("unknown mount-by type type '%s'"), str.c_str()));
+		    throw runtime_error(sformat(_("unknown mount-by type '%s'"), str.c_str()));
 
 		mount_by = it->second;
 	    }
