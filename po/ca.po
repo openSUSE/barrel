@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 12:54+0100\n"
+"POT-Creation-Date: 2024-07-12 12:44+0200\n"
 "PO-Revision-Date: 2024-02-26 17:42+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
-"\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -419,8 +419,18 @@ msgstr "[ posa una marca a la pila."
 msgid "] constructs an array."
 msgstr "] construeix una matriu."
 
+msgid "activate by"
+msgstr ""
+
+#, fuzzy
+msgid "activate options"
+msgstr "opcions d'ajust"
+
 msgid "activate storage systems at startup"
 msgstr "activa els sistemes d'emmagatzematge a l'inici"
+
+msgid "activate-by label requires a label"
+msgstr ""
 
 msgid "answer all questions with yes"
 msgstr "contesta totes les preguntes amb sí"
@@ -589,6 +599,9 @@ msgstr "nom de grup de volums no vàlid per a l'ordre vg"
 msgid "keep underlying partitions"
 msgstr "mantén les particions subjacents"
 
+msgid "label only supported for LUKS2"
+msgstr ""
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "el DASD mapat per a %s té un format diferent"
@@ -670,6 +683,10 @@ msgstr "les opcions de muntatge necessiten un camí"
 msgid "mount path"
 msgstr "camí de muntatge"
 
+#, fuzzy
+msgid "mount-by label requires a label"
+msgstr "El muntatge requereix un camí."
+
 msgid "mount-by requires a path"
 msgstr "El muntatge requereix un camí."
 
@@ -701,6 +718,10 @@ msgstr "nom del gràfic de dispositius"
 
 msgid "name of devicegraph file"
 msgstr "nom del fitxer del gràfic de dispositius"
+
+#, fuzzy
+msgid "name of encryption already exists"
+msgstr "el nom de la RAID ja existeix"
 
 msgid "name of logical volume already exists"
 msgstr "el nom del volum lògic ja existeix"
@@ -1001,6 +1022,10 @@ msgstr "opcions d'ajust"
 msgid "tune options not allowed for %s"
 msgstr "opcions d'ajust no permeses per a %s"
 
+#, fuzzy, c-format
+msgid "unknown activate-by type '%s'"
+msgstr "tipus de sistema de fitxers desconegut: %s"
+
 #, c-format
 msgid "unknown btrfs profile '%s'"
 msgstr "perfil de btrfs desconegut: %s"
@@ -1012,8 +1037,8 @@ msgstr "tipus d'encriptació desconegut"
 msgid "unknown filesystem type '%s'"
 msgstr "tipus de sistema de fitxers desconegut: %s"
 
-#, c-format
-msgid "unknown mount-by type type '%s'"
+#, fuzzy, c-format
+msgid "unknown mount-by type '%s'"
 msgstr "tipus de muntatge desconegut: %s"
 
 msgid "unknown partition table type"
