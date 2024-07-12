@@ -67,6 +67,8 @@ namespace barrel
 	    ModusOperandi modus_operandi;
 
 	    void calculate_modus_operandi();
+
+	    void check() const;
 	};
 
 
@@ -102,6 +104,16 @@ namespace barrel
 		modus_operandi = ModusOperandi::PARTITIONABLE;
 	}
 
+
+	void
+	Options::check() const
+	{
+	    if (!type)
+	    {
+		throw logic_error("partition table type still unknown");
+	    }
+	}
+
     }
 
 
@@ -109,7 +121,11 @@ namespace barrel
     {
     public:
 
-	ParsedCmdCreatePartitionTable(const Options& options) : options(options) {}
+	ParsedCmdCreatePartitionTable(const Options& options)
+	    : options(options)
+	{
+	    options.check();
+	}
 
 	virtual bool do_backup() const override { return true; }
 
