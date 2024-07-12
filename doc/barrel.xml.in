@@ -263,10 +263,8 @@
               <listitem>
 		<para>Set the activate-by type used in
 		/etc/crypttab. Possible values are device, path, id, uuid and label
-		(only for LUKS2). The default is usually uuid. For some devices it is
-		different, e.g. for LVM logical volumes it is device since LVM has
-		stable device names. If the selected type is not available, e.g. no
-		label set, the fallback is device.</para>
+		(only for LUKS2). The default is usually uuid. If the selected type is
+		not available the fallback is device.</para>
 	      </listitem>
             </varlistentry>
 	    <varlistentry>
@@ -392,8 +390,7 @@
 		/etc/fstab. Possible values are device, path, id, uuid and label. The
 		default is usually uuid. For some devices it is different, e.g. for
 		LVM logical volumes it is device since LVM has stable device names. If
-		the selected type is not available, e.g. no label set, the fallback is
-		device.</para>
+		the selected type is not available the fallback is device.</para>
 	      </listitem>
             </varlistentry>
 	    <varlistentry>
