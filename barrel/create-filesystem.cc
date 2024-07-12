@@ -287,6 +287,11 @@ namespace barrel
 	void
 	Options::check() const
 	{
+	    if (!type)
+	    {
+		throw logic_error("filesystem type still unknown");
+	    }
+
 	    if (tune_options)
 	    {
 		if (type.value() != FsType::EXT2 && type.value() != FsType::EXT3 &&

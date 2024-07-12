@@ -165,6 +165,8 @@ namespace barrel
 	    ModusOperandi modus_operandi;
 
 	    void calculate_modus_operandi();
+
+	    void check() const;
 	};
 
 
@@ -241,6 +243,16 @@ namespace barrel
 	    }
 	}
 
+
+	void
+	Options::check() const
+	{
+	    if (!level)
+	    {
+		throw logic_error("raid level still unknown");
+	    }
+	}
+
     }
 
 
@@ -248,7 +260,11 @@ namespace barrel
     {
     public:
 
-	ParsedCmdCreateRaid(const Options& options) : options(options) {}
+	ParsedCmdCreateRaid(const Options& options)
+	    : options(options)
+	{
+	    options.check();
+	}
 
 	virtual bool do_backup() const override { return true; }
 

@@ -205,6 +205,16 @@ namespace barrel
 	void
 	Options::check() const
 	{
+	    if (!type)
+	    {
+		throw logic_error("encryption type still unknown");
+	    }
+
+	    if (label && type.value() != EncryptionType::LUKS2)
+	    {
+		throw runtime_error(_("label only supported for LUKS2"));
+	    }
+
 	    if (activate_by && activate_by.value() == MountByType::LABEL && !label)
 	    {
 		throw runtime_error(_("activate-by label requires a label"));
