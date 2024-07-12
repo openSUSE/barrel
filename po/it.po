@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 12:54+0100\n"
+"POT-Creation-Date: 2024-07-12 12:44+0200\n"
 "PO-Revision-Date: 2024-03-01 12:42+0000\n"
 "Last-Translator: Giacomo Solinas <sardiniangale24+opensuse@gmail.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
-"\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
+">\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -418,8 +418,18 @@ msgstr "[ porre un contrassegno sullo stack."
 msgid "] constructs an array."
 msgstr "] costruisce un array."
 
+msgid "activate by"
+msgstr ""
+
+#, fuzzy
+msgid "activate options"
+msgstr "opzioni di ottimizzazione"
+
 msgid "activate storage systems at startup"
 msgstr "attiva sistemi di memorizzazione all'avvio"
+
+msgid "activate-by label requires a label"
+msgstr ""
 
 msgid "answer all questions with yes"
 msgstr "rispondi sì a tutte le domande"
@@ -588,6 +598,9 @@ msgstr "nome del gruppo di volumi non valido per il comando 'vg'"
 msgid "keep underlying partitions"
 msgstr "mantieni partizioni sottostanti"
 
+msgid "label only supported for LUKS2"
+msgstr ""
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "il DASD mappato per '%s' dispone di un formato diverso"
@@ -670,6 +683,10 @@ msgstr "per le opzioni di montaggio è necessario un percorso"
 msgid "mount path"
 msgstr "percorso di montaggio"
 
+#, fuzzy
+msgid "mount-by label requires a label"
+msgstr "per il montaggio in base a è necessario un percorso"
+
 msgid "mount-by requires a path"
 msgstr "per il montaggio in base a è necessario un percorso"
 
@@ -701,6 +718,10 @@ msgstr "nome del grafico dispositivo"
 
 msgid "name of devicegraph file"
 msgstr "nome del file del grafico dispositivo"
+
+#, fuzzy
+msgid "name of encryption already exists"
+msgstr "nome del RAID già esistente"
 
 msgid "name of logical volume already exists"
 msgstr "nome del volume logico già esistente"
@@ -1009,6 +1030,10 @@ msgstr "opzioni di ottimizzazione"
 msgid "tune options not allowed for %s"
 msgstr "opzioni di ottimizzazione non consentite per %s"
 
+#, fuzzy, c-format
+msgid "unknown activate-by type '%s'"
+msgstr "tipo di file system '%s' sconosciuto"
+
 #, c-format
 msgid "unknown btrfs profile '%s'"
 msgstr "profilo btrfs '%s' sconosciuto"
@@ -1020,8 +1045,8 @@ msgstr "tipo di cifratura sconosciuto"
 msgid "unknown filesystem type '%s'"
 msgstr "tipo di file system '%s' sconosciuto"
 
-#, c-format
-msgid "unknown mount-by type type '%s'"
+#, fuzzy, c-format
+msgid "unknown mount-by type '%s'"
 msgstr "tipo di montaggio in base al tipo '%s' sconosciuto"
 
 msgid "unknown partition table type"

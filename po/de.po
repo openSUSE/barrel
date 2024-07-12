@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 12:54+0100\n"
+"POT-Creation-Date: 2024-07-12 12:44+0200\n"
 "PO-Revision-Date: 2024-03-01 17:42+0000\n"
 "Last-Translator: Gemineo <vistatec@gemineo.de>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
-"\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
+">\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -420,8 +420,18 @@ msgstr "[ überträgt eine Markierung auf den Stack."
 msgid "] constructs an array."
 msgstr "] baut ein Array auf."
 
+msgid "activate by"
+msgstr ""
+
+#, fuzzy
+msgid "activate options"
+msgstr "Abstimmungsoptionen"
+
 msgid "activate storage systems at startup"
 msgstr "Speichersysteme beim Start aktivieren"
+
+msgid "activate-by label requires a label"
+msgstr ""
 
 msgid "answer all questions with yes"
 msgstr "alle Fragen mit ja beantworten"
@@ -589,6 +599,9 @@ msgstr "ungültiger Name für Volume-Gruppe in Kommando 'vg'"
 msgid "keep underlying partitions"
 msgstr "zugrunde liegende Partitionen beibehalten"
 
+msgid "label only supported for LUKS2"
+msgstr ""
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "zugeordnetes DASD für '%s' hat ein anderes Format"
@@ -670,6 +683,10 @@ msgstr "für Einhängeoptionen ist ein Pfad erforderlich"
 msgid "mount path"
 msgstr "Einhängepfad"
 
+#, fuzzy
+msgid "mount-by label requires a label"
+msgstr "für 'Einhängen durch' ist ein Pfad erforderlich"
+
 msgid "mount-by requires a path"
 msgstr "für 'Einhängen durch' ist ein Pfad erforderlich"
 
@@ -701,6 +718,10 @@ msgstr "Name des Gerätegraphen"
 
 msgid "name of devicegraph file"
 msgstr "Name der Gerätegraph-Datei"
+
+#, fuzzy
+msgid "name of encryption already exists"
+msgstr "RAID-Name ist bereits vorhanden"
 
 msgid "name of logical volume already exists"
 msgstr "Name des logischen Volume ist bereits vorhanden"
@@ -1003,6 +1024,10 @@ msgstr "Abstimmungsoptionen"
 msgid "tune options not allowed for %s"
 msgstr "Abstimmungsoptionen für %s nicht zulässig"
 
+#, fuzzy, c-format
+msgid "unknown activate-by type '%s'"
+msgstr "unbekannter Dateisystemtyp '%s'"
+
 #, c-format
 msgid "unknown btrfs profile '%s'"
 msgstr "unbekanntes btrfs-Profil '%s'"
@@ -1014,8 +1039,8 @@ msgstr "unbekannter Verschlüsselungstyp"
 msgid "unknown filesystem type '%s'"
 msgstr "unbekannter Dateisystemtyp '%s'"
 
-#, c-format
-msgid "unknown mount-by type type '%s'"
+#, fuzzy, c-format
+msgid "unknown mount-by type '%s'"
 msgstr "unbekannter Typ für 'Einhängen durch'. Typ: '%s'"
 
 msgid "unknown partition table type"
