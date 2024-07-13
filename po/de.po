@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-12 12:44+0200\n"
-"PO-Revision-Date: 2024-03-01 17:42+0000\n"
-"Last-Translator: Gemineo <vistatec@gemineo.de>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
-">\n"
+"PO-Revision-Date: 2024-07-13 19:46+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -421,11 +421,10 @@ msgid "] constructs an array."
 msgstr "] baut ein Array auf."
 
 msgid "activate by"
-msgstr ""
+msgstr "aktivieren durch"
 
-#, fuzzy
 msgid "activate options"
-msgstr "Abstimmungsoptionen"
+msgstr "Optionen aktivieren"
 
 msgid "activate storage systems at startup"
 msgstr "Speichersysteme beim Start aktivieren"
@@ -683,9 +682,8 @@ msgstr "für Einhängeoptionen ist ein Pfad erforderlich"
 msgid "mount path"
 msgstr "Einhängepfad"
 
-#, fuzzy
 msgid "mount-by label requires a label"
-msgstr "für 'Einhängen durch' ist ein Pfad erforderlich"
+msgstr ""
 
 msgid "mount-by requires a path"
 msgstr "für 'Einhängen durch' ist ein Pfad erforderlich"
@@ -719,9 +717,8 @@ msgstr "Name des Gerätegraphen"
 msgid "name of devicegraph file"
 msgstr "Name der Gerätegraph-Datei"
 
-#, fuzzy
 msgid "name of encryption already exists"
-msgstr "RAID-Name ist bereits vorhanden"
+msgstr "Name der Verschlüsselung existiert bereits"
 
 msgid "name of logical volume already exists"
 msgstr "Name des logischen Volume ist bereits vorhanden"
@@ -1024,9 +1021,9 @@ msgstr "Abstimmungsoptionen"
 msgid "tune options not allowed for %s"
 msgstr "Abstimmungsoptionen für %s nicht zulässig"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown activate-by type '%s'"
-msgstr "unbekannter Dateisystemtyp '%s'"
+msgstr ""
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1039,9 +1036,9 @@ msgstr "unbekannter Verschlüsselungstyp"
 msgid "unknown filesystem type '%s'"
 msgstr "unbekannter Dateisystemtyp '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type '%s'"
-msgstr "unbekannter Typ für 'Einhängen durch'. Typ: '%s'"
+msgstr ""
 
 msgid "unknown partition table type"
 msgstr "unbekannter Partitionstabellentyp"
