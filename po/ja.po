@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-12 12:44+0200\n"
-"PO-Revision-Date: 2024-02-27 00:42+0000\n"
+"PO-Revision-Date: 2024-07-14 00:46+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -420,17 +420,16 @@ msgid "] constructs an array."
 msgstr "] は配列を構築します。"
 
 msgid "activate by"
-msgstr ""
+msgstr "下記によって有効化"
 
-#, fuzzy
 msgid "activate options"
-msgstr "チューニングオプション"
+msgstr "有効化オプション"
 
 msgid "activate storage systems at startup"
 msgstr "起動時にストレージシステムを有効化する"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "activate-by ラベルにはラベルを指定する必要があります"
 
 msgid "answer all questions with yes"
 msgstr "全ての質問に対して 'yes' (はい) と回答します"
@@ -599,7 +598,7 @@ msgid "keep underlying partitions"
 msgstr "含まれるパーティションを保持します"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "ラベルは LUKS2 のみでサポートされています"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -682,9 +681,8 @@ msgstr "パスを必要とするマウントオプション"
 msgid "mount path"
 msgstr "マウントパス"
 
-#, fuzzy
 msgid "mount-by label requires a label"
-msgstr "mount-by にはパスを指定する必要があります"
+msgstr "mount-by ラベルにはラベルを指定する必要があります"
 
 msgid "mount-by requires a path"
 msgstr "mount-by にはパスを指定する必要があります"
@@ -718,9 +716,8 @@ msgstr "デバイスグラフの名前"
 msgid "name of devicegraph file"
 msgstr "デバイスグラフファイルの名前"
 
-#, fuzzy
 msgid "name of encryption already exists"
-msgstr "その名前の RAID は既に存在しています"
+msgstr "その名前の暗号化は既に存在しています"
 
 msgid "name of logical volume already exists"
 msgstr "その名前の論理ボリュームは既に存在しています"
@@ -1028,9 +1025,9 @@ msgstr "チューニングオプション"
 msgid "tune options not allowed for %s"
 msgstr "%s に対してはチューニングオプションは使用できません"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown activate-by type '%s'"
-msgstr "不明なファイルシステムの種類 '%s'"
+msgstr "不明な activate-by の種類 '%s'"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1043,7 +1040,7 @@ msgstr "不明な暗号化の種類"
 msgid "unknown filesystem type '%s'"
 msgstr "不明なファイルシステムの種類 '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type '%s'"
 msgstr "不明な mount-by の種類 '%s'"
 
