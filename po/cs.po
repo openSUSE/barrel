@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-12 12:44+0200\n"
-"PO-Revision-Date: 2024-02-26 17:42+0000\n"
+"PO-Revision-Date: 2024-07-14 08:46+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -418,17 +418,16 @@ msgid "] constructs an array."
 msgstr "] vytvoří pole."
 
 msgid "activate by"
-msgstr ""
+msgstr "aktivovat pomocí"
 
-#, fuzzy
 msgid "activate options"
-msgstr "možnosti ladění"
+msgstr "možnosti aktivace"
 
 msgid "activate storage systems at startup"
 msgstr "při startu aktivovat paměťové systémy"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "activate-by label vyžaduje štítek"
 
 msgid "answer all questions with yes"
 msgstr "na všechny otázky odpovědět 'yes' (ano)"
@@ -597,7 +596,7 @@ msgid "keep underlying partitions"
 msgstr "zachovat podřazené oddíly"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "štítek podporován pouze pro LUKS2"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -680,9 +679,8 @@ msgstr "možnosti připojení vyžadují zadání cesty"
 msgid "mount path"
 msgstr "cesta pro připojení"
 
-#, fuzzy
 msgid "mount-by label requires a label"
-msgstr "mount-by vyžaduje zadat cestu"
+msgstr "mount-by label vyžaduje štítek"
 
 msgid "mount-by requires a path"
 msgstr "mount-by vyžaduje zadat cestu"
@@ -716,9 +714,8 @@ msgstr "název pro mapu zařízení"
 msgid "name of devicegraph file"
 msgstr "název souboru s mapou zařízení"
 
-#, fuzzy
 msgid "name of encryption already exists"
-msgstr "název pro RAID již existuje"
+msgstr "název šifrování již existuje"
 
 msgid "name of logical volume already exists"
 msgstr "název logického svazku již existuje"
@@ -1014,9 +1011,9 @@ msgstr "možnosti ladění"
 msgid "tune options not allowed for %s"
 msgstr "možnosti ladění nejsou pro %s povoleny"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown activate-by type '%s'"
-msgstr "neznámý typ systému souborů '%s'"
+msgstr "neznámý activate-by typ: '%s'"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1029,9 +1026,9 @@ msgstr "neznámý typ šifrování"
 msgid "unknown filesystem type '%s'"
 msgstr "neznámý typ systému souborů '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type '%s'"
-msgstr "neznámý typ mount-by typ: '%s'"
+msgstr "neznámý typ mount-by: '%s'"
 
 msgid "unknown partition table type"
 msgstr "neznámý typ tabulky oddílů"
