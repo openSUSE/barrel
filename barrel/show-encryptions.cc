@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2024] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -98,15 +98,22 @@ namespace barrel
 	sort(encryptions.begin(), encryptions.end(), Encryption::compare_by_dm_table_name);
 
 	Table table({ Cell(_("Name"), Id::NAME), Cell(_("Size"), Id::SIZE, Align::RIGHT), _("Type"),
+		Cell(_("Key File"), Id::KEY_FILE), _("Cipher"),
+		Cell(_("Key Size"), Id::KEY_SIZE, Align::RIGHT), _("PBKDF"),
 		_("Label"), Cell(_("Usage"), Id::USAGE) });
 	table.set_style(global_options.table_style);
+	table.set_visibility(Id::KEY_FILE, Visibility::AUTO);
 
 	for (const Encryption* encryption : encryptions)
 	{
 	    Table::Row row(table, { encryption->get_dm_table_name(), format_size(encryption->get_size()),
 		    get_encryption_type_name(encryption->get_type()),
+		    encryption->get_key_file(), encryption->get_cipher(), "", encryption->get_pbkdf(),
 		    is_luks(encryption) ? to_luks(encryption)->get_label() : "",
 		    device_usage(encryption) });
+
+	    if (encryption->get_key_size() > 0)
+		row[Id::KEY_SIZE] = sformat(_("%d bits"), encryption->get_key_size() * 8);
 
 	    table.add(row);
 	}

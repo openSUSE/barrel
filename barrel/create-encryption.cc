@@ -52,6 +52,9 @@ namespace barrel
 	    { "pool-name", required_argument, 0, _("pool name"), "name" },
 	    { "size", required_argument, 's', _("set size"), "size" },
 	    { "key-file", required_argument, 0, _("set a key file"), "key-file" },
+	    { "key-size", required_argument, 0, _("set key size"), "key-size" },
+	    { "cipher", required_argument, 0, _("set cipher"), "cipher" },
+	    { "pbkdf", required_argument, 0, _("set PBKDF"), "pbkdf" },
 	    { "no-crypttab", no_argument, 0, _("do not add in /etc/crypttab") },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
@@ -88,6 +91,9 @@ namespace barrel
 	    optional<string> pool_name;
 	    optional<SmartSize> size;
 	    optional<string> key_file;
+	    optional<size_t> key_size;
+	    optional<string> cipher;
+	    optional<string> pbkdf;
 	    bool crypttab = true;
 	    bool force = false;
 
@@ -156,6 +162,18 @@ namespace barrel
 
 	    if (parsed_opts.has_option("key-file"))
 		key_file = parsed_opts.get("key-file");
+
+	    if (parsed_opts.has_option("key-size"))
+	    {
+		string str = parsed_opts.get("key-size");
+		key_size = std::stol(str.c_str()) / 8;
+	    }
+
+	    if (parsed_opts.has_option("cipher"))
+		cipher = parsed_opts.get("cipher");
+
+	    if (parsed_opts.has_option("pbkdf"))
+		pbkdf = parsed_opts.get("pbkdf");
 
 	    crypttab = !parsed_opts.has_option("no-crypttab");
 
@@ -337,6 +355,9 @@ namespace barrel
 	else
 	    encryption->set_key_file(options.key_file.value());
 
+	if (options.key_size)
+	    encryption->set_key_size(options.key_size.value());
+
 	encryption->set_in_etc_crypttab(options.crypttab);
 
 	if (is_luks(encryption))
@@ -352,6 +373,12 @@ namespace barrel
 	    if (options.activate_options)
 		luks->set_crypt_options(options.activate_options.value());
 	}
+
+	if (options.cipher)
+	    encryption->set_cipher(options.cipher.value());
+
+	if (options.pbkdf)
+	    encryption->set_pbkdf(options.pbkdf.value());
 
 	state.stack.push(encryption);
 	state.modified = true;
