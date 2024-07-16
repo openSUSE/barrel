@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2024-07-11</date>
+    <date>2024-07-16</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2024-07-11</refmiscinfo>
+    <refmiscinfo class='date'>2024-07-16</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -290,6 +290,26 @@
 	      <listitem>
 		<para>Set a key file. The key file is used during commit and
 		in /etc/crypttab. Also the key file must already exist.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--key-size</option></term>
+	      <listitem>
+		<para>Set the key size in in bits. Must be at least a multiple
+		of 8. See cryptsetup for more details.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--cipher</option></term>
+	      <listitem>
+		<para>Set the cipher.  See cryptsetup for more details.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--pbkdf</option></term>
+	      <listitem>
+		<para>Set the PBKDF (Password-Based Key Derivation
+		Function). See cryptsetup for more details.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
