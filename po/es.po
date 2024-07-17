@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 12:44+0200\n"
+"POT-Creation-Date: 2024-07-17 15:13+0200\n"
 "PO-Revision-Date: 2024-03-02 00:45+0000\n"
 "Last-Translator: Antonio Simón <antonio@trans-mission.com>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.9.1\n"
+
+#, c-format
+msgid "%d bits"
+msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -125,6 +129,9 @@ msgstr "ID del bus"
 msgid "Chunk Size"
 msgstr "Tamaño de la colocación"
 
+msgid "Cipher"
+msgstr ""
+
 msgid "Clears the stack."
 msgstr "Limpia la pila."
 
@@ -204,6 +211,13 @@ msgstr "Estilo de tabla «%s» inválido."
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Sonríe porque esa es la cosa más importante."
 
+msgid "Key File"
+msgstr ""
+
+#, fuzzy
+msgid "Key Size"
+msgstr "Tamaño"
+
 #, c-format
 msgid "LUKS on %s"
 msgstr "LUKS en %s"
@@ -264,6 +278,9 @@ msgstr "No se permiten dispositivos de bloque para la opción de comando «%s».
 
 msgid "No global block devices allowed."
 msgstr "Dispositivos globales de bloque, prohibidos."
+
+msgid "PBKDF"
+msgstr ""
 
 msgid "Passwords do not match."
 msgstr "Las contraseñas no coinciden."
@@ -893,6 +910,9 @@ msgstr "falla al leer archivo json «%s»"
 msgid "run with a rootprefix"
 msgstr "ejecutar con un prefijo raíz"
 
+msgid "set PBKDF"
+msgstr ""
+
 msgid "set RAID level"
 msgstr "establecer nivel RAID"
 
@@ -908,6 +928,10 @@ msgstr "definir un archivo de clave"
 msgid "set chunk size"
 msgstr "Dimensionar el aservo"
 
+#, fuzzy
+msgid "set cipher"
+msgstr "establecer tamaño"
+
 msgid "set extent size"
 msgstr "extender"
 
@@ -916,6 +940,10 @@ msgstr "etiquetar sistema de archivos"
 
 msgid "set file system type"
 msgstr "tipificar sistema de archivos"
+
+#, fuzzy
+msgid "set key size"
+msgstr "establecer tamaño"
 
 msgid "set label of device"
 msgstr "etiquetar un dispositivo"
