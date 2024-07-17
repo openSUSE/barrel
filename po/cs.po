@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 12:44+0200\n"
+"POT-Creation-Date: 2024-07-17 15:13+0200\n"
 "PO-Revision-Date: 2024-07-14 08:46+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 5.6.2\n"
+
+#, c-format
+msgid "%d bits"
+msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -124,6 +128,9 @@ msgstr "ID sběrnice"
 msgid "Chunk Size"
 msgstr "Velikost útržku"
 
+msgid "Cipher"
+msgstr ""
+
 msgid "Clears the stack."
 msgstr "Vyprázdní zásobník."
 
@@ -203,6 +210,13 @@ msgstr "Chybný styl tabulky '%s'."
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Vždy s úsměvem, to je nejdůležitější."
 
+msgid "Key File"
+msgstr ""
+
+#, fuzzy
+msgid "Key Size"
+msgstr "Velikost"
+
 #, c-format
 msgid "LUKS on %s"
 msgstr "LUKS na %s"
@@ -263,6 +277,9 @@ msgstr "Pro příkazovou volbu '%s' nejsou povolena bloková zařízení."
 
 msgid "No global block devices allowed."
 msgstr "Nejsou povolena globální bloková zařízení."
+
+msgid "PBKDF"
+msgstr ""
 
 msgid "Passwords do not match."
 msgstr "Hesla se neshodují."
@@ -881,6 +898,9 @@ msgstr "'read' souboru json '%s' selhal"
 msgid "run with a rootprefix"
 msgstr "spustit s předponou root"
 
+msgid "set PBKDF"
+msgstr ""
+
 msgid "set RAID level"
 msgstr "nastavit úroveň RAID"
 
@@ -896,6 +916,10 @@ msgstr "nastavit soubor klíče"
 msgid "set chunk size"
 msgstr "nastavit velikost kousku (chunk)"
 
+#, fuzzy
+msgid "set cipher"
+msgstr "nastavit velikost"
+
 msgid "set extent size"
 msgstr "nastavit velikost rozsahu"
 
@@ -904,6 +928,10 @@ msgstr "nastavit název souborového systému"
 
 msgid "set file system type"
 msgstr "nastavit typ systému souborů"
+
+#, fuzzy
+msgid "set key size"
+msgstr "nastavit velikost"
 
 msgid "set label of device"
 msgstr "nastavit štítek zařízení"

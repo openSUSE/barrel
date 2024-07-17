@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 12:44+0200\n"
+"POT-Creation-Date: 2024-07-17 15:13+0200\n"
 "PO-Revision-Date: 2024-03-04 05:42+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/barrel/"
@@ -19,6 +19,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.9.1\n"
+
+#, c-format
+msgid "%d bits"
+msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -126,6 +130,9 @@ msgstr "总线 ID"
 msgid "Chunk Size"
 msgstr "区块大小"
 
+msgid "Cipher"
+msgstr ""
+
 msgid "Clears the stack."
 msgstr "清除堆栈。"
 
@@ -205,6 +212,13 @@ msgstr "表格样式 \"%s\" 无效。"
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Keep smiling, 'cause that's the most important thing."
 
+msgid "Key File"
+msgstr ""
+
+#, fuzzy
+msgid "Key Size"
+msgstr "大小"
+
 #, c-format
 msgid "LUKS on %s"
 msgstr "%s 上的 LUKS"
@@ -265,6 +279,9 @@ msgstr "没有允许用于命令选项 \"%s\" 的块设备。"
 
 msgid "No global block devices allowed."
 msgstr "没有允许使用的全局块设备。"
+
+msgid "PBKDF"
+msgstr ""
 
 msgid "Passwords do not match."
 msgstr "口令不一致。"
@@ -882,6 +899,9 @@ msgstr "读取 json 文件 \"%s\" 失败"
 msgid "run with a rootprefix"
 msgstr "带根前缀运行"
 
+msgid "set PBKDF"
+msgstr ""
+
 msgid "set RAID level"
 msgstr "设置 RAID 级别"
 
@@ -897,6 +917,10 @@ msgstr "设置密钥文件"
 msgid "set chunk size"
 msgstr "设置区块大小"
 
+#, fuzzy
+msgid "set cipher"
+msgstr "设置大小"
+
 msgid "set extent size"
 msgstr "设置盘区大小"
 
@@ -905,6 +929,10 @@ msgstr "设置文件系统标签"
 
 msgid "set file system type"
 msgstr "设置文件系统类型"
+
+#, fuzzy
+msgid "set key size"
+msgstr "设置大小"
 
 msgid "set label of device"
 msgstr "设置设备标签"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 12:44+0200\n"
+"POT-Creation-Date: 2024-07-17 15:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#, c-format
+msgid "%d bits"
+msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -124,6 +128,9 @@ msgstr ""
 msgid "Chunk Size"
 msgstr ""
 
+msgid "Cipher"
+msgstr ""
+
 msgid "Clears the stack."
 msgstr ""
 
@@ -203,6 +210,12 @@ msgstr ""
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr ""
 
+msgid "Key File"
+msgstr ""
+
+msgid "Key Size"
+msgstr ""
+
 #, c-format
 msgid "LUKS on %s"
 msgstr ""
@@ -262,6 +275,9 @@ msgid "No block devices allowed for command option '%s'."
 msgstr ""
 
 msgid "No global block devices allowed."
+msgstr ""
+
+msgid "PBKDF"
 msgstr ""
 
 msgid "Passwords do not match."
@@ -878,6 +894,9 @@ msgstr ""
 msgid "run with a rootprefix"
 msgstr ""
 
+msgid "set PBKDF"
+msgstr ""
+
 msgid "set RAID level"
 msgstr ""
 
@@ -893,6 +912,9 @@ msgstr ""
 msgid "set chunk size"
 msgstr ""
 
+msgid "set cipher"
+msgstr ""
+
 msgid "set extent size"
 msgstr ""
 
@@ -900,6 +922,9 @@ msgid "set file system label"
 msgstr ""
 
 msgid "set file system type"
+msgstr ""
+
+msgid "set key size"
 msgstr ""
 
 msgid "set label of device"

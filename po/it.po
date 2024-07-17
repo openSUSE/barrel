@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 12:44+0200\n"
+"POT-Creation-Date: 2024-07-17 15:13+0200\n"
 "PO-Revision-Date: 2024-03-01 12:42+0000\n"
 "Last-Translator: Giacomo Solinas <sardiniangale24+opensuse@gmail.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.9.1\n"
+
+#, c-format
+msgid "%d bits"
+msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -125,6 +129,9 @@ msgstr "ID bus"
 msgid "Chunk Size"
 msgstr "Dimensioni blocco"
 
+msgid "Cipher"
+msgstr ""
+
 msgid "Clears the stack."
 msgstr "Cancella lo stack."
 
@@ -204,6 +211,13 @@ msgstr "Risposta '%s' non valida."
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Continua a sorridere: è questa la cosa più importante."
 
+msgid "Key File"
+msgstr ""
+
+#, fuzzy
+msgid "Key Size"
+msgstr "Dimensione"
+
 #, c-format
 msgid "LUKS on %s"
 msgstr "LUKS su %s"
@@ -264,6 +278,9 @@ msgstr "Nessun dispositivo di blocco consentito per l'opzione di comando '%s'."
 
 msgid "No global block devices allowed."
 msgstr "Nessun dispositivo di blocco globale consentito."
+
+msgid "PBKDF"
+msgstr ""
 
 msgid "Passwords do not match."
 msgstr "Le password non corrispondono."
@@ -900,6 +917,9 @@ msgstr "lettura del file json '%s' non riuscita"
 msgid "run with a rootprefix"
 msgstr "esegui con un rootprefix"
 
+msgid "set PBKDF"
+msgstr ""
+
 msgid "set RAID level"
 msgstr "imposta livello RAID"
 
@@ -915,6 +935,10 @@ msgstr "imposta nome dispositivo"
 msgid "set chunk size"
 msgstr "imposta dimensioni blocco"
 
+#, fuzzy
+msgid "set cipher"
+msgstr "imposta dimensione"
+
 msgid "set extent size"
 msgstr "imposta dimensione extent"
 
@@ -923,6 +947,10 @@ msgstr "imposta etichetta file system"
 
 msgid "set file system type"
 msgstr "imposta tipo file system"
+
+#, fuzzy
+msgid "set key size"
+msgstr "imposta dimensione"
 
 msgid "set label of device"
 msgstr "imposta etichetta dispositivo"

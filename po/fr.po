@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 12:44+0200\n"
+"POT-Creation-Date: 2024-07-17 15:13+0200\n"
 "PO-Revision-Date: 2024-03-04 15:43+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.9.1\n"
+
+#, c-format
+msgid "%d bits"
+msgstr ""
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -125,6 +129,9 @@ msgstr "ID de bus"
 msgid "Chunk Size"
 msgstr "Taille de tranche"
 
+msgid "Cipher"
+msgstr ""
+
 msgid "Clears the stack."
 msgstr "Efface la pile."
 
@@ -204,6 +211,13 @@ msgstr "Style de table '%s' non valide."
 msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Gardez le sourire, car c'est le plus important."
 
+msgid "Key File"
+msgstr ""
+
+#, fuzzy
+msgid "Key Size"
+msgstr "Taille"
+
 #, c-format
 msgid "LUKS on %s"
 msgstr "LUKS sur %s"
@@ -264,6 +278,9 @@ msgstr "Aucun périphérique de bloc autorisé pour l'option de commande '%s'."
 
 msgid "No global block devices allowed."
 msgstr "Aucun périphérique de bloc global autorisé."
+
+msgid "PBKDF"
+msgstr ""
 
 msgid "Passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
@@ -900,6 +917,9 @@ msgstr "échec de la lecture du fichier JSON '%s'"
 msgid "run with a rootprefix"
 msgstr "exécuter avec un préfixe racine"
 
+msgid "set PBKDF"
+msgstr ""
+
 msgid "set RAID level"
 msgstr "définir le niveau RAID"
 
@@ -915,6 +935,10 @@ msgstr "définir un fichier de clé"
 msgid "set chunk size"
 msgstr "définir la taille de la tranche"
 
+#, fuzzy
+msgid "set cipher"
+msgstr "définir la taille"
+
 msgid "set extent size"
 msgstr "définir la taille de l'étendue"
 
@@ -923,6 +947,10 @@ msgstr "définir l'étiquette du système de fichiers"
 
 msgid "set file system type"
 msgstr "définir le type du système de fichiers"
+
+#, fuzzy
+msgid "set key size"
+msgstr "définir la taille"
 
 msgid "set label of device"
 msgstr "définir l'étiquette du périphérique"
