@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 15:13+0200\n"
-"PO-Revision-Date: 2024-07-14 00:46+0000\n"
+"PO-Revision-Date: 2024-07-18 06:46+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d ビット"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -130,7 +130,7 @@ msgid "Chunk Size"
 msgstr "チャンクサイズ"
 
 msgid "Cipher"
-msgstr ""
+msgstr "暗号化"
 
 msgid "Clears the stack."
 msgstr "スタックを消去します。"
@@ -212,11 +212,10 @@ msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "笑っていましょう。それが一番大事なことですから。"
 
 msgid "Key File"
-msgstr ""
+msgstr "鍵ファイル"
 
-#, fuzzy
 msgid "Key Size"
-msgstr "サイズ"
+msgstr "鍵サイズ"
 
 #, c-format
 msgid "LUKS on %s"
@@ -281,7 +280,7 @@ msgid "No global block devices allowed."
 msgstr "グローバルなブロックデバイスは指定できません。"
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
 msgstr "パスワードが合致しません。"
@@ -913,7 +912,7 @@ msgid "run with a rootprefix"
 msgstr "ルートプレフィクス付きで実行します"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "PBKDF を設定"
 
 msgid "set RAID level"
 msgstr "RAID レベルを指定します"
@@ -930,9 +929,8 @@ msgstr "鍵ファイルを指定します"
 msgid "set chunk size"
 msgstr "チャンクサイズを指定します"
 
-#, fuzzy
 msgid "set cipher"
-msgstr "サイズを指定します"
+msgstr "暗号化を設定"
 
 msgid "set extent size"
 msgstr "エクステントのサイズを指定します"
@@ -943,9 +941,8 @@ msgstr "ファイルシステムのラベルを指定します"
 msgid "set file system type"
 msgstr "ファイルシステムの種類を指定します"
 
-#, fuzzy
 msgid "set key size"
-msgstr "サイズを指定します"
+msgstr "鍵サイズを設定"
 
 msgid "set label of device"
 msgstr "デバイスのラベルを指定します"
