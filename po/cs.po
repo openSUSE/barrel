@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 15:13+0200\n"
-"PO-Revision-Date: 2024-07-14 08:46+0000\n"
+"PO-Revision-Date: 2024-07-19 08:46+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
 "Language: cs\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d bitů"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -129,7 +129,7 @@ msgid "Chunk Size"
 msgstr "Velikost útržku"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Šifra"
 
 msgid "Clears the stack."
 msgstr "Vyprázdní zásobník."
@@ -211,11 +211,10 @@ msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Vždy s úsměvem, to je nejdůležitější."
 
 msgid "Key File"
-msgstr ""
+msgstr "Soubor klíče"
 
-#, fuzzy
 msgid "Key Size"
-msgstr "Velikost"
+msgstr "Délka klíče"
 
 #, c-format
 msgid "LUKS on %s"
@@ -279,7 +278,7 @@ msgid "No global block devices allowed."
 msgstr "Nejsou povolena globální bloková zařízení."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
 msgstr "Hesla se neshodují."
@@ -899,7 +898,7 @@ msgid "run with a rootprefix"
 msgstr "spustit s předponou root"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "nastavit PBKDF"
 
 msgid "set RAID level"
 msgstr "nastavit úroveň RAID"
@@ -916,9 +915,8 @@ msgstr "nastavit soubor klíče"
 msgid "set chunk size"
 msgstr "nastavit velikost kousku (chunk)"
 
-#, fuzzy
 msgid "set cipher"
-msgstr "nastavit velikost"
+msgstr "nastavit šifrování"
 
 msgid "set extent size"
 msgstr "nastavit velikost rozsahu"
@@ -929,9 +927,8 @@ msgstr "nastavit název souborového systému"
 msgid "set file system type"
 msgstr "nastavit typ systému souborů"
 
-#, fuzzy
 msgid "set key size"
-msgstr "nastavit velikost"
+msgstr "nastavit délku klíče"
 
 msgid "set label of device"
 msgstr "nastavit štítek zařízení"
