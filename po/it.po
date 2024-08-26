@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 15:13+0200\n"
-"PO-Revision-Date: 2024-03-01 12:42+0000\n"
-"Last-Translator: Giacomo Solinas <sardiniangale24+opensuse@gmail.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
-">\n"
+"PO-Revision-Date: 2024-08-26 14:47+0000\n"
+"Last-Translator: Alessio Adamo <alessio.adamo@gmail.com>\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d bit"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -130,7 +130,7 @@ msgid "Chunk Size"
 msgstr "Dimensioni blocco"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Cifrario"
 
 msgid "Clears the stack."
 msgstr "Cancella lo stack."
@@ -212,11 +212,10 @@ msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Continua a sorridere: è questa la cosa più importante."
 
 msgid "Key File"
-msgstr ""
+msgstr "File della chiave"
 
-#, fuzzy
 msgid "Key Size"
-msgstr "Dimensione"
+msgstr "Dimensione della chiave"
 
 #, c-format
 msgid "LUKS on %s"
@@ -280,7 +279,7 @@ msgid "No global block devices allowed."
 msgstr "Nessun dispositivo di blocco globale consentito."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
 msgstr "Le password non corrispondono."
@@ -436,17 +435,16 @@ msgid "] constructs an array."
 msgstr "] costruisce un array."
 
 msgid "activate by"
-msgstr ""
+msgstr "attiva in base a"
 
-#, fuzzy
 msgid "activate options"
-msgstr "opzioni di ottimizzazione"
+msgstr "opzioni di attivazione"
 
 msgid "activate storage systems at startup"
 msgstr "attiva sistemi di memorizzazione all'avvio"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "attiva in base a un'etichetta richiede un'etichetta"
 
 msgid "answer all questions with yes"
 msgstr "rispondi sì a tutte le domande"
@@ -616,7 +614,7 @@ msgid "keep underlying partitions"
 msgstr "mantieni partizioni sottostanti"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "etichetta supportata solo per LUKS2"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -700,9 +698,8 @@ msgstr "per le opzioni di montaggio è necessario un percorso"
 msgid "mount path"
 msgstr "percorso di montaggio"
 
-#, fuzzy
 msgid "mount-by label requires a label"
-msgstr "per il montaggio in base a è necessario un percorso"
+msgstr "il montaggio in base all'etichetta richiede un'etichetta"
 
 msgid "mount-by requires a path"
 msgstr "per il montaggio in base a è necessario un percorso"
@@ -918,7 +915,7 @@ msgid "run with a rootprefix"
 msgstr "esegui con un rootprefix"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "imposta PBKDF"
 
 msgid "set RAID level"
 msgstr "imposta livello RAID"
@@ -935,9 +932,8 @@ msgstr "imposta nome dispositivo"
 msgid "set chunk size"
 msgstr "imposta dimensioni blocco"
 
-#, fuzzy
 msgid "set cipher"
-msgstr "imposta dimensione"
+msgstr "imposta cifrario"
 
 msgid "set extent size"
 msgstr "imposta dimensione extent"
@@ -948,9 +944,8 @@ msgstr "imposta etichetta file system"
 msgid "set file system type"
 msgstr "imposta tipo file system"
 
-#, fuzzy
 msgid "set key size"
-msgstr "imposta dimensione"
+msgstr "imposta dimensione chiave"
 
 msgid "set label of device"
 msgstr "imposta etichetta dispositivo"
@@ -1058,9 +1053,9 @@ msgstr "opzioni di ottimizzazione"
 msgid "tune options not allowed for %s"
 msgstr "opzioni di ottimizzazione non consentite per %s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown activate-by type '%s'"
-msgstr "tipo di file system '%s' sconosciuto"
+msgstr "attiva in base a tipo '%s' sconosciuto"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1073,9 +1068,9 @@ msgstr "tipo di cifratura sconosciuto"
 msgid "unknown filesystem type '%s'"
 msgstr "tipo di file system '%s' sconosciuto"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type '%s'"
-msgstr "tipo di montaggio in base al tipo '%s' sconosciuto"
+msgstr "montaggio in base al tipo '%s' sconosciuto"
 
 msgid "unknown partition table type"
 msgstr "tipo di tabella delle partizioni sconosciuto"
