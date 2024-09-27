@@ -24,7 +24,7 @@ AC_PATH_PROG([XSLTPROC], [xsltproc], [/usr/bin/xsltproc])
 AC_SYS_LARGEFILE
 
 PKG_CHECK_MODULES(XML2, libxml-2.0)
-PKG_CHECK_MODULES(JSONC, json-c, [], [AC_MSG_WARN([Cannot find json-c. Please install libjson-c-devel])])
+PKG_CHECK_MODULES(JSON_C, json-c, [], [AC_MSG_WARN([Cannot find json-c. Please install libjson-c-devel])])
 
 AC_SUBST(VERSION)
 
