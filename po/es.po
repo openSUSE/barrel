@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 15:13+0200\n"
-"PO-Revision-Date: 2024-03-02 00:45+0000\n"
-"Last-Translator: Antonio Simón <antonio@trans-mission.com>\n"
-"Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/"
-">\n"
+"PO-Revision-Date: 2024-10-12 00:48+0000\n"
+"Last-Translator: Moreno <hibarioath@proton.me>\n"
+"Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 5.7.2\n"
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d bits"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -130,7 +130,7 @@ msgid "Chunk Size"
 msgstr "Tamaño de la colocación"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Encriptación"
 
 msgid "Clears the stack."
 msgstr "Limpia la pila."
@@ -212,11 +212,10 @@ msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Sonríe porque esa es la cosa más importante."
 
 msgid "Key File"
-msgstr ""
+msgstr "Archivo clave"
 
-#, fuzzy
 msgid "Key Size"
-msgstr "Tamaño"
+msgstr "Tamaño de la clave"
 
 #, c-format
 msgid "LUKS on %s"
@@ -280,7 +279,7 @@ msgid "No global block devices allowed."
 msgstr "Dispositivos globales de bloque, prohibidos."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
 msgstr "Las contraseñas no coinciden."
@@ -436,17 +435,16 @@ msgid "] constructs an array."
 msgstr "] construye una matriz."
 
 msgid "activate by"
-msgstr ""
+msgstr "activación"
 
-#, fuzzy
 msgid "activate options"
-msgstr "opciones de ajuste"
+msgstr "opciones de activación"
 
 msgid "activate storage systems at startup"
 msgstr "activar los sistemas de almacenamiento al inicio"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "la etiqueta de activación requiere una etiqueta"
 
 msgid "answer all questions with yes"
 msgstr "responder sí a todas las preguntas"
@@ -616,7 +614,7 @@ msgid "keep underlying partitions"
 msgstr "mantener particiones subyacentes"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "etiqueta solo admitida por LUKS2"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -699,9 +697,8 @@ msgstr "opciones de montaje requieren una ruta"
 msgid "mount path"
 msgstr "ruta de montaje"
 
-#, fuzzy
 msgid "mount-by label requires a label"
-msgstr "mount-by requiere una ruta"
+msgstr "el montaje requiere una etiqueta"
 
 msgid "mount-by requires a path"
 msgstr "mount-by requiere una ruta"
@@ -735,9 +732,8 @@ msgstr "Nombre del dispograma"
 msgid "name of devicegraph file"
 msgstr "nombre del archivo de dispograma"
 
-#, fuzzy
 msgid "name of encryption already exists"
-msgstr "nombre de RAID ya existe"
+msgstr "el nombre de la encriptación ya existe"
 
 msgid "name of logical volume already exists"
 msgstr "nombre de volumen lógico ya existe"
@@ -911,7 +907,7 @@ msgid "run with a rootprefix"
 msgstr "ejecutar con un prefijo raíz"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "establecer PBKDF"
 
 msgid "set RAID level"
 msgstr "establecer nivel RAID"
@@ -928,9 +924,8 @@ msgstr "definir un archivo de clave"
 msgid "set chunk size"
 msgstr "Dimensionar el aservo"
 
-#, fuzzy
 msgid "set cipher"
-msgstr "establecer tamaño"
+msgstr "establecer la encriptación"
 
 msgid "set extent size"
 msgstr "extender"
@@ -941,9 +936,8 @@ msgstr "etiquetar sistema de archivos"
 msgid "set file system type"
 msgstr "tipificar sistema de archivos"
 
-#, fuzzy
 msgid "set key size"
-msgstr "establecer tamaño"
+msgstr "establecer tamaño de la clave"
 
 msgid "set label of device"
 msgstr "etiquetar un dispositivo"
@@ -1051,9 +1045,9 @@ msgstr "opciones de ajuste"
 msgid "tune options not allowed for %s"
 msgstr "opciones de ajuste no permitidas para «%s»"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown activate-by type '%s'"
-msgstr "tipo de sistema de archivos «%s» desconocido"
+msgstr "tipo de activación desconocido: %s"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1066,9 +1060,9 @@ msgstr "tipo desconocido de cifrado"
 msgid "unknown filesystem type '%s'"
 msgstr "tipo de sistema de archivos «%s» desconocido"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type '%s'"
-msgstr "tipo mount-by %s desconocido"
+msgstr "tipo de montaje desconocido: %s"
 
 msgid "unknown partition table type"
 msgstr "tipo desconocido de tabla de partición"
