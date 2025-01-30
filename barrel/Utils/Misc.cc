@@ -50,12 +50,12 @@ namespace barrel
 
 
     string
-    format_percentage(unsigned long long a, unsigned long long b)
+    format_percentage(unsigned long long a, unsigned long long b, int precision)
     {
 	if (b == 0)
 	    return "";
 
-	return sformat("%.2f%%", 100.0 * (double)(a) / (double)(b));
+	return sformat("%.*f%%", precision, 100.0 * (double)(a) / (double)(b));
     }
 
 

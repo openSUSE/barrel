@@ -196,7 +196,7 @@ namespace barrel
 		if (is_nfs(filesystem) || is_tmpfs(filesystem))
 		    row[Id::SIZE] = format_size(space_info.size);
 
-		row[Id::USED] = format_percentage(total_used, total_size);
+		row[Id::USED] = format_percentage(total_used, total_size, 1);
 	    }
 
 	    if (filesystem->has_mount_point())

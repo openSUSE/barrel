@@ -22,12 +22,12 @@ BOOST_AUTO_TEST_CASE(test1)
 
     vector<string> output = {
 	"Probing... done",
-	"Type  │ Label │ Name         │       Size │  Used │ Profiles    │ Mount Point",
-	"──────┼───────┼──────────────┼────────────┼───────┼─────────────┼────────────",
-	"btrfs │       │ /dev/sda2    │  29.99 GiB │       │ single, dup │ /",
-	"nfs   │       │ rpi5:/backup │ 915.81 GiB │ 6.26% │             │ /backup",
-	"tmpfs │       │              │ 128.00 MiB │ 0.00% │             │ /playground",
-	"swap  │       │ /dev/sda3    │   2.00 GiB │       │             │ swap"
+	"Type  │ Label │ Name         │       Size │ Used │ Profiles    │ Mount Point",
+	"──────┼───────┼──────────────┼────────────┼──────┼─────────────┼────────────",
+	"btrfs │       │ /dev/sda2    │  29.99 GiB │      │ single, dup │ /",
+	"nfs   │       │ rpi5:/backup │ 915.81 GiB │ 6.3% │             │ /backup",
+	"tmpfs │       │              │ 128.00 MiB │ 0.0% │             │ /playground",
+	"swap  │       │ /dev/sda3    │   2.00 GiB │      │             │ swap"
     };
 
     Testsuite testsuite;
