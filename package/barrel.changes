@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Thu Jan 30 12:07:13 CET 2025 - aschnell@suse.com
+
+- include tmpfs in 'show filesystems'
+- version 0.2.9
+
+-------------------------------------------------------------------
 Tue Jul 16 13:07:26 CEST 2024 - aschnell@suse.com
 
 - support more encryption options

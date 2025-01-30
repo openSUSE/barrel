@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2023] SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -28,6 +28,7 @@
 #include <storage/Filesystems/Btrfs.h>
 #include <storage/Filesystems/Swap.h>
 #include <storage/Filesystems/Nfs.h>
+#include <storage/Filesystems/Tmpfs.h>
 #include <storage/Storage.h>
 #include <storage/Environment.h>
 #include <storage/FreeInfo.h>
@@ -126,10 +127,11 @@ namespace barrel
 	sort(filesystems.begin(), filesystems.end(), compare_by_something);
 
 	Table table({ _("Type"), Cell(_("Label"), Id::LABEL), Cell(_("Name"), Id::NAME),
-		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Profiles"), Id::PROFILES),
-		Cell(_("Mount Point"), Id::MOUNT_POINT) });
+		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Used"), Id::USED, Align::RIGHT),
+		Cell(_("Profiles"), Id::PROFILES), Cell(_("Mount Point"), Id::MOUNT_POINT) });
 	table.set_style(global_options.table_style);
 	table.set_tree_id(Id::NAME);
+	table.set_visibility(Id::USED, Visibility::AUTO);
 	table.set_visibility(Id::PROFILES, Visibility::AUTO);
 
 	for (const Filesystem* filesystem : filesystems)
@@ -183,12 +185,18 @@ namespace barrel
 	    {
 		const Nfs* nfs = to_nfs(filesystem);
 		row[Id::NAME] = nfs->get_server() + ":" + nfs->get_path();
+	    }
 
-		if (filesystem->has_space_info())
-		{
-		    SpaceInfo space_info = nfs->detect_space_info();
+	    if (filesystem->has_space_info())
+	    {
+		SpaceInfo space_info = filesystem->detect_space_info();
+		unsigned long long total_size = space_info.size;
+		unsigned long long total_used = space_info.used;
+
+		if (is_nfs(filesystem) || is_tmpfs(filesystem))
 		    row[Id::SIZE] = format_size(space_info.size);
-		}
+
+		row[Id::USED] = format_percentage(total_used, total_size);
 	    }
 
 	    if (filesystem->has_mount_point())
