@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2024-07-16</date>
+    <date>2025-02-03</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2024-07-16</refmiscinfo>
+    <refmiscinfo class='date'>2025-02-03</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -159,7 +159,7 @@
 	<term><option>--rootprefix <replaceable>path</replaceable></option></term>
 	<listitem>
 	  <para>Prepend various path (mount points and files in /etc)
-	  with a rootprefix. Useful when running in a installation or rescue
+	  with a rootprefix. Useful when running in an installation or rescue
 	  system.</para>
 	</listitem>
       </varlistentry>
@@ -167,7 +167,7 @@
 	<term><option>-a, --activate</option></term>
 	<listitem>
 	  <para>Activate storage systems at startup. Useful when
-	  running in a installation or rescue system.</para>
+	  running in an installation or rescue system.</para>
 	</listitem>
       </varlistentry>
       <varlistentry>
@@ -1127,6 +1127,37 @@
 	      <listitem>
 		<para>Show file systems of the probed instead of the staging devicegraph.</para>
 	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+              <term><option>--probe-used-space</option> <replaceable>mode</replaceable></term>
+              <listitem>
+		<para>Control for which file systems the used space if
+		probed. Possible modes are:</para>
+		<glosslist>
+		  <glossentry>
+		    <glossterm>none</glossterm>
+		    <glossdef>
+                      <para>For no file systems.</para>
+		    </glossdef>
+		  </glossentry>
+		  <glossentry>
+		    <glossterm>active</glossterm>
+		    <glossdef>
+                      <para>For those file systems that have an active
+                      mount point. This is the default.</para>
+		    </glossdef>
+		  </glossentry>
+		  <glossentry>
+		    <glossterm>all</glossterm>
+		    <glossdef>
+                      <para>For all file systems where supported. This
+                      may be slow.</para>
+		    </glossdef>
+		  </glossentry>
+		</glosslist>
+		<para>For some file systems the used space is probed independent of
+		the mode.</para>
+              </listitem>
 	    </varlistentry>
 	  </variablelist>
 	</listitem>
