@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-03 12:06+0100\n"
-"PO-Revision-Date: 2024-07-18 06:46+0000\n"
+"PO-Revision-Date: 2025-02-04 00:50+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #, c-format
 msgid "%d bits"
@@ -904,7 +904,7 @@ msgid "pool name"
 msgstr "プールの名前"
 
 msgid "probe used space"
-msgstr ""
+msgstr "使用済み領域の検出"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
@@ -1075,9 +1075,9 @@ msgstr "不明な mount-by の種類 '%s'"
 msgid "unknown partition table type"
 msgstr "不明なパーティションテーブルの種類"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr "不明なファイルシステムの種類 '%s'"
+msgstr "不明な probe-used-space モード '%s'"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "コマンド 'raid' に対する RAID レベルが不明です"
