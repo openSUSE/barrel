@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:13+0200\n"
+"POT-Creation-Date: 2025-02-03 12:06+0100\n"
 "PO-Revision-Date: 2024-07-18 10:46+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
-"\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -897,6 +897,9 @@ msgstr "L'agrupació és buida."
 msgid "pool name"
 msgstr "nom d'agrupació"
 
+msgid "probe used space"
+msgstr ""
+
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
@@ -1065,6 +1068,10 @@ msgstr "tipus de muntatge desconegut: %s"
 
 msgid "unknown partition table type"
 msgstr "tipus de taula de particions desconegut"
+
+#, fuzzy, c-format
+msgid "unknown probe-used-space mode '%s'"
+msgstr "tipus de sistema de fitxers desconegut: %s"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "nivell de raid desconegut per a l'ordre raid"

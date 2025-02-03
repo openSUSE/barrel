@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:13+0200\n"
+"POT-Creation-Date: 2025-02-03 12:06+0100\n"
 "PO-Revision-Date: 2024-03-04 15:43+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
@@ -909,6 +909,9 @@ msgstr "le pool est vide"
 msgid "pool name"
 msgstr "nom du pool"
 
+msgid "probe used space"
+msgstr ""
+
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
@@ -1079,6 +1082,10 @@ msgstr "type de montage '%s' inconnu"
 
 msgid "unknown partition table type"
 msgstr "type de table de partition inconnu"
+
+#, fuzzy, c-format
+msgid "unknown probe-used-space mode '%s'"
+msgstr "type de système de fichiers '%s' inconnu"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "niveau RAID inconnu pour la commande 'raid'"

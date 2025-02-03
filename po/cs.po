@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:13+0200\n"
+"POT-Creation-Date: 2025-02-03 12:06+0100\n"
 "PO-Revision-Date: 2024-07-19 08:46+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -889,6 +889,9 @@ msgstr "zásobník (pool) je prázdný"
 msgid "pool name"
 msgstr "název zásobníku"
 
+msgid "probe used space"
+msgstr ""
+
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
@@ -1057,6 +1060,10 @@ msgstr "neznámý typ mount-by: '%s'"
 
 msgid "unknown partition table type"
 msgstr "neznámý typ tabulky oddílů"
+
+#, fuzzy, c-format
+msgid "unknown probe-used-space mode '%s'"
+msgstr "neznámý typ systému souborů '%s'"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "neznámá úroveň raid pro příkaz 'raid'"

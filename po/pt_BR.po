@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:13+0200\n"
+"POT-Creation-Date: 2025-02-03 12:06+0100\n"
 "PO-Revision-Date: 2024-03-01 17:42+0000\n"
 "Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
@@ -903,6 +903,9 @@ msgstr "pool está vazio"
 msgid "pool name"
 msgstr "nome do pool"
 
+msgid "probe used space"
+msgstr ""
+
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
@@ -1073,6 +1076,10 @@ msgstr "tipo de montagem por desconhecido '%s'"
 
 msgid "unknown partition table type"
 msgstr "tipo de tabela de partição desconhecido"
+
+#, fuzzy, c-format
+msgid "unknown probe-used-space mode '%s'"
+msgstr "tipo de sistema de arquivos desconhecido '%s'"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "nível de raid desconhecido para o comando \"raid\""
