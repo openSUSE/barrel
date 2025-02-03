@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:13+0200\n"
+"POT-Creation-Date: 2025-02-03 12:06+0100\n"
 "PO-Revision-Date: 2024-03-04 10:43+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
@@ -891,6 +891,9 @@ msgstr "池是空的"
 msgid "pool name"
 msgstr "池名稱"
 
+msgid "probe used space"
+msgstr ""
+
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
@@ -1061,6 +1064,10 @@ msgstr "未知的掛接方式類型 \"%s\""
 
 msgid "unknown partition table type"
 msgstr "未知的分割區表類型"
+
+#, fuzzy, c-format
+msgid "unknown probe-used-space mode '%s'"
+msgstr "未知的檔案系統類型 \"%s\""
 
 msgid "unknown raid level for command 'raid'"
 msgstr "\"raid\" 指令的 raid 層級未知"

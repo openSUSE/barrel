@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:13+0200\n"
+"POT-Creation-Date: 2025-02-03 12:06+0100\n"
 "PO-Revision-Date: 2024-08-26 14:47+0000\n"
 "Last-Translator: Alessio Adamo <alessio.adamo@gmail.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
-"\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
+">\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -906,6 +906,9 @@ msgstr "pool vuoto"
 msgid "pool name"
 msgstr "nome pool"
 
+msgid "probe used space"
+msgstr ""
+
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
@@ -1074,6 +1077,10 @@ msgstr "montaggio in base al tipo '%s' sconosciuto"
 
 msgid "unknown partition table type"
 msgstr "tipo di tabella delle partizioni sconosciuto"
+
+#, fuzzy, c-format
+msgid "unknown probe-used-space mode '%s'"
+msgstr "tipo di file system '%s' sconosciuto"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "livello raid sconosciuto per il comando 'raid'"

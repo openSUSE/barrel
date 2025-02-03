@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:13+0200\n"
+"POT-Creation-Date: 2025-02-03 12:06+0100\n"
 "PO-Revision-Date: 2024-05-09 07:43+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/master/"
@@ -887,6 +887,9 @@ msgstr ""
 msgid "pool name"
 msgstr ""
 
+msgid "probe used space"
+msgstr ""
+
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
@@ -1054,6 +1057,10 @@ msgid "unknown mount-by type '%s'"
 msgstr ""
 
 msgid "unknown partition table type"
+msgstr ""
+
+#, c-format
+msgid "unknown probe-used-space mode '%s'"
 msgstr ""
 
 msgid "unknown raid level for command 'raid'"

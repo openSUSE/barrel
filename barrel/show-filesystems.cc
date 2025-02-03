@@ -52,15 +52,26 @@ namespace barrel
     {
 
 	const ExtOptions show_filesystems_options({
-	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") }
+	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") },
+	    { "probe-used-space", required_argument, 0, _("probe used space"), "mode" }
 	});
 
 
 	struct Options
 	{
+	    enum class ProbeUsedSpace { NONE, ACTIVE, ALL };
+
 	    Options(GetOpts& get_opts);
 
 	    bool show_probed = false;
+	    ProbeUsedSpace probe_used_space = ProbeUsedSpace::ACTIVE;
+	};
+
+
+	const map<string, Options::ProbeUsedSpace> str_to_probe_used_space = {
+	    { "none", Options::ProbeUsedSpace::NONE },
+	    { "active", Options::ProbeUsedSpace::ACTIVE },
+	    { "all", Options::ProbeUsedSpace::ALL }
 	};
 
 
@@ -69,6 +80,17 @@ namespace barrel
 	    ParsedOpts parsed_opts = get_opts.parse("filesystems", show_filesystems_options);
 
 	    show_probed = parsed_opts.has_option("probed");
+
+	    if (parsed_opts.has_option("probe-used-space"))
+	    {
+		string str = parsed_opts.get("probe-used-space");
+
+		map<string, Options::ProbeUsedSpace>::const_iterator it = str_to_probe_used_space.find(str);
+		if (it == str_to_probe_used_space.end())
+		    throw runtime_error(sformat(_("unknown probe-used-space mode '%s'"), str.c_str()));
+
+		probe_used_space = it->second;
+	    }
 	}
 
     }
@@ -89,6 +111,8 @@ namespace barrel
 	const Options options;
 
 	static bool compare_by_something(const Filesystem* lhs, const Filesystem* rhs);
+
+	void probe_used_space(const GlobalOptions& global_options, const State& state) const;
 
     };
 
@@ -115,6 +139,65 @@ namespace barrel
 
 
     void
+    ParsedCmdShowFilesystems::probe_used_space(const GlobalOptions& global_options, const State& state) const
+    {
+	// TODO move functionality to libstorage-ng?
+
+	const Storage* storage = state.storage;
+	const Environment& environment = storage->get_environment();
+
+	if (environment.get_probe_mode() != ProbeMode::STANDARD)
+	    return;
+
+	const Devicegraph* devicegraph = storage->get_probed();
+
+	for (const Filesystem* filesystem : Filesystem::get_all(devicegraph))
+	{
+	    if (!is_blk_filesystem(filesystem) || is_swap(filesystem))
+		continue;
+
+	    if (options.show_probed)
+	    {
+		if (!filesystem->exists_in_probed())
+		    continue;
+	    }
+	    else
+	    {
+		if (!filesystem->exists_in_staging())
+		    continue;
+	    }
+
+	    switch (options.probe_used_space)
+	    {
+		case Options::ProbeUsedSpace::NONE:
+		{
+		    continue;
+		}
+		break;
+
+		case Options::ProbeUsedSpace::ACTIVE:
+		{
+		    if (!filesystem->has_mount_point())
+			continue;
+
+		    const MountPoint* mount_point = filesystem->get_mount_point();
+		    if (!mount_point->is_active())
+			continue;
+		}
+		break;
+
+		case Options::ProbeUsedSpace::ALL:
+		{
+		}
+		break;
+	    }
+
+	    filesystem->detect_space_info();
+	}
+    }
+
+
+    void
     ParsedCmdShowFilesystems::doit(const GlobalOptions& global_options, State& state) const
     {
 	const Storage* storage = state.storage;
@@ -125,6 +208,8 @@ namespace barrel
 
 	vector<const Filesystem*> filesystems = Filesystem::get_all(devicegraph);
 	sort(filesystems.begin(), filesystems.end(), compare_by_something);
+
+	probe_used_space(global_options, state);
 
 	Table table({ _("Type"), Cell(_("Label"), Id::LABEL), Cell(_("Name"), Id::NAME),
 		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Used"), Id::USED, Align::RIGHT),
