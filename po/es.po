@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 12:06+0100\n"
+"POT-Creation-Date: 2025-02-05 10:20+0100\n"
 "PO-Revision-Date: 2024-10-12 00:48+0000\n"
 "Last-Translator: Moreno <hibarioath@proton.me>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/"
@@ -515,6 +515,10 @@ msgid "do not add in /etc/crypttab"
 msgstr "no añadir en /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
+msgstr "no añadir en /etc/fstab"
+
+#, fuzzy
+msgid "do not add in /etc/mdadm.conf"
 msgstr "no añadir en /etc/fstab"
 
 msgid "do not commit anything to disk"

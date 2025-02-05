@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 12:06+0100\n"
+"POT-Creation-Date: 2025-02-05 10:20+0100\n"
 "PO-Revision-Date: 2024-05-09 07:43+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/master/"
@@ -513,6 +513,9 @@ msgid "do not add in /etc/crypttab"
 msgstr ""
 
 msgid "do not add in /etc/fstab"
+msgstr ""
+
+msgid "do not add in /etc/mdadm.conf"
 msgstr ""
 
 msgid "do not commit anything to disk"
