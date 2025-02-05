@@ -469,7 +469,8 @@ namespace barrel
 	    if (main_cmd.cmd)
 	    {
 		for (const Option& option : main_cmd.cmd->options().options)
-		    Readline::fixed_comp_names.push_back("--"s + option.name);
+		    if (option.description)
+			Readline::fixed_comp_names.push_back("--"s + option.name);
 	    }
 	    else
 	    {
@@ -478,7 +479,8 @@ namespace barrel
 		    Readline::fixed_comp_names.push_back(sub_cmd.name);
 
 		    for (const Option& option : sub_cmd.cmd->options().options)
-			Readline::fixed_comp_names.push_back("--"s + option.name);
+			if (option.description)
+			    Readline::fixed_comp_names.push_back("--"s + option.name);
 		}
 	    }
 	}

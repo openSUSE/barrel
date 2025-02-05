@@ -55,7 +55,8 @@ namespace barrel
 	    { "key-size", required_argument, 0, _("set key size"), "key-size" },
 	    { "cipher", required_argument, 0, _("set cipher"), "cipher" },
 	    { "pbkdf", required_argument, 0, _("set PBKDF"), "pbkdf" },
-	    { "no-crypttab", no_argument, 0, _("do not add in /etc/crypttab") },
+	    { "no-etc-crypttab", no_argument, 0, _("do not add in /etc/crypttab") },
+	    { "no-crypttab", no_argument, 0, nullptr },	// deprecated
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
 
@@ -94,7 +95,7 @@ namespace barrel
 	    optional<size_t> key_size;
 	    optional<string> cipher;
 	    optional<string> pbkdf;
-	    bool crypttab = true;
+	    bool etc_crypttab = true;
 	    bool force = false;
 
 	    vector<string> blk_devices;
@@ -175,7 +176,7 @@ namespace barrel
 	    if (parsed_opts.has_option("pbkdf"))
 		pbkdf = parsed_opts.get("pbkdf");
 
-	    crypttab = !parsed_opts.has_option("no-crypttab");
+	    etc_crypttab = !parsed_opts.has_option("no-etc-crypttab") && !parsed_opts.has_option("no-crypttab");
 
 	    force = parsed_opts.has_option("force");
 
@@ -358,7 +359,7 @@ namespace barrel
 	if (options.key_size)
 	    encryption->set_key_size(options.key_size.value());
 
-	encryption->set_in_etc_crypttab(options.crypttab);
+	encryption->set_in_etc_crypttab(options.etc_crypttab);
 
 	if (is_luks(encryption))
 	{

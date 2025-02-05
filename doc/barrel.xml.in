@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2025-02-03</date>
+    <date>2025-02-05</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2025-02-03</refmiscinfo>
+    <refmiscinfo class='date'>2025-02-05</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -313,7 +313,7 @@
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
-	      <term><option>--no-crypttab</option></term>
+	      <term><option>--no-etc-crypttab</option></term>
 	      <listitem>
 		<para>Do not add the encryption in /etc/crypttab.</para>
 	      </listitem>
@@ -468,7 +468,7 @@
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
-	      <term><option>--no-fstab</option></term>
+	      <term><option>--no-etc-fstab</option></term>
 	      <listitem>
 		<para>Do not add the file system in /etc/fstab.</para>
 	      </listitem>
@@ -720,6 +720,12 @@
 	      <term><option>--chunk-size</option> <replaceable>chunk-size</replaceable></term>
 	      <listitem>
 		<para>Chunk size.</para>
+	      </listitem>
+	    </varlistentry>
+	    <varlistentry>
+	      <term><option>--no-etc-mdadm</option></term>
+	      <listitem>
+		<para>Do not add the RAID in /etc/mdadm.conf.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>

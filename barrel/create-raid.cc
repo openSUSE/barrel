@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2023] SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -54,6 +54,7 @@ namespace barrel
 	    { "metadata", required_argument, 'm', _("set RAID metadata version"), "metadata" },
 	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
 	    { "chunk-size", required_argument, 0, _("set chunk size"), "chunk-size" },
+	    { "no-etc-mdadm", no_argument, 0, _("do not add in /etc/mdadm.conf") },
 	    { "force", no_argument, 0, _("force if block devices are in use") }
 	}, TakeBlkDevices::MAYBE);
 
@@ -156,6 +157,7 @@ namespace barrel
 	    optional<SmartRaidNumber> number;
 	    optional<string> metadata;
 	    optional<unsigned long> chunk_size;
+	    bool etc_mdadm = true;
 	    bool force = false;
 
 	    vector<string> blk_devices;
@@ -208,6 +210,8 @@ namespace barrel
 		string str = parsed_opts.get("chunk-size");
 		chunk_size = humanstring_to_byte(str, false);
 	    }
+
+	    etc_mdadm = !parsed_opts.has_option("no-etc-mdadm");
 
 	    force = parsed_opts.has_option("force");
 
@@ -400,6 +404,8 @@ namespace barrel
 
 	if (options.chunk_size)
 	    md->set_chunk_size(options.chunk_size.value());
+
+	md->set_in_etc_mdadm(options.etc_mdadm);
 
 	if (smart_number.raid < md->minimal_number_of_devices())
 	{
