@@ -53,7 +53,7 @@ namespace barrel
 	const char* name;
 	int has_arg;
 	char c;
-	const char* description;
+	const char* description;	// may be null for deprecated options
 	const char* arg_name = nullptr;
     };
 
