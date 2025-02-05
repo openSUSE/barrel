@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 12:06+0100\n"
+"POT-Creation-Date: 2025-02-05 10:20+0100\n"
 "PO-Revision-Date: 2024-07-19 08:46+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -513,6 +513,10 @@ msgid "do not add in /etc/crypttab"
 msgstr "nepřidat do /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
+msgstr "nepřidat do /etc/fstab"
+
+#, fuzzy
+msgid "do not add in /etc/mdadm.conf"
 msgstr "nepřidat do /etc/fstab"
 
 msgid "do not commit anything to disk"
