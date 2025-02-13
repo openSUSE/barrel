@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:20+0100\n"
+"POT-Creation-Date: 2025-02-13 17:44+0100\n"
 "PO-Revision-Date: 2025-02-03 17:50+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
@@ -993,6 +993,9 @@ msgstr "s'han trobat diversos multicamins de mapatge per a %s"
 
 msgid "show colors"
 msgstr "mostra els colors"
+
+msgid "show condensed instead of detailed actions"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "mostra l'ajuda i surt"

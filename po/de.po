@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:20+0100\n"
+"POT-Creation-Date: 2025-02-13 17:44+0100\n"
 "PO-Revision-Date: 2024-07-18 10:46+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
@@ -995,6 +995,9 @@ msgstr "mehrere Multipath-Geräte zur Zuordnung für '%s' gefunden"
 
 msgid "show colors"
 msgstr "Farben anzeigen"
+
+msgid "show condensed instead of detailed actions"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "Hilfe anzeigen und beenden"

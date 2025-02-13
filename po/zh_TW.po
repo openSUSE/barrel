@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:20+0100\n"
+"POT-Creation-Date: 2025-02-13 17:44+0100\n"
 "PO-Revision-Date: 2024-03-04 10:43+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
@@ -989,6 +989,9 @@ msgstr "發現 \"%s\" 的多個對應多重路徑"
 
 msgid "show colors"
 msgstr "顯示色彩"
+
+msgid "show condensed instead of detailed actions"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "顯示說明並結束"

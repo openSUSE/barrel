@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:20+0100\n"
+"POT-Creation-Date: 2025-02-13 17:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -979,6 +979,9 @@ msgid "several mapping multipath for '%s' found"
 msgstr ""
 
 msgid "show colors"
+msgstr ""
+
+msgid "show condensed instead of detailed actions"
 msgstr ""
 
 msgid "show help and exit"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:20+0100\n"
+"POT-Creation-Date: 2025-02-13 17:44+0100\n"
 "PO-Revision-Date: 2024-08-26 14:47+0000\n"
 "Last-Translator: Alessio Adamo <alessio.adamo@gmail.com>\n"
 "Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
@@ -1002,6 +1002,9 @@ msgstr "più multipath di mappatura per '%s' trovati"
 
 msgid "show colors"
 msgstr "colori visibili"
+
+msgid "show condensed instead of detailed actions"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "mostra guida ed esci"

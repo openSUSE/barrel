@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 10:20+0100\n"
+"POT-Creation-Date: 2025-02-13 17:44+0100\n"
 "PO-Revision-Date: 2024-03-01 17:42+0000\n"
 "Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
@@ -1001,6 +1001,9 @@ msgstr "múltiplos caminhos de mapeamento para '%s' encontrados"
 
 msgid "show colors"
 msgstr "mostrar cores"
+
+msgid "show condensed instead of detailed actions"
+msgstr ""
 
 msgid "show help and exit"
 msgstr "mostrar ajuda e sair"
