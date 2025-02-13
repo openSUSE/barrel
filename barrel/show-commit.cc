@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2023] SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -37,13 +37,47 @@ namespace barrel
     using namespace storage;
 
 
+    namespace
+    {
+
+	const ExtOptions show_commit_options({
+	    { "condensed", no_argument, 0, _("show condensed instead of detailed actions") }
+	});
+
+
+	struct Options
+	{
+	    Options() = default;
+
+	    Options(GetOpts& get_opts);
+
+	    bool show_condensed = false;
+	};
+
+
+	Options::Options(GetOpts& get_opts)
+	{
+	    ParsedOpts parsed_opts = get_opts.parse("commit", show_commit_options);
+
+	    show_condensed = parsed_opts.has_option("condensed");
+	}
+
+    }
+
+
     class ParsedCmdShowCommit : public ParsedCmd
     {
     public:
 
+	ParsedCmdShowCommit(const Options& options) : options(options) {}
+
 	virtual bool do_backup() const override { return false; }
 
 	virtual void doit(const GlobalOptions& global_options, State& state) const override;
+
+    private:
+
+	const Options options;
 
     };
 
@@ -55,10 +89,21 @@ namespace barrel
 	{
 	    const Actiongraph* actiongraph = state.storage->calculate_actiongraph();
 
-	    for (const Action::Base* action : actiongraph->get_commit_actions())
+	    if (!options.show_condensed)
 	    {
-		cout << "  " << colorize_message(get_string(actiongraph, action),
-						 get_color(actiongraph, action)) << '\n';
+		for (const Action::Base* action : actiongraph->get_commit_actions())
+		{
+		    Color color = get_color(actiongraph, action);
+		    cout << "  " << colorize_message(get_string(actiongraph, action), color) << '\n';
+		}
+	    }
+	    else
+	    {
+		for (const CompoundAction* compound_action : actiongraph->get_compound_actions())
+		{
+		    Color color = compound_action->is_delete() ? Color::RED : Color::BLACK;
+		    cout << "  " << colorize_message(compound_action->sentence(), color) << '\n';
+		}
 	    }
 	}
 	catch (const Exception& e)
@@ -75,16 +120,18 @@ namespace barrel
     shared_ptr<ParsedCmd>
     CmdShowCommit::parse()
     {
-	return make_shared<ParsedCmdShowCommit>();
+	Options options;
+
+	return make_shared<ParsedCmdShowCommit>(options);
     }
 
 
     shared_ptr<ParsedCmd>
     CmdShowCommit::parse(GetOpts& get_opts) const
     {
-	get_opts.parse("commit", GetOpts::no_ext_options);
+	Options options(get_opts);
 
-	return make_shared<ParsedCmdShowCommit>();
+	return make_shared<ParsedCmdShowCommit>(options);
     }
 
 
@@ -92,6 +139,13 @@ namespace barrel
     CmdShowCommit::help() const
     {
 	return _("Shows commit actions.");
+    }
+
+
+    const ExtOptions&
+    CmdShowCommit::options() const
+    {
+	return show_commit_options;
     }
 
 }

@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2025-02-05</date>
+    <date>2025-02-13</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2025-02-05</refmiscinfo>
+    <refmiscinfo class='date'>2025-02-13</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -1059,6 +1059,15 @@
 	<term><option>show commit</option></term>
 	<listitem>
 	  <para>Shows commit actions.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>--condensed</option></term>
+	      <listitem>
+		<para>Show condensed instead of detailed actions.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
 	</listitem>
       </varlistentry>
 
