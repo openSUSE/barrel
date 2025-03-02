@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-13 17:52+0100\n"
-"PO-Revision-Date: 2025-03-02 00:56+0000\n"
+"PO-Revision-Date: 2025-03-02 04:56+0000\n"
 "Last-Translator: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\n"
 "Language-Team: Swedish <https://l10n.opensuse.org/projects/barrel/master/sv/>"
 "\n"
@@ -849,7 +849,7 @@ msgid "parsing json file '%s' failed"
 msgstr ""
 
 msgid "partition table type"
-msgstr ""
+msgstr "typ av partitionstabell"
 
 msgid "partition table type already set command 'partition-table'"
 msgstr ""
@@ -905,13 +905,13 @@ msgid "set PBKDF"
 msgstr ""
 
 msgid "set RAID level"
-msgstr ""
+msgstr "ställ in RAID-nivå"
 
 msgid "set RAID metadata version"
 msgstr ""
 
 msgid "set RAID name"
-msgstr ""
+msgstr "ställ in RAID-namn"
 
 msgid "set a key file"
 msgstr ""
@@ -932,7 +932,7 @@ msgid "set file system type"
 msgstr ""
 
 msgid "set key size"
-msgstr ""
+msgstr "ställ in nyckelstorlek"
 
 msgid "set label of device"
 msgstr ""
