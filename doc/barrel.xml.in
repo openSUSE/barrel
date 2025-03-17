@@ -235,7 +235,7 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create encryption [device]</option></term>
+	<term><option>create encryption <replaceable>[device]</replaceable></option></term>
 	<listitem>
 	  <para>Creates a new encryption device.</para>
 
@@ -375,7 +375,7 @@
       </varlistentry>
 
       <varlistentry>
-	<term><option>create filesystem [device]</option></term>
+	<term><option>create filesystem <replaceable>[device]</replaceable></option></term>
 	<listitem>
 	  <para>Creates a new file system.</para>
 

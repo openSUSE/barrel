@@ -191,6 +191,7 @@ namespace barrel
 	return make_shared<ParsedCmdRemoveDevice>(options);
     }
 
+
     shared_ptr<ParsedCmd>
     CmdRemoveDevice::parse(GetOpts& get_opts) const
     {

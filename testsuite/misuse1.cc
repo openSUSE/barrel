@@ -10,29 +10,12 @@
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
 #include "helpers/output.h"
+#include "helpers/run-and-capture.h"
 
 
 using namespace std;
 using namespace storage;
 using namespace barrel;
-
-
-pair<string, string>
-run_and_capture(int argc, char** argv, Testsuite* testsuite)
-{
-    ostringstream buffer1;
-    ostringstream buffer2;
-
-    streambuf* old1 = cout.rdbuf(buffer1.rdbuf());
-    streambuf* old2 = cerr.rdbuf(buffer2.rdbuf());
-
-    handle(argc, argv, testsuite);
-
-    cout.rdbuf(old1);
-    cerr.rdbuf(old2);
-
-    return make_pair(buffer1.str(), buffer2.str());
-}
 
 
 BOOST_AUTO_TEST_CASE(test1)
