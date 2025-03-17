@@ -5,7 +5,7 @@
 noinst_LTLIBRARIES = libhelpers.la
 
 libhelpers_la_SOURCES =			\
-	output.h
+	output.h run-and-capture.h
 
 AM_DEFAULT_SOURCE_EXT = .cc
 
