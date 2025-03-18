@@ -51,6 +51,7 @@ libbarrel_la_SOURCES =							\
 	load-pools.h			load-pools.cc			\
 	save-pools.h			save-pools.cc			\
 	remove-device.h			remove-device.cc		\
+	resize-device.h			resize-device.cc		\
 	load-devicegraph.h		load-devicegraph.cc		\
 	save-devicegraph.h		save-devicegraph.cc
 

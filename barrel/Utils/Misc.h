@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -52,7 +52,7 @@ namespace barrel
 
 
     /**
-     * Class to parse a number, e.g. "2". The special value "max" is also allowed. A
+     * Class to parse a number, e.g. "2". The special value "max" is also allowed. An
      * absolute number of 0 is not allowed.
      */
     struct SmartNumber
@@ -61,29 +61,44 @@ namespace barrel
 
 	SmartNumber(const string& str);
 
-	unsigned int value(unsigned int max) const;
+	/**
+	 * max is not used to verify the value.
+	 */
+	unsigned int get(unsigned int max) const;
 
 	Type type = ABSOLUTE;
 
-	unsigned int absolute = 0;
+	unsigned int value = 0;
     };
 
 
     /**
-     * Class to parse a size, e.g. "2 TiB". The special value "max" is also allowed. A
-     * absolute size of 0 B is not allowed.
+     * Class to parse a size, e.g. "2 TiB". The special value "max" is also allowed. Sizes
+     * like "+1 GiB" can be allowed. An absolute size of 0 B is not allowed.
      */
     struct SmartSize
     {
-	enum Type { MAX, ABSOLUTE };
+	enum Type { MAX, ABSOLUTE, PLUS, MINUS };
 
-	SmartSize(const string& str);
+	SmartSize(const string& str, const bool allow_plus_minus = false);
 
-	unsigned long long value(unsigned long long max) const;
+	/**
+	 * max is not used to verify the value.
+	 *
+	 * Only use when PLUS and MINUS are not allowed.
+	 */
+	unsigned long long get(unsigned long long max) const;
+
+	/**
+	 * max is not used to verify the value.
+	 *
+	 * Use when PLUS and MINUS are allowed.
+	 */
+	unsigned long long get(unsigned long long max, unsigned long long current) const;
 
 	Type type = ABSOLUTE;
 
-	unsigned long long absolute = 0;
+	unsigned long long value = 0;
     };
 
 

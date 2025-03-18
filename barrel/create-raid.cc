@@ -300,8 +300,12 @@ namespace barrel
 
 		case SmartSize::ABSOLUTE:
 		    size = Md::calculate_underlying_size(md_level, smart_number.raid,
-							 smart_size.absolute);
+							 smart_size.value);
 		    break;
+
+		case SmartSize::PLUS:
+		case SmartSize::MINUS:
+		    throw logic_error("invalid SmartSize type");
 	    }
 
 	    return up_cast<BlkDevice*>(pool->create_partitions(devicegraph, smart_number.sum(), size));

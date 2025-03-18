@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -243,8 +243,12 @@ namespace barrel
 		break;
 
 	    case SmartSize::ABSOLUTE:
-		size = smart_size.absolute;
+		size = smart_size.value;
 		break;
+
+	    case SmartSize::PLUS:
+	    case SmartSize::MINUS:
+		throw logic_error("invalid SmartSize type");
 	}
 
 	LvmLv* lvm_lv = lvm_vg->create_lvm_lv(options.lv_name, LvType::NORMAL, size);
