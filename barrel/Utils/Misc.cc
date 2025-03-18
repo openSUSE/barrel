@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2022] SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -24,6 +24,7 @@
 #include <vector>
 #include <stdexcept>
 #include <algorithm>
+#include <boost/algorithm/string.hpp>
 
 #include <storage/Devices/Partition.h>
 #include <storage/Devices/Partitionable.h>
@@ -77,16 +78,16 @@ namespace barrel
 		throw runtime_error(_("bad devices argument"));
 
 	    string n1 = match[1];
-	    absolute = atoi(n1.c_str());
+	    value = atoi(n1.c_str());
 
-	    if (absolute == 0)
-		throw runtime_error(sformat(_("invalid devices value '%d'"), absolute));
+	    if (value == 0)
+		throw runtime_error(sformat(_("invalid devices value '%d'"), value));
 	}
     }
 
 
     unsigned int
-    SmartNumber::value(unsigned int max) const
+    SmartNumber::get(unsigned int max) const
     {
 	switch (type)
 	{
@@ -94,40 +95,56 @@ namespace barrel
 		return max;
 
 	    case SmartNumber::ABSOLUTE:
-		return absolute;
+		return value;
 	}
 
 	throw logic_error("unknown SmartNumber type");
     }
 
 
-    SmartSize::SmartSize(const string& str)
+    SmartSize::SmartSize(const string& str, const bool allow_plus_minus)
     {
-	if (str == "max")
+	if (boost::trim_copy(str) == "max")
 	{
 	    type = MAX;
+	    return;
+	}
+
+	string::size_type pos = str.find_first_not_of(" \t");
+	if (pos == string::npos)
+	    throw runtime_error(sformat(_("failed to parse size '%s'"), str.c_str()));
+
+	const char c = str[pos];
+
+	if (c == '+' || c == '-')
+	{
+	    if (!allow_plus_minus)
+		throw runtime_error(_("neither + nor - allowed in size"));
+
+	    type = c == '+' ? PLUS : MINUS;
+	    ++pos;
 	}
 	else
 	{
 	    type = ABSOLUTE;
-
-	    try
-	    {
-		absolute = humanstring_to_byte(str, false);
-	    }
-	    catch (...)
-	    {
-		throw runtime_error(sformat(_("failed to parse size '%s'"), str.c_str()));
-	    }
-
-	    if (absolute == 0)
-		throw runtime_error(sformat(_("invalid size '%s'"), str.c_str()));
 	}
+
+	try
+	{
+	    value = humanstring_to_byte(str.substr(pos), false);
+	}
+	catch (...)
+	{
+	    throw runtime_error(sformat(_("failed to parse size '%s'"), str.c_str()));
+	}
+
+	if (value == 0)
+	    throw runtime_error(sformat(_("invalid size '%s'"), str.c_str()));
     }
 
 
     unsigned long long
-    SmartSize::value(unsigned long long max) const
+    SmartSize::get(unsigned long long max) const
     {
 	switch (type)
 	{
@@ -135,7 +152,43 @@ namespace barrel
 		return max;
 
 	    case SmartSize::ABSOLUTE:
-		return absolute;
+		return value;
+
+	    case SmartSize::PLUS:
+	    case SmartSize::MINUS:
+		throw logic_error("invalid SmartSize type");
+	}
+
+	throw logic_error("unknown SmartSize type");
+    }
+
+
+    unsigned long long
+    SmartSize::get(unsigned long long max, unsigned long long current) const
+    {
+	switch (type)
+	{
+	    case SmartSize::MAX:
+		return max;
+
+	    case SmartSize::ABSOLUTE:
+		return value;
+
+	    case SmartSize::PLUS:
+	    {
+		unsigned long long r;
+		if (__builtin_uaddll_overflow(current, value, &r))
+		    return std::numeric_limits<unsigned long long>::max();
+		return r;
+	    }
+
+	    case SmartSize::MINUS:
+	    {
+		unsigned long long r;
+		if (__builtin_usubll_overflow(current, value, &r))
+		    return 0;
+		return r;
+	    }
 	}
 
 	throw logic_error("unknown SmartSize type");
@@ -148,7 +201,7 @@ namespace barrel
 	if (pool->empty(devicegraph))
 	    throw runtime_error(_("pool is empty"));
 
-	unsigned long long size = smart_size.value(pool->max_partition_size(devicegraph, 1));
+	unsigned long long size = smart_size.get(pool->max_partition_size(devicegraph, 1));
 
 	return pool->create_partitions(devicegraph, 1, size)[0];
     }
@@ -165,7 +218,7 @@ namespace barrel
 	unsigned int number = default_number == ONE ? 1 : pool->size(devicegraph);
 
 	if (smart_number)
-	    number = smart_number.value().value(pool->size(devicegraph));
+	    number = smart_number.value().get(pool->size(devicegraph));
 
 	unsigned long long size = 0;
 
@@ -176,8 +229,12 @@ namespace barrel
 		break;
 
 	    case SmartSize::ABSOLUTE:
-		size = smart_size.absolute / number + 1 * MiB;
+		size = smart_size.value / number + 1 * MiB;
 		break;
+
+	    case SmartSize::PLUS:
+	    case SmartSize::MINUS:
+		throw logic_error("invalid SmartSize type");
 	}
 
 	return up_cast<BlkDevice*>(pool->create_partitions(devicegraph, number, size));

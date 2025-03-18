@@ -2,13 +2,13 @@
 <refentry id='barrel8' xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <refentryinfo>
-    <date>2025-02-13</date>
+    <date>2025-03-18</date>
   </refentryinfo>
 
   <refmeta>
     <refentrytitle>barrel</refentrytitle>
     <manvolnum>8</manvolnum>
-    <refmiscinfo class='date'>2025-02-13</refmiscinfo>
+    <refmiscinfo class='date'>2025-03-18</refmiscinfo>
     <refmiscinfo class='version'>@VERSION@</refmiscinfo>
     <refmiscinfo class='manual'>Storage Management</refmiscinfo>
   </refmeta>
@@ -45,6 +45,9 @@
     <para>Barrel probes the complete storage system at startup and
     does not save the state between invocations. That allows to mix barrel
     with other storage tools, although in general not concurrently.</para>
+
+    <para>Barrel always creates partitions with optimal aligned start
+    and end.</para>
   </refsect1>
 
   <refsect1 id='concepts'>
@@ -282,7 +285,8 @@
 	    <varlistentry>
 	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
 	      <listitem>
-		<para>Approximate size of resulting encryption device.</para>
+		<para>Approximate size of resulting encryption device. The
+		special value of 'max' uses all space available.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -444,7 +448,8 @@
 	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
 	      <listitem>
 		<para>Approximate size of the block device or sum of
-		the sizes of the block devices for the file system. </para>
+		the sizes of the block devices for the file system. The
+		special value of 'max' uses all space available.</para>
 		<para>Due to file system metadata and for btrfs also
 		data duplication the usable space of the resulting file system can be
 		much smaller.</para>
@@ -551,7 +556,8 @@
 	    <varlistentry>
 	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
 	      <listitem>
-		<para>Approximate size of resulting logical volume.</para>
+		<para>Approximate size of resulting logical volume. The
+		special value of 'max' uses all space available.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -677,7 +683,8 @@
 	    <varlistentry>
 	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
 	      <listitem>
-		<para>Approximate size of resulting RAID.</para>
+		<para>Approximate size of resulting RAID. The
+		special value of 'max' uses all space available.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -788,7 +795,8 @@
 	    <varlistentry>
 	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
 	      <listitem>
-		<para>Approximate size of resulting volume group.</para>
+		<para>Approximate size of resulting volume group. The
+		special value of 'max' uses all space available.</para>
 	      </listitem>
 	    </varlistentry>
 	    <varlistentry>
@@ -1025,6 +1033,25 @@
       </varlistentry>
 
       <varlistentry>
+	<term><option>resize device <replaceable>devices</replaceable></option></term>
+	<listitem>
+	  <para>Resizes devices.</para>
+
+	  <variablelist>
+	    <varlistentry>
+	      <term><option>-s, --size</option> <replaceable>size</replaceable></term>
+	      <listitem>
+		<para>The new size of the devices. Can be an absolute
+		value (e.g. 100 GiB) or a relative value (e.g. +10
+		GiB) to the current sizes. The special value of 'max'
+		uses all space available.</para>
+	      </listitem>
+	    </varlistentry>
+	  </variablelist>
+	</listitem>
+      </varlistentry>
+
+      <varlistentry>
 	<term><option>save devicegraph</option></term>
 	<listitem>
 	  <para>Saves the devicegraph to a file.</para>
@@ -1059,6 +1086,11 @@
 	<term><option>show commit</option></term>
 	<listitem>
 	  <para>Shows commit actions.</para>
+	  <para>The commit actions shown here can be significantly
+	  different from the commit actions show after each individual
+	  command. E.g. if in a first step a device is created and in a second
+	  step the device is resize, the overall commit action here will create
+	  a device with the final size right away.</para>
 
 	  <variablelist>
 	    <varlistentry>

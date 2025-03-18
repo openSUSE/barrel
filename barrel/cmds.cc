@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2024] SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -40,6 +40,7 @@
 #include "remove-device.h"
 #include "remove-pool.h"
 #include "rename-pool.h"
+#include "resize-device.h"
 #include "save-devicegraph.h"
 #include "save-pools.h"
 #include "show-actiongraph.h"
@@ -138,6 +139,11 @@ namespace barrel
     };
 
 
+    const vector<Parser> resize_cmds = {
+	{ "device", make_shared<CmdResizeDevice>() }
+    };
+
+
     const vector<Parser> load_cmds = {
 	{ "devicegraph", make_shared<CmdLoadDevicegraph>() },
 	{ "pools", make_shared<CmdLoadPools>() }
@@ -166,6 +172,7 @@ namespace barrel
 	{ "reduce", nullptr, reduce_cmds },
 	{ "remove", nullptr, remove_cmds },
 	{ "rename", nullptr, rename_cmds },
+	{ "resize", nullptr, resize_cmds },
 	{ "save", nullptr, save_cmds },
 	{ "show", nullptr, show_cmds },
 	{ "stack", make_shared<CmdStack>(), {} },
