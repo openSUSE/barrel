@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-20 08:15+0100\n"
-"PO-Revision-Date: 2025-02-14 15:18+0000\n"
+"PO-Revision-Date: 2025-03-20 11:56+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.10.3\n"
 
 #, c-format
 msgid "%d bits"
@@ -171,9 +171,9 @@ msgstr "Crea una agrupació nova per contenir-hi dispositius."
 msgid "Description"
 msgstr "Descripció"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Device '%s' cannot be resized."
-msgstr "el dispositiu de bloc %s no es pot suprimir"
+msgstr "No es pot canviar la mida del dispositiu %s."
 
 msgid "Devices"
 msgstr "Dispositius"
@@ -267,7 +267,7 @@ msgid "Missing block devices."
 msgstr "Falten dispositius de bloc."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Falta l'opció de la mida."
 
 msgid "Model"
 msgstr "Model"
@@ -279,10 +279,10 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "New size too big."
-msgstr ""
+msgstr "La mida nova és massa grossa."
 
 msgid "New size too small."
-msgstr ""
+msgstr "La mida nova és massa petita."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -346,9 +346,8 @@ msgstr "Suprimeix l'objecte de dalt de tot de la pila."
 msgid "Renames pool."
 msgstr "Canvia el nom de l'agrupació."
 
-#, fuzzy
 msgid "Resizes a device."
-msgstr "Suprimeix un dispositiu."
+msgstr "Canvia la mida d'un dispositiu."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr "Restaura el gràfic de dispositius a la darrera còpia de seguretat."
@@ -778,14 +777,13 @@ msgid "name of volume group already exists"
 msgstr "el nom del grup de volums ja existeix"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "no es permet a la mida ni + ni -"
 
 msgid "new name"
 msgstr "nom nou"
 
-#, fuzzy
 msgid "new size"
-msgstr "estableix la mida"
+msgstr "mida nova"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
