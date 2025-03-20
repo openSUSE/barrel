@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-20 08:15+0100\n"
-"PO-Revision-Date: 2025-02-15 03:50+0000\n"
+"PO-Revision-Date: 2025-03-21 00:56+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.10.3\n"
 
 #, c-format
 msgid "%d bits"
@@ -171,9 +171,9 @@ msgstr "デバイスを含む新しいプールを作成します。"
 msgid "Description"
 msgstr "説明"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Device '%s' cannot be resized."
-msgstr "ブロックデバイス '%s' は削除できません"
+msgstr "デバイス '%s' はサイズ変更できません。"
 
 msgid "Devices"
 msgstr "デバイス"
@@ -267,7 +267,7 @@ msgid "Missing block devices."
 msgstr "ブロックデバイスがありません。"
 
 msgid "Missing size option."
-msgstr ""
+msgstr "サイズ指定がありません。"
 
 msgid "Model"
 msgstr "モデル"
@@ -279,10 +279,10 @@ msgid "Name"
 msgstr "名前"
 
 msgid "New size too big."
-msgstr ""
+msgstr "指定したサイズは大きすぎます。"
 
 msgid "New size too small."
-msgstr ""
+msgstr "指定したサイズが小さすぎます。"
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -347,9 +347,8 @@ msgstr "スタックから最上位のオブジェクトを削除します。"
 msgid "Renames pool."
 msgstr "プールの名前を変更します。"
 
-#, fuzzy
 msgid "Resizes a device."
-msgstr "デバイスを削除します。"
+msgstr "デバイスをサイズ変更します。"
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr "直近のバックアップからステージングデバイスグラフを復元します。"
@@ -777,14 +776,13 @@ msgid "name of volume group already exists"
 msgstr "その名前のボリュームグループは既に存在しています"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "サイズ指定では + や - を使用できません"
 
 msgid "new name"
 msgstr "新しい名前"
 
-#, fuzzy
 msgid "new size"
-msgstr "サイズを指定します"
+msgstr "新しいサイズ"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
