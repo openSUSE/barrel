@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 17:52+0100\n"
+"POT-Creation-Date: 2025-03-20 08:15+0100\n"
 "PO-Revision-Date: 2024-07-19 08:46+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -170,6 +170,10 @@ msgstr "Vytvoří novou zásobárnu obsahující zařízení."
 msgid "Description"
 msgstr "Popis"
 
+#, fuzzy, c-format
+msgid "Device '%s' cannot be resized."
+msgstr "blokové zařízení %s nelze odstranit"
+
 msgid "Devices"
 msgstr "Zařízení"
 
@@ -261,6 +265,9 @@ msgstr "Chybí argument pro globální volbu '%s'."
 msgid "Missing block devices."
 msgstr "Chybí bloková zařízení."
 
+msgid "Missing size option."
+msgstr ""
+
 msgid "Model"
 msgstr "Model"
 
@@ -269,6 +276,12 @@ msgstr "Přípojný bod"
 
 msgid "Name"
 msgstr "Název"
+
+msgid "New size too big."
+msgstr ""
+
+msgid "New size too small."
+msgstr ""
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -331,6 +344,10 @@ msgstr "Odstraní horní objekt ze zásobníku."
 
 msgid "Renames pool."
 msgstr "Přejmenuje zásobárnu."
+
+#, fuzzy
+msgid "Resizes a device."
+msgstr "Odstraní zařízení."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr "Obnoví stavovou mapu zařízení z poslední zálohy."
@@ -758,8 +775,15 @@ msgstr "název skupiny svazků"
 msgid "name of volume group already exists"
 msgstr "název skupiny svazků již existuje"
 
+msgid "neither + nor - allowed in size"
+msgstr ""
+
 msgid "new name"
 msgstr "nový název"
+
+#, fuzzy
+msgid "new size"
+msgstr "nastavit velikost"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
