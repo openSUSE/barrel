@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 17:52+0100\n"
+"POT-Creation-Date: 2025-03-20 08:15+0100\n"
 "PO-Revision-Date: 2024-03-04 10:43+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
@@ -172,6 +172,10 @@ msgstr "建立包含裝置的新池。"
 msgid "Description"
 msgstr "描述"
 
+#, fuzzy, c-format
+msgid "Device '%s' cannot be resized."
+msgstr "無法移除區塊裝置 \"%s\""
+
 msgid "Devices"
 msgstr "裝置"
 
@@ -264,6 +268,9 @@ msgstr "全域選項 \"%s\" 遺失引數。"
 msgid "Missing block devices."
 msgstr "缺少區塊裝置。"
 
+msgid "Missing size option."
+msgstr ""
+
 msgid "Model"
 msgstr "型號"
 
@@ -272,6 +279,12 @@ msgstr "裝載點"
 
 msgid "Name"
 msgstr "名稱"
+
+msgid "New size too big."
+msgstr ""
+
+msgid "New size too small."
+msgstr ""
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -334,6 +347,10 @@ msgstr "從堆疊中移除頂層物件。"
 
 msgid "Renames pool."
 msgstr "將池重新命名。"
+
+#, fuzzy
+msgid "Resizes a device."
+msgstr "移除裝置。"
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr "將預備裝置圖表還原到上次備份。"
@@ -762,8 +779,15 @@ msgstr "磁碟區群組名稱"
 msgid "name of volume group already exists"
 msgstr "磁碟區群組名稱已存在"
 
+msgid "neither + nor - allowed in size"
+msgstr ""
+
 msgid "new name"
 msgstr "新名稱"
+
+#, fuzzy
+msgid "new size"
+msgstr "設定大小"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"

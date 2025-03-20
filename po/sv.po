@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 17:52+0100\n"
+"POT-Creation-Date: 2025-03-20 08:15+0100\n"
 "PO-Revision-Date: 2025-03-02 04:56+0000\n"
 "Last-Translator: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\n"
-"Language-Team: Swedish <https://l10n.opensuse.org/projects/barrel/master/sv/>"
-"\n"
+"Language-Team: Swedish <https://l10n.opensuse.org/projects/barrel/master/sv/"
+">\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -171,6 +171,10 @@ msgstr ""
 msgid "Description"
 msgstr "Beskrivning"
 
+#, c-format
+msgid "Device '%s' cannot be resized."
+msgstr ""
+
 msgid "Devices"
 msgstr "Enheter"
 
@@ -262,6 +266,9 @@ msgstr ""
 msgid "Missing block devices."
 msgstr ""
 
+msgid "Missing size option."
+msgstr ""
+
 msgid "Model"
 msgstr "Modell"
 
@@ -270,6 +277,12 @@ msgstr "Monteringspunkt"
 
 msgid "Name"
 msgstr "Namn"
+
+msgid "New size too big."
+msgstr ""
+
+msgid "New size too small."
+msgstr ""
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -331,6 +344,9 @@ msgid "Removes the top object from the stack."
 msgstr ""
 
 msgid "Renames pool."
+msgstr ""
+
+msgid "Resizes a device."
 msgstr ""
 
 msgid "Restores the staging devicegraph to the last backup."
@@ -757,8 +773,15 @@ msgstr ""
 msgid "name of volume group already exists"
 msgstr ""
 
+msgid "neither + nor - allowed in size"
+msgstr ""
+
 msgid "new name"
 msgstr ""
+
+#, fuzzy
+msgid "new size"
+msgstr "ställ in nyckelstorlek"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"

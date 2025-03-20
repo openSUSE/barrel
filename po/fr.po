@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 17:52+0100\n"
+"POT-Creation-Date: 2025-03-20 08:15+0100\n"
 "PO-Revision-Date: 2024-03-04 15:43+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
@@ -171,6 +171,10 @@ msgstr "Crée un pool contenant des périphériques."
 msgid "Description"
 msgstr "Description"
 
+#, fuzzy, c-format
+msgid "Device '%s' cannot be resized."
+msgstr "le périphérique de bloc '%s' ne peu tpas être supprimé"
+
 msgid "Devices"
 msgstr "Périphériques"
 
@@ -263,6 +267,9 @@ msgstr "Argument manquant pour l'option globale '%s'."
 msgid "Missing block devices."
 msgstr "Périphériques de bloc manquants."
 
+msgid "Missing size option."
+msgstr ""
+
 msgid "Model"
 msgstr "Modèle"
 
@@ -271,6 +278,12 @@ msgstr "Point de montage"
 
 msgid "Name"
 msgstr "Nom"
+
+msgid "New size too big."
+msgstr ""
+
+msgid "New size too small."
+msgstr ""
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -333,6 +346,10 @@ msgstr "Supprime le premier objet de la pile."
 
 msgid "Renames pool."
 msgstr "Renomme le pool."
+
+#, fuzzy
+msgid "Resizes a device."
+msgstr "Supprime un périphérique."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
@@ -768,8 +785,15 @@ msgstr "nom du groupe de volumes"
 msgid "name of volume group already exists"
 msgstr "le nom du groupe de volumes existe déjà"
 
+msgid "neither + nor - allowed in size"
+msgstr ""
+
 msgid "new name"
 msgstr "nouveau nom"
+
+#, fuzzy
+msgid "new size"
+msgstr "définir la taille"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"

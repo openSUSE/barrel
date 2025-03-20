@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 17:52+0100\n"
+"POT-Creation-Date: 2025-03-20 08:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -169,6 +169,10 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+#, c-format
+msgid "Device '%s' cannot be resized."
+msgstr ""
+
 msgid "Devices"
 msgstr ""
 
@@ -260,6 +264,9 @@ msgstr ""
 msgid "Missing block devices."
 msgstr ""
 
+msgid "Missing size option."
+msgstr ""
+
 msgid "Model"
 msgstr ""
 
@@ -267,6 +274,12 @@ msgid "Mount Point"
 msgstr ""
 
 msgid "Name"
+msgstr ""
+
+msgid "New size too big."
+msgstr ""
+
+msgid "New size too small."
 msgstr ""
 
 #, c-format
@@ -329,6 +342,9 @@ msgid "Removes the top object from the stack."
 msgstr ""
 
 msgid "Renames pool."
+msgstr ""
+
+msgid "Resizes a device."
 msgstr ""
 
 msgid "Restores the staging devicegraph to the last backup."
@@ -755,7 +771,13 @@ msgstr ""
 msgid "name of volume group already exists"
 msgstr ""
 
+msgid "neither + nor - allowed in size"
+msgstr ""
+
 msgid "new name"
+msgstr ""
+
+msgid "new size"
 msgstr ""
 
 #. TRANSLATORS: error message

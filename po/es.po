@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 17:52+0100\n"
+"POT-Creation-Date: 2025-03-20 08:15+0100\n"
 "PO-Revision-Date: 2024-10-12 00:48+0000\n"
 "Last-Translator: Moreno <hibarioath@proton.me>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/barrel/master/es/"
@@ -171,6 +171,10 @@ msgstr "Crea un nuevo pool conteniendo dispositivos."
 msgid "Description"
 msgstr "Descripción"
 
+#, fuzzy, c-format
+msgid "Device '%s' cannot be resized."
+msgstr "el dispositivo de bloques «%s» no puede ser removido"
+
 msgid "Devices"
 msgstr "Dispositivos"
 
@@ -262,6 +266,9 @@ msgstr "Argumento ausente para opción global «%s»."
 msgid "Missing block devices."
 msgstr "Faltan dispositivos de bloques."
 
+msgid "Missing size option."
+msgstr ""
+
 msgid "Model"
 msgstr "Modelo"
 
@@ -270,6 +277,12 @@ msgstr "Punto de montaje"
 
 msgid "Name"
 msgstr "Nombre"
+
+msgid "New size too big."
+msgstr ""
+
+msgid "New size too small."
+msgstr ""
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -332,6 +345,10 @@ msgstr "Quita el objeto apical de la pila."
 
 msgid "Renames pool."
 msgstr "Renombra una reserva."
+
+#, fuzzy
+msgid "Resizes a device."
+msgstr "Quita un dispositivo."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr "Restaura el dispograma de ensayo al del último respaldo."
@@ -760,8 +777,15 @@ msgstr "nombre del grupo de volúmenes"
 msgid "name of volume group already exists"
 msgstr "nombre del grupo de volúmenes ya existe"
 
+msgid "neither + nor - allowed in size"
+msgstr ""
+
 msgid "new name"
 msgstr "nuevo nombre"
+
+#, fuzzy
+msgid "new size"
+msgstr "establecer tamaño"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
