@@ -259,6 +259,11 @@ namespace barrel
 	if (options.stripe_size)
 	    lvm_lv->set_stripe_size(options.stripe_size.value());
 
+	if (lvm_lv->get_size() == 0)
+	{
+	    throw runtime_error(sformat(_("logical volume '%s' has size zero"), lvm_lv->get_lv_name().c_str()));
+	}
+
 	if (lvm_vg->is_overcommitted())
 	{
 	    throw runtime_error(sformat(_("volume group '%s' is over-committed"), lvm_vg->get_vg_name().c_str()));
