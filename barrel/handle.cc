@@ -487,6 +487,14 @@ namespace barrel
     }
 
 
+    bool
+    interactive_ignore_line(const char* line)
+    {
+	size_t pos = strspn(line, " ");
+	return line[pos] == '\0' || line[pos] == '#';
+    }
+
+
     void
     handle_interactive(const GlobalOptions& global_options, Testsuite* testsuite)
     {
@@ -532,7 +540,7 @@ namespace barrel
 		continue;
 	    }
 
-	    if (*line)
+	    if (!interactive_ignore_line(line))
 	    {
 		if (testsuite)
 		    cout << line << '\n';
