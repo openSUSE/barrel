@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2024] SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -31,6 +31,7 @@
 #include <storage/Filesystems/MountPoint.h>
 #include <storage/Filesystems/Btrfs.h>
 #include <storage/SystemInfo/SystemInfo.h>
+#include <storage/Utils/HumanString.h>
 #include <storage/Version.h>
 
 #include "Utils/GetOpts.h"
@@ -216,6 +217,10 @@ namespace barrel
 	    {
 		string str = parsed_opts.get("size");
 		size = SmartSize(str);
+
+		// The min_size() function of libstorage-ng is not available here.
+		if (size.value().type == SmartSize::ABSOLUTE && size.value().value < 64 * KiB)
+		    throw runtime_error(_("size too small for file system"));
 	    }
 
 	    if (parsed_opts.has_option("devices"))

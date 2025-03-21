@@ -116,7 +116,7 @@ namespace barrel
 
 	    optional<string> vg_name;
 	    string lv_name;
-	    optional<SmartSize> size;
+	    SmartSize size;
 	    optional<SmartNumber> stripes;
 	    optional<unsigned long long> stripe_size;
 
@@ -129,6 +129,7 @@ namespace barrel
 
 
 	Options::Options(GetOpts& get_opts)
+	    : size("max", false)
 	{
 	    ParsedOpts parsed_opts = get_opts.parse("lv", create_lvm_lv_options);
 
@@ -148,6 +149,9 @@ namespace barrel
 
 	    string str = parsed_opts.get("size");
 	    size = SmartSize(str);
+
+	    if (size.type == SmartSize::ABSOLUTE && size.value < 128 * KiB)
+		throw OptionsException(_("size too small for command 'lv'"));
 
 	    if (parsed_opts.has_option("stripes"))
 	    {
@@ -232,7 +236,7 @@ namespace barrel
 	if (options.stripes)
 	    stripes = options.stripes->value(lvm_vg->get_lvm_pvs().size());
 
-	SmartSize smart_size = options.size.value();
+	SmartSize smart_size = options.size;
 
 	unsigned long long size = 0;
 
