@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 08:15+0100\n"
+"POT-Creation-Date: 2025-03-24 09:56+0100\n"
 "PO-Revision-Date: 2025-03-21 00:56+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/barrel/master/ja/"
@@ -635,6 +635,10 @@ msgstr "含まれるパーティションを保持します"
 msgid "label only supported for LUKS2"
 msgstr "ラベルは LUKS2 のみでサポートされています"
 
+#, fuzzy, c-format
+msgid "logical volume '%s' has size zero"
+msgstr "LVM 論理ボリューム %s"
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "'%s' に対応する DASD が異なる形式になっています"
@@ -1047,6 +1051,14 @@ msgstr "コマンド 'lv' に対するサイズパラメータが指定されて
 
 msgid "size of stripes"
 msgstr "ストライプの数"
+
+#, fuzzy
+msgid "size too small for command 'lv'"
+msgstr "コマンド 'lv' に対するサイズパラメータが指定されていません"
+
+#, fuzzy
+msgid "size too small for file system"
+msgstr "新しいファイルシステムを作成します。"
 
 msgid "spare devices not allowed for raid level"
 msgstr "この RAID レベルではスペアデバイスは許可されません"

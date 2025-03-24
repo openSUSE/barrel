@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 08:15+0100\n"
+"POT-Creation-Date: 2025-03-24 09:56+0100\n"
 "PO-Revision-Date: 2025-03-23 01:56+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
-"\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
+">\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -638,6 +638,10 @@ msgstr "zugrunde liegende Partitionen beibehalten"
 msgid "label only supported for LUKS2"
 msgstr ""
 
+#, fuzzy, c-format
+msgid "logical volume '%s' has size zero"
+msgstr "Logisches LVM-Volume %s"
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "zugeordnetes DASD für '%s' hat ein anderes Format"
@@ -1045,6 +1049,14 @@ msgstr "Größe für Kommando 'lv' fehlt"
 
 msgid "size of stripes"
 msgstr "Größe der Stripes"
+
+#, fuzzy
+msgid "size too small for command 'lv'"
+msgstr "Größe für Kommando 'lv' fehlt"
+
+#, fuzzy
+msgid "size too small for file system"
+msgstr "Erstellt ein neues Dateisystem."
 
 msgid "spare devices not allowed for raid level"
 msgstr "Ersatzgeräte für Raid-Ebene nicht zulässig"

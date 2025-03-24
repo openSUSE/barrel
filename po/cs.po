@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 08:15+0100\n"
+"POT-Creation-Date: 2025-03-24 09:56+0100\n"
 "PO-Revision-Date: 2024-07-19 08:46+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
 "Language-Team: Czech <https://l10n.opensuse.org/projects/barrel/master/cs/>\n"
@@ -635,6 +635,10 @@ msgstr "zachovat podřazené oddíly"
 msgid "label only supported for LUKS2"
 msgstr "štítek podporován pouze pro LUKS2"
 
+#, fuzzy, c-format
+msgid "logical volume '%s' has size zero"
+msgstr "LVM logický svazek %s"
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "mapované zařízení DASD pro '%s' má jiný formát"
@@ -1036,6 +1040,14 @@ msgstr "pro příkaz 'lv' chybí velikost"
 
 msgid "size of stripes"
 msgstr "velikost proužků"
+
+#, fuzzy
+msgid "size too small for command 'lv'"
+msgstr "pro příkaz 'lv' chybí velikost"
+
+#, fuzzy
+msgid "size too small for file system"
+msgstr "Vytvoří nový systém souborů."
 
 msgid "spare devices not allowed for raid level"
 msgstr "pro úroveň raid nejsou povolena náhradní zařízení"

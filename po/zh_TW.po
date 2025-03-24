@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 08:15+0100\n"
+"POT-Creation-Date: 2025-03-24 09:56+0100\n"
 "PO-Revision-Date: 2024-03-04 10:43+0000\n"
 "Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
@@ -637,6 +637,10 @@ msgstr "保留基礎分割區"
 msgid "label only supported for LUKS2"
 msgstr ""
 
+#, fuzzy, c-format
+msgid "logical volume '%s' has size zero"
+msgstr "LVM 邏輯磁碟區 %s"
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "\"%s\" 的對應 DASD 的格式不同"
@@ -1040,6 +1044,14 @@ msgstr "\"lv\" 指令遺失大小"
 
 msgid "size of stripes"
 msgstr "等量磁碟區大小"
+
+#, fuzzy
+msgid "size too small for command 'lv'"
+msgstr "\"lv\" 指令遺失大小"
+
+#, fuzzy
+msgid "size too small for file system"
+msgstr "建立新檔案系統。"
 
 msgid "spare devices not allowed for raid level"
 msgstr "不允許為 raid 層級使用備用裝置"

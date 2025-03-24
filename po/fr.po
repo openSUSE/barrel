@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 08:15+0100\n"
+"POT-Creation-Date: 2025-03-24 09:56+0100\n"
 "PO-Revision-Date: 2024-03-04 15:43+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
 "Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
@@ -642,6 +642,10 @@ msgstr "conserver les partitions sous-jacentes"
 msgid "label only supported for LUKS2"
 msgstr ""
 
+#, fuzzy, c-format
+msgid "logical volume '%s' has size zero"
+msgstr "Volume logique LVM %s"
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "le DASD assigné pour '%s' présente un format différent"
@@ -1058,6 +1062,14 @@ msgstr "taille manquante pour la commande 'lv'"
 
 msgid "size of stripes"
 msgstr "taille des bandes"
+
+#, fuzzy
+msgid "size too small for command 'lv'"
+msgstr "taille manquante pour la commande 'lv'"
+
+#, fuzzy
+msgid "size too small for file system"
+msgstr "Crée un système de fichiers."
 
 msgid "spare devices not allowed for raid level"
 msgstr "périphériques de rechange non autorisés pour le niveau RAID"
