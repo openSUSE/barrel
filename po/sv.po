@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-20 08:15+0100\n"
-"PO-Revision-Date: 2025-03-02 04:56+0000\n"
-"Last-Translator: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\n"
-"Language-Team: Swedish <https://l10n.opensuse.org/projects/barrel/master/sv/"
-">\n"
+"PO-Revision-Date: 2025-03-24 06:56+0000\n"
+"Last-Translator: Luna  Jernberg <bittin@opensuse.org>\n"
+"Language-Team: Swedish <https://l10n.opensuse.org/projects/barrel/master/sv/>"
+"\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 5.10.3\n"
 
 #, c-format
 msgid "%d bits"
@@ -25,195 +25,195 @@ msgstr "%d bitar"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Aktivera BitLocker %1$s på %2$s (%3$s) med UUID %4$s..."
 
 #, c-format
 msgid "Activate BitLocker on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Aktivera Bitlocker på %1$s (%2$s) med UUID %3$s..."
 
 #, c-format
 msgid "Activate LUKS %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Aktivera LUKS %1$s på %2$s (%3$s) med UUID %4$s..."
 
 #, c-format
 msgid "Activate LUKS on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Aktivera LUKS på %1$s (%2$s) med UUID%3$s..."
 
 msgid "Activating..."
 msgstr "Aktiverar..."
 
 msgid "Adds devices to a pool."
-msgstr ""
+msgstr "Lägger till enheter i en pool."
 
 msgid "Alias for 'create encryption --type luks1'"
-msgstr ""
+msgstr "Alias för 'create encryption --type luks1'"
 
 msgid "Alias for 'create encryption --type luks2'"
-msgstr ""
+msgstr "Alias för 'create encryption --type luks2'"
 
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type bcachefs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type exfat'"
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type ext2'"
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type ext3'"
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type ext4'"
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type f2fs'"
 
 msgid "Alias for 'create filesystem --type jfs'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type jfs'"
 
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type ntfs'"
 
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type reiserfs'"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type swap'"
 
 msgid "Alias for 'create filesystem --type udf'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type udf'"
 
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "Alias för 'create filesystem --type xfs'"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "Alias för 'create partition-table --type gpt'"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "Alias för 'create partition-table --type ms-dos'"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "Alias för 'create raid --level 0'"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "Alias för 'create raid --level 1'"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "Alias för 'create raid --level 10'"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "Alias för 'create raid --level 4'"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "Alias för 'create raid --level 5'"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "Alias för 'create raid --level 6'"
 
 msgid "Block Size"
 msgstr "Blockstorlek"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "Buss-ID"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "Klumpstorlek"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Chiffer"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "Rensar stacken."
 
 msgid "Commands:"
-msgstr ""
+msgstr "Kommandon:"
 
 msgid "Commit changes?"
 msgstr "Skicka in ändringar?"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
+msgstr "Begår ändringar på disk och avslutar barrel."
 
 msgid "Continue?"
 msgstr "Fortsätt?"
 
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "Skapar en ny LVM logisk-volym."
 
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "Skapar en ny LVM volym-grupp."
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "Skapar en ny RAID."
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "Skapar en ny krypteringsenhet."
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "Skapar ett nytt filsystem."
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "Skapar en ny partitionstabell."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Skapar en ny pool som innehåller enheter."
 
 msgid "Description"
 msgstr "Beskrivning"
 
 #, c-format
 msgid "Device '%s' cannot be resized."
-msgstr ""
+msgstr "Enhet '%s' kan inte ändra storlek."
 
 msgid "Devices"
 msgstr "Enheter"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Duplicerar det översta objektet i stacken."
 
 msgid "Enter password:"
 msgstr "Ange lösenord:"
 
 msgid "Exchanges the top two elements of the stack."
-msgstr ""
+msgstr "Byter ut de två översta elementen i stacken."
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Omfattning Storlek"
 
 msgid "Format"
 msgstr "Format"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "GPT på %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Genererar pooler"
 
 msgid "Global options:"
 msgstr "Globala alternativ:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Ogiltigt svar '%s'"
 
 #, c-format
 msgid "Invalid table style '%s'."
-msgstr ""
+msgstr "Ogiltig tabell-stil '%s'."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Fortsätt le, för det är det viktigaste."
 
 msgid "Key File"
 msgstr "Nyckelfil"
@@ -223,15 +223,15 @@ msgstr "Nyckelstorlek"
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "LUKS på %s"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "LVM logisk-volym %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "LVM volym-grupp %s"
 
 msgid "Label"
 msgstr "Etikett"
@@ -240,34 +240,34 @@ msgid "Level"
 msgstr "Nivå"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Laddar pooler..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Laddar pooler."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Laddar uppsättningsenhetsgrafen från en fil."
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "MS-DOS på %s"
 
 msgid "Metadata"
 msgstr "Metadata"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "Saknas argument för kommandoalternativ '%s'."
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "Saknas argument för globalt alternativ '%s'."
 
 msgid "Missing block devices."
-msgstr ""
+msgstr "Saknar blockenheter."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Saknar storleksalternativ."
 
 msgid "Model"
 msgstr "Modell"
@@ -279,26 +279,26 @@ msgid "Name"
 msgstr "Namn"
 
 msgid "New size too big."
-msgstr ""
+msgstr "Ny storlek för stor."
 
 msgid "New size too small."
-msgstr ""
+msgstr "Ny storlek för liten."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "Inga blockenheter tillåtna för kommandoalternativet '%s'."
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "Inga globala blockenheter tillåts."
 
 msgid "PBKDF"
 msgstr "PBKDF"
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Lösenorden matchar inte."
 
 msgid "Pool"
-msgstr ""
+msgstr "Pool"
 
 msgid "Position"
 msgstr ""
@@ -307,7 +307,7 @@ msgid "Prints help."
 msgstr "Skriver ut hjälp."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Skriver ut stacken."
 
 msgid "Probing..."
 msgstr "Sonderar..."
@@ -323,86 +323,87 @@ msgstr "Avslutar barrel."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "RAID-nivå redan inställd för kommandot 'raid'"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "Raidnivå saknas för kommandot \"raid\""
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Tar bort en enhet."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Tar bort en pool."
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Tar bort enheter från en pool."
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Tar bort det översta föremålet från stacken."
 
 msgid "Renames pool."
-msgstr ""
+msgstr "Byter namn på pool."
 
 msgid "Resizes a device."
-msgstr ""
+msgstr "Ändrar storlek på en enhet."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
+"Återställer iscensättningsenhetsgrafen till den senaste säkerhetskopian."
 
 msgid "Save pools"
-msgstr ""
+msgstr "Spara pooler"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Sparar pooler."
 
 msgid "Saves the devicegraph to a file."
-msgstr ""
+msgstr "Sparar enhetsgrafen till en fil."
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Sparar pooler..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "Ställer in id av en partition %s från värde som inte stöds till %s."
 
 msgid "Shows DASDs."
 msgstr "Visar DASD:er."
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Visar LVM volym-grupper."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Visar RAIDer."
 
 msgid "Shows actiongraph."
-msgstr ""
+msgstr "Visar actiongraf."
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Visar commit åtgärder."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Visar enhetsträd."
 
 msgid "Shows devicegraph."
-msgstr ""
+msgstr "Visar enhetsgraf."
 
 msgid "Shows disks."
 msgstr "Visar diskar."
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Visar krypteringsenheter."
 
 msgid "Shows filesystems."
 msgstr "Visar filsystem."
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Visar flersökvägsenheter."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Visar pooler."
 
 msgid "Size"
 msgstr "Storlek"
@@ -411,29 +412,29 @@ msgid "Stripes"
 msgstr "Ränder"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "Kommandot har följande underkommandon:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "Transport"
 
 msgid "Type"
 msgstr "Typ"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Okänt globalt alternativ '%s'."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Okänt alternativ '%s' för kommando '%s'."
 
 msgid "Usage"
 msgstr "Användningsområde"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Använd ett heltal från %d till %d."
 
 msgid "Used"
 msgstr "Används"
@@ -445,163 +446,163 @@ msgid "Verify password:"
 msgstr "Bekräfta lösenord:"
 
 msgid "[ pushes a mark on the stack."
-msgstr ""
+msgstr "[ trycker på ett märke på stacken."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] konstruerar en array."
 
 msgid "activate by"
-msgstr ""
+msgstr "aktivera genom att"
 
 msgid "activate options"
-msgstr ""
+msgstr "aktiveringsalternativ"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "aktivera lagringssystem vid uppstart"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "aktivera-genom-etikett kräver en etikett"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "svara på alla frågor med ja"
 
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "array med %d objekt"
+msgstr[1] "array med flera %d objekt"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
 msgid "bad devices argument"
-msgstr ""
+msgstr "argument för dåliga enheter"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "dåliga strimmla argument"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "var mer omfattande"
 
 msgid "be quiet"
 msgstr "var tyst"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "blockenhet '%s' kan inte tas bort"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
-msgstr ""
+msgstr "blockenhet '%s' kan inte användas som en vanlig blockenhet"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "blockenhet '%s' används redan"
 
 msgid "block devices for LVM volume group missing"
-msgstr ""
+msgstr "blockenheter för LVM-volymgrupp saknas"
 
 msgid "block devices for RAID missing"
-msgstr ""
+msgstr "block enheter för RAID saknas"
 
 msgid "block devices for filesystem missing"
-msgstr ""
+msgstr "block enheter för filsystem saknas"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "blockenheter saknas för kommando 'raid'"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
 #, c-format
 msgid "close for json file '%s' failed"
-msgstr ""
+msgstr "stängning av json-fil '%s' misslyckades"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "stängning av json-fil '%s' misslyckades"
 
 msgid "deleted device"
 msgstr "enheten togs bort"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "enhet '%s' hittades inte i mappningen"
 
 msgid "do not add in /etc/crypttab"
-msgstr ""
+msgstr "lägg inte till i /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "lägg inte till i /etc/fstab"
 
 msgid "do not add in /etc/mdadm.conf"
-msgstr ""
+msgstr "lägg inte till i /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "skriv inte något till disken"
 
 msgid "do not show colors"
-msgstr ""
+msgstr "visa inte färger"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "visa inte partitioner på DASD:er"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "visa inte partitioner på RAIDer"
 
 #. TRANSLATORS: help text
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "visa inte partitioner på diskar"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "visa inte partitioner på flersökvägsenheter"
 
 msgid "done"
 msgstr "klar"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "element i array för '%s' är inte en sträng"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "element av enhets-array för '%s' är inte en sträng"
 
 msgid "encryption type"
 msgstr "typ av kryptering"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "krypteringstyp redan inställd för kommandot 'encryption'"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "krypteringstyp saknas för kommandot 'encryption'"
 
 msgid "error:"
 msgstr "fel:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "överdrivet innehåll i json-fil '%s'"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "misslyckades med att beräkna åtgärder"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "misslyckades med att analysera storlek '%s'"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "filsystem %s på %s"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "filsystemstyp redan inställd för kommandot 'filesystem'"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "filsystemstyp saknas för kommandot 'filesystem'"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "tvinga om blockenhet redan används"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "tvinga om blockenhet redan används"
 
 msgid "go downwards"
 msgstr "gå nerför"
@@ -611,117 +612,117 @@ msgstr "gå uppför"
 
 #, c-format
 msgid "invalid devices value '%d'"
-msgstr ""
+msgstr "ogiltigt enhetsvärde '%d'"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "ogiltigt logiskt volymnamn för kommandot 'lv'"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "ogiltig sökväg '%s'"
 
 #, c-format
 msgid "invalid size '%s'"
-msgstr ""
+msgstr "ogiltig storlek '%s'"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "ogiltigt volymgruppnamn för kommandot 'vg'"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "behåll underliggande partitioner"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "etikett stöds endast för LUKS2"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "mappad DASD för '%s' har ett annat format"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "mappad DASD för '%s' har en annan typ"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "mappad DASD för '%s' mappad två gånger"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "mappad DM RAID för '%s' mappad två gånger"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "mappad enhet för '%s' har en annan blockstorlek"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "mappad enhet för '%s' är inte en DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "mappad enhet för '%s' är inte en DM-RAID"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "mappad enhet för '%s' är inte en disk"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "mappad enhet för '%s' är inte en multipelsökväg"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "mappad enhet för '%s' är mindre"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "mappad enhet för '%s' hittades inte"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "mappad disk för '%s' mappad två gånger"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "mappad multipelsökväg för '%s' mappad två gånger"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "mappar %s till %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "mappning hittades inte i json-fil '%s'"
 
 msgid "missing block device"
-msgstr ""
+msgstr "saknar blockenhet"
 
 msgid "missing partitionable"
-msgstr ""
+msgstr "saknas partitionerbar"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "mkfs alternativ"
 
 msgid "mount by"
-msgstr ""
+msgstr "monterad av"
 
 msgid "mount options"
-msgstr ""
+msgstr "monteringsalternativ"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "monteringsalternativ kräver en sökväg"
 
 msgid "mount path"
-msgstr ""
+msgstr "monteringssökväg"
 
 msgid "mount-by label requires a label"
-msgstr ""
+msgstr "montera-med-etikett kräver en etikett"
 
 msgid "mount-by requires a path"
-msgstr ""
+msgstr "montera-med kräver en sökväg"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "multipla enheter"
 
 #. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
@@ -729,394 +730,398 @@ msgid "n"
 msgstr "n"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "namn saknas för kommandot 'devicegraph'"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "namn saknas för kommandot 'encryption'"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "namn saknas för kommandot 'lv'"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "namn saknas för kommandot 'vg'"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "namnet på RAID finns redan"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "namn på enhetsgraf"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "namn på enhetsgraf-fil"
 
 msgid "name of encryption already exists"
-msgstr ""
+msgstr "namn på krypteringen finns redan"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "namn på den logiska volymen finns redan"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "namn på mappningsfilen"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "namn på ny pool"
 
 msgid "name of pool"
-msgstr ""
+msgstr "namn på pool"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "namn på pool att använda"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "namn på volymgrupp"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "namn på volymgruppen finns redan"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "varken + eller - tillåtna i storlek"
 
 msgid "new name"
-msgstr ""
+msgstr "nytt namn"
 
-#, fuzzy
 msgid "new size"
-msgstr "ställ in nyckelstorlek"
+msgstr "ny storlek"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "ingen säkerhetskopia tillgänglig för ångra"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "ingen mappnings-DASD för '%s' hittades"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "ingen mappning av DM RAID för '%s' hittades"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "ingen mappningsdisk för '%s' hittades"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "ingen flervägssökvägsmappning för '%s' hittades"
 
 msgid "no mark on stack"
-msgstr ""
+msgstr "ingen markering på stack"
 
 msgid "not a block device in array"
-msgstr ""
+msgstr "inte en blockenhet i array"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "inte en blockenhet på stack"
 
 msgid "not a block device or array of block devices on stack"
-msgstr ""
+msgstr "inte en blockenhet eller array av blockenheter på stack"
 
 msgid "not a device in array"
-msgstr ""
+msgstr "inte en enhet i array"
 
 msgid "not a device on stack"
-msgstr ""
+msgstr "inte en enhet på stack"
 
 msgid "not a partition table in array"
-msgstr ""
+msgstr "inte en partitionstabell i array"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "inte en partitionstabell på stack"
 
 msgid "not a partition table or array of partition tables on stack"
-msgstr ""
+msgstr "inte en partitionstabell eller array av partitionstabeller på stack"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "inte en partitionerbar"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "inte en partitionerbar på stack"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "inte en volymgrupp på stack"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "nummer av strimmlor"
 
 msgid "old name"
-msgstr ""
+msgstr "gammalt namn"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "endast en blockenhet tillåten"
 
 msgid "only one partition table allowed"
-msgstr ""
+msgstr "endast en partitionstabell tillåts"
 
 msgid "only one partitionable allowed"
-msgstr ""
+msgstr "endast en partitionerbar tillåten"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
-msgstr ""
+msgstr "öppna för json-fil '%s' misslyckades"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "öppnande av json-fil '%s' misslyckades"
 
 #, c-format
 msgid "option --devices not allowed for %s"
-msgstr ""
+msgstr "alternativet --devices är inte tillåtna för %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "analysera json-fil '%s' misslyckades"
 
 msgid "partition table type"
 msgstr "typ av partitionstabell"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr ""
+msgstr "partitionstabelltyp redan satt med kommandot 'partition-table'"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "partitionstabellstyp saknas för kommandot 'partition-table'"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "partitionerbar '%s' kan inte användas som en vanlig partitionerbar"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "partitionerbar '%s' används redan"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "sökväg '%s' har redan använts"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
 msgid "path must be 'swap' or 'none'"
-msgstr ""
+msgstr "sökvägen måste vara 'swap' eller 'none'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
 msgstr ""
+"poolargument och blk-enheter är inte tillåtna tillsammans för kommandot "
+"'encryption'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
+"poolargument och blk-enheter är inte tillåtna tillsammans för kommandot "
+"'filesystem'"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
+"poolargument och blk-enheter är inte tillåtna tillsammans för kommandot 'vg'"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "pool är tom"
 
 msgid "pool name"
-msgstr ""
+msgstr "pool namn"
 
 msgid "probe used space"
-msgstr ""
+msgstr "upptäck använt utrymme"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "läsning av json-fil '%s' misslyckades"
 
 msgid "run with a rootprefix"
-msgstr ""
+msgstr "kör med ett rootprefix"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "ställ in PBKDF"
 
 msgid "set RAID level"
 msgstr "ställ in RAID-nivå"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "ställ in RAID-metadataversion"
 
 msgid "set RAID name"
 msgstr "ställ in RAID-namn"
 
 msgid "set a key file"
-msgstr ""
+msgstr "ställ in en nyckel-fil"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "ställ in klump storlek"
 
 msgid "set cipher"
-msgstr ""
+msgstr "ställ in chiffer"
 
 msgid "set extent size"
-msgstr ""
+msgstr "ställ in omfattningsstorlek"
 
 msgid "set file system label"
-msgstr ""
+msgstr "ställ in filsystemetikett"
 
 msgid "set file system type"
-msgstr ""
+msgstr "ställ in filsystemstyp"
 
 msgid "set key size"
 msgstr "ställ in nyckelstorlek"
 
 msgid "set label of device"
-msgstr ""
+msgstr "ställ in etiketten för enhet"
 
 msgid "set name of device"
-msgstr ""
+msgstr "ställ in namn på enhet"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "ställ in namnet på den logiska volymen"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "ställ in namnet på volymgrupp"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "ställ in antalet enheter"
 
 msgid "set profiles"
-msgstr ""
+msgstr "ställ in profiler"
 
 msgid "set size"
-msgstr ""
+msgstr "ställ in storlek"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "ställ in storlek på RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "ställ in storlek på logisk-volym"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "ställ in storlek på volymgrupp"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "flera mappnings-DASD:er för '%s' hittades"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "flera mappnings-DM-RAID för '%s' hittades"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "flera mappningsdiskar för '%s' hittade"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "flera flervägsmappningar för '%s' hittades"
 
 msgid "show colors"
-msgstr ""
+msgstr "visa färger"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "visa komprimerade istället för detaljerade åtgärder"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "visa hjälp och avsluta"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "visa version och avsluta"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "storleksargument saknas för kommandot 'encryption'"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "storleksargument saknas för kommandot 'filesystem'"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "storleksargument krävs för kommandot 'raid'"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "storleksargument krävs för kommandot 'vg'"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "storlek saknas för kommandot 'lv'"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "storlek av strimmlor"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "reservenheter är inte tillåtna för raidnivå"
 
 msgid "stack empty"
-msgstr ""
+msgstr "stack tom"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "stack tom vid dup"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "stack tom vid pop"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "stackunderflow vid utbyte"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "statistik för json-fil '%s' misslyckades"
 
 msgid "table style"
-msgstr ""
+msgstr "tabellstil"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "för få raidenheter för raidnivå"
 
 msgid "tune options"
-msgstr ""
+msgstr "tune alternativ"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "tune alternativ inte tillåtna för %s"
 
 #, c-format
 msgid "unknown activate-by type '%s'"
-msgstr ""
+msgstr "okänd aktivera-efter-typ '%s'"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr ""
+msgstr "okänd btrfs profil '%s'"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "okänd krypteringstyp"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "okänd filsystemtyp '%s'"
 
 #, c-format
 msgid "unknown mount-by type '%s'"
-msgstr ""
+msgstr "okänd montera-efter-typ '%s'"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "okänd partitionstabellstyp"
 
 #, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr ""
+msgstr "okänd kontrollera-använt-utrymme läge '%s'"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "okänd raidnivå för kommandot 'raid'"
 
 #. TRANSLATORS: help text
 msgid "use probed instead of staging devicegraph"
-msgstr ""
+msgstr "använd sonderad i stället för iscensättande enhetsgraf"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "värde för '%s' varken sträng eller array"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "värdet för beskrivningsinmatningen är inte en sträng"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "värdet av enhetsposten är inte en array"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "volymgrupp '%s' är överengagerad"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "fel antal partitionerbara enheter"
 
 #. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "j"
