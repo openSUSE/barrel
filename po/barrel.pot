@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 08:15+0100\n"
+"POT-Creation-Date: 2025-03-24 09:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -633,6 +633,10 @@ msgid "label only supported for LUKS2"
 msgstr ""
 
 #, c-format
+msgid "logical volume '%s' has size zero"
+msgstr ""
+
+#, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr ""
 
@@ -1029,6 +1033,12 @@ msgid "size missing for command 'lv'"
 msgstr ""
 
 msgid "size of stripes"
+msgstr ""
+
+msgid "size too small for command 'lv'"
+msgstr ""
+
+msgid "size too small for file system"
 msgstr ""
 
 msgid "spare devices not allowed for raid level"

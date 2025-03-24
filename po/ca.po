@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 08:15+0100\n"
+"POT-Creation-Date: 2025-03-24 09:56+0100\n"
 "PO-Revision-Date: 2025-03-20 11:56+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/>"
-"\n"
+"Language-Team: Catalan <https://l10n.opensuse.org/projects/barrel/master/ca/"
+">\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -636,6 +636,10 @@ msgstr "mantén les particions subjacents"
 msgid "label only supported for LUKS2"
 msgstr "etiqueta només admesa per LUKS2"
 
+#, fuzzy, c-format
+msgid "logical volume '%s' has size zero"
+msgstr "Volum lògic LVM %s"
+
 #, c-format
 msgid "mapped DASD for '%s' has different format"
 msgstr "el DASD mapat per a %s té un format diferent"
@@ -1041,6 +1045,14 @@ msgstr "cal l'argument de mida per a l'ordre lv"
 
 msgid "size of stripes"
 msgstr "mida de les franges"
+
+#, fuzzy
+msgid "size too small for command 'lv'"
+msgstr "cal l'argument de mida per a l'ordre lv"
+
+#, fuzzy
+msgid "size too small for file system"
+msgstr "Crea un sistema de fitxers nou."
 
 msgid "spare devices not allowed for raid level"
 msgstr "dispositius de recanvi no permesos per al nivell de raid"
