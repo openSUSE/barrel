@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-03-24 06:56+0000\n"
-"Last-Translator: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\n"
-"Language-Team: Swedish <https://l10n.opensuse.org/projects/barrel/master/sv/"
-">\n"
+"PO-Revision-Date: 2025-03-25 04:56+0000\n"
+"Last-Translator: Luna  Jernberg <bittin@opensuse.org>\n"
+"Language-Team: Swedish <https://l10n.opensuse.org/projects/barrel/master/sv/>"
+"\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -634,9 +634,9 @@ msgstr "behåll underliggande partitioner"
 msgid "label only supported for LUKS2"
 msgstr "etikett stöds endast för LUKS2"
 
-#, fuzzy, c-format
+#, c-format
 msgid "logical volume '%s' has size zero"
-msgstr "LVM logisk-volym %s"
+msgstr "logisk-volym '%s' har storlek noll"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -1042,13 +1042,11 @@ msgstr "storlek saknas för kommandot 'lv'"
 msgid "size of stripes"
 msgstr "storlek av strimmlor"
 
-#, fuzzy
 msgid "size too small for command 'lv'"
-msgstr "storlek saknas för kommandot 'lv'"
+msgstr "storlek för liten för kommandot 'lv'"
 
-#, fuzzy
 msgid "size too small for file system"
-msgstr "Skapar ett nytt filsystem."
+msgstr "storlek för liten för filsystem"
 
 msgid "spare devices not allowed for raid level"
 msgstr "reservenheter är inte tillåtna för raidnivå"
