@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-03-23 01:56+0000\n"
+"PO-Revision-Date: 2025-03-30 13:56+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/"
-">\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -170,9 +170,9 @@ msgstr "Erstellt einen neuen Pool mit Geräten."
 msgid "Description"
 msgstr "Beschreibung"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Device '%s' cannot be resized."
-msgstr "Blockgerät '%s' kann nicht entfernt werden"
+msgstr "Größe des Geräts ‚%s‘ kann nicht geändert werden."
 
 msgid "Devices"
 msgstr "Geräte"
@@ -278,10 +278,10 @@ msgid "Name"
 msgstr "Name"
 
 msgid "New size too big."
-msgstr ""
+msgstr "Neue Größe zu groß."
 
 msgid "New size too small."
-msgstr ""
+msgstr "Neue Größe zu klein."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -345,9 +345,8 @@ msgstr "Entfernt das oberste Objekt im Stack."
 msgid "Renames pool."
 msgstr "Benennt den Pool um."
 
-#, fuzzy
 msgid "Resizes a device."
-msgstr "Entfernt ein Gerät."
+msgstr "Ändert die Größe eines Geräts."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
@@ -534,9 +533,8 @@ msgstr "nicht in /etc/crypttab hinzufügen"
 msgid "do not add in /etc/fstab"
 msgstr "nicht in /etc/fstab hinzufügen"
 
-#, fuzzy
 msgid "do not add in /etc/mdadm.conf"
-msgstr "nicht in /etc/fstab hinzufügen"
+msgstr "nicht in /etc/mdadm.conf hinzufügen"
 
 msgid "do not commit anything to disk"
 msgstr "nichts auf Datenträger speichern"
@@ -638,9 +636,9 @@ msgstr "zugrunde liegende Partitionen beibehalten"
 msgid "label only supported for LUKS2"
 msgstr ""
 
-#, fuzzy, c-format
+#, c-format
 msgid "logical volume '%s' has size zero"
-msgstr "Logisches LVM-Volume %s"
+msgstr "logisches Volume ‚%s‘ hat Größe Null"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -783,7 +781,7 @@ msgid "name of volume group already exists"
 msgstr "Name der Volume-Gruppe ist bereits vorhanden"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "weder + noch - sind in der Größe erlaubt"
 
 msgid "new name"
 msgstr "neuer Name"
@@ -1050,13 +1048,11 @@ msgstr "Größe für Kommando 'lv' fehlt"
 msgid "size of stripes"
 msgstr "Größe der Stripes"
 
-#, fuzzy
 msgid "size too small for command 'lv'"
-msgstr "Größe für Kommando 'lv' fehlt"
+msgstr "Größe zu klein für den Befehl 'lv'"
 
-#, fuzzy
 msgid "size too small for file system"
-msgstr "Erstellt ein neues Dateisystem."
+msgstr "Größe zu klein für das Dateisystem"
 
 msgid "spare devices not allowed for raid level"
 msgstr "Ersatzgeräte für Raid-Ebene nicht zulässig"
