@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2024-03-01 17:42+0000\n"
+"PO-Revision-Date: 2025-04-08 19:56+0000\n"
 "Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
 "barrel/master/pt_BR/>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 5.10.3\n"
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d bits"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -131,7 +131,7 @@ msgid "Chunk Size"
 msgstr "Tamanho do Pacote"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Cifra"
 
 msgid "Clears the stack."
 msgstr "Limpa a pilha."
@@ -172,9 +172,9 @@ msgstr "Cria um pool que contém dispositivos."
 msgid "Description"
 msgstr "Descrição"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Device '%s' cannot be resized."
-msgstr "não é possível remover o dispositivo de blocos '%s'"
+msgstr "Impossível redimensionar o dispositivo '%s'."
 
 msgid "Devices"
 msgstr "Dispositivos"
@@ -217,11 +217,10 @@ msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Sorria! Isso é o mais importante."
 
 msgid "Key File"
-msgstr ""
+msgstr "Arquivo de Chave"
 
-#, fuzzy
 msgid "Key Size"
-msgstr "Tamanho"
+msgstr "Tamanho da Chave"
 
 #, c-format
 msgid "LUKS on %s"
@@ -269,7 +268,7 @@ msgid "Missing block devices."
 msgstr "Dispositivos de blocos ausentes."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Opção de tamanho ausente."
 
 msgid "Model"
 msgstr "Modelo"
@@ -281,10 +280,10 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "New size too big."
-msgstr ""
+msgstr "O novo tamanho é grande demais."
 
 msgid "New size too small."
-msgstr ""
+msgstr "O novo tamanho é pequeno demais."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -294,7 +293,7 @@ msgid "No global block devices allowed."
 msgstr "Nenhum dispositivo de blocos global permitido."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
 msgstr "As senhas não coincidem."
@@ -348,9 +347,8 @@ msgstr "Remove o primeiro objeto superior da pilha."
 msgid "Renames pool."
 msgstr "Renomeia um pool."
 
-#, fuzzy
 msgid "Resizes a device."
-msgstr "Remove um dispositivo."
+msgstr "Redimensiona um dispositivo."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr "Restaura o gráfico do dispositivo temporário ao último backup."
@@ -454,17 +452,16 @@ msgid "] constructs an array."
 msgstr "] cria uma matriz."
 
 msgid "activate by"
-msgstr ""
+msgstr "ativar por"
 
-#, fuzzy
 msgid "activate options"
-msgstr "opções de ajuste"
+msgstr "opções de ativação"
 
 msgid "activate storage systems at startup"
 msgstr "ativar sistemas de armazenamento na inicialização"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "rótulo activate-by requer um rótulo"
 
 msgid "answer all questions with yes"
 msgstr "responder a todas as perguntas com Sim"
@@ -537,9 +534,8 @@ msgstr "não adicionar a /etc/crypttab"
 msgid "do not add in /etc/fstab"
 msgstr "não adicionar no /etc/fstab"
 
-#, fuzzy
 msgid "do not add in /etc/mdadm.conf"
-msgstr "não adicionar no /etc/fstab"
+msgstr "não adicionar em /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
 msgstr "não confirmar nada no disco"
@@ -638,11 +634,11 @@ msgid "keep underlying partitions"
 msgstr "manter partições subjacentes"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "rótulo suportado apenas para LUKS2"
 
-#, fuzzy, c-format
+#, c-format
 msgid "logical volume '%s' has size zero"
-msgstr "Volume lógico LVM %s"
+msgstr "volume lógico '%s' com tamanho zero"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -725,9 +721,8 @@ msgstr "opções de montagem exigem um caminho"
 msgid "mount path"
 msgstr "caminho de montagem"
 
-#, fuzzy
 msgid "mount-by label requires a label"
-msgstr "montagem por requer um caminho"
+msgstr "rótulo mount-by requer um rótulo"
 
 msgid "mount-by requires a path"
 msgstr "montagem por requer um caminho"
@@ -761,9 +756,8 @@ msgstr "nome do gráfico do dispositivo"
 msgid "name of devicegraph file"
 msgstr "nome do arquivo do gráfico do dispositivo"
 
-#, fuzzy
 msgid "name of encryption already exists"
-msgstr "nome do RAID já existe"
+msgstr "nome da criptografia já existe"
 
 msgid "name of logical volume already exists"
 msgstr "nome do volume lógico já existe"
@@ -787,14 +781,13 @@ msgid "name of volume group already exists"
 msgstr "nome do grupo de volumes já existe"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "não é permitido usar + nem - no tamanho"
 
 msgid "new name"
 msgstr "novo nome"
 
-#, fuzzy
 msgid "new size"
-msgstr "definir tamanho"
+msgstr "novo tamanho"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
@@ -936,7 +929,7 @@ msgid "pool name"
 msgstr "nome do pool"
 
 msgid "probe used space"
-msgstr ""
+msgstr "investigar espaço usado"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
@@ -947,7 +940,7 @@ msgid "run with a rootprefix"
 msgstr "executar com um prefixo raiz"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "definir PBKDF"
 
 msgid "set RAID level"
 msgstr "definir nível de RAID"
@@ -964,9 +957,8 @@ msgstr "definir um arquivo de chave"
 msgid "set chunk size"
 msgstr "definir tamanho do pacote"
 
-#, fuzzy
 msgid "set cipher"
-msgstr "definir tamanho"
+msgstr "definir cifra"
 
 msgid "set extent size"
 msgstr "definir tamanho da extensão"
@@ -977,9 +969,8 @@ msgstr "definir rótulo do sistema de arquivos"
 msgid "set file system type"
 msgstr "definir tipo de sistema de arquivos"
 
-#, fuzzy
 msgid "set key size"
-msgstr "definir tamanho"
+msgstr "definir tamanho da chave"
 
 msgid "set label of device"
 msgstr "definir rótulo do dispositivo"
@@ -1031,7 +1022,7 @@ msgid "show colors"
 msgstr "mostrar cores"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "mostrar ações resumidas ao invés de detalhadas"
 
 msgid "show help and exit"
 msgstr "mostrar ajuda e sair"
@@ -1057,13 +1048,11 @@ msgstr "tamanho ausente para o comando \"lv\""
 msgid "size of stripes"
 msgstr "tamanho dos segmentos"
 
-#, fuzzy
 msgid "size too small for command 'lv'"
-msgstr "tamanho ausente para o comando \"lv\""
+msgstr "tamanho do comando 'lv' pequeno demais"
 
-#, fuzzy
 msgid "size too small for file system"
-msgstr "Cria um sistema de arquivos."
+msgstr "tamanho do sistema de arquivos pequeno demais"
 
 msgid "spare devices not allowed for raid level"
 msgstr "dispositivos sobressalentes não permitidos para nível de raid"
@@ -1098,9 +1087,9 @@ msgstr "opções de ajuste"
 msgid "tune options not allowed for %s"
 msgstr "opções de ajuste não permitidas para %s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown activate-by type '%s'"
-msgstr "tipo de sistema de arquivos desconhecido '%s'"
+msgstr "tipo de activate-by '%s' desconhecido"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1113,16 +1102,16 @@ msgstr "tipo de criptografia desconhecido"
 msgid "unknown filesystem type '%s'"
 msgstr "tipo de sistema de arquivos desconhecido '%s'"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type '%s'"
-msgstr "tipo de montagem por desconhecido '%s'"
+msgstr "tipo de mount-by '%s' desconhecido"
 
 msgid "unknown partition table type"
 msgstr "tipo de tabela de partição desconhecido"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr "tipo de sistema de arquivos desconhecido '%s'"
+msgstr "modo de probe-used-space '%s' desconhecido"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "nível de raid desconhecido para o comando \"raid\""
