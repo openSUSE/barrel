@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2024-08-26 14:47+0000\n"
-"Last-Translator: Alessio Adamo <alessio.adamo@gmail.com>\n"
-"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/"
-">\n"
+"PO-Revision-Date: 2025-04-08 10:56+0000\n"
+"Last-Translator: Davide Aiello <davide.aiello@novilingulists.com>\n"
+"Language-Team: Italian <https://l10n.opensuse.org/projects/barrel/master/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.3\n"
 
 #, c-format
 msgid "%d bits"
@@ -58,7 +58,7 @@ msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias di 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr "Alias per 'create filesystem --type exfat'"
+msgstr "Alias di 'create filesystem --type exfat'"
 
 msgid "Alias for 'create filesystem --type ext2'"
 msgstr "Alias di 'create filesystem --type ext2'"
@@ -76,7 +76,7 @@ msgid "Alias for 'create filesystem --type jfs'"
 msgstr "Alias di 'create filesystem --type jfs'"
 
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr "Alias per 'create filesystem --type nilfs2'"
+msgstr "Alias di 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
 msgstr "Alias di 'create filesystem --type ntfs'"
@@ -91,7 +91,7 @@ msgid "Alias for 'create filesystem --type udf'"
 msgstr "Alias di 'create filesystem --type udf'"
 
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr "Alias per 'create filesystem --type vfat'"
+msgstr "Alias di 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
 msgstr "Alias di 'create filesystem --type xfs'"
@@ -130,7 +130,7 @@ msgid "Chunk Size"
 msgstr "Dimensioni blocco"
 
 msgid "Cipher"
-msgstr "Cifrario"
+msgstr "Cifratura"
 
 msgid "Clears the stack."
 msgstr "Cancella lo stack."
@@ -171,9 +171,9 @@ msgstr "Crea un nuovo pool di dispositivi."
 msgid "Description"
 msgstr "Descrizione"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Device '%s' cannot be resized."
-msgstr "impossibile rimuovere il dispositivo di blocco '%s'"
+msgstr "Impossibile ridimensionare il dispositivo '%s'."
 
 msgid "Devices"
 msgstr "Dispositivi"
@@ -185,7 +185,7 @@ msgid "Enter password:"
 msgstr "Immettere la password:"
 
 msgid "Exchanges the top two elements of the stack."
-msgstr "Scambia i due oggetti superiori dello stack."
+msgstr "Scambia i due elementi superiori dello stack."
 
 msgid "Extent Size"
 msgstr "Dimensione extent"
@@ -198,7 +198,7 @@ msgid "GPT on %s"
 msgstr "GPT su %s"
 
 msgid "Generating pools"
-msgstr "Creazione di pool"
+msgstr "Generazione di pool"
 
 msgid "Global options:"
 msgstr "Opzioni globali:"
@@ -264,10 +264,10 @@ msgid "Missing argument for global option '%s'."
 msgstr "Argomento dell'opzione globale '%s' mancante."
 
 msgid "Missing block devices."
-msgstr "dispositivi di blocco mancanti."
+msgstr "Dispositivi di blocco mancanti."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Opzione di dimensione mancante."
 
 msgid "Model"
 msgstr "Modello"
@@ -279,10 +279,10 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "New size too big."
-msgstr ""
+msgstr "Nuova dimensione troppo grande."
 
 msgid "New size too small."
-msgstr ""
+msgstr "Nuova dimensione troppo piccola."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -310,7 +310,7 @@ msgid "Prints the stack."
 msgstr "Stampa lo stack."
 
 msgid "Probing..."
-msgstr "Controllo in corso..."
+msgstr "Rilevamento in corso..."
 
 msgid "Profiles"
 msgstr "Profili"
@@ -346,9 +346,8 @@ msgstr "Rimuove l'oggetto superiore dallo stack."
 msgid "Renames pool."
 msgstr "Rinomina il pool."
 
-#, fuzzy
 msgid "Resizes a device."
-msgstr "Rimuove un dispositivo."
+msgstr "Ridimensiona un dispositivo."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr "Ripristina il grafico dispositivo provvisorio all'ultimo backup."
@@ -379,16 +378,16 @@ msgid "Shows RAIDs."
 msgstr "Mostra i RAID."
 
 msgid "Shows actiongraph."
-msgstr "Mostra ill actiongraph."
+msgstr "Mostra l'actiongraph."
 
 msgid "Shows commit actions."
 msgstr "Mostra le azioni di commit."
 
 msgid "Shows device tree."
-msgstr "Mostra l'albero di dispositivi."
+msgstr "Mostra l'albero dei dispositivi."
 
 msgid "Shows devicegraph."
-msgstr "Mostra devicegraph."
+msgstr "Mostra il grafico dispositivo."
 
 msgid "Shows disks."
 msgstr "Mostra i dischi."
@@ -446,7 +445,7 @@ msgid "Verify password:"
 msgstr "Verifica password:"
 
 msgid "[ pushes a mark on the stack."
-msgstr "[ porre un contrassegno sullo stack."
+msgstr "[ pone un contrassegno sullo stack."
 
 msgid "] constructs an array."
 msgstr "] costruisce un array."
@@ -461,7 +460,7 @@ msgid "activate storage systems at startup"
 msgstr "attiva sistemi di memorizzazione all'avvio"
 
 msgid "activate-by label requires a label"
-msgstr "attiva in base a un'etichetta richiede un'etichetta"
+msgstr "l'etichetta di attivazione in base a richiede un'etichetta"
 
 msgid "answer all questions with yes"
 msgstr "rispondi sì a tutte le domande"
@@ -481,7 +480,7 @@ msgid "bad stripes argument"
 msgstr "argomento segmenti non valido"
 
 msgid "be more verbose"
-msgstr "più prolisso"
+msgstr "più dettagliato"
 
 msgid "be quiet"
 msgstr "silenzio"
@@ -501,7 +500,7 @@ msgid "block device '%s' is in use"
 msgstr "il dispositivo di blocco '%s' è in uso"
 
 msgid "block devices for LVM volume group missing"
-msgstr "dispositivi di blocco per il volume LVM mancanti"
+msgstr "dispositivi di blocco per il gruppo di volumi LVM mancanti"
 
 msgid "block devices for RAID missing"
 msgstr "dispositivi di blocco per RAID mancanti"
@@ -522,7 +521,7 @@ msgid "closing json file '%s' failed"
 msgstr "chiusura del file json '%s' non riuscita"
 
 msgid "deleted device"
-msgstr "dispostivo rimosso"
+msgstr "dispostivo eliminato"
 
 #, c-format
 msgid "device '%s' not found in mapping"
@@ -532,17 +531,16 @@ msgid "do not add in /etc/crypttab"
 msgstr "non aggiungere in /etc/fstab"
 
 msgid "do not add in /etc/fstab"
-msgstr "no aggiungere nell /etc/fstab"
+msgstr "no aggiungere in /etc/fstab"
 
-#, fuzzy
 msgid "do not add in /etc/mdadm.conf"
-msgstr "no aggiungere nell /etc/fstab"
+msgstr "non aggiungere in /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
 msgstr "non eseguire il commit di alcun elemento sul disco"
 
 msgid "do not show colors"
-msgstr "non mostra i colori"
+msgstr "non mostrare i colori"
 
 msgid "do not show partitions on DASDs"
 msgstr "non mostrare le partizioni sui DASD"
@@ -566,7 +564,7 @@ msgstr "l'elemento della matrice di '%s' non è una stringa"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr "l'elemento della matrice di dispositivi di '%s' non è una stringa"
+msgstr "l'elemento della matrice dei dispositivi di '%s' non è una stringa"
 
 msgid "encryption type"
 msgstr "tipo di cifratura"
@@ -637,9 +635,9 @@ msgstr "mantieni partizioni sottostanti"
 msgid "label only supported for LUKS2"
 msgstr "etichetta supportata solo per LUKS2"
 
-#, fuzzy, c-format
+#, c-format
 msgid "logical volume '%s' has size zero"
-msgstr "Volume logico LVM %s"
+msgstr "volume logico '%s' con dimensione zero"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -647,7 +645,7 @@ msgstr "il DASD mappato per '%s' dispone di un formato diverso"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr "il DASD mappato per '%s' dispone di un tipo diverso"
+msgstr "il DASD mappato per '%s' è di tipo diverso"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
@@ -712,7 +710,7 @@ msgid "mkfs options"
 msgstr "opzioni mkfs"
 
 msgid "mount by"
-msgstr "Montaggio in base a"
+msgstr "montaggio in base a"
 
 msgid "mount options"
 msgstr "opzioni di montaggio"
@@ -724,7 +722,7 @@ msgid "mount path"
 msgstr "percorso di montaggio"
 
 msgid "mount-by label requires a label"
-msgstr "il montaggio in base all'etichetta richiede un'etichetta"
+msgstr "l'etichetta di montaggio in base richiede un'etichetta"
 
 msgid "mount-by requires a path"
 msgstr "per il montaggio in base a è necessario un percorso"
@@ -758,9 +756,8 @@ msgstr "nome del grafico dispositivo"
 msgid "name of devicegraph file"
 msgstr "nome del file del grafico dispositivo"
 
-#, fuzzy
 msgid "name of encryption already exists"
-msgstr "nome del RAID già esistente"
+msgstr "nome della cifratura già esistente"
 
 msgid "name of logical volume already exists"
 msgstr "nome del volume logico già esistente"
@@ -784,14 +781,13 @@ msgid "name of volume group already exists"
 msgstr "nome del gruppo di volumi già esistente"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "simboli + e - non consentiti nelle dimensioni"
 
 msgid "new name"
 msgstr "nuovo nome"
 
-#, fuzzy
 msgid "new size"
-msgstr "imposta dimensione"
+msgstr "nuova dimensione"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
@@ -817,32 +813,32 @@ msgid "no mark on stack"
 msgstr "nessun contrassegno sullo stack"
 
 msgid "not a block device in array"
-msgstr "non è un dispositivo di blocco nella matrice"
+msgstr "non è un dispositivo di blocco nell'array"
 
 msgid "not a block device on stack"
 msgstr "non è un dispositivo di blocco sullo stack"
 
 msgid "not a block device or array of block devices on stack"
 msgstr ""
-"non è un dispositivo di blocco o una matrice di dispositivi di blocco sullo "
+"non è un dispositivo di blocco o un array di dispositivi di blocco sullo "
 "stack"
 
 msgid "not a device in array"
-msgstr "non è un dispositivo nella matrice"
+msgstr "non è un dispositivo nell'array"
 
 msgid "not a device on stack"
 msgstr "non è un dispositivo sullo stack"
 
 msgid "not a partition table in array"
-msgstr "non è una tabella delle partizioni nella matrice"
+msgstr "non è una tabella delle partizioni nell'array"
 
 msgid "not a partition table on stack"
 msgstr "non è una tabella delle partizioni sullo stack"
 
 msgid "not a partition table or array of partition tables on stack"
 msgstr ""
-"non è una tabella delle partizioni o una matrice delle tabelle delle "
-"partizioni sullo stack"
+"non è una tabella delle partizioni o un array delle tabelle delle partizioni "
+"sullo stack"
 
 msgid "not a partitionable"
 msgstr "non è un elemento partizionabile"
@@ -900,7 +896,7 @@ msgstr ""
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
 msgstr ""
-"l'elemento partizionabile '%s' non può essere utilizzato come elemento "
+"impossibile utilizzare l'elemento partizionabile '%s' come elemento "
 "partizionabile normale"
 
 #, c-format
@@ -939,7 +935,7 @@ msgid "pool name"
 msgstr "nome pool"
 
 msgid "probe used space"
-msgstr ""
+msgstr "rileva spazio utilizzato"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
@@ -962,13 +958,13 @@ msgid "set RAID name"
 msgstr "imposta nome RAID"
 
 msgid "set a key file"
-msgstr "imposta nome dispositivo"
+msgstr "imposta un file delle chiavi"
 
 msgid "set chunk size"
 msgstr "imposta dimensioni blocco"
 
 msgid "set cipher"
-msgstr "imposta cifrario"
+msgstr "imposta cifratura"
 
 msgid "set extent size"
 msgstr "imposta dimensione extent"
@@ -1032,7 +1028,7 @@ msgid "show colors"
 msgstr "colori visibili"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "mostra azioni condensate al posto delle azioni dettagliate"
 
 msgid "show help and exit"
 msgstr "mostra guida ed esci"
@@ -1058,13 +1054,11 @@ msgstr "dimensione mancante per il comando 'lv'"
 msgid "size of stripes"
 msgstr "dimensione dei segmenti"
 
-#, fuzzy
 msgid "size too small for command 'lv'"
-msgstr "dimensione mancante per il comando 'lv'"
+msgstr "dimensione troppo piccola per il comando 'lv'"
 
-#, fuzzy
 msgid "size too small for file system"
-msgstr "Crea un nuovo file system."
+msgstr "dimensione troppo piccola per il file system"
 
 msgid "spare devices not allowed for raid level"
 msgstr "dispositivi di riserva non consentiti per il livello raid"
@@ -1121,9 +1115,9 @@ msgstr "montaggio in base al tipo '%s' sconosciuto"
 msgid "unknown partition table type"
 msgstr "tipo di tabella delle partizioni sconosciuto"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr "tipo di file system '%s' sconosciuto"
+msgstr "modalità probe-used-space sconosciuta '%s'"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "livello raid sconosciuto per il comando 'raid'"
@@ -1134,13 +1128,13 @@ msgstr "analisi al posto di grafico dispositivo provvisorio"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr "il valore di '%s' non corrisponde a una stringa o a una matrice"
+msgstr "il valore di '%s' non corrisponde a una stringa o a un array"
 
 msgid "value of description entry not a string"
 msgstr "il valore della voce di descrizione non è una stringa"
 
 msgid "value of devices entry not an array"
-msgstr "il valore della voce dei dispositivi non è una matrice"
+msgstr "il valore della voce dei dispositivi non è un array"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
