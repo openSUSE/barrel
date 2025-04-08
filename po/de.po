@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: barrel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-03-30 13:56+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2025-04-08 10:56+0000\n"
+"Last-Translator: Gemineo <vistatec@gemineo.de>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/barrel/master/de/>"
 "\n"
 "Language: de\n"
@@ -51,7 +51,7 @@ msgid "Alias for 'create encryption --type luks2'"
 msgstr "Alias für 'create encryption --type luks2'"
 
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr "Alias für 'create filesystem --type btrfs'"
+msgstr "Alias für 'create filesystem --type bcachefs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
 msgstr "Alias für 'create filesystem --type btrfs'"
@@ -266,7 +266,7 @@ msgid "Missing block devices."
 msgstr "Fehlende Blockgeräte."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Größenoption fehlt."
 
 msgid "Model"
 msgstr "Modell"
@@ -462,7 +462,7 @@ msgid "activate storage systems at startup"
 msgstr "Speichersysteme beim Start aktivieren"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "Für das Label 'Aktivieren durch' ist eine Beschriftung nötig"
 
 msgid "answer all questions with yes"
 msgstr "alle Fragen mit ja beantworten"
@@ -634,7 +634,7 @@ msgid "keep underlying partitions"
 msgstr "zugrunde liegende Partitionen beibehalten"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "Label wird nur für LUKS2 unterstützt"
 
 #, c-format
 msgid "logical volume '%s' has size zero"
@@ -722,7 +722,7 @@ msgid "mount path"
 msgstr "Einhängepfad"
 
 msgid "mount-by label requires a label"
-msgstr ""
+msgstr "Für das Label 'Einhängen durch' ist eine Beschriftung nötig"
 
 msgid "mount-by requires a path"
 msgstr "für 'Einhängen durch' ist ein Pfad erforderlich"
@@ -929,7 +929,7 @@ msgid "pool name"
 msgstr "Poolname"
 
 msgid "probe used space"
-msgstr ""
+msgstr "Verwendeten Speicher testen"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
@@ -1089,7 +1089,7 @@ msgstr "Abstimmungsoptionen für %s nicht zulässig"
 
 #, c-format
 msgid "unknown activate-by type '%s'"
-msgstr ""
+msgstr "Unbekannter Typ '%s' für 'Aktiveren durch'"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1104,14 +1104,14 @@ msgstr "unbekannter Dateisystemtyp '%s'"
 
 #, c-format
 msgid "unknown mount-by type '%s'"
-msgstr ""
+msgstr "Unbekannter Typ '%s' für 'Einhängen durch'"
 
 msgid "unknown partition table type"
 msgstr "unbekannter Partitionstabellentyp"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr "unbekannter Dateisystemtyp '%s'"
+msgstr "Unbekannter Modus '%s' für 'Verwendeten Speicher testen'"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "unbekannte Raid-Ebene für Kommando 'raid'"
