@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2024-03-04 10:43+0000\n"
-"Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
+"PO-Revision-Date: 2025-04-08 10:56+0000\n"
+"Last-Translator: Emily Dong <Emily.Dong@excel-gits.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/barrel/"
 "master/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 5.10.3\n"
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d 位元"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -131,7 +131,7 @@ msgid "Chunk Size"
 msgstr "區塊大小"
 
 msgid "Cipher"
-msgstr ""
+msgstr "加密"
 
 msgid "Clears the stack."
 msgstr "清除堆疊。"
@@ -172,9 +172,9 @@ msgstr "建立包含裝置的新池。"
 msgid "Description"
 msgstr "描述"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Device '%s' cannot be resized."
-msgstr "無法移除區塊裝置 \"%s\""
+msgstr "無法調整裝置 %s 的大小。"
 
 msgid "Devices"
 msgstr "裝置"
@@ -217,11 +217,10 @@ msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Keep smiling, 'cause that's the most important thing."
 
 msgid "Key File"
-msgstr ""
+msgstr "金鑰檔案"
 
-#, fuzzy
 msgid "Key Size"
-msgstr "大小"
+msgstr "金鑰大小"
 
 #, c-format
 msgid "LUKS on %s"
@@ -269,7 +268,7 @@ msgid "Missing block devices."
 msgstr "缺少區塊裝置。"
 
 msgid "Missing size option."
-msgstr ""
+msgstr "未設定大小選項。"
 
 msgid "Model"
 msgstr "型號"
@@ -281,10 +280,10 @@ msgid "Name"
 msgstr "名稱"
 
 msgid "New size too big."
-msgstr ""
+msgstr "新大小值太大。"
 
 msgid "New size too small."
-msgstr ""
+msgstr "新大小值太小。"
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -294,7 +293,7 @@ msgid "No global block devices allowed."
 msgstr "沒有允許使用的全域區塊裝置。"
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
 msgstr "密碼不符。"
@@ -348,9 +347,8 @@ msgstr "從堆疊中移除頂層物件。"
 msgid "Renames pool."
 msgstr "將池重新命名。"
 
-#, fuzzy
 msgid "Resizes a device."
-msgstr "移除裝置。"
+msgstr "調整裝置的大小。"
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr "將預備裝置圖表還原到上次備份。"
@@ -454,17 +452,16 @@ msgid "] constructs an array."
 msgstr "] 會建構一個陣列。"
 
 msgid "activate by"
-msgstr ""
+msgstr "啟用者"
 
-#, fuzzy
 msgid "activate options"
-msgstr "微調選項"
+msgstr "啟用選項"
 
 msgid "activate storage systems at startup"
 msgstr "啟動時啟用儲存系統"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "需要指定啟用者標籤"
 
 msgid "answer all questions with yes"
 msgstr "對所有問題都回答 \"是\""
@@ -534,9 +531,8 @@ msgstr "不在 /etc/crypttab 中新增"
 msgid "do not add in /etc/fstab"
 msgstr "不在 /etc/fstab 中新增"
 
-#, fuzzy
 msgid "do not add in /etc/mdadm.conf"
-msgstr "不在 /etc/fstab 中新增"
+msgstr "不新增至 /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
 msgstr "不提交任何內容至磁碟"
@@ -635,11 +631,11 @@ msgid "keep underlying partitions"
 msgstr "保留基礎分割區"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "標籤僅適用於 LUKS2"
 
-#, fuzzy, c-format
+#, c-format
 msgid "logical volume '%s' has size zero"
-msgstr "LVM 邏輯磁碟區 %s"
+msgstr "邏輯磁碟區 %s 的大小為零"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -722,9 +718,8 @@ msgstr "裝載選項需要路徑"
 msgid "mount path"
 msgstr "裝載路徑"
 
-#, fuzzy
 msgid "mount-by label requires a label"
-msgstr "掛接方式需要路徑"
+msgstr "需要指定掛接方式標籤"
 
 msgid "mount-by requires a path"
 msgstr "掛接方式需要路徑"
@@ -758,9 +753,8 @@ msgstr "裝置圖表名稱"
 msgid "name of devicegraph file"
 msgstr "裝置圖表檔案名稱"
 
-#, fuzzy
 msgid "name of encryption already exists"
-msgstr "RAID 名稱已存在"
+msgstr "加密名稱已存在"
 
 msgid "name of logical volume already exists"
 msgstr "邏輯磁碟區名稱已存在"
@@ -784,14 +778,13 @@ msgid "name of volume group already exists"
 msgstr "磁碟區群組名稱已存在"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "大小值中不允許包含 + 和 -"
 
 msgid "new name"
 msgstr "新名稱"
 
-#, fuzzy
 msgid "new size"
-msgstr "設定大小"
+msgstr "新大小"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
@@ -924,7 +917,7 @@ msgid "pool name"
 msgstr "池名稱"
 
 msgid "probe used space"
-msgstr ""
+msgstr "查探已用空間"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
@@ -935,7 +928,7 @@ msgid "run with a rootprefix"
 msgstr "使用根字首執行"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "設定 PBKDF"
 
 msgid "set RAID level"
 msgstr "設定 RAID 層級"
@@ -952,9 +945,8 @@ msgstr "設定金鑰檔案"
 msgid "set chunk size"
 msgstr "設定區塊大小"
 
-#, fuzzy
 msgid "set cipher"
-msgstr "設定大小"
+msgstr "設定加密"
 
 msgid "set extent size"
 msgstr "設定範圍大小"
@@ -965,9 +957,8 @@ msgstr "設定檔案系統標籤"
 msgid "set file system type"
 msgstr "設定檔案系統類型"
 
-#, fuzzy
 msgid "set key size"
-msgstr "設定大小"
+msgstr "設定金鑰大小"
 
 msgid "set label of device"
 msgstr "設定裝置標籤"
@@ -1019,7 +1010,7 @@ msgid "show colors"
 msgstr "顯示色彩"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "顯示簡要動作而非詳細動作"
 
 msgid "show help and exit"
 msgstr "顯示說明並結束"
@@ -1045,13 +1036,11 @@ msgstr "\"lv\" 指令遺失大小"
 msgid "size of stripes"
 msgstr "等量磁碟區大小"
 
-#, fuzzy
 msgid "size too small for command 'lv'"
-msgstr "\"lv\" 指令遺失大小"
+msgstr "指令 'lv' 的大小參數太小"
 
-#, fuzzy
 msgid "size too small for file system"
-msgstr "建立新檔案系統。"
+msgstr "檔案系統的大小太小"
 
 msgid "spare devices not allowed for raid level"
 msgstr "不允許為 raid 層級使用備用裝置"
@@ -1086,9 +1075,9 @@ msgstr "微調選項"
 msgid "tune options not allowed for %s"
 msgstr "不允許為 %s 使用微調選項"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown activate-by type '%s'"
-msgstr "未知的檔案系統類型 \"%s\""
+msgstr "未知的啟用者類型 '%s'"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1101,16 +1090,16 @@ msgstr "未知的加密類型"
 msgid "unknown filesystem type '%s'"
 msgstr "未知的檔案系統類型 \"%s\""
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type '%s'"
-msgstr "未知的掛接方式類型 \"%s\""
+msgstr "未知的掛接方式類型 '%s'"
 
 msgid "unknown partition table type"
 msgstr "未知的分割區表類型"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr "未知的檔案系統類型 \"%s\""
+msgstr "未知的查探已用空間模式 '%s'"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "\"raid\" 指令的 raid 層級未知"
