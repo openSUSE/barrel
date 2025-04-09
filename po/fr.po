@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2024-03-04 15:43+0000\n"
+"PO-Revision-Date: 2025-04-09 13:56+0000\n"
 "Last-Translator: Sophie Leroy <sophie@stoquart.com>\n"
-"Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.opensuse.org/projects/barrel/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d bits"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
@@ -130,7 +130,7 @@ msgid "Chunk Size"
 msgstr "Taille de tranche"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Chiffrement"
 
 msgid "Clears the stack."
 msgstr "Efface la pile."
@@ -171,9 +171,9 @@ msgstr "Crée un pool contenant des périphériques."
 msgid "Description"
 msgstr "Description"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Device '%s' cannot be resized."
-msgstr "le périphérique de bloc '%s' ne peu tpas être supprimé"
+msgstr "Le périphérique '%s' ne peut pas être redimensionné."
 
 msgid "Devices"
 msgstr "Périphériques"
@@ -216,11 +216,10 @@ msgid "Keep smiling, 'cause that's the most important thing."
 msgstr "Gardez le sourire, car c'est le plus important."
 
 msgid "Key File"
-msgstr ""
+msgstr "Fichier de clé"
 
-#, fuzzy
 msgid "Key Size"
-msgstr "Taille"
+msgstr "Taille de la clé"
 
 #, c-format
 msgid "LUKS on %s"
@@ -268,7 +267,7 @@ msgid "Missing block devices."
 msgstr "Périphériques de bloc manquants."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Option de taille manquante."
 
 msgid "Model"
 msgstr "Modèle"
@@ -280,10 +279,10 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "New size too big."
-msgstr ""
+msgstr "La nouvelle taille est trop grande."
 
 msgid "New size too small."
-msgstr ""
+msgstr "La nouvelle taille est trop petite."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
@@ -293,7 +292,7 @@ msgid "No global block devices allowed."
 msgstr "Aucun périphérique de bloc global autorisé."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
@@ -347,9 +346,8 @@ msgstr "Supprime le premier objet de la pile."
 msgid "Renames pool."
 msgstr "Renomme le pool."
 
-#, fuzzy
 msgid "Resizes a device."
-msgstr "Supprime un périphérique."
+msgstr "Redimensionne un périphérique."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
@@ -456,17 +454,16 @@ msgid "] constructs an array."
 msgstr "] construit un tableau."
 
 msgid "activate by"
-msgstr ""
+msgstr "activer par"
 
-#, fuzzy
 msgid "activate options"
-msgstr "options de réglage"
+msgstr "options d'activation"
 
 msgid "activate storage systems at startup"
 msgstr "activer les systèmes de stockage au démarrage"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "L'étiquette activate-by (activer-par) nécessite une étiquette"
 
 msgid "answer all questions with yes"
 msgstr "répondre à toutes les questions par \"oui\""
@@ -539,9 +536,8 @@ msgstr "ne pas ajouter dans /etc/crypttab"
 msgid "do not add in /etc/fstab"
 msgstr "ne pas ajouter dans /etc/fstab"
 
-#, fuzzy
 msgid "do not add in /etc/mdadm.conf"
-msgstr "ne pas ajouter dans /etc/fstab"
+msgstr "ne pas ajouter dans /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
 msgstr "ne rien valider sur le disque"
@@ -640,11 +636,11 @@ msgid "keep underlying partitions"
 msgstr "conserver les partitions sous-jacentes"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "étiquette uniquement prise en charge pour LUKS2"
 
-#, fuzzy, c-format
+#, c-format
 msgid "logical volume '%s' has size zero"
-msgstr "Volume logique LVM %s"
+msgstr "Le volume logique '%s' a une taille nulle"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
@@ -728,9 +724,8 @@ msgstr "les options de montage nécessitent un chemin"
 msgid "mount path"
 msgstr "chemin de montage"
 
-#, fuzzy
 msgid "mount-by label requires a label"
-msgstr "l'option \"monter par\" nécessite un chemin"
+msgstr "l'étiquette mount-by (monter par) nécessite une étiquette"
 
 msgid "mount-by requires a path"
 msgstr "l'option \"monter par\" nécessite un chemin"
@@ -764,9 +759,8 @@ msgstr "nom du graphique de périphérique"
 msgid "name of devicegraph file"
 msgstr "nom du fichier du graphique de périphérique"
 
-#, fuzzy
 msgid "name of encryption already exists"
-msgstr "le nom du RAID existe déjà"
+msgstr "le nom du chiffrement existe déjà"
 
 msgid "name of logical volume already exists"
 msgstr "le nom du volume logique existe déjà"
@@ -790,14 +784,13 @@ msgid "name of volume group already exists"
 msgstr "le nom du groupe de volumes existe déjà"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "les caractères + et - ne sont pas autorisés dans la taille"
 
 msgid "new name"
 msgstr "nouveau nom"
 
-#, fuzzy
 msgid "new size"
-msgstr "définir la taille"
+msgstr "nouvelle taille"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
@@ -942,7 +935,7 @@ msgid "pool name"
 msgstr "nom du pool"
 
 msgid "probe used space"
-msgstr ""
+msgstr "espace utilisé de la sonde"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
@@ -953,7 +946,7 @@ msgid "run with a rootprefix"
 msgstr "exécuter avec un préfixe racine"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "définir PBKDF"
 
 msgid "set RAID level"
 msgstr "définir le niveau RAID"
@@ -970,9 +963,8 @@ msgstr "définir un fichier de clé"
 msgid "set chunk size"
 msgstr "définir la taille de la tranche"
 
-#, fuzzy
 msgid "set cipher"
-msgstr "définir la taille"
+msgstr "définir le chiffrement"
 
 msgid "set extent size"
 msgstr "définir la taille de l'étendue"
@@ -983,9 +975,8 @@ msgstr "définir l'étiquette du système de fichiers"
 msgid "set file system type"
 msgstr "définir le type du système de fichiers"
 
-#, fuzzy
 msgid "set key size"
-msgstr "définir la taille"
+msgstr "définir la taille de la clé"
 
 msgid "set label of device"
 msgstr "définir l'étiquette du périphérique"
@@ -1037,7 +1028,7 @@ msgid "show colors"
 msgstr "Afficher les couleurs"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "afficher les actions de manière condensée plutôt que détaillée"
 
 msgid "show help and exit"
 msgstr "afficher l'aide et quitter"
@@ -1063,13 +1054,11 @@ msgstr "taille manquante pour la commande 'lv'"
 msgid "size of stripes"
 msgstr "taille des bandes"
 
-#, fuzzy
 msgid "size too small for command 'lv'"
-msgstr "taille manquante pour la commande 'lv'"
+msgstr "taille trop petite pour la commande 'lv'"
 
-#, fuzzy
 msgid "size too small for file system"
-msgstr "Crée un système de fichiers."
+msgstr "taille trop petite pour le système de fichiers"
 
 msgid "spare devices not allowed for raid level"
 msgstr "périphériques de rechange non autorisés pour le niveau RAID"
@@ -1104,9 +1093,9 @@ msgstr "options de réglage"
 msgid "tune options not allowed for %s"
 msgstr "options de réglage non autorisées pour %s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown activate-by type '%s'"
-msgstr "type de système de fichiers '%s' inconnu"
+msgstr "type d'activation '%s' inconnu"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
@@ -1119,16 +1108,16 @@ msgstr "type de chiffrement inconnu"
 msgid "unknown filesystem type '%s'"
 msgstr "type de système de fichiers '%s' inconnu"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown mount-by type '%s'"
 msgstr "type de montage '%s' inconnu"
 
 msgid "unknown partition table type"
 msgstr "type de table de partition inconnu"
 
-#, fuzzy, c-format
+#, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr "type de système de fichiers '%s' inconnu"
+msgstr "mode probe-used-space (espace utilisé de la sonde) '%s' inconnu"
 
 msgid "unknown raid level for command 'raid'"
 msgstr "niveau RAID inconnu pour la commande 'raid'"
