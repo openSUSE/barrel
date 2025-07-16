@@ -2,6 +2,7 @@
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE barrel
 
+#include <numeric>
 #include <boost/test/unit_test.hpp>
 
 #include <storage/Actiongraph.h>
@@ -10,6 +11,7 @@
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
 #include "helpers/output.h"
+#include "helpers/run-and-capture.h"
 
 
 using namespace std;
@@ -134,4 +136,104 @@ BOOST_AUTO_TEST_CASE(test4)
     handle(args.argc(), args.argv(), &testsuite);
 
     BOOST_CHECK_EQUAL(actions, testsuite.actions); // TODO sort
+}
+
+
+BOOST_AUTO_TEST_CASE(test5)
+{
+    // Check for duplicate RAID name.
+
+    Args args({ "--dry-run", "--yes" });
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    testsuite.readlines = {
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2 --name foo",
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2 --name foo",
+    };
+
+    ostringstream buffer;
+    streambuf* old = cout.rdbuf(buffer.rdbuf());
+    handle(args.argc(), args.argv(), &testsuite);
+    cout.rdbuf(old);
+
+    vector<string> output1 = {
+	"Probing... done",
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2 --name foo",
+	"  Create partition /dev/sdb1 (1.02 GiB)",
+	"  Set id of partition /dev/sdb1 to Linux RAID",
+	"  Create partition /dev/sdc1 (1.02 GiB)",
+	"  Set id of partition /dev/sdc1 to Linux RAID",
+	"  Create MD RAID0 /dev/md/foo (2.00 GiB) from /dev/sdb1 (1.02 GiB) and /dev/sdc1 (1.02 GiB)",
+	"  Add /dev/md/foo to /etc/mdadm.conf",
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2 --name foo",
+	""
+    };
+
+    vector<string> output2 = {
+	"error: name of RAID already exists"
+    };
+
+    pair<string, string> lhs = run_and_capture(args.argc(), args.argv(), &testsuite);
+
+    string rhs1 = accumulate(output1.begin(), output1.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.first, rhs1);
+
+    string rhs2 = accumulate(output2.begin(), output2.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.second, rhs2);
+}
+
+
+BOOST_AUTO_TEST_CASE(test6)
+{
+    // Check for duplicate RAID name/number.
+
+    Args args({ "--dry-run", "--yes" });
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    testsuite.readlines = {
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2",
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2 --name 0",
+    };
+
+    ostringstream buffer;
+    streambuf* old = cout.rdbuf(buffer.rdbuf());
+    handle(args.argc(), args.argv(), &testsuite);
+    cout.rdbuf(old);
+
+    vector<string> output1 = {
+	"Probing... done",
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2",
+	"  Create partition /dev/sdb1 (1.02 GiB)",
+	"  Set id of partition /dev/sdb1 to Linux RAID",
+	"  Create partition /dev/sdc1 (1.02 GiB)",
+	"  Set id of partition /dev/sdc1 to Linux RAID",
+	"  Create MD RAID0 /dev/md0 (2.00 GiB) from /dev/sdb1 (1.02 GiB) and /dev/sdc1 (1.02 GiB)",
+	"  Add /dev/md0 to /etc/mdadm.conf",
+	"create raid0 --pool-name \"HDDs (512 B)\" --size 2g --devices 2 --name 0",
+	""
+    };
+
+    vector<string> output2 = {
+	"error: name of RAID already exists"
+    };
+
+    pair<string, string> lhs = run_and_capture(args.argc(), args.argv(), &testsuite);
+
+    string rhs1 = accumulate(output1.begin(), output1.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.first, rhs1);
+
+    string rhs2 = accumulate(output2.begin(), output2.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.second, rhs2);
 }
