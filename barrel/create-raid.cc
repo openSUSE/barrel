@@ -99,8 +99,7 @@ namespace barrel
 
 	    if (regex_match(str, match, raid_rx))
 	    {
-		string n1 = match[1];
-		raid = atoi(n1.c_str());
+		raid = stoi(match[1]);
 		if (raid < 1)
 		    throw runtime_error(sformat(_("invalid devices value '%d'"), raid));
 
@@ -109,13 +108,11 @@ namespace barrel
 
 	    if (regex_match(str, match, raid_and_spare_rx))
 	    {
-		string n1 = match[1];
-		raid = atoi(n1.c_str());
+		raid = stoi(match[1]);
 		if (raid < 1)
 		    throw runtime_error(sformat(_("invalid devices value '%d'"), raid));
 
-		string n2 = match[2];
-		spare = atoi(n2.c_str());
+		spare = stoi(match[2]);
 		if (spare < 1)
 		    throw runtime_error(sformat(_("invalid devices value '%d'"), spare));
 
@@ -124,8 +121,7 @@ namespace barrel
 
 	    if (regex_match(str, match, spare_rx))
 	    {
-		string n1 = match[1];
-		spare = atoi(n1.c_str());
+		spare = stoi(match[1]);
 		if (spare < 1)
 		    throw runtime_error(sformat(_("invalid devices value '%d'"), spare));
 
@@ -323,10 +319,25 @@ namespace barrel
 	{
 	    name = DEV_MD_DIR "/" + options.name.value();
 
-	    for (const Md* md : Md::get_all(staging))
+	    const bool numeric = options.name.value().find_first_not_of("0123456789") == string::npos;
+
+	    if (numeric)
 	    {
-		if (md->get_name() == name)
-		    throw runtime_error(_("name of RAID already exists"));
+		unsigned int number = stoi(options.name.value());
+
+		for (const Md* md : Md::get_all(staging))
+		{
+		    if (md->is_numeric() && md->get_number() == number)
+			throw runtime_error(_("name of RAID already exists"));
+		}
+	    }
+	    else
+	    {
+		for (const Md* md : Md::get_all(staging))
+		{
+		    if (md->get_name() == name)
+			throw runtime_error(_("name of RAID already exists"));
+		}
 	    }
 	}
 	else
