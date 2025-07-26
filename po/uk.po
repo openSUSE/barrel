@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-07-25 22:59+0000\n"
+"PO-Revision-Date: 2025-07-26 20:59+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/"
 "barrel-master/uk/>\n"
@@ -140,111 +140,111 @@ msgid "Commands:"
 msgstr "Команди:"
 
 msgid "Commit changes?"
-msgstr ""
+msgstr "Внести зміни?"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
+msgstr "Зберігає зміни на диск і закриває barrel."
 
 msgid "Continue?"
-msgstr ""
+msgstr "Продовжити?"
 
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "Створює новий логічний том LVM."
 
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "Створює нову групу томів LVM."
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "Створює новий RAID-масив."
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "Створює новий пристрій шифрування."
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "Створює нову файлову систему."
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "Створює нову таблицю розділів."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Створює новий пул, що містить пристрої."
 
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #, c-format
 msgid "Device '%s' cannot be resized."
-msgstr ""
+msgstr "Розмір пристрою “%s” не можна змінити."
 
 msgid "Devices"
-msgstr ""
+msgstr "Пристрої"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Дублює верхній об'єкт стека."
 
 msgid "Enter password:"
-msgstr ""
+msgstr "Введіть пароль:"
 
 msgid "Exchanges the top two elements of the stack."
-msgstr ""
+msgstr "Міняє місцями два верхні елементи стека."
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Розширений розмір"
 
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "GPT на %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Створення пулів"
 
 msgid "Global options:"
-msgstr ""
+msgstr "Глобальні параметри:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Неправильна відповідь «%s»"
 
 #, c-format
 msgid "Invalid table style '%s'."
-msgstr ""
+msgstr "Неправильний стиль таблиці “%s”."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Посміхайся, бо це найголовніше."
 
 msgid "Key File"
-msgstr ""
+msgstr "Файл ключа"
 
 msgid "Key Size"
-msgstr ""
+msgstr "Розмір ключа"
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "LUKS на %s"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "Логічний том LVM %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "Група томів LVM %s"
 
 msgid "Label"
-msgstr ""
+msgstr "Ярлик"
 
 msgid "Level"
-msgstr ""
+msgstr "Рівень"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Завантаження пулів..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Завантажує пули."
 
 msgid "Loads the staging devicegraph from a file."
 msgstr ""
