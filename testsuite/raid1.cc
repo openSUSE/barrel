@@ -7,6 +7,7 @@
 
 #include <storage/Actiongraph.h>
 #include <storage/Devices/Md.h>
+#include <storage/Version.h>
 
 #include "../barrel/handle.h"
 #include "../barrel/Utils/Args.h"
@@ -236,4 +237,43 @@ BOOST_AUTO_TEST_CASE(test6)
 			     [](auto a, auto b) { return a + b + "\n"; });
 
     BOOST_CHECK_EQUAL(lhs.second, rhs2);
+}
+
+
+BOOST_AUTO_TEST_CASE(test7)
+{
+    // Early check for RAID name before probing.
+
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 102)
+
+    Args args({ "--dry-run", "--yes", "create", "raid0", "--name", "a/b" });
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "empty2.xml";
+
+    ostringstream buffer;
+    streambuf* old = cout.rdbuf(buffer.rdbuf());
+    handle(args.argc(), args.argv(), &testsuite);
+    cout.rdbuf(old);
+
+    vector<string> output1 = {
+    };
+
+    vector<string> output2 = {
+	"error: invalid raid name for command 'raid'"
+    };
+
+    pair<string, string> lhs = run_and_capture(args.argc(), args.argv(), &testsuite);
+
+    string rhs1 = accumulate(output1.begin(), output1.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.first, rhs1);
+
+    string rhs2 = accumulate(output2.begin(), output2.end(), ""s,
+			     [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs.second, rhs2);
+
+#endif
 }
