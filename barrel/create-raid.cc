@@ -185,6 +185,14 @@ namespace barrel
 
 	    name = parsed_opts.get_optional("name");
 
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 102)
+	    if (name)
+	    {
+		if (!Md::is_valid_name(DEV_MD_DIR "/" + name.value()))
+		    throw runtime_error(_("invalid raid name for command 'raid'"));
+	    }
+#endif
+
 	    pool_name = parsed_opts.get_optional("pool-name");
 
 	    if (parsed_opts.has_option("devices"))
