@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-07-26 20:59+0000\n"
+"PO-Revision-Date: 2025-08-06 21:59+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/"
 "barrel-master/uk/>\n"
@@ -247,62 +247,62 @@ msgid "Loads pools."
 msgstr "Завантажує пули."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Завантажує проміжний граф пристроїв із файлу."
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "MS-DOS на %s"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Метадані"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "Відсутній аргумент для опції команди “%s”."
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "Відсутній аргумент для глобальної опції “%s”."
 
 msgid "Missing block devices."
-msgstr ""
+msgstr "Відсутні блокові пристрої."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Відсутня опція вибору розміру."
 
 msgid "Model"
-msgstr ""
+msgstr "Модель"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Точка монтування"
 
 msgid "Name"
-msgstr ""
+msgstr "Назва"
 
 msgid "New size too big."
-msgstr ""
+msgstr "Новий розмір занадто великий."
 
 msgid "New size too small."
-msgstr ""
+msgstr "Новий розмір занадто малий."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "Для опції команди “%s” не допускаються блокові пристрої."
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "Глобальні блокові пристрої заборонені."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Паролі не співпадають."
 
 msgid "Pool"
-msgstr ""
+msgstr "Пул"
 
 msgid "Position"
-msgstr ""
+msgstr "Положення"
 
 msgid "Prints help."
 msgstr ""
