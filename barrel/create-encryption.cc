@@ -1,5 +1,5 @@
 /*
- * Copyright (c) [2021-2024] SUSE LLC
+ * Copyright (c) [2021-2025] SUSE LLC
  *
  * All Rights Reserved.
  *
@@ -27,6 +27,7 @@
 #include <storage/Devices/PartitionTable.h>
 #include <storage/Devices/Partitionable.h>
 #include <storage/Devices/Partition.h>
+#include <storage/Version.h>
 
 #include "Utils/GetOpts.h"
 #include "Utils/Text.h"
@@ -130,6 +131,11 @@ namespace barrel
 		throw OptionsException(_("name missing for command 'encryption'"));
 
 	    name = parsed_opts.get("name");
+
+#if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 103)
+	    if (!Encryption::is_valid_dm_table_name(name))
+		throw runtime_error(_("invalid name for command 'encryption'"));
+#endif
 
 	    label = parsed_opts.get_optional("label");
 

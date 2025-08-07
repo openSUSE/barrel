@@ -18,7 +18,8 @@ check_PROGRAMS =						\
 	show3.test show4.test show5.test remove1.test		\
 	remove2.test luks1.test gpt1.test misuse1.test		\
 	misuse2.test misuse3.test ext1.test btrfs1.test		\
-	stack1.test help1.test smart-size.test resize1.test
+	stack1.test help1.test smart-size.test resize1.test	\
+	encryption1.test
 
 AM_DEFAULT_SOURCE_EXT = .cc
 
