@@ -257,6 +257,7 @@ BOOST_AUTO_TEST_CASE(test7)
     cout.rdbuf(old);
 
     vector<string> output1 = {
+	// No "Probing..."
     };
 
     vector<string> output2 = {

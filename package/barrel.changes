@@ -1,7 +1,7 @@
 -------------------------------------------------------------------
 Mon Aug 04 09:27:13 CEST 2025 - aschnell@suse.com
 
-- added early check for MD RAID names
+- added early check for MD RAID and encryption names
 
 -------------------------------------------------------------------
 Wed Jul 16 11:59:32 CEST 2025 - aschnell@suse.com
