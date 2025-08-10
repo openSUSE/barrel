@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-08-06 21:59+0000\n"
+"PO-Revision-Date: 2025-08-10 21:59+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/"
 "barrel-master/uk/>\n"
@@ -305,194 +305,198 @@ msgid "Position"
 msgstr "Положення"
 
 msgid "Prints help."
-msgstr ""
+msgstr "Виводить довідку."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Виводить стек."
 
 msgid "Probing..."
-msgstr ""
+msgstr "Зондування..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "Профілі"
 
 msgid "Quit?"
-msgstr ""
+msgstr "Вийти?"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "Виходить з barrel."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "Рівень RAID вже встановлено для команди 'raid'"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "Рівень RAID відсутній для команди «raid»"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Вилучає пристрій."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Вилучає пул."
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Вилучає пристрої з пулу."
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Видаляє верхній об'єкт зі стека."
 
 msgid "Renames pool."
-msgstr ""
+msgstr "Перейменовує пул."
 
 msgid "Resizes a device."
-msgstr ""
+msgstr "Змінює розмір пристрою."
 
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
+msgstr "Відновлює проміжний граф пристроїв до останньої резервної копії."
 
 msgid "Save pools"
-msgstr ""
+msgstr "Зберегти пули"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Зберігає пули."
 
 msgid "Saves the devicegraph to a file."
-msgstr ""
+msgstr "Зберігає граф пристроїв у файл."
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Зберігання пулів..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
 msgstr ""
+"Встановлення ідентифікатора розділу %s з непідтримуваного значення на %s."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "Показує DASD."
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Показує групи томів LVM."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Показує масиви RAID."
 
 msgid "Shows actiongraph."
-msgstr ""
+msgstr "Показує граф дій."
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Показує дії щодо внесків."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Показує дерево пристроїв."
 
 msgid "Shows devicegraph."
-msgstr ""
+msgstr "Показує граф пристроїв."
 
 msgid "Shows disks."
-msgstr ""
+msgstr "Показує диски."
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Показує пристрої шифрування."
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "Показує файлові системи."
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Показує пристрої з кількома шляхами."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Показує пули."
 
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 msgid "Stripes"
-msgstr ""
+msgstr "Смужки"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "Команда має такі підкоманди:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "Передача"
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Невідомий глобальний параметр «%s»."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Невідомий параметр “%s” для команди “%s”."
 
 msgid "Usage"
-msgstr ""
+msgstr "Використання"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Використовуйте ціле число від %d до %d."
 
 msgid "Used"
-msgstr ""
+msgstr "Використано"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Вендор"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "Підтвердіть пароль:"
 
 msgid "[ pushes a mark on the stack."
-msgstr ""
+msgstr "[ додає позначку до стека."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] створює масив."
 
 msgid "activate by"
-msgstr ""
+msgstr "активувати за"
 
 msgid "activate options"
-msgstr ""
+msgstr "параметри активації"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "активувати системи зберігання при запуску"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "активація за міткою вимагає наявність мітки"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "на всі питання відповісти \"так\""
 
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "масив з %d об'єкта"
+msgstr[1] "масив з %d об'єктів"
+msgstr[2] "масив з %d об'єктів"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
 msgid "bad devices argument"
-msgstr ""
+msgstr "аргумент про несправні пристрої"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "аргумент про несправні смуги"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "бути більш розлогим"
 
 msgid "be quiet"
-msgstr ""
+msgstr "без повідомлень"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "Блок-пристрій “%s” не може бути видалений"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
 msgstr ""
+"блоковий пристрій “%s” не може використовуватися як звичайний блоковий "
+"пристрій"
 
 #, c-format
 msgid "block device '%s' is in use"
