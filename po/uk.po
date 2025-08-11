@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-08-10 21:59+0000\n"
+"PO-Revision-Date: 2025-08-11 21:59+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/"
 "barrel-master/uk/>\n"
@@ -500,137 +500,137 @@ msgstr ""
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "блоковий пристрій “%s” використовується"
 
 msgid "block devices for LVM volume group missing"
-msgstr ""
+msgstr "відсутні блокові пристрої для групи томів LVM"
 
 msgid "block devices for RAID missing"
-msgstr ""
+msgstr "відсутні блокові пристрої для RAID"
 
 msgid "block devices for filesystem missing"
-msgstr ""
+msgstr "відсутні блокові пристрої для файлової системи"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "відсутні блокові пристрої для команди «raid»"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
 #, c-format
 msgid "close for json file '%s' failed"
-msgstr ""
+msgstr "закриття з файлом json “%s” не вдалося"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "закриття файлу json “%s” не вдалося"
 
 msgid "deleted device"
-msgstr ""
+msgstr "видалений пристрій"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "пристрій “%s” не знайдено в картографії"
 
 msgid "do not add in /etc/crypttab"
-msgstr ""
+msgstr "не додавати в /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "не додавати в /etc/fstab"
 
 msgid "do not add in /etc/mdadm.conf"
-msgstr ""
+msgstr "не додавати в /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "не записувати нічого на диск"
 
 msgid "do not show colors"
-msgstr ""
+msgstr "не показувати кольори"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "не показувати розділи на DASD"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "не показувати розділи на RAID'ах"
 
 #. TRANSLATORS: help text
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "не показувати розділи на дисках"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "не показувати розділи на пристроях з кількома шляхами доступу"
 
 msgid "done"
-msgstr ""
+msgstr "виконано"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "елемент масиву для “%s” не є рядком"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "елемент масиву пристроїв для “%s” не є рядком"
 
 msgid "encryption type"
-msgstr ""
+msgstr "тип шифрування"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "тип шифрування вже встановлено для команди «encryption»"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "тип шифрування відсутній для команди «encryption»"
 
 msgid "error:"
-msgstr ""
+msgstr "помилка:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "надмірний вміст у файлі json '%s'"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "не вдалося розрахувати дії"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "не вдалося проаналізувати розмір '%s'"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "файлова система %s на %s"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "тип файлової системи вже встановлено для команди «filesystem»"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "тип файлової системи відсутній для команди «filesystem»"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "примусово, якщо блок-пристрій використовується"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "примусово, якщо блок-пристрої задіяні"
 
 msgid "go downwards"
-msgstr ""
+msgstr "знижуватися"
 
 msgid "go upwards"
-msgstr ""
+msgstr "підніматися"
 
 #, c-format
 msgid "invalid devices value '%d'"
-msgstr ""
+msgstr "недійсне значення пристроїв '%d'"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "недійсне ім'я логічного тому для команди 'lv'"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "недійсний шлях '%s'"
 
 #, c-format
 msgid "invalid size '%s'"
-msgstr ""
+msgstr "недійсний розмір '%s'"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "недійсна назва групи томів для команди 'vg'"
 
 msgid "keep underlying partitions"
 msgstr ""
