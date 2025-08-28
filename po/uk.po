@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-08-11 21:59+0000\n"
+"PO-Revision-Date: 2025-08-28 19:59+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/"
 "barrel-master/uk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.12.2\n"
+"X-Generator: Weblate 5.13\n"
 
 #, c-format
 msgid "%d bits"
@@ -633,175 +633,175 @@ msgid "invalid volume group name for command 'vg'"
 msgstr "недійсна назва групи томів для команди 'vg'"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "зберегти основні розділи"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "мітка підтримується тільки для LUKS2"
 
 #, c-format
 msgid "logical volume '%s' has size zero"
-msgstr ""
+msgstr "логічний том “%s” має розмір нуль"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "відображений DASD для «%s» має інший формат"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "відображений DASD для «%s» має інший тип"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "DASD для «%s» відображено двічі"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "DM RAID для “%s” відображено двічі"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "пристрій, відображений для «%s», має інший розмір блоку"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "пристрій, призначений для “%s”, не є DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "пристрій, відображений для «%s», не є DM RAID"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "пристрій, відображений для «%s», не є диском"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "пристрій, відображений для «%s», не є мультишляхом"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "відповідність пристрою для «%s» є меншою"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "Не знайдено підключеного пристрою для «%s»"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "диск, підключений для “%s”, підключений двічі"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "мультишлях для «%s» відображено двічі"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "призначення %s до %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "призначення не знайдено у файлі json'%s'"
 
 msgid "missing block device"
-msgstr ""
+msgstr "відсутній блоковий пристрій"
 
 msgid "missing partitionable"
-msgstr ""
+msgstr "відсутня таблиця розділів"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "параметри mkfs"
 
 msgid "mount by"
-msgstr ""
+msgstr "монтувати за"
 
 msgid "mount options"
-msgstr ""
+msgstr "параметри монтування"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "параметри монтування вимагають вказати шлях"
 
 msgid "mount path"
-msgstr ""
+msgstr "шлях монтування"
 
 msgid "mount-by label requires a label"
-msgstr ""
+msgstr "mount-by label вимагає мітки"
 
 msgid "mount-by requires a path"
-msgstr ""
+msgstr "mount-by вимагає вказання шляху"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "кілька пристроїв"
 
 #. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
-msgstr ""
+msgstr "н"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "відсутня назва для команди «devicegraph»"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "відсутня назва для команди «encryption»"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "відсутня назва для команди 'lv'"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "відсутня назва для команди 'vg'"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "назва RAID вже існує"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "назва devicegraph"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "назва файлу devicegraph"
 
 msgid "name of encryption already exists"
-msgstr ""
+msgstr "назва шифрування вже існує"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "назва логічного тому вже існує"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "назва файлу маппінгу"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "назва нового пулу"
 
 msgid "name of pool"
-msgstr ""
+msgstr "назва пулу"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "назва пулу для користування"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "назва групи томів"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "назва групи томів вже існує"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "ані + ні - не допускаються в розмірі"
 
 msgid "new name"
-msgstr ""
+msgstr "нова назва"
 
 msgid "new size"
-msgstr ""
+msgstr "новий розмір"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "відсутня резервна копія для скасування"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "не знайдено призначення DASD для '%s'"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "не знайдено призначення DM RAID для '%s'"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
