@@ -36,6 +36,8 @@ namespace barrel
     {
 	Readline::storage = storage;
 
+	// Note: readline allocates memory that partly cannot be freed.
+
 	rl_readline_name = "barrel";
 
 	rl_attempted_completion_function = my_completion;
