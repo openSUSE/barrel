@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-08-28 19:59+0000\n"
+"PO-Revision-Date: 2025-09-23 20:59+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/"
 "barrel-master/uk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.13.3\n"
 
 #, c-format
 msgid "%d bits"
@@ -805,47 +805,47 @@ msgstr "не знайдено призначення DM RAID для '%s'"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "не знайдено диска з розбивкою для '%s'"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "не знайдено мульти-шляхів з розбивкою для '%s'"
 
 msgid "no mark on stack"
-msgstr ""
+msgstr "без позначки на стеку"
 
 msgid "not a block device in array"
-msgstr ""
+msgstr "не блоковий пристрій у масиві"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "не блоковий пристрій у стеку"
 
 msgid "not a block device or array of block devices on stack"
-msgstr ""
+msgstr "не блоковий пристрій або масив блокових пристроїв у стеку"
 
 msgid "not a device in array"
-msgstr ""
+msgstr "не є пристроєм у масиві"
 
 msgid "not a device on stack"
-msgstr ""
+msgstr "не є пристроєм у стеку"
 
 msgid "not a partition table in array"
-msgstr ""
+msgstr "не є таблицею розділів у масиві"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "не є таблицею розділів у стеку"
 
 msgid "not a partition table or array of partition tables on stack"
-msgstr ""
+msgstr "не є таблицею розділів або масивом таблиць розділів у стеку"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "не подільний"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "не подільний у стеку"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "не є групою томів у стеку"
 
 msgid "number of stripes"
 msgstr ""
