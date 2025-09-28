@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-09-23 20:59+0000\n"
+"PO-Revision-Date: 2025-09-28 15:59+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/"
 "barrel-master/uk/>\n"
@@ -848,168 +848,170 @@ msgid "not a volume group on stack"
 msgstr "не є групою томів у стеку"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "кількість смужок"
 
 msgid "old name"
-msgstr ""
+msgstr "стара назва"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "дозволено лише один блоковий пристрій"
 
 msgid "only one partition table allowed"
-msgstr ""
+msgstr "дозволена тільки одна таблиця розділів"
 
 msgid "only one partitionable allowed"
-msgstr ""
+msgstr "дозволена лише одна таблиця розділів"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
-msgstr ""
+msgstr "відкриття файлу json “%s” не вдалося"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "невдале відкриття файлу json “%s”"
 
 #, c-format
 msgid "option --devices not allowed for %s"
-msgstr ""
+msgstr "параметр --devices не дозволено для %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "не вдалося розібрати файл json '%s'"
 
 msgid "partition table type"
-msgstr ""
+msgstr "тип таблиці розділів"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr ""
+msgstr "тип таблиці розділів вже встановлено командою «partition-table»"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "тип таблиці розділів відсутній для команди «partition-table»"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "роздільник “%s” не може бути використаний як звичайний роздільник"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "роздільник '%s' використовується"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "шлях “%s” вже використано"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
 msgid "path must be 'swap' or 'none'"
-msgstr ""
+msgstr "шлях повинен бути 'swap' або 'none'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
 msgstr ""
+"аргумент pool і пристрої blk не допускаються разом для команди «encryption»"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
+"аргумент pool і пристрої blk не допускаються разом для команди 'filesystem'"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
-msgstr ""
+msgstr "аргумент pool і пристрої blk не допускаються разом для команди 'vg'"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "пул порожній"
 
 msgid "pool name"
-msgstr ""
+msgstr "назва пулу"
 
 msgid "probe used space"
-msgstr ""
+msgstr "простір, використаний для тесту"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "системний виклик `read` для файлу json '%s' дав збій"
 
 msgid "run with a rootprefix"
-msgstr ""
+msgstr "запустити з префіксом root"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "встановити PBKDF"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "встановити рівень RAID"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "встановити версію метаданих RAID"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "задати назву RAID"
 
 msgid "set a key file"
-msgstr ""
+msgstr "встановити ключовий файл"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "встановити розмір фрагмента"
 
 msgid "set cipher"
-msgstr ""
+msgstr "встановити шифр"
 
 msgid "set extent size"
-msgstr ""
+msgstr "встановити розмір області"
 
 msgid "set file system label"
-msgstr ""
+msgstr "задати мітку файлової системи"
 
 msgid "set file system type"
-msgstr ""
+msgstr "задати тип файлової системи"
 
 msgid "set key size"
-msgstr ""
+msgstr "задати розмір ключа"
 
 msgid "set label of device"
-msgstr ""
+msgstr "задати мітку пристрою"
 
 msgid "set name of device"
-msgstr ""
+msgstr "присвоїти назву пристрою"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "задати назву логічного тому"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "задати назву групи томів"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "встановити кількість пристроїв"
 
 msgid "set profiles"
-msgstr ""
+msgstr "встановити профілі"
 
 msgid "set size"
-msgstr ""
+msgstr "задати розмір"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "задати розмір RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "задати розмір логічного тому"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "задати розмір групи томів"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "знайдено кілька розміточних DASD для '%s'"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "знайдено кілька розміточних DM RAID для '%s'"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "знайдено кілька розміточних дисків '%s'"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "знайдено кілька розміточних мультишляхів для '%s'"
 
 msgid "show colors"
 msgstr ""
