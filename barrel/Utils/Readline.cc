@@ -48,8 +48,7 @@ namespace barrel
 
 	if (!testsuite)
 	{
-	    const char* env = getenv("HOME");
-	    if (env)
+	    if (const char* env = getenv("HOME"); env)
 		history_file = string(env) + "/.barrel_history";
 	}
 
