@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-01-05 07:04+0000\n"
+"PO-Revision-Date: 2026-01-07 08:04+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/mk/>\n"
@@ -130,7 +130,7 @@ msgid "Chunk Size"
 msgstr "Големина на парче"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Шифра"
 
 msgid "Clears the stack."
 msgstr "Го чисти стекот."
@@ -166,20 +166,20 @@ msgid "Creates a new partition table."
 msgstr "Создава нова табела со партиции."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Создади нов базен што содржи уреди."
 
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #, c-format
 msgid "Device '%s' cannot be resized."
-msgstr ""
+msgstr "Уредот „%s“ не може да се промени во големината."
 
 msgid "Devices"
 msgstr "Уреди"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Го дуплира горниот објект од стекот."
 
 msgid "Enter password:"
 msgstr ""
