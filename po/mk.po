@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-01-07 08:04+0000\n"
+"PO-Revision-Date: 2026-01-09 06:04+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/mk/>\n"
@@ -182,13 +182,13 @@ msgid "Duplicates the top object of the stack."
 msgstr "Го дуплира горниот објект од стекот."
 
 msgid "Enter password:"
-msgstr ""
+msgstr "Внесете лозинка:"
 
 msgid "Exchanges the top two elements of the stack."
-msgstr ""
+msgstr "Ги заменува двата горни елементи од стекот."
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Големина на обем"
 
 msgid "Format"
 msgstr "Формат"
@@ -198,10 +198,10 @@ msgid "GPT on %s"
 msgstr "GPT на %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Се генерираат базени"
 
 msgid "Global options:"
-msgstr ""
+msgstr "Глобални опции:"
 
 #, c-format
 msgid "Invalid answer '%s'"
