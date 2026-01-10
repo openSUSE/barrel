@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-01-09 06:04+0000\n"
+"PO-Revision-Date: 2026-01-10 08:04+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/mk/>\n"
@@ -205,21 +205,21 @@ msgstr "Глобални опции:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Неважечки одговор „%s“"
 
 #, c-format
 msgid "Invalid table style '%s'."
-msgstr ""
+msgstr "Неважечки стил на табела „%s“."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Продолжи да се смееш, бидејќи тоа е најважното нешто."
 
 msgid "Key File"
-msgstr ""
+msgstr "Клучен Фајл"
 
 msgid "Key Size"
-msgstr ""
+msgstr "Големина на клуч"
 
 #, c-format
 msgid "LUKS on %s"
