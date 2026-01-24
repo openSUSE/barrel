@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2025-09-28 15:59+0000\n"
+"PO-Revision-Date: 2026-01-24 23:04+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
-"Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/"
-"barrel-master/uk/>\n"
+"Language-Team: Ukrainian <https://l10n.opensuse.org/projects/barrel/barrel-"
+"master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.13.3\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #, c-format
 msgid "%d bits"
@@ -1014,125 +1014,125 @@ msgid "several mapping multipath for '%s' found"
 msgstr "знайдено кілька розміточних мультишляхів для '%s'"
 
 msgid "show colors"
-msgstr ""
+msgstr "показати кольори"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "показати стисло замість детальних дій"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "показати довідку та вийти"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "показати версію та вийти"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "відсутній аргумент розміру для команди «encryption»"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "відсутній аргумент розміру для команди «filesystem»"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "аргумент розміру необхідний для команди «raid»"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "аргумент розміру потрібен для команди «vg»"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "відсутній розмір для команди «lv»"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "розмір смуг"
 
 msgid "size too small for command 'lv'"
-msgstr ""
+msgstr "розмір занадто малий для команди «lv»"
 
 msgid "size too small for file system"
-msgstr ""
+msgstr "розмір занадто малий для файлової системи"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "запасні пристрої не дозволені для рівня RAID"
 
 msgid "stack empty"
-msgstr ""
+msgstr "стек порожній"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "стек спорожнів під час дублювання"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "стек спорожнів під час вилучення"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "переповнення стека під час обміну"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "помилка stat при обробці json-файлу '%s'"
 
 msgid "table style"
-msgstr ""
+msgstr "стиль таблиці"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "занадто мало пристроїв RAID для рівня RAID"
 
 msgid "tune options"
-msgstr ""
+msgstr "налаштувати параметри"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "параметри налаштування не дозволені для %s"
 
 #, c-format
 msgid "unknown activate-by type '%s'"
-msgstr ""
+msgstr "невідомий тип активації '%s'"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr ""
+msgstr "невідомий профіль btrfs '%s'"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "невідомий тип шифрування"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "невідомий тип файлової системи '%s'"
 
 #, c-format
 msgid "unknown mount-by type '%s'"
-msgstr ""
+msgstr "невідомий тип монтування '%s'"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "невідомий тип таблиці розділів"
 
 #, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr ""
+msgstr "невідомий режим використання простору зонда '%s'"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "невідомий рівень raid для команди 'raid'"
 
 #. TRANSLATORS: help text
 msgid "use probed instead of staging devicegraph"
-msgstr ""
+msgstr "використовувати probed замість staging devicegraph"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "значення “%s” не є ні рядком, ні масивом"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "значення опису не є рядком"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "значення поля пристроїв не є масивом"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "група томів «%s» перевищує дозволений обсяг"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "неправильна кількість розділів"
 
 #. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "т"
