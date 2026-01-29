@@ -20,8 +20,6 @@
  */
 
 
-#include <boost/algorithm/string.hpp>
-
 #include <storage/Storage.h>
 #include <storage/Devices/Partitionable.h>
 #include <storage/Devices/PartitionTable.h>
