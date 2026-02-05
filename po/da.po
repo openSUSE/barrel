@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-02 21:04+0000\n"
+"PO-Revision-Date: 2026-02-05 15:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -33,179 +33,181 @@ msgstr "Aktiver BitLocker på %1$s (%2$s) med UUID %3$s..."
 
 #, c-format
 msgid "Activate LUKS %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Aktiver LUKS %1$s på %2$s (%3$s) med UUID %4$s..."
 
 #, c-format
 msgid "Activate LUKS on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Aktiver LUKS på %1$s (%2$s) med UUID %3$s..."
 
 msgid "Activating..."
-msgstr ""
+msgstr "Aktiverer..."
 
 msgid "Adds devices to a pool."
-msgstr ""
+msgstr "Tilføjer enheder til pool."
 
 msgid "Alias for 'create encryption --type luks1'"
-msgstr ""
+msgstr "Alias for 'create encryption --type luks1'"
 
 msgid "Alias for 'create encryption --type luks2'"
-msgstr ""
+msgstr "Alias for 'create encryption --type luks2'"
 
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type bcachefs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type exfat'"
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type ext2'"
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type ext3'"
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type ext4'"
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type f2fs'"
 
 msgid "Alias for 'create filesystem --type jfs'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type jfs'"
 
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type ntfs'"
 
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type reiserfs'"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type swap'"
 
 msgid "Alias for 'create filesystem --type udf'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type udf'"
 
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "Alias for 'create filesystem --type xfs'"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "Alias for 'create partition-table --type gpt'"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "Alias for 'create partition-table --type ms-dos'"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "Alias for 'create raid --level 0'"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "Alias for 'create raid --level 1'"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "Alias for 'create raid --level 10'"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "Alias for 'create raid --level 4'"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "Alias for 'create raid --level 5'"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "Alias for 'create raid --level 6'"
 
 msgid "Block Size"
-msgstr ""
+msgstr "Blokstørrelse"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "Bus ID"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "Chunk-størrelse"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Cipher"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "Rydder stakken."
 
 msgid "Commands:"
-msgstr ""
+msgstr "Kommandoer:"
 
 msgid "Commit changes?"
-msgstr ""
+msgstr "Udfør ændringer?"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
+msgstr "Skriver ændringer til disk og afslutter barrel."
 
 msgid "Continue?"
-msgstr ""
+msgstr "Fortsæt?"
 
+#, fuzzy
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "Opretter nyt LVM logisk volume."
 
+#, fuzzy
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "Opretter nyt LVM volume group."
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "Opretter nyt RAID."
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "Opretter ny krypteringsenhed."
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "Opretter et nyt filsystem."
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "Opretter en ny partitionstabel."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Opretter en ny pool der indeholder enheder."
 
 msgid "Description"
-msgstr ""
+msgstr "Beskrivelse"
 
 #, c-format
 msgid "Device '%s' cannot be resized."
-msgstr ""
+msgstr "Kan ikke ændre størrelse på enheden '%s'."
 
 msgid "Devices"
-msgstr ""
+msgstr "Enheder"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Duplikerer objektet på toppen af stakken."
 
 msgid "Enter password:"
-msgstr ""
+msgstr "Indtast adgangskode:"
 
 msgid "Exchanges the top two elements of the stack."
-msgstr ""
+msgstr "Bytter de to øverste elementer på stakken."
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Extent størrelse"
 
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "GPT på %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Opretter pools"
 
 msgid "Global options:"
-msgstr ""
+msgstr "Globale valg:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Ugyldigt svar '%s'"
 
 #, c-format
 msgid "Invalid table style '%s'."
