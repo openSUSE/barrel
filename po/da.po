@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-05 15:04+0000\n"
+"PO-Revision-Date: 2026-02-06 15:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -147,13 +147,11 @@ msgstr "Skriver ændringer til disk og afslutter barrel."
 msgid "Continue?"
 msgstr "Fortsæt?"
 
-#, fuzzy
 msgid "Creates a new LVM logical volume."
 msgstr "Opretter nyt LVM logisk volume."
 
-#, fuzzy
 msgid "Creates a new LVM volume group."
-msgstr "Opretter nyt LVM volume group."
+msgstr "Opretter nyt LVM volume gruppe."
 
 msgid "Creates a new RAID."
 msgstr "Opretter nyt RAID."
@@ -211,118 +209,117 @@ msgstr "Ugyldigt svar '%s'"
 
 #, c-format
 msgid "Invalid table style '%s'."
-msgstr ""
+msgstr "Ugyldig tabelstil '%s'."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Bliv ved med at smile, det er det vigtigste."
 
 msgid "Key File"
-msgstr ""
+msgstr "Nøglefil"
 
-#, fuzzy
 msgid "Key Size"
-msgstr "Størrelse"
+msgstr "Nøgle-størrelse"
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "LUKS på %s"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "LVM logisk volume %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "LVM volume group %s"
 
 msgid "Label"
-msgstr ""
+msgstr "Etiket"
 
 msgid "Level"
-msgstr ""
+msgstr "Niveau"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Indlæser pools..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Indlæser pools."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Indlæser staging-devicegraph fra en fil."
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "MS-DOS på %s"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "Manglende parameter til kommando tilvalget '%s'."
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "Manglende parameter til globalt valg '%s'."
 
 msgid "Missing block devices."
-msgstr ""
+msgstr "Manglende blokenhed."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Manglende valg af størrelse."
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Monteringspunkt"
 
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 msgid "New size too big."
-msgstr ""
+msgstr "Ny størrelse for stor."
 
 msgid "New size too small."
-msgstr ""
+msgstr "Ny størrelse for lille."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "Ingen blokenheder tilladt for kommando valget '%s'."
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "Ingen globale blokenheder tilladt."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Adgangskoder matcher ikke."
 
 msgid "Pool"
-msgstr ""
+msgstr "Pool"
 
 msgid "Position"
-msgstr ""
+msgstr "Position"
 
 msgid "Prints help."
-msgstr ""
+msgstr "Udskriver hjælp."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Udskriver stakken."
 
 msgid "Probing..."
-msgstr ""
+msgstr "Sonderer..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "Profiler"
 
 msgid "Quit?"
-msgstr ""
+msgstr "Afslut?"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "Afslutter barrel."
 
 #, c-format
 msgid "RAID %s"
