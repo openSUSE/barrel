@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-06 15:04+0000\n"
+"PO-Revision-Date: 2026-02-07 13:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -323,80 +323,80 @@ msgstr "Afslutter barrel."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "RAID niveau er allerede sat for kommandoen 'raid'"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "RAID niveau mangler for kommandoen 'raid'"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Fjerner en enhed."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Fjerner en pool."
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Fjerner enheder fra en pool."
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Fjerner det øverste objekt fra stakken."
 
 msgid "Renames pool."
-msgstr ""
+msgstr "Omdøber pool."
 
 msgid "Resizes a device."
-msgstr ""
+msgstr "Ændrer størrelsen på en enhed."
 
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
+msgstr "Genskaber staging-enhedsgrafen til den seneste sikkerhedskopi."
 
 msgid "Save pools"
-msgstr ""
+msgstr "Gem pools"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Gemmer pools."
 
 msgid "Saves the devicegraph to a file."
-msgstr ""
+msgstr "Gemmer enhedsgraf til en fil."
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Gemmer pools..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "Indstiller id for partition %s fra en ikke-brugbar værdi til %s."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "Vis DASDs."
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Vis LVM volume grupper."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Vis RAIDs."
 
 msgid "Shows actiongraph."
-msgstr ""
+msgstr "Viser actiongraph."
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Viser commit actions."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Viser enhedstræ."
 
 msgid "Shows devicegraph."
-msgstr ""
+msgstr "Viser enhedsgraf."
 
 msgid "Shows disks."
-msgstr ""
+msgstr "Viser diske."
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Viser krypteringsenheder."
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "Viser filsystemer."
 
 msgid "Shows multipath devices."
 msgstr ""
