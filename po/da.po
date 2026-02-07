@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-07 13:04+0000\n"
+"PO-Revision-Date: 2026-02-07 23:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -399,182 +399,182 @@ msgid "Shows filesystems."
 msgstr "Viser filsystemer."
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Viser multipath-enheder."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Viser pools."
 
 msgid "Size"
 msgstr "Størrelse"
 
 msgid "Stripes"
-msgstr ""
+msgstr "Stripes"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "Kommandoen har disse underkommandoer:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "Forbindelse"
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Ukendt globalt valg '%s'."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Ukendt valg '%s' for kommandoen '%s'."
 
 msgid "Usage"
-msgstr ""
+msgstr "Brug"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Brug et heltal fra %d til %d."
 
 msgid "Used"
-msgstr ""
+msgstr "Brugt"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Leverandør"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "Bekræft adgangskode:"
 
 msgid "[ pushes a mark on the stack."
-msgstr ""
+msgstr "[ lægger et mærkat på stakken."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] laver et array."
 
 msgid "activate by"
-msgstr ""
+msgstr "aktiver ved"
 
 msgid "activate options"
-msgstr ""
+msgstr "aktiveringsmuligheder"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "aktiver lagersystemer ved start"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "aktiver-ved mærkat kræver et mærkat"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "besvar alle spørgsmål med ja"
 
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "array med %d objekt"
+msgstr[1] "array med %d objekter"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
 msgid "bad devices argument"
-msgstr ""
+msgstr "ugyldigt valg for devices"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "ugyldigt valg for stripes"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "vis mere information"
 
 msgid "be quiet"
-msgstr ""
+msgstr "vær stille"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "blokenheder '%s' kan ikke fjernes"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
-msgstr ""
+msgstr "blokenheder '%s' kan ikke bruges som et normalt block device"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "blokenhed '%s' er i brug"
 
 msgid "block devices for LVM volume group missing"
-msgstr ""
+msgstr "blokenheder for LVM volume gruppe mangler"
 
 msgid "block devices for RAID missing"
-msgstr ""
+msgstr "blokenheder for RAID mangler"
 
 msgid "block devices for filesystem missing"
-msgstr ""
+msgstr "blokenheder for filsystem mangler"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "blokenheder mangler for kommandoen 'raid'"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
 #, c-format
 msgid "close for json file '%s' failed"
-msgstr ""
+msgstr "lukning af json filen '%s' fejlede"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "json filen '%s' kunne ikke lukkes"
 
 msgid "deleted device"
-msgstr ""
+msgstr "slettet enhed"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "enheden '%s' blev ikke fundet i mapping"
 
 msgid "do not add in /etc/crypttab"
-msgstr ""
+msgstr "tilføj ikke i /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "tilføj ikke i /etc/fstab"
 
 msgid "do not add in /etc/mdadm.conf"
-msgstr ""
+msgstr "tilføj ikke i /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "foretag ikke ændringer på disken"
 
 msgid "do not show colors"
-msgstr ""
+msgstr "vis ikke farver"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "vis ikke partitioner på DASD'er"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "vis ikke partitioner på RAID's"
 
 #. TRANSLATORS: help text
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "vis ikke partitioner på diske"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "vis ikke partitioner på multipath-enheder"
 
 msgid "done"
-msgstr ""
+msgstr "færdig"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "element i array for '%s' er ikke en streng"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "element af device array for '%s' er ikke en streng"
 
 msgid "encryption type"
-msgstr ""
+msgstr "krypterings-type"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "krypterings-type er allerede sat for kommandoen 'encryption'"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "krypterings-type mangler for kommandoen 'encryption'"
 
 msgid "error:"
-msgstr ""
+msgstr "fejl:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
