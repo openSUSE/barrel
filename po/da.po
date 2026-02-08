@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-07 23:04+0000\n"
+"PO-Revision-Date: 2026-02-08 13:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -578,24 +578,24 @@ msgstr "fejl:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "unødvendigt indhold i json filen '%s'"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "kunne ikke beregne handlinger"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "kunne ikke læse størrelse '%s'"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "filsystem %s på %s"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "filsystemets type er allerede valgt for kommandoen 'filesystem'"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "filsystemets type mangler for kommandoen 'filesystem'"
 
 msgid "force if block device is in use"
 msgstr ""
