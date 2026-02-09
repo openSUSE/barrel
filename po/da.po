@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-08 13:04+0000\n"
+"PO-Revision-Date: 2026-02-09 14:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -598,31 +598,31 @@ msgid "filesystem type missing for command 'filesystem'"
 msgstr "filsystemets type mangler for kommandoen 'filesystem'"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "gennemtving, hvis blokenheden er i brug"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "gennemtving, hvis blokenhederne er i brug"
 
 msgid "go downwards"
-msgstr ""
+msgstr "gå nedad"
 
 msgid "go upwards"
-msgstr ""
+msgstr "gå opad"
 
 #, c-format
 msgid "invalid devices value '%d'"
-msgstr ""
+msgstr "ugyldig værdi for enheder '%d'"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "ugyldigt navn på logisk volume for kommandoen 'lv'"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "ugyldig sti '%s'"
 
 #, c-format
 msgid "invalid size '%s'"
-msgstr ""
+msgstr "ugyldig størrelse '%s'"
 
 msgid "invalid volume group name for command 'vg'"
 msgstr ""
