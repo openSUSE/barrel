@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-09 17:04+0000\n"
+"PO-Revision-Date: 2026-02-10 11:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -655,56 +655,56 @@ msgstr "mapped DM RAID for '%s' mapped to gange"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "mapped enhed for '%s' har en anden blokstørrelse"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "mapped enhed for '%s' er ikke en DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "mapped enhed for '%s' er ikke en DM-RAID"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "mapped enhed for '%s' er ikke en disk"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "mapped enhed for '%s' er ikke en multipath"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "mapped enhed for '%s' er mindre"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "mapped enhed for '%s' findes ikke"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "mapped disk for '%s' mapped to gange"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "mapped multipath for '%s' mapped to gange"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "mapper %s til %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "mapping blev ikke fundet i json filen '%s'"
 
 msgid "missing block device"
-msgstr ""
+msgstr "manglende blokenhed"
 
 msgid "missing partitionable"
-msgstr ""
+msgstr "manglende partitionerbar"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "mkfs valg"
 
 msgid "mount by"
 msgstr ""
