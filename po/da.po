@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-10 11:04+0000\n"
+"PO-Revision-Date: 2026-02-12 23:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -707,30 +707,30 @@ msgid "mkfs options"
 msgstr "mkfs valg"
 
 msgid "mount by"
-msgstr ""
+msgstr "monteret af"
 
 msgid "mount options"
-msgstr ""
+msgstr "monteringsvalg"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "monteringsvalg kræver en sti"
 
 msgid "mount path"
-msgstr ""
+msgstr "monteringssti"
 
 msgid "mount-by label requires a label"
-msgstr ""
+msgstr "monter-ved-etiket kræver en etiket"
 
 msgid "mount-by requires a path"
-msgstr ""
+msgstr "monter-ved kræver en sti"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "flere enheder"
 
 #. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
-msgstr ""
+msgstr "n"
 
 msgid "name missing for command 'devicegraph'"
 msgstr ""
