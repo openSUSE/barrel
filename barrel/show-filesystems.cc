@@ -29,6 +29,7 @@
 #include <storage/Filesystems/Swap.h>
 #include <storage/Filesystems/Nfs.h>
 #include <storage/Filesystems/Tmpfs.h>
+#include <storage/Holders/FilesystemUser.h>
 #include <storage/Storage.h>
 #include <storage/Environment.h>
 #include <storage/FreeInfo.h>
@@ -212,10 +213,12 @@ namespace barrel
 	probe_used_space(global_options, state);
 
 	Table table({ _("Type"), Cell(_("Label"), Id::LABEL), Cell(_("Name"), Id::NAME),
-		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Used"), Id::USED, Align::RIGHT),
-		Cell(_("Profiles"), Id::PROFILES), Cell(_("Mount Point"), Id::MOUNT_POINT) });
+		Cell(_("Size"), Id::SIZE, Align::RIGHT), Cell(_("Role"), Id::ROLE),
+		Cell(_("Used"), Id::USED, Align::RIGHT), Cell(_("Profiles"), Id::PROFILES),
+		Cell(_("Mount Point"), Id::MOUNT_POINT) });
 	table.set_style(global_options.table_style);
 	table.set_tree_id(Id::NAME);
+	table.set_visibility(Id::ROLE, Visibility::AUTO);
 	table.set_visibility(Id::USED, Visibility::AUTO);
 	table.set_visibility(Id::PROFILES, Visibility::AUTO);
 
@@ -248,6 +251,16 @@ namespace barrel
 			Table::Row subrow(row.get_table());
 			subrow[Id::NAME] = blk_device->get_name();
 			subrow[Id::SIZE] = format_size(blk_device->get_size());
+
+			const Holder* holder = devicegraph->find_holder(blk_device->get_sid(),
+									blk_filesystem->get_sid());
+			if (is_filesystem_user(holder))
+			{
+			    const FilesystemUser* filesystem_user = to_filesystem_user(holder);
+			    if (filesystem_user->is_journal())
+				subrow[Id::ROLE] = "journal";
+			}
+
 			row.add_subrow(subrow);
 		    }
 		}
