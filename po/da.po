@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-16 13:04+0000\n"
+"PO-Revision-Date: 2026-02-18 17:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16\n"
 
 #, c-format
 msgid "%d bits"
@@ -748,87 +748,87 @@ msgid "name of RAID already exists"
 msgstr "navnet på RAID findes allerede"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "navn på enhedsgraf"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "navn på enhedsgraf-fil"
 
 msgid "name of encryption already exists"
-msgstr ""
+msgstr "navnet på krypteringen findes allerede"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "navnet på den logiske volumen findes allerede"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "navn på mapping-filen"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "navn på ny pool"
 
 msgid "name of pool"
-msgstr ""
+msgstr "navn på pool"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "navn på pool som skal bruges"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "navn på volume-gruppe"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "navnet på volume-gruppe findes allerede"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "hverken + eller - tilladt i størrelse"
 
 msgid "new name"
-msgstr ""
+msgstr "nyt navn"
 
 msgid "new size"
-msgstr ""
+msgstr "ny størrelse"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "ingen sikkerhedskopi tilgængelig for fortryd"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "ingen mapping-DASD for '%s' fundet"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "ingen mapping DM RAID for '%s' fundet"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "ingen mapping disk for '%s' fundet"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "ingen mapping multipath for '%s' fundet"
 
 msgid "no mark on stack"
-msgstr ""
+msgstr "ingen markering på stakken"
 
 msgid "not a block device in array"
-msgstr ""
+msgstr "ingen blokenhed i array"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "ikke en blokenhed på stakken"
 
 msgid "not a block device or array of block devices on stack"
-msgstr ""
+msgstr "ikke en blokenhed eller array af blokenheder på stakken"
 
 msgid "not a device in array"
-msgstr ""
+msgstr "ikke en enhed i array"
 
 msgid "not a device on stack"
-msgstr ""
+msgstr "ikke en enhed på stakken"
 
 msgid "not a partition table in array"
-msgstr ""
+msgstr "ikke en partitionstabel i array"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "ikke en partitionstabel på stakken"
 
 msgid "not a partition table or array of partition tables on stack"
 msgstr ""
