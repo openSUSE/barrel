@@ -258,7 +258,7 @@ namespace barrel
 			{
 			    const FilesystemUser* filesystem_user = to_filesystem_user(holder);
 			    if (filesystem_user->is_journal())
-				subrow[Id::ROLE] = "journal";
+				subrow[Id::ROLE] = _("journal");
 			}
 
 			row.add_subrow(subrow);
