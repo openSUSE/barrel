@@ -44,3 +44,37 @@ BOOST_AUTO_TEST_CASE(test1)
 
     BOOST_CHECK_EQUAL(lhs, rhs);
 }
+
+
+BOOST_AUTO_TEST_CASE(test2)
+{
+    setlocale(LC_ALL, "C.UTF-8");
+
+    Args args({ "--dry-run", "show", "filesystems" });
+
+    vector<string> output = {
+	"Probing... done",
+	"Type │ Label │ Name             │       Size │ Role    │ Used │ Mount Point",
+	"─────┼───────┼──────────────────┼────────────┼─────────┼──────┼────────────",
+	"ext4 │       │ multiple devices │            │         │ 0.0% │ /test1",
+	"     │       │ ├─/dev/sdc1      │ 100.00 GiB │         │      │",
+	"     │       │ └─/dev/sdc2      │   1.00 GiB │ journal │      │",
+	"xfs  │       │ multiple devices │            │         │ 1.9% │ /test2",
+	"     │       │ ├─/dev/sdc3      │ 100.00 GiB │         │      │",
+	"     │       │ └─/dev/sdc4      │   1.00 GiB │ journal │      │"
+    };
+
+    Testsuite testsuite;
+    testsuite.devicegraph_filename = "ext-journal.xml";
+
+    ostringstream buffer;
+    streambuf* old = cout.rdbuf(buffer.rdbuf());
+    handle(args.argc(), args.argv(), &testsuite);
+    cout.rdbuf(old);
+
+    string lhs = buffer.str();
+    string rhs = accumulate(output.begin(), output.end(), ""s,
+			    [](auto a, auto b) { return a + b + "\n"; });
+
+    BOOST_CHECK_EQUAL(lhs, rhs);
+}
