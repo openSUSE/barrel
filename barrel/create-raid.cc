@@ -408,7 +408,17 @@ namespace barrel
 		    blk_devices.push_back(blk_device);
 		}
 
-		smart_number.raid = blk_devices.size();
+		if (options.number)
+		{
+		    smart_number = options.number.value();
+
+		    if (smart_number.sum() != blk_devices.size())
+			throw runtime_error(_("mismatch in number of devices"));
+		}
+		else
+		{
+		    smart_number.raid = blk_devices.size();
+		}
 	    }
 	    break;
 	}
