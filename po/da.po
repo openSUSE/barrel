@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-18 17:04+0000\n"
+"PO-Revision-Date: 2026-02-20 13:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -831,54 +831,55 @@ msgid "not a partition table on stack"
 msgstr "ikke en partitionstabel på stakken"
 
 msgid "not a partition table or array of partition tables on stack"
-msgstr ""
+msgstr "ikke en partitionstabel eller array af partitionstabeller på stakken"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "kan ikke partitioneres"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "ikke en partitionerbar på stakken"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "ikke en volume-gruppe på stakken"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "antal stripes"
 
 msgid "old name"
-msgstr ""
+msgstr "gammelt navn"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "kun én blokenhed tilladt"
 
 msgid "only one partition table allowed"
-msgstr ""
+msgstr "kun én partitionstabel tilladt"
 
 msgid "only one partitionable allowed"
-msgstr ""
+msgstr "kun én partitionerbar tilladt"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
-msgstr ""
+msgstr "'open' for json filen '%s' fejlede"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "fejl ved åbning af json filen '%s'"
 
 #, c-format
 msgid "option --devices not allowed for %s"
-msgstr ""
+msgstr "valget --devices ikke tilladt for %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "læsning af json filen '%s' fejlede"
 
 msgid "partition table type"
-msgstr ""
+msgstr "type af partitionstabel"
 
 msgid "partition table type already set command 'partition-table'"
 msgstr ""
+"typen af partitionstabel er allerede sat af kommandoen 'partition-table'"
 
 msgid "partition table type missing for command 'partition-table'"
 msgstr ""
