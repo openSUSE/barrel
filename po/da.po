@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-20 13:04+0000\n"
+"PO-Revision-Date: 2026-02-24 18:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -882,23 +882,23 @@ msgstr ""
 "typen af partitionstabel er allerede sat af kommandoen 'partition-table'"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "typen af partitionstabellen mangler for kommandoen 'partition-table'"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "partitionérbar '%s' kan ikke bruges som en almindelig partitionérbar"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "den partitionérbare '%s' er i brug"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "stien '%s' er allerede brugt"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
 msgid "path must be 'swap' or 'none'"
-msgstr ""
+msgstr "stien skal være 'swap' eller 'none'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
@@ -909,41 +909,43 @@ msgstr ""
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
+"pool-argument og blokenheder er ikke tilladt sammen for kommandoen "
+"'filesystem'"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
-msgstr ""
+msgstr "pool-argument og blokenheder er ikke tilladt sammen for kommandoen 'vg'"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "pool er tom"
 
 msgid "pool name"
-msgstr ""
+msgstr "pool-navn"
 
 msgid "probe used space"
-msgstr ""
+msgstr "undersøg plads i brug"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "'read' for json filen '%s' fejlede"
 
 msgid "run with a rootprefix"
-msgstr ""
+msgstr "kør med root-præfix"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "sæt PBKDF"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "sæt RAID-niveau"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "sæt RAID-metadata version"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "sæt RAID-navn"
 
 msgid "set a key file"
-msgstr ""
+msgstr "sæt en nøglefil"
 
 msgid "set chunk size"
 msgstr ""
