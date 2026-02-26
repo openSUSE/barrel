@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: barrel VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: 2026-02-24 18:04+0000\n"
+"PO-Revision-Date: 2026-02-26 12:04+0000\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <https://l10n.opensuse.org/projects/barrel/barrel-"
 "master/da/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16\n"
+"X-Generator: Weblate 5.16.1\n"
 
 #, c-format
 msgid "%d bits"
@@ -948,180 +948,180 @@ msgid "set a key file"
 msgstr "sæt en nøglefil"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "sæt chunk-størrelse"
 
 msgid "set cipher"
-msgstr ""
+msgstr "sæt cipher"
 
 msgid "set extent size"
-msgstr ""
+msgstr "sæt extent-størrelse"
 
 msgid "set file system label"
-msgstr ""
+msgstr "sæt filsystemets label"
 
 msgid "set file system type"
-msgstr ""
+msgstr "sæt filsystemets type"
 
 msgid "set key size"
-msgstr ""
+msgstr "sæt nøglestørrelse"
 
 msgid "set label of device"
-msgstr ""
+msgstr "sæt enhedens label"
 
 msgid "set name of device"
-msgstr ""
+msgstr "sæt enhedens navn"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "sæt navn på logisk volume"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "sæt navn på volume group"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "sæt antal enheder"
 
 msgid "set profiles"
-msgstr ""
+msgstr "sæt profiler"
 
 msgid "set size"
-msgstr ""
+msgstr "sæt størrelse"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "sæt størrelsen på RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "sæt størrelse på logisk volume"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "sæt størrelse på volume group"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "der blev fundet flere mapping-DASDer for '%s'"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "der blev fundet flere mapping-DM-RAID for '%s'"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "der blev fundet flere mapping-disks for '%s'"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "der blev fundet flere mapping-multipath for '%s'"
 
 msgid "show colors"
-msgstr ""
+msgstr "vis farver"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "vis forkortede i stedet for detaljerede handlinger"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "vis hjælp og afslut"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "vis version og afslut"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "valg af størrelse mangler for kommandoen 'encryption'"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "valg af størrelse mangler for kommandoen 'filesystem'"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "valg af størrelse kræves for kommandoen 'raid'"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "valg af størrelse kræves for kommandoen 'vg'"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "størrelse mangler for kommandoen 'lv'"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "størrelse på stripes"
 
 msgid "size too small for command 'lv'"
-msgstr ""
+msgstr "størrelse for lille for kommandoen 'lv'"
 
 msgid "size too small for file system"
-msgstr ""
+msgstr "størrelse for lille for filsystem"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "reserve-enheder er ikke tilladt for RAID-niveau"
 
 msgid "stack empty"
-msgstr ""
+msgstr "stak tom"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "stak tom ved dup"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "stak tom ved pop"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "stakunderløb ved exch"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "stat for json filen '%s' fejlede"
 
 msgid "table style"
-msgstr ""
+msgstr "tabelstil"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "for få raid-enheder for raid-niveau"
 
 msgid "tune options"
-msgstr ""
+msgstr "valg for tune"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "valg til tune er ikke tilladt for '%s'"
 
 #, c-format
 msgid "unknown activate-by type '%s'"
-msgstr ""
+msgstr "ukendt aktiver-ved type '%s'"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr ""
+msgstr "ukendt btrfs profil '%s'"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "ukendt krypteringstype"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "ukendt filsystemtype '%s'"
 
 #, c-format
 msgid "unknown mount-by type '%s'"
-msgstr ""
+msgstr "ukendt mount-by type '%s'"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "ukendt partitionstabel-type"
 
 #, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr ""
+msgstr "ukendt tilstand '%s' for undersøg-brugt-plads"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "ukendt raid-niveau for kommandoen 'raid'"
 
 #. TRANSLATORS: help text
 msgid "use probed instead of staging devicegraph"
-msgstr ""
+msgstr "brug probed i stedet for staging devicegraph"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "værdien af '%s' er hverken streng eller array"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "værdien for beskrivelse er ikke en streng"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "den indtastede værdi for enheder er ikke et array"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
