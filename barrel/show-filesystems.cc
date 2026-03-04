@@ -38,6 +38,7 @@
 #include "Utils/Table.h"
 #include "Utils/Text.h"
 #include "Utils/Misc.h"
+#include "Utils/Colors.h"
 #include "show-filesystems.h"
 #include "show.h"
 
@@ -294,7 +295,8 @@ namespace barrel
 		if (is_nfs(filesystem) || is_tmpfs(filesystem))
 		    row[Id::SIZE] = format_size(space_info.size);
 
-		row[Id::USED] = format_percentage(total_used, total_size, 1);
+		Color color = total_used > 0.90 * total_size ? Color::RED : Color::BLACK;
+		row[Id::USED] = colorize_message(format_percentage(total_used, total_size, 1), color);
 	    }
 
 	    if (filesystem->has_mount_point())
