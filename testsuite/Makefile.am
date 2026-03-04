@@ -29,4 +29,4 @@ EXTRA_DIST = empty1.xml empty2.xml empty3.xml			\
 	mapping1.json msdos1.xml load1.xml			\
 	real1.xml real2.xml real3.xml real4.xml real5.xml	\
 	real6.xml real7.xml real8.xml dmraid1.xml dmraid2.xml	\
-	mapping2.json real9.xml
+	mapping2.json real9.xml ext-journal.xml
