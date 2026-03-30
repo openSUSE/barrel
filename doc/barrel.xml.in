@@ -439,7 +439,7 @@
 	      </listitem>
             </varlistentry>
 	    <varlistentry>
-              <term><option>--pool-name</option> <replaceable>options</replaceable></term>
+              <term><option>--pool-name</option> <replaceable>name</replaceable></term>
               <listitem>
 		<para>Name of pool from which to take underlying device.</para>
               </listitem>
