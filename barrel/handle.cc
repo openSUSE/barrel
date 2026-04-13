@@ -457,36 +457,6 @@ namespace barrel
     }
 
 
-    void
-    make_fixed_comp_names()
-    {
-	// this is only a workaround until completion is context aware
-
-	for (const MainCmd& main_cmd : main_cmds)
-	{
-	    Readline::fixed_comp_names.push_back(main_cmd.name);
-
-	    if (main_cmd.cmd)
-	    {
-		for (const Option& option : main_cmd.cmd->options().options)
-		    if (option.description)
-			Readline::fixed_comp_names.push_back("--"s + option.name);
-	    }
-	    else
-	    {
-		for (const Parser& sub_cmd : main_cmd.sub_cmds)
-		{
-		    Readline::fixed_comp_names.push_back(sub_cmd.name);
-
-		    for (const Option& option : sub_cmd.cmd->options().options)
-			if (option.description)
-			    Readline::fixed_comp_names.push_back("--"s + option.name);
-		}
-	    }
-	}
-    }
-
-
     bool
     interactive_ignore_line(const char* line)
     {
@@ -513,7 +483,6 @@ namespace barrel
 	startup(global_options, system_info, *storage);
 
 	Readline readline(storage.get(), testsuite);
-	make_fixed_comp_names();
 
 	State state(global_options);
 	state.storage = storage.get();
