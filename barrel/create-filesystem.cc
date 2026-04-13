@@ -50,23 +50,6 @@ namespace barrel
     namespace
     {
 
-	const ExtOptions create_filesystem_options({
-	    { "type", required_argument, 't', _("set file system type"), "type" },
-	    { "label", required_argument, 'l', _("set file system label"), "label" },
-	    { "path", required_argument, 'p', _("mount path"), "path" },
-	    { "mount-by", required_argument, 0, _("mount by"), "type" },
-	    { "mount-options", required_argument, 'o', _("mount options"), "options" },
-	    { "mkfs-options", required_argument, 0, _("mkfs options"), "options" },
-	    { "tune-options", required_argument, 0, _("tune options"), "options" },
-	    { "pool-name", required_argument, 0, _("pool name"), "name" },
-	    { "size", required_argument, 's', _("set size"), "size" },
-	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
-	    { "profiles", required_argument, 0, _("set profiles"), "profiles" },
-	    { "no-etc-fstab", no_argument, 0, _("do not add in /etc/fstab") },
-	    { "no-fstab", no_argument, 0, nullptr }, // deprecated
-	    { "force", no_argument, 0, _("force if block devices are in use") }
-	}, TakeBlkDevices::MAYBE);
-
 
 	const map<string, FsType> str_to_fs_type = {
 #if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 100)
@@ -114,6 +97,27 @@ namespace barrel
 	    { "raid6", BtrfsRaidLevel::RAID6 },
 	    { "raid10", BtrfsRaidLevel::RAID10 }
 	};
+
+
+	const ExtOptions create_filesystem_options({
+	    { "type", required_argument, 't', _("set file system type"), "type",
+		ValueType::STRING_LIST, map_keys(str_to_fs_type) },
+	    { "label", required_argument, 'l', _("set file system label"), "label" },
+	    { "path", required_argument, 'p', _("mount path"), "path" },
+	    { "mount-by", required_argument, 0, _("mount by"), "type",
+		ValueType::STRING_LIST, map_keys(str_to_mount_by_type) },
+	    { "mount-options", required_argument, 'o', _("mount options"), "options" },
+	    { "mkfs-options", required_argument, 0, _("mkfs options"), "options" },
+	    { "tune-options", required_argument, 0, _("tune options"), "options" },
+	    { "pool-name", required_argument, 0, _("pool name"), "name", ValueType::POOL },
+	    { "size", required_argument, 's', _("set size"), "size" },
+	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
+	    { "profiles", required_argument, 0, _("set profiles"), "profiles",
+		ValueType::STRING_LIST, map_keys(str_to_btrfs_raid_level) },
+	    { "no-etc-fstab", no_argument, 0, _("do not add in /etc/fstab") },
+	    { "no-fstab", no_argument, 0, nullptr }, // deprecated
+	    { "force", no_argument, 0, _("force if block devices are in use") }
+	}, TakeBlkDevices::MAYBE);
 
 
 	BtrfsRaidLevel

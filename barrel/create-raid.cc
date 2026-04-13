@@ -46,18 +46,6 @@ namespace barrel
     namespace
     {
 
-	const ExtOptions create_raid_options({
-	    { "level", required_argument, 'l', _("set RAID level"), "level" },
-	    { "name", required_argument, 'n', _("set RAID name"), "name" },
-	    { "pool-name", required_argument, 0, _("name of pool to use"), "name" },
-	    { "size", required_argument, 's', _("set size of RAID"), "size" },
-	    { "metadata", required_argument, 'm', _("set RAID metadata version"), "metadata" },
-	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
-	    { "chunk-size", required_argument, 0, _("set chunk size"), "chunk-size" },
-	    { "no-etc-mdadm", no_argument, 0, _("do not add in /etc/mdadm.conf") },
-	    { "force", no_argument, 0, _("force if block devices are in use") }
-	}, TakeBlkDevices::MAYBE);
-
 
 	const map<string, MdLevel> str_to_md_level = {
 #if LIBSTORAGE_NG_VERSION_AT_LEAST(1, 94)
@@ -72,6 +60,20 @@ namespace barrel
 	    { "6", MdLevel::RAID6 },
 	    { "10", MdLevel::RAID10 }
 	};
+
+
+	const ExtOptions create_raid_options({
+	    { "level", required_argument, 'l', _("set RAID level"), "level",
+		ValueType::STRING_LIST, map_keys(str_to_md_level) },
+	    { "name", required_argument, 'n', _("set RAID name"), "name" },
+	    { "pool-name", required_argument, 0, _("name of pool to use"), "name", ValueType::POOL },
+	    { "size", required_argument, 's', _("set size of RAID"), "size" },
+	    { "metadata", required_argument, 'm', _("set RAID metadata version"), "metadata" },
+	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
+	    { "chunk-size", required_argument, 0, _("set chunk size"), "chunk-size" },
+	    { "no-etc-mdadm", no_argument, 0, _("do not add in /etc/mdadm.conf") },
+	    { "force", no_argument, 0, _("force if block devices are in use") }
+	}, TakeBlkDevices::MAYBE);
 
 
 	struct SmartRaidNumber

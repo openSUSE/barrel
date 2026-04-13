@@ -39,7 +39,7 @@ namespace barrel
     {
 
 	const ExtOptions reduce_pool_options({
-	    { "name", required_argument, 'n', _("name of pool"), "name" }
+	    { "name", required_argument, 'n', _("name of pool"), "name", ValueType::POOL }
 	}, TakeBlkDevices::YES);
 
 

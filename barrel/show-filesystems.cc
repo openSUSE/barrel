@@ -53,11 +53,6 @@ namespace barrel
     namespace
     {
 
-	const ExtOptions show_filesystems_options({
-	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") },
-	    { "probe-used-space", required_argument, 0, _("probe used space"), "mode" }
-	});
-
 
 	struct Options
 	{
@@ -75,6 +70,13 @@ namespace barrel
 	    { "active", Options::ProbeUsedSpace::ACTIVE },
 	    { "all", Options::ProbeUsedSpace::ALL }
 	};
+
+
+	const ExtOptions show_filesystems_options({
+	    { "probed", no_argument, 0, _("use probed instead of staging devicegraph") },
+	    { "probe-used-space", required_argument, 0, _("probe used space"), "mode",
+		ValueType::STRING_LIST, map_keys(str_to_probe_used_space) }
+	});
 
 
 	Options::Options(GetOpts& get_opts)

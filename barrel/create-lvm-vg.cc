@@ -44,7 +44,7 @@ namespace barrel
 
 	const ExtOptions create_lvm_vg_options({
 	    { "name", required_argument, 'n', _("set name of volume group"), "name" },
-	    { "pool-name", required_argument, 0, _("name of pool to use"), "name" },
+	    { "pool-name", required_argument, 0, _("name of pool to use"), "name", ValueType::POOL },
 	    { "size", required_argument, 's', _("set size of volume group"), "size" },
 	    { "devices", required_argument, 'd', _("set number of devices"), "number" },
 	    { "extent-size", required_argument, 0, _("set extent size"), "extent-size" },

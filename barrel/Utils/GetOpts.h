@@ -48,6 +48,15 @@ namespace barrel
     };
 
 
+    enum class ValueType
+    {
+	UNKNOWN,
+	POOL,
+	PATH,
+	STRING_LIST
+    };
+
+
     struct Option
     {
 	const char* name;
@@ -55,6 +64,8 @@ namespace barrel
 	char c;
 	const char* description;	// may be null for deprecated options
 	const char* arg_name = nullptr;
+	ValueType value_type = ValueType::UNKNOWN;
+	vector<string> possible_values = {};
     };
 
 
