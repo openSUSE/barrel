@@ -150,6 +150,10 @@ namespace barrel
 
 	get_opts.parse(GetOpts::no_ext_options);
 
+	// Interactive_ignore_line should ensure that there is at least one argument.
+	if (!get_opts.has_args())
+	    throw runtime_error("main command missing");
+
 	const char* command1 = get_opts.pop_arg();
 	vector<MainCmd>::const_iterator main_cmd = sloppy_find(main_cmds, command1);
 
