@@ -531,7 +531,7 @@ namespace barrel
 	{
 	    string prompt = "barrel";
 	    if (!state.stack.empty())
-		prompt += sformat("[%ld]", state.stack.size());
+		prompt += sformat("[%zd]", state.stack.size());
 	    prompt += "> ";
 
 	    char* line = readline.readline(prompt);
