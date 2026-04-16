@@ -71,19 +71,20 @@ namespace barrel
 
 	while (true)
 	{
-	    struct termios oldt;
-	    tcgetattr(STDIN_FILENO, &oldt);
-
-	    struct termios newt = oldt;
-	    newt.c_lflag &= ~(ECHO);
+	    struct termios old_termios;
+	    const bool is_tty = tcgetattr(STDIN_FILENO, &old_termios) == 0;
+	    if (is_tty)
+	    {
+		struct termios new_termios = old_termios;
+		new_termios.c_lflag &= ~(ECHO);
+		tcsetattr(STDIN_FILENO, TCSANOW, &new_termios);
+	    }
 
 	    int c;
 
-	    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-
 	    cout << _("Enter password:") << " " << flush;
 	    string password1;
-	    while ((c = getchar())!= '\n' && c != EOF)
+	    while ((c = getchar()) != '\n' && c != EOF)
 		password1.push_back(c);
 	    cout << '\n';
 
@@ -91,12 +92,15 @@ namespace barrel
 	    if (verify)
 	    {
 		cout << _("Verify password:") << " " << flush;
-		while ((c = getchar())!= '\n' && c != EOF)
+		while ((c = getchar()) != '\n' && c != EOF)
 		    password2.push_back(c);
 		cout << '\n';
 	    }
 
-	    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+	    if (is_tty)
+	    {
+		tcsetattr(STDIN_FILENO, TCSANOW, &old_termios);
+	    }
 
 	    if (verify && password1 != password2)
 	    {
