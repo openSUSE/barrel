@@ -39,16 +39,18 @@ namespace barrel
     namespace
     {
 
-	const ExtOptions create_partition_table_options({
-	    { "type", required_argument, 't', _("partition table type"), "type" },
-	    { "force", no_argument, 0, _("force if block device is in use") }
-	}, TakeBlkDevices::MAYBE);
-
 
 	const map<string, PtType> str_to_pt_type = {
 	    { "gpt", PtType::GPT },
 	    { "ms-dos", PtType::MSDOS }
 	};
+
+
+	const ExtOptions create_partition_table_options({
+	    { "type", required_argument, 't', _("partition table type"), "type",
+		ValueType::STRING_LIST, map_keys(str_to_pt_type)},
+	    { "force", no_argument, 0, _("force if block device is in use") }
+	}, TakeBlkDevices::MAYBE);
 
 
 	struct Options

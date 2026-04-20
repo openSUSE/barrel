@@ -44,23 +44,6 @@ namespace barrel
     namespace
     {
 
-	const ExtOptions create_encryption_options({
-	    { "type", required_argument, 't', _("encryption type"), "type" },
-	    { "name", required_argument, 'n', _("set name of device"), "name" },
-	    { "label", required_argument, 0, _("set label of device"), "label" },
-	    { "activate-by", required_argument, 0, _("activate by"), "type" },
-	    { "activate-options", required_argument, 'o', _("activate options"), "options" },
-	    { "pool-name", required_argument, 0, _("pool name"), "name" },
-	    { "size", required_argument, 's', _("set size"), "size" },
-	    { "key-file", required_argument, 0, _("set a key file"), "key-file" },
-	    { "key-size", required_argument, 0, _("set key size"), "key-size" },
-	    { "cipher", required_argument, 0, _("set cipher"), "cipher" },
-	    { "pbkdf", required_argument, 0, _("set PBKDF"), "pbkdf" },
-	    { "no-etc-crypttab", no_argument, 0, _("do not add in /etc/crypttab") },
-	    { "no-crypttab", no_argument, 0, nullptr },	// deprecated
-	    { "force", no_argument, 0, _("force if block devices are in use") }
-	}, TakeBlkDevices::MAYBE);
-
 
 	const map<string, EncryptionType> str_to_encryption_type = {
 	    { "luks1", EncryptionType::LUKS1 },
@@ -79,6 +62,25 @@ namespace barrel
 	    { "partlabel", MountByType::PARTLABEL }
 #endif
 	};
+
+	const ExtOptions create_encryption_options({
+	    { "type", required_argument, 't', _("encryption type"), "type",
+		ValueType::STRING_LIST, map_keys(str_to_encryption_type) },
+	    { "name", required_argument, 'n', _("set name of device"), "name" },
+	    { "label", required_argument, 0, _("set label of device"), "label" },
+	    { "activate-by", required_argument, 0, _("activate by"), "type",
+		ValueType::STRING_LIST, map_keys(str_to_activate_by_type) },
+	    { "activate-options", required_argument, 'o', _("activate options"), "options" },
+	    { "pool-name", required_argument, 0, _("pool name"), "name", ValueType::POOL },
+	    { "size", required_argument, 's', _("set size"), "size" },
+	    { "key-file", required_argument, 0, _("set a key file"), "key-file", ValueType::PATH },
+	    { "key-size", required_argument, 0, _("set key size"), "key-size" },
+	    { "cipher", required_argument, 0, _("set cipher"), "cipher" },
+	    { "pbkdf", required_argument, 0, _("set PBKDF"), "pbkdf" },
+	    { "no-etc-crypttab", no_argument, 0, _("do not add in /etc/crypttab") },
+	    { "no-crypttab", no_argument, 0, nullptr },	// deprecated
+	    { "force", no_argument, 0, _("force if block devices are in use") }
+	}, TakeBlkDevices::MAYBE);
 
 
 	struct Options

@@ -37,7 +37,7 @@ namespace barrel
     {
 
 	const ExtOptions rename_pool_options({
-	    { "old-name", required_argument, 'o', _("old name"), "name" },
+	    { "old-name", required_argument, 'o', _("old name"), "name", ValueType::POOL },
 	    { "new-name", required_argument, 'n', _("new name"), "name" }
 	});
 
