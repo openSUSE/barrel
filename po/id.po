@@ -8,1122 +8,1130 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-04-25 08:04+0000\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
+"Language-Team: Indonesian <https://l10n.opensuse.org/projects/barrel/barrel-"
+"master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.17\n"
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d bit"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Aktifkan BitLocker %1$s pada %2$s (%3$s) dengan UUID %4$s..."
 
 #, c-format
 msgid "Activate BitLocker on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Aktifkan BitLocker pada %1$s (%2$s) dengan UUID %3$s..."
 
 #, c-format
 msgid "Activate LUKS %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Aktifkan LUKS %1$s pada %2$s (%3$s) dengan UUID %4$s..."
 
 #, c-format
 msgid "Activate LUKS on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Aktifkan LUKS pada %1$s (%2$s) dengan UUID %3$s..."
 
 msgid "Activating..."
-msgstr ""
+msgstr "Mengaktifkan..."
 
 msgid "Adds devices to a pool."
-msgstr ""
+msgstr "Menambahkan perangkat ke pool."
 
 msgid "Alias for 'create encryption --type luks1'"
-msgstr ""
+msgstr "Alias untuk 'create encryption --type luks1'"
 
 msgid "Alias for 'create encryption --type luks2'"
-msgstr ""
+msgstr "Alias untuk 'create encryption --type luks2'"
 
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type bcachefs'"
 
 msgid "Alias for 'create filesystem --type btrfs'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type btrfs'"
 
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type exfat'"
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type ext2'"
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type ext3'"
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type ext4'"
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type f2fs'"
 
 msgid "Alias for 'create filesystem --type jfs'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type jfs'"
 
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type nilfs2'"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type ntfs'"
 
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type reiserfs'"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type swap'"
 
 msgid "Alias for 'create filesystem --type udf'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type udf'"
 
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type vfat'"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "Alias untuk 'create filesystem --type xfs'"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "Alias untuk 'create partition-table --type gpt'"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "Alias untuk 'create partition-table --type ms-dos'"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "Alias untuk 'create raid --level 0'"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "Alias untuk 'create raid --level 1'"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "Alias untuk 'create raid --level 10'"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "Alias untuk 'create raid --level 4'"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "Alias untuk 'create raid --level 5'"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "Alias untuk 'create raid --level 6'"
 
 msgid "Block Size"
-msgstr ""
+msgstr "Ukuran Blok"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "ID Bus"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "Ukuran Potongan"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Sandi"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "Menghapus semua tumpukan."
 
 msgid "Commands:"
-msgstr ""
+msgstr "Perintah:"
 
 msgid "Commit changes?"
-msgstr ""
+msgstr "Terapkan perubahan?"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
+msgstr "Menerapkan perubahan ke disk dan keluar dari barrel."
 
 msgid "Continue?"
-msgstr ""
+msgstr "Lanjutkan?"
 
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "Membuat volume logis LVM baru."
 
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "Membuat grup volume LVM baru."
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "Membuat RAID baru."
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "Membuat perangkat enkripsi baru."
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "Membuat sistem berkas baru."
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "Membuat tabel partisi baru."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Membuat pool baru yang berisi perangkat."
 
 msgid "Description"
-msgstr ""
+msgstr "Deskripsi"
 
 #, c-format
 msgid "Device '%s' cannot be resized."
-msgstr ""
+msgstr "Perangkat '%s' tidak dapat diubah ukurannya."
 
 msgid "Devices"
-msgstr ""
+msgstr "Perangkat"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Menduplikasi objek teratas dari tumpukan."
 
 msgid "Enter password:"
-msgstr ""
+msgstr "Masukkan kata sandi:"
 
 msgid "Exchanges the top two elements of the stack."
-msgstr ""
+msgstr "Menukar dua elemen teratas dari tumpukan."
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Ukuran Extent"
 
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "GPT pada %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Membuat pool"
 
 msgid "Global options:"
-msgstr ""
+msgstr "Opsi global:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Jawaban tidak valid '%s'"
 
 #, c-format
 msgid "Invalid table style '%s'."
-msgstr ""
+msgstr "Gaya tabel tidak valid '%s'."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Tetaplah tersenyum, karena itulah hal yang paling penting."
 
 msgid "Key File"
-msgstr ""
+msgstr "Berkas Kunci"
 
 msgid "Key Size"
-msgstr ""
+msgstr "Ukuran Kunci"
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "LUKS pada %s"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "Volume logis LVM %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "Grup volume LVM %s"
 
 msgid "Label"
-msgstr ""
+msgstr "Label"
 
 msgid "Level"
-msgstr ""
+msgstr "Level"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Memuat pool..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Memuat pool."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Memuat devicegraph staging dari sebuah berkas."
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "MS-DOS pada %s"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "Argumen tidak ditemukan untuk opsi perintah '%s'."
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "Argumen tidak ditemukan untuk opsi global '%s'."
 
 msgid "Missing block devices."
-msgstr ""
+msgstr "Perangkat blok tidak ditemukan."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Opsi ukuran tidak ditemukan."
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Titik Kait"
 
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 msgid "New size too big."
-msgstr ""
+msgstr "Ukuran baru terlalu besar."
 
 msgid "New size too small."
-msgstr ""
+msgstr "Ukuran baru terlalu kecil."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "Tidak ada perangkat blok yang diizinkan untuk opsi perintah '%s'."
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "Tidak ada perangkat blok global yang diizinkan."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Kata sandi tidak cocok."
 
 msgid "Pool"
-msgstr ""
+msgstr "Pool"
 
 msgid "Position"
-msgstr ""
+msgstr "Posisi"
 
 msgid "Prints help."
-msgstr ""
+msgstr "Menampilkan bantuan."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Menampilkan tumpukan."
 
 msgid "Probing..."
-msgstr ""
+msgstr "Mendeteksi..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "Profil"
 
 msgid "Quit?"
-msgstr ""
+msgstr "Keluar?"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "Keluar dari barrel."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "Level RAID sudah diatur untuk perintah 'raid'"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "Level RAID tidak ditemukan untuk perintah 'raid'"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Menghapus sebuah perangkat."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Menghapus sebuah pool."
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Menghapus perangkat dari pool."
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Menghapus objek teratas dari tumpukan."
 
 msgid "Renames pool."
-msgstr ""
+msgstr "Mengganti nama pool."
 
 msgid "Resizes a device."
-msgstr ""
+msgstr "Mengubah ukuran sebuah perangkat."
 
 msgid "Restores the staging devicegraph to the last backup."
-msgstr ""
+msgstr "Memulihkan devicegraph staging ke cadangan terakhir."
 
 msgid "Save pools"
-msgstr ""
+msgstr "Simpan pool"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Menyimpan pool."
 
 msgid "Saves the devicegraph to a file."
-msgstr ""
+msgstr "Menyimpan devicegraph ke sebuah berkas."
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Menyimpan pool..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "Mengatur id partisi %s dari nilai yang tidak didukung ke %s."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "Menampilkan DASD."
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Menampilkan grup volume LVM."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Menampilkan RAID."
 
 msgid "Shows actiongraph."
-msgstr ""
+msgstr "Menampilkan actiongraph."
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Menampilkan aksi commit."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Menampilkan pohon perangkat."
 
 msgid "Shows devicegraph."
-msgstr ""
+msgstr "Menampilkan devicegraph."
 
 msgid "Shows disks."
-msgstr ""
+msgstr "Menampilkan disk."
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Menampilkan perangkat enkripsi."
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "Menampilkan sistem berkas."
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Menampilkan perangkat multipath."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Menampilkan pool."
 
 msgid "Size"
-msgstr ""
+msgstr "Ukuran"
 
 msgid "Stripes"
-msgstr ""
+msgstr "Stripe"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "Perintah ini memiliki subperintah berikut:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "Transpor"
 
 msgid "Type"
-msgstr ""
+msgstr "Tipe"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Opsi global tidak dikenal '%s'."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Opsi tidak dikenal '%s' untuk perintah '%s'."
 
 msgid "Usage"
-msgstr ""
+msgstr "Penggunaan"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Gunakan bilangan bulat dari %d hingga %d."
 
 msgid "Used"
-msgstr ""
+msgstr "Terpakai"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Vendor"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "Verifikasi kata sandi:"
 
 msgid "[ pushes a mark on the stack."
-msgstr ""
+msgstr "[ mendorong tanda ke tumpukan."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] membuat sebuah array."
 
 msgid "activate by"
-msgstr ""
+msgstr "aktifkan berdasarkan"
 
 msgid "activate options"
-msgstr ""
+msgstr "opsi aktivasi"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "aktifkan sistem penyimpanan saat startup"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "activate-by label membutuhkan sebuah label"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "jawab semua pertanyaan dengan ya"
 
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "array dengan %d objek"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
 msgid "bad devices argument"
-msgstr ""
+msgstr "argumen perangkat tidak valid"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "argumen stripe tidak valid"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "tampilkan lebih banyak detail"
 
 msgid "be quiet"
-msgstr ""
+msgstr "mode senyap"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "perangkat blok '%s' tidak dapat dihapus"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
 msgstr ""
+"perangkat blok '%s' tidak dapat digunakan sebagai perangkat blok reguler"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "perangkat blok '%s' sedang digunakan"
 
 msgid "block devices for LVM volume group missing"
-msgstr ""
+msgstr "perangkat blok untuk grup volume LVM tidak ditemukan"
 
 msgid "block devices for RAID missing"
-msgstr ""
+msgstr "perangkat blok untuk RAID tidak ditemukan"
 
 msgid "block devices for filesystem missing"
-msgstr ""
+msgstr "perangkat blok untuk sistem berkas tidak ditemukan"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "perangkat blok tidak ditemukan untuk perintah 'raid'"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
 #, c-format
 msgid "close for json file '%s' failed"
-msgstr ""
+msgstr "penutupan berkas json '%s' gagal"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "menutup berkas json '%s' gagal"
 
 msgid "deleted device"
-msgstr ""
+msgstr "perangkat yang dihapus"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "perangkat '%s' tidak ditemukan dalam pemetaan"
 
 msgid "do not add in /etc/crypttab"
-msgstr ""
+msgstr "jangan tambahkan ke /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "jangan tambahkan ke /etc/fstab"
 
 msgid "do not add in /etc/mdadm.conf"
-msgstr ""
+msgstr "jangan tambahkan ke /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "jangan terapkan apa pun ke disk"
 
 msgid "do not show colors"
-msgstr ""
+msgstr "jangan tampilkan warna"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "jangan tampilkan partisi pada DASD"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "jangan tampilkan partisi pada RAID"
 
 #. TRANSLATORS: help text
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "jangan tampilkan partisi pada disk"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "jangan tampilkan partisi pada perangkat multipath"
 
 msgid "done"
-msgstr ""
+msgstr "selesai"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "elemen array untuk '%s' bukan string"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "elemen array perangkat untuk '%s' bukan string"
 
 msgid "encryption type"
-msgstr ""
+msgstr "tipe enkripsi"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "tipe enkripsi sudah diatur untuk perintah 'encryption'"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "tipe enkripsi tidak ditemukan untuk perintah 'encryption'"
 
 msgid "error:"
-msgstr ""
+msgstr "kesalahan:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "konten berlebih dalam berkas json '%s'"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "gagal menghitung aksi"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "gagal mengurai ukuran '%s'"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "sistem berkas %s pada %s"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "tipe sistem berkas sudah diatur untuk perintah 'filesystem'"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "tipe sistem berkas tidak ditemukan untuk perintah 'filesystem'"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "paksa jika perangkat blok sedang digunakan"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "paksa jika perangkat blok sedang digunakan"
 
 msgid "go downwards"
-msgstr ""
+msgstr "arah ke bawah"
 
 msgid "go upwards"
-msgstr ""
+msgstr "arah ke atas"
 
 #, c-format
 msgid "invalid devices value '%d'"
-msgstr ""
+msgstr "nilai perangkat tidak valid '%d'"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "nama volume logis tidak valid untuk perintah 'lv'"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "jalur tidak valid '%s'"
 
 #, c-format
 msgid "invalid size '%s'"
-msgstr ""
+msgstr "ukuran tidak valid '%s'"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "nama grup volume tidak valid untuk perintah 'vg'"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "pertahankan partisi yang mendasarinya"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "label hanya didukung untuk LUKS2"
 
 #, c-format
 msgid "logical volume '%s' has size zero"
-msgstr ""
+msgstr "volume logis '%s' memiliki ukuran nol"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "DASD yang dipetakan untuk '%s' memiliki format berbeda"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "DASD yang dipetakan untuk '%s' memiliki tipe berbeda"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "DASD yang dipetakan untuk '%s' dipetakan dua kali"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "DM RAID yang dipetakan untuk '%s' dipetakan dua kali"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "perangkat yang dipetakan untuk '%s' memiliki ukuran blok berbeda"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "perangkat yang dipetakan untuk '%s' bukan DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "perangkat yang dipetakan untuk '%s' bukan DM RAID"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "perangkat yang dipetakan untuk '%s' bukan disk"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "perangkat yang dipetakan untuk '%s' bukan multipath"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "perangkat yang dipetakan untuk '%s' lebih kecil"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "perangkat yang dipetakan untuk '%s' tidak ditemukan"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "disk yang dipetakan untuk '%s' dipetakan dua kali"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "multipath yang dipetakan untuk '%s' dipetakan dua kali"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "memetakan %s ke %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "pemetaan tidak ditemukan dalam berkas json '%s'"
 
 msgid "missing block device"
-msgstr ""
+msgstr "perangkat blok tidak ditemukan"
 
 msgid "missing partitionable"
-msgstr ""
+msgstr "partitionable tidak ditemukan"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "opsi mkfs"
 
 msgid "mount by"
-msgstr ""
+msgstr "kait berdasarkan"
 
 msgid "mount options"
-msgstr ""
+msgstr "opsi kait"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "opsi kait membutuhkan sebuah jalur"
 
 msgid "mount path"
-msgstr ""
+msgstr "jalur kait"
 
 msgid "mount-by label requires a label"
-msgstr ""
+msgstr "mount-by label membutuhkan sebuah label"
 
 msgid "mount-by requires a path"
-msgstr ""
+msgstr "mount-by membutuhkan sebuah jalur"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "beberapa perangkat"
 
 #. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
-msgstr ""
+msgstr "n"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "nama tidak ditemukan untuk perintah 'devicegraph'"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "nama tidak ditemukan untuk perintah 'encryption'"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "nama tidak ditemukan untuk perintah 'lv'"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "nama tidak ditemukan untuk perintah 'vg'"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "nama RAID sudah ada"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "nama devicegraph"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "nama berkas devicegraph"
 
 msgid "name of encryption already exists"
-msgstr ""
+msgstr "nama enkripsi sudah ada"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "nama volume logis sudah ada"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "nama berkas pemetaan"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "nama pool baru"
 
 msgid "name of pool"
-msgstr ""
+msgstr "nama pool"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "nama pool yang akan digunakan"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "nama grup volume"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "nama grup volume sudah ada"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "tanda + maupun - tidak diizinkan dalam ukuran"
 
 msgid "new name"
-msgstr ""
+msgstr "nama baru"
 
 msgid "new size"
-msgstr ""
+msgstr "ukuran baru"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "tidak ada cadangan yang tersedia untuk dibatalkan"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "tidak ditemukan pemetaan DASD untuk '%s'"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "tidak ditemukan pemetaan DM RAID untuk '%s'"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "tidak ditemukan pemetaan disk untuk '%s'"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "tidak ditemukan pemetaan multipath untuk '%s'"
 
 msgid "no mark on stack"
-msgstr ""
+msgstr "tidak ada tanda pada tumpukan"
 
 msgid "not a block device in array"
-msgstr ""
+msgstr "bukan perangkat blok dalam array"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "bukan perangkat blok pada tumpukan"
 
 msgid "not a block device or array of block devices on stack"
-msgstr ""
+msgstr "bukan perangkat blok atau array perangkat blok pada tumpukan"
 
 msgid "not a device in array"
-msgstr ""
+msgstr "bukan perangkat dalam array"
 
 msgid "not a device on stack"
-msgstr ""
+msgstr "bukan perangkat pada tumpukan"
 
 msgid "not a partition table in array"
-msgstr ""
+msgstr "bukan tabel partisi dalam array"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "bukan tabel partisi pada tumpukan"
 
 msgid "not a partition table or array of partition tables on stack"
-msgstr ""
+msgstr "bukan tabel partisi atau array tabel partisi pada tumpukan"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "bukan partitionable"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "bukan partitionable pada tumpukan"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "bukan grup volume pada tumpukan"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "jumlah stripe"
 
 msgid "old name"
-msgstr ""
+msgstr "nama lama"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "hanya satu perangkat blok yang diizinkan"
 
 msgid "only one partition table allowed"
-msgstr ""
+msgstr "hanya satu tabel partisi yang diizinkan"
 
 msgid "only one partitionable allowed"
-msgstr ""
+msgstr "hanya satu partitionable yang diizinkan"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
-msgstr ""
+msgstr "pembukaan berkas json '%s' gagal"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "membuka berkas json '%s' gagal"
 
 #, c-format
 msgid "option --devices not allowed for %s"
-msgstr ""
+msgstr "opsi --devices tidak diizinkan untuk %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "penguraian berkas json '%s' gagal"
 
 msgid "partition table type"
-msgstr ""
+msgstr "tipe tabel partisi"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr ""
+msgstr "tipe tabel partisi sudah diatur untuk perintah 'partition-table'"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "tipe tabel partisi tidak ditemukan untuk perintah 'partition-table'"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
-msgstr ""
+msgstr "partitionable '%s' tidak dapat digunakan sebagai partitionable reguler"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "partitionable '%s' sedang digunakan"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "jalur '%s' sudah digunakan"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
 msgid "path must be 'swap' or 'none'"
-msgstr ""
+msgstr "jalur harus 'swap' atau 'none'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
 msgstr ""
+"argumen pool dan perangkat blok tidak boleh digunakan bersamaan untuk "
+"perintah 'encryption'"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
+"argumen pool dan perangkat blok tidak boleh digunakan bersamaan untuk "
+"perintah 'filesystem'"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
 msgstr ""
+"argumen pool dan perangkat blok tidak boleh digunakan bersamaan untuk "
+"perintah 'vg'"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "pool kosong"
 
 msgid "pool name"
-msgstr ""
+msgstr "nama pool"
 
 msgid "probe used space"
-msgstr ""
+msgstr "deteksi ruang yang digunakan"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "pembacaan berkas json '%s' gagal"
 
 msgid "run with a rootprefix"
-msgstr ""
+msgstr "jalankan dengan rootprefix"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "atur PBKDF"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "atur level RAID"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "atur versi metadata RAID"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "atur nama RAID"
 
 msgid "set a key file"
-msgstr ""
+msgstr "atur berkas kunci"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "atur ukuran potongan"
 
 msgid "set cipher"
-msgstr ""
+msgstr "atur sandi"
 
 msgid "set extent size"
-msgstr ""
+msgstr "atur ukuran extent"
 
 msgid "set file system label"
-msgstr ""
+msgstr "atur label sistem berkas"
 
 msgid "set file system type"
-msgstr ""
+msgstr "atur tipe sistem berkas"
 
 msgid "set key size"
-msgstr ""
+msgstr "atur ukuran kunci"
 
 msgid "set label of device"
-msgstr ""
+msgstr "atur label perangkat"
 
 msgid "set name of device"
-msgstr ""
+msgstr "atur nama perangkat"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "atur nama volume logis"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "atur nama grup volume"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "atur jumlah perangkat"
 
 msgid "set profiles"
-msgstr ""
+msgstr "atur profil"
 
 msgid "set size"
-msgstr ""
+msgstr "atur ukuran"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "atur ukuran RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "atur ukuran volume logis"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "atur ukuran grup volume"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "ditemukan beberapa pemetaan DASD untuk '%s'"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "ditemukan beberapa pemetaan DM RAID untuk '%s'"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "ditemukan beberapa pemetaan disk untuk '%s'"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "ditemukan beberapa pemetaan multipath untuk '%s'"
 
 msgid "show colors"
-msgstr ""
+msgstr "tampilkan warna"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "tampilkan aksi ringkas alih-alih aksi terperinci"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "tampilkan bantuan dan keluar"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "tampilkan versi dan keluar"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "argumen ukuran tidak ditemukan untuk perintah 'encryption'"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "argumen ukuran tidak ditemukan untuk perintah 'filesystem'"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "argumen ukuran diperlukan untuk perintah 'raid'"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "argumen ukuran diperlukan untuk perintah 'vg'"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "ukuran tidak ditemukan untuk perintah 'lv'"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "ukuran stripe"
 
 msgid "size too small for command 'lv'"
-msgstr ""
+msgstr "ukuran terlalu kecil untuk perintah 'lv'"
 
 msgid "size too small for file system"
-msgstr ""
+msgstr "ukuran terlalu kecil untuk sistem berkas"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "perangkat cadangan tidak diizinkan untuk level RAID"
 
 msgid "stack empty"
-msgstr ""
+msgstr "tumpukan kosong"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "tumpukan kosong saat dup"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "tumpukan kosong saat pop"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "stack underflow saat exch"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "stat untuk berkas json '%s' gagal"
 
 msgid "table style"
-msgstr ""
+msgstr "gaya tabel"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "terlalu sedikit perangkat RAID untuk level RAID"
 
 msgid "tune options"
-msgstr ""
+msgstr "opsi tune"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "opsi tune tidak diizinkan untuk %s"
 
 #, c-format
 msgid "unknown activate-by type '%s'"
-msgstr ""
+msgstr "tipe activate-by tidak dikenal '%s'"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr ""
+msgstr "profil btrfs tidak dikenal '%s'"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "tipe enkripsi tidak dikenal"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "tipe sistem berkas tidak dikenal '%s'"
 
 #, c-format
 msgid "unknown mount-by type '%s'"
-msgstr ""
+msgstr "tipe mount-by tidak dikenal '%s'"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "tipe tabel partisi tidak dikenal"
 
 #, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr ""
+msgstr "mode probe-used-space tidak dikenal '%s'"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "level RAID tidak dikenal untuk perintah 'raid'"
 
 #. TRANSLATORS: help text
 msgid "use probed instead of staging devicegraph"
-msgstr ""
+msgstr "gunakan devicegraph probed alih-alih staging"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "nilai untuk '%s' bukan string maupun array"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "nilai entri deskripsi bukan string"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "nilai entri perangkat bukan array"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "grup volume '%s' melebihi kapasitas"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "jumlah partitionable salah"
 
 #. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "y"
