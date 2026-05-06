@@ -43,7 +43,7 @@ namespace barrel
 	static string escape(const string& original);
 	static string unescape(const string& original);
 
-	enum class Category { NONE, COMMAND, ARGUMENT, POOL, DEVICE };
+	enum class Category { NONE, COMMAND, ARGUMENT, POOL, LVM_VG, DEVICE };
 
 	struct CompItem
 	{
@@ -58,9 +58,11 @@ namespace barrel
 	{
 	public:
 	    void clear();
+
 	    void push_command(const string& name, const string& desc);
 	    void push_argument(const string& name, const string& desc, const string& display = "");
 	    void push_pool(const string& name);
+	    void push_lvm_vg(const string& name);
 	    void push_device(const string& name);
 
 	    vector<CompItem> items;

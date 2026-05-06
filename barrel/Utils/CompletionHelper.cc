@@ -20,7 +20,6 @@
  */
 
 #include <filesystem>
-#include <iomanip>
 #include <boost/algorithm/string.hpp>
 
 #include <storage/Devices/LvmVg.h>
@@ -72,6 +71,13 @@ namespace barrel
     CompletionHelper::CompletionResult::push_pool(const string& name)
     {
 	push(Category::POOL, name);
+    }
+
+
+    void
+    CompletionHelper::CompletionResult::push_lvm_vg(const string& name)
+    {
+	push(Category::LVM_VG, name);
     }
 
 
@@ -293,11 +299,11 @@ namespace barrel
 				result.push_pool(x.first);
 		    break;
 
-		case ValueType::LVM_VG_NAME:
+		case ValueType::LVM_VG:
 		    if (storage)
 			for (const LvmVg* lvm_vg : LvmVg::get_all(storage->get_system()))
 			    if (boost::starts_with(lvm_vg->get_vg_name(), text))
-				result.push_pool(lvm_vg->get_vg_name());
+				result.push_lvm_vg(lvm_vg->get_vg_name());
 		    break;
 
 		case ValueType::STRING_LIST:
@@ -322,7 +328,8 @@ namespace barrel
 	    return result;
 	}
 
-	for (const Parser& sub_cmd : main_cmd->sub_cmds){
+	for (const Parser& sub_cmd : main_cmd->sub_cmds)
+	{
 	    if (boost::starts_with(sub_cmd.name, text))
 		result.push_command(
 			sub_cmd.name,
@@ -332,7 +339,8 @@ namespace barrel
 
 	if (cmd)
 	{
-	    for (const Option& option : cmd->options().options){
+	    for (const Option& option : cmd->options().options)
+	    {
 		// skip deprecated options
 		if (!option.description)
 		    continue;
@@ -367,11 +375,13 @@ namespace barrel
 
     ostream& operator<<(ostream& os, CompletionHelper::Category category)
     {
-	switch (category) {
+	switch (category)
+	{
 	    case CompletionHelper::Category::NONE:     return os << "";
 	    case CompletionHelper::Category::COMMAND:  return os << "COMMAND";
 	    case CompletionHelper::Category::ARGUMENT: return os << "ARGUMENT";
 	    case CompletionHelper::Category::POOL:     return os << "POOL";
+	    case CompletionHelper::Category::LVM_VG:   return os << "LVM_VG";
 	    case CompletionHelper::Category::DEVICE:   return os << "DEVICE";
 	    default:                 return os << "Unknown";
 	}
@@ -403,7 +413,8 @@ namespace barrel
 	    Category::COMMAND,
 	    Category::ARGUMENT,
 	    Category::DEVICE,
-	    Category::POOL
+	    Category::POOL,
+	    Category::LVM_VG,
 	};
 
 	map<Category, vector<reference_wrapper<const CompItem>>> grouped;
