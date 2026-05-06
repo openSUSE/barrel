@@ -20,19 +20,15 @@
  */
 
 #include <filesystem>
-#include <iomanip>
 #include <boost/algorithm/string.hpp>
+
+#include <storage/Devices/LvmVg.h>
+
 #include "CompletionHelper.h"
 
 
 namespace barrel
 {
-
-    CompletionHelper::CompletionHelper():
-	storage(nullptr)
-    {
-    }
-
 
     void
     CompletionHelper::set_storage(const Storage* r_storage)
@@ -49,7 +45,8 @@ namespace barrel
 
 
     void
-    CompletionHelper::CompletionResult::push(Category category, const string& name, const string& desc, const string& display)
+    CompletionHelper::CompletionResult::push(Category category, const string& name, const string& desc,
+					     const string& display)
     {
 	items.push_back({name, desc, category, display});
     }
@@ -63,7 +60,8 @@ namespace barrel
 
 
     void
-    CompletionHelper::CompletionResult::push_argument(const string& name, const string& desc, const string& display)
+    CompletionHelper::CompletionResult::push_argument(const string& name, const string& desc,
+						      const string& display)
     {
 	push(Category::ARGUMENT, name, desc, display);
     }
@@ -73,6 +71,13 @@ namespace barrel
     CompletionHelper::CompletionResult::push_pool(const string& name)
     {
 	push(Category::POOL, name);
+    }
+
+
+    void
+    CompletionHelper::CompletionResult::push_lvm_vg(const string& name)
+    {
+	push(Category::LVM_VG, name);
     }
 
 
@@ -149,8 +154,8 @@ namespace barrel
 	    if (main_cmd.name == name)
 		return &main_cmd;
 	}
-	return nullptr;
 
+	return nullptr;
     }
 
 
@@ -165,6 +170,7 @@ namespace barrel
 		    return pair(&sub_cmd, tokens.size() - 1 - distance(tokens.rbegin(), it));
 	    }
 	}
+
 	return pair( nullptr, string::npos );
     }
 
@@ -293,6 +299,13 @@ namespace barrel
 				result.push_pool(x.first);
 		    break;
 
+		case ValueType::LVM_VG:
+		    if (storage)
+			for (const LvmVg* lvm_vg : LvmVg::get_all(storage->get_system()))
+			    if (boost::starts_with(lvm_vg->get_vg_name(), text))
+				result.push_lvm_vg(lvm_vg->get_vg_name());
+		    break;
+
 		case ValueType::STRING_LIST:
 		    for (const auto& s : option->possible_values)
 			if (boost::starts_with(s, text))
@@ -315,7 +328,8 @@ namespace barrel
 	    return result;
 	}
 
-	for (const Parser& sub_cmd : main_cmd->sub_cmds){
+	for (const Parser& sub_cmd : main_cmd->sub_cmds)
+	{
 	    if (boost::starts_with(sub_cmd.name, text))
 		result.push_command(
 			sub_cmd.name,
@@ -325,7 +339,8 @@ namespace barrel
 
 	if (cmd)
 	{
-	    for (const Option& option : cmd->options().options){
+	    for (const Option& option : cmd->options().options)
+	    {
 		// skip deprecated options
 		if (!option.description)
 		    continue;
@@ -358,20 +373,15 @@ namespace barrel
     }
 
 
-    const CompletionHelper::CompletionResult&
-    CompletionHelper::get_result() const
-    {
-	return result;
-    }
-
-
     ostream& operator<<(ostream& os, CompletionHelper::Category category)
     {
-	switch (category) {
+	switch (category)
+	{
 	    case CompletionHelper::Category::NONE:     return os << "";
 	    case CompletionHelper::Category::COMMAND:  return os << "COMMAND";
 	    case CompletionHelper::Category::ARGUMENT: return os << "ARGUMENT";
 	    case CompletionHelper::Category::POOL:     return os << "POOL";
+	    case CompletionHelper::Category::LVM_VG:   return os << "LVM_VG";
 	    case CompletionHelper::Category::DEVICE:   return os << "DEVICE";
 	    default:                 return os << "Unknown";
 	}
@@ -382,6 +392,7 @@ namespace barrel
     CompletionHelper::display_comp_items(vector<reference_wrapper<const CompItem>> &items) const
     {
 	int desc_max_len = 20;
+
 	for (const CompItem& item: items)
 	    desc_max_len = max(desc_max_len, static_cast<int>(
 			item.display.empty() ? item.name.length() : item.display.length()));
@@ -389,8 +400,8 @@ namespace barrel
 	for (const CompItem& item: items)
 	{
 	    cout << left << setw(desc_max_len + 2)
-		<< (item.display.empty() ? item.name : item.display)
-		<< item.desc << endl;
+		 << (item.display.empty() ? item.name : item.display)
+		 << item.desc << endl;
 	}
     }
 
@@ -398,27 +409,30 @@ namespace barrel
     void
     CompletionHelper::display_matches(char** matches, int num_matches, int max_length) const
     {
-	vector<Category> order = {
+	const vector<Category> order = {
 	    Category::COMMAND,
 	    Category::ARGUMENT,
 	    Category::DEVICE,
-	    Category::POOL
+	    Category::POOL,
+	    Category::LVM_VG,
 	};
+
 	map<Category, vector<reference_wrapper<const CompItem>>> grouped;
 
 	for (const auto& item : result.items)
 	    grouped[item.category].push_back(cref(item));
 
 	cout << endl;
-	for (auto cat : order)
+
+	for (Category category : order)
 	{
-	    if (grouped.find(cat) == grouped.end())
+	    if (grouped.find(category) == grouped.end())
 		continue;
 
 	    if (grouped.size() > 1)
-		cout << cat << "s:" << endl;
+		cout << category << "s:" << endl;
 
-	    display_comp_items(grouped.at(cat));
+	    display_comp_items(grouped.at(category));
 
 	    if (grouped.size() > 1)
 		cout << endl;

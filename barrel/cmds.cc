@@ -155,29 +155,28 @@ namespace barrel
 	{ "pools", make_shared<CmdSavePools>() }
     };
 
-    const vector<Parser> empty_cmds;
 
     const vector<MainCmd> main_cmds = {
-	{ "[", make_shared<CmdOpenMark>(), empty_cmds },
-	{ "]", make_shared<CmdCloseMark>(), empty_cmds },
-	{ "clear", make_shared<CmdClear>(), empty_cmds },
-	{ "commit", make_shared<CmdCommit>(), empty_cmds },
+	{ "[", make_shared<CmdOpenMark>(), {} },
+	{ "]", make_shared<CmdCloseMark>(), {} },
+	{ "clear", make_shared<CmdClear>(), {} },
+	{ "commit", make_shared<CmdCommit>(), {} },
 	{ "create", nullptr, create_cmds },
-	{ "dup", make_shared<CmdDup>(), empty_cmds },
-	{ "exch", make_shared<CmdExch>(), empty_cmds },
+	{ "dup", make_shared<CmdDup>(), {} },
+	{ "exch", make_shared<CmdExch>(), {} },
 	{ "extend", nullptr, extend_cmds },
-	{ "help", make_shared<CmdHelp>(), empty_cmds },
+	{ "help", make_shared<CmdHelp>(), {} },
 	{ "load", nullptr, load_cmds },
-	{ "pop", make_shared<CmdPop>(), empty_cmds },
-	{ "quit", make_shared<CmdQuit>(), empty_cmds },
+	{ "pop", make_shared<CmdPop>(), {} },
+	{ "quit", make_shared<CmdQuit>(), {} },
 	{ "reduce", nullptr, reduce_cmds },
 	{ "remove", nullptr, remove_cmds },
 	{ "rename", nullptr, rename_cmds },
 	{ "resize", nullptr, resize_cmds },
 	{ "save", nullptr, save_cmds },
 	{ "show", nullptr, show_cmds },
-	{ "stack", make_shared<CmdStack>(), empty_cmds },
-	{ "undo", make_shared<CmdUndo>(), empty_cmds }
+	{ "stack", make_shared<CmdStack>(), {} },
+	{ "undo", make_shared<CmdUndo>(), {} }
     };
 
 }

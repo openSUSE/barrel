@@ -1,3 +1,4 @@
+
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE barrel
 
@@ -37,6 +38,7 @@ BOOST_AUTO_TEST_CASE(test_complete_commands)
     helper.complete({}, "");
     BOOST_CHECK(item_exists(helper.get_result(), "create"));
     BOOST_CHECK(item_exists(helper.get_result(), "show"));
+    BOOST_CHECK(!item_exists(helper.get_result(), "raid"));
 
     // Partial input "re" -> reduce, remove, rename, resize
     helper.complete({}, "re");
@@ -56,6 +58,7 @@ BOOST_AUTO_TEST_CASE(test_complete_subcommands)
     helper.complete({"show"}, "");
     BOOST_CHECK(item_exists(helper.get_result(), "disks"));
     BOOST_CHECK(item_exists(helper.get_result(), "pools"));
+    BOOST_CHECK(!item_exists(helper.get_result(), "create"));
 
     // "show di" -> should suggest disks
     helper.complete({"show"}, "di");
@@ -95,6 +98,7 @@ BOOST_AUTO_TEST_CASE(test_complete_option_values)
     BOOST_CHECK(item_exists(helper.get_result(), "btrfs"));
     BOOST_CHECK(item_exists(helper.get_result(), "xfs"));
     BOOST_CHECK(item_exists(helper.get_result(), "ext4"));
+    BOOST_CHECK(!item_exists(helper.get_result(), "gpt"));
 
     // unknown option
     helper.complete({ "create", "filesystem"},  "--XXXX");
@@ -120,4 +124,7 @@ BOOST_AUTO_TEST_CASE(test_storage_dependent_completions)
     // "show tree /dev/s" -> should suggest /dev/sda, /dev/sdb, /dev/sdc etc from real1.xml
     helper.complete({"show", "tree"}, "/dev/s");
     BOOST_CHECK(item_exists(helper.get_result(), "/dev/sda"));
+
+    helper.complete({ "create", "lv", "--vg-name" }, "da");
+    BOOST_CHECK(item_exists(helper.get_result(), "data"));
 }

@@ -53,7 +53,8 @@ namespace barrel
 	UNKNOWN,
 	POOL,
 	PATH,
-	STRING_LIST
+	LVM_VG,
+	STRING_LIST,
     };
 
 

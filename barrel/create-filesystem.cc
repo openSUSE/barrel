@@ -103,7 +103,7 @@ namespace barrel
 	    { "type", required_argument, 't', _("set file system type"), "type",
 		ValueType::STRING_LIST, map_keys(str_to_fs_type) },
 	    { "label", required_argument, 'l', _("set file system label"), "label" },
-	    { "path", required_argument, 'p', _("mount path"), "path" },
+	    { "path", required_argument, 'p', _("mount path"), "path", ValueType::PATH },
 	    { "mount-by", required_argument, 0, _("mount by"), "type",
 		ValueType::STRING_LIST, map_keys(str_to_mount_by_type) },
 	    { "mount-options", required_argument, 'o', _("mount options"), "options" },
