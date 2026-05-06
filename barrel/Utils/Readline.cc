@@ -31,17 +31,25 @@
 namespace barrel
 {
 
+    CompletionHelper Readline::completion;
+
     Readline::Readline(const Storage* storage, const Testsuite* testsuite)
 	: testsuite(testsuite)
     {
-	Readline::storage = storage;
+	completion.set_storage(storage);
 
 	// Note: readline allocates memory that partly cannot be freed.
 
 	rl_readline_name = "barrel";
 
 	rl_attempted_completion_function = my_completion;
-	rl_completer_quote_characters = "\"'";
+	rl_completion_display_matches_hook = my_display_matches;
+	rl_filename_quoting_function = my_quote_filename;
+	rl_basic_word_break_characters = " \t";
+	rl_completer_quote_characters = "'\"";
+	rl_filename_quote_characters = " ";
+	rl_sort_completion_matches = 0;
+	rl_char_is_quoted_p = my_char_is_quoted;
 
 	using_history();
 	stifle_history(1024);
@@ -83,80 +91,89 @@ namespace barrel
 	return line;
     }
 
-
-    string
-    Readline::escape(const string& original)
-    {
-	string escaped;
-
-	for (char c : original)
-	{
-	    if (c == ' ')
-		escaped += '\\';
-
-	    escaped += c;
-	}
-
-	return escaped;
-    }
-
-
     char*
     Readline::names_generator(const char* text, int state)
     {
-	static size_t list_index, len;
+	static size_t list_index;
 
 	if (state == 0)
-	{
 	    list_index = 0;
-	    len = strlen(text);
-	}
 
-	while (list_index < comp_names.size())
-	{
-	    const string& name = comp_names[list_index++];
-
-	    if (rl_completion_quote_character)
-	    {
-		if (strncmp(name.c_str(), text, len) == 0)
-		    return strdup(name.c_str());
-	    }
-	    else
-	    {
-		string tmp = escape(name);
-		if (strncmp(tmp.c_str(), text, len) == 0)
-		    return strdup(tmp.c_str());
-	    }
-	}
+	if (list_index < completion.get_result().items.size())
+	    return strdup(completion.get_result().items[list_index++].name.c_str());
 
 	return nullptr;
     }
 
-
     char**
     Readline::my_completion(const char* text, int start, int end)
     {
+	string_view line(rl_line_buffer, start);
+	string u_string = CompletionHelper::unescape(string(text));
+	vector<string> tokens;
+
+	// Disable default filename completion
 	rl_attempted_completion_over = 1;
 
-	// TODO make completion context aware
+	// Use filename completion mode to trigger quoting/dequoting
+	rl_filename_completion_desired = 1;
+	rl_filename_quoting_desired = 1;
 
-	comp_names = fixed_comp_names;
+	try {
 
-	// TODO normally tab completion only goes upto the path component
+	    if (!u_string.empty() && !line.empty()) {
+		char last = line.back();
+		if (last == '"' || last == '\'') {
+		    line.remove_suffix(1);
+		}
+	    }
+	    tokens = parse_line(line);
+	} catch (const std::runtime_error &e) {
+	    // silent ignore error, just no completion
+	    return nullptr;
+	}
 
-	for (auto x : possible_blk_devices(storage))
-	    comp_names.push_back(x);
+	// completion results are used in names_generator()
+	completion.complete(tokens, u_string);
 
-	for (auto x : storage->get_pools())
-	    comp_names.push_back(x.first);
+	return rl_completion_matches(u_string.c_str(), names_generator);
+    }
 
-	return rl_completion_matches(text, names_generator);
+    void
+    Readline::my_display_matches(char** matches, int num_matches, int max_length)
+    {
+	completion.display_matches(matches, num_matches, max_length);
+	rl_on_new_line();
     }
 
 
-    const Storage* Readline::storage;
+    int
+    Readline::my_char_is_quoted(char *text, int index)
+    {
+	return (index > 0 && text[index - 1] == '\\');
+    }
 
-    vector<string> Readline::fixed_comp_names;
-    vector<string> Readline::comp_names;
+
+    char*
+    Readline::my_quote_filename(char* s, int rtype, char* qcp)
+    {
+	char quote_char = rl_completer_quote_characters[0];
+
+	if (!strchr(s, ' '))
+	    return strdup(s);
+
+	if (qcp && qcp[0])
+	    quote_char = qcp[0];
+
+	size_t len = strlen(s);
+	char* quoted = (char*)malloc(len + 3);
+	quoted[0] = quote_char;
+	memcpy(quoted + 1, s, len);
+	if (rtype == SINGLE_MATCH) {
+	    quoted[len + 1] = quote_char;
+	    quoted[len + 2] = '\0';
+	}
+	return quoted;
+    }
 
 }

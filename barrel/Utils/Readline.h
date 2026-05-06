@@ -25,6 +25,7 @@
 
 
 #include "Misc.h"
+#include "CompletionHelper.h"
 
 
 namespace barrel
@@ -41,11 +42,9 @@ namespace barrel
 
 	char* readline(const string& prompt);
 
-	static const Storage* storage;
-
-	static vector<string> fixed_comp_names;
-
     private:
+
+	static CompletionHelper completion;
 
 	const Testsuite* testsuite;
 
@@ -53,14 +52,15 @@ namespace barrel
 
 	vector<string>::const_iterator it;
 
-	static string escape(const string& original);
-
 	static char* names_generator(const char* text, int state);
 
 	static char** my_completion(const char* text, int start, int end);
 
-	static vector<string> comp_names;
+	static void my_display_matches(char** matches, int num_matches, int max_length);
 
+	static int my_char_is_quoted(char *text, int index);
+
+	static char* my_quote_filename(char* s, int rtype, char* qcp);
     };
 
 }

@@ -50,6 +50,15 @@ namespace barrel
     string
     format_percentage(unsigned long long a, unsigned long long b, int precision = 2);
 
+    template<typename T>
+    inline vector<string>
+    map_keys(const map<string, T>& m)
+    {
+	vector<string> keys;
+	for (const auto& [key, value] : m)
+	    keys.push_back(key);
+	return keys;
+    }
 
     /**
      * Class to parse a number, e.g. "2". The special value "max" is also allowed. An
