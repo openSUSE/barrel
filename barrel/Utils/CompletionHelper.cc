@@ -22,6 +22,9 @@
 #include <filesystem>
 #include <iomanip>
 #include <boost/algorithm/string.hpp>
+
+#include <storage/Devices/LvmVg.h>
+
 #include "CompletionHelper.h"
 
 
@@ -288,6 +291,13 @@ namespace barrel
 			for (auto x : storage->get_pools())
 			    if (boost::starts_with(x.first, text))
 				result.push_pool(x.first);
+		    break;
+
+		case ValueType::LVM_VG_NAME:
+		    if (storage)
+			for (const LvmVg* lvm_vg : LvmVg::get_all(storage->get_system()))
+			    if (boost::starts_with(lvm_vg->get_vg_name(), text))
+				result.push_pool(lvm_vg->get_vg_name());
 		    break;
 
 		case ValueType::STRING_LIST:

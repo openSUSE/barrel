@@ -120,4 +120,7 @@ BOOST_AUTO_TEST_CASE(test_storage_dependent_completions)
     // "show tree /dev/s" -> should suggest /dev/sda, /dev/sdb, /dev/sdc etc from real1.xml
     helper.complete({"show", "tree"}, "/dev/s");
     BOOST_CHECK(item_exists(helper.get_result(), "/dev/sda"));
+
+    helper.complete({ "create", "lv", "--vg-name" }, "da");
+    BOOST_CHECK(item_exists(helper.get_result(), "data"));
 }

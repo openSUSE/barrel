@@ -46,7 +46,7 @@ namespace barrel
     {
 
 	const ExtOptions create_lvm_lv_options({
-	    { "vg-name", required_argument, 'v', _("name of volume group"), "vg-name" },
+	    { "vg-name", required_argument, 'v', _("name of volume group"), "vg-name", ValueType::LVM_VG_NAME },
 	    { "name", required_argument, 'n', _("set name of logical volume"), "name" },
 	    { "size", required_argument, 's', _("set size of logical volume"), "size" },
 	    { "stripes", required_argument, 0, _("number of stripes"), "stripes" },
