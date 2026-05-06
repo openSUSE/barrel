@@ -69,14 +69,12 @@ namespace barrel
 	    void push(Category category, const string& name, const string& desc = "", const string& display = "");
 	};
 
-	CompletionHelper();
-
 	void set_storage(const Storage* storage);
 
 	const CompletionResult&
 	complete(const vector<string> &tokens, const string &text);
 
-	const CompletionResult&	get_result() const;
+	const CompletionResult&	get_result() const { return result; }
 
 	void display_matches(char** matches, int num_matches, int max_length) const;
 
@@ -97,7 +95,7 @@ namespace barrel
 
 	void add_devices(CompletionResult &res, const string &text, const vector<string> &all_devices) const;
 
-	const Storage* storage;
+	const Storage* storage = nullptr;
 
 	CompletionResult result;
 

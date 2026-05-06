@@ -28,12 +28,6 @@
 namespace barrel
 {
 
-    CompletionHelper::CompletionHelper():
-	storage(nullptr)
-    {
-    }
-
-
     void
     CompletionHelper::set_storage(const Storage* r_storage)
     {
@@ -49,7 +43,8 @@ namespace barrel
 
 
     void
-    CompletionHelper::CompletionResult::push(Category category, const string& name, const string& desc, const string& display)
+    CompletionHelper::CompletionResult::push(Category category, const string& name, const string& desc,
+					     const string& display)
     {
 	items.push_back({name, desc, category, display});
     }
@@ -63,7 +58,8 @@ namespace barrel
 
 
     void
-    CompletionHelper::CompletionResult::push_argument(const string& name, const string& desc, const string& display)
+    CompletionHelper::CompletionResult::push_argument(const string& name, const string& desc,
+						      const string& display)
     {
 	push(Category::ARGUMENT, name, desc, display);
     }
@@ -149,8 +145,8 @@ namespace barrel
 	    if (main_cmd.name == name)
 		return &main_cmd;
 	}
-	return nullptr;
 
+	return nullptr;
     }
 
 
@@ -165,6 +161,7 @@ namespace barrel
 		    return pair(&sub_cmd, tokens.size() - 1 - distance(tokens.rbegin(), it));
 	    }
 	}
+
 	return pair( nullptr, string::npos );
     }
 
@@ -358,13 +355,6 @@ namespace barrel
     }
 
 
-    const CompletionHelper::CompletionResult&
-    CompletionHelper::get_result() const
-    {
-	return result;
-    }
-
-
     ostream& operator<<(ostream& os, CompletionHelper::Category category)
     {
 	switch (category) {
@@ -382,6 +372,7 @@ namespace barrel
     CompletionHelper::display_comp_items(vector<reference_wrapper<const CompItem>> &items) const
     {
 	int desc_max_len = 20;
+
 	for (const CompItem& item: items)
 	    desc_max_len = max(desc_max_len, static_cast<int>(
 			item.display.empty() ? item.name.length() : item.display.length()));
@@ -389,8 +380,8 @@ namespace barrel
 	for (const CompItem& item: items)
 	{
 	    cout << left << setw(desc_max_len + 2)
-		<< (item.display.empty() ? item.name : item.display)
-		<< item.desc << endl;
+		 << (item.display.empty() ? item.name : item.display)
+		 << item.desc << endl;
 	}
     }
 
@@ -398,27 +389,29 @@ namespace barrel
     void
     CompletionHelper::display_matches(char** matches, int num_matches, int max_length) const
     {
-	vector<Category> order = {
+	const vector<Category> order = {
 	    Category::COMMAND,
 	    Category::ARGUMENT,
 	    Category::DEVICE,
 	    Category::POOL
 	};
+
 	map<Category, vector<reference_wrapper<const CompItem>>> grouped;
 
 	for (const auto& item : result.items)
 	    grouped[item.category].push_back(cref(item));
 
 	cout << endl;
-	for (auto cat : order)
+
+	for (Category category : order)
 	{
-	    if (grouped.find(cat) == grouped.end())
+	    if (grouped.find(category) == grouped.end())
 		continue;
 
 	    if (grouped.size() > 1)
-		cout << cat << "s:" << endl;
+		cout << category << "s:" << endl;
 
-	    display_comp_items(grouped.at(cat));
+	    display_comp_items(grouped.at(category));
 
 	    if (grouped.size() > 1)
 		cout << endl;
