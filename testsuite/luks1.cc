@@ -153,4 +153,5 @@ BOOST_AUTO_TEST_CASE(test4)
     const Partition* sdb1 = Partition::find_by_name(staging, "/dev/sdb1");
     const Encryption* encryption = sdb1->get_encryption();
     BOOST_CHECK_EQUAL(encryption->get_password(), "");
+    BOOST_CHECK_EQUAL(encryption->get_key_file(), "/secret.key");
 }
