@@ -14,3 +14,15 @@ Tutorial
 
 Check the [tutorial](doc/tutorial.md).
 
+Compile and run
+---------------
+
+Generate the configuration scripts and configure the project by running:
+```
+make -f Makefile.repo configure
+```
+
+Compile and run the Project:
+```
+make && ./barrel/barrel
+```
