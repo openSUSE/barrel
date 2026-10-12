@@ -80,6 +80,10 @@ BOOST_AUTO_TEST_CASE(test_complete_subcommands)
     // Check if we get chained subcommand
     helper.complete({"show", "disk"}, "");
     BOOST_CHECK(item_exists(helper.get_result(), "pools"));
+
+    // Check completion for commands without subcommands
+    helper.complete({"help"}, "");
+    helper.complete({"dup"}, "");
 }
 
 
