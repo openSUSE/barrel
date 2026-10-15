@@ -8,1123 +8,1135 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-24 09:56+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-10-15 17:14+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
+"Language-Team: Russian <https://l10n.opensuse.org/projects/barrel/barrel-"
+"master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2026.10.1\n"
 
 #, c-format
 msgid "%d bits"
-msgstr ""
+msgstr "%d бит"
 
 #, c-format
 msgid "Activate BitLocker %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Активировать BitLocker %1$s на %2$s (%3$s) с UUID %4$s..."
 
 #, c-format
 msgid "Activate BitLocker on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Активировать BitLocker на %1$s (%2$s) с UUID %3$s..."
 
 #, c-format
 msgid "Activate LUKS %1$s on %2$s (%3$s) with UUID %4$s..."
-msgstr ""
+msgstr "Активировать LUKS %1$s на %2$s (%3$s) с UUID %4$s..."
 
 #, c-format
 msgid "Activate LUKS on %1$s (%2$s) with UUID %3$s..."
-msgstr ""
+msgstr "Активировать LUKS на %1$s (%2$s) с UUID %3$s..."
 
 msgid "Activating..."
-msgstr ""
+msgstr "Активация..."
 
 msgid "Adds devices to a pool."
-msgstr ""
+msgstr "Добавляет устройства в пул."
 
 msgid "Alias for 'create encryption --type luks1'"
-msgstr ""
+msgstr "Псевдоним для «create encryption --type luks1»"
 
 msgid "Alias for 'create encryption --type luks2'"
-msgstr ""
+msgstr "Псевдоним для «create encryption --type luks2»"
 
 msgid "Alias for 'create filesystem --type bcachefs'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type bcachefs»"
 
 msgid "Alias for 'create filesystem --type btrfs'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type btrfs»"
 
 msgid "Alias for 'create filesystem --type exfat'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type exfat»"
 
 msgid "Alias for 'create filesystem --type ext2'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type ext2»"
 
 msgid "Alias for 'create filesystem --type ext3'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type ext3»"
 
 msgid "Alias for 'create filesystem --type ext4'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type ext4»"
 
 msgid "Alias for 'create filesystem --type f2fs'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type f2fs»"
 
 msgid "Alias for 'create filesystem --type jfs'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type jfs»"
 
 msgid "Alias for 'create filesystem --type nilfs2'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type nilfs2»"
 
 msgid "Alias for 'create filesystem --type ntfs'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type ntfs»"
 
 msgid "Alias for 'create filesystem --type reiserfs'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type reiserfs»"
 
 msgid "Alias for 'create filesystem --type swap'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type swap»"
 
 msgid "Alias for 'create filesystem --type udf'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type udf»"
 
 msgid "Alias for 'create filesystem --type vfat'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type vfat»"
 
 msgid "Alias for 'create filesystem --type xfs'"
-msgstr ""
+msgstr "Псевдоним для «create filesystem --type xfs»"
 
 msgid "Alias for 'create partition-table --type gpt'"
-msgstr ""
+msgstr "Псевдоним для «create partition-table --type gpt»"
 
 msgid "Alias for 'create partition-table --type ms-dos'"
-msgstr ""
+msgstr "Псевдоним для «create partition-table --type ms-dos»"
 
 msgid "Alias for 'create raid --level 0'"
-msgstr ""
+msgstr "Псевдоним для «create raid --level 0»"
 
 msgid "Alias for 'create raid --level 1'"
-msgstr ""
+msgstr "Псевдоним для «create raid --level 1»"
 
 msgid "Alias for 'create raid --level 10'"
-msgstr ""
+msgstr "Псевдоним для «create raid --level 10»"
 
 msgid "Alias for 'create raid --level 4'"
-msgstr ""
+msgstr "Псевдоним для «create raid --level 4»"
 
 msgid "Alias for 'create raid --level 5'"
-msgstr ""
+msgstr "Псевдоним для «create raid --level 5»"
 
 msgid "Alias for 'create raid --level 6'"
-msgstr ""
+msgstr "Псевдоним для «create raid --level 6»"
 
 msgid "Block Size"
-msgstr ""
+msgstr "Размер блока"
 
 msgid "Bus ID"
-msgstr ""
+msgstr "ID шины"
 
 msgid "Chunk Size"
-msgstr ""
+msgstr "Размер фрагмента"
 
 msgid "Cipher"
-msgstr ""
+msgstr "Шифр"
 
 msgid "Clears the stack."
-msgstr ""
+msgstr "Очищает стек."
 
 msgid "Commands:"
-msgstr ""
+msgstr "Команды:"
 
 msgid "Commit changes?"
-msgstr ""
+msgstr "Зафиксировать изменения?"
 
 msgid "Commits changes to disk and quits barrel."
-msgstr ""
+msgstr "Фиксирует изменения на диске и завершает работу barrel."
 
 msgid "Continue?"
-msgstr ""
+msgstr "Продолжить?"
 
 msgid "Creates a new LVM logical volume."
-msgstr ""
+msgstr "Создаёт новый логический том LVM."
 
 msgid "Creates a new LVM volume group."
-msgstr ""
+msgstr "Создаёт новую группу томов LVM."
 
 msgid "Creates a new RAID."
-msgstr ""
+msgstr "Создаёт новый RAID."
 
 msgid "Creates a new encryption device."
-msgstr ""
+msgstr "Создаёт новое устройство шифрования."
 
 msgid "Creates a new file system."
-msgstr ""
+msgstr "Создаёт новую файловую систему."
 
 msgid "Creates a new partition table."
-msgstr ""
+msgstr "Создаёт новую таблицу разделов."
 
 msgid "Creates a new pool containing devices."
-msgstr ""
+msgstr "Создаёт новый пул, содержащий устройства."
 
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #, c-format
 msgid "Device '%s' cannot be resized."
-msgstr ""
+msgstr "Устройство «%s» не может быть изменено в размере."
 
 msgid "Devices"
-msgstr ""
+msgstr "Устройства"
 
 msgid "Duplicates the top object of the stack."
-msgstr ""
+msgstr "Дублирует верхний объект стека."
 
 msgid "Enter password:"
-msgstr ""
+msgstr "Введите пароль:"
 
 msgid "Exchanges the top two elements of the stack."
-msgstr ""
+msgstr "Меняет местами два верхних элемента стека."
 
 msgid "Extent Size"
-msgstr ""
+msgstr "Размер экстента"
 
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #, c-format
 msgid "GPT on %s"
-msgstr ""
+msgstr "GPT на %s"
 
 msgid "Generating pools"
-msgstr ""
+msgstr "Создание пулов"
 
 msgid "Global options:"
-msgstr ""
+msgstr "Глобальные параметры:"
 
 #, c-format
 msgid "Invalid answer '%s'"
-msgstr ""
+msgstr "Неверный ответ «%s»"
 
 #, c-format
 msgid "Invalid table style '%s'."
-msgstr ""
+msgstr "Неверный стиль таблицы «%s»."
 
 #. TRANSLATORS: just a funny remark without further meaning nor context
 msgid "Keep smiling, 'cause that's the most important thing."
-msgstr ""
+msgstr "Улыбайтесь, ведь это самое главное."
 
 msgid "Key File"
-msgstr ""
+msgstr "Файл ключа"
 
 msgid "Key Size"
-msgstr ""
+msgstr "Размер ключа"
 
 #, c-format
 msgid "LUKS on %s"
-msgstr ""
+msgstr "LUKS на %s"
 
 #, c-format
 msgid "LVM logical volume %s"
-msgstr ""
+msgstr "Логический том LVM %s"
 
 #, c-format
 msgid "LVM volume group %s"
-msgstr ""
+msgstr "Группа томов LVM %s"
 
 msgid "Label"
-msgstr ""
+msgstr "Метка"
 
 msgid "Level"
-msgstr ""
+msgstr "Уровень"
 
 msgid "Loading pools..."
-msgstr ""
+msgstr "Загрузка пулов..."
 
 msgid "Loads pools."
-msgstr ""
+msgstr "Загружает пулы."
 
 msgid "Loads the staging devicegraph from a file."
-msgstr ""
+msgstr "Загружает промежуточный граф устройств из файла."
 
 #, c-format
 msgid "MS-DOS on %s"
-msgstr ""
+msgstr "MS-DOS на %s"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Метаданные"
 
 #, c-format
 msgid "Missing argument for command option '%s'."
-msgstr ""
+msgstr "Отсутствует аргумент для параметра команды «%s»."
 
 #, c-format
 msgid "Missing argument for global option '%s'."
-msgstr ""
+msgstr "Отсутствует аргумент для глобального параметра «%s»."
 
 msgid "Missing block devices."
-msgstr ""
+msgstr "Отсутствуют блочные устройства."
 
 msgid "Missing size option."
-msgstr ""
+msgstr "Отсутствует параметр размера."
 
 msgid "Model"
-msgstr ""
+msgstr "Модель"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Точка монтирования"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "New size too big."
-msgstr ""
+msgstr "Новый размер слишком велик."
 
 msgid "New size too small."
-msgstr ""
+msgstr "Новый размер слишком мал."
 
 #, c-format
 msgid "No block devices allowed for command option '%s'."
-msgstr ""
+msgstr "Блочные устройства не разрешены для параметра команды «%s»."
 
 msgid "No global block devices allowed."
-msgstr ""
+msgstr "Глобальные блочные устройства не разрешены."
 
 msgid "PBKDF"
-msgstr ""
+msgstr "PBKDF"
 
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Пароли не совпадают."
 
 msgid "Pool"
-msgstr ""
+msgstr "Пул"
 
 msgid "Position"
-msgstr ""
+msgstr "Позиция"
 
 msgid "Prints help."
-msgstr ""
+msgstr "Выводит справку."
 
 msgid "Prints the stack."
-msgstr ""
+msgstr "Выводит стек."
 
 msgid "Probing..."
-msgstr ""
+msgstr "Зондирование..."
 
 msgid "Profiles"
-msgstr ""
+msgstr "Профили"
 
 msgid "Quit?"
-msgstr ""
+msgstr "Выйти?"
 
 msgid "Quits barrel."
-msgstr ""
+msgstr "Завершает работу barrel."
 
 #, c-format
 msgid "RAID %s"
-msgstr ""
+msgstr "RAID %s"
 
 msgid "RAID level already set for command 'raid'"
-msgstr ""
+msgstr "Уровень RAID уже задан для команды «raid»"
 
 msgid "Raid level missing for command 'raid'"
-msgstr ""
+msgstr "Отсутствует уровень RAID для команды «raid»"
 
 msgid "Removes a device."
-msgstr ""
+msgstr "Удаляет устройство."
 
 msgid "Removes a pool."
-msgstr ""
+msgstr "Удаляет пул."
 
 msgid "Removes devices from a pool."
-msgstr ""
+msgstr "Удаляет устройства из пула."
 
 msgid "Removes the top object from the stack."
-msgstr ""
+msgstr "Удаляет верхний объект из стека."
 
 msgid "Renames pool."
-msgstr ""
+msgstr "Переименовывает пул."
 
 msgid "Resizes a device."
-msgstr ""
+msgstr "Изменяет размер устройства."
 
 msgid "Restores the staging devicegraph to the last backup."
 msgstr ""
+"Восстанавливает промежуточный граф устройств из последней резервной копии."
 
 msgid "Save pools"
-msgstr ""
+msgstr "Сохранить пулы"
 
 msgid "Saves pools."
-msgstr ""
+msgstr "Сохраняет пулы."
 
 msgid "Saves the devicegraph to a file."
-msgstr ""
+msgstr "Сохраняет граф устройств в файл."
 
 msgid "Saving pools..."
-msgstr ""
+msgstr "Сохранение пулов..."
 
 #, c-format
 msgid "Setting id of partition %s from unsupported value to %s."
-msgstr ""
+msgstr "Установка id раздела %s с неподдерживаемого значения на %s."
 
 msgid "Shows DASDs."
-msgstr ""
+msgstr "Показывает DASD."
 
 msgid "Shows LVM volume groups."
-msgstr ""
+msgstr "Показывает группы томов LVM."
 
 msgid "Shows RAIDs."
-msgstr ""
+msgstr "Показывает RAID."
 
 msgid "Shows actiongraph."
-msgstr ""
+msgstr "Показывает граф действий."
 
 msgid "Shows commit actions."
-msgstr ""
+msgstr "Показывает действия фиксации."
 
 msgid "Shows device tree."
-msgstr ""
+msgstr "Показывает дерево устройств."
 
 msgid "Shows devicegraph."
-msgstr ""
+msgstr "Показывает граф устройств."
 
 msgid "Shows disks."
-msgstr ""
+msgstr "Показывает диски."
 
 msgid "Shows encryption devices."
-msgstr ""
+msgstr "Показывает устройства шифрования."
 
 msgid "Shows filesystems."
-msgstr ""
+msgstr "Показывает файловые системы."
 
 msgid "Shows multipath devices."
-msgstr ""
+msgstr "Показывает устройства multipath."
 
 msgid "Shows pools."
-msgstr ""
+msgstr "Показывает пулы."
 
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 msgid "Stripes"
-msgstr ""
+msgstr "Полосы"
 
 msgid "The command has the following subcommands:"
-msgstr ""
+msgstr "Команда имеет следующие подкоманды:"
 
 #. TRANSLATORS: transport layer/bus of a disk, e.g. SATA or USB
 msgid "Transport"
-msgstr ""
+msgstr "Транспорт"
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #, c-format
 msgid "Unknown global option '%s'."
-msgstr ""
+msgstr "Неизвестный глобальный параметр «%s»."
 
 #, c-format
 msgid "Unknown option '%s' for command '%s'."
-msgstr ""
+msgstr "Неизвестный параметр «%s» для команды «%s»."
 
 msgid "Usage"
-msgstr ""
+msgstr "Использование"
 
 #, c-format
 msgid "Use an integer number from %d to %d."
-msgstr ""
+msgstr "Используйте целое число от %d до %d."
 
 msgid "Used"
-msgstr ""
+msgstr "Использовано"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Производитель"
 
 msgid "Verify password:"
-msgstr ""
+msgstr "Подтвердите пароль:"
 
 msgid "[ pushes a mark on the stack."
-msgstr ""
+msgstr "[ помещает метку в стек."
 
 msgid "] constructs an array."
-msgstr ""
+msgstr "] создаёт массив."
 
 msgid "activate by"
-msgstr ""
+msgstr "активировать по"
 
 msgid "activate options"
-msgstr ""
+msgstr "параметры активации"
 
 msgid "activate storage systems at startup"
-msgstr ""
+msgstr "активировать системы хранения при запуске"
 
 msgid "activate-by label requires a label"
-msgstr ""
+msgstr "activate-by label требует метку"
 
 msgid "answer all questions with yes"
-msgstr ""
+msgstr "отвечать на все вопросы утвердительно"
 
 #, c-format
 msgid "array with %d object"
 msgid_plural "array with %d objects"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "массив из %d объекта"
+msgstr[1] "массив из %d объектов"
+msgstr[2] "массив из %d объектов"
 
 #. TRANSLATORS: error message, the argument for the command line option
 #. 'devices' is bad
 msgid "bad devices argument"
-msgstr ""
+msgstr "неверный аргумент devices"
 
 msgid "bad stripes argument"
-msgstr ""
+msgstr "неверный аргумент stripes"
 
 msgid "be more verbose"
-msgstr ""
+msgstr "быть более подробным"
 
 msgid "be quiet"
-msgstr ""
+msgstr "не выводить лишнего"
 
 #, c-format
 msgid "block device '%s' cannot be removed"
-msgstr ""
+msgstr "блочное устройство «%s» не может быть удалено"
 
 #, c-format
 msgid "block device '%s' cannot be used as a regular block device"
 msgstr ""
+"блочное устройство «%s» не может использоваться как обычное блочное "
+"устройство"
 
 #, c-format
 msgid "block device '%s' is in use"
-msgstr ""
+msgstr "блочное устройство «%s» используется"
 
 msgid "block devices for LVM volume group missing"
-msgstr ""
+msgstr "отсутствуют блочные устройства для группы томов LVM"
 
 msgid "block devices for RAID missing"
-msgstr ""
+msgstr "отсутствуют блочные устройства для RAID"
 
 msgid "block devices for filesystem missing"
-msgstr ""
+msgstr "отсутствуют блочные устройства для файловой системы"
 
 msgid "block devices missing for command 'raid'"
-msgstr ""
+msgstr "отсутствуют блочные устройства для команды «raid»"
 
 #. TRANSLATORS: error message, 'close' refers to close system call
 #, c-format
 msgid "close for json file '%s' failed"
-msgstr ""
+msgstr "закрытие json-файла «%s» не удалось"
 
 #, c-format
 msgid "closing json file '%s' failed"
-msgstr ""
+msgstr "закрытие json-файла «%s» не удалось"
 
 msgid "deleted device"
-msgstr ""
+msgstr "удалённое устройство"
 
 #, c-format
 msgid "device '%s' not found in mapping"
-msgstr ""
+msgstr "устройство «%s» не найдено в сопоставлении"
 
 msgid "do not add in /etc/crypttab"
-msgstr ""
+msgstr "не добавлять в /etc/crypttab"
 
 msgid "do not add in /etc/fstab"
-msgstr ""
+msgstr "не добавлять в /etc/fstab"
 
 msgid "do not add in /etc/mdadm.conf"
-msgstr ""
+msgstr "не добавлять в /etc/mdadm.conf"
 
 msgid "do not commit anything to disk"
-msgstr ""
+msgstr "ничего не фиксировать на диске"
 
 msgid "do not show colors"
-msgstr ""
+msgstr "не показывать цвета"
 
 msgid "do not show partitions on DASDs"
-msgstr ""
+msgstr "не показывать разделы на DASD"
 
 msgid "do not show partitions on RAIDs"
-msgstr ""
+msgstr "не показывать разделы на RAID"
 
 #. TRANSLATORS: help text
 msgid "do not show partitions on disks"
-msgstr ""
+msgstr "не показывать разделы на дисках"
 
 msgid "do not show partitions on multipath devices"
-msgstr ""
+msgstr "не показывать разделы на устройствах multipath"
 
 msgid "done"
-msgstr ""
+msgstr "готово"
 
 #, c-format
 msgid "element of array for '%s' not string"
-msgstr ""
+msgstr "элемент массива для «%s» не является строкой"
 
 #, c-format
 msgid "element of devices array for '%s' not string"
-msgstr ""
+msgstr "элемент массива devices для «%s» не является строкой"
 
 msgid "encryption type"
-msgstr ""
+msgstr "тип шифрования"
 
 msgid "encryption type already set for command 'encryption'"
-msgstr ""
+msgstr "тип шифрования уже задан для команды «encryption»"
 
 msgid "encryption type missing for command 'encryption'"
-msgstr ""
+msgstr "отсутствует тип шифрования для команды «encryption»"
 
 msgid "error:"
-msgstr ""
+msgstr "ошибка:"
 
 #, c-format
 msgid "excessive content in json file '%s'"
-msgstr ""
+msgstr "избыточное содержимое в json-файле «%s»"
 
 msgid "failed to calculate actions"
-msgstr ""
+msgstr "не удалось вычислить действия"
 
 #, c-format
 msgid "failed to parse size '%s'"
-msgstr ""
+msgstr "не удалось разобрать размер «%s»"
 
 #, c-format
 msgid "filesystem %s on %s"
-msgstr ""
+msgstr "файловая система %s на %s"
 
 msgid "filesystem type already set for command 'filesystem'"
-msgstr ""
+msgstr "тип файловой системы уже задан для команды «filesystem»"
 
 msgid "filesystem type missing for command 'filesystem'"
-msgstr ""
+msgstr "отсутствует тип файловой системы для команды «filesystem»"
 
 msgid "force if block device is in use"
-msgstr ""
+msgstr "принудительно, если блочное устройство используется"
 
 msgid "force if block devices are in use"
-msgstr ""
+msgstr "принудительно, если блочные устройства используются"
 
 msgid "go downwards"
-msgstr ""
+msgstr "перейти вниз"
 
 msgid "go upwards"
-msgstr ""
+msgstr "перейти вверх"
 
 #, c-format
 msgid "invalid devices value '%d'"
-msgstr ""
+msgstr "неверное значение devices «%d»"
 
 msgid "invalid logical volume name for command 'lv'"
-msgstr ""
+msgstr "неверное имя логического тома для команды «lv»"
 
 #, c-format
 msgid "invalid path '%s'"
-msgstr ""
+msgstr "неверный путь «%s»"
 
 #, c-format
 msgid "invalid size '%s'"
-msgstr ""
+msgstr "неверный размер «%s»"
 
 msgid "invalid volume group name for command 'vg'"
-msgstr ""
+msgstr "неверное имя группы томов для команды «vg»"
 
 msgid "keep underlying partitions"
-msgstr ""
+msgstr "сохранить нижележащие разделы"
 
 msgid "label only supported for LUKS2"
-msgstr ""
+msgstr "метка поддерживается только для LUKS2"
 
 #, c-format
 msgid "logical volume '%s' has size zero"
-msgstr ""
+msgstr "логический том «%s» имеет нулевой размер"
 
 #, c-format
 msgid "mapped DASD for '%s' has different format"
-msgstr ""
+msgstr "сопоставленный DASD для «%s» имеет другой формат"
 
 #, c-format
 msgid "mapped DASD for '%s' has different type"
-msgstr ""
+msgstr "сопоставленный DASD для «%s» имеет другой тип"
 
 #, c-format
 msgid "mapped DASD for '%s' mapped twice"
-msgstr ""
+msgstr "сопоставленный DASD для «%s» сопоставлен дважды"
 
 #, c-format
 msgid "mapped DM RAID for '%s' mapped twice"
-msgstr ""
+msgstr "сопоставленный DM RAID для «%s» сопоставлен дважды"
 
 #, c-format
 msgid "mapped device for '%s' has different block size"
-msgstr ""
+msgstr "сопоставленное устройство для «%s» имеет другой размер блока"
 
 #, c-format
 msgid "mapped device for '%s' is not a DASD"
-msgstr ""
+msgstr "сопоставленное устройство для «%s» не является DASD"
 
 #, c-format
 msgid "mapped device for '%s' is not a DM RAID"
-msgstr ""
+msgstr "сопоставленное устройство для «%s» не является DM RAID"
 
 #, c-format
 msgid "mapped device for '%s' is not a disk"
-msgstr ""
+msgstr "сопоставленное устройство для «%s» не является диском"
 
 #, c-format
 msgid "mapped device for '%s' is not a multipath"
-msgstr ""
+msgstr "сопоставленное устройство для «%s» не является multipath"
 
 #, c-format
 msgid "mapped device for '%s' is smaller"
-msgstr ""
+msgstr "сопоставленное устройство для «%s» меньше"
 
 #, c-format
 msgid "mapped device for '%s' not found"
-msgstr ""
+msgstr "сопоставленное устройство для «%s» не найдено"
 
 #, c-format
 msgid "mapped disk for '%s' mapped twice"
-msgstr ""
+msgstr "сопоставленный диск для «%s» сопоставлен дважды"
 
 #, c-format
 msgid "mapped multipath for '%s' mapped twice"
-msgstr ""
+msgstr "сопоставленный multipath для «%s» сопоставлен дважды"
 
 #, c-format
 msgid "mapping %s to %s"
-msgstr ""
+msgstr "сопоставление %s с %s"
 
 #, c-format
 msgid "mapping not found in json file '%s'"
-msgstr ""
+msgstr "сопоставление не найдено в json-файле «%s»"
 
 msgid "missing block device"
-msgstr ""
+msgstr "отсутствует блочное устройство"
 
 msgid "missing partitionable"
-msgstr ""
+msgstr "отсутствует размечаемое устройство"
 
 msgid "mkfs options"
-msgstr ""
+msgstr "параметры mkfs"
 
 msgid "mount by"
-msgstr ""
+msgstr "монтировать по"
 
 msgid "mount options"
-msgstr ""
+msgstr "параметры монтирования"
 
 msgid "mount options require a path"
-msgstr ""
+msgstr "параметры монтирования требуют путь"
 
 msgid "mount path"
-msgstr ""
+msgstr "путь монтирования"
 
 msgid "mount-by label requires a label"
-msgstr ""
+msgstr "mount-by label требует метку"
 
 msgid "mount-by requires a path"
-msgstr ""
+msgstr "mount-by требует путь"
 
 msgid "multiple devices"
-msgstr ""
+msgstr "несколько устройств"
 
 #. TRANSLATORS: Abbreviation for "no". Translation must be different from
 #. translation for "y" ("yes").
 msgid "n"
-msgstr ""
+msgstr "н"
 
 msgid "name missing for command 'devicegraph'"
-msgstr ""
+msgstr "отсутствует имя для команды «devicegraph»"
 
 msgid "name missing for command 'encryption'"
-msgstr ""
+msgstr "отсутствует имя для команды «encryption»"
 
 msgid "name missing for command 'lv'"
-msgstr ""
+msgstr "отсутствует имя для команды «lv»"
 
 msgid "name missing for command 'vg'"
-msgstr ""
+msgstr "отсутствует имя для команды «vg»"
 
 msgid "name of RAID already exists"
-msgstr ""
+msgstr "имя RAID уже существует"
 
 msgid "name of devicegraph"
-msgstr ""
+msgstr "имя графа устройств"
 
 msgid "name of devicegraph file"
-msgstr ""
+msgstr "имя файла графа устройств"
 
 msgid "name of encryption already exists"
-msgstr ""
+msgstr "имя шифрования уже существует"
 
 msgid "name of logical volume already exists"
-msgstr ""
+msgstr "имя логического тома уже существует"
 
 msgid "name of mapping file"
-msgstr ""
+msgstr "имя файла сопоставления"
 
 msgid "name of new pool"
-msgstr ""
+msgstr "имя нового пула"
 
 msgid "name of pool"
-msgstr ""
+msgstr "имя пула"
 
 msgid "name of pool to use"
-msgstr ""
+msgstr "имя используемого пула"
 
 msgid "name of volume group"
-msgstr ""
+msgstr "имя группы томов"
 
 msgid "name of volume group already exists"
-msgstr ""
+msgstr "имя группы томов уже существует"
 
 msgid "neither + nor - allowed in size"
-msgstr ""
+msgstr "ни +, ни - не допускаются в размере"
 
 msgid "new name"
-msgstr ""
+msgstr "новое имя"
 
 msgid "new size"
-msgstr ""
+msgstr "новый размер"
 
 #. TRANSLATORS: error message
 msgid "no backup available for undo"
-msgstr ""
+msgstr "нет резервной копии для отмены"
 
 #, c-format
 msgid "no mapping DASD for '%s' found"
-msgstr ""
+msgstr "не найдено сопоставление DASD для «%s»"
 
 #, c-format
 msgid "no mapping DM RAID for '%s' found"
-msgstr ""
+msgstr "не найдено сопоставление DM RAID для «%s»"
 
 #, c-format
 msgid "no mapping disk for '%s' found"
-msgstr ""
+msgstr "не найдено сопоставление диска для «%s»"
 
 #, c-format
 msgid "no mapping multipath for '%s' found"
-msgstr ""
+msgstr "не найдено сопоставление multipath для «%s»"
 
 msgid "no mark on stack"
-msgstr ""
+msgstr "нет метки в стеке"
 
 msgid "not a block device in array"
-msgstr ""
+msgstr "не блочное устройство в массиве"
 
 msgid "not a block device on stack"
-msgstr ""
+msgstr "не блочное устройство в стеке"
 
 msgid "not a block device or array of block devices on stack"
-msgstr ""
+msgstr "не блочное устройство или массив блочных устройств в стеке"
 
 msgid "not a device in array"
-msgstr ""
+msgstr "не устройство в массиве"
 
 msgid "not a device on stack"
-msgstr ""
+msgstr "не устройство в стеке"
 
 msgid "not a partition table in array"
-msgstr ""
+msgstr "не таблица разделов в массиве"
 
 msgid "not a partition table on stack"
-msgstr ""
+msgstr "не таблица разделов в стеке"
 
 msgid "not a partition table or array of partition tables on stack"
-msgstr ""
+msgstr "не таблица разделов или массив таблиц разделов в стеке"
 
 msgid "not a partitionable"
-msgstr ""
+msgstr "не размечаемое устройство"
 
 msgid "not a partitionable on stack"
-msgstr ""
+msgstr "не размечаемое устройство в стеке"
 
 msgid "not a volume group on stack"
-msgstr ""
+msgstr "не группа томов в стеке"
 
 msgid "number of stripes"
-msgstr ""
+msgstr "количество полос"
 
 msgid "old name"
-msgstr ""
+msgstr "старое имя"
 
 msgid "only one block device allowed"
-msgstr ""
+msgstr "разрешено только одно блочное устройство"
 
 msgid "only one partition table allowed"
-msgstr ""
+msgstr "разрешена только одна таблица разделов"
 
 msgid "only one partitionable allowed"
-msgstr ""
+msgstr "разрешено только одно размечаемое устройство"
 
 #. TRANSLATORS: error message, 'open' refers to open system call
 #, c-format
 msgid "open for json file '%s' failed"
-msgstr ""
+msgstr "открытие json-файла «%s» не удалось"
 
 #, c-format
 msgid "opening json file '%s' failed"
-msgstr ""
+msgstr "открытие json-файла «%s» не удалось"
 
 #, c-format
 msgid "option --devices not allowed for %s"
-msgstr ""
+msgstr "параметр --devices не разрешён для %s"
 
 #, c-format
 msgid "parsing json file '%s' failed"
-msgstr ""
+msgstr "разбор json-файла «%s» не удался"
 
 msgid "partition table type"
-msgstr ""
+msgstr "тип таблицы разделов"
 
 msgid "partition table type already set command 'partition-table'"
-msgstr ""
+msgstr "тип таблицы разделов уже задан для команды «partition-table»"
 
 msgid "partition table type missing for command 'partition-table'"
-msgstr ""
+msgstr "отсутствует тип таблицы разделов для команды «partition-table»"
 
 #, c-format
 msgid "partitionable '%s' cannot be used as a regular partitionable"
 msgstr ""
+"размечаемое устройство «%s» не может использоваться как обычное размечаемое "
+"устройство"
 
 #, c-format
 msgid "partitionable '%s' is in use"
-msgstr ""
+msgstr "размечаемое устройство «%s» используется"
 
 #, c-format
 msgid "path '%s' already used"
-msgstr ""
+msgstr "путь «%s» уже используется"
 
 #. TRANSLATORS: do not translate 'swap' nor 'none'
 msgid "path must be 'swap' or 'none'"
-msgstr ""
+msgstr "путь должен быть «swap» или «none»"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'encryption'"
 msgstr ""
+"аргумент pool и блочные устройства не разрешены вместе для команды «"
+"encryption»"
 
 msgid ""
 "pool argument and blk devices not allowed together for command 'filesystem'"
 msgstr ""
+"аргумент pool и блочные устройства не разрешены вместе для команды «"
+"filesystem»"
 
 msgid "pool argument and blk devices not allowed together for command 'vg'"
-msgstr ""
+msgstr "аргумент pool и блочные устройства не разрешены вместе для команды «vg»"
 
 msgid "pool is empty"
-msgstr ""
+msgstr "пул пуст"
 
 msgid "pool name"
-msgstr ""
+msgstr "имя пула"
 
 msgid "probe used space"
-msgstr ""
+msgstr "зондировать используемое пространство"
 
 #. TRANSLATORS: error message, 'read' refers to read system call
 #, c-format
 msgid "read for json file '%s' failed"
-msgstr ""
+msgstr "чтение json-файла «%s» не удалось"
 
 msgid "run with a rootprefix"
-msgstr ""
+msgstr "запустить с rootprefix"
 
 msgid "set PBKDF"
-msgstr ""
+msgstr "задать PBKDF"
 
 msgid "set RAID level"
-msgstr ""
+msgstr "задать уровень RAID"
 
 msgid "set RAID metadata version"
-msgstr ""
+msgstr "задать версию метаданных RAID"
 
 msgid "set RAID name"
-msgstr ""
+msgstr "задать имя RAID"
 
 msgid "set a key file"
-msgstr ""
+msgstr "задать файл ключа"
 
 msgid "set chunk size"
-msgstr ""
+msgstr "задать размер фрагмента"
 
 msgid "set cipher"
-msgstr ""
+msgstr "задать шифр"
 
 msgid "set extent size"
-msgstr ""
+msgstr "задать размер экстента"
 
 msgid "set file system label"
-msgstr ""
+msgstr "задать метку файловой системы"
 
 msgid "set file system type"
-msgstr ""
+msgstr "задать тип файловой системы"
 
 msgid "set key size"
-msgstr ""
+msgstr "задать размер ключа"
 
 msgid "set label of device"
-msgstr ""
+msgstr "задать метку устройства"
 
 msgid "set name of device"
-msgstr ""
+msgstr "задать имя устройства"
 
 msgid "set name of logical volume"
-msgstr ""
+msgstr "задать имя логического тома"
 
 msgid "set name of volume group"
-msgstr ""
+msgstr "задать имя группы томов"
 
 msgid "set number of devices"
-msgstr ""
+msgstr "задать количество устройств"
 
 msgid "set profiles"
-msgstr ""
+msgstr "задать профили"
 
 msgid "set size"
-msgstr ""
+msgstr "задать размер"
 
 msgid "set size of RAID"
-msgstr ""
+msgstr "задать размер RAID"
 
 msgid "set size of logical volume"
-msgstr ""
+msgstr "задать размер логического тома"
 
 msgid "set size of volume group"
-msgstr ""
+msgstr "задать размер группы томов"
 
 #, c-format
 msgid "several mapping DASDs for '%s' found"
-msgstr ""
+msgstr "найдено несколько сопоставлений DASD для «%s»"
 
 #, c-format
 msgid "several mapping DM RAIDs for '%s' found"
-msgstr ""
+msgstr "найдено несколько сопоставлений DM RAID для «%s»"
 
 #, c-format
 msgid "several mapping disks for '%s' found"
-msgstr ""
+msgstr "найдено несколько сопоставлений дисков для «%s»"
 
 #, c-format
 msgid "several mapping multipath for '%s' found"
-msgstr ""
+msgstr "найдено несколько сопоставлений multipath для «%s»"
 
 msgid "show colors"
-msgstr ""
+msgstr "показывать цвета"
 
 msgid "show condensed instead of detailed actions"
-msgstr ""
+msgstr "показывать сжатые действия вместо подробных"
 
 msgid "show help and exit"
-msgstr ""
+msgstr "показать справку и выйти"
 
 msgid "show version and exit"
-msgstr ""
+msgstr "показать версию и выйти"
 
 msgid "size argument missing for command 'encryption'"
-msgstr ""
+msgstr "отсутствует аргумент размера для команды «encryption»"
 
 msgid "size argument missing for command 'filesystem'"
-msgstr ""
+msgstr "отсутствует аргумент размера для команды «filesystem»"
 
 msgid "size argument required for command 'raid'"
-msgstr ""
+msgstr "требуется аргумент размера для команды «raid»"
 
 msgid "size argument required for command 'vg'"
-msgstr ""
+msgstr "требуется аргумент размера для команды «vg»"
 
 msgid "size missing for command 'lv'"
-msgstr ""
+msgstr "отсутствует размер для команды «lv»"
 
 msgid "size of stripes"
-msgstr ""
+msgstr "размер полос"
 
 msgid "size too small for command 'lv'"
-msgstr ""
+msgstr "размер слишком мал для команды «lv»"
 
 msgid "size too small for file system"
-msgstr ""
+msgstr "размер слишком мал для файловой системы"
 
 msgid "spare devices not allowed for raid level"
-msgstr ""
+msgstr "резервные устройства не разрешены для уровня RAID"
 
 msgid "stack empty"
-msgstr ""
+msgstr "стек пуст"
 
 msgid "stack empty during dup"
-msgstr ""
+msgstr "стек пуст во время dup"
 
 msgid "stack empty during pop"
-msgstr ""
+msgstr "стек пуст во время pop"
 
 msgid "stackunderflow during exch"
-msgstr ""
+msgstr "недостаточно элементов в стеке во время exch"
 
 #. TRANSLATORS: error message, 'stat' refers to stat system call
 #, c-format
 msgid "stat for json file '%s' failed"
-msgstr ""
+msgstr "stat для json-файла «%s» не удался"
 
 msgid "table style"
-msgstr ""
+msgstr "стиль таблицы"
 
 msgid "too few raid devices for raid level"
-msgstr ""
+msgstr "слишком мало RAID-устройств для уровня RAID"
 
 msgid "tune options"
-msgstr ""
+msgstr "параметры настройки"
 
 #, c-format
 msgid "tune options not allowed for %s"
-msgstr ""
+msgstr "параметры настройки не разрешены для %s"
 
 #, c-format
 msgid "unknown activate-by type '%s'"
-msgstr ""
+msgstr "неизвестный тип activate-by «%s»"
 
 #, c-format
 msgid "unknown btrfs profile '%s'"
-msgstr ""
+msgstr "неизвестный профиль btrfs «%s»"
 
 msgid "unknown encryption type"
-msgstr ""
+msgstr "неизвестный тип шифрования"
 
 #, c-format
 msgid "unknown filesystem type '%s'"
-msgstr ""
+msgstr "неизвестный тип файловой системы «%s»"
 
 #, c-format
 msgid "unknown mount-by type '%s'"
-msgstr ""
+msgstr "неизвестный тип mount-by «%s»"
 
 msgid "unknown partition table type"
-msgstr ""
+msgstr "неизвестный тип таблицы разделов"
 
 #, c-format
 msgid "unknown probe-used-space mode '%s'"
-msgstr ""
+msgstr "неизвестный режим probe-used-space «%s»"
 
 msgid "unknown raid level for command 'raid'"
-msgstr ""
+msgstr "неизвестный уровень RAID для команды «raid»"
 
 #. TRANSLATORS: help text
 msgid "use probed instead of staging devicegraph"
-msgstr ""
+msgstr "использовать зондированный граф устройств вместо промежуточного"
 
 #, c-format
 msgid "value for '%s' neither string nor array"
-msgstr ""
+msgstr "значение для «%s» не является ни строкой, ни массивом"
 
 msgid "value of description entry not a string"
-msgstr ""
+msgstr "значение записи description не является строкой"
 
 msgid "value of devices entry not an array"
-msgstr ""
+msgstr "значение записи devices не является массивом"
 
 #, c-format
 msgid "volume group '%s' is over-committed"
-msgstr ""
+msgstr "группа томов «%s» перегружена"
 
 msgid "wrong number of partitionables"
-msgstr ""
+msgstr "неверное количество размечаемых устройств"
 
 #. TRANSLATORS: Abbreviation for "yes". Translation must be different from
 #. translation for "n" ("no").
 msgid "y"
-msgstr ""
+msgstr "д"
