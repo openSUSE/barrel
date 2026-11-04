@@ -166,13 +166,18 @@ namespace barrel
 	    quote_char = qcp[0];
 
 	size_t len = strlen(s);
-	char* quoted = (char*)malloc(len + 3);
+	char* quoted = (char*) malloc(len + 3);
+	if (!quoted)
+	    throw runtime_error("out of memory");
+
 	quoted[0] = quote_char;
 	memcpy(quoted + 1, s, len);
-	if (rtype == SINGLE_MATCH) {
+	if (rtype == SINGLE_MATCH)
+	{
 	    quoted[len + 1] = quote_char;
 	    quoted[len + 2] = '\0';
 	}
+
 	return quoted;
     }
 
