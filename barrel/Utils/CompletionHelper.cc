@@ -359,7 +359,7 @@ namespace barrel
 		    display << "   ";
 		display << "--" << option.name;
 		if (option.has_arg)
-		    display << " <" << option.arg_name << ">";
+		    display << " <" << (option.arg_name ? option.arg_name : "arg") << ">";
 
 		if (boost::starts_with(name, text))
 		    result.push_argument(name, desc, display.str());

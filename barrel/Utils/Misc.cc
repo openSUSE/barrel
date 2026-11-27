@@ -284,6 +284,21 @@ namespace barrel
     void
     check_usable(vector<BlkDevice*>& blk_devices, bool force)
     {
+	for (const BlkDevice* blk_device : blk_devices)
+	{
+	    for (const Device* descendant : blk_device->get_descendants(false, View::REMOVE))
+	    {
+		vector<BlkDevice*>::const_iterator it = find(blk_devices.begin(), blk_devices.end(),
+							     descendant);
+		if (it != blk_devices.end())
+		{
+		    throw runtime_error(sformat(_("block device '%s' depends on block device '%s'"),
+						(*it)->get_name().c_str(),
+						blk_device->get_name().c_str()));
+		}
+	    }
+	}
+
 	for (BlkDevice* blk_device : blk_devices)
 	    check_usable(blk_device, force);
     }
