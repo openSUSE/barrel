@@ -69,6 +69,9 @@ namespace barrel
 
 	JsonFile json(POOLS_FILE);
 
+	if (!json_object_is_type(json.get_root(), json_type_object))
+	    throw runtime_error(sformat(_("pools file '%s' does not contain a JSON object"), POOLS_FILE));
+
 	remove_pools(storage);
 
 	const Devicegraph* probed = storage->get_probed();
