@@ -177,6 +177,10 @@ namespace barrel
 	    quoted[len + 1] = quote_char;
 	    quoted[len + 2] = '\0';
 	}
+	else
+	{
+	    quoted[len + 1] = '\0';
+	}
 
 	return quoted;
     }
